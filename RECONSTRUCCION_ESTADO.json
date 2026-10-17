@@ -195,19 +195,19 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/3767d04632706452f4e6f2a1bd08b1718dd41f61",
-    "sourceRevision": "3767d04632706452f4e6f2a1bd08b1718dd41f61",
-    "bytes": 162815878,
-    "sha256": "8d46fa8583dac9af7ecf0bfd5589e0be4bafc8e17c428e378dbfcd6a72f9daae",
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/492fe0e6f111f39a1c336fd376b0db35381aad0b",
+    "sourceRevision": "492fe0e6f111f39a1c336fd376b0db35381aad0b",
+    "bytes": 162817438,
+    "sha256": "46a679ff9918f17cb3066cef7230bb67579ba6c84fde2e8d3d7731104e3de58e",
     "assetFilesMatched": 448,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
   "aircraftCi": {
-    "sourceRevision": "3767d04632706452f4e6f2a1bd08b1718dd41f61",
-    "run": "39042387666",
+    "sourceRevision": "492fe0e6f111f39a1c336fd376b0db35381aad0b",
+    "run": "39042575321",
     "status": "success",
-    "artifactId": "12104711696",
+    "artifactId": "12103838789",
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false
   }
