@@ -30,6 +30,8 @@ jobs:
         run: python tools/verify_aircraft_sources.py
       - name: Check licensed helicopter source, pivots and LODs
         run: python tools/verify_helicopter_sources.py
+      - name: Check attributed furniture, UV maps and placement dimensions
+        run: python tools/verify_interior_sources.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

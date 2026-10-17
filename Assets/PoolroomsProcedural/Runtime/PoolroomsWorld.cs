@@ -377,7 +377,7 @@ namespace Poolrooms
                     var prop=r.Plan.Quiet.Props[i];string key="quiet:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;
                     if(carry!=null&&carry.WasTaken(key))continue;Vector3 bottom=new Vector3(prop.Bottom.X,prop.Bottom.Y,prop.Bottom.Z);
                     if(prop.CatalogId>=0){var item=MallItemCatalog.Get(prop.CatalogId);PoolroomsPickup.CreateCatalog(key,prop.CatalogId,bottom+Vector3.up*(item.Size.Y*.5f),parent,profile);}
-                    else {var created=PoolroomsPickup.CreateSource(key,prop.Source,bottom,parent,prop.Source=="Lantern"?1.3f:prop.Source=="SheenChair"?1:.28f);if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}
+                    else {var created=PoolroomsPickup.CreateSource(key,prop.Source,bottom,parent,SourceFurniture.Longest(prop.Source));if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}
                 }
             }
             if(Application.isPlaying&&r.Plan!=null&&r.Plan.City!=null)
@@ -387,7 +387,7 @@ namespace Poolrooms
                 {
                     var prop=r.Plan.City.Props[i];string key="city11:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;
                     if(carry==null||!carry.WasTaken(key))
-                    {var created=PoolroomsPickup.CreateSource(key,prop.Source==0?"WaterBottle":prop.Source==1?"BoomBox":"SheenChair",new Vector3(prop.Position.X,prop.Position.Y,prop.Position.Z),parent,prop.Source==0?.28f:prop.Source==1?.4f:1);if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}
+                    {var created=PoolroomsPickup.CreateSource(key,SourceFurniture.Id(prop.Source),new Vector3(prop.Position.X,prop.Position.Y,prop.Position.Z),parent,SourceFurniture.Longest(prop.Source));if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}
                 }
                 var airfield=r.Plan.City.Airfield;
                 if(airfield!=null&&airfield.AircraftSpawn)

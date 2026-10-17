@@ -31,7 +31,7 @@ namespace Poolrooms.Core
             if(room.Environment!=LiminalEnvironment.City11||room.Width!=c.CellSize||room.Depth!=c.CellSize||Buildings.Length!=4||Props.Length!=12)return false;
             foreach(var b in Buildings)
                 if(b.Width<7.7f||b.Depth<7.7f||b.Floors<2||b.Floors>6||Math.Abs(b.X)+b.Width*.5f>room.Width*.5f-.5f||Math.Abs(b.Z)+b.Depth*.5f>room.Depth*.5f-.5f||Math.Abs(b.X)-b.Width*.5f<4.7f||Math.Abs(b.Z)-b.Depth*.5f<4.7f)return false;
-            foreach(var p in Props)if(p.Source<0||p.Source>2||!float.IsFinite(p.Position.X)||!float.IsFinite(p.Position.Y)||!float.IsFinite(p.Position.Z))return false;
+            foreach(var p in Props)if(p.Source<0||p.Source>4||!float.IsFinite(p.Position.X)||!float.IsFinite(p.Position.Y)||!float.IsFinite(p.Position.Z))return false;
             return true;
         }
     }
@@ -57,7 +57,8 @@ namespace Poolrooms.Core
                 var b=new CityBuildingPlan(x*(4.8f+w*.5f),z*(4.8f+d*.5f),w,d,2+rng.Range(5),rng.Range(8),rng.Range(4),rng.Next(),z<0);buildings[index]=b;
                 props[index*2]=new CityPropPlan(b.Point(w*.23f,1.02f,0),0);
                 props[index*2+1]=new CityPropPlan(b.Point(w*.23f,1.06f,d*.28f),1);
-                props[8+index]=new CityPropPlan(b.Point(w*.23f,.14f,1.12f),2,b.Turn?0:180);index++;
+                int choice=(int)((b.Seed>>8)%3),source=choice==0?2:choice==1&&w>=10&&d>=10?3:4;
+                props[8+index]=new CityPropPlan(b.Point(w*.23f,.14f,source==3?1.6f:1.12f),source,b.Turn?0:180);index++;
             }
             var city=new City11Plan(buildings,props);
             room.Plan=new ProceduralPlan(room.Environment,new PlannedModule[0],new WaterRegion[0],4.7f,0,0,city:city);

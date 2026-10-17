@@ -61,9 +61,12 @@ namespace Poolrooms.Core
                 for(int i=0;i<prior;i++)
                 {
                     var original=props[i].Bottom;
+                    uint choice=LiminalRegions.Hash(unchecked((int)seed),room.X,room.Z,0xA48000u+(uint)i)%3;
+                    string source=e==LiminalEnvironment.Archive906?(choice==0?"SheenChair":"I_ChairDamaskPurplegold"):
+                        choice==1&&c.CellSize>=36?"I_GlamVelvetSofa":choice==2?"I_ChairDamaskPurplegold":"SheenChair";
                     props[prior+i]=e==LiminalEnvironment.Archive906?
-                        new QuietPropPlan(new V3((i%2==0?-1:1)*(half-4.4f),.02f,original.Z),-1,"SheenChair",i%2==0?-90:90):
-                        new QuietPropPlan(new V3(original.X,.02f,original.Z+.95f),-1,"SheenChair",180);
+                        new QuietPropPlan(new V3((i%2==0?-1:1)*(half-4.4f),.02f,original.Z),-1,source,i%2==0?-90:90):
+                        new QuietPropPlan(new V3(original.X,.02f,original.Z+.95f),-1,source,180);
                 }
             }
             var sea=e==LiminalEnvironment.Coast48&&shore<half-.001f?new WaterRegion{CenterX=(shore+half)*.5f,CenterZ=0,Width=half-shore,Depth=c.CellSize,Radius=0,Bottom=-2,Level=c.WaterLevel}:new WaterRegion();

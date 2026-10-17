@@ -64,15 +64,22 @@
       "id": "R9",
       "feature": "Attributed helicopter with original PBR finishes, two LODs and integrated helipad; shared aerial safety controller",
       "status": "implemented_native_validation_pending",
-      "commit": "see_git_history",
+      "commit": "f0bc28b5270aea582d065b59dbbd86695bcf07fd",
       "packageFiles": 472
+    },
+    {
+      "id": "R10",
+      "feature": "Licensed sofa and damask variant of existing chair; source UV/PBR baking and clearance-aware placement in City11/archive/courtyard",
+      "status": "partial_global_furniture_native_validation_pending",
+      "commit": "see_git_history",
+      "packageFiles": 502
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16935773,
+    "assertions": 16939230,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 188,
+    "syntaxScripts": 190,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 36,
     "citySourcesAudited": 5,
@@ -86,7 +93,11 @@
     "assistedFlightTimesteps": 5,
     "airfieldReserveTests": "ConnectedTerrain and ConnectedMalls enabled in mixed world; negative Level94-overlap candidate rejected",
     "helicopterSourceDerivativesAudited": 1,
-    "helicopterFlightTimesteps": 5
+    "helicopterFlightTimesteps": 5,
+    "interiorSourceFilesAudited": 2,
+    "interiorPngMapsAudited": 13,
+    "sourceFurniturePlacementsChecked": 336,
+    "interiorArtRegenerationByteExact": true
   },
   "pending": [
     {
@@ -103,8 +114,8 @@
     {
       "id": "global_decoration",
       "feature": "Broader catalogues and realistic decoration across all existing regions",
-      "status": "partial_architectural_detail_implemented",
-      "remaining": "Broader placed furniture/urban decoration catalog; native appearance, memory and FPS validation; percentages are not full-source recovery"
+      "status": "partial_architectural_and_licensed_furniture_implemented",
+      "remaining": "Broader architecture/object catalog and source furniture placement in other biomes; native appearance/memory/FPS validation. Percentages do not imply full exact-source recovery."
     },
     {
       "id": "three_levels",
@@ -118,7 +129,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Add licensed furniture to current city/interior generation with collision-safe placement; more urban architecture and vehicle variety remain. Unity API compilation, PhysX, shaders, appearance and FPS still require Unity.",
+  "nextIndependentWork": "Broaden licensed urban architecture/decorative source families and remaining placement coverage in malls/Level94; refine city layout/vehicle variety. Unity API compilation, native traversal/flight, shaders, appearance, memory and FPS remain unverified.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -129,11 +140,11 @@
     "carLODDerivatives": 2,
     "carColourVariants": 1,
     "downloadedBuildingModels": 0,
-    "downloadedFurnitureModels": 1,
-    "placedFurnitureSourceTypes": 1,
+    "downloadedFurnitureModels": 2,
+    "placedFurnitureSourceTypes": 3,
     "chairLODDerivatives": 2,
     "chairColourVariants": 1,
-    "distinctDownloadedSources": 7,
+    "distinctDownloadedSources": 9,
     "distinctDownloadedAircraftSources": 1,
     "aircraftLODDerivatives": 0,
     "aircraftColourVariants": 1,
@@ -143,7 +154,12 @@
     "distinctDownloadedHelicopterDerivatives": 1,
     "helicopterSourceLicense": "CC-BY-4.0",
     "helicopterLODDerivatives": 2,
-    "helicopterOriginalSourceDownloadVerified": false
+    "helicopterOriginalSourceDownloadVerified": false,
+    "distinctGeometryFamilies": 8,
+    "additionalExistingGeometryVariantSources": 1,
+    "downloadedFurnitureVariantSources": 1,
+    "interiorSourceFiles": 2,
+    "interiorSourceLicense": "CC-BY-4.0"
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -246,6 +262,19 @@
     "aircraftSpawnSites": 1,
     "helicopterSpawnSites": 1,
     "vehicleClasses": 3,
-    "simultaneouslyLoaded": false
+    "simultaneouslyLoaded": false,
+    "furnitureSourceInstances": {
+      "originalChair": 421,
+      "sofa": 359,
+      "damaskChairVariant": 432
+    }
+  },
+  "helicopterCi": {
+    "sourceRevision": "f0bc28b5270aea582d065b59dbbd86695bcf07fd",
+    "run": "39044589411",
+    "status": "success",
+    "artifactId": "12105436770",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false
   }
 }

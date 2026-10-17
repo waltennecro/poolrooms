@@ -119,3 +119,13 @@ Ver `Assets/PoolroomsProcedural/Documentation/HELICOPTERO_R9.md`. Fuente derivad
 Siete modelos externos distintos y tres clases de vehículo. La muestra de 324 celdas con aeródromos activos contiene 37 puntos del mismo coche, un avión y un helicóptero: son instancias, no 39 modelos diferentes. 1.212 edificios procedurales y 4.846 espacios de planta; no se presentan como edificios descargados. Quedan arquitectura externa, más mobiliario/variedad y validación nativa.
 
 Núcleo: 16.935.773 aserciones; 188 scripts × cuatro configuraciones; las 188 huellas protegidas y la linterna se mantienen. Fuentes/licencias/LOD/marcadores, 36 mapas PBR y UV verificados. Nuevos tests PlayMode incluidos, sin ejecutar; APIs Unity, PhysX, shaders, calidad visual y FPS siguen pendientes.
+
+R9 está publicado en `f0bc28b`. CI [39044589411](https://github.com/waltennecro/poolrooms/actions/runs/39044589411) correcto, incluidos auditoría del helicóptero, empaquetado y upload. Evidencia en `Verification/ci_helicopter_R9.json`. ZIP acumulativo limpio: 472 archivos, 113.021.213 bytes, SHA-256 `d920acd635a36a984229fa7cac74bc16f64703c8826fb64abca337ff83a09a4d`.
+
+### Etapa R10 — mobiliario atribuido y apoyo completo
+
+Ver `Assets/PoolroomsProcedural/Documentation/MOBILIARIO_R10.md`. Sofá nuevo y variante damasco de la silla ovalada existente, CC BY 4.0 de Eric Chadwick/Wayfair. Nueve fuentes/adaptaciones externas en total, **ocho familias geométricas y una variante adicional**; no se cuenta la silla recoloreada como un modelo nuevo. Dos familias geométricas de muebles importados: silla y sofá.
+
+Colocación determinista en City11, biblioteca y patio, dimensiones verificadas contra las mallas y márgenes de entrada/escalera. E/Q y física al soltar, con masas/volúmenes apropiados. Trece mapas horneados del texturizado original y normal/AO, UV1 conservada en silla y atlas generado desde UV0 en sofá. Solo la variante material predeterminada del sofá; sheen/specular opcional no se presenta como réplica exacta. Corrección del factor de color base glTF y descarte de muebles lejanos por tamaño en pantalla.
+
+Núcleo: 16.939.230 aserciones, 190 scripts × cuatro configuraciones; 336 apoyos completos, rutas y selección comprobados. Fuentes/licencias/trece mapas y contrato de dimensiones auditados; regeneración artística reproducida byte a byte. Las 188 huellas protegidas, linterna y Preparacion_V48 se conservan. Pruebas nativas nuevas incluidas, sin ejecutar. Quedan más arquitectura/decoración externa y cobertura de otros biomas, más variedad urbana, compilación Unity, PhysX, shaders, apariencia y FPS.

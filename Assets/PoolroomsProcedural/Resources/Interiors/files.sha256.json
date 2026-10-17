@@ -1,0 +1,106 @@
+{
+  "I_ChairDamaskPurplegold.json": {
+    "bytes": 5452,
+    "sha256": "76f19716ce65381a35d8f36208d1f069294ec46b4603c7a7f9d130efe532ed79"
+  },
+  "I_GlamVelvetSofa.json": {
+    "bytes": 3288,
+    "sha256": "3915049a6e0c377eac61940f0f5615950e6828533e73b6c654353cd7954fdc6e"
+  },
+  "Licenses/CC-BY-4.0.txt": {
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "Licenses/ChairDamaskPurplegold_LICENSE.md": {
+    "bytes": 791,
+    "sha256": "b2f3fb5c0a3b0d7da0887e7da1ceb88e51f89d3a0d8869478c61352be0b1d030"
+  },
+  "Licenses/ChairDamaskPurplegold_metadata.json": {
+    "bytes": 680,
+    "sha256": "762adc494e1983db866ba47f66a85d519fdc3848b573a7419a3daf3fbf7177d9"
+  },
+  "Licenses/GlamVelvetSofa_LICENSE.md": {
+    "bytes": 782,
+    "sha256": "b9a0328334d3597cf438846bd14eac5cf07a70cc93746cd8b8b569806d1b8c7f"
+  },
+  "Licenses/GlamVelvetSofa_metadata.json": {
+    "bytes": 669,
+    "sha256": "047515275fd94ee1a8969d027e4b7c68c96ebde6876da7f80722efcc3660af4e"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 456,
+    "sha256": "b2a4a3f127e4f7fa51c8edc9a8a48dcead5b7de0a10430704faeb44c9edcfd1d"
+  },
+  "Models/I_ChairDamaskPurplegold.mtl": {
+    "bytes": 193,
+    "sha256": "aefca3115246e836aaa5cd2791454a9a20458ac4a8de30da582164f409090561"
+  },
+  "Models/I_ChairDamaskPurplegold.obj": {
+    "bytes": 3489746,
+    "sha256": "b538252d5cc4131d695037fbaa9eecbc6e3b1705c39700a8804ed3087c563465"
+  },
+  "Models/I_GlamVelvetSofa.mtl": {
+    "bytes": 130,
+    "sha256": "7fcdcb0aedd18825b12d9236eba16bba610acee6e81c4586f14145f4cc060a10"
+  },
+  "Models/I_GlamVelvetSofa.obj": {
+    "bytes": 1458822,
+    "sha256": "647c3dcdf8dd8fb6e33f87a4d2db148b3539b7320ee55ada72d19af36d66a469"
+  },
+  "Textures/I_ChairDamaskPurplegold_m0_albedo.png": {
+    "bytes": 1621147,
+    "sha256": "ad37d04790bd233e06092056f4c27d1504c99f584f5f91638fe3d8b20e623c8b"
+  },
+  "Textures/I_ChairDamaskPurplegold_m0_mask.png": {
+    "bytes": 1367622,
+    "sha256": "c6845c58b0127824025fe4975288cde98a1ee71546b0a681d5fd8a91ed592346"
+  },
+  "Textures/I_ChairDamaskPurplegold_m0_normal.png": {
+    "bytes": 1760003,
+    "sha256": "c48ac5c27181ffd3a6632334313d38f03111a9b014aef852564f54ae0c32e3eb"
+  },
+  "Textures/I_ChairDamaskPurplegold_m1_mask.png": {
+    "bytes": 48923,
+    "sha256": "702fedef1222cf71ad3713a3ca5313b32bc7cabdcd9a234fb1a907cb24f7301f"
+  },
+  "Textures/I_ChairDamaskPurplegold_m2_albedo.png": {
+    "bytes": 1489504,
+    "sha256": "5afee193f58deeb82d369f22e09a23f34376fbe215bdbe7551fc3d20d31b76de"
+  },
+  "Textures/I_ChairDamaskPurplegold_m2_mask.png": {
+    "bytes": 2708342,
+    "sha256": "c5536af2e735221d4dcaacb8351bbd062926db26611be51d47155a73b2e5f9b4"
+  },
+  "Textures/I_ChairDamaskPurplegold_m2_normal.png": {
+    "bytes": 3086348,
+    "sha256": "d5a1c44749fc2c7c6cf3aec1324867066af3c24009ae4f3d3f85b1132a73cfe8"
+  },
+  "Textures/I_ChairDamaskPurplegold_m3_albedo.png": {
+    "bytes": 114019,
+    "sha256": "b4883c9dd9800c57159c59dd01332af2792603d7cda07e7801dec88bbfd4a3e6"
+  },
+  "Textures/I_ChairDamaskPurplegold_m3_mask.png": {
+    "bytes": 35405,
+    "sha256": "57f178e94b8aed45263df2cce659b85e3c4ae256e4a66d4e7b1cd105ea8e2bf6"
+  },
+  "Textures/I_GlamVelvetSofa_m0_mask.png": {
+    "bytes": 93965,
+    "sha256": "3951c085fd40e24482b29a1947a25464805373fc08300045182f52259961b150"
+  },
+  "Textures/I_GlamVelvetSofa_m1_mask.png": {
+    "bytes": 51454,
+    "sha256": "693d4f5af7fd196eca013f98d8c6ae167588ad4be5c1c2a0e6c074e55b2683f6"
+  },
+  "Textures/I_GlamVelvetSofa_m2_mask.png": {
+    "bytes": 772278,
+    "sha256": "2e643ce863a92a9142db23e6ecaa1518c2998999f463a71aaeb5a4fd2442cbb0"
+  },
+  "Textures/I_GlamVelvetSofa_m2_normal.png": {
+    "bytes": 4232910,
+    "sha256": "1deaa992dda342c645443483bd8f6a18cd0f6d0bea041adf28b8abbaa8be558c"
+  },
+  "catalog.json": {
+    "bytes": 10332,
+    "sha256": "adc6aeb9be509d4a41e01c05965b85132b631e35f64802d61f0ac21bd1d0c186"
+  }
+}

@@ -1,0 +1,5 @@
+GlamVelvetSofa and ChairDamaskPurplegold by Eric Chadwick, owned by Wayfair, 2021.
+Creative Commons Attribution 4.0 International: https://creativecommons.org/licenses/by/4.0/
+Original pinned sources/metadata and individual notices retained in this package/repository.
+Changes: native OBJ conversion and source PBR texture/normal/AO baking to new UV atlas; default material variant only; runtime scale/placement and pickup volumes.
+No endorsement implied.

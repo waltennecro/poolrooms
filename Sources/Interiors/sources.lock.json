@@ -1,0 +1,37 @@
+{
+  "CC-BY-4.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC-BY-4.0.txt",
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "GlamVelvetSofa_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlamVelvetSofa/metadata.json",
+    "bytes": 669,
+    "sha256": "047515275fd94ee1a8969d027e4b7c68c96ebde6876da7f80722efcc3660af4e"
+  },
+  "GlamVelvetSofa_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlamVelvetSofa/LICENSE.md",
+    "bytes": 782,
+    "sha256": "b9a0328334d3597cf438846bd14eac5cf07a70cc93746cd8b8b569806d1b8c7f"
+  },
+  "GlamVelvetSofa.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlamVelvetSofa/glTF-Binary/GlamVelvetSofa.glb",
+    "bytes": 3149844,
+    "sha256": "67202c74a1a33377771f162dc7fad612a6c9bd51ee15124c488e9851d9ac5266"
+  },
+  "ChairDamaskPurplegold_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ChairDamaskPurplegold/metadata.json",
+    "bytes": 680,
+    "sha256": "762adc494e1983db866ba47f66a85d519fdc3848b573a7419a3daf3fbf7177d9"
+  },
+  "ChairDamaskPurplegold_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ChairDamaskPurplegold/LICENSE.md",
+    "bytes": 791,
+    "sha256": "b2f3fb5c0a3b0d7da0887e7da1ceb88e51f89d3a0d8869478c61352be0b1d030"
+  },
+  "ChairDamaskPurplegold.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ChairDamaskPurplegold/glTF-Binary/ChairDamaskPurplegold.glb",
+    "bytes": 2028924,
+    "sha256": "9862ff753f25ca6738bf5924afbfde01b794fae73db3f94bcd8cdc7cc570d9bb"
+  }
+}

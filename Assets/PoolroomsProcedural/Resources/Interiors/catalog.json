@@ -1,0 +1,371 @@
+{
+  "sourceFiles": 2,
+  "newGeometryFamilies": 1,
+  "existingChairVariantSources": 1,
+  "nativeUnityValidated": false,
+  "models": [
+    {
+      "id": "I_GlamVelvetSofa",
+      "resource": "Interiors/Models/I_GlamVelvetSofa",
+      "minimum": [
+        -1.1139731407165527,
+        4.5447788579622284e-05,
+        -0.6277002692222595
+      ],
+      "maximum": [
+        1.0744699239730835,
+        0.7875869274139404,
+        0.3951283097267151
+      ],
+      "triangles": 4196,
+      "materials": [
+        {
+          "name": "I_GlamVelvetSofa_m0",
+          "colour": [
+            0.02,
+            0.02,
+            0.02,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.4,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "Interiors/Textures/I_GlamVelvetSofa_m0_mask"
+        },
+        {
+          "name": "I_GlamVelvetSofa_m1",
+          "colour": [
+            1,
+            0.8,
+            0.7,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 0.4,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "Interiors/Textures/I_GlamVelvetSofa_m1_mask"
+        },
+        {
+          "name": "I_GlamVelvetSofa_m2",
+          "colour": [
+            0.01,
+            0.01,
+            0.01,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.7,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_specular",
+            "KHR_materials_sheen"
+          ],
+          "transparent": false,
+          "doubleSided": false,
+          "normal": "Interiors/Textures/I_GlamVelvetSofa_m2_normal",
+          "mask": "Interiors/Textures/I_GlamVelvetSofa_m2_mask"
+        }
+      ],
+      "lods": [],
+      "uvBake": [
+        {
+          "material": 0,
+          "texture": "occlusionTexture",
+          "sourceUV": 0,
+          "bakedPixels": 147850,
+          "resolution": 2048,
+          "uniqueCharts": 18
+        },
+        {
+          "material": 1,
+          "texture": "occlusionTexture",
+          "sourceUV": 0,
+          "bakedPixels": 21365,
+          "resolution": 2048,
+          "uniqueCharts": 27
+        },
+        {
+          "material": 2,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1672730,
+          "resolution": 2048,
+          "uniqueCharts": 31
+        },
+        {
+          "material": 2,
+          "texture": "occlusionTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1672730,
+          "resolution": 2048,
+          "uniqueCharts": 31
+        }
+      ],
+      "sourceSha256": "67202c74a1a33377771f162dc7fad612a6c9bd51ee15124c488e9851d9ac5266",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Native OBJ and HDRP metal/roughness PBR; newly packed UV atlas with original AO, normal tangent frames, texture rotations and seam padding; default material variant only. Optional sheen/specular extensions recorded, not exact native matches.",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlamVelvetSofa/glTF-Binary/GlamVelvetSofa.glb",
+      "modelLicense": "CC-BY-4.0",
+      "authors": [
+        "Eric Chadwick"
+      ],
+      "owners": [
+        "Wayfair, LLC"
+      ],
+      "metadataLicense": "CC-BY-4.0",
+      "atlasSeedFromUV0": true,
+      "defaultMaterialVariantOnly": true,
+      "nativeUnityValidated": false,
+      "geometryFamily": "WayfairGlamSofa",
+      "variantOf": null
+    },
+    {
+      "id": "I_ChairDamaskPurplegold",
+      "resource": "Interiors/Models/I_ChairDamaskPurplegold",
+      "minimum": [
+        -0.4150709807872772,
+        -0.0004073712625540793,
+        -0.27725332975387573
+      ],
+      "maximum": [
+        0.4135432839393616,
+        0.6869472861289978,
+        0.2945762306419305
+      ],
+      "triangles": 9984,
+      "materials": [
+        {
+          "name": "I_ChairDamaskPurplegold_m0",
+          "colour": [
+            0.247,
+            0.109,
+            0.035,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "Interiors/Textures/I_ChairDamaskPurplegold_m0_albedo",
+          "normal": "Interiors/Textures/I_ChairDamaskPurplegold_m0_normal",
+          "mask": "Interiors/Textures/I_ChairDamaskPurplegold_m0_mask"
+        },
+        {
+          "name": "I_ChairDamaskPurplegold_m1",
+          "colour": [
+            0.25,
+            0.25,
+            0.25,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "Interiors/Textures/I_ChairDamaskPurplegold_m1_mask"
+        },
+        {
+          "name": "I_ChairDamaskPurplegold_m2",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_sheen",
+            "KHR_materials_specular"
+          ],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "Interiors/Textures/I_ChairDamaskPurplegold_m2_albedo",
+          "normal": "Interiors/Textures/I_ChairDamaskPurplegold_m2_normal",
+          "mask": "Interiors/Textures/I_ChairDamaskPurplegold_m2_mask"
+        },
+        {
+          "name": "I_ChairDamaskPurplegold_m3",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "Interiors/Textures/I_ChairDamaskPurplegold_m3_albedo",
+          "mask": "Interiors/Textures/I_ChairDamaskPurplegold_m3_mask"
+        }
+      ],
+      "lods": [],
+      "uvBake": [
+        {
+          "material": 0,
+          "texture": "baseColorTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1158962,
+          "resolution": 2048,
+          "uniqueCharts": 37
+        },
+        {
+          "material": 0,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1158962,
+          "resolution": 2048,
+          "uniqueCharts": 37
+        },
+        {
+          "material": 0,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1158962,
+          "resolution": 2048,
+          "uniqueCharts": 37
+        },
+        {
+          "material": 0,
+          "texture": "occlusionTexture",
+          "sourceUV": 1,
+          "bakedPixels": 1158962,
+          "resolution": 2048,
+          "uniqueCharts": 37
+        },
+        {
+          "material": 1,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 11149,
+          "resolution": 2048,
+          "uniqueCharts": 24
+        },
+        {
+          "material": 1,
+          "texture": "occlusionTexture",
+          "sourceUV": 1,
+          "bakedPixels": 11149,
+          "resolution": 2048,
+          "uniqueCharts": 24
+        },
+        {
+          "material": 2,
+          "texture": "baseColorTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1355989,
+          "resolution": 2048,
+          "uniqueCharts": 80
+        },
+        {
+          "material": 2,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1355989,
+          "resolution": 2048,
+          "uniqueCharts": 80
+        },
+        {
+          "material": 2,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1355989,
+          "resolution": 2048,
+          "uniqueCharts": 80
+        },
+        {
+          "material": 2,
+          "texture": "occlusionTexture",
+          "sourceUV": 1,
+          "bakedPixels": 1355989,
+          "resolution": 2048,
+          "uniqueCharts": 80
+        },
+        {
+          "material": 3,
+          "texture": "baseColorTexture",
+          "sourceUV": 0,
+          "bakedPixels": 49665,
+          "resolution": 2048,
+          "uniqueCharts": 1
+        },
+        {
+          "material": 3,
+          "texture": "occlusionTexture",
+          "sourceUV": 1,
+          "bakedPixels": 49665,
+          "resolution": 2048,
+          "uniqueCharts": 1
+        }
+      ],
+      "sourceSha256": "9862ff753f25ca6738bf5924afbfde01b794fae73db3f94bcd8cdc7cc570d9bb",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Native OBJ and HDRP metal/roughness PBR; newly packed UV atlas with original AO, normal tangent frames, texture rotations and seam padding; default material variant only. Optional sheen/specular extensions recorded, not exact native matches.",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ChairDamaskPurplegold/glTF-Binary/ChairDamaskPurplegold.glb",
+      "modelLicense": "CC-BY-4.0",
+      "authors": [
+        "Eric Chadwick"
+      ],
+      "owners": [
+        "Wayfair"
+      ],
+      "metadataLicense": "CC-BY-4.0",
+      "atlasSeedFromUV0": false,
+      "defaultMaterialVariantOnly": true,
+      "nativeUnityValidated": false,
+      "geometryFamily": "WayfairOvalChair",
+      "variantOf": "SheenChair"
+    }
+  ]
+}

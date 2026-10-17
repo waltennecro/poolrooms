@@ -30,10 +30,10 @@ def acquire(url,path):
     LOCK[key]={'url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}
     return data
 
-def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=False,source_license="CC0-1.0"):
+def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=False,source_license="CC0-1.0",bake_uvs=False):
     dest=DEST if destination is None else destination
     original_raw=raw;bake_report=[]
-    if name=='SheenChair':
+    if name=='SheenChair' or bake_uvs:
         from bake_gltf_uvs import bake
         raw,bake_report=bake(raw)
     magic,version,total=struct.unpack_from('<III',raw)

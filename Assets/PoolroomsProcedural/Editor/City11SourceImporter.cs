@@ -11,7 +11,7 @@ namespace Poolrooms.Editor
             var importer=(TextureImporter)assetImporter;
             bool normal=assetPath.EndsWith("_normal.png"),mask=assetPath.EndsWith("_mask.png");
             importer.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
-            importer.sRGBTexture=!normal&&!mask;importer.mipmapEnabled=true;importer.maxTextureSize=assetPath.Contains("SheenChair_")?2048:1024;
+            importer.sRGBTexture=!normal&&!mask;importer.mipmapEnabled=true;importer.maxTextureSize=assetPath.Contains("SheenChair_")||assetPath.Contains("/Resources/Interiors/")?2048:1024;
             importer.textureCompression=TextureImporterCompression.CompressedHQ;importer.wrapMode=TextureWrapMode.Repeat;importer.anisoLevel=4;
         }
         void OnPreprocessModel()

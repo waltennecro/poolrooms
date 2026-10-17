@@ -1,0 +1,31 @@
+{
+  "stage": "R9",
+  "sourceRevision": "f0bc28b5270aea582d065b59dbbd86695bcf07fd",
+  "run": "39044589411",
+  "runUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39044589411",
+  "job": "117430688805",
+  "status": "success",
+  "coreAssertions": 16935773,
+  "syntaxScripts": 188,
+  "syntaxConfigurations": 4,
+  "artifactId": "12105436770",
+  "artifactDigest": "sha256:463d9e9935c3c96f9bf09983456b5a1f4ee5fe4a8df43a45576a8544898b237e",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "checks": [
+    "core compilation / geometry / syntax",
+    "36 original PBR maps",
+    "CC0 city sources",
+    "Apache airplane source",
+    "CC-BY helicopter data / licence / pivots / LODs",
+    "UV analytic checks",
+    "complete Assets packaging / upload"
+  ],
+  "localPackage": {
+    "files": 472,
+    "bytes": 113021213,
+    "sha256": "d920acd635a36a984229fa7cac74bc16f64703c8826fb64abca337ff83a09a4d",
+    "workingTreeChanged": false
+  },
+  "nativeUnityTestsExecuted": false
+}

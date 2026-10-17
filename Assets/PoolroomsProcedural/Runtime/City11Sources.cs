@@ -53,6 +53,12 @@ namespace Poolrooms
                 }
                 var group=root.AddComponent<LODGroup>();group.SetLODs(tiers.ToArray());group.RecalculateBounds();group.fadeMode=LODFadeMode.CrossFade;group.animateCrossFading=true;
             }
+            if(id.StartsWith("I_",StringComparison.Ordinal)&&root.GetComponent<LODGroup>()==null)
+            {
+                // These already have 4k/10k triangles. Cull small distant furniture
+                // instead of retaining a renderer for every loaded distant room.
+                var group=root.AddComponent<LODGroup>();group.SetLODs(new[]{new LOD(.018f,mesh.GetComponentsInChildren<Renderer>())});group.RecalculateBounds();
+            }
             foreach(var renderer in root.GetComponentsInChildren<MeshRenderer>())
             {
                 var imported=renderer.sharedMaterials;var assigned=new Material[imported.Length];
@@ -89,7 +95,7 @@ namespace Poolrooms
             if(materials.TryGetValue(d.name,out var cached)&&cached!=null)return cached;
             var shader=Shader.Find("HDRP/Lit")??Shader.Find("Universal Render Pipeline/Lit")??Shader.Find("Standard");
             var m=new Material(shader){name="Liminal licensed source / "+d.name,enableInstancing=true};
-            Color colour=d.colour!=null&&d.colour.Length==4?new Color(d.colour[0],d.colour[1],d.colour[2],d.colour[3]):Color.white;
+            Color colour=d.colour!=null&&d.colour.Length==4?new Color(d.colour[0],d.colour[1],d.colour[2],d.colour[3]).gamma:Color.white;
             Set(m,"_BaseColor",colour);Set(m,"_Color",colour);
             foreach(string property in new[]{"_BaseColorMap","_BaseMap","_MainTex"})Texture(m,property,d.albedo);
             bool masked=!string.IsNullOrEmpty(d.mask);Texture(m,"_MaskMap",d.mask);if(masked)m.EnableKeyword("_MASKMAP");

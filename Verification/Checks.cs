@@ -54,6 +54,7 @@ static class Checks
         CityGeneration();
         AirfieldsAndFlight();
         RotorFlight();
+        SourceFurniturePlacement();
         QuietGeneration();
         DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
@@ -290,6 +291,48 @@ static class Checks
         Check(cars+planes+helis>=35&&planes>0&&helis>0,"City sample fails the requested vehicle-instance mix");
         Console.WriteLine($"Active-airfield city snapshot: {buildings} procedural buildings, {floors} floor spaces, {items} licensed item instances, {cars} car sites + {planes} plane + {helis} helicopter. Repeated instances of three vehicle classes, not distinct downloaded models or simultaneously loaded objects.");
         Console.WriteLine("Helicopter: assisted hover, independent climb/travel/yaw, braking, ceiling and invalid-input handling at five fixed timesteps. Mathematical checks, not native PhysX flight.");
+    }
+    static void SourceFurniturePlacement()
+    {
+        int placements=0;var seen=new HashSet<int>();
+        foreach(int size in new[]{28,36,60})for(int seed=0;seed<8;seed++)
+        {
+            var c=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=LiminalGeneration.City11};var room=new Layout(c).At(seed-9,seed+4);var g=Architecture.Build(room,c);
+            for(int i=0;i<4;i++)
+            {
+                var b=room.Plan.City.Buildings[i];var prop=room.Plan.City.Props[8+i];var dims=SourceFurniture.Dimensions(prop.Source);seen.Add(prop.Source);
+                Check(SourceFurniture.Id(prop.Source)!=null&&SourceFurniture.Longest(prop.Source)>=1,"Unknown city furniture scale");
+                var delta=prop.Position-new V3(b.X,0,b.Z);float x=b.Turn?-delta.X:delta.X,z=b.Turn?-delta.Z:delta.Z;
+                Check(x-dims.X*.5f>=1.1f&&x+dims.X*.5f<b.Width*.5f-.4f,"Furniture blocks building entry or wall margin");
+                float stairRight=-b.Width*.5f+4.3f;
+                Check(x-dims.X*.5f>=stairRight+.66f,"Furniture obstructs stair landing circulation");
+                Check(z-dims.Z*.5f>.575f&&z+dims.Z*.5f<b.Depth*.28f-.375f,"Furniture intersects counter or rear cabinet");
+                if(prop.Source==3)Check(b.Width>=10&&b.Depth>=10&&z-dims.Z*.5f>.375f+.7f,"Sofa squeezed into a narrow shop bay");
+                foreach(float dx in new[]{-.49f,0,.49f})foreach(float dz in new[]{-.49f,0,.49f})
+                {
+                    var foot=prop.Position+new V3(dx*dims.X,0,dz*dims.Z);Check(Math.Abs(Support(g.Structure,foot)-.12f)<.001f,"Furniture footprint spans missing floor");
+                }
+                placements++;
+            }
+            foreach(var environment in new[]{LiminalEnvironment.Archive906,LiminalEnvironment.Courtyard188})
+            {
+                var q=new Room{X=seed-9,Z=seed+4,Exits=15,Environment=environment};QuietLevelPlanner.Describe(q,c);var mesh=Architecture.Build(q,c).Structure;
+                foreach(var prop in q.Plan.Quiet.Props)
+                {
+                    if(prop.CatalogId>=0)continue;int source=prop.Source=="SheenChair"?2:prop.Source=="I_GlamVelvetSofa"?3:4;var dims=SourceFurniture.Dimensions(source);float angle=prop.Yaw*MathF.PI/180,co=MathF.Cos(angle),si=MathF.Sin(angle);
+                    if(source==3)Check(environment==LiminalEnvironment.Courtyard188&&size>=36,"Sofa replaces a tight archive seat");
+                    foreach(float dx in new[]{-.49f,0,.49f})foreach(float dz in new[]{-.49f,0,.49f})
+                    {
+                        float px=dx*dims.X,pz=dz*dims.Z;var foot=prop.Bottom+new V3(px*co+pz*si,0,-px*si+pz*co);Check(Math.Abs(Support(mesh,foot))<.001f,"Quiet furniture footprint crosses a stair void");
+                    }
+                    placements++;
+                }
+            }
+        }
+        Check(seen.SetEquals(new[]{2,3,4}),"City generation never selects one of its actual furniture treatments");
+        var city=new Layout(new LayoutConfig{Seed=481516,CellSize=36,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true});var counts=new int[5];
+        for(int z=0;z<18;z++)for(int x=0;x<18;x++)foreach(var prop in city.At(x,z).Plan.City.Props)counts[prop.Source]++;
+        Console.WriteLine($"Furniture: {placements} supported source placements checked; active-airfield sample has {counts[2]} original chairs, {counts[3]} sofas and {counts[4]} damask chair variants. Chair variants are not new geometry families.");
     }
     static float Support(MeshData mesh,V3 origin)
     {

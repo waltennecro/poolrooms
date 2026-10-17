@@ -15,7 +15,7 @@ La rama actual continúa sobre la v39 recuperada. Consulta [`RECONSTRUCCION.md`]
 La etapa R1 mejora los materiales y detalles del bioma infantil conservando su geometría transitable. Las verificaciones del núcleo están en [`Verification`](Verification/README.md), fuera de `Assets`. Para crear el paquete completo del estado actual:
 
 ```sh
-python tools/package_assets.py --stage R9 --output /tmp/Poolrooms_R9_Desde_v39.zip
+python tools/package_assets.py --stage R10 --output /tmp/Poolrooms_R10_Desde_v39.zip
 ```
 
 La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.
@@ -33,6 +33,8 @@ El [CI de R7](https://github.com/waltennecro/poolrooms/actions/runs/39005054928)
 R8 añade [aeródromos conectados y un avión civil Apache-2.0](Assets/PoolroomsProcedural/Documentation/AVIACION_R8.md). El catálogo acumulado tiene seis modelos externos y dos clases de vehículo. El resto del catálogo y la validación de vuelo en Unity siguen pendientes. [CI y descarga pública de R8 verificados](Verification/ci_aircraft_R8.json): 448 archivos de Assets y ZIP no vacío.
 
 R9 incorpora [helicóptero CC BY 4.0 y helipuerto conectado](Assets/PoolroomsProcedural/Documentation/HELICOPTERO_R9.md), con materiales PBR y dos LOD. El catálogo tiene siete modelos externos y tres clases de vehículo. La muestra de ciudad planifica 39 vehículos (37 coches repetidos, un avión y un helicóptero); no son modelos distintos ni instancias simultáneas.
+
+R10 añade [sofá y variante tapizada de silla con texturas originales horneadas](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_R10.md) en City11, biblioteca y patio. Nueve fuentes/adaptaciones en total corresponden a ocho familias geométricas y una variante adicional; las repeticiones no se cuentan como modelos nuevos.
 
 ## Descargar y abrir
 
