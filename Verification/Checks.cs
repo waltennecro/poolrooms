@@ -59,6 +59,7 @@ static class Checks
         ExpandedFurniturePlacement();
         RegionalSourcePlacement();
         UrbanAndQuietRefinement();
+        BistroTerraces();
         QuietGeneration();
         DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
@@ -370,7 +371,7 @@ static class Checks
             }
         }
         Check(seen.SetEquals(new[]{2,3,4,5}),"City generation never selects one of its actual furniture treatments");
-        var city=new Layout(new LayoutConfig{Seed=481516,CellSize=36,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true});var counts=new int[7];
+        var city=new Layout(new LayoutConfig{Seed=481516,CellSize=36,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true});var counts=new int[9];
         for(int z=0;z<18;z++)for(int x=0;x<18;x++)foreach(var prop in city.At(x,z).Plan.City.Props)counts[prop.Source]++;
         Console.WriteLine($"Furniture: {placements} supported source placements checked; active-airfield sample has {counts[2]} original chairs, {counts[3]} velvet sofas, {counts[5]} wood/leather sofas, {counts[4]} damask chair variants and {counts[6]} antique camera instances. Chair variants are not new geometry families.");
     }
@@ -466,6 +467,39 @@ static class Checks
         }
         Check(typologies.Count==6&&districts.Count==4&&cameras>0&&coastalSeats>0,"Refinement coverage missed source placements or architectural forms");
         Console.WriteLine($"Refinement: six facade typologies / four district descriptors, {cameras} standing city cameras, {coastalSeats} supported coastal sofas; ground court passage open and upper rails retained.");
+    }
+    static void BistroTerraces()
+    {
+        int terraces=0,items=0;
+        foreach(int size in new[]{28,36,60})for(int seed=0;seed<32;seed++)
+        {
+            var c=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true};
+            var room=new Layout(c).At(seed-14,seed+7);var plan=room.Plan.City;var g=Architecture.Build(room,c);
+            var selected=plan.Props.Where(p=>p.Source>=7).ToArray();
+            Check(selected.Length==0||selected.Length==3,"Terraces exceeded one table/two chairs per block");
+            Check(CityTerraces.TryBuilding(plan.Buildings,out var building)==(selected.Length==3),"Native awning selection diverged from furniture plan");
+            if(selected.Length==0)continue;
+            Check(CityStreetDetails.Typology(building)!=0&&CityStreetDetails.Typology(building)!=4,"Awning intersects existing arcade porch");
+            foreach(var prop in selected)
+            {
+                var p=new SourceFurniturePlacement(0,prop.Source,prop.Position,prop.Yaw);var half=SourceFurniture.HalfExtents(p.Source,p.Yaw,.03f);
+                Check(SourceFurniture.Clear(g.Structure,p)&&SourceFurniture.Clear(g.Decoration,p)&&SourceFurniture.Clear(g.CollisionOnly,p),"Terrace furniture intersects final facade, road fixture or glass");
+                Check(Math.Abs(p.Bottom.X)-half.X>3&&Math.Abs(p.Bottom.Z)-half.Z>3,"Terrace blocks six-metre driving cross");
+                for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++)Check(Math.Abs(Support(g.Structure,p.Bottom+new V3(x*half.X,0,z*half.Z)))<.001f,"Terrace footprint lacks real pavement support");
+                items++;
+            }
+            for(int i=0;i<selected.Length;i++)for(int k=i+1;k<selected.Length;k++)
+            {
+                var a=SourceFurniture.HalfExtents(selected[i].Source,selected[i].Yaw,.02f);var b=SourceFurniture.HalfExtents(selected[k].Source,selected[k].Yaw,.02f);var delta=selected[i].Position-selected[k].Position;
+                Check(Math.Abs(delta.X)>a.X+b.X||Math.Abs(delta.Z)>a.Z+b.Z,"Terrace source colliders overlap each other");
+            }
+            // Existing shop door and its central approach stay open to a 1.4m aisle.
+            foreach(var p in selected)
+            {var delta=p.Position-new V3(building.X,0,building.Z);var half=SourceFurniture.HalfExtents(p.Source,p.Yaw,.02f);Check(Math.Abs(delta.X)-half.X>1.8f,"Cafe furniture narrows the shop entrance approach");}
+            var awning=CityTerraces.AwningBottom(building);Check(awning.Y>=3.05f,"Awning intrudes on standing headroom");terraces++;
+        }
+        Check(terraces>0&&items==terraces*3,"Bistro sources never reach actual world generation");
+        Console.WriteLine($"Bistro: {terraces} bounded terraces / {items} interactable table-chair instances, supported pavement, clear shop/road routes, non-overlapping furniture and no competing porch. Native shading/traversal unrun.");
     }
     static float Support(MeshData mesh,V3 origin)
     {
