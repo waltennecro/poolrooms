@@ -1,0 +1,72 @@
+{
+  "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+  "run": "39070290885",
+  "url": "https://github.com/waltennecro/poolrooms/actions/runs/39070290885",
+  "status": "success",
+  "job": 117506303919,
+  "steps": {
+    "Set up job": "success",
+    "Run actions/checkout@v4": "success",
+    "Run actions/setup-dotnet@v4": "success",
+    "Verify pinned SDK resolution": "success",
+    "Compile core, compare geometry, check CSharp syntax": "success",
+    "Check source texture hashes": "success",
+    "Check licensed City11 source assets and LODs": "success",
+    "Check licensed aircraft sources and native resource hashes": "success",
+    "Check licensed helicopter source, pivots and LODs": "success",
+    "Check attributed furniture, UV maps and placement dimensions": "success",
+    "Check additional licensed urban sources and wheel assemblies": "success",
+    "Check attributed Bistro components, PBR maps and metric dimensions": "success",
+    "Run actions/setup-python@v5": "success",
+    "Install pinned offline art verification tools": "success",
+    "Check UV baking transforms, colour sampling and normals": "success",
+    "Check native runner rejects missing, stale, failed or empty results": "success",
+    "Create verified complete Assets package": "success",
+    "Run actions/upload-artifact@v4": "success",
+    "Post Run actions/setup-python@v5": "success",
+    "Post Run actions/setup-dotnet@v4": "success",
+    "Post Run actions/checkout@v4": "success",
+    "Complete job": "success"
+  },
+  "artifactId": "12114402973",
+  "artifactDigest": "sha256:e0a1ccd8ecce6e1b2aa90f1065c8157155db5fb0abda0d8f6805b8486ef800c0",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "nativeUnityExecuted": false,
+  "coreAssertions": 16989170,
+  "syntaxScripts": 198,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "sourceComponents": 3,
+  "sourceMaps": 16,
+  "bistroArtRegenerationByteExact": true,
+  "terracesChecked": 32,
+  "interactiveTerraceInstancesChecked": 96,
+  "sourceUpAxisAndLegacySourceBytesPreserved": true,
+  "publicBackup": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "bytes": 304195508,
+    "sha256": "aa09f87a6aefd5ac9116c4e3a17012bfc7fd424b84b71b8b6727f6f3815fdbba",
+    "assetFilesMatched": 646,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "localAssetsPackage": {
+    "files": 646,
+    "bytes": 200730454,
+    "sha256": "8cb203497345fd803147379df8639bb79dd20f0dc0baeab14590b8a92becde70",
+    "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "workingTreeChanged": false
+  },
+  "publicBackupAlsoMatchesBistroSourcesAndLicenses": true,
+  "remaining": [
+    "Downloaded complete building models",
+    "Native Unity API/PlayMode/shader/collision/visual validation and measured memory/FPS"
+  ],
+  "notes": [
+    "Bistro components are adaptations, not untouched original files or complete buildings.",
+    "Exact source glTF byte preservation corrected using .gitattributes; final checkout passes provenance audit.",
+    "R13 fake subprocess contracts do not execute Unity."
+  ]
+}

@@ -111,7 +111,13 @@
       "id": "R15",
       "feature": "Attributed Bistro component terraces integrated in City11 with authored HDRP specular/gloss workflow and bounded interactive furniture",
       "status": "implemented_native_validation_pending_partial_external_architecture_catalog",
-      "packageFiles": 646
+      "packageFiles": 646,
+      "commit": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+      "implementationCommits": [
+        "82a55dea6df02583706b33c8357c7910819e100d",
+        "678c559b505def2b63a58268b10374fa8f0f6e01",
+        "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d"
+      ]
     }
   ],
   "latestCoreChecks": {
@@ -165,7 +171,7 @@
       "id": "city11",
       "feature": "Licensed urban models, procedural districts, furnished accessible buildings, interactable objects and 35 vehicles",
       "status": "quantity_snapshot_met_by_instances_native_validation_and_external_building_catalog_pending",
-      "remaining": "The 324-cell sample exceeds requested instance counts and has 37 ground-car sites plus airplane/helicopter, with two actual ground-car source models. Complete downloaded building models are still absent (all buildings procedural); full native driving/flight/visual and performance validation pending.",
+      "remaining": "The 324-cell sample has 1212 procedural buildings, 4846 floor spaces, 4628 source-item instances and 39 vehicle sites. Bistro adds three component families with terraces, not complete external buildings. The external building catalogue and native vehicle/flight/visual/performance validation remain pending.",
       "vehicleClasses": {
         "groundCar": "implemented_native_validation_pending",
         "helicopter": "implemented_native_validation_pending",
@@ -312,11 +318,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/29c5b7b90e919ff92a55f9139204e75a8f573e70",
-    "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
-    "bytes": 289162324,
-    "sha256": "010bac020ec138b9c4bdf33cd4db8e2852554104cf59b39c04cf3eda367f9616",
-    "assetFilesMatched": 607,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "bytes": 304195508,
+    "sha256": "aa09f87a6aefd5ac9116c4e3a17012bfc7fd424b84b71b8b6727f6f3815fdbba",
+    "assetFilesMatched": 646,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -373,12 +379,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "files": 607,
-    "bytes": 192937277,
-    "sha256": "d881a81491411a383425d459ed7eaa79bbf85ccbb0bb2282ba6a90d4f8dbc19e",
-    "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
-    "workingTreeChanged": false,
-    "crcAndPerFileHashesVerified": true
+    "files": 646,
+    "bytes": 200730454,
+    "sha256": "8cb203497345fd803147379df8639bb79dd20f0dc0baeab14590b8a92becde70",
+    "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
     "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
@@ -413,5 +418,17 @@
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false,
     "nativeUnityTestsExecuted": false
+  },
+  "bistroCi": {
+    "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "run": "39070290885",
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39070290885",
+    "status": "success",
+    "job": 117506303919,
+    "artifactId": "12114402973",
+    "artifactDigest": "sha256:e0a1ccd8ecce6e1b2aa90f1065c8157155db5fb0abda0d8f6805b8486ef800c0",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "nativeUnityExecuted": false
   }
 }
