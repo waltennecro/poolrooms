@@ -33,19 +33,21 @@ namespace Poolrooms
             if(explorer.IsPaused||explorer.InputCaptured||!isActiveAndEnabled)return;
             Transform eyes=Eyes;int count=Physics.RaycastNonAlloc(eyes.position,eyes.forward,hits,CarryModel.Reach,~0,QueryTriggerInteraction.Collide);
             if(count==hits.Length)return; // A truncated query may omit a nearer wall.
-            float solid=float.PositiveInfinity,candidate=float.PositiveInfinity;PoolroomsPickup pickup=null;PoolroomsMallPortal portal=null;PoolroomsTerrainPortal terrainPortal=null;
+            float solid=float.PositiveInfinity,candidate=float.PositiveInfinity;PoolroomsPickup pickup=null;PoolroomsMallPortal portal=null;PoolroomsTerrainPortal terrainPortal=null;PoolroomsCityVehicle vehicle=null;
             for(int i=0;i<count;i++)
             {
                 var hit=hits[i];if(hit.collider==null||hit.collider.transform.IsChildOf(transform))continue;
                 var item=hit.collider.GetComponentInParent<PoolroomsPickup>();var door=hit.collider.GetComponentInParent<PoolroomsMallPortal>();var landscape=hit.collider.GetComponentInParent<PoolroomsTerrainPortal>();
+                var car=hit.collider.GetComponentInParent<PoolroomsCityVehicle>();
                 if(!hit.collider.isTrigger)solid=Mathf.Min(solid,hit.distance);
-                if((item!=null||door!=null||landscape!=null)&&hit.distance<candidate){candidate=hit.distance;pickup=item;portal=door;terrainPortal=landscape;}
+                if((item!=null||door!=null||landscape!=null||car!=null)&&hit.distance<candidate){candidate=hit.distance;pickup=item;portal=door;terrainPortal=landscape;vehicle=car;}
             }
             var world=explorer.world;
             PoolroomsMallDisplay display;int slot;float displayDistance;
             if(held==null&&world!=null&&world.FindMallDisplay(eyes.position,eyes.forward,CarryModel.Reach,out display,out slot,out displayDistance)&&displayDistance<candidate&&displayDistance<=solid+.005f)
             {display.Take(slot);return;}
             if(candidate>solid+.02f)return;
+            if(vehicle!=null){vehicle.Enter(explorer);return;}
             if(terrainPortal!=null){terrainPortal.Use();return;}
             if(portal!=null){portal.Use();return;}
             if(pickup!=null&&CarryModel.CanGrab(held!=null,explorer.InputCaptured,explorer.IsPaused,candidate))Grab(pickup);

@@ -101,6 +101,8 @@ namespace Poolrooms.Core
 
         public static CorridorGeometry Build(Room from, Room to, int direction, LayoutConfig c)
         {
+            if(from!=null&&to!=null&&(from.Plan!=null&&from.Plan.City!=null||to.Plan!=null&&to.Plan.City!=null)&&
+                c.CellSize-(direction==0?from.Depth+to.Depth:from.Width+to.Width)*.5f<=.01f)return City11Architecture.Join(from,direction,c);
             if(from!=null&&to!=null&&from.Plan!=null&&to.Plan!=null&&from.Plan.SoftPlay!=null&&to.Plan.SoftPlay!=null)return SoftPlayArchitecture.Join(from,to,direction,c);
             // A solar room can also occupy its full cell on this axis. Do not feed a zero-length
             // connector into curved corridor sampling when it shares a wall with a play hall.

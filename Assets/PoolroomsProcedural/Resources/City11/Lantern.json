@@ -1,0 +1,46 @@
+{
+  "id": "Lantern",
+  "resource": "City11/Models/Lantern",
+  "minimum": [
+    -3.922445059866943,
+    0.18392054870605534,
+    -2.3157098293304443
+  ],
+  "maximum": [
+    11.568753479866944,
+    25.848139451293946,
+    2.3157098293304443
+  ],
+  "triangles": 5394,
+  "materials": [
+    {
+      "name": "Lantern_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "City11/Textures/Lantern_m0_albedo",
+      "normal": "City11/Textures/Lantern_m0_normal",
+      "emissive": "City11/Textures/Lantern_m0_emissive",
+      "mask": "City11/Textures/Lantern_m0_mask"
+    }
+  ],
+  "lods": [],
+  "sourceSha256": "a79458c4b02d695187a952f23a63b8bf278e7bc3d316a3c2a314f2d6974181f1",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review"
+}

@@ -8,7 +8,7 @@ namespace Poolrooms
     [CreateAssetMenu(menuName="Poolrooms/Independent biome materials",fileName="PoolroomsBiomeMaterials")]
     public sealed class PoolroomsBiomeMaterials : ScriptableObject
     {
-        public Material[] surfaces=new Material[90];
+        public Material[] surfaces=new Material[102];
         public Material Find(SurfaceTheme theme,int slot)
         {int index=(int)theme*6+slot;return surfaces!=null&&index<surfaces.Length?surfaces[index]:null;}
     }
@@ -39,6 +39,7 @@ namespace Poolrooms
             if(shader==null)throw new InvalidOperationException("Poolrooms: no compatible Lit shader is available.");
             var m=new Material(shader){name="Liminal "+theme+" / "+slot,enableInstancing=true};
             Color color=Color.white;
+            if(theme==SurfaceTheme.CityStreet&&slot==Surface.Tile)color=new Color(.19f,.2f,.21f);
             if(theme==SurfaceTheme.IndoorPlay)
             {V3 c=LiminalPalette.Color(slot,0);color=slot==Surface.Tile||slot==Surface.Plaster?new Color(.87f,.89f,.85f):new Color(c.X,c.Y,c.Z);}
             if(theme==SurfaceTheme.Hotel&&slot==Surface.Plaster)color=new Color(.95f,.91f,.84f);

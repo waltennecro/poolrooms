@@ -1,0 +1,46 @@
+{
+  "id": "WaterBottle",
+  "resource": "City11/Models/WaterBottle",
+  "minimum": [
+    -0.054450009018182755,
+    -0.13022033870220184,
+    -0.05445002391934395
+  ],
+  "maximum": [
+    0.054450009018182755,
+    0.13022033870220184,
+    0.05445002391934395
+  ],
+  "triangles": 4510,
+  "materials": [
+    {
+      "name": "WaterBottle_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "City11/Textures/WaterBottle_m0_albedo",
+      "normal": "City11/Textures/WaterBottle_m0_normal",
+      "emissive": "City11/Textures/WaterBottle_m0_emissive",
+      "mask": "City11/Textures/WaterBottle_m0_mask"
+    }
+  ],
+  "lods": [],
+  "sourceSha256": "b337e526fd6a162013c2984aeec163f5fbb4f717252724dfc3f3458bd51df94b",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review"
+}

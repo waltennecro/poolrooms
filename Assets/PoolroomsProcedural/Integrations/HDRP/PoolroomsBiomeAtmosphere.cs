@@ -16,6 +16,11 @@ namespace Poolrooms.HDRP
         private VolumeProfile profile;
         private GradientSky sky;
         private Fog fog;
+        private Light citySun;
+        private HDAdditionalLightData citySunData;
+        private Exposure cityExposure;
+        private VisualEnvironment environment;
+        private PhysicallyBasedSky citySky;
         private LiminalEnvironment previous;
         private bool previousMall,configured;
         private float previousHeight;
@@ -25,20 +30,39 @@ namespace Poolrooms.HDRP
             world=GetComponent<PoolroomsWorld>();root=new GameObject("Independent biome sky and fog");root.transform.SetParent(transform,false);
             volume=root.AddComponent<Volume>();volume.isGlobal=true;volume.priority=4;volume.enabled=false;
             profile=ScriptableObject.CreateInstance<VolumeProfile>();profile.name="Runtime independent biome atmosphere";
-            var environment=profile.Add<VisualEnvironment>();environment.skyType.Override((int)SkyType.Gradient);environment.skyAmbientMode.Override(SkyAmbientMode.Dynamic);
+            environment=profile.Add<VisualEnvironment>();environment.skyType.Override((int)SkyType.Gradient);environment.skyAmbientMode.Override(SkyAmbientMode.Dynamic);
             sky=profile.Add<GradientSky>();fog=profile.Add<Fog>();volume.sharedProfile=profile;
+            citySky=profile.Add<PhysicallyBasedSky>();citySky.active=false;citySky.groundTint.Override(new Color(.5f,.51f,.48f));
+            cityExposure=profile.Add<Exposure>();cityExposure.active=false;cityExposure.mode.Override(ExposureMode.Fixed);cityExposure.fixedExposure.Override(10.8f);
+            var sunObject=new GameObject("City11 regional sun");sunObject.transform.SetParent(root.transform,false);sunObject.transform.localRotation=Quaternion.Euler(43,-38,0);
+            citySun=sunObject.AddComponent<Light>();citySun.type=LightType.Directional;citySun.color=new Color(1,.95f,.88f);citySun.shadows=LightShadows.Soft;citySun.enabled=false;
+            citySunData=sunObject.AddComponent<HDAdditionalLightData>();citySunData.interactsWithSky=true;citySunData.SetIntensity(24000,LightUnit.Lux);
         }
         private void Update()
         {
             if(volume==null)return;
             Room room=world!=null&&world.isActiveAndEnabled&&world.profile!=null&&world.profile.independentBiomeMaterials?world.RoomAtViewer():null;
             bool active=room!=null&&room.Environment!=LiminalEnvironment.Poolrooms&&(world.Terrain==null||!world.Terrain.IsInside);
+            bool city=active&&room.Environment==LiminalEnvironment.City11;
+            citySun.enabled=city;cityExposure.active=city;citySky.active=city;
+            if(city)
+            {
+                var graphics=world.GetComponent<PoolroomsGraphics>();
+                var asset=GraphicsSettings.currentRenderPipeline as HDRenderPipelineAsset;
+                int shadows=world.shadowLightBudgetOverride>=0?world.shadowLightBudgetOverride:world.profile.maxShadowLights;
+                citySun.shadows=shadows>0?LightShadows.Soft:LightShadows.None;
+                bool rt=shadows>0&&graphics!=null&&graphics.RayTracingRequested&&asset!=null&&asset.currentPlatformRenderPipelineSettings.hdShadowInitParams.supportScreenSpaceShadows;
+                citySunData.useScreenSpaceShadows=rt;citySunData.useRayTracedShadows=rt;
+                citySunData.numRayTracingSamples=rt?8:1;citySunData.filterTracedShadow=true;
+                float offset=graphics!=null?graphics.exposureEV-5.5f:0;cityExposure.fixedExposure.Override(10.8f+offset);
+            }
             if(volume.enabled!=active){volume.enabled=active;if(!active&&world!=null&&world.isActiveAndEnabled)world.ExternalGeometryChanged();}
             if(!active){configured=false;return;}
             bool mall=world.InsideMall;
             float height=mall?world.ActiveMallRoot.position.y:world.transform.position.y;
             if(configured&&previous==room.Environment&&previousMall==mall&&Mathf.Abs(height-previousHeight)<.01f)return;
             previous=room.Environment;previousMall=mall;previousHeight=height;configured=true;
+            environment.skyType.Override((int)(city?SkyType.PhysicallyBased:SkyType.Gradient));
             Color top=new Color(.57f,.66f,.78f),middle=new Color(.84f,.87f,.9f),bottom=new Color(.7f,.73f,.76f);float ev=-1;
             if(mall){top=new Color(.48f,.65f,.84f);middle=new Color(.83f,.88f,.94f);bottom=new Color(.78f,.81f,.83f);ev=0;}
             else if(room.Environment==LiminalEnvironment.Hotel)
@@ -49,7 +73,7 @@ namespace Poolrooms.HDRP
             {top=new Color(.63f,.73f,.83f);middle=new Color(.89f,.9f,.87f);bottom=new Color(.74f,.78f,.73f);ev=-.8f;}
             sky.top.Override(top);sky.middle.Override(middle);sky.bottom.Override(bottom);sky.exposure.Override(ev);
             fog.baseHeight.Override(height);fog.maximumHeight.Override(height+(mall?world.ActiveMallPlan.Floors*MallPlan.FloorHeight+12:room.Height+8));
-            fog.meanFreePath.Override(mall?500:350);fog.colorMode.Override(FogColorMode.ConstantColor);fog.color.Override(middle);
+            fog.meanFreePath.Override(city?850:mall?500:350);fog.colorMode.Override(FogColorMode.ConstantColor);fog.color.Override(middle);
             // Refresh existing reflection probes through their bounded queue, not a capture every frame.
             world.ExternalGeometryChanged();
             // No volumetric toggle here: quality and pause-menu preferences keep control of it.

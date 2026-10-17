@@ -1,0 +1,6 @@
+newmtl ToyCar_m0
+Kd 1 1 1
+newmtl ToyCar_m1
+Kd 0.15 0.15 0.15
+newmtl ToyCar_m2
+Kd 0.3 0.8 0.3

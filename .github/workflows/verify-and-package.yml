@@ -24,6 +24,8 @@ jobs:
         run: dotnet run --project Verification/Poolrooms.Checks.csproj
       - name: Check source texture hashes
         run: python tools/verify_play_textures.py
+      - name: Check licensed City11 source assets and LODs
+        run: python tools/verify_city_sources.py
       - name: Create verified complete Assets package
         run: python tools/package_assets.py --stage reconstruccion --output "${{ runner.temp }}/Poolrooms_Reconstruccion_Assets.zip"
       - uses: actions/upload-artifact@v4

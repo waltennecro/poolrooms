@@ -1,0 +1,105 @@
+{
+  "id": "ToyCar",
+  "resource": "City11/Models/ToyCar",
+  "minimum": [
+    -0.0093740285720714,
+    0.0009924232129170803,
+    -0.019404905062565814
+  ],
+  "maximum": [
+    0.0093688622185585,
+    0.012616623116645067,
+    0.01897524068701338
+  ],
+  "triangles": 91331,
+  "materials": [
+    {
+      "name": "ToyCar_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [
+        "KHR_materials_clearcoat"
+      ],
+      "transparent": false,
+      "doubleSided": true,
+      "albedo": "City11/Textures/ToyCar_m0_albedo",
+      "normal": "City11/Textures/ToyCar_m0_normal",
+      "emissive": "City11/Textures/ToyCar_m0_emissive",
+      "mask": "City11/Textures/ToyCar_m0_mask"
+    },
+    {
+      "name": "ToyCar_m1",
+      "colour": [
+        0.15,
+        0.15,
+        0.15,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen"
+      ],
+      "transparent": false,
+      "doubleSided": true,
+      "albedo": "City11/Textures/ToyCar_m1_albedo",
+      "normal": "City11/Textures/ToyCar_m1_normal",
+      "mask": "City11/Textures/ToyCar_m1_mask"
+    },
+    {
+      "name": "ToyCar_m2",
+      "colour": [
+        0.3,
+        0.8,
+        0.3,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_transmission"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "City11/Textures/ToyCar_m2_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "City11/Models/ToyCar_LOD1",
+      "triangles": 14988
+    },
+    {
+      "resource": "City11/Models/ToyCar_LOD2",
+      "triangles": 3319
+    }
+  ],
+  "sourceSha256": "01a60862de55cd4b9f3acfab0b0def86451800f9c42467fcd61052c16cb9838c",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": true,
+  "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review"
+}

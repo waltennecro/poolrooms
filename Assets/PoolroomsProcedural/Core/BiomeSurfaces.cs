@@ -1,13 +1,14 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
         {
             switch(environment)
             {
+                case LiminalEnvironment.City11:return SurfaceTheme.CityFacade;
                 case LiminalEnvironment.SoftPlay:return SurfaceTheme.SoftPlay;
                 case LiminalEnvironment.IndoorPlay:return SurfaceTheme.IndoorPlay;
                 case LiminalEnvironment.Supermarket:return SurfaceTheme.Supermarket;
@@ -30,6 +31,8 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(theme==SurfaceTheme.CityStreet)return slot==Surface.Tile?"DustyStone":"Paint";
+            if(theme==SurfaceTheme.CityFacade)return slot==Surface.Tile?"DustyStone":slot==Surface.Plaster?"Paint":slot==Surface.Accent?"Wood":slot==Surface.Metal?"Steel":slot==Surface.Glow?null:"RetailVinyl";
             if(theme==SurfaceTheme.SoftPlayFloor)return "PlayFinishFloor";
             if(theme==SurfaceTheme.SoftPlayNet)return "PlayFinishNet";
             if(theme==SurfaceTheme.SoftPlayFinish)return slot==Surface.Glow?null:slot==Surface.Plaster?"PlayFinishWall":slot==Surface.Tile?"PlayFinishGreen":slot==Surface.Accent?"PlayFinishYellow":slot==Surface.Slide?"PlayFinishRed":"PlayFinishBlue";

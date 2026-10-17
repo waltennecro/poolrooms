@@ -1,0 +1,46 @@
+{
+  "id": "BoomBox",
+  "resource": "City11/Models/BoomBox",
+  "minimum": [
+    -0.009921154007315636,
+    -0.00977163016796112,
+    -0.010076245293021202
+  ],
+  "maximum": [
+    0.009921154007315636,
+    0.00977163016796112,
+    0.010076245293021202
+  ],
+  "triangles": 6036,
+  "materials": [
+    {
+      "name": "BoomBox_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "City11/Textures/BoomBox_m0_albedo",
+      "normal": "City11/Textures/BoomBox_m0_normal",
+      "emissive": "City11/Textures/BoomBox_m0_emissive",
+      "mask": "City11/Textures/BoomBox_m0_mask"
+    }
+  ],
+  "lods": [],
+  "sourceSha256": "f8b918445ebdd006768232205a62f5182d2208ca57f84c6ccc084943c0bc8f15",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review"
+}

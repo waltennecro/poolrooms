@@ -20,6 +20,8 @@ python tools/package_assets.py --stage R1 --output /tmp/Poolrooms_R1_Desde_v39.z
 
 La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.
 
+R4 añade la integración inicial de City11 y un primer coche. Consulta [sus funciones y límites](Assets/PoolroomsProcedural/Documentation/CITY11_RECONSTRUCCION_R4.md): cuatro fuentes CC0 verificadas no equivalen a 35 modelos de vehículos ni a todos los recursos urbanos solicitados. Se conservan las funciones R1–R3.
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.

@@ -1,0 +1,62 @@
+{
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/WaterBottle_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/WaterBottle/metadata.json",
+    "bytes": 645,
+    "sha256": "f7d3aa4783d4e81f135855e0ece0b45bf4e529dca5ba60b3878d3115c2773a35"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/WaterBottle_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/WaterBottle/LICENSE.md",
+    "bytes": 774,
+    "sha256": "33cddcace3d46b3dec14275eff753c5879d5c55462a1bdce7981db4a5adb9a6b"
+  },
+  "Sources/City11/WaterBottle.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/WaterBottle/glTF-Binary/WaterBottle.glb",
+    "bytes": 8966700,
+    "sha256": "b337e526fd6a162013c2984aeec163f5fbb4f717252724dfc3f3458bd51df94b"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/Lantern_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/Lantern/metadata.json",
+    "bytes": 1006,
+    "sha256": "89f9dfb00347fbfd36ef4592d32d8493abb74ba000cd7c620e491bfc264a81ad"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/Lantern_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/Lantern/LICENSE.md",
+    "bytes": 911,
+    "sha256": "59fcd6131454dd17312ff9671094bfe9139f3b301d0c3e3b1a5a7e4ee1b0c75a"
+  },
+  "Sources/City11/Lantern.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/Lantern/glTF-Binary/Lantern.glb",
+    "bytes": 9564264,
+    "sha256": "a79458c4b02d695187a952f23a63b8bf278e7bc3d316a3c2a314f2d6974181f1"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/BoomBox_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/BoomBox/metadata.json",
+    "bytes": 655,
+    "sha256": "6fdf2571e662907ba51b35ca303d616baca22ae5f8e689bfd2110ef06329236a"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/BoomBox_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/BoomBox/LICENSE.md",
+    "bytes": 770,
+    "sha256": "0fbb151acb88aadda72f05c54c05429bfae2c8af0b0f1ddc0c636be3a55da4c0"
+  },
+  "Sources/City11/BoomBox.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/BoomBox/glTF-Binary/BoomBox.glb",
+    "bytes": 10614184,
+    "sha256": "f8b918445ebdd006768232205a62f5182d2208ca57f84c6ccc084943c0bc8f15"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/ToyCar_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar/metadata.json",
+    "bytes": 1070,
+    "sha256": "4ccccf4f019521aea50d462a8b20b876478aca456ab6adde17cd8e4a53110b73"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/ToyCar_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar/LICENSE.md",
+    "bytes": 911,
+    "sha256": "6e7c41dba03a561a67197a5aba92219bcc462806d69d13d8aba1c0ccbe183253"
+  },
+  "Sources/City11/ToyCar.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar/glTF-Binary/ToyCar.glb",
+    "bytes": 5422412,
+    "sha256": "01a60862de55cd4b9f3acfab0b0def86451800f9c42467fcd61052c16cb9838c"
+  }
+}

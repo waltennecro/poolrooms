@@ -35,6 +35,11 @@ namespace Poolrooms
         private readonly ExplorerDash dash=new ExplorerDash();
         private bool dashPressed;
         public bool IsDashing { get { return dash.Active; } }
+        public PoolroomsCityVehicle Vehicle {get;private set;}
+        public bool BeginDriving(PoolroomsCityVehicle vehicle)
+        {if(Vehicle!=null||vehicle==null||IsPaused||InputCaptured)return false;Vehicle=vehicle;dash.Cancel();if(slide!=null)slide.Stop(true);locomotion.Suspend();body.enabled=false;ClearViewMotion();return true;}
+        public void EndDriving(PoolroomsCityVehicle vehicle,Vector3 feet)
+        {if(Vehicle!=vehicle)return;Vehicle=null;if(body==null)return;body.enabled=true;Teleport(feet);}
         public int DashCharges { get { return dash.Charges; } }
         public void FeedDashInput(bool pressed){dashPressed=pressed;}
         public int RemainingJumps { get { return locomotion.RemainingJumps; } }
@@ -125,6 +130,7 @@ namespace Poolrooms
         }
         public void Teleport(Vector3 position)
         {
+            if(Vehicle!=null){var car=Vehicle;Vehicle=null;car.DetachDriver(this);body.enabled=true;}
             dash.Reset();dashPressed=false;
             if(body==null)body=GetComponent<CharacterController>();
             bool enabled=body.enabled;body.enabled=false;transform.position=position;
@@ -145,6 +151,7 @@ namespace Poolrooms
         public void FeedRenderingShortcut(bool pressed){renderingShortcut=pressed;}
         public void ResetMotionForMasterMode(bool repairGround=false)
         {
+            if(Vehicle!=null){var car=Vehicle;Vehicle=null;car.DetachDriver(this);body.enabled=true;repairGround=true;}
             dash.Cancel();dashPressed=false;
             ClearViewMotion();if(slide!=null)slide.Stop(true);slideHeld=false;locomotion.Reset();checkSupport=repairGround;waterContacts.Reset();jump=false;sprintPreference.Reset();
             var sound=ambientAudio!=null?ambientAudio:GetComponent<PoolroomsAmbientAudio>();if(sound!=null)sound.ResetMotion();
@@ -188,7 +195,7 @@ namespace Poolrooms
             bool burst=dashPressed;dashPressed=false;
             bool sprintRequested=sprintPreference.Sample(sprint,toggleSprint,blocked||Cursor.lockState!=CursorLockMode.Locked||world!=null&&!world.ViewerReady);
             bool grab=grabPressed,drop=dropPressed;grabPressed=dropPressed=false;
-            if(blocked){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
+            if(blocked){if(Vehicle!=null)Vehicle.Control(0,0,true);dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             if(world!=null&&!world.ViewerReady&&(waitForDestination||masterMode==null||!masterMode.Noclip))
             {
                 // Also pause after a teleport to an unloaded room, not only at the initial spawn.
@@ -196,7 +203,8 @@ namespace Poolrooms
             }
             waitForDestination=false;ready=true;
             if(Cursor.lockState!=CursorLockMode.Locked){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
-            if(carry!=null&&carry.isActiveAndEnabled){if(drop)carry.Drop();else if(grab)carry.Interact();}
+            if(Vehicle!=null){if(grab)Vehicle.TryExit();}
+            else if(carry!=null&&carry.isActiveAndEnabled){if(drop)carry.Drop();else if(grab)carry.Interact();}
             if(world!=null&&!world.ViewerReady&&(waitForDestination||masterMode==null||!masterMode.Noclip)){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             float previousPitch=pitch;
             transform.Rotate(0,look.x*lookSensitivity,0);
@@ -212,6 +220,7 @@ namespace Poolrooms
                 else if(body.enabled)body.Move(velocity*Time.deltaTime);
                 ClearViewMotion();locomotion.Reset();waterContacts.Reset();jump=false;return;
             }
+            if(Vehicle!=null){Vehicle.Control(move.x,move.y,slideHeld);dash.Cancel();jump=false;return;}
             if(!body.enabled){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             if(checkSupport){checkSupport=false;RepairEmbeddedFeet();}
             float frameTime=ExplorerLocomotion.FrameTime(Time.deltaTime);
@@ -282,6 +291,7 @@ namespace Poolrooms
         }
         private void OnDisable()
         {
+            if(Vehicle!=null){var car=Vehicle;Vehicle=null;car.DetachDriver(this);if(body!=null)body.enabled=true;checkSupport=true;}
             dash.Cancel();dashPressed=false;
             if(slide!=null)slide.Stop(true);slideHeld=false;ClearViewMotion();
             if(pauseMenu!=null)pauseMenu.ReleasePause();

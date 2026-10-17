@@ -59,6 +59,7 @@ namespace Poolrooms.Core
         }
         public static void Apply(RoomGeometry geometry,Room room,LayoutConfig c)
         {
+            if(room.Plan!=null&&room.Plan.City!=null)return;
             if(room.Plan!=null&&room.Plan.SoftPlay!=null)return;
             if(room.Plan!=null&&room.Plan.Solar!=null)return; // SolarAtlas authors lamp and sunlight powers separately.
             if(c.Lighting==LightingDistribution.Classic)return;

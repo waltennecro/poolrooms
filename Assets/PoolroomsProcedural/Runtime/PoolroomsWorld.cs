@@ -338,6 +338,7 @@ namespace Poolrooms
             MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
             if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
+            MeshFactory.Create("Glazing",data.Glass,go.transform,profile,chunk,false);
             for(int i=0;i<data.VisualMeshes.Count;i++)MeshFactory.Create("Biome finish "+i,data.VisualMeshes[i],go.transform,profile,chunk,false);
             var water=MeshFactory.Create("Water footprint",data.Water,go.transform,profile,chunk,false,true);
             chunk.water=water!=null?water.GetComponent<MeshRenderer>():null;
@@ -364,6 +365,18 @@ namespace Poolrooms
         }
         private void AttachRoomExtras(Room r,Transform parent)
         {
+            if(Application.isPlaying&&r.Plan!=null&&r.Plan.City!=null)
+            {
+                var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
+                for(int i=0;i<r.Plan.City.Props.Length;i++)
+                {
+                    var prop=r.Plan.City.Props[i];string key="city11:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;
+                    if(carry==null||!carry.WasTaken(key))PoolroomsPickup.CreateSource(key,prop.Source==0?"WaterBottle":"BoomBox",new Vector3(prop.Position.X,prop.Position.Y,prop.Position.Z),parent,prop.Source==0?.28f:.4f);
+                }
+                string carKey="city11-car:"+layout.Config.Seed+":"+r.X+":"+r.Z;
+                if(LiminalRegions.Hash(layout.Config.Seed,r.X,r.Z,0x1100CAu)%9==0&&(carry==null||!carry.WasTaken(carKey)))
+                    PoolroomsCityVehicle.Create(this,parent,new Vector3(1.75f,0,-r.Depth*.29f),carKey);
+            }
             if(Application.isPlaying&&r.Plan!=null&&r.Plan.SoftPlay!=null)
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;
@@ -587,16 +600,14 @@ namespace Poolrooms
             }
             Vector2Int focus=NavigationFocus();int x,z;
             if(!LiminalRegions.Find(layout.Config,environment,focus.x,focus.y,out x,out z))return false;
-            ConnectedMallSite occupiedMall;
-            if(ConnectedTerrainTopology.Reserved(layout.Config,x,z)||environment==LiminalEnvironment.SoftPlay&&
-                (ConnectedMallTopology.At(layout.Config,x,z,out occupiedMall)||layout.At(x,z).Environment!=environment))
+            if(ConnectedTerrainTopology.Reserved(layout.Config,x,z)||layout.At(x,z).Environment!=environment)
             {
                 bool found=false;
                 for(int ring=1;ring<=96&&!found;ring++)for(int dz=-ring;dz<=ring&&!found;dz++)for(int dx=-ring;dx<=ring;dx++)
                 {if(Math.Max(Math.Abs(dx),Math.Abs(dz))!=ring)continue;long ax=(long)focus.x+dx,az=(long)focus.y+dz;
                     if(ax<int.MinValue||ax>int.MaxValue||az<int.MinValue||az>int.MaxValue)continue;int nx=(int)ax,nz=(int)az;
                     if(!ConnectedTerrainTopology.Reserved(layout.Config,nx,nz)&&LiminalRegions.At(layout.Config,nx,nz)==environment&&
-                        (environment!=LiminalEnvironment.SoftPlay||!ConnectedMallTopology.At(layout.Config,nx,nz,out occupiedMall)&&layout.At(nx,nz).Environment==environment)){x=nx;z=nz;found=true;break;}}
+                        layout.At(nx,nz).Environment==environment){x=nx;z=nz;found=true;break;}}
                 if(!found)return false;
             }
             Visit(RoomWorldPosition(layout.At(x,z))+Vector3.up*.1f);return true;

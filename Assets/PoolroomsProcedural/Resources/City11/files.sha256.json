@@ -1,0 +1,174 @@
+{
+  "BoomBox.json": {
+    "bytes": 1144,
+    "sha256": "7942e8252b1a0c2b6f3ad3d4a04a5e77f1a37a408b9b1c90657101bc20bc4ca8"
+  },
+  "Lantern.json": {
+    "bytes": 1133,
+    "sha256": "0d29106199296ec39ad5ca183d89a54d46ffe8008dfcb8a2c8ed0db605dd582b"
+  },
+  "Licenses/BoomBox_LICENSE.md": {
+    "bytes": 770,
+    "sha256": "0fbb151acb88aadda72f05c54c05429bfae2c8af0b0f1ddc0c636be3a55da4c0"
+  },
+  "Licenses/BoomBox_metadata.json": {
+    "bytes": 655,
+    "sha256": "6fdf2571e662907ba51b35ca303d616baca22ae5f8e689bfd2110ef06329236a"
+  },
+  "Licenses/Lantern_LICENSE.md": {
+    "bytes": 911,
+    "sha256": "59fcd6131454dd17312ff9671094bfe9139f3b301d0c3e3b1a5a7e4ee1b0c75a"
+  },
+  "Licenses/Lantern_metadata.json": {
+    "bytes": 1006,
+    "sha256": "89f9dfb00347fbfd36ef4592d32d8493abb74ba000cd7c620e491bfc264a81ad"
+  },
+  "Licenses/ToyCar_LICENSE.md": {
+    "bytes": 911,
+    "sha256": "6e7c41dba03a561a67197a5aba92219bcc462806d69d13d8aba1c0ccbe183253"
+  },
+  "Licenses/ToyCar_metadata.json": {
+    "bytes": 1070,
+    "sha256": "4ccccf4f019521aea50d462a8b20b876478aca456ab6adde17cd8e4a53110b73"
+  },
+  "Licenses/WaterBottle_LICENSE.md": {
+    "bytes": 774,
+    "sha256": "33cddcace3d46b3dec14275eff753c5879d5c55462a1bdce7981db4a5adb9a6b"
+  },
+  "Licenses/WaterBottle_metadata.json": {
+    "bytes": 645,
+    "sha256": "f7d3aa4783d4e81f135855e0ece0b45bf4e529dca5ba60b3878d3115c2773a35"
+  },
+  "Models/BoomBox.mtl": {
+    "bytes": 27,
+    "sha256": "c0ab083d3b0fa525850d5ca3a99da0e4bc191e76961a2c9fe3fbb94c1f28e863"
+  },
+  "Models/BoomBox.obj": {
+    "bytes": 641641,
+    "sha256": "808be8630c7a948858f1ef4390485de1266bdd30ffd57c00a2e75037952afd75"
+  },
+  "Models/Lantern.mtl": {
+    "bytes": 27,
+    "sha256": "2c3022bc3f48f04fc700fa075a7b473348a7aa81c48d3a591d2b4ea7071e7aaa"
+  },
+  "Models/Lantern.obj": {
+    "bytes": 637992,
+    "sha256": "fae2d4611e648d5f68625746305b2bafce6c0bb98047ffa18f9e7bb784262cc7"
+  },
+  "Models/ToyCar.mtl": {
+    "bytes": 93,
+    "sha256": "b00c8fbd476dfe193eb3f026ede0840998cbe896c4d0cfd5839a4f676f9a3cb7"
+  },
+  "Models/ToyCar.obj": {
+    "bytes": 11976211,
+    "sha256": "41bf4e61f6e24d343609a8842a2bc2de0e961f709b51c28ff4484b4206d15964"
+  },
+  "Models/ToyCar_LOD1.obj": {
+    "bytes": 2160160,
+    "sha256": "7c35fc05a6b53d04254915367fc85abebeb3edf68fde4744669a61b74a909b81"
+  },
+  "Models/ToyCar_LOD2.obj": {
+    "bytes": 585285,
+    "sha256": "19438980eb9e022fe9ad1d1e0b6b53aaa1df9daace0ada37377edc085c3b160c"
+  },
+  "Models/WaterBottle.mtl": {
+    "bytes": 31,
+    "sha256": "95c5b7bc1ebacce4d37475eb9312abd6fce96a194fb9a283e3e3b10fb502da49"
+  },
+  "Models/WaterBottle.obj": {
+    "bytes": 454059,
+    "sha256": "3f3ca533178b7218e5c3b69560e223d6e71a7e9bbdd2c92cb1e06372576e936d"
+  },
+  "Textures/BoomBox_m0_albedo.png": {
+    "bytes": 2842887,
+    "sha256": "b67cf369f753161b2765d4ba985db15880a0a15b93c9922e3f66816810adbc7a"
+  },
+  "Textures/BoomBox_m0_emissive.png": {
+    "bytes": 85017,
+    "sha256": "231ddfbb8bb741002698a1bd2d65dc7a544400c023b7c273d7f90f70e8a21aa9"
+  },
+  "Textures/BoomBox_m0_mask.png": {
+    "bytes": 3980620,
+    "sha256": "54eba45660316cc4ad85624b67ad260945444677b294ef416f52102c91dba523"
+  },
+  "Textures/BoomBox_m0_normal.png": {
+    "bytes": 2337164,
+    "sha256": "c4171c15f792f37840bf3d8454f215cb49e4ed260278b25276b8f40a3f5fb829"
+  },
+  "Textures/Lantern_m0_albedo.png": {
+    "bytes": 4341104,
+    "sha256": "7eb91547d07d22af9acce1a36bdad7533fa672b78d52bc2d9404041e36829b30"
+  },
+  "Textures/Lantern_m0_emissive.png": {
+    "bytes": 120848,
+    "sha256": "d885f725141683844c0d815ec44be876c2c10a32433a0b955b7c266ae898b685"
+  },
+  "Textures/Lantern_m0_mask.png": {
+    "bytes": 1830301,
+    "sha256": "2398555842deec7cc2c40ca4051b4179934bde93cc29bc23941e1d62d65aa781"
+  },
+  "Textures/Lantern_m0_normal.png": {
+    "bytes": 2859904,
+    "sha256": "054e8cf05dee8e218c18a358624e8682cc60b36ac0d3b6f269438d98ebb296ce"
+  },
+  "Textures/ToyCar_m0_albedo.png": {
+    "bytes": 266866,
+    "sha256": "8731197f4a02774e6e6ea42240552f4158cdf250bf6fc19ad03ee74d9229a8da"
+  },
+  "Textures/ToyCar_m0_emissive.png": {
+    "bytes": 110701,
+    "sha256": "bcabfd0e84de08a2df6b7b880d304d1d6f111db813c480422c8e38be6b567bc0"
+  },
+  "Textures/ToyCar_m0_mask.png": {
+    "bytes": 575802,
+    "sha256": "3a957d335d2ecdd1a38dc200d98f8a9622a86fc81b96b05e7a05287e93f63c89"
+  },
+  "Textures/ToyCar_m0_normal.png": {
+    "bytes": 122309,
+    "sha256": "a5e64c618df262cbc385439c523bb7fd1be402cbabd3212dac74590c661f245d"
+  },
+  "Textures/ToyCar_m1_albedo.png": {
+    "bytes": 559445,
+    "sha256": "1cdc604c5a1e34e86df55c8ebd7fa67579ff466f6f00c22e11ca5348c3947b7a"
+  },
+  "Textures/ToyCar_m1_mask.png": {
+    "bytes": 326238,
+    "sha256": "0b572b9bea0d09d6c5ce9a64cf1540eccddf4ee6b367ff2003669b5069ca591b"
+  },
+  "Textures/ToyCar_m1_normal.png": {
+    "bytes": 475803,
+    "sha256": "f570c1b0fd237a2911762f3ee286d648b712968087758815be0616f8123a8acb"
+  },
+  "Textures/ToyCar_m2_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/WaterBottle_m0_albedo.png": {
+    "bytes": 1948564,
+    "sha256": "3911a839cd8e09849e0fc80e702deb89918ec3f452318880666341e0d3c69000"
+  },
+  "Textures/WaterBottle_m0_emissive.png": {
+    "bytes": 25394,
+    "sha256": "95af5a9a8ce16d8f4fef9eb388dd8359dde34d6eb90734661940bd43f30ae9ec"
+  },
+  "Textures/WaterBottle_m0_mask.png": {
+    "bytes": 3103754,
+    "sha256": "ba81b3ad330f564ae083a33f926565f58448ebb0a89669186e93c145b0ff5d57"
+  },
+  "Textures/WaterBottle_m0_normal.png": {
+    "bytes": 2712573,
+    "sha256": "c6a09ea4509940b68fe8649be30d8c22ba30567e69cb80b23e6180cb6420dbe9"
+  },
+  "ToyCar.json": {
+    "bytes": 2274,
+    "sha256": "d7286db99c7690746f79b0c659e8a98f2c844529ab5c3029ac8f3bd5565d4371"
+  },
+  "WaterBottle.json": {
+    "bytes": 1170,
+    "sha256": "b8bc34ef6b9516512a280da08812f1778845c0e6c6d692d53a7e680335406201"
+  },
+  "catalog.json": {
+    "bytes": 8027,
+    "sha256": "1c4f0176a0b5e5a587ae86ba572e478a4f96a55ff53ba46a0eb8f01e7336d23f"
+  }
+}

@@ -4,24 +4,85 @@
   "inventory": "RECONSTRUCCION.md",
   "unityEditorAvailable": false,
   "stages": [
-    {"id":"R1","feature":"SoftPlay PBR finishes","status":"implemented_native_validation_pending","commit":"709436f","packageFiles":347},
-    {"id":"R2","feature":"Ultra graphics, dash and pickup physics","status":"implemented_native_validation_pending","commit":"dd85ec1","packageFiles":351},
-    {"id":"R3","feature":"Compact Level 94 neighborhoods and dense bounded grass","status":"implemented_native_validation_pending","commit":"f2a201f","packageFiles":351}
+    {
+      "id": "R1",
+      "feature": "SoftPlay PBR finishes",
+      "status": "implemented_native_validation_pending",
+      "commit": "709436f",
+      "packageFiles": 347
+    },
+    {
+      "id": "R2",
+      "feature": "Ultra graphics, dash and pickup physics",
+      "status": "implemented_native_validation_pending",
+      "commit": "dd85ec1",
+      "packageFiles": 351
+    },
+    {
+      "id": "R3",
+      "feature": "Compact Level 94 neighborhoods and dense bounded grass",
+      "status": "implemented_native_validation_pending",
+      "commit": "f2a201f",
+      "packageFiles": 351
+    },
+    {
+      "id": "R4",
+      "feature": "Initial integrated City11, licensed source adaptation and first ground vehicle",
+      "status": "partial_implementation_native_validation_pending",
+      "commit": "see_git_history"
+    }
   ],
   "latestCoreChecks": {
-    "assertions":9847565,
-    "protectedSoftPlayGeometries":108,
-    "unchangedOtherBiomeSamples":80,
-    "syntaxScripts":168,
-    "syntaxConfigurations":4,
-    "pbrMapsVerified":21
+    "assertions": 11731000,
+    "protectedSoftPlayGeometries": 108,
+    "unchangedOtherBiomeSamples": 80,
+    "syntaxScripts": 174,
+    "syntaxConfigurations": 4,
+    "pbrMapsVerified": 21,
+    "citySourcesAudited": 4
   },
   "pending": [
-    {"id":"city11","feature":"Licensed urban models, procedural districts, furnished accessible buildings, interactable objects and 35 vehicles","status":"not_implemented"},
-    {"id":"global_decoration","feature":"Broader catalogues and realistic decoration across all existing regions","status":"not_implemented"},
-    {"id":"three_levels","feature":"Archive 906, courtyard 188, coast 48 and natural new transitions; inactive future sockets in existing zones","status":"preparation_only"},
-    {"id":"native_validation","feature":"Unity 6.3/HDRP 17.3 compilation, shaders, PlayMode, visuals, memory and FPS","status":"requires_unity_editor"}
+    {
+      "id": "city11",
+      "feature": "Licensed urban models, procedural districts, furnished accessible buildings, interactable objects and 35 vehicles",
+      "status": "partial_city_and_one_vehicle_class_implemented",
+      "remaining": "More external architectural/furniture models, other vehicle classes including helicopter/airplane, urban refinement and native validation"
+    },
+    {
+      "id": "global_decoration",
+      "feature": "Broader catalogues and realistic decoration across all existing regions",
+      "status": "not_implemented"
+    },
+    {
+      "id": "three_levels",
+      "feature": "Archive 906, courtyard 188, coast 48 and natural new transitions; inactive future sockets in existing zones",
+      "status": "preparation_only"
+    },
+    {
+      "id": "native_validation",
+      "feature": "Unity 6.3/HDRP 17.3 compilation, shaders, PlayMode, visuals, memory and FPS",
+      "status": "requires_unity_editor"
+    }
   ],
-  "nextIndependentWork":"Rebuild the licensed City11 source catalogue and its procedural region while preserving R1-R3. Existing model files in Preparacion_V48 remain source assets, not game integration.",
-  "backupPolicy":"Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete."
+  "nextIndependentWork": "Broader licensed city/vehicle sources and global decoration; integrate the three prepared levels with new natural transitions. R4 is not full recovery of v47.",
+  "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
+  "sourceModelCounts": {
+    "distinctDownloadedCitySources": 4,
+    "propSources": 3,
+    "vehicleSources": 1,
+    "placedPropSourceTypes": 2,
+    "placedVehicleSourceTypes": 1,
+    "carLODDerivatives": 2,
+    "carColourVariants": 1,
+    "downloadedBuildingModels": 0,
+    "downloadedFurnitureModels": 0
+  },
+  "ciSdkFix": {
+    "commit": "0444bd9",
+    "run": "38999993092",
+    "status": "success",
+    "artifactId": "12088831812",
+    "artifactPublished": true,
+    "artifactDownloadTested": false
+  }
 }

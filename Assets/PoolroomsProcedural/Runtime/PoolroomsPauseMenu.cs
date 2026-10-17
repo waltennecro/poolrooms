@@ -334,6 +334,7 @@ namespace Poolrooms
             Toggle("Deslizamiento rápido","Mantén Ctrl izquierdo. Puedes saltar conservando impulso; no consume energía.",Prefs.allowSlide,v=>Prefs.allowSlide=v,SettingsChange.Controls);
             Slider("Velocidad de deslizamiento","Más rápido que correr. Las paredes y los sectores sin cargar siguen bloqueando el paso.",ExplorerSlide.MinSpeed,ExplorerSlide.MaxSpeed,Prefs.slideSpeed,v=>Prefs.slideSpeed=v,SettingsChange.Controls," m/s");
             Note("WASD  ·  Caminar     Ratón  ·  Mirar     | / tecla junto a Z  ·  Correr\nShift  ·  Dash     Ctrl izquierdo  ·  Deslizarse\nEspacio  ·  Saltar / Doble salto     Esc  ·  Pausa     Y  ·  Chat\nF  ·  Linterna     V  ·  Intensidad     E  ·  Agarrar / Entrar\nQ  ·  Soltar objeto     M  ·  Administrador, si está desbloqueado");
+            Note("Coche: E entrar / salir · WASD conducir · Ctrl frenar. Detente y deja libre un lateral para salir.");
             var torch=explorer.Flashlight;
             if(torch==null)return;
             Toggle("Linterna encendida","También puedes usar F durante la exploración.",torch.IsOn,v=>torch.SetOn(v),SettingsChange.None);

@@ -1,0 +1,276 @@
+{
+  "distinctSourceModels": 4,
+  "colourVariantsCountAsModels": false,
+  "nativeUnityValidated": false,
+  "models": [
+    {
+      "id": "WaterBottle",
+      "resource": "City11/Models/WaterBottle",
+      "minimum": [
+        -0.054450009018182755,
+        -0.13022033870220184,
+        -0.05445002391934395
+      ],
+      "maximum": [
+        0.054450009018182755,
+        0.13022033870220184,
+        0.05445002391934395
+      ],
+      "triangles": 4510,
+      "materials": [
+        {
+          "name": "WaterBottle_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            1,
+            1,
+            1
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "City11/Textures/WaterBottle_m0_albedo",
+          "normal": "City11/Textures/WaterBottle_m0_normal",
+          "emissive": "City11/Textures/WaterBottle_m0_emissive",
+          "mask": "City11/Textures/WaterBottle_m0_mask"
+        }
+      ],
+      "lods": [],
+      "sourceSha256": "b337e526fd6a162013c2984aeec163f5fbb4f717252724dfc3f3458bd51df94b",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/WaterBottle/glTF-Binary/WaterBottle.glb",
+      "modelLicense": "CC0-1.0",
+      "metadataLicense": "CC-BY-4.0",
+      "authors": [
+        "Microsoft"
+      ]
+    },
+    {
+      "id": "Lantern",
+      "resource": "City11/Models/Lantern",
+      "minimum": [
+        -3.922445059866943,
+        0.18392054870605534,
+        -2.3157098293304443
+      ],
+      "maximum": [
+        11.568753479866944,
+        25.848139451293946,
+        2.3157098293304443
+      ],
+      "triangles": 5394,
+      "materials": [
+        {
+          "name": "Lantern_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            1,
+            1,
+            1
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "City11/Textures/Lantern_m0_albedo",
+          "normal": "City11/Textures/Lantern_m0_normal",
+          "emissive": "City11/Textures/Lantern_m0_emissive",
+          "mask": "City11/Textures/Lantern_m0_mask"
+        }
+      ],
+      "lods": [],
+      "sourceSha256": "a79458c4b02d695187a952f23a63b8bf278e7bc3d316a3c2a314f2d6974181f1",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/Lantern/glTF-Binary/Lantern.glb",
+      "modelLicense": "CC0-1.0",
+      "metadataLicense": "CC-BY-4.0",
+      "authors": [
+        "sbtron",
+        "Frank Galligan"
+      ]
+    },
+    {
+      "id": "BoomBox",
+      "resource": "City11/Models/BoomBox",
+      "minimum": [
+        -0.009921154007315636,
+        -0.00977163016796112,
+        -0.010076245293021202
+      ],
+      "maximum": [
+        0.009921154007315636,
+        0.00977163016796112,
+        0.010076245293021202
+      ],
+      "triangles": 6036,
+      "materials": [
+        {
+          "name": "BoomBox_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            1,
+            1,
+            1
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "City11/Textures/BoomBox_m0_albedo",
+          "normal": "City11/Textures/BoomBox_m0_normal",
+          "emissive": "City11/Textures/BoomBox_m0_emissive",
+          "mask": "City11/Textures/BoomBox_m0_mask"
+        }
+      ],
+      "lods": [],
+      "sourceSha256": "f8b918445ebdd006768232205a62f5182d2208ca57f84c6ccc084943c0bc8f15",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/BoomBox/glTF-Binary/BoomBox.glb",
+      "modelLicense": "CC0-1.0",
+      "metadataLicense": "CC-BY-4.0",
+      "authors": [
+        "Microsoft"
+      ]
+    },
+    {
+      "id": "ToyCar",
+      "resource": "City11/Models/ToyCar",
+      "minimum": [
+        -0.0093740285720714,
+        0.0009924232129170803,
+        -0.019404905062565814
+      ],
+      "maximum": [
+        0.0093688622185585,
+        0.012616623116645067,
+        0.01897524068701338
+      ],
+      "triangles": 91331,
+      "materials": [
+        {
+          "name": "ToyCar_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            1,
+            1,
+            1
+          ],
+          "extensions": [
+            "KHR_materials_clearcoat"
+          ],
+          "transparent": false,
+          "doubleSided": true,
+          "albedo": "City11/Textures/ToyCar_m0_albedo",
+          "normal": "City11/Textures/ToyCar_m0_normal",
+          "emissive": "City11/Textures/ToyCar_m0_emissive",
+          "mask": "City11/Textures/ToyCar_m0_mask"
+        },
+        {
+          "name": "ToyCar_m1",
+          "colour": [
+            0.15,
+            0.15,
+            0.15,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_sheen"
+          ],
+          "transparent": false,
+          "doubleSided": true,
+          "albedo": "City11/Textures/ToyCar_m1_albedo",
+          "normal": "City11/Textures/ToyCar_m1_normal",
+          "mask": "City11/Textures/ToyCar_m1_mask"
+        },
+        {
+          "name": "ToyCar_m2",
+          "colour": [
+            0.3,
+            0.8,
+            0.3,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_transmission"
+          ],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "City11/Textures/ToyCar_m2_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "City11/Models/ToyCar_LOD1",
+          "triangles": 14988
+        },
+        {
+          "resource": "City11/Models/ToyCar_LOD2",
+          "triangles": 3319
+        }
+      ],
+      "sourceSha256": "01a60862de55cd4b9f3acfab0b0def86451800f9c42467fcd61052c16cb9838c",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": true,
+      "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar/glTF-Binary/ToyCar.glb",
+      "modelLicense": "CC0-1.0",
+      "metadataLicense": "CC-BY-4.0",
+      "authors": [
+        "Guido Odendahl",
+        "Eric Chadwick"
+      ]
+    }
+  ]
+}

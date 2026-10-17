@@ -15,6 +15,14 @@ namespace Poolrooms
         private PhysicsMaterial contactMaterial;
         public int CatalogId { get; private set; }=-1;
         public float CarryRadius { get; private set; }=.27f;
+        public static PoolroomsPickup CreateSource(string key,string source,Vector3 bottom,Transform parent,float longest)
+        {
+            var go=City11Sources.Create(source,parent,bottom,longest,out var size);if(go==null)return null;
+            go.transform.localPosition=bottom+Vector3.up*(size.y*.5f);
+            var collider=go.AddComponent<BoxCollider>();collider.size=size;
+            var item=go.AddComponent<PoolroomsPickup>();item.shape=collider;item.SpawnKey=key;item.surface=PickupSurface.Rigid;
+            item.mass=source=="WaterBottle"?.45f:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
+        }
         public static PoolroomsPickup Create(string key,Vector3 position,Transform parent,PoolroomsProfile profile)
         {
             var go=new GameObject("Bolsa de papas · E agarrar / Q soltar");go.transform.SetParent(parent,false);go.transform.localPosition=position;

@@ -9,6 +9,7 @@ namespace Poolrooms.Core
     {
         public static RoomGeometry Build(Room room,LayoutConfig c)
         {
+            if(room.Plan!=null&&room.Plan.City!=null)return City11Architecture.Build(room,c);
             if(room.Plan!=null&&room.Plan.SoftPlay!=null)return SoftPlayArchitecture.Build(room,c);
             if(room.Plan!=null&&room.Plan.Solar!=null)return SolarArchitecture.Build(room,c);
             if(room.Plan!=null&&room.Plan.Interior!=null)return InteriorArchitecture.Build(room,c);

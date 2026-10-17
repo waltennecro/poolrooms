@@ -56,6 +56,8 @@ namespace Poolrooms.Core
         // Opt-in: old seeds remain byte-compatible until the profile is upgraded.
         public bool AutonomousGeneration;
         public bool EnableSoftPlay;
+        public bool EnableCity11;
+        public float City11Share=.15f;
         public float SoftPlayShare=.18f;
         public int Seed = 481516, Columns = 5, Rows = 5;
         public bool Continuous;
@@ -87,6 +89,7 @@ namespace Poolrooms.Core
 
         public void Validate()
         {
+            if(!Finite(City11Share)||City11Share<0||City11Share>1)throw new ArgumentOutOfRangeException(nameof(City11Share));
             if(!Finite(CommonSolarShare)||CommonSolarShare<0||CommonSolarShare>1||CommonClimateRegionSize<2||CommonClimateRegionSize>24)throw new ArgumentOutOfRangeException("Common Poolrooms mix requires a share 0..1 and region size 2..24.");
             if(!Finite(ConnectedTerrainShare)||ConnectedTerrainShare<0||ConnectedTerrainShare>1)throw new ArgumentOutOfRangeException("Connected terrain density must be 0..1.");
             if(!Finite(ConnectedMallShare)||ConnectedMallShare<0||ConnectedMallShare>1)throw new ArgumentOutOfRangeException("Connected mall density must be 0..1.");
