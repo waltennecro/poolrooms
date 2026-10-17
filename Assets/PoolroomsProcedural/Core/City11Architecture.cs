@@ -29,7 +29,7 @@ namespace Poolrooms.Core
                 var edge=new MeshData();float span=room.Width;
                 if(room.HasExit(side))
                 {
-                    float h=c.DoorWidth*.5f;
+                    float h=CityStreets.OpeningWidth(room,side,c)*.5f;
                     edge.Box(new V3(-span*.5f,0,-.12f),new V3(-h,2.4f,.12f),Surface.Plaster);
                     edge.Box(new V3(h,0,-.12f),new V3(span*.5f,2.4f,.12f),Surface.Plaster);
                 }
@@ -115,7 +115,7 @@ namespace Poolrooms.Core
         public static CorridorGeometry Join(Room a,int direction,LayoutConfig c)
         {
             var o=new CorridorGeometry{Style=CorridorStyle.Straight};o.Structure.Theme=SurfaceTheme.CityStreet;
-            float half=c.DoorWidth*.5f,z=c.CellSize*.5f;
+            float half=CityStreets.OpeningWidth(a,direction,c)*.5f,z=c.CellSize*.5f;
             o.Structure.Box(new V3(-half,-.2f,z-.2f),new V3(half,-.002f,z+.2f),Surface.Tile);
             if(direction==1)o.Structure.TranslateRotate(new V3(),Shapes.Pi*.5f);return o;
         }

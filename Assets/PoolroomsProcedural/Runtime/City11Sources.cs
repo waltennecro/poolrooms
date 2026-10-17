@@ -10,7 +10,8 @@ namespace Poolrooms
     public static class City11Sources
     {
         [Serializable] public sealed class Definition
-        {public string id,resource;public float[] minimum,maximum;public MaterialDefinition[] materials;public LODDefinition[] lods;}
+        {public string id,resource;public float[] minimum,maximum;public MaterialDefinition[] materials;public LODDefinition[] lods;public WheelDefinition[] wheels;}
+        [Serializable] public sealed class WheelDefinition{public string part;public float[] center;public float radius;public bool front;}
         [Serializable] public sealed class LODDefinition{public string resource;public int triangles;}
         [Serializable] public sealed class MaterialDefinition
         {public string name,albedo,normal,emissive,mask;public float[] colour,emission;public float normalScale=1,metallic,roughness=.5f;public bool transparent,doubleSided;public string[] extensions;}

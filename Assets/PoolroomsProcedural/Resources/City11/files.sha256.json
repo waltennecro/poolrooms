@@ -84,16 +84,16 @@
     "sha256": "b00c8fbd476dfe193eb3f026ede0840998cbe896c4d0cfd5839a4f676f9a3cb7"
   },
   "Models/ToyCar.obj": {
-    "bytes": 11976211,
-    "sha256": "41bf4e61f6e24d343609a8842a2bc2de0e961f709b51c28ff4484b4206d15964"
+    "bytes": 11971573,
+    "sha256": "031a5c6ba1c5fb2c5ad9d2df86f962d5e7471fe1e0733d8c1a7304e085a9861a"
   },
   "Models/ToyCar_LOD1.obj": {
-    "bytes": 2160160,
-    "sha256": "7c35fc05a6b53d04254915367fc85abebeb3edf68fde4744669a61b74a909b81"
+    "bytes": 2165041,
+    "sha256": "4b905796053ba63acedc1b5b451073a3511a730e4f74c6daf76f01d975441923"
   },
   "Models/ToyCar_LOD2.obj": {
-    "bytes": 585285,
-    "sha256": "19438980eb9e022fe9ad1d1e0b6b53aaa1df9daace0ada37377edc085c3b160c"
+    "bytes": 585405,
+    "sha256": "6755535f9f35caa984ca3c4a74a9fe82c219d30dd874bc0bda566ccb778b8e00"
   },
   "Models/WaterBottle.mtl": {
     "bytes": 31,
@@ -220,15 +220,15 @@
     "sha256": "c6a09ea4509940b68fe8649be30d8c22ba30567e69cb80b23e6180cb6420dbe9"
   },
   "ToyCar.json": {
-    "bytes": 2290,
-    "sha256": "ed749dd9e1d4e67d371732b192db16cd575dc4c231ac576df33ea2ca43e570f2"
+    "bytes": 3329,
+    "sha256": "2533b59644fb7033fdda2deace114568119c6ce172533015c85b2d46f9aef469"
   },
   "WaterBottle.json": {
     "bytes": 1186,
     "sha256": "0b9749183a03fd3b0c11be4bae23104e2d9c7ff7b4a54f7414c0871c4ea442e8"
   },
   "catalog.json": {
-    "bytes": 13337,
-    "sha256": "f8d9fb934d715b12d5dc9e4214beb4d63e3df23ed67784a8bbe8feda0c9bd986"
+    "bytes": 14596,
+    "sha256": "2d1ca97e0c4304d7df706f210250e03a602d06a103456cc7cabdc2c361b2003c"
   }
 }

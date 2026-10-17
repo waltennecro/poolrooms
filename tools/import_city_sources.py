@@ -127,6 +127,10 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
         angle=-np.arctan2(direction[0],direction[1]);co,si=np.cos(angle),np.sin(angle)
         rotation=np.array([[co,0,si],[0,1,0],[-si,0,co]])
         entries=[(m,p@rotation.T,n@rotation.T,t,f) for m,p,n,t,f in entries]
+    wheels=[]
+    if name=='ToyCar':
+        from rig_city_car import split
+        entries,entry_names,wheels=split(entries);preserve_nodes=True
     all_positions=np.concatenate([e[1] for e in entries]);lo=all_positions.min(axis=0);hi=all_positions.max(axis=0)
     with (folder/(name+'.obj')).open('w') as f:
         header='# Adapted from verified CC0 glTF; see City11/Licenses' if source_license=='CC0-1.0' and resource_root=='City11' else f'# Adapted from licensed glTF ({source_license}); see {resource_root}/Licenses'
@@ -157,8 +161,9 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
             lod_name=name+'_LOD'+str(level);start=1
             with (folder/(lod_name+'.obj')).open('w') as f:
                 f.write(f'# LOD adapted from the same CC0 model, not a new source model\nmtllib {name}.mtl\n')
-                for material,positions,normals,uv,indices in groups:
-                    f.write(f'o {name}_m{material}\nusemtl {name}_m{material}\n')
+                for entry_index,(material,positions,normals,uv,indices) in enumerate(groups):
+                    part=(entry_names[entry_index].replace(' ','_')+'_') if preserve_nodes else ''
+                    f.write(f'o {name}_{part}m{material}\nusemtl {name}_m{material}\n')
                     for v in positions:f.write('v '+' '.join(f'{p:.8g}' for p in v)+'\n')
                     for v in uv:f.write('vt '+' '.join(f'{p:.8g}' for p in v)+'\n')
                     for v in normals:f.write('vn '+' '.join(f'{p:.8g}' for p in v)+'\n')
@@ -168,6 +173,7 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
     record={'id':name,'resource':resource_root+'/Models/'+name,'minimum':lo.tolist(),'maximum':hi.tolist(),'triangles':sum(len(e[4]) for e in entries),'materials':materials,'lods':lods,
             'uvBake':bake_report,'sourceSha256':hashlib.sha256(original_raw).hexdigest(),'upstreamRevision':UPSTREAM_REVISION,'presentationClothRemoved':name=='ToyCar','adaptation':'Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review'}
     if preserve_nodes:record['sourceNodeNames']=entry_names
+    if wheels:record['wheels']=wheels;record['forwardAxis']=[0,0,1]
     (dest/(name+'.json')).write_text(json.dumps(record,indent=2)+'\n');return record
 
 def main():

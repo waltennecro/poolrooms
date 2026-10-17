@@ -73,13 +73,19 @@
       "status": "partial_global_furniture_native_validation_pending",
       "commit": "030debcf8084e7525beb02d1e025bd00b7227480",
       "packageFiles": 502
+    },
+    {
+      "id": "R11",
+      "feature": "Animated native car wheels across all LODs, exterior obstacle-aware camera, pause/loading physics freeze and matching six-metre City11 street openings",
+      "status": "implemented_native_validation_pending",
+      "packageFiles": 505
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16939230,
+    "assertions": 16950397,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 190,
+    "syntaxScripts": 192,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 36,
     "citySourcesAudited": 5,
@@ -97,7 +103,10 @@
     "interiorSourceFilesAudited": 2,
     "interiorPngMapsAudited": 13,
     "sourceFurniturePlacementsChecked": 336,
-    "interiorArtRegenerationByteExact": true
+    "interiorArtRegenerationByteExact": true,
+    "cityStreetJoinsChecked": 687,
+    "cityBiomeBordersChecked": 63,
+    "carWheelLodsChecked": 3
   },
   "pending": [
     {
@@ -129,7 +138,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Broaden licensed urban architecture/decorative source families and remaining placement coverage in malls/Level94; refine city layout/vehicle variety. Unity API compilation, native traversal/flight, shaders, appearance, memory and FPS remain unverified.",
+  "nextIndependentWork": "Add bounded licensed source furniture placement to malls and Level94 houses; broaden licensed urban architecture/object families. Native car, aircraft, shader, traversal and FPS validation still requires Unity.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,

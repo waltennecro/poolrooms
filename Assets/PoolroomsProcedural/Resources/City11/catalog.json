@@ -268,6 +268,61 @@
       "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
       "presentationClothRemoved": true,
       "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review",
+      "sourceNodeNames": [
+        "Body",
+        "Wheel_RL",
+        "Wheel_RR",
+        "Wheel_FL",
+        "Wheel_FR",
+        "Body"
+      ],
+      "wheels": [
+        {
+          "part": "Wheel_RL",
+          "center": [
+            -0.00732572692245835,
+            0.0036209467473509085,
+            -0.010615526178995884
+          ],
+          "radius": 0.0026285222595960125,
+          "front": false
+        },
+        {
+          "part": "Wheel_RR",
+          "center": [
+            0.007323027482481311,
+            0.003621137768299635,
+            -0.010585003720844696
+          ],
+          "radius": 0.0026285223549635172,
+          "front": false
+        },
+        {
+          "part": "Wheel_FL",
+          "center": [
+            -0.00752952470147242,
+            0.0036209454725130933,
+            0.013341587014896062
+          ],
+          "radius": 0.0026285222595960125,
+          "front": true
+        },
+        {
+          "part": "Wheel_FR",
+          "center": [
+            0.007502260061487789,
+            0.003621136493462022,
+            0.013372925397986998
+          ],
+          "radius": 0.0026285223549635576,
+          "front": true
+        }
+      ],
+      "forwardAxis": [
+        0,
+        0,
+        1
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar/glTF-Binary/ToyCar.glb",
       "modelLicense": "CC0-1.0",
       "metadataLicense": "CC-BY-4.0",

@@ -52,6 +52,7 @@ static class Checks
         MovementAndQuality();
         CompactTerrain();
         CityGeneration();
+        CityStreetConnections();
         AirfieldsAndFlight();
         RotorFlight();
         SourceFurniturePlacement();
@@ -162,6 +163,41 @@ static class Checks
             if(LiminalRegions.Hash(city.Config.Seed,x,z,0x1100CAu)%9==0)carSites++;
         }
         Console.WriteLine($"City plan snapshot (324 blocks, not simultaneous loaded objects): 1296 generated building instances, {spaces} furnished floor spaces, 3888 source-prop/furniture instances, {spaces*3} procedural furniture assemblies, {carSites} car spawn sites. Snapshot with aircraft disabled; five City11 source models. The separate aircraft source is checked independently.");
+    }
+    static void CityStreetConnections()
+    {
+        int joins=0,borders=0;
+        foreach(int seed in new[]{0,31})foreach(int size in new[]{28,36,60})
+        {
+            var c=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=LiminalGeneration.Expanded,EnableCity11=true,EnableAircraft=true,City11Share=.5f,ConnectedTerrain=true,ConnectedMalls=true};
+            var layout=new Layout(c);int cx,cz;Check(LiminalRegions.Find(c,LiminalEnvironment.City11,0,0,out cx,out cz),"No real city for street checks");
+            for(int z=cz-4;z<=cz+4;z++)for(int x=cx-4;x<=cx+4;x++)
+            {
+                var room=layout.At(x,z);if(room.Plan==null||room.Plan.City==null)continue;
+                for(int d=0;d<4;d++)if(room.HasExit(d))
+                {
+                    var n=layout.At(x+Directions.DX[d],z+Directions.DZ[d]);
+                    float width=CityStreets.OpeningWidth(room,d,c);
+                    Check(SolarConnections.DoorWidth(room,d,c)==width,"Streaming cap width differs from city aperture");
+                    if(n.Plan!=null&&n.Plan.City!=null)
+                    {
+                        Check(n.HasExit((d+2)%4),"City road exit is not reciprocal");
+                        Check(width==CityStreets.OpeningWidth(n,(d+2)%4,c),"Street widths differ across a seam");
+                        Check(width>=6,"Neighbouring city blocks retained narrow gates");joins++;
+                        var g=City11Architecture.Build(room,c);
+                        for(float lateral=-width*.5f+.3f;lateral<width*.5f;lateral+=.6f)
+                        {
+                            var p=d%2==0?new V3(lateral,2.6f,Directions.DZ[d]*size*.5f):new V3(Directions.DX[d]*size*.5f,2.6f,lateral);
+                            Check(Support(g.Structure,p)<.03f,"City edge fence blocks the widened road");
+                        }
+                    }
+                    else {Check(width==c.DoorWidth,"City widened a non-city biome entrance");borders++;}
+                }
+            }
+            layout.TrimNeighbourhood(cx,cz,2);
+        }
+        Check(joins>100&&borders>0,"Street checks missed city joins or biome borders");
+        Console.WriteLine($"City streets: {joins} reciprocal joins and {borders} existing biome border entrances checked; graph exits preserved.");
     }
     static void AirfieldsAndFlight()
     {

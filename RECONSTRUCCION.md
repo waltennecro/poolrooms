@@ -133,3 +133,7 @@ Núcleo: 16.939.230 aserciones, 190 scripts × cuatro configuraciones; 336 apoyo
 R10 publicado en `030debc`; CI [39045905663](https://github.com/waltennecro/poolrooms/actions/runs/39045905663) correcto, incluidos todos los catálogos, UV, empaquetado y upload. Evidencia en `Verification/ci_furniture_R10.json`. Paquete Assets limpio completo: 502 archivos, 130.954.768 bytes, SHA-256 `787042e2ac68c722422ee51ca89bbbf585ae0f3a92b82157d47d0cfa16378bae`.
 
 Se descargó de nuevo el archivo público del repositorio de ese commit: 196.021.021 bytes, SHA-256 `b7b2c6942d2b66c7ff83785ac9275d3e4524371bb8934eac20b1951394f52f51`, CRC correcto y los 502 archivos de Assets coinciden por SHA-256. Importar únicamente `Assets/PoolroomsProcedural`; el archivo del repositorio también contiene herramientas y originales fuera de Assets. La descarga autenticada del artefacto de Actions no se ejecutó; sí se comprobó esta descarga pública. Este registro final no cambia Assets.
+
+## R11 · Coche y calles
+
+Ruedas originales separadas y animadas en tres LOD, contactos medidos, vista exterior con esfera ante obstáculos y física suspendida al capturar entrada/faltar chunks. Las aperturas de City11 y sus barreras comparten anchos recíprocos de 6 m, respetando los enlaces y entradas existentes. No se añade un modelo al catálogo. Núcleo: 16.950.397 aserciones, 687 uniones y 63 bordes; 192 scripts × 4 configuraciones de sintaxis. Fuentes CC0 auditadas; prueba nativa del rig añadida pero sin ejecutar. Detalle: `Assets/PoolroomsProcedural/Documentation/COCHE_Y_CALLES_R11.md`.

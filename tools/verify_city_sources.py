@@ -59,4 +59,23 @@ for model in catalog['models']:
         assert model['presentationClothRemoved'] and model['lods'][1]['triangles']<model['lods'][0]['triangles']<model['triangles']
         minimum,maximum=model['minimum'],model['maximum']
         assert maximum[2]-minimum[2]>1.8*(maximum[0]-minimum[0]),'Vehicle source is not aligned to its long axis'
+        assert len(model['wheels'])==4 and len({w['part'] for w in model['wheels']})==4
+        assert sum(w['front'] for w in model['wheels'])==2
+        for variant in [model]+model['lods']:
+            path=root/'Assets/PoolroomsProcedural/Resources'/(variant['resource']+'.obj')
+            points=[];groups={};current=None
+            for line in path.read_text().splitlines():
+                s=line.split()
+                if not s:continue
+                if s[0]=='o':current=s[1];groups[current]=[]
+                elif s[0]=='v':points.append(tuple(map(float,s[1:])))
+                elif s[0]=='f':groups[current].extend(points[int(x.split('/')[0])-1] for x in s[1:])
+            for wheel in model['wheels']:
+                group=groups['ToyCar_'+wheel['part']+'_m0'];assert len(group)>60
+                lo=[min(p[a] for p in group) for a in range(3)];hi=[max(p[a] for p in group) for a in range(3)]
+                assert (lo[2]>0)==wheel['front']
+                if variant is model:
+                    assert max(abs((lo[a]+hi[a])*.5-wheel['center'][a]) for a in range(3))<1e-9
+                    assert abs(max(hi[1]-lo[1],hi[2]-lo[2])*.5-wheel['radius'])<1e-9
+                    assert 0.28<wheel['radius']*4.2/(maximum[2]-minimum[2])<.30
 print('Verified 5 distinct CC0 sources; 3 small props + 1 chair + 1 car; car LODs are derivatives of that same source. Native Unity validation pending.')

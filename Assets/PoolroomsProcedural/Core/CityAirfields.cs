@@ -91,7 +91,7 @@ namespace Poolrooms.Core
                 long nx=(long)room.X+Directions.DX[side],nz=(long)room.Z+Directions.DZ[side];CityAirfieldCell neighbour;
                 if(nx>=int.MinValue&&nx<=int.MaxValue&&nz>=int.MinValue&&nz<=int.MaxValue&&CityAirfields.At(c,(int)nx,(int)nz,out neighbour)&&neighbour.CenterX==field.CenterX&&neighbour.CenterZ==field.CenterZ)continue;
                 // Keep existing walkable graph entrances at the outer boundary.
-                var edge=new MeshData();float opening=room.HasExit(side)?c.DoorWidth*.5f:0;
+                var edge=new MeshData();float opening=room.HasExit(side)?CityStreets.OpeningWidth(room,side,c)*.5f:0;
                 if(opening>0){Box(edge,-(half+opening)*.5f,0,half-opening,.12f,0,1.05f,Surface.Metal);Box(edge,(half+opening)*.5f,0,half-opening,.12f,0,1.05f,Surface.Metal);}
                 else Box(edge,0,0,c.CellSize,.12f,0,1.05f,Surface.Metal);
                 edge.TranslateRotate(new V3(Directions.DX[side]*half,0,Directions.DZ[side]*half),side*Shapes.Pi*.5f);o.Structure.Append(edge);

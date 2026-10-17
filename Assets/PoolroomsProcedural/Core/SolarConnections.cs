@@ -36,7 +36,7 @@ namespace Poolrooms.Core
             float n=(LiminalRegions.Hash(c.Seed,a,b,0x1946u+(uint)axis)>>8)*(1f/16777216f);
             return Math.Min(c.CellSize*.44f,8+n*5);
         }
-        public static float DoorWidth(Room r,int d,LayoutConfig c){if(r.Plan!=null&&r.Plan.SoftPlay!=null)return SoftPlayPlanner.DoorWidth(r,d,c);return r.Plan!=null&&r.Plan.Solar!=null?Width(c,r.X,r.Z,d):c.DoorWidth;}
+        public static float DoorWidth(Room r,int d,LayoutConfig c){if(r.Plan!=null&&r.Plan.City!=null)return CityStreets.OpeningWidth(r,d,c);if(r.Plan!=null&&r.Plan.SoftPlay!=null)return SoftPlayPlanner.DoorWidth(r,d,c);return r.Plan!=null&&r.Plan.Solar!=null?Width(c,r.X,r.Z,d):c.DoorWidth;}
         public static float DoorHeight(Room r,int d,LayoutConfig c)
         {if(r.Plan!=null&&r.Plan.SoftPlay!=null&&SoftPlayPlanner.Adjacent(c,r.X,r.Z,d))return Math.Max(c.DoorHeight,7);return r.Plan!=null&&r.Plan.Solar!=null&&IsDirect(At(c,r.X,r.Z,d))?Math.Max(c.DoorHeight,5.7f):c.DoorHeight;}
         public static bool Uses(Room a,Room b,LayoutConfig c)
