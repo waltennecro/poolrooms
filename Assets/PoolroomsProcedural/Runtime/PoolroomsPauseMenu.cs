@@ -245,14 +245,14 @@ namespace Poolrooms
             DrawRendering();
             bool available=gameSettings.GraphicsAvailable;
             Row("Calidad gráfica","Rendimiento prioriza fluidez; Alto añade detalle de luz y agua.",out var cards,available);cards.AddToClassList("pr-quality-cards");
-            string[] names={"Rendimiento","Alto","Cinemático RT"};var qualityButtons=new List<Button>();
+            string[] names={"Rendimiento","Alto","Cinemático RT","Ultra"};var qualityButtons=new List<Button>();
             for(int i=0;i<3;i++)
             {
                 int quality=i;var button=ActionButton(names[i],()=>{Prefs.graphicsQuality=quality;Changed(SettingsChange.Graphics);foreach(var b in qualityButtons)b.EnableInClassList("pr-selected",qualityButtons.IndexOf(b)==quality);},"pr-choice",cards);
                 button.EnableInClassList("pr-selected",Prefs.graphicsQuality==i);if(i==2)button.SetEnabled(gameSettings.RayTracingAvailable);qualityButtons.Add(button);
             }
             if(!available)Note("Los ajustes de iluminación y agua estarán disponibles al preparar los gráficos de la escena.");
-            else if(!gameSettings.RayTracingAvailable)Note("Cinemático RT no está disponible en este equipo. Puedes usar Rendimiento o Alto.");
+            else if(!gameSettings.RayTracingAvailable)Note("Cinemático RT no está disponible. Ultra usa SSR/SSGI compatibles y tiene un coste alto; para este equipo comienza con Rendimiento.");
             Slider("Exposición","Un valor menor deja entrar más luz.",0,12,Prefs.exposureEV,v=>Prefs.exposureEV=v,SettingsChange.Graphics," EV",enabled:available);
             Toggle("Reflejos","Superficies reflectantes y capturas del entorno.",Prefs.reflections,v=>Prefs.reflections=v,SettingsChange.Graphics,gameSettings.Supports(SettingsGraphicsFeature.Reflections));
             indirectToggle=Toggle("Iluminación indirecta","Luz que rebota entre superficies. Alto o Cinemático.",Prefs.indirectLight,v=>Prefs.indirectLight=v,SettingsChange.Graphics,gameSettings.Supports(SettingsGraphicsFeature.IndirectLight));
@@ -327,13 +327,13 @@ namespace Poolrooms
         {
             Slider("Sensibilidad del ratón","Velocidad de la mirada.",.01f,.3f,Prefs.sensitivity,v=>Prefs.sensitivity=v,SettingsChange.Controls);
             Toggle("Invertir mirada vertical","Invierte el movimiento arriba y abajo.",Prefs.invertY,v=>Prefs.invertY=v,SettingsChange.Controls);
-            Toggle("Correr con una pulsación","Shift alterna caminar y correr, sin mantenerlo.",Prefs.toggleSprint,v=>Prefs.toggleSprint=v,SettingsChange.Controls);
+            Toggle("Correr con una pulsación","La tecla | alterna caminar y correr, sin mantenerla.",Prefs.toggleSprint,v=>Prefs.toggleSprint=v,SettingsChange.Controls);
             Slider("Velocidad al caminar","Paseo lento o avance más ágil.",1.5f,5,Prefs.walkSpeed,v=>{Prefs.walkSpeed=v;Prefs.sprintSpeed=Mathf.Max(Prefs.sprintSpeed,v);},SettingsChange.Controls," m/s");
             sprintSpeedSlider=Slider("Velocidad al correr","Se mantiene igual o mayor que caminar.",1.5f,8,Prefs.sprintSpeed,v=>Prefs.sprintSpeed=v,SettingsChange.Controls," m/s",readValue:()=>Prefs.sprintSpeed);
             sprintSpeedLabel=sprintSpeedSlider.parent.Q<Label>();
             Toggle("Deslizamiento rápido","Mantén Ctrl izquierdo. Puedes saltar conservando impulso; no consume energía.",Prefs.allowSlide,v=>Prefs.allowSlide=v,SettingsChange.Controls);
             Slider("Velocidad de deslizamiento","Más rápido que correr. Las paredes y los sectores sin cargar siguen bloqueando el paso.",ExplorerSlide.MinSpeed,ExplorerSlide.MaxSpeed,Prefs.slideSpeed,v=>Prefs.slideSpeed=v,SettingsChange.Controls," m/s");
-            Note("WASD  ·  Caminar     Ratón  ·  Mirar     Shift  ·  Correr\nCtrl izquierdo  ·  Deslizarse     Espacio  ·  Saltar / Doble salto\nEsc  ·  Pausa     Y  ·  Chat\nF  ·  Linterna     V  ·  Intensidad     E  ·  Agarrar / Entrar\nQ  ·  Soltar objeto     M  ·  Administrador, si está desbloqueado");
+            Note("WASD  ·  Caminar     Ratón  ·  Mirar     | / tecla junto a Z  ·  Correr\nShift  ·  Dash     Ctrl izquierdo  ·  Deslizarse\nEspacio  ·  Saltar / Doble salto     Esc  ·  Pausa     Y  ·  Chat\nF  ·  Linterna     V  ·  Intensidad     E  ·  Agarrar / Entrar\nQ  ·  Soltar objeto     M  ·  Administrador, si está desbloqueado");
             var torch=explorer.Flashlight;
             if(torch==null)return;
             Toggle("Linterna encendida","También puedes usar F durante la exploración.",torch.IsOn,v=>torch.SetOn(v),SettingsChange.None);

@@ -11,6 +11,8 @@ namespace Poolrooms
         private Collider shape;
         private Rigidbody body;
         private float mass=.08f;
+        private PickupSurface surface=PickupSurface.Packaging;
+        private PhysicsMaterial contactMaterial;
         public int CatalogId { get; private set; }=-1;
         public float CarryRadius { get; private set; }=.27f;
         public static PoolroomsPickup Create(string key,Vector3 position,Transform parent,PoolroomsProfile profile)
@@ -33,6 +35,7 @@ namespace Poolrooms
             MeshFactory.Create("Articulo",MallItemCatalog.Model(catalogId),go.transform,profile,owner,false);
             foreach(var renderer in go.GetComponentsInChildren<MeshRenderer>())renderer.rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
             var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.CatalogId=catalogId;item.mass=definition.Mass;item.CarryRadius=definition.Radius;
+            item.surface=PickupSurface.Rigid;
             var collider=go.AddComponent<BoxCollider>();collider.size=new Vector3(definition.Size.X,definition.Size.Y,definition.Size.Z);item.shape=collider;
             return item;
         }
@@ -44,6 +47,7 @@ namespace Poolrooms
             MeshFactory.Create("Juguete",SoftPlayArchitecture.Prop(kind,colour),go.transform,profile,owner,false);
             foreach(var renderer in go.GetComponentsInChildren<MeshRenderer>())renderer.rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
             var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.mass=.08f;item.CarryRadius=.235f;
+            item.surface=kind==0?PickupSurface.SoftBall:kind==1?PickupSurface.Foam:PickupSurface.Rubber;
             if(kind==0){var collider=go.AddComponent<SphereCollider>();collider.radius=.22f;item.shape=collider;}
             else {var collider=go.AddComponent<BoxCollider>();collider.size=kind==1?Vector3.one*.38f:new Vector3(.46f,.46f,.12f);item.shape=collider;}
             // No Rigidbody simulation until actually released by the player.
@@ -56,11 +60,24 @@ namespace Poolrooms
             transform.SetParent(grip,true);transform.localPosition=new Vector3(.28f,-.28f,.7f);transform.localRotation=Quaternion.Euler(5,-12,-8);
         }
         public void Release(Transform parent,Vector3 position)
+        {Release(parent,position,Vector3.zero);}
+        public void Release(Transform parent,Vector3 position,Vector3 playerVelocity)
         {
+            if(shape==null)shape=GetComponent<Collider>();
             transform.SetParent(parent,true);transform.position=position;shape.enabled=true;
-            if(body==null)body=gameObject.AddComponent<Rigidbody>();body.mass=mass;body.linearDamping=.35f;body.angularDamping=.6f;
+            var tuning=new PickupPhysics(surface);
+            if(contactMaterial==null)
+            {
+                contactMaterial=new PhysicsMaterial("Pickup contact / "+surface){dynamicFriction=tuning.Friction,staticFriction=tuning.Friction+.05f,bounciness=tuning.Restitution,
+                    frictionCombine=PhysicsMaterialCombine.Average,bounceCombine=PhysicsMaterialCombine.Average};
+                shape.sharedMaterial=contactMaterial;
+            }
+            if(body==null)body=gameObject.AddComponent<Rigidbody>();body.mass=GamePreferences.Clamp(mass,.02f,80,.08f);body.linearDamping=tuning.AirDamping;body.angularDamping=tuning.AngularDamping;
+            body.interpolation=RigidbodyInterpolation.Interpolate;body.solverIterations=8;body.solverVelocityIterations=2;body.maxDepenetrationVelocity=3;body.maxAngularVelocity=25;
             body.detectCollisions=true;body.isKinematic=false;body.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;
-            body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;
+            var velocity=PickupPhysics.ReleaseVelocity(new V3(playerVelocity.x,playerVelocity.y,playerVelocity.z));
+            body.linearVelocity=new Vector3(velocity.X,velocity.Y,velocity.Z);body.angularVelocity=Vector3.zero;body.WakeUp();
         }
+        private void OnDestroy(){if(contactMaterial!=null){if(Application.isPlaying)Destroy(contactMaterial);else DestroyImmediate(contactMaterial);}}
     }
 }

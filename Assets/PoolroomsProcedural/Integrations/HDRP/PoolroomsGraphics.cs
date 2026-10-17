@@ -6,7 +6,7 @@ using UnityEngine.Rendering.HighDefinition;
 
 namespace Poolrooms.HDRP
 {
-    public enum PoolroomsGraphicsQuality { Rendimiento, Alto, CinematicoRT }
+    public enum PoolroomsGraphicsQuality { Rendimiento, Alto, CinematicoRT, Ultra }
 
     // Owns only the Poolrooms volume/camera. Never changes Graphics APIs or pipeline assets at runtime.
     [DisallowMultipleComponent, RequireComponent(typeof(PoolroomsHDRP))]
@@ -88,16 +88,19 @@ namespace Poolrooms.HDRP
                 profile=runtimeProfile;
             }
             bool capable=CanRayTrace(out string reason);
-            bool rt=quality==PoolroomsGraphicsQuality.CinematicoRT&&capable;
-            status=quality==PoolroomsGraphicsQuality.CinematicoRT
+            bool wantsRT=quality==PoolroomsGraphicsQuality.CinematicoRT||quality==PoolroomsGraphicsQuality.Ultra;
+            bool rt=wantsRT&&capable;
+            status=wantsRT
                 ?(rt?"RT solicitado: reflejos e iluminación indirecta. Comprueba Rendering Debugger para confirmar el render.":"Alternativa Alto: "+reason)
                 :quality+": reflejos SSR + sondas; ray tracing desactivado.";
+            if(quality==PoolroomsGraphicsQuality.Ultra)status="Ultra · "+(rt?"mayor muestreo RT y reflejos con dos rebotes. ":"SSR/SSGI sin RT: "+reason+". ")+status;
             var pipeline=GraphicsSettings.currentRenderPipeline as HDRenderPipelineAsset;
             if(pipeline==null){status="Se requiere un HDRP Asset activo.";return;}
             var settings=pipeline.currentPlatformRenderPipelineSettings;
             RayTracingRequested=rt;
             bool low=quality==PoolroomsGraphicsQuality.Rendimiento;
-            ConfigureVolume(profile,low,rt,settings,exposureEV);
+            var sampling=new GraphicsSampling((int)quality,rt);
+            ConfigureVolume(profile,low,rt,settings,exposureEV,sampling);
             if(menuPreferences!=null)
             {
                 Get<ScreenSpaceReflection>(profile).enabled.Override(settings.supportSSR&&menuPreferences.reflections);
@@ -146,7 +149,7 @@ namespace Poolrooms.HDRP
             var adapter=GetComponent<PoolroomsHDRP>();
             adapter.lowCost=low;adapter.lightMultiplier=lightMultiplier;
             adapter.waterDetail=low?PoolWaterDetail.Performance:rt?PoolWaterDetail.Cinematic:PoolWaterDetail.High;
-            adapter.shadowResolution=low?512:1024;adapter.contactShadows=!low;
+            adapter.shadowResolution=sampling.ShadowResolution;adapter.contactShadows=!low;
             adapter.probeUpdateInterval=low?.75f:.25f;
             if(menuPreferences!=null)
             {
@@ -160,7 +163,7 @@ namespace Poolrooms.HDRP
             var world=GetComponent<PoolroomsWorld>();
             if(Application.isPlaying&&!budgetSaved)
             {savedLightBudget=world.activeLightBudgetOverride;savedShadowBudget=world.shadowLightBudgetOverride;budgetSaved=true;}
-            world.activeLightBudgetOverride=low?10:24;world.shadowLightBudgetOverride=low?2:6;
+            world.activeLightBudgetOverride=low?10:sampling.Ultra?32:24;world.shadowLightBudgetOverride=low?2:6;
             if(menuPreferences!=null)
             {
                 if(menuPreferences.lightBudget>=0)world.activeLightBudgetOverride=menuPreferences.lightBudget;
@@ -187,7 +190,7 @@ namespace Poolrooms.HDRP
         {return p.TryGet<T>(out var v)?v:p.Add<T>();}
         private static void Custom(VolumeComponentWithQuality v)
         {v.quality.levelAndOverride=(0,true);v.quality.overrideState=true;}
-        private static void ConfigureVolume(VolumeProfile p,bool low,bool rt,RenderPipelineSettings settings,float ev)
+        private static void ConfigureVolume(VolumeProfile p,bool low,bool rt,RenderPipelineSettings settings,float ev,GraphicsSampling sampling)
         {
             var exposure=Get<Exposure>(p);exposure.mode.Override(ExposureMode.Fixed);exposure.fixedExposure.Override(ev);
             Get<WaterRendering>(p).enable.Override(settings.supportWater);
@@ -196,16 +199,16 @@ namespace Poolrooms.HDRP
             ssr.usedAlgorithm.Override(ScreenSpaceReflectionAlgorithm.PBRAccumulation);
             ssr.tracing.Override(rt?RayCastingMode.RayTracing:RayCastingMode.RayMarching);
             var mode=settings.supportedRayTracingMode==RenderPipelineSettings.SupportedRayTracingMode.Performance?RayTracingMode.Performance:RayTracingMode.Quality;
-            ssr.mode.Override(mode);ssr.sampleCount.Override(rt?4:2);ssr.bounceCount.Override(1);
+            ssr.mode.Override(mode);ssr.sampleCount.Override(sampling.ReflectionSamples);ssr.bounceCount.Override(sampling.ReflectionBounces);
             ssr.minSmoothness=.35f;ssr.smoothnessFadeStart=.6f;ssr.rayMaxIterations=low?32:96;
-            ssr.fullResolution=!low;ssr.rayLength=60;ssr.denoise=true;ssr.denoiserRadius=.5f;
+            ssr.fullResolution=!low;ssr.rayLength=sampling.ReflectionDistance;ssr.denoise=true;ssr.denoiserRadius=sampling.Ultra?.35f:.5f;
             ssr.depthBufferThickness.Override(.12f);ssr.screenFadeDistance.Override(.08f);
             ssr.SetAllOverridesTo(true);
             var gi=Get<GlobalIllumination>(p);Custom(gi);gi.enable.Override(!low&&settings.supportSSGI);
             gi.tracing.Override(rt?RayCastingMode.RayTracing:RayCastingMode.RayMarching);gi.mode.Override(mode);
-            gi.maxRaySteps=64;gi.fullResolutionSS.Override(false);gi.denoiseSS=true;gi.secondDenoiserPassSS=true;
-            gi.rayLength=45;gi.sampleCount.Override(rt?4:2);gi.bounceCount.Override(rt?3:2);gi.denoise=true;
-            gi.secondDenoiserPass=true;gi.fullResolution=false;gi.SetAllOverridesTo(true);
+            gi.maxRaySteps=sampling.Ultra?96:64;gi.fullResolutionSS.Override(sampling.Ultra);gi.denoiseSS=true;gi.secondDenoiserPassSS=true;
+            gi.rayLength=sampling.IndirectDistance;gi.sampleCount.Override(sampling.IndirectSamples);gi.bounceCount.Override(sampling.IndirectBounces);gi.denoise=true;
+            gi.secondDenoiserPass=true;gi.fullResolution=sampling.Ultra;gi.SetAllOverridesTo(true);
             // HDRP 17: AmbientOcclusion is an obsolete empty migration class, not a VolumeComponent.
             var ao=Get<ScreenSpaceAmbientOcclusion>(p);Custom(ao);ao.intensity.Override(.65f);
             ao.radius.Override(.45f);ao.directLightingStrength.Override(.15f);ao.temporalAccumulation.Override(true);

@@ -73,7 +73,9 @@ namespace Poolrooms
                 if(exteriorLooseRoot==null){var go=new GameObject("Loose exploration objects");exteriorLooseRoot=go.transform;if(explorer.world!=null)exteriorLooseRoot.SetParent(explorer.world.transform,false);}
                 target=exteriorLooseRoot;
             }
-            var item=held;held=null;item.Release(target,release);loose.RemoveAll(p=>p==null);loose.Add(item);
+            Vector3 localVelocity=explorer.ViewVelocity;
+            Vector3 releaseVelocity=explorer.transform.TransformDirection(localVelocity);
+            var item=held;held=null;item.Release(target,release,releaseVelocity);loose.RemoveAll(p=>p==null);loose.Add(item);
             while(loose.Count>32){var oldest=loose[0];loose.RemoveAt(0);if(oldest!=null&&oldest!=held)Destroy(oldest.gameObject);}
             return true;
         }

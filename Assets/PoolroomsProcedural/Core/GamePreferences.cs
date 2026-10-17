@@ -45,7 +45,7 @@ namespace Poolrooms.Core
             if(!Enum.IsDefined(typeof(TerrainVisualQuality),terrainVisuals))terrainVisuals=TerrainVisualQuality.Economy;
             version=18;if(camera==null)camera=new CameraPreferences();camera.Sanitize();
             if(slideVersion<1){allowSlide=true;slideSpeed=ExplorerSlide.DefaultSpeed;}slideVersion=1;
-            if(graphicsQuality<-1||graphicsQuality>2)graphicsQuality=-1;
+            if(graphicsQuality<-1||graphicsQuality>3)graphicsQuality=-1;
             if(waterDetail<-1||waterDetail>2)waterDetail=-1;
             lightBudget=lightBudget<0?-1:Math.Max(4,Math.Min(32,lightBudget));
             shadowBudget=shadowBudget<0?-1:Math.Max(0,Math.Min(6,shadowBudget));

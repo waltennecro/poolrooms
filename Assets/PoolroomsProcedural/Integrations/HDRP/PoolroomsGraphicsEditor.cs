@@ -17,6 +17,8 @@ namespace Poolrooms.HDRP
         public static void High(){Apply(PoolroomsGraphicsQuality.Alto);}
         [MenuItem("Tools/Poolrooms/Gráficos/3 - Aplicar Cinemático RT")]
         public static void Cinematic(){Apply(PoolroomsGraphicsQuality.CinematicoRT);}
+        [MenuItem("Tools/Poolrooms/Gráficos/4 - Aplicar Ultra")]
+        public static void Ultra(){Apply(PoolroomsGraphicsQuality.Ultra);}
         private static PoolroomsWorld FindWorld()
         {
             var world=Selection.activeGameObject!=null?Selection.activeGameObject.GetComponentInParent<PoolroomsWorld>():null;
