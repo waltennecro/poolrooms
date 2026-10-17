@@ -8,6 +8,7 @@
 [Bb]uilds/
 .vs/
 *.csproj
+!Verification/*.csproj
 *.sln
 *.slnx
 *.user

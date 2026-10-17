@@ -1,0 +1,91 @@
+{
+  "source": "Original generated surfaces; no reference photographs embedded",
+  "size": 1024,
+  "hdrpMask": "R metallic, G ambient occlusion, B detail mask, A smoothness",
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishBlue_Albedo.png": {
+      "bytes": 461022,
+      "sha256": "8a8fa2d71788baed3e892f4db45a8dba4c88d579ac8a357fb204a8260fd38348"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishBlue_Mask.png": {
+      "bytes": 757248,
+      "sha256": "e64e798a003e3b732419d036575993c5fc926a9ef03833dc96fb349eb2651d4d"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishBlue_Normal.png": {
+      "bytes": 886798,
+      "sha256": "01881951245e2b28faf0e5e4ea38bfcfbd85cb37f29d5cec63b0ccd6bf77be62"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishFloor_Albedo.png": {
+      "bytes": 795638,
+      "sha256": "ec84979e22ca0e6cb385ed0fc9471ad93fcf78c6832ca4d1b5594f70957e0334"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishFloor_Mask.png": {
+      "bytes": 763477,
+      "sha256": "56562eacb3e4acd829a69ec0425ba8a98fae1a247d734c645ce472cfecb94800"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishFloor_Normal.png": {
+      "bytes": 1033395,
+      "sha256": "8b76fc247256ba1ac12ad5a37ca0d5684ad4e0f13ec1448bc828a4df85ad8bed"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishGreen_Albedo.png": {
+      "bytes": 440012,
+      "sha256": "c61cfd260dcf5fe0bb6d51a2c421636ee95c99b8d81895b8d848bafaafcc418b"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishGreen_Mask.png": {
+      "bytes": 757248,
+      "sha256": "e64e798a003e3b732419d036575993c5fc926a9ef03833dc96fb349eb2651d4d"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishGreen_Normal.png": {
+      "bytes": 886798,
+      "sha256": "01881951245e2b28faf0e5e4ea38bfcfbd85cb37f29d5cec63b0ccd6bf77be62"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishNet_Albedo.png": {
+      "bytes": 21788,
+      "sha256": "56a9c48a65bea19eb770671211836c1e5fecf04c122808a86e774fc55ae50ba6"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishNet_Mask.png": {
+      "bytes": 6490,
+      "sha256": "74fd6c14ba2b1d1e292267ffbeae8e10bf5fde7a9ba4bef5ac1ca920bb75b788"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishNet_Normal.png": {
+      "bytes": 122254,
+      "sha256": "f95d74c3dbc9d527f95182cd8ef400c835ef203b888954127cea858896dd4cf3"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishRed_Albedo.png": {
+      "bytes": 424643,
+      "sha256": "49de1166daa138112c59dd06c4167e76c2e6ad4590ca1f04529c23c590e7dd52"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishRed_Mask.png": {
+      "bytes": 757248,
+      "sha256": "e64e798a003e3b732419d036575993c5fc926a9ef03833dc96fb349eb2651d4d"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishRed_Normal.png": {
+      "bytes": 886798,
+      "sha256": "01881951245e2b28faf0e5e4ea38bfcfbd85cb37f29d5cec63b0ccd6bf77be62"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishWall_Albedo.png": {
+      "bytes": 558462,
+      "sha256": "8ea9ba35142006041748c7908f80b8ad409b7f0c72fe232811d801c0e98ae746"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishWall_Mask.png": {
+      "bytes": 6490,
+      "sha256": "ecbfc2b586c96f5244f0a9e80ee5856f3479a9242653193ff1af0b6e51554f12"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishWall_Normal.png": {
+      "bytes": 415318,
+      "sha256": "91889d519357325e278524f7dac485b4c2085c2e703289915ed05ddc34327832"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishYellow_Albedo.png": {
+      "bytes": 566449,
+      "sha256": "51d8e740fe3e82826580de7d0290c7b8c99e689748ba51caf62187e334c4de8d"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishYellow_Mask.png": {
+      "bytes": 757248,
+      "sha256": "e64e798a003e3b732419d036575993c5fc926a9ef03833dc96fb349eb2651d4d"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/PlayFinishYellow_Normal.png": {
+      "bytes": 886798,
+      "sha256": "01881951245e2b28faf0e5e4ea38bfcfbd85cb37f29d5cec63b0ccd6bf77be62"
+    }
+  }
+}

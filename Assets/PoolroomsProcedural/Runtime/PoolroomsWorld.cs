@@ -338,6 +338,7 @@ namespace Poolrooms
             MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
             if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
+            for(int i=0;i<data.VisualMeshes.Count;i++)MeshFactory.Create("Biome finish "+i,data.VisualMeshes[i],go.transform,profile,chunk,false);
             var water=MeshFactory.Create("Water footprint",data.Water,go.transform,profile,chunk,false,true);
             chunk.water=water!=null?water.GetComponent<MeshRenderer>():null;
             float t=layout.Config.WallThickness;

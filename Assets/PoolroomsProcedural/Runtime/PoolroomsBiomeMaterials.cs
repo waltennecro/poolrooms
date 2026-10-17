@@ -8,7 +8,7 @@ namespace Poolrooms
     [CreateAssetMenu(menuName="Poolrooms/Independent biome materials",fileName="PoolroomsBiomeMaterials")]
     public sealed class PoolroomsBiomeMaterials : ScriptableObject
     {
-        public Material[] surfaces=new Material[72];
+        public Material[] surfaces=new Material[90];
         public Material Find(SurfaceTheme theme,int slot)
         {int index=(int)theme*6+slot;return surfaces!=null&&index<surfaces.Length?surfaces[index]:null;}
     }
@@ -44,7 +44,8 @@ namespace Poolrooms
             if(theme==SurfaceTheme.Hotel&&slot==Surface.Plaster)color=new Color(.95f,.91f,.84f);
             SetColor(m,"_BaseColor",color);SetColor(m,"_Color",color);
             string set=textureOverride??BiomeSurfaces.TextureSet(theme,slot);float smooth=BiomeSurfaces.Smoothness(set);
-            float metallic=slot==Surface.Metal&&theme!=SurfaceTheme.IndoorPlay&&theme!=SurfaceTheme.SoftPlay?.8f:0;
+            bool soft=theme==SurfaceTheme.SoftPlay||theme==SurfaceTheme.SoftPlayFinish||theme==SurfaceTheme.SoftPlayNet||theme==SurfaceTheme.SoftPlayFloor;
+            float metallic=slot==Surface.Metal&&theme!=SurfaceTheme.IndoorPlay&&!soft?.8f:0;
             foreach(string name in new[]{"_Metallic","_MetallicRemapMax"})SetFloat(m,name,metallic);
             SetFloat(m,"_MetallicRemapMin",0);SetFloat(m,"_SmoothnessRemapMin",0);
             foreach(string name in new[]{"_Smoothness","_Glossiness","_SmoothnessRemapMax"})SetFloat(m,name,smooth);

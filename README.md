@@ -8,6 +8,16 @@ El código está en [`Assets/PoolroomsProcedural`](Assets/PoolroomsProcedural). 
 
 **No se ha recuperado la v47.** La carpeta [`Preparacion_V48`](Preparacion_V48) conserva el diseño y los modelos de tres niveles pendientes de integración. Sus documentos describen la investigación anterior a esta recuperación; esos niveles todavía no están implementados en la v39.
 
+## Reconstrucciones posteriores
+
+La rama actual continúa sobre la v39 recuperada. Consulta [`RECONSTRUCCION.md`](RECONSTRUCCION.md) para ver funciones existentes, avances reconstruidos y pendientes. El manifiesto original sigue identificando los bytes de v39; los cambios posteriores no se presentan como archivos originales recuperados.
+
+La etapa R1 mejora los materiales y detalles del bioma infantil conservando su geometría transitable. Las verificaciones del núcleo están en [`Verification`](Verification/README.md), fuera de `Assets`. Para crear el paquete completo del estado actual:
+
+```sh
+python tools/package_assets.py --stage R1 --output /tmp/Poolrooms_R1_Desde_v39.zip
+```
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.

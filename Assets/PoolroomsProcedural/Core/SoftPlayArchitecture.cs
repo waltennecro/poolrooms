@@ -12,19 +12,20 @@ namespace Poolrooms.Core
         public static RoomGeometry Build(Room room,LayoutConfig c)
         {
             var p=room.Plan.SoftPlay;if(!p.Valid(room,c))throw new ArgumentException("Invalid soft-play hall.");
-            var o=new RoomGeometry();o.Structure.Theme=o.Decoration.Theme=SurfaceTheme.SoftPlay;
-            o.Structure.EmissionTint=new V3(1,.94f,.85f);o.Structure.EmissionStrength=.65f;
+            var o=new RoomGeometry();o.Structure.Theme=o.Decoration.Theme=SurfaceTheme.SoftPlayFinish;
             o.Decoration.EmissionTint=p.Lighting==1?new V3(1,.87f,.68f):p.Lighting==2?new V3(.85f,.91f,1):new V3(1,.97f,.9f);
             o.Decoration.EmissionStrength=.65f;
+            o.Structure.EmissionTint=o.Decoration.EmissionTint;o.Structure.EmissionStrength=.65f;
             Box(o.Structure,0,0,room.Width,room.Depth,-.35f,0,Surface.Tile);
-            int count=(int)Math.Ceiling(room.Width/3);float tile=room.Width/count;
-            for(int x=0;x<count;x++)for(int z=0;z<count;z++)
-            {
-                float ax=-room.Width*.5f+x*tile,az=-room.Depth*.5f+z*tile;
-                if((x+z+p.RoofStyle)%3==0)o.Decoration.Quad(new V3(ax,.005f,az),new V3(ax+tile,.005f,az),new V3(ax+tile,.005f,az+tile),new V3(ax,.005f,az+tile),V3.Up,Surface.Accent,UV);
-            }
+            var floor=new MeshData{Theme=SurfaceTheme.SoftPlayFloor};
+            Shapes.Horizontal(floor,new V3(-room.Width*.5f,.004f,-room.Depth*.5f),new V3(room.Width*.5f,.004f,-room.Depth*.5f),new V3(room.Width*.5f,.004f,room.Depth*.5f),new V3(-room.Width*.5f,.004f,room.Depth*.5f),Surface.Tile,2.4f);
+            // Continue the floor pattern across neighbouring cells without huge float UVs.
+            double ox=(double)room.X*c.CellSize/2.4,oz=(double)room.Z*c.CellSize/2.4;
+            for(int i=0;i<floor.UV.Count;i++){var uv=floor.UV[i];floor.UV[i]=new V2(uv.X+(float)(ox-Math.Floor(ox)),uv.Y+(float)(oz-Math.Floor(oz)));}
+            o.VisualMeshes.Add(floor);
+            var net=new MeshData{Theme=SurfaceTheme.SoftPlayNet};o.VisualMeshes.Add(net);
             Shell(o,room,c);
-            for(int i=0;i<p.Frames.Length;i++)Frame(o,p.Frames[i],p,i,c);
+            for(int i=0;i<p.Frames.Length;i++)Frame(o,p.Frames[i],p,i,c,net);
             Bridge(o,p);Slide(o,p.Slide);BallPit(o,p,c.CurveSegments);
             Lounge(o,room,p);Lights(o,room,p);
             ProceduralArchitecture.Prune(o.Structure);ProceduralArchitecture.Prune(o.Decoration);ProceduralArchitecture.Prune(o.CollisionOnly);
@@ -51,14 +52,16 @@ namespace Poolrooms.Core
             if(room.Plan.SoftPlay.RoofStyle==2)for(float x=-room.Width*.5f+3;x<room.Width*.5f;x+=6)
                 Box(o.Decoration,x,0,.1f,room.Depth,room.Height-.33f,room.Height-.23f,Surface.Metal);
         }
-        private static void Frame(RoomGeometry o,PlayFramePlan f,SoftPlayPlan p,int index,LayoutConfig c)
+        private static void Frame(RoomGeometry o,PlayFramePlan f,SoftPlayPlan p,int index,LayoutConfig c,MeshData net)
         {
             float hx=f.Width*.5f,hz=f.Depth*.5f,top=(f.Levels-1)*3.2f+2.7f;
-            var solid=new MeshData();var detail=new MeshData();var safety=new MeshData();
+            var solid=new MeshData();var detail=new MeshData();var safety=new MeshData();var localNet=new MeshData();
             for(int ix=0;ix<=f.Columns;ix++)for(int iz=0;iz<=f.Rows;iz++)
             {
                 float x=-hx+ix*4.2f,z=-hz+iz*4.2f;
                 Shapes.Column(solid,x,z,.115f,0,top,8,Colour(ix+iz+index),UV);
+                // Fabric sleeves and fastening collars sit outside the unchanged structural pole.
+                foreach(float y in new[]{.12f,top-.16f})Shapes.Column(detail,x,z,.127f,y,y+.065f,8,Colour(ix+iz+index+1),UV);
             }
             var shaft=new PlanRect(-hx,-hz+4.2f-3.6f,-hx+4.2f,-hz+4.2f+3.6f);
             for(int level=0;level<f.Levels;level++)
@@ -81,12 +84,12 @@ namespace Poolrooms.Core
                         port|=level==1&&index==1&&north&&k==f.Columns-1;
                         float centre=-n*2.1f+(k+.5f)*4.2f;
                         if(side==1||side==2)centre=-centre; // rotation mirrors cell order on east/south faces
-                        var panel=new MeshData();var barrier=new MeshData();
+                        var panel=new MeshData();var barrier=new MeshData();var threads=new MeshData();
                         if(!port)
                         {
                             Box(panel,centre,0,4.2f,.08f,y+.92f,y+1.04f,Colour(level+k));
                             Box(barrier,centre,0,4.2f,.045f,y+.03f,y+2.65f,Surface.Metal);
-                            Net(panel,centre-2.1f,centre+2.1f,y+.12f,y+2.6f,c.CurveSegments<=12?.5f:.34f);
+                            Net(threads,centre-2.1f,centre+2.1f,y+.12f,y+2.6f,c.CurveSegments<=12?.32f:.18f);
                         }
                         else if(level>0)
                         {
@@ -96,7 +99,8 @@ namespace Poolrooms.Core
                         // local canonical north face -> outward side
                         panel.TranslateRotate(new V3(Directions.DX[side]*hx,0,Directions.DZ[side]*hz),side*Shapes.Pi*.5f);
                         barrier.TranslateRotate(new V3(Directions.DX[side]*hx,0,Directions.DZ[side]*hz),side*Shapes.Pi*.5f);
-                        detail.Append(panel);safety.Append(barrier);
+                        threads.TranslateRotate(new V3(Directions.DX[side]*hx,0,Directions.DZ[side]*hz),side*Shapes.Pi*.5f);
+                        detail.Append(panel);safety.Append(barrier);localNet.Append(threads);
                     }
                 }
             }
@@ -106,11 +110,12 @@ namespace Poolrooms.Core
             {
                 float y=level*3.2f;
                 Box(detail,hx-2.1f,hz-1.0f,1.0f,.32f,y+.02f,y+.3f,Surface.Slide);
-                o.Fixtures.Add(new Fixture{Position=new V3(f.X+hx-2.1f,y+2.5f,f.Z),Width=.7f,Depth=.5f,Power=950,Range=7,CustomColor=true,LightColor=new V3(1,.93f,.84f)});
+                o.Fixtures.Add(new Fixture{Position=new V3(f.X+hx-2.1f,y+2.5f,f.Z),Width=.7f,Depth=.5f,Power=950,Range=7,CustomColor=true,LightColor=o.Decoration.EmissionTint});
                 Box(detail,hx-2.1f,0,.7f,.5f,y+2.48f,y+2.52f,Surface.Glow);
             }
             solid.TranslateRotate(new V3(f.X,0,f.Z),0);detail.TranslateRotate(new V3(f.X,0,f.Z),0);safety.TranslateRotate(new V3(f.X,0,f.Z),0);
             o.Structure.Append(solid);o.Decoration.Append(detail);o.CollisionOnly.Append(safety);
+            localNet.TranslateRotate(new V3(f.X,0,f.Z),0);net.Append(localNet);
         }
         private static void Stairs(MeshData m,MeshData details,MeshData safety,float x,float z,int levels)
         {
@@ -188,7 +193,8 @@ namespace Poolrooms.Core
                     ZoneShapes.Beam(o.Decoration,start+ra,end+ra+V3.Up,.016f,Surface.Metal,UV,4);
                 }
             }
-            o.Fixtures.Add(new Fixture{Position=(a+b)*.5f+V3.Up*2.35f,Width=.5f,Depth=.5f,Power=1000,Range=12,CustomColor=true,LightColor=new V3(1,.95f,.85f)});
+            o.Fixtures.Add(new Fixture{Position=(a+b)*.5f+V3.Up*2.35f,Width=.5f,Depth=.5f,Power=1000,Range=12,CustomColor=true,LightColor=o.Decoration.EmissionTint});
+            var centre=(a+b)*.5f;Box(o.Decoration,centre.X,centre.Z,.5f,.5f,centre.Y+2.34f,centre.Y+2.37f,Surface.Glow);
         }
         private static void Slide(RoomGeometry o,PlaySlidePath path)
         {
@@ -219,7 +225,7 @@ namespace Poolrooms.Core
         }
         public static MeshData Prop(int kind,int colour)
         {
-            var m=new MeshData{Theme=SurfaceTheme.SoftPlay};var finish=Colour(colour);
+            var m=new MeshData{Theme=SurfaceTheme.SoftPlayFinish};var finish=Colour(colour);
             if(kind==0)Sphere(m,new V3(),.22f,finish,10);
             else if(kind==1)Box(m,0,0,.38f,.38f,-.19f,.19f,finish);
             else for(int i=0;i<16;i++)for(int j=0;j<5;j++)
@@ -238,7 +244,8 @@ namespace Poolrooms.Core
             for(int y=0;y<rings;y++)for(int x=0;x<sides;x++)
             {
                 V3 a=SpherePoint(x,y,sides,rings),b=SpherePoint(x+1,y,sides,rings),c=SpherePoint(x+1,y+1,sides,rings),d=SpherePoint(x,y+1,sides,rings);
-                m.Quad(centre+a*radius,centre+b*radius,centre+c*radius,centre+d*radius,(a+b+c+d).Unit,surface,UV);
+                m.QuadUV(centre+a*radius,centre+b*radius,centre+c*radius,centre+d*radius,a,b,c,d,
+                    new V2(x/(float)sides,y/(float)rings),new V2((x+1f)/sides,y/(float)rings),new V2((x+1f)/sides,(y+1f)/rings),new V2(x/(float)sides,(y+1f)/rings),surface);
             }
         }
         private static V3 SpherePoint(int x,int y,int sides,int rings)

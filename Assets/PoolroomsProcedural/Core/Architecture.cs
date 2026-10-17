@@ -38,6 +38,8 @@ namespace Poolrooms.Core
     {
         public readonly MeshData Structure=new MeshData(),Water=new MeshData(),Decoration=new MeshData(),Glass=new MeshData(),CollisionOnly=new MeshData();
         public readonly List<Fixture> Fixtures=new List<Fixture>();
+        // Optional batched visuals never enter the support/collision meshes.
+        public readonly List<MeshData> VisualMeshes=new List<MeshData>();
         public readonly CorridorGeometry[] Connectors=new CorridorGeometry[2];
         public WaterRegion Region;
         public readonly List<WaterRegion> Regions=new List<WaterRegion>();

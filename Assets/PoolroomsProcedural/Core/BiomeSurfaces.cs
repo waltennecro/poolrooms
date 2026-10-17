@@ -1,7 +1,7 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
@@ -30,6 +30,9 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(theme==SurfaceTheme.SoftPlayFloor)return "PlayFinishFloor";
+            if(theme==SurfaceTheme.SoftPlayNet)return "PlayFinishNet";
+            if(theme==SurfaceTheme.SoftPlayFinish)return slot==Surface.Glow?null:slot==Surface.Plaster?"PlayFinishWall":slot==Surface.Tile?"PlayFinishGreen":slot==Surface.Accent?"PlayFinishYellow":slot==Surface.Slide?"PlayFinishRed":"PlayFinishBlue";
             if(theme==SurfaceTheme.SoftPlay)return slot==Surface.Glow?null:slot==Surface.Plaster?"PlayWall":slot==Surface.Tile?"PlayFoam":slot==Surface.Accent?"PlayYellow":slot==Surface.Slide?"PlayRed":"PlayBlue";
             if(slot==Surface.Metal)return theme==SurfaceTheme.IndoorPlay?"Rubber":"Steel";
             if(slot==Surface.Glow||theme==SurfaceTheme.Glass)return null;
@@ -50,6 +53,7 @@ namespace Poolrooms.Core
         }
         public static float Smoothness(string set)
         {
+            if(set!=null&&set.StartsWith("PlayFinish",System.StringComparison.Ordinal))return set=="PlayFinishFloor"?.2f:set=="PlayFinishNet"?.15f:set=="PlayFinishWall"?.22f:.48f;
             switch(set){case "PlayRed":case "PlayYellow":case "PlayBlue":return .38f;case "PlayFoam":return .16f;case "PlayWall":return .2f;case "MallStone":return .76f;case "Terrazzo":return .55f;case "Steel":return .64f;case "Plastic":return .35f;
                 case "RetailVinyl":case "Vinyl":return .3f;case "Wood":return .3f;case "Packaging":return .2f;default:return .1f;}
         }
