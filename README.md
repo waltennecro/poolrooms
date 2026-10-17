@@ -48,6 +48,8 @@ R13 prepara [pruebas reales en Unity y captura de rendimiento](Assets/PoolroomsP
 
 R14 añade [otro coche, cámara antigua, sofá, colocación por apoyos y refinamiento urbano/de accesos](Assets/PoolroomsProcedural/Documentation/AMPLIACION_REGIONAL_R14.md). Doce fuentes/adaptaciones corresponden a once familias geométricas y una variante de silla. Los edificios siguen siendo procedurales; no se presentan como modelos externos descargados.
 
+El [CI final de R14](https://github.com/waltennecro/poolrooms/actions/runs/39053442886) pasó todos los pasos. [Descarga acumulativa comprobada](https://codeload.github.com/waltennecro/poolrooms/zip/29c5b7b90e919ff92a55f9139204e75a8f573e70): 607 archivos de Assets coinciden por SHA-256 y el ZIP tiene CRC válido (289.162.324 bytes). [Evidencia, límites y hashes](Verification/ci_regional_expansion_R14.json).
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.

@@ -1,0 +1,54 @@
+{
+  "stage": "R14",
+  "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
+  "implementationCommit": "f817114efc9940d3bde90632222974411a10d6b3",
+  "run": "39053442886",
+  "runUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39053442886",
+  "job": "117456512462",
+  "status": "success",
+  "coreAssertions": 16987647,
+  "syntaxScripts": 197,
+  "syntaxConfigurations": 4,
+  "artifactId": "12108422910",
+  "artifactDigest": "sha256:1aec108d87ed89b84e2a661ee698a3c20a0b2d8cab0f2df303d816e6bb298623",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "nativeUnityTestsExecuted": false,
+  "checks": [
+    "SDK 8.0.408 / actual compiled Core / 188 protected geometry fingerprints / CSharp9 syntax 197 scripts x four configurations",
+    "190 source placements in eight biome types / nine-point support / ownership and final geometry clearance",
+    "six facade typologies and four descriptors / courtyard ground access and upper guardrails / standing cameras and coastal seating",
+    "36 existing PBR maps and all prior CC0/Apache/CC-BY source catalogues",
+    "three new urban source models / 66 PNG maps / attribution / normals / LODs / measured resource bounds",
+    "lossless native compaction: canonical per-triangle position/normal/UV hashes unchanged",
+    "UV analytic checks: original tangents, source AO, vertex colours, WebP, opposite-face LOD normals",
+    "native runner contract tests with explicitly fake process; these do NOT execute Unity",
+    "complete Assets package and artifact upload"
+  ],
+  "publicRepositoryArchive": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/29c5b7b90e919ff92a55f9139204e75a8f573e70",
+    "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
+    "bytes": 289162324,
+    "sha256": "010bac020ec138b9c4bdf33cd4db8e2852554104cf59b39c04cf3eda367f9616",
+    "assetFilesMatched": 607,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "localAssetsPackage": {
+    "files": 607,
+    "bytes": 192937277,
+    "sha256": "d881a81491411a383425d459ed7eaa79bbf85ccbb0bb2282ba6a90d4f8dbc19e",
+    "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
+    "workingTreeChanged": false,
+    "crcAndPerFileHashesVerified": true
+  },
+  "counts": {
+    "sourceAssetsOrAdaptations": 12,
+    "geometryFamilies": 11,
+    "additionalChairVariantSources": 1,
+    "vehicleClasses": 3,
+    "vehicleSourceModels": 4,
+    "downloadedCompleteBuildingModels": 0
+  },
+  "remaining": "Unity compile/PlayMode/shaders/physics/appearance/FPS/memory remain blocked by missing Editor/project. Complete external building models not integrated."
+}

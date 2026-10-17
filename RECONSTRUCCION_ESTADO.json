@@ -101,7 +101,11 @@
       "feature": "Three licensed urban source models, second ground-car model, authored PBR/UV/normal/colour pipeline, bounded automatic placement in eight biomes, street/facade refinement and accessible quiet-level entrances",
       "status": "implemented_native_validation_pending_partial_external_architecture_catalog",
       "packageFiles": 607,
-      "commit": "f817114efc9940d3bde90632222974411a10d6b3"
+      "commit": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
+      "implementationCommits": [
+        "f817114efc9940d3bde90632222974411a10d6b3",
+        "29c5b7b90e919ff92a55f9139204e75a8f573e70"
+      ]
     }
   ],
   "latestCoreChecks": {
@@ -293,11 +297,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/fd53d4e257e7141c3f52ad6572d4142f95651460",
-    "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
-    "bytes": 195976786,
-    "sha256": "85274f7c0122f6c450b0cb83d16d199c98868d838124891a51f7b8c1d589c493",
-    "assetFilesMatched": 506,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/29c5b7b90e919ff92a55f9139204e75a8f573e70",
+    "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
+    "bytes": 289162324,
+    "sha256": "010bac020ec138b9c4bdf33cd4db8e2852554104cf59b39c04cf3eda367f9616",
+    "assetFilesMatched": 607,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -353,10 +357,10 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "files": 506,
-    "bytes": 130904025,
-    "sha256": "7da3f0de67c9580c90aa3a901499fed32c65193ea329bedb05c4acee8a1dbac7",
-    "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "files": 607,
+    "bytes": 192937277,
+    "sha256": "d881a81491411a383425d459ed7eaa79bbf85ccbb0bb2282ba6a90d4f8dbc19e",
+    "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
     "workingTreeChanged": false,
     "crcAndPerFileHashesVerified": true
   },
@@ -384,5 +388,14 @@
     "artifactId": "12108068001",
     "artifactPublished": true,
     "nativeUnityExecuted": false
+  },
+  "regionalExpansionCi": {
+    "sourceRevision": "29c5b7b90e919ff92a55f9139204e75a8f573e70",
+    "run": "39053442886",
+    "status": "success",
+    "artifactId": "12108422910",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "nativeUnityTestsExecuted": false
   }
 }
