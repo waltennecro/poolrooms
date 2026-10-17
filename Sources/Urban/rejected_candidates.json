@@ -1,0 +1,12 @@
+{
+  "candidates": [
+    {
+      "model": "Sponza",
+      "metadataUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/Sponza/metadata.json",
+      "declaredLicense": "LicenseRef-CRYENGINE-Agreement",
+      "downloadedModel": false,
+      "integrated": false,
+      "reason": "Specific engine agreement; general reuse permission for this Unity project not established. Do not count as an acquired building asset."
+    }
+  ]
+}

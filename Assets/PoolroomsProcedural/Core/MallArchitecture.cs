@@ -121,7 +121,7 @@ namespace Poolrooms.Core
                     {
                         // Replace an existing seating plot rather than cluttering the
                         // central 18 m gallery or a storefront with extra furniture.
-                        int source=LiminalRegions.Hash(plan.Seed,sector,floor,0xF12011u+(uint)(side+1))%3==0?4:3;
+                        uint choice=LiminalRegions.Hash(plan.Seed,sector,floor,0xF12011u+(uint)(side+1));int source=choice%3==0?4:choice%2==0?3:5;
                         var seat=new SourceFurniturePlacement(8100+floor*64+sector*2+(side>0?1:0),source,new V3(x-4,y+.02f,side*20.6f),side>0?180:0);
                         var ext=SourceFurniture.HalfExtents(source,seat.Yaw,.1f);bool supported=true;
                         foreach(int dx in new[]{-1,1})foreach(int dz in new[]{-1,1})if(!plan.FloorSupported(floor,seat.Bottom.X+dx*ext.X,seat.Bottom.Z+dz*ext.Z))supported=false;

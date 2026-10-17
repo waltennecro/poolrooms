@@ -15,7 +15,7 @@ La rama actual continúa sobre la v39 recuperada. Consulta [`RECONSTRUCCION.md`]
 La etapa R1 mejora los materiales y detalles del bioma infantil conservando su geometría transitable. Las verificaciones del núcleo están en [`Verification`](Verification/README.md), fuera de `Assets`. Para crear el paquete completo del estado actual:
 
 ```sh
-python tools/package_assets.py --stage R12 --output /tmp/Poolrooms_R12_Desde_v39.zip
+python tools/package_assets.py --stage R14 --output /tmp/Poolrooms_R14_Desde_v39.zip
 ```
 
 La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.
@@ -43,6 +43,10 @@ R11 mejora [ruedas, cámara y calles de City11](Assets/PoolroomsProcedural/Docum
 R12 extiende [el mobiliario PBR a centros comerciales y casas del nivel 94](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_REGIONAL_R12.md), con sustituciones limitadas, soporte comprobado y claves de interacción estables. No aumenta artificialmente el catálogo contando instancias como modelos nuevos. Las pruebas nativas siguen pendientes.
 
 El [CI de R12](https://github.com/waltennecro/poolrooms/actions/runs/39048181017) pasó todos los pasos. Una [descarga pública acumulativa](https://codeload.github.com/waltennecro/poolrooms/zip/fd53d4e257e7141c3f52ad6572d4142f95651460) fue comprobada de nuevo: 506 archivos de Assets coinciden por SHA-256; ZIP de 195.976.786 bytes con CRC válido. [Evidencia de R11](Verification/ci_city_driving_R11.json) y [R12, paquete y descarga](Verification/ci_regional_furniture_R12.json). Solo se importa `Assets/PoolroomsProcedural`.
+
+R13 prepara [pruebas reales en Unity y captura de rendimiento](Assets/PoolroomsProcedural/Documentation/VALIDACION_NATIVA_R13.md). El preflight confirmó que falta Unity Editor; no hay FPS ni suite nativa aprobados.
+
+R14 añade [otro coche, cámara antigua, sofá, colocación por apoyos y refinamiento urbano/de accesos](Assets/PoolroomsProcedural/Documentation/AMPLIACION_REGIONAL_R14.md). Doce fuentes/adaptaciones corresponden a once familias geométricas y una variante de silla. Los edificios siguen siendo procedurales; no se presentan como modelos externos descargados.
 
 ## Descargar y abrir
 

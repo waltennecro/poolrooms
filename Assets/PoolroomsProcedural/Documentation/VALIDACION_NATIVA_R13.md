@@ -17,9 +17,9 @@ Los tests del propio lanzador utilizan un proceso **falso y explícitamente iden
 
 ## Medir en una ejecución gráfica real
 
-Con el mundo cargado y Play activo: **Tools → Poolrooms → Validación → Capturar 30 segundos de rendimiento**. Elegir un archivo nuevo y recorrer la zona. Se descartan tres segundos de calentamiento y los períodos de pausa, captura de entrada o destino sin soporte cargado. No aparece un HUD.
+Con el mundo cargado y Play activo: **Tools → Poolrooms → Validación → Capturar 30 segundos de rendimiento**. Elegir un archivo nuevo y recorrer la zona. Se descartan tres segundos de calentamiento y los períodos de pausa/captura de entrada. Las esperas de chunks se registran por separado con duración, cuadros, p95 y peor cuadro; no desaparecen detrás del percentil de exploración cargada. La captura aborta como incompleta tras 180 s de reloj si no reúne las muestras. Mantener la misma configuración durante una captura. No aparece un HUD.
 
-El JSON guarda equipo, API gráfica, soporte RT, calidad seleccionada, regiones observadas, cuadros, mediana/p95/p99, peor cuadro, memoria administrada y recolecciones GC. Detener Play antes de terminar produce `completed=false`. Los tiempos son intervalos de cuadros observados, no tiempo exclusivo de GPU ni promesa de FPS. El informe identifica si se ejecutó en Editor; para comparar rendimiento de una build se puede añadir el componente de diagnóstico y llamar a `Begin(world, ruta)`.
+El JSON guarda equipo, API gráfica, soporte RT, calidad seleccionada, regiones observadas, cuadros, mediana/p95/p99, peor cuadro, memoria administrada/asignada/reservada por Unity y recolecciones GC. Detener Play antes de terminar produce `completed=false`. Los tiempos son intervalos de cuadros observados, no tiempo exclusivo de GPU ni promesa de FPS. El informe identifica si se ejecutó en Editor; para comparar rendimiento de una build se puede añadir el componente de diagnóstico y llamar a `Begin(world, ruta)`.
 
 Inspeccionar además colisiones, conducción/vuelo, agua, sombras, transiciones y cambios de LOD. Probar Rendimiento y Alto sin RT en el i3 N305; RT requiere otra GPU compatible. Una captura de tiempos no certifica por sí sola la apariencia ni la ausencia de errores.
 

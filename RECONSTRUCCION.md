@@ -147,3 +147,9 @@ Respaldo R11–R12: ambos CI completaron todos los pasos y publicaron artefactos
 ## R13 · Validación nativa preparada, ejecución bloqueada
 
 Lanzador PlayMode para un proyecto real Unity 6.3/HDRP 17.3 que contrasta el paquete y exige resultados NUnit nuevos/no vacíos. Distingue fallos, omisiones y filtros. Captura opcional de 30 segundos de exploración real (sin HUD): percentiles de tiempo de cuadro, equipo, calidad, regiones, memoria y GC. El preflight cloud confirma que falta Unity Editor; no se ejecutan pruebas nativas ni se inventan FPS. Los tests del lanzador usan un proceso falso y no validan Unity. Ver `Assets/PoolroomsProcedural/Documentation/VALIDACION_NATIVA_R13.md`.
+
+## R14 · Catálogo, apoyos automáticos y arquitectura
+
+CarConcept, AntiqueCamera y SheenWoodLeatherSofa integrados con originales/licencias, PBR, LOD y colisiones de interacción. Catálogo acumulado: 12 fuentes/adaptaciones, 11 familias y una variante de silla; cuatro tipos de vehículo por recurso y tres clases de control. Colocación por apoyos en ocho biomas (190 muestras válidas), cámaras de pie, sofá costero y seis tipologías de fachada/detalle de calles. Corregida la barandilla que cerraba la galería de planta baja del patio; entradas de los tres niveles refinadas sin activar sockets históricos. Ver `Assets/PoolroomsProcedural/Documentation/AMPLIACION_REGIONAL_R14.md`.
+
+No se declara terminada toda la petición: no se ejecutó Unity, no se midieron FPS ni se descargaron edificios completos. La muestra City11 cumple cantidades mediante instancias procedurales/objetos externos, no mediante miles de modelos distintos. Sponza se descartó por no establecer permiso general de reutilización bajo su acuerdo específico. Esos límites siguen explícitos en el inventario.

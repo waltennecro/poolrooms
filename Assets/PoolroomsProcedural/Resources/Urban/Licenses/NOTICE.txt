@@ -1,0 +1,5 @@
+CarConcept by Eric Chadwick, Darmstadt Graphics Group GmbH, 2024, CC BY 4.0.
+AntiqueCamera by Maximillan Kamps, UX3D, 2018, CC0; embedded UX3D mark has separate terms.
+SheenWoodLeatherSofa: original by Fran Calvente (CC0, 2021), improvements by Eric Chadwick / DGG (CC BY 4.0, 2024).
+All metadata, full licenses and pinned source references included. No endorsement or independent trademark rights implied.
+Changes: native meshes/LOD derivatives, original PBR UV/normal/AO atlas baking, default material choices; car mesh grouping, wheel pivots and removal of two logo meshes.

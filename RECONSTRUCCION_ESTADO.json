@@ -92,14 +92,21 @@
       "id": "R13",
       "feature": "Native Unity PlayMode runner with fresh-result verification and opt-in 30-second hardware/frame-time capture",
       "status": "tooling_implemented_native_execution_blocked",
-      "nativeUnityExecuted": false
+      "nativeUnityExecuted": false,
+      "commit": "9784d0a"
+    },
+    {
+      "id": "R14",
+      "feature": "Three licensed urban source models, second ground-car model, authored PBR/UV/normal/colour pipeline, bounded automatic placement in eight biomes, street/facade refinement and accessible quiet-level entrances",
+      "status": "implemented_native_validation_pending_partial_external_architecture_catalog",
+      "packageFiles": 607
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16951790,
+    "assertions": 16987647,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 192,
+    "syntaxScripts": 197,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 36,
     "citySourcesAudited": 5,
@@ -124,14 +131,23 @@
     "expandedHouseSamples": 36,
     "expandedHouseSeats": 34,
     "expandedMallSectors": 30,
-    "expandedMallSeats": 60
+    "expandedMallSeats": 60,
+    "regionalSourcePlacements": 190,
+    "regionalSourceBiomeTypes": 8,
+    "urbanCameraPlacementsChecked": 28,
+    "coastalSofaPlacementsChecked": 18,
+    "facadeTypologies": 6,
+    "cityDistrictDescriptors": 4,
+    "newUrbanSources": 3,
+    "newUrbanPngMaps": 66,
+    "oldCityRegenerationByteExact": true
   },
   "pending": [
     {
       "id": "city11",
       "feature": "Licensed urban models, procedural districts, furnished accessible buildings, interactable objects and 35 vehicles",
-      "status": "partial_city_three_vehicle_classes_implemented",
-      "remaining": "More licensed urban architecture/furniture models, vehicle variety and urban refinement; wheel-rig, driving, exterior camera and all aircraft native validation. Current sources cover three driveable classes, not 35 distinct vehicle models.",
+      "status": "quantity_snapshot_met_by_instances_native_validation_and_external_building_catalog_pending",
+      "remaining": "The 324-cell sample exceeds requested instance counts and has 37 ground-car sites plus airplane/helicopter, with two actual ground-car source models. Complete downloaded building models are still absent (all buildings procedural); full native driving/flight/visual and performance validation pending.",
       "vehicleClasses": {
         "groundCar": "implemented_native_validation_pending",
         "helicopter": "implemented_native_validation_pending",
@@ -141,14 +157,14 @@
     {
       "id": "global_decoration",
       "feature": "Broader catalogues and realistic decoration across all existing regions",
-      "status": "partial_architectural_and_licensed_furniture_in_five_region_groups",
-      "remaining": "Broader architecture/object catalogue and other interior/SoftPlay/coastal furniture coverage; native appearance, carry, memory and FPS validation. Current licensed seating covers City11, archive/courtyard, malls and varied Level94 houses. Repeated placements are not new models."
+      "status": "bounded_source_placement_covers_all_current_region_groups_native_validation_pending",
+      "remaining": "Support-based placement covers eight core biome types plus existing City11, malls, Level94 and all three quiet levels. Native appearance, carry, memory and FPS validation still pending; repeated instances and percentage requests are not new source models or exact v47 recovery."
     },
     {
       "id": "three_levels",
       "feature": "Archive 906, courtyard 188, coast 48 and natural new transitions; inactive future sockets in existing zones",
       "status": "implemented_native_validation_pending",
-      "remaining": "Unity compilation, native traversal/visuals and refinement; old-zone future transition sockets intentionally inactive"
+      "remaining": "Ground courtyard gallery access fixed; upper rails retained, actual new-zone thresholds refined and coastal furniture integrated. Native traversal/visuals pending. Historical old-zone sockets intentionally inactive."
     },
     {
       "id": "native_validation",
@@ -156,7 +172,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Broaden licensed urban architecture/object families and remaining regional furniture coverage; refine quiet levels and natural transitions without activating historical sockets accidentally. Unity API compilation, native traversal/flight/driving/carry, shaders, appearance, memory and FPS remain unverified.",
+  "nextIndependentWork": "Native Unity 6.3/HDRP 17.3 compile/PlayMode, shaders, vehicle/flight/carry collision and measured FPS/memory are blocked by missing Editor/project; use tools/run_unity_validation.py and the in-game capture. Expand approved complete external building models separately; existing 1212 sample buildings are procedural and must not be reported as downloaded assets.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -167,11 +183,11 @@
     "carLODDerivatives": 2,
     "carColourVariants": 1,
     "downloadedBuildingModels": 0,
-    "downloadedFurnitureModels": 2,
+    "downloadedFurnitureModels": 3,
     "placedFurnitureSourceTypes": 3,
     "chairLODDerivatives": 2,
     "chairColourVariants": 1,
-    "distinctDownloadedSources": 9,
+    "distinctDownloadedSources": 12,
     "distinctDownloadedAircraftSources": 1,
     "aircraftLODDerivatives": 0,
     "aircraftColourVariants": 1,
@@ -182,11 +198,14 @@
     "helicopterSourceLicense": "CC-BY-4.0",
     "helicopterLODDerivatives": 2,
     "helicopterOriginalSourceDownloadVerified": false,
-    "distinctGeometryFamilies": 8,
+    "distinctGeometryFamilies": 11,
     "additionalExistingGeometryVariantSources": 1,
     "downloadedFurnitureVariantSources": 1,
     "interiorSourceFiles": 2,
-    "interiorSourceLicense": "CC-BY-4.0"
+    "interiorSourceLicense": "CC-BY-4.0",
+    "additionalUrbanSourceModels": 3,
+    "placedGroundVehicleSourceTypes": 2,
+    "totalVehicleSourceTypes": 4
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -284,7 +303,7 @@
     "blocks": 324,
     "proceduralBuildings": 1212,
     "floorSpaces": 4846,
-    "sourceItemInstances": 3636,
+    "sourceItemInstances": 4040,
     "carSpawnSitesSameSource": 37,
     "aircraftSpawnSites": 1,
     "helicopterSpawnSites": 1,
@@ -292,9 +311,11 @@
     "simultaneouslyLoaded": false,
     "furnitureSourceInstances": {
       "originalChair": 421,
-      "sofa": 359,
+      "velvetSofa": 174,
+      "woodLeatherSofa": 185,
       "damaskChairVariant": 432
-    }
+    },
+    "standingCameraInstances": 404
   },
   "helicopterCi": {
     "sourceRevision": "f0bc28b5270aea582d065b59dbbd86695bcf07fd",

@@ -336,6 +336,7 @@ namespace Poolrooms
             var chunk=go.AddComponent<PoolroomsChunk>();chunk.roomId=r.Id;chunk.cellX=r.X;chunk.cellZ=r.Z;
             chunk.waterRegions=data.Regions.ToArray();
             chunk.preparedTransitions=data.PreparedTransitions.ToArray();
+            var sourceProps=new List<PoolroomsChunk.SourceProp>();foreach(var p in data.SourceProps)sourceProps.Add(new PoolroomsChunk.SourceProp(p));foreach(var p in data.SourceSeats)sourceProps.Add(new PoolroomsChunk.SourceProp(p));chunk.sourceProps=sourceProps.ToArray();
             MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
             if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
@@ -369,6 +370,13 @@ namespace Poolrooms
         }
         private void AttachRoomExtras(Room r,Transform parent)
         {
+            var sources=parent.GetComponent<PoolroomsChunk>();
+            if(Application.isPlaying&&sources!=null&&sources.sourceProps!=null)
+            {
+                var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
+                foreach(var p in sources.sourceProps)
+                {string key="regional:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+p.slot;if(carry==null||!carry.WasTaken(key))PoolroomsPickup.CreateSourceSeat(key,p.Plan(),parent);}
+            }
             if(Application.isPlaying&&r.Plan!=null&&r.Plan.Quiet!=null)
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
@@ -402,7 +410,7 @@ namespace Poolrooms
                 }
                 string carKey="city11-car:"+layout.Config.Seed+":"+r.X+":"+r.Z;
                 if(airfield==null&&LiminalRegions.Hash(layout.Config.Seed,r.X,r.Z,0x1100CAu)%9==0&&(carry==null||!carry.WasTaken(carKey)))
-                    PoolroomsCityVehicle.Create(this,parent,new Vector3(1.75f,0,-r.Depth*.29f),carKey);
+                    PoolroomsCityVehicle.Create(this,parent,new Vector3(1.75f,0,-r.Depth*.29f),carKey,LiminalRegions.Hash(layout.Config.Seed,r.X,r.Z,0x1311CAu)%3==0?"U_CarConcept":"ToyCar");
             }
             if(Application.isPlaying&&r.Plan!=null&&r.Plan.SoftPlay!=null)
             {

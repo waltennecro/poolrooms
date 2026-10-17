@@ -54,6 +54,12 @@ def disjoint_charts(triangles):
         edges=np.concatenate((np.roll(a,-1,axis=0)-a,np.roll(b,-1,axis=0)-b));axes=np.column_stack((-edges[:,1],edges[:,0]));pa=a@axes.T;pb=b@axes.T
         return np.all(np.minimum(pa.max(axis=0),pb.max(axis=0))-np.maximum(pa.min(axis=0),pb.min(axis=0))>np.linalg.norm(axes,axis=1)*1e-9)
     for i,triangle in enumerate(triangles):
+        edge_a,edge_b=triangle[1]-triangle[0],triangle[2]-triangle[0]
+        if abs(edge_a[0]*edge_b[1]-edge_a[1]*edge_b[0])<1e-18:
+            # A zero-area source UV triangle cannot overlap positive area.
+            # Do not insert it into bins and scan all earlier collapsed triangles.
+            if not groups:groups.append(([],{}))
+            groups[0][0].append(i);continue
         low=np.floor(triangle.min(axis=0)*128).astype(int);high=np.floor(triangle.max(axis=0)*128).astype(int)
         cells=[(x,y) for y in range(low[1],high[1]+1) for x in range(low[0],high[0]+1)]
         for indices,bins in groups:
@@ -66,7 +72,7 @@ def disjoint_charts(triangles):
     return [np.array(indices) for indices,bins in groups]
 
 
-def bake(raw,size=2048):
+def bake(raw,size=2048,skip_uniform=False,weld_charts=False):
     n=struct.unpack_from('<I',raw,12)[0];doc=deepcopy(json.loads(raw[20:20+n]));binary=bytearray(raw[28+n:])
     assert not doc.get('skins') and not doc.get('animations')
     def accessor(i):
@@ -77,6 +83,14 @@ def bake(raw,size=2048):
     used=sorted({p.get('material',0) for p in primitives});materials=doc['materials'];doc['materials']=[materials[i] for i in used]
     for p in primitives:
         p['material']=used.index(p.get('material',0));p.pop('extensions',None)
+    if skip_uniform:
+        # Constant glass/emissive parts have no texture coordinates in some
+        # sources. They need no atlas; keep their original geometry untouched.
+        def textured(p):
+            m=doc['materials'][p['material']];pbr=m.get('pbrMetallicRoughness',{})
+            return 'COLOR_0' in p['attributes'] or any(k in pbr for k in ('baseColorTexture','metallicRoughnessTexture')) or any(k in m for k in ('normalTexture','occlusionTexture','emissiveTexture'))
+        primitives=[p for p in primitives if textured(p)]
+    for p in primitives:
         assert 'TEXCOORD_1' in p['attributes'],'Source has no atlas UV1'
     original_uv={id(p):accessor(p['attributes']['TEXCOORD_1']) for p in primitives}
     native_faces={};chart_counts={}
@@ -85,6 +99,13 @@ def bake(raw,size=2048):
         for primitive in primitives:
             if primitive['material']!=material:continue
             key=id(primitive);uv=original_uv[key];faces=accessor(primitive['indices']).reshape((-1,3));native_faces[key]=np.zeros((len(faces),3,2))
+            chart_vertices=None
+            if weld_charts:
+                # Hard-normal/export seams can duplicate a vertex without making
+                # a UV chart boundary. Weld classification keys only, preserving
+                # every original position, normal, UV and triangle for baking.
+                values=np.column_stack((np.round(accessor(primitive['attributes']['POSITION']),7),np.round(uv,7)))
+                _,chart_vertices=np.unique(values,axis=0,return_inverse=True)
             # A mirrored UV fold cannot share an atlas chart. Connect actual edges only,
             # retaining separate charts across UV orientation flips and point contacts.
             parents=list(range(len(faces)));edges={}
@@ -93,6 +114,7 @@ def bake(raw,size=2048):
                 while parents[x]!=x:parents[x]=parents[parents[x]];x=parents[x]
                 return x
             for i,face in enumerate(faces):
+                if chart_vertices is not None:face=chart_vertices[face]
                 for x,y in [(face[0],face[1]),(face[1],face[2]),(face[2],face[0])]:
                     edge=(min(x,y),max(x,y));prior=edges.get(edge)
                     if prior is not None and sign[i]==sign[prior]:parents[find(i)]=find(prior)
@@ -103,6 +125,17 @@ def bake(raw,size=2048):
                 indices=np.array(indices)
                 for group in disjoint_charts(triangle_uv[indices]):
                     selected=indices[group];points=triangle_uv[selected];lo=points.min(axis=(0,1));extent=points.max(axis=(0,1))-lo
+                    if weld_charts and np.any(extent<=1e-8):
+                        # A constant/line AO coordinate is valid source sampling,
+                        # but cannot seed an atlas chart. Seed only the target UVs
+                        # from UV0 (or a small triangle); retain original_uv above
+                        # so AO still samples the exact original constant/line.
+                        uv0=accessor(primitive['attributes']['TEXCOORD_0'])
+                        for face_index in selected:
+                            target=uv0[faces[face_index]].copy();target_lo=target.min(0);target_extent=target.max(0)-target_lo
+                            if np.any(target_extent<=1e-8):target=np.array([[0.,0.],[.02,0.],[0.,.02]]);target_lo=target.min(0);target_extent=target.max(0)-target_lo
+                            charts.append((key,np.array([face_index]),target_lo,target_extent,target[None,:,:]))
+                        continue
                     assert np.all(extent>1e-8),'Degenerate UV1 chart'
                     charts.append((key,selected,lo,extent,points))
         chart_counts[material]=len(charts)
@@ -122,10 +155,13 @@ def bake(raw,size=2048):
             middle=(low+high)*.5
             if pack(middle) is None:high=middle
             else:low=middle
-        places=pack(low);assert places is not None and low>0
+        places=pack(low);assert places is not None and low>0,('Atlas chart budget exceeded',material,len(charts),size)
+        if weld_charts:print('UV atlas material',material,'charts',len(charts),flush=True)
         for i,(key,indices,lo,extent,points) in enumerate(charts):native_faces[key][indices]=(points-lo)*low+np.array(places[i])/size
     def image_for(info):
-        tex=doc['textures'][info['index']];im=doc['images'][tex['source']];view=doc['bufferViews'][im['bufferView']];offset=view.get('byteOffset',0)
+        tex=doc['textures'][info['index']];source=tex.get('extensions',{}).get('EXT_texture_webp',{}).get('source',tex.get('source'))
+        assert source is not None,'Unsupported compressed texture source'
+        im=doc['images'][source];view=doc['bufferViews'][im['bufferView']];offset=view.get('byteOffset',0)
         return np.asarray(Image.open(BytesIO(binary[offset:offset+view['byteLength']])).convert('RGBA'),dtype=float)/255,doc.get('samplers',[{}])[tex.get('sampler',0)]
     def add_image(array):
         output=BytesIO();Image.fromarray(np.uint8(np.clip(array,0,1)*255+.5)).save(output,format='PNG');data=output.getvalue()
@@ -134,6 +170,9 @@ def bake(raw,size=2048):
         index=len(doc['images']);doc['images'].append({'bufferView':view,'mimeType':'image/png'});texture=len(doc['textures']);doc['textures'].append({'source':index,'sampler':0});return texture
     reports=[]
     for index,mat in enumerate(doc['materials']):
+        if weld_charts and any(p['material']==index and 'COLOR_0' in p['attributes'] for p in primitives):
+            pbr=mat.setdefault('pbrMetallicRoughness',{})
+            if 'baseColorTexture' not in pbr:pbr['baseColorTexture']={'index':add_image(np.ones((2,2,4))),'texCoord':0}
         pbr=mat.get('pbrMetallicRoughness',{});bindings=[(pbr,k) for k in ['baseColorTexture','metallicRoughnessTexture'] if k in pbr]+[(mat,k) for k in ['normalTexture','occlusionTexture','emissiveTexture'] if k in mat]
         for owner,key in bindings:
             info=owner[key];image,sampler=image_for(info);srgb=key in ('baseColorTexture','emissiveTexture')
@@ -146,6 +185,8 @@ def bake(raw,size=2048):
                 attr=primitive['attributes'];uv0=accessor(attr['TEXCOORD_0']);uv1=native_faces[id(primitive)];source_uv=uv0 if uv_set==0 else original_uv[id(primitive)]
                 assert np.all(uv1>=-1e-5) and np.all(uv1<=1.00001),'UV1 is not a bounded atlas'
                 positions=accessor(attr['POSITION']);normals=accessor(attr['NORMAL']);faces=accessor(primitive['indices']).reshape((-1,3))
+                source_tangents=accessor(attr['TANGENT']) if weld_charts and uv_set==0 and 'TANGENT' in attr else None
+                colours=accessor(attr['COLOR_0']) if weld_charts and 'COLOR_0' in attr and key=='baseColorTexture' else None
                 for face_index,face in enumerate(faces):
                     target_uv=uv1[face_index];target=target_uv*size-.5;low=np.maximum(0,np.ceil(target.min(axis=0)).astype(int));high=np.minimum(size-1,np.floor(target.max(axis=0)).astype(int))
                     if np.any(high<low):continue
@@ -157,11 +198,22 @@ def bake(raw,size=2048):
                     keep=(u>=-1e-7)&(v>=-1e-7)&(u+v<=1.0000001);points=points[keep]
                     if not len(points):continue
                     weights=np.column_stack((u[keep],v[keep],1-u[keep]-v[keep]));src=weights@source_uv[face];rgba=sample(image,transform_uv(src,info),sampler)
+                    if colours is not None:
+                        colour=weights@colours[face];rgba[:,:3]*=colour[:,:3]
+                        if colour.shape[1]==4:rgba[:,3]*=colour[:,3]
                     if srgb:
                         rgb=rgba[:,:3];rgba[:,:3]=np.where(rgb<=.0031308,rgb*12.92,1.055*np.maximum(rgb,0)**(1/2.4)-.055)
                     if key=='normalTexture':
                         n=weights@normals[face];n/=np.maximum(np.linalg.norm(n,axis=1,keepdims=True),1e-12)
-                        t0,b0=tangent(positions[face],source_uv[face],n);t1,b1=tangent(positions[face],target_uv,n)
+                        if source_tangents is not None:
+                            authored=weights@source_tangents[face];t0=authored[:,:3]-n*np.sum(authored[:,:3]*n,axis=1)[:,None];length=np.linalg.norm(t0,axis=1,keepdims=True)
+                            assert np.all(length>1e-9),'Invalid authored tangent basis'
+                            t0/=length;b0=np.cross(n,t0)*np.where(authored[:,3]>=0,1,-1)[:,None]
+                        else:
+                            edges=source_uv[face][1:]-source_uv[face][0];det=edges[0,0]*edges[1,1]-edges[0,1]*edges[1,0]
+                            if weld_charts and abs(det)<1e-12 and np.linalg.norm(np.cross(positions[face][1]-positions[face][0],positions[face][2]-positions[face][0]))<1e-12:continue
+                            t0,b0=tangent(positions[face],source_uv[face],n)
+                        t1,b1=tangent(positions[face],target_uv,n)
                         mapped=rgba[:,:3]*2-1;mapped[:,:2]*=info.get('scale',1)
                         world=t0*mapped[:,0,None]+b0*mapped[:,1,None]+n*mapped[:,2,None];world/=np.maximum(np.linalg.norm(world,axis=1,keepdims=True),1e-12)
                         rgba[:,:3]=np.column_stack((np.sum(world*t1,axis=1),np.sum(world*b1,axis=1),np.sum(world*n,axis=1)))*.5+.5
@@ -180,6 +232,7 @@ def bake(raw,size=2048):
             if key=='occlusionTexture':owner[key]['strength']=info.get('strength',1)
             if key=='normalTexture':owner[key]['scale']=1
             reports.append({'material':index,'texture':key,'sourceUV':uv_set,'bakedPixels':coverage,'resolution':size,'uniqueCharts':chart_counts[index]})
+            if key=='baseColorTexture' and weld_charts and any(p['material']==index and 'COLOR_0' in p['attributes'] for p in primitives):reports[-1]['vertexColoursApplied']=True
     def add_accessor(array,kind,component):
         array=np.asarray(array,dtype='<f4' if component==5126 else '<u4');payload=array.tobytes()
         while len(binary)%4:binary.append(0)
@@ -190,7 +243,7 @@ def bake(raw,size=2048):
         # Split chart seams; the native importer can weld identical position/normal/UV tuples.
         p['attributes']={'POSITION':add_accessor(positions,'VEC3',5126),'NORMAL':add_accessor(normals,'VEC3',5126),'TEXCOORD_0':add_accessor(native_faces[id(p)].reshape((-1,2)),'VEC2',5126)}
         p['indices']=add_accessor(np.arange(len(positions)),'SCALAR',5125)
-    doc['extensionsRequired']=[x for x in doc.get('extensionsRequired',[]) if x!='KHR_texture_transform'];doc.pop('extensions',None)
+    doc['extensionsRequired']=[x for x in doc.get('extensionsRequired',[]) if x not in ('KHR_texture_transform','EXT_texture_webp')];doc.pop('extensions',None)
     doc['buffers'][0]['byteLength']=len(binary)
     while len(binary)%4:binary.append(0)
     data=json.dumps(doc,separators=(',',':')).encode();data+=b' '*((-len(data))%4)

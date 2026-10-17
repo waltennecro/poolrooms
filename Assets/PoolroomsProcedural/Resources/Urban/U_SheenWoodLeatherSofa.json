@@ -1,0 +1,421 @@
+{
+  "id": "U_SheenWoodLeatherSofa",
+  "resource": "Urban/Models/U_SheenWoodLeatherSofa",
+  "minimum": [
+    -1.362902283668518,
+    0.0006284122324127028,
+    -0.46269766544433977
+  ],
+  "maximum": [
+    1.362902283668518,
+    1.117932354663326,
+    0.4604851256100495
+  ],
+  "triangles": 46492,
+  "materials": [
+    {
+      "name": "U_SheenWoodLeatherSofa_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.8,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen",
+        "KHR_materials_specular"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_SheenWoodLeatherSofa_m0_albedo",
+      "normal": "Urban/Textures/U_SheenWoodLeatherSofa_m0_normal",
+      "mask": "Urban/Textures/U_SheenWoodLeatherSofa_m0_mask",
+      "sourceName": "Brown",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_SheenWoodLeatherSofa_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.8,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen",
+        "KHR_materials_specular"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_SheenWoodLeatherSofa_m1_albedo",
+      "normal": "Urban/Textures/U_SheenWoodLeatherSofa_m1_normal",
+      "mask": "Urban/Textures/U_SheenWoodLeatherSofa_m1_mask",
+      "sourceName": "Paisley",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_SheenWoodLeatherSofa_m2",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.8,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen",
+        "KHR_materials_specular"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_SheenWoodLeatherSofa_m2_albedo",
+      "normal": "Urban/Textures/U_SheenWoodLeatherSofa_m2_normal",
+      "mask": "Urban/Textures/U_SheenWoodLeatherSofa_m2_mask",
+      "sourceName": "Striped",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_SheenWoodLeatherSofa_m3",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.8,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen",
+        "KHR_materials_specular"
+      ],
+      "transparent": true,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_SheenWoodLeatherSofa_m3_albedo",
+      "normal": "Urban/Textures/U_SheenWoodLeatherSofa_m3_normal",
+      "mask": "Urban/Textures/U_SheenWoodLeatherSofa_m3_mask",
+      "sourceName": "Fringe",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_SheenWoodLeatherSofa_m4",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_SheenWoodLeatherSofa_m4_albedo",
+      "normal": "Urban/Textures/U_SheenWoodLeatherSofa_m4_normal",
+      "mask": "Urban/Textures/U_SheenWoodLeatherSofa_m4_mask",
+      "sourceName": "Frame",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_SheenWoodLeatherSofa_m5",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.8,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen",
+        "KHR_materials_specular"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_SheenWoodLeatherSofa_m5_albedo",
+      "normal": "Urban/Textures/U_SheenWoodLeatherSofa_m5_normal",
+      "mask": "Urban/Textures/U_SheenWoodLeatherSofa_m5_mask",
+      "sourceName": "Frame_Fabric",
+      "clearcoat": 0
+    }
+  ],
+  "lods": [
+    {
+      "resource": "Urban/Models/U_SheenWoodLeatherSofa_LOD1",
+      "triangles": 10735
+    },
+    {
+      "resource": "Urban/Models/U_SheenWoodLeatherSofa_LOD2",
+      "triangles": 3044
+    }
+  ],
+  "uvBake": [
+    {
+      "material": 0,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 361184,
+      "resolution": 2048,
+      "uniqueCharts": 16,
+      "vertexColoursApplied": true
+    },
+    {
+      "material": 0,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 361184,
+      "resolution": 2048,
+      "uniqueCharts": 16
+    },
+    {
+      "material": 0,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 361184,
+      "resolution": 2048,
+      "uniqueCharts": 16
+    },
+    {
+      "material": 0,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 361184,
+      "resolution": 2048,
+      "uniqueCharts": 16
+    },
+    {
+      "material": 1,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1972649,
+      "resolution": 2048,
+      "uniqueCharts": 55,
+      "vertexColoursApplied": true
+    },
+    {
+      "material": 1,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1972649,
+      "resolution": 2048,
+      "uniqueCharts": 55
+    },
+    {
+      "material": 1,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1972649,
+      "resolution": 2048,
+      "uniqueCharts": 55
+    },
+    {
+      "material": 1,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1972649,
+      "resolution": 2048,
+      "uniqueCharts": 55
+    },
+    {
+      "material": 2,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 189397,
+      "resolution": 2048,
+      "uniqueCharts": 10,
+      "vertexColoursApplied": true
+    },
+    {
+      "material": 2,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 189397,
+      "resolution": 2048,
+      "uniqueCharts": 10
+    },
+    {
+      "material": 2,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 189397,
+      "resolution": 2048,
+      "uniqueCharts": 10
+    },
+    {
+      "material": 2,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 189397,
+      "resolution": 2048,
+      "uniqueCharts": 10
+    },
+    {
+      "material": 3,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1842852,
+      "resolution": 2048,
+      "uniqueCharts": 20,
+      "vertexColoursApplied": true
+    },
+    {
+      "material": 3,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1842852,
+      "resolution": 2048,
+      "uniqueCharts": 20
+    },
+    {
+      "material": 3,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 1842852,
+      "resolution": 2048,
+      "uniqueCharts": 20
+    },
+    {
+      "material": 4,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2621815,
+      "resolution": 2048,
+      "uniqueCharts": 37
+    },
+    {
+      "material": 4,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2621815,
+      "resolution": 2048,
+      "uniqueCharts": 37
+    },
+    {
+      "material": 4,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2621815,
+      "resolution": 2048,
+      "uniqueCharts": 37
+    },
+    {
+      "material": 4,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2621815,
+      "resolution": 2048,
+      "uniqueCharts": 37
+    },
+    {
+      "material": 5,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 778740,
+      "resolution": 2048,
+      "uniqueCharts": 2,
+      "vertexColoursApplied": true
+    },
+    {
+      "material": 5,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 778740,
+      "resolution": 2048,
+      "uniqueCharts": 2
+    },
+    {
+      "material": 5,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 778740,
+      "resolution": 2048,
+      "uniqueCharts": 2
+    },
+    {
+      "material": 5,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 778740,
+      "resolution": 2048,
+      "uniqueCharts": 2
+    }
+  ],
+  "sourceSha256": "5349e042ad41e695e89f1110230c4ee0c75b2bc62ef830c7016be6ecf665bfb6",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Native OBJ, two bounded LOD derivatives and baked original PBR/normal/AO atlas. Legal marks retain their separate notices; not a claim of trademark rights.",
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenWoodLeatherSofa/glTF-Binary/SheenWoodLeatherSofa.glb",
+  "modelLicense": "CC-BY-4.0",
+  "legal": [
+    {
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "artist": "Eric Chadwick",
+      "year": "2024",
+      "owner": "Darmstadt Graphics Group GmbH",
+      "what": "Improvements",
+      "text": "Creative Commons Attribution 4.0 International",
+      "spdx": "CC-BY-4.0",
+      "icon": "https://licensebuttons.net/l/by/4.0/88x31.png"
+    },
+    {
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "artist": "Fran Calvente",
+      "year": "2021",
+      "owner": "Public domain",
+      "what": "Original asset",
+      "text": "Creative Commons Zero v1.0 Universal",
+      "spdx": "CC0-1.0",
+      "icon": "https://licensebuttons.net/p/zero/1.0/88x31.png"
+    }
+  ],
+  "authors": [
+    "Eric Chadwick",
+    "Fran Calvente"
+  ],
+  "nativeUnityValidated": false,
+  "removedTrademarkMeshes": [],
+  "atlasSeedFromUV0": true,
+  "defaultMaterialVariantOnly": true
+}

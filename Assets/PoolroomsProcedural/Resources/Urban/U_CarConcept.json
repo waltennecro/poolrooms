@@ -1,0 +1,990 @@
+{
+  "id": "U_CarConcept",
+  "resource": "Urban/Models/U_CarConcept",
+  "minimum": [
+    -1.2714082962213737,
+    -0.0002410734226865885,
+    -1.940231204032898
+  ],
+  "maximum": [
+    1.2709126943464768,
+    1.1486550569534302,
+    2.4171547889709473
+  ],
+  "triangles": 213195,
+  "materials": [
+    {
+      "name": "U_CarConcept_m0",
+      "colour": [
+        0.05112205445766449,
+        0.05112205445766449,
+        0.05112205445766449,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "Urban/Textures/U_CarConcept_m0_normal",
+      "mask": "Urban/Textures/U_CarConcept_m0_mask",
+      "sourceName": "Mechanical",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_transmission"
+      ],
+      "transparent": false,
+      "doubleSided": true,
+      "mask": "Urban/Textures/U_CarConcept_m1_mask",
+      "sourceName": "Glass",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m2",
+      "colour": [
+        0.002932318253442645,
+        0.002932318253442645,
+        0.002932318253442645,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.8,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": true,
+      "emissive": "Urban/Textures/U_CarConcept_m2_emissive",
+      "mask": "Urban/Textures/U_CarConcept_m2_mask",
+      "sourceName": "material 2",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m3",
+      "colour": [
+        0.003697239328175783,
+        0.003697239328175783,
+        0.003697239328175783,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.4,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "Urban/Textures/U_CarConcept_m3_normal",
+      "mask": "Urban/Textures/U_CarConcept_m3_mask",
+      "sourceName": "Interior 1",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m4",
+      "colour": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "Urban/Textures/U_CarConcept_m4_normal",
+      "mask": "Urban/Textures/U_CarConcept_m4_mask",
+      "sourceName": "Floormat",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m5",
+      "colour": [
+        0.2715774476528168,
+        0.2715774476528168,
+        0.2715774476528168,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.5,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "emissive": "Urban/Textures/U_CarConcept_m5_emissive",
+      "mask": "Urban/Textures/U_CarConcept_m5_mask",
+      "sourceName": "Hardware",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m6",
+      "colour": [
+        0.21576441824436188,
+        0.005,
+        0,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.4,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": true,
+      "normal": "Urban/Textures/U_CarConcept_m6_normal",
+      "mask": "Urban/Textures/U_CarConcept_m6_mask",
+      "sourceName": "Interior 3 Carmine",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m7",
+      "colour": [
+        0.003697239328175783,
+        0.003697239328175783,
+        0.003697239328175783,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.4,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "Urban/Textures/U_CarConcept_m7_normal",
+      "mask": "Urban/Textures/U_CarConcept_m7_mask",
+      "sourceName": "Interior 2",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m8",
+      "colour": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        3,
+        0.777082085609436,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "emissive": "Urban/Textures/U_CarConcept_m8_emissive",
+      "mask": "Urban/Textures/U_CarConcept_m8_mask",
+      "sourceName": "Dashboard",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m9",
+      "colour": [
+        0.03775528281927109,
+        0.03775528281927109,
+        0.03775528281927109,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.3,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_clearcoat"
+      ],
+      "transparent": false,
+      "doubleSided": true,
+      "normal": "Urban/Textures/U_CarConcept_m9_normal",
+      "mask": "Urban/Textures/U_CarConcept_m9_mask",
+      "sourceName": "Paint 2 Carmine",
+      "clearcoat": 0.25
+    },
+    {
+      "name": "U_CarConcept_m10",
+      "colour": [
+        0.666,
+        0,
+        0,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.25,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_clearcoat"
+      ],
+      "transparent": false,
+      "doubleSided": true,
+      "normal": "Urban/Textures/U_CarConcept_m10_normal",
+      "mask": "Urban/Textures/U_CarConcept_m10_mask",
+      "sourceName": "Paint 1 Carmine",
+      "clearcoat": 1
+    },
+    {
+      "name": "U_CarConcept_m11",
+      "colour": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        1.6,
+        0.7,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "Urban/Textures/U_CarConcept_m11_mask",
+      "sourceName": "Signallight",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m12",
+      "colour": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        1.4,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "Urban/Textures/U_CarConcept_m12_mask",
+      "sourceName": "Brakelight",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m13",
+      "colour": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        5.4179847240448,
+        7.37204909324646,
+        10
+      ],
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "Urban/Textures/U_CarConcept_m13_mask",
+      "sourceName": "Headlight",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m14",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "emissive": "Urban/Textures/U_CarConcept_m14_emissive",
+      "mask": "Urban/Textures/U_CarConcept_m14_mask",
+      "sourceName": "Mirror",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m15",
+      "colour": [
+        0.6523702144622803,
+        0,
+        0,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.2,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "emissive": "Urban/Textures/U_CarConcept_m15_emissive",
+      "mask": "Urban/Textures/U_CarConcept_m15_mask",
+      "sourceName": "Brake",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m16",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.73,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": true,
+      "albedo": "Urban/Textures/U_CarConcept_m16_albedo",
+      "normal": "Urban/Textures/U_CarConcept_m16_normal",
+      "mask": "Urban/Textures/U_CarConcept_m16_mask",
+      "sourceName": "Disc",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m17",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.4,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_CarConcept_m17_albedo",
+      "normal": "Urban/Textures/U_CarConcept_m17_normal",
+      "mask": "Urban/Textures/U_CarConcept_m17_mask",
+      "sourceName": "Tireside",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m18",
+      "colour": [
+        0.009021492674946783,
+        0.009021492674946783,
+        0.009021492674946783,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.6,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "Urban/Textures/U_CarConcept_m18_normal",
+      "mask": "Urban/Textures/U_CarConcept_m18_mask",
+      "sourceName": "Tiretread",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m19",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.049,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "emissive": "Urban/Textures/U_CarConcept_m19_emissive",
+      "mask": "Urban/Textures/U_CarConcept_m19_mask",
+      "sourceName": "Rim2",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m20",
+      "colour": [
+        0.000992374261841178,
+        0.000992374261841178,
+        0.000992374261841178,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.4,
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "emissive": "Urban/Textures/U_CarConcept_m20_emissive",
+      "mask": "Urban/Textures/U_CarConcept_m20_mask",
+      "sourceName": "Rim1",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_CarConcept_m21",
+      "colour": [
+        0.003697239328175783,
+        0.003697239328175783,
+        0.003697239328175783,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.4,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "Urban/Textures/U_CarConcept_m21_normal",
+      "mask": "Urban/Textures/U_CarConcept_m21_mask",
+      "sourceName": "Panel Sides",
+      "clearcoat": 0
+    }
+  ],
+  "lods": [
+    {
+      "resource": "Urban/Models/U_CarConcept_LOD1",
+      "triangles": 23612
+    },
+    {
+      "resource": "Urban/Models/U_CarConcept_LOD2",
+      "triangles": 12331
+    }
+  ],
+  "uvBake": [
+    {
+      "material": 0,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 124175,
+      "resolution": 1024,
+      "uniqueCharts": 81
+    },
+    {
+      "material": 0,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 124175,
+      "resolution": 1024,
+      "uniqueCharts": 81
+    },
+    {
+      "material": 0,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 124175,
+      "resolution": 1024,
+      "uniqueCharts": 81
+    },
+    {
+      "material": 2,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 58749,
+      "resolution": 1024,
+      "uniqueCharts": 1881
+    },
+    {
+      "material": 2,
+      "texture": "emissiveTexture",
+      "sourceUV": 0,
+      "bakedPixels": 58749,
+      "resolution": 1024,
+      "uniqueCharts": 1881
+    },
+    {
+      "material": 3,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 53697,
+      "resolution": 1024,
+      "uniqueCharts": 136
+    },
+    {
+      "material": 3,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 53697,
+      "resolution": 1024,
+      "uniqueCharts": 136
+    },
+    {
+      "material": 4,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 14284,
+      "resolution": 1024,
+      "uniqueCharts": 56
+    },
+    {
+      "material": 4,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 14284,
+      "resolution": 1024,
+      "uniqueCharts": 56
+    },
+    {
+      "material": 5,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 489,
+      "resolution": 1024,
+      "uniqueCharts": 88
+    },
+    {
+      "material": 5,
+      "texture": "emissiveTexture",
+      "sourceUV": 0,
+      "bakedPixels": 489,
+      "resolution": 1024,
+      "uniqueCharts": 88
+    },
+    {
+      "material": 6,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 29782,
+      "resolution": 1024,
+      "uniqueCharts": 104
+    },
+    {
+      "material": 6,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 29782,
+      "resolution": 1024,
+      "uniqueCharts": 104
+    },
+    {
+      "material": 7,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 12446,
+      "resolution": 1024,
+      "uniqueCharts": 40
+    },
+    {
+      "material": 7,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 12446,
+      "resolution": 1024,
+      "uniqueCharts": 40
+    },
+    {
+      "material": 8,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 2238,
+      "resolution": 1024,
+      "uniqueCharts": 17
+    },
+    {
+      "material": 8,
+      "texture": "emissiveTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2238,
+      "resolution": 1024,
+      "uniqueCharts": 17
+    },
+    {
+      "material": 9,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 22256,
+      "resolution": 1024,
+      "uniqueCharts": 132
+    },
+    {
+      "material": 9,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 22256,
+      "resolution": 1024,
+      "uniqueCharts": 132
+    },
+    {
+      "material": 10,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 55841,
+      "resolution": 1024,
+      "uniqueCharts": 94
+    },
+    {
+      "material": 10,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 55841,
+      "resolution": 1024,
+      "uniqueCharts": 94
+    },
+    {
+      "material": 14,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 291,
+      "resolution": 1024,
+      "uniqueCharts": 2
+    },
+    {
+      "material": 14,
+      "texture": "emissiveTexture",
+      "sourceUV": 0,
+      "bakedPixels": 291,
+      "resolution": 1024,
+      "uniqueCharts": 2
+    },
+    {
+      "material": 15,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 2582,
+      "resolution": 1024,
+      "uniqueCharts": 68
+    },
+    {
+      "material": 15,
+      "texture": "emissiveTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2582,
+      "resolution": 1024,
+      "uniqueCharts": 68
+    },
+    {
+      "material": 16,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 6916,
+      "resolution": 1024,
+      "uniqueCharts": 32
+    },
+    {
+      "material": 16,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 6916,
+      "resolution": 1024,
+      "uniqueCharts": 32
+    },
+    {
+      "material": 16,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 6916,
+      "resolution": 1024,
+      "uniqueCharts": 32
+    },
+    {
+      "material": 17,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 10096,
+      "resolution": 1024,
+      "uniqueCharts": 8
+    },
+    {
+      "material": 17,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 10096,
+      "resolution": 1024,
+      "uniqueCharts": 8
+    },
+    {
+      "material": 17,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 10096,
+      "resolution": 1024,
+      "uniqueCharts": 8
+    },
+    {
+      "material": 18,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 19411,
+      "resolution": 1024,
+      "uniqueCharts": 24
+    },
+    {
+      "material": 18,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 19411,
+      "resolution": 1024,
+      "uniqueCharts": 24
+    },
+    {
+      "material": 19,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 931,
+      "resolution": 1024,
+      "uniqueCharts": 244
+    },
+    {
+      "material": 19,
+      "texture": "emissiveTexture",
+      "sourceUV": 0,
+      "bakedPixels": 931,
+      "resolution": 1024,
+      "uniqueCharts": 244
+    },
+    {
+      "material": 20,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 31574,
+      "resolution": 1024,
+      "uniqueCharts": 1059
+    },
+    {
+      "material": 20,
+      "texture": "emissiveTexture",
+      "sourceUV": 0,
+      "bakedPixels": 31574,
+      "resolution": 1024,
+      "uniqueCharts": 1059
+    },
+    {
+      "material": 21,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 28613,
+      "resolution": 1024,
+      "uniqueCharts": 89
+    },
+    {
+      "material": 21,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 28613,
+      "resolution": 1024,
+      "uniqueCharts": 89
+    }
+  ],
+  "sourceSha256": "c272098089d78c5cd9fd9f24ff50ee8acf8d932c55f2d55fc10adb6c8998966b",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Original static body merged per material, four native wheel assemblies, brake calipers kept separate; two derivatives/UV atlas/PBR; steering emblem and logo plate meshes omitted; default paint only, optional clearcoat/transmission approximated in HDRP.",
+  "sourceNodeNames": [
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Body",
+    "Wheel_FL",
+    "Wheel_FL",
+    "Wheel_FL_Caliper",
+    "Wheel_FL",
+    "Wheel_FL_Tyre",
+    "Wheel_FL_Tyre",
+    "Wheel_FR",
+    "Wheel_FR",
+    "Wheel_FR_Caliper",
+    "Wheel_FR",
+    "Wheel_FR_Tyre",
+    "Wheel_FR_Tyre",
+    "Wheel_RL",
+    "Wheel_RL_Caliper",
+    "Wheel_RL",
+    "Wheel_RL",
+    "Wheel_RL_Tyre",
+    "Wheel_RL_Tyre",
+    "Wheel_RR",
+    "Wheel_RR_Caliper",
+    "Wheel_RR",
+    "Wheel_RR",
+    "Wheel_RR_Tyre",
+    "Wheel_RR_Tyre"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/CarConcept/glTF-Binary/CarConcept.glb",
+  "modelLicense": "CC-BY-4.0",
+  "legal": [
+    {
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "artist": "Eric Chadwick",
+      "year": "2024",
+      "owner": "Darmstadt Graphics Group GmbH",
+      "what": "Model and textures",
+      "text": "Creative Commons Attribution 4.0 International",
+      "spdx": "CC-BY-4.0",
+      "icon": "https://licensebuttons.net/l/by/4.0/88x31.png"
+    },
+    {
+      "license": "LicenseRef-LegalMark-Khronos",
+      "licenseUrl": "../../LICENSES/LicenseRef-LegalMark-Khronos.txt",
+      "artist": "Non-copyrightable logo",
+      "year": "2015",
+      "owner": "Khronos Group",
+      "what": "Khronos logo",
+      "text": "Khronos Trademark or Logo",
+      "icon": ""
+    },
+    {
+      "license": "LicenseRef-LegalMark-Khronos",
+      "licenseUrl": "../../LICENSES/LicenseRef-LegalMark-Khronos.txt",
+      "artist": "Non-copyrightable logo",
+      "year": "2017",
+      "owner": "Khronos Group",
+      "what": "3D Commerce logo",
+      "text": "Khronos Trademark or Logo",
+      "icon": ""
+    }
+  ],
+  "authors": [
+    "Eric Chadwick"
+  ],
+  "nativeUnityValidated": false,
+  "removedTrademarkMeshes": [
+    "InteriorSteeringEmblem",
+    "License Plate"
+  ],
+  "atlasSeedFromUV0": true,
+  "defaultMaterialVariantOnly": true,
+  "wheels": [
+    {
+      "part": "Wheel_RL",
+      "front": false
+    },
+    {
+      "part": "Wheel_RR",
+      "front": false
+    },
+    {
+      "part": "Wheel_FL",
+      "front": true
+    },
+    {
+      "part": "Wheel_FR",
+      "front": true
+    }
+  ]
+}

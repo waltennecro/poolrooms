@@ -16,10 +16,11 @@ mode=out.parent.name
 xml='<test-run><test-case result="Passed" /></test-run>'
 if mode=='zero':xml='<test-run />'
 if mode=='skipped':xml='<test-run><test-case result="Skipped" /></test-run>'
+if mode=='mixed':xml='<test-run><test-case result="Passed" /><test-case result="Skipped" /></test-run>'
 if mode=='failed':xml='<test-run><test-case result="Failed" /></test-run>'
 if mode!='absent':out.write_text(xml)
 ''');editor.chmod(0o755)
- for name,expected in [('passed',0),('zero',1),('skipped',1),('failed',1),('absent',1)]:
+ for name,expected in [('passed',0),('zero',1),('skipped',1),('mixed',3),('failed',1),('absent',1)]:
   out=root/name;run=subprocess.run([sys.executable,str(ROOT/'tools/run_unity_validation.py'),'--unity',str(editor),'--project',str(project),'--results',str(out)],capture_output=True,text=True)
   assert run.returncode==expected,(name,run.stdout,run.stderr)
   report=json.loads((out/'native-validation.json').read_text());assert not report['visualAndFpsCertified']

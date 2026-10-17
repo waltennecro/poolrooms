@@ -17,11 +17,13 @@ namespace Poolrooms.Core
     {
         public static string Id(int source)
         {
-            switch(source){case 0:return "WaterBottle";case 1:return "BoomBox";case 2:return "SheenChair";case 3:return "I_GlamVelvetSofa";case 4:return "I_ChairDamaskPurplegold";default:throw new ArgumentOutOfRangeException(nameof(source));}
+            switch(source){case 0:return "WaterBottle";case 1:return "BoomBox";case 2:return "SheenChair";case 3:return "I_GlamVelvetSofa";case 4:return "I_ChairDamaskPurplegold";case 5:return "U_SheenWoodLeatherSofa";case 6:return "U_AntiqueCamera";default:throw new ArgumentOutOfRangeException(nameof(source));}
         }
-        public static float Longest(int source){return source==0?.28f:source==1?.4f:source==3?2:1;}
+        public static bool IsSeat(int source){return source>=2&&source<=5;}
+        public static int Index(string source){for(int i=0;i<7;i++)if(Id(i)==source)return i;throw new ArgumentException("Unknown placed source: "+source);}
+        public static float Longest(int source){return source==0?.28f:source==1?.4f:source==3||source==5?2:source==6?1.5f:1;}
         public static float Longest(string source)
-        {if(source=="Lantern")return 1.3f;for(int i=0;i<5;i++)if(Id(i)==source)return Longest(i);throw new ArgumentException("Unknown placed source: "+source);}
+        {if(source=="Lantern")return 1.3f;return Longest(Index(source));}
         public static V3 HalfExtents(int source,float yaw,float margin=0)
         {
             var size=Dimensions(source);float a=yaw*(float)Math.PI/180,co=Math.Abs((float)Math.Cos(a)),si=Math.Abs((float)Math.Sin(a));
@@ -51,6 +53,8 @@ namespace Poolrooms.Core
                 case 2:return new V3(1,.83024678f,.68992799f);
                 case 3:return new V3(2,.71972764f,.93475457f);
                 case 4:return new V3(1,.82952308f,.69010345f);
+                case 5:return new V3(2,.81979754f,.67736536f);
+                case 6:return new V3(.5404695f,1.5f,.7063373f);
                 default:throw new ArgumentOutOfRangeException(nameof(source));
             }
         }

@@ -1,0 +1,14 @@
+{
+  "nativeUnityExecuted": false,
+  "editorExecutablesFound": [],
+  "editorOnPath": null,
+  "unityEnvironmentBindingNames": [],
+  "projectManifestPresent": false,
+  "projectVersionPresent": false,
+  "driDeviceNodes": [],
+  "packageRegistryObservation": "HTTPS tunnel returned 403 for packages.unity.com; no package version existence inferred",
+  "status": "blocked_native_editor_and_project_missing",
+  "preflightResult": "nativeExecuted=false / blocked_unity_editor_missing",
+  "nativeValidationRunner": "tools/run_unity_validation.py",
+  "fakeRunnerContractChecksAreNotUnityTests": true
+}

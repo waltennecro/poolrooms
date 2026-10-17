@@ -11,7 +11,7 @@ namespace Poolrooms
         private PoolroomsExplorer driver,originActor;
         private Rigidbody body;
         private WheelCollider[] wheels;
-        private Transform[] wheelVisuals;
+        private Transform[] wheelVisuals,caliperVisuals;
         private bool[] frontWheels;
         private string spawnKey;
         private Vector3 size,savedVelocity,savedAngular;
@@ -19,12 +19,12 @@ namespace Poolrooms
         private bool brake,detached,exitRequested,frozen;
         private readonly RaycastHit[] hits=new RaycastHit[32];
         public override bool IsDriving {get{return driver!=null;}}
-        public static PoolroomsCityVehicle Create(PoolroomsWorld world,Transform parent,Vector3 position,string key)
+        public static PoolroomsCityVehicle Create(PoolroomsWorld world,Transform parent,Vector3 position,string key,string source="ToyCar")
         {
             var settings=world!=null&&world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsGameSettings>():null;
             bool low=settings!=null&&settings.Preferences!=null&&settings.Preferences.graphicsQuality==0;
-            var go=City11Sources.Create("ToyCar",parent,position,4.2f,out var size,low?1:0);if(go==null)return null;
-            var definition=City11Sources.Get("ToyCar");
+            var go=City11Sources.Create(source,parent,position,source=="ToyCar"?4.2f:4.6f,out var size,low?1:0);if(go==null)return null;
+            var definition=City11Sources.Get(source);
             if(definition.wheels==null||definition.wheels.Length!=4){Destroy(go);return null;}
             // Read the imported front/rear wheel centres to handle OBJ handedness.
             Vector3 front=Vector3.zero,rear=Vector3.zero;
@@ -43,13 +43,14 @@ namespace Poolrooms
             car.body=go.AddComponent<Rigidbody>();car.body.mass=1100;car.body.centerOfMass=Vector3.down*size.y*.18f;
             car.body.linearDamping=.025f;car.body.angularDamping=.8f;car.body.solverIterations=10;car.body.solverVelocityIterations=4;
             car.body.interpolation=RigidbodyInterpolation.Interpolate;car.body.maxDepenetrationVelocity=3;car.body.isKinematic=true;
-            car.wheels=new WheelCollider[4];car.wheelVisuals=new Transform[4];car.frontWheels=new bool[4];
+            car.wheels=new WheelCollider[4];car.wheelVisuals=new Transform[4];car.caliperVisuals=new Transform[4];car.frontWheels=new bool[4];
             for(int i=0;i<4;i++)
             {
                 var part=definition.wheels[i];PartBounds(go.transform,part.part,out var bounds);
                 var pivot=new GameObject(part.part+" / suspension visual").transform;pivot.SetParent(go.transform,false);pivot.localPosition=bounds.center;
+                var caliper=new GameObject(part.part+" / fixed caliper").transform;caliper.SetParent(go.transform,false);caliper.localPosition=bounds.center;car.caliperVisuals[i]=caliper;
                 var filters=new List<MeshFilter>(go.GetComponentsInChildren<MeshFilter>());
-                foreach(var filter in filters)if(filter.name.Contains(part.part))filter.transform.SetParent(pivot,true);
+                foreach(var filter in filters)if(filter.name.Contains(part.part))filter.transform.SetParent(filter.name.Contains("_Caliper")?caliper:pivot,true);
                 car.wheelVisuals[i]=pivot;car.frontWheels[i]=part.front;
                 var wheel=new GameObject(part.part+" / contact");wheel.transform.SetParent(go.transform,false);
                 // WheelCollider's origin is the top of suspension travel. At the
@@ -60,13 +61,14 @@ namespace Poolrooms
                 var spring=contact.suspensionSpring;spring.spring=35000;spring.damper=4500;spring.targetPosition=.5f;contact.suspensionSpring=spring;
                 contact.brakeTorque=1800;contact.ConfigureVehicleSubsteps(5,8,3);contact.enabled=false;car.wheels[i]=contact;
             }
-            var lod=go.GetComponent<LODGroup>();if(lod!=null)lod.RecalculateBounds();return car;
+            var lod=go.GetComponent<LODGroup>();if(lod!=null)
+            {var tiers=lod.GetLODs();for(int i=0;i<tiers.Length;i++)tiers[i].screenRelativeTransitionHeight=i==0?.26f:i==1?.075f:.012f;lod.SetLODs(tiers);lod.RecalculateBounds();}return car;
         }
         static bool PartBounds(Transform root,string part,out Bounds bounds)
         {
             bounds=new Bounds();MeshFilter best=null;
             foreach(var filter in root.GetComponentsInChildren<MeshFilter>())if(filter.sharedMesh!=null&&filter.name.Contains(part)&&
-                (best==null||filter.sharedMesh.vertexCount>best.sharedMesh.vertexCount))best=filter;
+                !filter.name.Contains("_Caliper")&&(best==null||filter.sharedMesh.vertexCount>best.sharedMesh.vertexCount))best=filter;
             if(best==null)return false;
             var local=best.sharedMesh.bounds;
             for(int i=0;i<8;i++)
@@ -108,7 +110,8 @@ namespace Poolrooms
         {
             if(driver!=null)
             {
-                if(!frozen)for(int i=0;i<wheels.Length;i++){wheels[i].GetWorldPose(out var position,out var rotation);wheelVisuals[i].SetPositionAndRotation(position,rotation);}
+                if(!frozen)for(int i=0;i<wheels.Length;i++)
+                {wheels[i].GetWorldPose(out var position,out var rotation);wheelVisuals[i].SetPositionAndRotation(position,rotation);caliperVisuals[i].SetPositionAndRotation(position,transform.rotation*Quaternion.Euler(0,wheels[i].steerAngle,0));}
                 UpdateDriverPose();if(exitRequested&&!frozen&&body.linearVelocity.sqrMagnitude<.5f)TryExit();
             }
             else if(detached&&world!=null&&world.viewer!=null&&Vector3.Distance(world.viewer.position,transform.position)>world.UnloadRadius*world.profile.cellSize+16)Destroy(gameObject);

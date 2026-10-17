@@ -1,0 +1,114 @@
+{
+  "id": "U_AntiqueCamera",
+  "resource": "Urban/Models/U_AntiqueCamera",
+  "minimum": [
+    -1.6259904150387365,
+    -0.0008064662422668789,
+    -1.8949548028489591
+  ],
+  "maximum": [
+    0.9714544569528145,
+    7.208050669390502,
+    1.4996351489039619
+  ],
+  "triangles": 20066,
+  "materials": [
+    {
+      "name": "U_AntiqueCamera_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_AntiqueCamera_m0_albedo",
+      "normal": "Urban/Textures/U_AntiqueCamera_m0_normal",
+      "mask": "Urban/Textures/U_AntiqueCamera_m0_mask",
+      "sourceName": "camera",
+      "clearcoat": 0
+    },
+    {
+      "name": "U_AntiqueCamera_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Urban/Textures/U_AntiqueCamera_m1_albedo",
+      "normal": "Urban/Textures/U_AntiqueCamera_m1_normal",
+      "mask": "Urban/Textures/U_AntiqueCamera_m1_mask",
+      "sourceName": "tripod",
+      "clearcoat": 0
+    }
+  ],
+  "lods": [
+    {
+      "resource": "Urban/Models/U_AntiqueCamera_LOD1",
+      "triangles": 2192
+    },
+    {
+      "resource": "Urban/Models/U_AntiqueCamera_LOD2",
+      "triangles": 862
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "ae89695479ad997f09ebea8060a5ad01312ad8fe7ffb92f73b4e895109feecd2",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Native OBJ, two bounded LOD derivatives and baked original PBR/normal/AO atlas. Legal marks retain their separate notices; not a claim of trademark rights.",
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AntiqueCamera/glTF-Binary/AntiqueCamera.glb",
+  "modelLicense": "CC0-1.0",
+  "legal": [
+    {
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "artist": "Maximillan Kamps",
+      "year": "2018",
+      "owner": "UX3D",
+      "what": "Everything",
+      "text": "Creative Commons Zero v1.0 Universal",
+      "spdx": "CC0-1.0",
+      "icon": "https://licensebuttons.net/p/zero/1.0/88x31.png"
+    },
+    {
+      "license": "LicenseRef-LegalMark-UX3D",
+      "licenseUrl": "../../LICENSES/LicenseRef-LegalMark-UX3D.txt",
+      "artist": "Non-copyrightable logo",
+      "year": "2017",
+      "owner": "UX3D",
+      "what": "UX3D logo",
+      "text": "UX3D Trademark or Logo",
+      "icon": ""
+    }
+  ],
+  "authors": [
+    "Maximillan Kamps"
+  ],
+  "nativeUnityValidated": false,
+  "removedTrademarkMeshes": [],
+  "atlasSeedFromUV0": true,
+  "defaultMaterialVariantOnly": true
+}

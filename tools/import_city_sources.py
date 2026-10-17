@@ -30,12 +30,12 @@ def acquire(url,path):
     LOCK[key]={'url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}
     return data
 
-def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=False,source_license="CC0-1.0",bake_uvs=False):
+def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=False,source_license="CC0-1.0",bake_uvs=False,lod_levels=None,merge_nodes=False,bake_size=2048,skip_uniform=False,weld_charts=False):
     dest=DEST if destination is None else destination
     original_raw=raw;bake_report=[]
     if name=='SheenChair' or bake_uvs:
         from bake_gltf_uvs import bake
-        raw,bake_report=bake(raw)
+        raw,bake_report=bake(raw,size=bake_size,skip_uniform=skip_uniform,weld_charts=weld_charts)
     magic,version,total=struct.unpack_from('<III',raw)
     assert magic==0x46546c67 and version==2 and total==len(raw)
     n,tag=struct.unpack_from('<II',raw,12);assert tag==0x4e4f534a
@@ -74,6 +74,8 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
         definition={'name':prefix,'colour':pbr.get('baseColorFactor',[1,1,1,1]),'normalScale':mat.get('normalTexture',{}).get('scale',1),
                     'metallic':pbr.get('metallicFactor',1),'roughness':pbr.get('roughnessFactor',1),'emission':mat.get('emissiveFactor',[0,0,0]),
                     'extensions':list(mat.get('extensions',{})),'transparent':mat.get('alphaMode')=='BLEND','doubleSided':mat.get('doubleSided',False)}
+        strength=mat.get('extensions',{}).get('KHR_materials_emissive_strength',{}).get('emissiveStrength',1)
+        if strength!=1:definition['emission']=[x*strength for x in definition['emission']]
         for prop,key in [('baseColorTexture','albedo'),('normalTexture','normal'),('emissiveTexture','emissive')]:
             tex=pbr.get(prop) if prop=='baseColorTexture' else mat.get(prop)
             if tex:
@@ -121,6 +123,14 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
                 entries.append((primitive.get('material',0),positions,normals,uv,indices));entry_names.append(node.get('name','part'))
         for child in node.get('children',[]):walk(child,matrix,ancestors|{index})
     for node in doc['scenes'][doc.get('scene',0)]['nodes']:walk(node,np.eye(4),set())
+    if merge_nodes:
+        merged={}
+        for entry,label in zip(entries,entry_names):merged.setdefault((label,entry[0]),[]).append(entry)
+        entries=[];entry_names=[]
+        for (label,material),group in merged.items():
+            start=0;faces=[]
+            for e in group:faces.append(e[4]+start);start+=len(e[1])
+            entries.append((material,*[np.concatenate([e[k] for e in group]) for k in (1,2,3)],np.concatenate(faces)));entry_names.append(label)
     folder=dest/'Models';folder.mkdir(parents=True,exist_ok=True)
     if name=='ToyCar':
         points=np.concatenate([e[1] for e in entries]);_,axes=np.linalg.eigh(np.cov(points[:,[0,2]],rowvar=False));direction=axes[:,-1]
@@ -145,22 +155,15 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
             start+=len(positions)
     (folder/(name+'.mtl')).write_text(''.join('newmtl '+m['name']+'\nKd '+' '.join(map(str,m['colour'][:3]))+'\n' for m in materials))
     lods=[]
-    if name in ('ToyCar','SheenChair'):
-        levels=[(1,64,64),(2,24,16)] if name=='ToyCar' else [(1,32,16),(2,12,8)]
+    if name in ('ToyCar','SheenChair') or lod_levels:
+        levels=lod_levels or ([(1,64,64),(2,24,16)] if name=='ToyCar' else [(1,32,16),(2,12,8)])
         for level,grid,uv_grid in levels:
-            groups=[];epsilon=float((hi-lo).max())/grid
-            for material,positions,normals,uv,indices in entries:
-                key=np.column_stack((np.rint((positions-lo)/epsilon),np.floor(uv*uv_grid))).astype(np.int64)
-                _,inverse=np.unique(key,axis=0,return_inverse=True)
-                count=int(inverse.max())+1;weight=np.bincount(inverse)
-                def average(a):return np.stack([np.bincount(inverse,weights=a[:,i],minlength=count)/weight for i in range(a.shape[1])],axis=1)
-                p=average(positions);n=average(normals);n/=np.maximum(np.linalg.norm(n,axis=1,keepdims=True),1e-10);t=average(uv)
-                faces=inverse[indices];keep=(faces[:,0]!=faces[:,1])&(faces[:,1]!=faces[:,2])&(faces[:,0]!=faces[:,2]);faces=faces[keep]
-                area=np.linalg.norm(np.cross(p[faces[:,1]]-p[faces[:,0]],p[faces[:,2]]-p[faces[:,0]]),axis=1);faces=faces[area>1e-14]
-                groups.append((material,p,n,t,faces))
+            from source_lods import cluster
+            groups=cluster(entries,grid,uv_grid,lo,hi,preserve_normals=resource_root=='Urban')
             lod_name=name+'_LOD'+str(level);start=1
             with (folder/(lod_name+'.obj')).open('w') as f:
-                f.write(f'# LOD adapted from the same CC0 model, not a new source model\nmtllib {name}.mtl\n')
+                license_label='CC0' if source_license=='CC0-1.0' else source_license
+                f.write(f'# LOD adapted from the same {license_label} model, not a new source model\nmtllib {name}.mtl\n')
                 for entry_index,(material,positions,normals,uv,indices) in enumerate(groups):
                     part=(entry_names[entry_index].replace(' ','_')+'_') if preserve_nodes else ''
                     f.write(f'o {name}_{part}m{material}\nusemtl {name}_m{material}\n')

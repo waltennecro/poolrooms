@@ -28,10 +28,10 @@ namespace Poolrooms.Core
         public bool Valid(Room room,LayoutConfig c)
         {
             if(Airfield!=null)return room.Environment==LiminalEnvironment.City11&&Buildings.Length==0&&Props.Length==0&&Airfield.X==room.X&&Airfield.Z==room.Z;
-            if(room.Environment!=LiminalEnvironment.City11||room.Width!=c.CellSize||room.Depth!=c.CellSize||Buildings.Length!=4||Props.Length!=12)return false;
+            if(room.Environment!=LiminalEnvironment.City11||room.Width!=c.CellSize||room.Depth!=c.CellSize||Buildings.Length!=4||Props.Length<12||Props.Length>16)return false;
             foreach(var b in Buildings)
                 if(b.Width<7.7f||b.Depth<7.7f||b.Floors<2||b.Floors>6||Math.Abs(b.X)+b.Width*.5f>room.Width*.5f-.5f||Math.Abs(b.Z)+b.Depth*.5f>room.Depth*.5f-.5f||Math.Abs(b.X)-b.Width*.5f<4.7f||Math.Abs(b.Z)-b.Depth*.5f<4.7f)return false;
-            foreach(var p in Props)if(p.Source<0||p.Source>4||!float.IsFinite(p.Position.X)||!float.IsFinite(p.Position.Y)||!float.IsFinite(p.Position.Z))return false;
+            foreach(var p in Props)if(p.Source<0||p.Source>6||!float.IsFinite(p.Position.X)||!float.IsFinite(p.Position.Y)||!float.IsFinite(p.Position.Z))return false;
             return true;
         }
     }
@@ -57,9 +57,12 @@ namespace Poolrooms.Core
                 var b=new CityBuildingPlan(x*(4.8f+w*.5f),z*(4.8f+d*.5f),w,d,2+rng.Range(5),rng.Range(8),rng.Range(4),rng.Next(),z<0);buildings[index]=b;
                 props[index*2]=new CityPropPlan(b.Point(w*.23f,1.02f,0),0);
                 props[index*2+1]=new CityPropPlan(b.Point(w*.23f,1.06f,d*.28f),1);
-                int choice=(int)((b.Seed>>8)%3),source=choice==0?2:choice==1&&w>=10&&d>=10?3:4;
-                props[8+index]=new CityPropPlan(b.Point(w*.23f,.14f,source==3?1.6f:1.12f),source,b.Turn?0:180);index++;
+                int choice=(int)((b.Seed>>8)%3),source=choice==0?2:choice==1&&w>=10&&d>=10?((b.Seed&1)==0?3:5):4;
+                props[8+index]=new CityPropPlan(b.Point(w*.23f,.14f,source==3||source==5?1.6f:1.12f),source,b.Turn?0:180);index++;
             }
+            var extra=new System.Collections.Generic.List<CityPropPlan>(props);
+            foreach(var b in buildings)if(b.Width>=10&&b.Depth>=10&&(b.Seed%3)==0)extra.Add(new CityPropPlan(b.Point(b.Width*.23f,.14f,-1.4f),6,b.Turn?0:180));
+            props=extra.ToArray();
             var city=new City11Plan(buildings,props);
             room.Plan=new ProceduralPlan(room.Environment,new PlannedModule[0],new WaterRegion[0],4.7f,0,0,city:city);
             if(!city.Valid(room,c))throw new ArgumentException("City blocks must preserve streets and building access.");

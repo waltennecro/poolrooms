@@ -1,0 +1,67 @@
+{
+  "CarConcept_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/CarConcept/metadata.json",
+    "bytes": 1334,
+    "sha256": "89555a6cb9dc0a4f300abe3cc6476c2d8d77c6f3f2cbde9bf790c1bd320027ed"
+  },
+  "CarConcept_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/CarConcept/LICENSE.md",
+    "bytes": 943,
+    "sha256": "e11477f29eab33d1a5c9fc8534f931556faeb2e11a7fee9e4723d917fcfaee50"
+  },
+  "CC-BY-4.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC-BY-4.0.txt",
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "LicenseRef-LegalMark-Khronos.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/LicenseRef-LegalMark-Khronos.txt",
+    "bytes": 589,
+    "sha256": "2ea9821de870cf8d3faaa115ffc47f56632bf9f98d54d2ac1ce61592040b765c"
+  },
+  "CarConcept.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/CarConcept/glTF-Binary/CarConcept.glb",
+    "bytes": 11778688,
+    "sha256": "c272098089d78c5cd9fd9f24ff50ee8acf8d932c55f2d55fc10adb6c8998966b"
+  },
+  "AntiqueCamera_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AntiqueCamera/metadata.json",
+    "bytes": 982,
+    "sha256": "3b49b71ede6a0ee9540a6c953fa1478766ff670bd163b7fe1d213e343076afde"
+  },
+  "AntiqueCamera_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AntiqueCamera/LICENSE.md",
+    "bytes": 852,
+    "sha256": "ea9b3641260ec5d67804e7b85ed8e7ca6f71bd614bee7275bce41ff00c69c9d7"
+  },
+  "CC0-1.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC0-1.0.txt",
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "LicenseRef-LegalMark-UX3D.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/LicenseRef-LegalMark-UX3D.txt",
+    "bytes": 490,
+    "sha256": "ac89817ee8989f7fd6fb1830d5d722adb4718cc1c4bfb8aa3fcb5c89c8243d19"
+  },
+  "AntiqueCamera.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AntiqueCamera/glTF-Binary/AntiqueCamera.glb",
+    "bytes": 17540348,
+    "sha256": "ae89695479ad997f09ebea8060a5ad01312ad8fe7ffb92f73b4e895109feecd2"
+  },
+  "SheenWoodLeatherSofa_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenWoodLeatherSofa/metadata.json",
+    "bytes": 1109,
+    "sha256": "a8ce07f6c0be172ff475a60d7da9e9624d047509100e4d72baa080d94b4645f3"
+  },
+  "SheenWoodLeatherSofa_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenWoodLeatherSofa/LICENSE.md",
+    "bytes": 933,
+    "sha256": "4ab306869a96deedf15b93b546e235aea897982a1151057e6dd9f61a3c70ea20"
+  },
+  "SheenWoodLeatherSofa.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenWoodLeatherSofa/glTF-Binary/SheenWoodLeatherSofa.glb",
+    "bytes": 10107912,
+    "sha256": "5349e042ad41e695e89f1110230c4ee0c75b2bc62ef830c7016be6ecf665bfb6"
+  }
+}

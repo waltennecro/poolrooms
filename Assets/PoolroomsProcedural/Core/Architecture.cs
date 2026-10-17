@@ -43,6 +43,7 @@ namespace Poolrooms.Core
         public readonly List<MeshData> VisualMeshes=new List<MeshData>();
         public readonly List<PreparedTransition> PreparedTransitions=new List<PreparedTransition>();
         public readonly List<SourceFurniturePlacement> SourceSeats=new List<SourceFurniturePlacement>();
+        public readonly List<SourceFurniturePlacement> SourceProps=new List<SourceFurniturePlacement>();
         public readonly CorridorGeometry[] Connectors=new CorridorGeometry[2];
         public WaterRegion Region;
         public readonly List<WaterRegion> Regions=new List<WaterRegion>();
@@ -66,6 +67,7 @@ namespace Poolrooms.Core
         {
             RoomGeometry output=BuildBase(r,cfg);
             output.Dressing=ArchitecturalDressing.Build(output.Structure,LiminalRegions.Hash(cfg.Seed,r.X,r.Z,0xDEC006u));
+            RegionalSourcePlanner.Append(output,r,cfg);
             return output;
         }
         private static RoomGeometry BuildBase(Room r,LayoutConfig cfg)

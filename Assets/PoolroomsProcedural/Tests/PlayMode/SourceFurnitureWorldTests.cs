@@ -57,7 +57,7 @@ namespace Poolrooms.Tests
             var root=new GameObject("Attributed furniture source import");
             try
             {
-                foreach(int id in new[]{3,4})
+                foreach(int id in new[]{3,4,5,6})
                 {
                     string source=SourceFurniture.Id(id);var pickup=PoolroomsPickup.CreateSource("native-test-"+id,source,Vector3.up*.02f,root.transform,SourceFurniture.Longest(id));
                     Assert.That(pickup,Is.Not.Null);var planned=SourceFurniture.Dimensions(id);var box=pickup.GetComponent<BoxCollider>();
@@ -85,7 +85,7 @@ namespace Poolrooms.Tests
             try
             {
                 var owner=root.AddComponent<PoolroomsChunk>();var wall=MeshFactory.CreateCollider("City static supports",geometry.Structure,root.transform,owner).GetComponent<MeshCollider>();
-                foreach(var prop in room.Plan.City.Props)if(prop.Source>=2)
+                foreach(var prop in room.Plan.City.Props)if(SourceFurniture.IsSeat(prop.Source)||prop.Source==6)
                 {
                     var pickup=PoolroomsPickup.CreateSource("native-placement-"+prop.Source,SourceFurniture.Id(prop.Source),new Vector3(prop.Position.X,prop.Position.Y,prop.Position.Z),root.transform,SourceFurniture.Longest(prop.Source));
                     Assert.That(pickup,Is.Not.Null);pickup.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);Physics.SyncTransforms();

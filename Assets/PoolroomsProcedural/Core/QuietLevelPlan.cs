@@ -63,7 +63,7 @@ namespace Poolrooms.Core
                     var original=props[i].Bottom;
                     uint choice=LiminalRegions.Hash(unchecked((int)seed),room.X,room.Z,0xA48000u+(uint)i)%3;
                     string source=e==LiminalEnvironment.Archive906?(choice==0?"SheenChair":"I_ChairDamaskPurplegold"):
-                        choice==1&&c.CellSize>=36?"I_GlamVelvetSofa":choice==2?"I_ChairDamaskPurplegold":"SheenChair";
+                        choice==1&&c.CellSize>=36?(i%2==0?"I_GlamVelvetSofa":"U_SheenWoodLeatherSofa"):choice==2?"I_ChairDamaskPurplegold":"SheenChair";
                     props[prior+i]=e==LiminalEnvironment.Archive906?
                         new QuietPropPlan(new V3((i%2==0?-1:1)*(half-4.4f),.02f,original.Z),-1,source,i%2==0?-90:90):
                         new QuietPropPlan(new V3(original.X,.02f,original.Z+.95f),-1,source,180);

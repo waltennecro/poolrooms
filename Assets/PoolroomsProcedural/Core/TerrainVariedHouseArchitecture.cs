@@ -80,7 +80,7 @@ namespace Poolrooms.Core
             // Ground-floor lounge/waiting rooms only, never the protected stair cell.
             // The old furnishing remains the fallback; two sources per home is a hard budget.
             if(level!=0||o.Geometry.SourceSeats.Count>=2)return false;
-            int source=sofa?3:StableRandom.Hash(h.Seed,x,z,0xF12094u)%2==0?2:4;
+            int source=sofa?(StableRandom.Hash(h.Seed,x,z,0xF13094u)%2==0?3:5):StableRandom.Hash(h.Seed,x,z,0xF12094u)%2==0?2:4;
             var seat=new SourceFurniturePlacement(8000+z*4+x,source,new V3(px,.02f,pz),180);
             if(!SourceFurniture.Clear(o.Interior.Structure,seat)||!SourceFurniture.Clear(o.Envelope.Structure,seat)||!SourceFurniture.Clear(o.Interior.Decoration,seat))return false;
             o.Geometry.SourceSeats.Add(seat);return true;

@@ -57,6 +57,8 @@ static class Checks
         RotorFlight();
         SourceFurniturePlacement();
         ExpandedFurniturePlacement();
+        RegionalSourcePlacement();
+        UrbanAndQuietRefinement();
         QuietGeneration();
         DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
@@ -157,13 +159,14 @@ static class Checks
         int xFound,zFound;Check(LiminalRegions.Find(mixed,LiminalEnvironment.City11,0,0,out xFound,out zFound),"City master TP cannot find a generated region");
         mixed.EnableCity11=false;Check(!LiminalRegions.Find(mixed,LiminalEnvironment.City11,0,0,out xFound,out zFound),"Disabled city TP should not generate a district");
         Console.WriteLine($"City: {buildings} generated buildings / {props} source-prop instances in 24 blocks; max {maximum} structural/detail/glass triangles. These are instances, not downloaded model counts.");
-        var city=new Layout(new LayoutConfig{Seed=481516,Procedural=LiminalGeneration.City11,Continuous=true});int spaces=0,carSites=0;
+        var city=new Layout(new LayoutConfig{Seed=481516,Procedural=LiminalGeneration.City11,Continuous=true});int spaces=0,carSites=0,cityItems=0;
         for(int z=0;z<18;z++)for(int x=0;x<18;x++)
         {
             var r=city.At(x,z);Check(r.Plan.City!=null,"Missing city plan in full-city mode");foreach(var b in r.Plan.City.Buildings)spaces+=b.Floors;
+            cityItems+=r.Plan.City.Props.Length;
             if(LiminalRegions.Hash(city.Config.Seed,x,z,0x1100CAu)%9==0)carSites++;
         }
-        Console.WriteLine($"City plan snapshot (324 blocks, not simultaneous loaded objects): 1296 generated building instances, {spaces} furnished floor spaces, 3888 source-prop/furniture instances, {spaces*3} procedural furniture assemblies, {carSites} car spawn sites. Snapshot with aircraft disabled; five City11 source models. The separate aircraft source is checked independently.");
+        Console.WriteLine($"City plan snapshot (324 blocks, not simultaneous loaded objects): 1296 generated building instances, {spaces} furnished floor spaces, {cityItems} source-prop/furniture instances, {spaces*3} procedural furniture assemblies, {carSites} car spawn sites. Snapshot with aircraft disabled; source families are audited separately.");
     }
     static void CityStreetConnections()
     {
@@ -344,7 +347,7 @@ static class Checks
                 float stairRight=-b.Width*.5f+4.3f;
                 Check(x-dims.X*.5f>=stairRight+.66f,"Furniture obstructs stair landing circulation");
                 Check(z-dims.Z*.5f>.575f&&z+dims.Z*.5f<b.Depth*.28f-.375f,"Furniture intersects counter or rear cabinet");
-                if(prop.Source==3)Check(b.Width>=10&&b.Depth>=10&&z-dims.Z*.5f>.375f+.7f,"Sofa squeezed into a narrow shop bay");
+                if(prop.Source==3||prop.Source==5)Check(b.Width>=10&&b.Depth>=10&&z-dims.Z*.5f>.375f+.7f,"Sofa squeezed into a narrow shop bay");
                 foreach(float dx in new[]{-.49f,0,.49f})foreach(float dz in new[]{-.49f,0,.49f})
                 {
                     var foot=prop.Position+new V3(dx*dims.X,0,dz*dims.Z);Check(Math.Abs(Support(g.Structure,foot)-.12f)<.001f,"Furniture footprint spans missing floor");
@@ -356,8 +359,8 @@ static class Checks
                 var q=new Room{X=seed-9,Z=seed+4,Exits=15,Environment=environment};QuietLevelPlanner.Describe(q,c);var mesh=Architecture.Build(q,c).Structure;
                 foreach(var prop in q.Plan.Quiet.Props)
                 {
-                    if(prop.CatalogId>=0)continue;int source=prop.Source=="SheenChair"?2:prop.Source=="I_GlamVelvetSofa"?3:4;var dims=SourceFurniture.Dimensions(source);float angle=prop.Yaw*MathF.PI/180,co=MathF.Cos(angle),si=MathF.Sin(angle);
-                    if(source==3)Check(environment==LiminalEnvironment.Courtyard188&&size>=36,"Sofa replaces a tight archive seat");
+                    if(prop.CatalogId>=0)continue;int source=SourceFurniture.Index(prop.Source);var dims=SourceFurniture.Dimensions(source);float angle=prop.Yaw*MathF.PI/180,co=MathF.Cos(angle),si=MathF.Sin(angle);
+                    if(source==3||source==5)Check(environment==LiminalEnvironment.Courtyard188&&size>=36,"Sofa replaces a tight archive seat");
                     foreach(float dx in new[]{-.49f,0,.49f})foreach(float dz in new[]{-.49f,0,.49f})
                     {
                         float px=dx*dims.X,pz=dz*dims.Z;var foot=prop.Bottom+new V3(px*co+pz*si,0,-px*si+pz*co);Check(Math.Abs(Support(mesh,foot))<.001f,"Quiet furniture footprint crosses a stair void");
@@ -366,10 +369,10 @@ static class Checks
                 }
             }
         }
-        Check(seen.SetEquals(new[]{2,3,4}),"City generation never selects one of its actual furniture treatments");
-        var city=new Layout(new LayoutConfig{Seed=481516,CellSize=36,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true});var counts=new int[5];
+        Check(seen.SetEquals(new[]{2,3,4,5}),"City generation never selects one of its actual furniture treatments");
+        var city=new Layout(new LayoutConfig{Seed=481516,CellSize=36,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true});var counts=new int[7];
         for(int z=0;z<18;z++)for(int x=0;x<18;x++)foreach(var prop in city.At(x,z).Plan.City.Props)counts[prop.Source]++;
-        Console.WriteLine($"Furniture: {placements} supported source placements checked; active-airfield sample has {counts[2]} original chairs, {counts[3]} sofas and {counts[4]} damask chair variants. Chair variants are not new geometry families.");
+        Console.WriteLine($"Furniture: {placements} supported source placements checked; active-airfield sample has {counts[2]} original chairs, {counts[3]} velvet sofas, {counts[5]} wood/leather sofas, {counts[4]} damask chair variants and {counts[6]} antique camera instances. Chair variants are not new geometry families.");
     }
     static void ExpandedFurniturePlacement()
     {
@@ -419,6 +422,50 @@ static class Checks
         }
         Check(homeSeats>20&&mallSeats>30&&sourceTypes.Contains(3)&&sourceTypes.Contains(4),"Expansion does not populate real houses and malls");
         Console.WriteLine($"Expanded furniture: {homeSeats} supported seats in {homes} actual generated homes; {mallSeats} seats in {mallSectors} multistorey mall sectors. Same licensed families; <=2 per detailed home/sector.");
+    }
+    static void RegionalSourcePlacement()
+    {
+        int props=0;var environments=new HashSet<LiminalEnvironment>();var types=new HashSet<int>();
+        foreach(var mode in new[]{LiminalGeneration.Poolrooms,LiminalGeneration.IndoorPlay,LiminalGeneration.Supermarkets,LiminalGeneration.Offices,LiminalGeneration.Hotels,LiminalGeneration.WaitingHalls,LiminalGeneration.DiningHalls,LiminalGeneration.SoftPlay})
+        foreach(int size in new[]{36,60})for(int seed=0;seed<8;seed++)
+        {
+            var c=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,AutonomousGeneration=true,Procedural=mode,CurveSegments=24};var r=new Layout(c).At(seed-3,seed+6);var g=Architecture.Build(r,c);
+            Check(g.SourceProps.Count<=2,"Regional supports created an unbounded source population");var keys=new HashSet<int>();
+            foreach(var p in g.SourceProps)
+            {
+                Check(keys.Add(p.Slot),"Regional object ownership keys collide");
+                Check(SourceFurniture.Clear(g.Structure,p)&&SourceFurniture.Clear(g.Decoration,p)&&SourceFurniture.Clear(g.Glass,p)&&SourceFurniture.Clear(g.CollisionOnly,p),"Regional object intersects architecture or a safety collider");
+                var half=SourceFurniture.HalfExtents(p.Source,p.Yaw,.025f);
+                foreach(int x in new[]{-1,0,1})foreach(int z in new[]{-1,0,1})Check(RegionalSourcePlanner.Supported(g.Structure,new V3(p.Bottom.X+x*half.X,p.Bottom.Y-RegionalSourcePlanner.ContactGap,p.Bottom.Z+z*half.Z)),"Regional source footprint floats over an edge");
+                Check(Math.Abs(p.Bottom.X)-half.X>r.Plan.ClearHalfWidth-.1f&&Math.Abs(p.Bottom.Z)-half.Z>r.Plan.ClearHalfWidth-.1f,"Regional object blocks central circulation");props++;environments.Add(r.Environment);types.Add(p.Source);
+            }
+        }
+        Check(props>20&&environments.Count>=4,"Support planner does not populate existing interiors");
+        Check(types.Contains(0)&&types.Contains(1)&&types.Contains(6),"Regional source selection misses a real placed source");
+        Console.WriteLine($"Regional supports: {props} source placements in {environments.Count} biome types; nine-point support, final geometry clearance and ownership uniqueness; at most two per room.");
+    }
+    static void UrbanAndQuietRefinement()
+    {
+        var typologies=new HashSet<int>();var districts=new HashSet<int>();int cameras=0,coastalSeats=0;
+        foreach(int size in new[]{28,36,60})for(int seed=0;seed<12;seed++)
+        {
+            var c=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=LiminalGeneration.City11};var r=new Layout(c).At(seed-8,seed+4);var g=Architecture.Build(r,c);
+            districts.Add(CityStreetDetails.District(c,r.X,r.Z));foreach(var b in r.Plan.City.Buildings)typologies.Add(CityStreetDetails.Typology(b));
+            Check(g.VisualMeshes.Count==3,"Urban detail expanded into per-object render batches");
+            foreach(var p in r.Plan.City.Props)if(p.Source==6)
+            {var q=new SourceFurniturePlacement(0,p.Source,p.Position,p.Yaw);Check(SourceFurniture.Clear(g.Structure,q)&&SourceFurniture.Clear(g.Decoration,q)&&SourceFurniture.Clear(g.CollisionOnly,q),"City standing camera intersects a counter, stairs or window");cameras++;}
+            var court=new Room{X=seed-8,Z=seed+4,Exits=15,Environment=LiminalEnvironment.Courtyard188};QuietLevelPlanner.Describe(court,c);var cg=Architecture.Build(court,c);
+            // A low capsule crosses from court to apartment through the actual door.
+            float inner=size*.25f,doorZ=-size*.5f+11.3f;
+            for(float x=inner-.5f;x<=inner+3;x+=.2f)
+            {var passage=new SourceFurniturePlacement(0,0,new V3(x,.45f,doorZ),0);Check(SourceFurniture.Clear(cg.CollisionOnly,passage,0),"Ground railing still seals the courtyard wing");}
+            Check(cg.CollisionOnly.Positions.Any(p=>Math.Abs(p.X-inner-.08f)<.04f&&p.Y>3.19f&&p.Y<4.31f),"Upper courtyard safety railing was removed");
+            var coastalConfig=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=LiminalGeneration.Coast48};var coast=new Layout(coastalConfig).At(0,seed-4);var sea=Architecture.Build(coast,coastalConfig);
+            foreach(var seat in sea.SourceSeats)
+            {Check(SourceFurniture.Clear(sea.Structure,seat)&&SourceFurniture.Clear(sea.Decoration,seat),"Coastal sofa intersects pavilion/table");var half=SourceFurniture.HalfExtents(seat.Source,seat.Yaw,.03f);foreach(int x in new[]{-1,1})foreach(int z in new[]{-1,1})Check(RegionalSourcePlanner.Supported(sea.Structure,new V3(seat.Bottom.X+x*half.X,0,seat.Bottom.Z+z*half.Z)),"Coastal furniture extends beyond real dry floor");coastalSeats++;}
+        }
+        Check(typologies.Count==6&&districts.Count==4&&cameras>0&&coastalSeats>0,"Refinement coverage missed source placements or architectural forms");
+        Console.WriteLine($"Refinement: six facade typologies / four district descriptors, {cameras} standing city cameras, {coastalSeats} supported coastal sofas; ground court passage open and upper rails retained.");
     }
     static float Support(MeshData mesh,V3 origin)
     {

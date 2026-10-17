@@ -20,6 +20,7 @@ namespace Poolrooms.Core
                 Envelope(output,room,c);
                 if(plan.Environment==LiminalEnvironment.Archive906)Archive(output,room,c);else Courtyard(output,room,c);
             }
+            Entrances(output,room,c);
             ProceduralArchitecture.Prune(output.Structure);ProceduralArchitecture.Prune(output.Decoration);return output;
         }
         public static SurfaceTheme Theme(LiminalEnvironment e)
@@ -103,7 +104,9 @@ namespace Poolrooms.Core
                         PlanRect.Subtract(parts,new PlanRect(x-2.1f,-half+.4f,x+2.1f,-half+7.6f));
                         foreach(var part in parts)Box(o.Structure,part.X,part.Z,part.Width,part.Depth,y-.16f,y,Surface.Tile);
                     }
-                    Rail(o,side*(inner+.08f),0,.06f,r.Depth,y,y+1.1f);
+                    // At ground level this is continuous flat floor. A railing here
+                    // sealed every gallery entrance; only upper voids need guarding.
+                    if(level>0)Rail(o,side*(inner+.08f),0,.06f,r.Depth,y,y+1.1f);
                     for(float z=-half+4.3f;z<half-2;z+=7)
                     {
                         if(z< -half+8)continue; // Reserve the first bay for the stair tower and landing.
@@ -166,7 +169,7 @@ namespace Poolrooms.Core
             float px=-r.Width*.3f,pz=-r.Depth*.3f;
             foreach(int sx in new[]{-1,1})foreach(int sz in new[]{-1,1})Shapes.Column(o.Structure,px+sx*2,pz+sz*2,.12f,0,3.1f,10,Surface.Accent,1.2f);
             Box(o.Structure,px,pz,4.6f,4.6f,3.1f,3.3f,Surface.Plaster);
-            Box(o.Structure,px-1.3f,pz+.3f,.6f,3,0,.5f,Surface.Accent);Box(o.Structure,px-1.55f,pz+.3f,.1f,3,.5f,1.05f,Surface.Accent);
+            var seat=new SourceFurniturePlacement(8400,5,new V3(px-1.3f,.02f,pz+.3f),90);o.SourceSeats.Add(seat);
             Box(o.Structure,px+.7f,pz+.75f,1.5f,3,.74f,.88f,Surface.Accent);
             foreach(int x in new[]{-1,1})foreach(int z in new[]{-1,1})Box(o.Structure,px+.7f+x*.55f,pz+.75f+z*1.2f,.09f,.09f,0,.74f,Surface.Accent);
         }
@@ -184,6 +187,31 @@ namespace Poolrooms.Core
             Box(o.CollisionOnly,x,z,w,d,bottom,top,Surface.Metal);Box(o.Decoration,x,z,w,d,top-.07f,top,Surface.Metal);
             float length=Math.Max(w,d);int count=Math.Max(1,(int)Math.Ceiling(length/.6f));
             for(int i=0;i<=count;i++)Box(o.Decoration,w>d?x-length*.5f+length*i/count:x,d>=w?z-length*.5f+length*i/count:z,.035f,.035f,bottom,top,Surface.Metal);
+        }
+        static void Entrances(RoomGeometry o,Room r,LayoutConfig c)
+        {
+            // Dress the new level's side of an actual graph opening. Existing-zone
+            // future sockets remain inactive; there is no teleport or portal plane.
+            for(int d=0;d<4;d++)if(r.HasExit(d))
+            {
+                var frame=new MeshData();float half=c.DoorWidth*.5f,depth=.9f,height=Math.Min(c.DoorHeight+.2f,r.Height-.1f);
+                float floor=r.Environment==LiminalEnvironment.Coast48?.068f:.008f;
+                Box(frame,0,-depth,c.DoorWidth+.3f,1.6f,floor,floor+.006f,Surface.Accent);
+                foreach(int side in new[]{-1,1})
+                {
+                    if(r.Environment==LiminalEnvironment.Courtyard188)Shapes.Column(frame,side*(half+.24f),-.55f,.1f,0,height,12,Surface.Plaster,1.2f);
+                    else Box(frame,side*(half+.16f),-.3f,.12f,.14f,0,height,Surface.Accent);
+                }
+                Box(frame,0,-.3f,c.DoorWidth+.5f,.16f,height,height+.08f,Surface.Accent);
+                if(r.Environment==LiminalEnvironment.Archive906)
+                    for(int line=0;line<3;line++)Box(frame,0,-.3f,c.DoorWidth+.75f+line*.12f,.22f,height+.1f+line*.1f,height+.15f+line*.1f,Surface.Accent);
+                frame.TranslateRotate(new V3(Directions.DX[d]*r.Width*.5f,0,Directions.DZ[d]*r.Depth*.5f),d*Shapes.Pi*.5f);o.Decoration.Append(frame);
+                if(r.Environment!=LiminalEnvironment.Coast48)
+                {
+                    var local=new V3(0,Math.Min(height-.3f,3.5f),-1.1f);float co=Shapes.Cos(d*Shapes.Pi*.5f),si=Shapes.Sin(d*Shapes.Pi*.5f);
+                    o.Fixtures.Add(new Fixture{Position=new V3(Directions.DX[d]*r.Width*.5f+local.X*co+local.Z*si,local.Y,Directions.DZ[d]*r.Depth*.5f-local.X*si+local.Z*co),Width=.65f,Depth=.25f,Power=650,Range=5,CustomColor=true,LightColor=o.Decoration.EmissionTint});
+                }
+            }
         }
         public static CorridorGeometry Join(Room r,int direction,LayoutConfig c)
         {

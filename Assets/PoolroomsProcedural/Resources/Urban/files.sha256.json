@@ -1,0 +1,374 @@
+{
+  "Licenses/AntiqueCamera_LICENSE.md": {
+    "bytes": 852,
+    "sha256": "ea9b3641260ec5d67804e7b85ed8e7ca6f71bd614bee7275bce41ff00c69c9d7"
+  },
+  "Licenses/AntiqueCamera_metadata.json": {
+    "bytes": 982,
+    "sha256": "3b49b71ede6a0ee9540a6c953fa1478766ff670bd163b7fe1d213e343076afde"
+  },
+  "Licenses/CC-BY-4.0.txt": {
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "Licenses/CC0-1.0.txt": {
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "Licenses/CarConcept_LICENSE.md": {
+    "bytes": 943,
+    "sha256": "e11477f29eab33d1a5c9fc8534f931556faeb2e11a7fee9e4723d917fcfaee50"
+  },
+  "Licenses/CarConcept_metadata.json": {
+    "bytes": 1334,
+    "sha256": "89555a6cb9dc0a4f300abe3cc6476c2d8d77c6f3f2cbde9bf790c1bd320027ed"
+  },
+  "Licenses/LicenseRef-LegalMark-Khronos.txt": {
+    "bytes": 589,
+    "sha256": "2ea9821de870cf8d3faaa115ffc47f56632bf9f98d54d2ac1ce61592040b765c"
+  },
+  "Licenses/LicenseRef-LegalMark-UX3D.txt": {
+    "bytes": 490,
+    "sha256": "ac89817ee8989f7fd6fb1830d5d722adb4718cc1c4bfb8aa3fcb5c89c8243d19"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 577,
+    "sha256": "e339f849f193dce54fe0db49b1a27e08d40873607c268e5fdb2d08b1710757ca"
+  },
+  "Licenses/SheenWoodLeatherSofa_LICENSE.md": {
+    "bytes": 933,
+    "sha256": "4ab306869a96deedf15b93b546e235aea897982a1151057e6dd9f61a3c70ea20"
+  },
+  "Licenses/SheenWoodLeatherSofa_metadata.json": {
+    "bytes": 1109,
+    "sha256": "a8ce07f6c0be172ff475a60d7da9e9624d047509100e4d72baa080d94b4645f3"
+  },
+  "Models/U_AntiqueCamera.mtl": {
+    "bytes": 70,
+    "sha256": "abffbdd17e6eebaa85aa0eb722b816445f86f25011a1b6621729aed102dca737"
+  },
+  "Models/U_AntiqueCamera.obj": {
+    "bytes": 3002505,
+    "sha256": "51ea1cf7e642bf540fbd0291254d3075d12d053273f738399c5e99a17b07ca23"
+  },
+  "Models/U_AntiqueCamera_LOD1.obj": {
+    "bytes": 507565,
+    "sha256": "febe351afad9f7882899eaa631cb7999919bdd75b762c187b286efaf5059a23b"
+  },
+  "Models/U_AntiqueCamera_LOD2.obj": {
+    "bytes": 263273,
+    "sha256": "5202844b67b28a745d1cae84920d0ac6d89c1a6ed3493987164862023887b735"
+  },
+  "Models/U_CarConcept.mtl": {
+    "bytes": 1560,
+    "sha256": "bb1d3d601bec97f84c3f579ca62c561580add57c402d1cada1af93221b4c494b"
+  },
+  "Models/U_CarConcept.obj": {
+    "bytes": 73061252,
+    "sha256": "f66f522f969e6ae6cc1d00ab84789c4ba944f0caf7633ce532109a715012604b"
+  },
+  "Models/U_CarConcept_LOD1.obj": {
+    "bytes": 3822982,
+    "sha256": "95d05708aff13cf4e9b8bc0ebd5c47db76d853ca1c744f5eb2e04a0b0ecd28b5"
+  },
+  "Models/U_CarConcept_LOD2.obj": {
+    "bytes": 1975467,
+    "sha256": "242fb21884497fd3bc3932a337e10d84805ba2f52573f2670f2476aab1465146"
+  },
+  "Models/U_SheenWoodLeatherSofa.mtl": {
+    "bytes": 252,
+    "sha256": "e67b118d798a67d38d40bc95a360953a6c51ebf99c63e18ee0e1b297b5a6fb67"
+  },
+  "Models/U_SheenWoodLeatherSofa.obj": {
+    "bytes": 16493165,
+    "sha256": "c2c22c085589ff74e265bf33c3b7e4fd4510f65faf17734ac021c9203db971b4"
+  },
+  "Models/U_SheenWoodLeatherSofa_LOD1.obj": {
+    "bytes": 1230804,
+    "sha256": "7a69542dd39e0ce2ac344328d657295c6f824f6d2971b6a935254435b0f0cc47"
+  },
+  "Models/U_SheenWoodLeatherSofa_LOD2.obj": {
+    "bytes": 383626,
+    "sha256": "3c4442dc938a38e43b3e9249b8954628500eaf6cefd1de21a5db701fea577f00"
+  },
+  "Textures/U_AntiqueCamera_m0_albedo.png": {
+    "bytes": 2076040,
+    "sha256": "fa398aa21b788bd7c57c48bbd68394f703335794521e4aa97a0a421c36e50f57"
+  },
+  "Textures/U_AntiqueCamera_m0_mask.png": {
+    "bytes": 3646040,
+    "sha256": "82636a7febee282bd950b97cca039dd7be2b2036d5c10cfc2ac4f971a9eb3e46"
+  },
+  "Textures/U_AntiqueCamera_m0_normal.png": {
+    "bytes": 5651418,
+    "sha256": "32e2b007a40bb751ba77a6a8e4202d72cb4af89d3bce408ef3970f12d18d7510"
+  },
+  "Textures/U_AntiqueCamera_m1_albedo.png": {
+    "bytes": 5136084,
+    "sha256": "e25ed2e5b78f1d13eb3d7faaf2c2a548061610f194ec5b6933778e0c100bc07a"
+  },
+  "Textures/U_AntiqueCamera_m1_mask.png": {
+    "bytes": 2680991,
+    "sha256": "042f6098b6d02ad2990868a000cc4a0ab01da974ce783db500d7d255f669c70a"
+  },
+  "Textures/U_AntiqueCamera_m1_normal.png": {
+    "bytes": 3186021,
+    "sha256": "89b6504daaaabc0a09a90bd01cd9dc8311bcf14d3491e5db12c6cff67c058428"
+  },
+  "Textures/U_CarConcept_m0_mask.png": {
+    "bytes": 195976,
+    "sha256": "fde6fe71b5f9ef9aa2cb212b52ff59bf7a458ebc22e33d6876d2ec4194744554"
+  },
+  "Textures/U_CarConcept_m0_normal.png": {
+    "bytes": 333642,
+    "sha256": "03cfde8c3d7debe3d2a5731db63771d8281b998a63db5926edee337d8baa0427"
+  },
+  "Textures/U_CarConcept_m10_mask.png": {
+    "bytes": 6490,
+    "sha256": "e93b7b5307909996b05830c81069b6546e6f9175971377d550069bc6c48c8f9b"
+  },
+  "Textures/U_CarConcept_m10_normal.png": {
+    "bytes": 167499,
+    "sha256": "981081286a34ba1a7e2203e97cc14a8cc1ade705017af27bce8b5e02d08a20d7"
+  },
+  "Textures/U_CarConcept_m11_mask.png": {
+    "bytes": 78,
+    "sha256": "27cc46b8c99841ca223f73f3238b0a68bebea81184ad63eef179468de7f1fea0"
+  },
+  "Textures/U_CarConcept_m12_mask.png": {
+    "bytes": 78,
+    "sha256": "27cc46b8c99841ca223f73f3238b0a68bebea81184ad63eef179468de7f1fea0"
+  },
+  "Textures/U_CarConcept_m13_mask.png": {
+    "bytes": 78,
+    "sha256": "27cc46b8c99841ca223f73f3238b0a68bebea81184ad63eef179468de7f1fea0"
+  },
+  "Textures/U_CarConcept_m14_emissive.png": {
+    "bytes": 4361,
+    "sha256": "edb6f50165ab6c88ca19d6eb0ffaca482e0061f437de6a718d70a0b87899001f"
+  },
+  "Textures/U_CarConcept_m14_mask.png": {
+    "bytes": 7334,
+    "sha256": "ee7db3edb19dca26835a19f1bcb6809e9f87471356d6c9d1d4915d9391ba2e81"
+  },
+  "Textures/U_CarConcept_m15_emissive.png": {
+    "bytes": 5081,
+    "sha256": "59ce70fb5f0877633cf75b517db3ec83631a267249aa3a23585bdfb6e9109529"
+  },
+  "Textures/U_CarConcept_m15_mask.png": {
+    "bytes": 11460,
+    "sha256": "6ad0998825c9ed226acac5faf43398f5c6fa029cb390c196a6c43ae3bc49071a"
+  },
+  "Textures/U_CarConcept_m16_albedo.png": {
+    "bytes": 10686,
+    "sha256": "d370cc4742c4b697b7b683d072a15835dcb59885900666bb50202b7655154421"
+  },
+  "Textures/U_CarConcept_m16_mask.png": {
+    "bytes": 15737,
+    "sha256": "ee82d4ac5adf3b719df4d10421274489fd6615f88408dd0991c84b696a70dfdc"
+  },
+  "Textures/U_CarConcept_m16_normal.png": {
+    "bytes": 22404,
+    "sha256": "926b23b01e8abebb7053821f3a028481089fb40105cd08c48aae0b0410c17554"
+  },
+  "Textures/U_CarConcept_m17_albedo.png": {
+    "bytes": 7059,
+    "sha256": "941806c09e37d7541d80f1612663e704e7f4d6973dfdd89c8800960c5dc309e2"
+  },
+  "Textures/U_CarConcept_m17_mask.png": {
+    "bytes": 28567,
+    "sha256": "30b17dce2c37b2ba212063ffb1cfbc24181d10ad22b4407fada9cf565eeffccd"
+  },
+  "Textures/U_CarConcept_m17_normal.png": {
+    "bytes": 25601,
+    "sha256": "7b30651eb5fde36352478f78b507adc2216b36c5317131e4938ed98dc8b5cfd6"
+  },
+  "Textures/U_CarConcept_m18_mask.png": {
+    "bytes": 23421,
+    "sha256": "23c8c1b9b6ee6ac27ca652ac44590400cec766131593a012190647423d0f7e29"
+  },
+  "Textures/U_CarConcept_m18_normal.png": {
+    "bytes": 35130,
+    "sha256": "8815481799f1c4d6389e2eefde81b51832db113be7c6145a9a869bbfc148bdcd"
+  },
+  "Textures/U_CarConcept_m19_emissive.png": {
+    "bytes": 4743,
+    "sha256": "c87962c16bb66dd45643280fce2366512476e6e86f89547832dc6b97133d333d"
+  },
+  "Textures/U_CarConcept_m19_mask.png": {
+    "bytes": 14200,
+    "sha256": "b8bdeb928a7e5c633fe5ae85391c8c77d9f83f469be665a58183ea7a19d25d72"
+  },
+  "Textures/U_CarConcept_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/U_CarConcept_m20_emissive.png": {
+    "bytes": 13520,
+    "sha256": "43512823912c2bd28ca92cc93a22acfe938c5bb836fa1501922b2b1f9abe8bb4"
+  },
+  "Textures/U_CarConcept_m20_mask.png": {
+    "bytes": 82351,
+    "sha256": "90aa3ce76446fc2831dbc8c20a19855c59faef5b016b23472efa5d6c521af110"
+  },
+  "Textures/U_CarConcept_m21_mask.png": {
+    "bytes": 52361,
+    "sha256": "fe8665807d5dcbc861f084481965c843d22a31ea112d4e6a5cfcab5771485a77"
+  },
+  "Textures/U_CarConcept_m21_normal.png": {
+    "bytes": 20713,
+    "sha256": "fae38538ec34bfb9c94dff64edf1e94cb2777baf7f74b18e5c82b31bb1599a25"
+  },
+  "Textures/U_CarConcept_m2_emissive.png": {
+    "bytes": 16734,
+    "sha256": "094f32d2a1fdd2ca402fce1b42225616e53259f2e92ec408c5258b6eb633dbda"
+  },
+  "Textures/U_CarConcept_m2_mask.png": {
+    "bytes": 118234,
+    "sha256": "3824d8bd498724a0bb3f266b59e731dcd40d163898d2325f6d98c7761d0b7b15"
+  },
+  "Textures/U_CarConcept_m3_mask.png": {
+    "bytes": 75373,
+    "sha256": "e0b16f3771f0277fad6c747d523007abe8c399fea219210cdc3dcad8ac6cc558"
+  },
+  "Textures/U_CarConcept_m3_normal.png": {
+    "bytes": 218793,
+    "sha256": "a484de5eda3d04cfd961cf43d60c59c7b58d87261658609396befdaeb4e35a10"
+  },
+  "Textures/U_CarConcept_m4_mask.png": {
+    "bytes": 23024,
+    "sha256": "ef2005b79c3611edd276f912bf060aba03a11d94d5c4ba3af9aceb01b5629865"
+  },
+  "Textures/U_CarConcept_m4_normal.png": {
+    "bytes": 47228,
+    "sha256": "cac6cc92891034a80858089ef2810e6ec21f291f7445a85c617e224dfdbfb058"
+  },
+  "Textures/U_CarConcept_m5_emissive.png": {
+    "bytes": 4633,
+    "sha256": "0abd64d63eab4cab5a96cdb6b167cfff7289e5b2f880b259dc8f78cee33c1d7f"
+  },
+  "Textures/U_CarConcept_m5_mask.png": {
+    "bytes": 8336,
+    "sha256": "2f8830d6b0f1ec33841f4d9c7e3b6707ad2a08384ce32edf37330e60944c60c1"
+  },
+  "Textures/U_CarConcept_m6_mask.png": {
+    "bytes": 57726,
+    "sha256": "94f6288dcb3e8c5dfa1c35511a4bf2a424d6814f771958643d36b716c26c0f74"
+  },
+  "Textures/U_CarConcept_m6_normal.png": {
+    "bytes": 136184,
+    "sha256": "40aab84facda5dfe613fdc81649807bca0a5eccbefdb19b0b51380456168276f"
+  },
+  "Textures/U_CarConcept_m7_mask.png": {
+    "bytes": 30455,
+    "sha256": "5cc5b6d35529f187c118e273398290bac8ab563f7cad408166ec02613c176044"
+  },
+  "Textures/U_CarConcept_m7_normal.png": {
+    "bytes": 44365,
+    "sha256": "0bb62ed02c6c36d3b4ceb7b949a8e54cbe5324eef80d629a4f10c8f9c395fc3d"
+  },
+  "Textures/U_CarConcept_m8_emissive.png": {
+    "bytes": 5296,
+    "sha256": "e25a308272ff80e749de2b90b0f78e6325b80e85ce60fb376f7d83f3b616504b"
+  },
+  "Textures/U_CarConcept_m8_mask.png": {
+    "bytes": 11197,
+    "sha256": "0c0eadaf29d2b48f2be622d16f61cb8b2f4ca071b2502bfd224645b73dd80082"
+  },
+  "Textures/U_CarConcept_m9_mask.png": {
+    "bytes": 6490,
+    "sha256": "5979d58be917b445ba19f185d8c779eed951a5bb34f7c788b03d951a0438e3b5"
+  },
+  "Textures/U_CarConcept_m9_normal.png": {
+    "bytes": 71930,
+    "sha256": "ca281ac6e88ec6cb55cf0d76768885ba5600708b9a23960ee0c10181cdc2604a"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m0_albedo.png": {
+    "bytes": 650108,
+    "sha256": "dc443b71ffbcc92e2913c6f59af62d06419b9a1f0097432a56c34a43a484fc59"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m0_mask.png": {
+    "bytes": 133085,
+    "sha256": "482369e30e47581441de058558bbeca60d6ad11dacde8adc6c2631ce8f6d1e27"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m0_normal.png": {
+    "bytes": 754464,
+    "sha256": "2639bb7bd1b1a92afcc341dbb2e23ce413dff849d303372b06a6c223be5bd97f"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m1_albedo.png": {
+    "bytes": 5172784,
+    "sha256": "dae9e79e0168372eefb69a9ff75e5a9c4ae108e482a0ed5ffc6a4f4d920a27f1"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m1_mask.png": {
+    "bytes": 421216,
+    "sha256": "a05dcf96a00a1597448a664fb610fcc8e909cfa82a405a0c0a46a0603d32adf1"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m1_normal.png": {
+    "bytes": 5356986,
+    "sha256": "845046b64846ab0145e42cb0ddc832418ecd0715490fc8ac7ad861952742ff27"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m2_albedo.png": {
+    "bytes": 473174,
+    "sha256": "d808ea924b135af324edca003c72e4bd38453613fb0e3975d4c04138405d373c"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m2_mask.png": {
+    "bytes": 67993,
+    "sha256": "8269ac95743a5d75f947c35a838a16868a1789397ae568fca7b8fc781aa05694"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m2_normal.png": {
+    "bytes": 382611,
+    "sha256": "811f9902254fc7b81c01be26374d998295e259d293d2525edf2c2b3a1c680f88"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m3_albedo.png": {
+    "bytes": 5493975,
+    "sha256": "ea443003bbbf8ac88c48c47ddb2811c70e266f68c359973977f4fa8d17050ce4"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m3_mask.png": {
+    "bytes": 403540,
+    "sha256": "03ba768e8b45e11e39fe7225f6158b29d89c55c65ea2a722d5200ad0292cd948"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m3_normal.png": {
+    "bytes": 2904549,
+    "sha256": "02b3c51f6d4ad4b9d54245d0e9d0b6169bc8e1b7015943ec1e601bb983cefc0b"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m4_albedo.png": {
+    "bytes": 1229047,
+    "sha256": "7ecd0ab1ebc906c4de5a7c7037915cabd53fbf8ed63cd3337773852b06fddd5b"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m4_mask.png": {
+    "bytes": 920927,
+    "sha256": "287a85d6ce4cbdfd9358055906c76a16b1a1fc3131afcfa86cff8aaf4269fcc6"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m4_normal.png": {
+    "bytes": 1158733,
+    "sha256": "ee487e9ab658c297b8db7b60e47039d5db96a4018fb48a2d0f081b9204d40822"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m5_albedo.png": {
+    "bytes": 715834,
+    "sha256": "48f1966af675622570b21cc0efd29c2e6de1d1a31325fbb3fb2e6101bbb3e228"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m5_mask.png": {
+    "bytes": 147080,
+    "sha256": "9cadd0ddb36c91b0db4476396ebd3cac98d6641e71d9138ceb9a2998dc9d1bde"
+  },
+  "Textures/U_SheenWoodLeatherSofa_m5_normal.png": {
+    "bytes": 775695,
+    "sha256": "6d7a7f9825a83717959fcab492c58f9fa7111c4582476c6f214fb227b5f0b490"
+  },
+  "U_AntiqueCamera.json": {
+    "bytes": 3063,
+    "sha256": "c264e0ba97d497e74d40cdca9dcbadc30ce764c92c24586ee4002d213e81fa59"
+  },
+  "U_CarConcept.json": {
+    "bytes": 21998,
+    "sha256": "1e7c1d2233dd747eb1942e7ba7485289f6f3001ab389a1e81cc4c8103b842a96"
+  },
+  "U_SheenWoodLeatherSofa.json": {
+    "bytes": 10164,
+    "sha256": "5f6cc62465b7a958cae7af86708c5272f4bb30ca6f1d1b6a1e6babae80bc4798"
+  },
+  "catalog.json": {
+    "bytes": 41445,
+    "sha256": "c30046bf9b93fe7c03ff8b52f02dff2c2eb1289ec83aa3e06cfbdc1e997e45ff"
+  }
+}

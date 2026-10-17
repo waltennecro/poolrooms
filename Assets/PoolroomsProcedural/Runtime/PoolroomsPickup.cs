@@ -37,7 +37,7 @@ namespace Poolrooms
             go.transform.localPosition=bottom+Vector3.up*(size.y*.5f);
             var collider=go.AddComponent<BoxCollider>();collider.size=size;
             var item=go.AddComponent<PoolroomsPickup>();item.shape=collider;item.SpawnKey=key;item.surface=PickupSurface.Rigid;
-            item.mass=source=="WaterBottle"?.45f:source=="I_GlamVelvetSofa"?24:source=="SheenChair"||source=="I_ChairDamaskPurplegold"?6.5f:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
+            item.mass=source=="WaterBottle"?.45f:source=="I_GlamVelvetSofa"||source=="U_SheenWoodLeatherSofa"?24:source=="SheenChair"||source=="I_ChairDamaskPurplegold"?6.5f:source=="U_AntiqueCamera"?9:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
         }
         public static PoolroomsPickup Create(string key,Vector3 position,Transform parent,PoolroomsProfile profile)
         {

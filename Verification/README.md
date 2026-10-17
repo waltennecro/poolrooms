@@ -4,7 +4,7 @@ Requisitos: SDK .NET **8.0.408**, fijado por `global.json`. No hay dependencias 
 
 ```sh
 dotnet run --project Verification/Poolrooms.Checks.csproj
-python tools/package_assets.py --stage R12 --output /tmp/Poolrooms_R12_Desde_v39.zip
+python tools/package_assets.py --stage R14 --output /tmp/Poolrooms_R14_Desde_v39.zip
 ```
 
 El ejecutable compila el núcleo real con C# 9; compara 108 geometrías de suelo/colisiones infantiles y 80 geometrías de otros biomas con huellas tomadas antes de modificar v39. Comprueba los búferes de las mallas, los lotes de acabado, los colores de luces y la sintaxis de todos los scripts bajo cuatro configuraciones. El modo `--capture-baseline` se utilizó únicamente sobre la base original; no regenerar las huellas para ocultar regresiones.
@@ -26,3 +26,5 @@ python tools/import_city_sources.py
 Las auditorías de `verify_city_sources.py`, `verify_aircraft_sources.py`, `verify_helicopter_sources.py` y `verify_interior_sources.py` validan cada catálogo/licencia por separado. Los importadores de helicóptero/interiores conservan originales y referencias fijadas; no ejecutan JavaScript de terceros. `import_interior_sources.py` también usa el horneador UV y mantiene la silla damasco como variante de una familia existente. Nuevas pruebas PlayMode de muebles y aeronaves requieren Unity y no se ejecutan con dotnet.
 
 R11 separa las ruedas del coche mediante `tools/rig_city_car.py`, invocado por `python tools/import_city_sources.py --only ToyCar`. La auditoría comprueba sus cuatro grupos en los tres LOD, centros y radios. R12 añade comprobaciones de soporte y espacio para mobiliario real en centros comerciales y casas, sin introducir dependencias de Unity en el núcleo.
+
+R14 audita tres fuentes adicionales con `python tools/verify_urban_sources.py`. El horneador conserva colores lineales, tangentes originales y WebP; `source_lods.py` separa normales opuestas. `check_native_runner.py` usa un proceso falso para verificar estados/resultados y NO ejecuta Unity. Para la suite real y mediciones, leer `Assets/PoolroomsProcedural/Documentation/VALIDACION_NATIVA_R13.md`.

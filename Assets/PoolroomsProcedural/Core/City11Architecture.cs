@@ -23,6 +23,7 @@ namespace Poolrooms.Core
             double u=(double)room.X*c.CellSize/4,v=(double)room.Z*c.CellSize/4;
             for(int i=0;i<road.UV.Count;i++){var uv=road.UV[i];road.UV[i]=new V2(uv.X+(float)(u-Math.Floor(u)),uv.Y+(float)(v-Math.Floor(v)));}
             foreach(var b in room.Plan.City.Buildings)Building(o,b,c);
+            CityStreetDetails.Append(o,room,c);
             // Limits retain the graph's actual openings; no opening leads to an absent connector.
             for(int side=0;side<4;side++)
             {
@@ -94,6 +95,7 @@ namespace Poolrooms.Core
             if(b.Facade==3)for(float x=-w*.5f+.4f;x<w*.5f-.3f;x+=.38f)if(Math.Abs(x)>1.4f)Box(detail,x,-d*.5f-.14f,.045f,.08f,.2f,2.7f,Surface.Accent);
             Box(solid,0,0,w+.25f,d+.25f,h,h+.18f,Surface.Plaster);
             Box(detail,0,-d*.5f-.08f,w,.12f,2.85f,3.06f,(Surface)(b.Facade%2==0?1:5));
+            CityStreetDetails.Facade(solid,detail,b);
             // Physical rail around the stair opening, with the right-side landing exit kept open.
             float angle=b.Turn?Shapes.Pi:0;V3 origin=new V3(b.X,0,b.Z);
             solid.TranslateRotate(origin,angle);detail.TranslateRotate(origin,angle);glass.TranslateRotate(origin,angle);
