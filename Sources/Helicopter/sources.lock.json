@@ -1,0 +1,22 @@
+{
+  "little-bird.js": {
+    "url": "https://raw.githubusercontent.com/jdubba1/warbird/251d6d85cbe5eedbebf7625a8df7fd2430f8d1a1/dist/assets/little-bird.js",
+    "bytes": 1114172,
+    "sha256": "6d0a285aacba1a25bfb0081cd1f04b2388f52f74b72ba1c32969007bae0a23e9"
+  },
+  "aircraft-license.txt": {
+    "url": "https://raw.githubusercontent.com/jdubba1/warbird/251d6d85cbe5eedbebf7625a8df7fd2430f8d1a1/dist/assets/aircraft-license.txt",
+    "bytes": 797,
+    "sha256": "4b9c4cd30de5a686cc96fc09344de8809a3400c7acda90225288360962b8f4c4"
+  },
+  "CC-BY-4.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC-BY-4.0.txt",
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "CREDITS.md": {
+    "url": "https://raw.githubusercontent.com/jdubba1/warbird/251d6d85cbe5eedbebf7625a8df7fd2430f8d1a1/CREDITS.md",
+    "bytes": 1270,
+    "sha256": "6ea52743e5162785020b743ed0be2df05ac875c2c1c281c9623b8002cb54d76d"
+  }
+}

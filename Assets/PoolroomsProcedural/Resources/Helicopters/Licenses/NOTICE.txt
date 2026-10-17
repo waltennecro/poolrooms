@@ -1,0 +1,6 @@
+MH-6 Little Bird by AnirudhRao, Creative Commons Attribution 4.0 International.
+https://creativecommons.org/licenses/by/4.0/
+Original model: https://sketchfab.com/3d-models/mh-6-little-bird-d6ec6eeb84b240789f54923bdedafc86
+Geometry derivative from jdubba1/warbird at 251d6d85cbe5eedbebf7625a8df7fd2430f8d1a1.
+Changes: New crease-aware normals, metre-space UVs, original periodic PBR finishes, two derived LODs, native rotor pivots; no upstream game code/unlit shader, weapons or combat reused.
+Original derivative and its credit retained in Sources/Helicopter. No endorsement implied.

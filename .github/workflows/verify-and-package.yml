@@ -28,6 +28,8 @@ jobs:
         run: python tools/verify_city_sources.py
       - name: Check licensed aircraft sources and native resource hashes
         run: python tools/verify_aircraft_sources.py
+      - name: Check licensed helicopter source, pivots and LODs
+        run: python tools/verify_helicopter_sources.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

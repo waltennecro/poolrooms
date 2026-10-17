@@ -9,6 +9,7 @@ namespace Poolrooms.Core
         public int Column {get{return X-CenterX;}}
         public int Row {get{return Z-CenterZ;}}
         public bool AircraftSpawn {get{return Column==0&&Row==-2;}}
+        public bool HelicopterSpawn {get{return Column==1&&Row==0;}}
         public bool Terminal {get{return Column==-1&&Row==0;}}
     }
     public static class CityAirfields
@@ -62,6 +63,18 @@ namespace Poolrooms.Core
                 {double low=Math.Max(start,line),high=Math.Min(end,line+5);if(high>low)Box(paint,0,(float)((low+high)*.5-field.Row*(double)c.CellSize),.25f,(float)(high-low),.005f,.009f,Surface.Accent);}
                 foreach(int side in new[]{-1,1})Box(paint,side*8,0,.16f,c.CellSize,.005f,.009f,Surface.Accent);
                 if(Math.Abs(field.Row)==3)for(int i=-3;i<=3;i++)Box(paint,i*1.15f,field.Row<0?-half+7:half-7,.45f,6,.005f,.009f,Surface.Accent);
+            }
+            if(field.HelicopterSpawn)
+            {
+                // Clear apron with a painted H and a thin circular landing marking.
+                // All markings remain visual; the original flat floor supports landing.
+                const int segments=48;
+                for(int i=0;i<segments;i++)
+                {
+                    float a=i*Shapes.Pi*2/segments,b=(i+1)*Shapes.Pi*2/segments;
+                    paint.Quad(new V3((float)Math.Cos(a)*5.6f,.01f,(float)Math.Sin(a)*5.6f),new V3((float)Math.Cos(b)*5.6f,.01f,(float)Math.Sin(b)*5.6f),new V3((float)Math.Cos(b)*5.4f,.01f,(float)Math.Sin(b)*5.4f),new V3((float)Math.Cos(a)*5.4f,.01f,(float)Math.Sin(a)*5.4f),V3.Up,Surface.Accent,2);
+                }
+                Box(paint,-1.1f,0,.3f,3,.005f,.009f,Surface.Accent);Box(paint,1.1f,0,.3f,3,.005f,.009f,Surface.Accent);Box(paint,0,0,2.2f,.3f,.005f,.009f,Surface.Accent);
             }
             if(field.Terminal)
             {

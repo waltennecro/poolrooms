@@ -53,6 +53,7 @@ static class Checks
         CompactTerrain();
         CityGeneration();
         AirfieldsAndFlight();
+        RotorFlight();
         QuietGeneration();
         DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
@@ -169,7 +170,7 @@ static class Checks
             var c=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true};
             CityAirfieldCell found;Check(CityAirfields.Find(c,-127,91,out found),"Airfield navigation found no site");
             Check(found.AircraftSpawn,"Airfield destination must be its aircraft cell");
-            var layout=new Layout(c);int terminals=0,spawns=0;
+            var layout=new Layout(c);int terminals=0,spawns=0,helicopters=0;
             for(int row=-3;row<=3;row++)for(int column=-1;column<=1;column++)
             {
                 int x=found.CenterX+column,z=found.CenterZ+row;CityAirfieldCell tile;
@@ -194,10 +195,11 @@ static class Checks
                 }
                 if(tile.Terminal){terminals++;Check(g.Fixtures.Count==1&&g.Fixtures[0].CustomColor,"Terminal lamp does not match its source");}
                 if(tile.AircraftSpawn)spawns++;
+                if(tile.HelicopterSpawn){helicopters++;Check(g.VisualMeshes[0].TriangleCount>=132,"Helipad landing marks missing");foreach(var n in g.VisualMeshes[0].Normals)Check(float.IsFinite(n.Y),"Invalid helipad marking normal");}
                 Check(Math.Abs(Support(g.Structure,new V3(0,.04f,0)))<.001f,"Runway floor missing");
                 if(column==0)Check(Support(g.Structure,new V3(0,2.8f,0))<.02f,"Overhead geometry blocks runway clearance");
             }
-            Check(terminals==1&&spawns==1,"Airfield duplicates terminal or aircraft spawns");
+            Check(terminals==1&&spawns==1&&helicopters==1,"Airfield duplicates terminal or aircraft spawns");
             CityAirfieldCell outside;Check(!CityAirfields.At(c,found.CenterX+2,found.CenterZ,out outside),"Airfield extends outside its district");
             c.EnableAircraft=false;Check(!CityAirfields.Find(c,0,0,out outside),"Disabled aircraft still replace city buildings");
         }
@@ -241,6 +243,53 @@ static class Checks
             var ceiling=flight.Step(dt,30,0,275,0,0,1,false);Check(ceiling.Vertical<9.81f,"Ceiling assistance does not descend");
         }
         Console.WriteLine($"Aircraft: {cells} generated airfield cells; reciprocal runway seams, reservations and deterministic geometry; bounded assisted flight at five fixed timesteps. Pure core assertions, not PhysX flight tests.");
+    }
+    static void RotorFlight()
+    {
+        foreach(int hz in new[]{20,30,50,60,120})
+        {
+            var rotor=new HelicopterDynamics();float dt=1f/hz;
+            for(int frame=0;frame<hz*8;frame++)rotor.Step(dt,0,0,0,0,0,0,false);
+            Check(rotor.Rotor>.999f&&rotor.Rotor<=1,"Rotor fails to spool up within its budget");
+            float height=30,vertical=0,speed=0;
+            for(int frame=0;frame<hz*10;frame++)
+            {
+                var f=rotor.Step(dt,speed,vertical,height,0,0,0,false);vertical+=(f.Vertical-9.81f)*dt;height+=vertical*dt;
+            }
+            Check(Math.Abs(height-30)<.02f&&Math.Abs(vertical)<.005f,"Hover assistance depends on the fixed timestep or drifts");
+            for(int frame=0;frame<hz*8;frame++)
+            {
+                var f=rotor.Step(dt,speed,vertical,height,1,1,1,false);vertical+=(f.Vertical-9.81f)*dt;height+=vertical*dt;speed+=f.Forward*dt;
+                Check(Math.Abs(f.YawRate)<=35&&Math.Abs(f.Pitch)<=11&&Math.Abs(f.Roll)<=5&&Math.Abs(f.Forward)<=5,"Rotorcraft exceeds bounded acceleration/turn angles");
+            }
+            Check(height>60&&height<75&&speed>17&&speed<=HelicopterDynamics.MaximumSpeed+.01f,"Rotorcraft cannot climb and travel with independent controls");
+            for(int frame=0;frame<hz*8;frame++)
+            {
+                var f=rotor.Step(dt,speed,vertical,height,1,0,-1,true);vertical+=(f.Vertical-9.81f)*dt;height+=vertical*dt;speed+=f.Forward*dt;
+            }
+            Check(Math.Abs(speed)<.01f&&vertical< -2.9f,"Landing controls fail to brake and descend");
+            height=260;vertical=0;
+            for(int frame=0;frame<hz*15;frame++){var f=rotor.Step(dt,0,vertical,height,0,0,1,false);vertical+=(f.Vertical-9.81f)*dt;height+=vertical*dt;}
+            Check(height<255,"Rotorcraft ceiling allows indefinite ascent");
+            rotor.Reset();Check(rotor.Rotor==0,"Rotor state survives reset");
+            var rest=rotor.Step(.02f,0,0,0,0,0,0,false);Check(rest.Vertical<.1f,"Parked rotorcraft instantly levitates");
+            foreach(float invalid in new[]{float.NaN,float.PositiveInfinity,float.NegativeInfinity})
+            {
+                float before=rotor.Rotor;var stopped=rotor.Step(invalid,0,0,0,1,1,1,false);Check(rotor.Rotor==before&&stopped.Vertical==0,"Invalid dt changes rotor state");
+                var sanitised=rotor.Step(.02f,0,0,0,invalid,invalid,invalid,false);Check(float.IsFinite(sanitised.Forward)&&float.IsFinite(sanitised.Vertical)&&float.IsFinite(sanitised.YawRate),"Invalid input poisons flight forces");
+            }
+        }
+        var city=new Layout(new LayoutConfig{Seed=481516,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true});
+        int cars=0,planes=0,helis=0,buildings=0,floors=0,items=0;
+        for(int z=0;z<18;z++)for(int x=0;x<18;x++)
+        {
+            var plan=city.At(x,z).Plan.City;buildings+=plan.Buildings.Length;items+=plan.Props.Length;foreach(var b in plan.Buildings)floors+=b.Floors;
+            if(plan.Airfield!=null){if(plan.Airfield.AircraftSpawn)planes++;if(plan.Airfield.HelicopterSpawn)helis++;}
+            else if(LiminalRegions.Hash(city.Config.Seed,x,z,0x1100CAu)%9==0)cars++;
+        }
+        Check(cars+planes+helis>=35&&planes>0&&helis>0,"City sample fails the requested vehicle-instance mix");
+        Console.WriteLine($"Active-airfield city snapshot: {buildings} procedural buildings, {floors} floor spaces, {items} licensed item instances, {cars} car sites + {planes} plane + {helis} helicopter. Repeated instances of three vehicle classes, not distinct downloaded models or simultaneously loaded objects.");
+        Console.WriteLine("Helicopter: assisted hover, independent climb/travel/yaw, braking, ceiling and invalid-input handling at five fixed timesteps. Mathematical checks, not native PhysX flight.");
     }
     static float Support(MeshData mesh,V3 origin)
     {

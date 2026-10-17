@@ -1,0 +1,121 @@
+{
+  "id": "H_MH6",
+  "resource": "Helicopters/Models/H_MH6",
+  "minimum": [
+    -3.3121,
+    -0.8999,
+    -3.5954
+  ],
+  "maximum": [
+    4.0241,
+    3.0925,
+    6.0012
+  ],
+  "materials": [
+    {
+      "name": "H_MH6_ink",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "albedo": "Helicopters/Textures/H_MH6_rubber_albedo",
+      "normal": "Helicopters/Textures/H_MH6_rubber_normal",
+      "mask": "Helicopters/Textures/H_MH6_rubber_mask",
+      "normalScale": 1,
+      "transparent": false,
+      "doubleSided": false,
+      "extensions": []
+    },
+    {
+      "name": "H_MH6_body",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "albedo": "Helicopters/Textures/H_MH6_paint_albedo",
+      "normal": "Helicopters/Textures/H_MH6_paint_normal",
+      "mask": "Helicopters/Textures/H_MH6_paint_mask",
+      "normalScale": 1,
+      "transparent": false,
+      "doubleSided": false,
+      "extensions": []
+    },
+    {
+      "name": "H_MH6_accent",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "albedo": "Helicopters/Textures/H_MH6_metal_albedo",
+      "normal": "Helicopters/Textures/H_MH6_metal_normal",
+      "mask": "Helicopters/Textures/H_MH6_metal_mask",
+      "normalScale": 1,
+      "transparent": false,
+      "doubleSided": false,
+      "extensions": []
+    },
+    {
+      "name": "H_MH6_glass",
+      "colour": [
+        0.23,
+        0.3,
+        0.34,
+        0.24
+      ],
+      "albedo": null,
+      "normal": null,
+      "mask": null,
+      "normalScale": 1,
+      "transparent": true,
+      "doubleSided": true,
+      "extensions": [],
+      "metallic": 0,
+      "roughness": 0.06
+    }
+  ],
+  "lods": [
+    {
+      "resource": "Helicopters/Models/H_MH6_LOD1",
+      "triangles": 10771
+    },
+    {
+      "resource": "Helicopters/Models/H_MH6_LOD2",
+      "triangles": 5998
+    }
+  ],
+  "triangles": 40604,
+  "sourceSha256": "6d0a285aacba1a25bfb0081cd1f04b2388f52f74b72ba1c32969007bae0a23e9",
+  "sourceUrl": "https://raw.githubusercontent.com/jdubba1/warbird/251d6d85cbe5eedbebf7625a8df7fd2430f8d1a1/dist/assets/little-bird.js",
+  "upstreamRevision": "251d6d85cbe5eedbebf7625a8df7fd2430f8d1a1",
+  "modelLicense": "CC-BY-4.0",
+  "authors": [
+    "AnirudhRao"
+  ],
+  "sourceDistributor": "jdubba1/warbird",
+  "sourceDerivative": true,
+  "originalSketchfabDownloadVerified": false,
+  "sourceContainsOriginalUvs": false,
+  "sourceTriangles": 40642,
+  "degenerateSourceTrianglesRemoved": 41,
+  "pivotMarkerTriangles": 3,
+  "sourceRotorPivots": {
+    "rotor": [
+      0.0,
+      1.7117390270326012,
+      0.25
+    ],
+    "tail": [
+      -0.20675844500894675,
+      1.4872096111453241,
+      5.228991933503535
+    ]
+  },
+  "changes": "New crease-aware normals, metre-space UVs, original periodic PBR finishes, two derived LODs, native rotor pivots; no upstream game code/unlit shader, weapons or combat reused",
+  "nativeUnityValidated": false
+}

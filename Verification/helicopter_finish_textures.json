@@ -1,0 +1,42 @@
+{
+  "size": 1024,
+  "provenance": "Original periodic paint, metal and rubber finishes for attributed helicopter geometry; no downloaded texture maps",
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_metal_albedo.png": {
+      "bytes": 939556,
+      "sha256": "31c2cfc796a76c13e2dbea0b3fbd050dbb8237542d8434e3145d05051d14911e"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_metal_mask.png": {
+      "bytes": 576547,
+      "sha256": "18ba081d49d10c5eccd3a76bd77bff9fd24932ee6c544fa26de2ce8ac12d7ea7"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_metal_normal.png": {
+      "bytes": 1106124,
+      "sha256": "89f8c8919fd18679aee7c1d6007b254aacbdeb603e1ec960e3869c0e473d5813"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_paint_albedo.png": {
+      "bytes": 934877,
+      "sha256": "216b4c63a2f8725dceceb8ee8c284e7b0777daa7b0e5b20a8f2e3b8f05dc9090"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_paint_mask.png": {
+      "bytes": 576187,
+      "sha256": "0c80aaf685f0fe64db9ffdc8ff4488361bdc298f415d7161d140ffb8569ec633"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_paint_normal.png": {
+      "bytes": 949202,
+      "sha256": "7b7d7eb5bb386f77f93f60410f1220f8f667feb58c0a95001818ef73771a94e1"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_rubber_albedo.png": {
+      "bytes": 951469,
+      "sha256": "d1e2e51d3b5f85b2c12a4b1041f4e248103d259db84fffe646af489c6ba4253e"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_rubber_mask.png": {
+      "bytes": 576489,
+      "sha256": "1a18f0cd897c0582e152223cd995edbe87b9761e735c845dad1c976a61e4fb73"
+    },
+    "Assets/PoolroomsProcedural/Resources/Helicopters/Textures/H_MH6_rubber_normal.png": {
+      "bytes": 1106124,
+      "sha256": "89f8c8919fd18679aee7c1d6007b254aacbdeb603e1ec960e3869c0e473d5813"
+    }
+  }
+}

@@ -395,6 +395,11 @@ namespace Poolrooms
                     string key="city11-aircraft:"+layout.Config.Seed+":"+airfield.CenterX+":"+airfield.CenterZ;
                     if(carry==null||!carry.WasTaken(key))PoolroomsAircraft.Create(this,parent,new Vector3(0,0,0),key);
                 }
+                if(airfield!=null&&airfield.HelicopterSpawn)
+                {
+                    string key="city11-helicopter:"+layout.Config.Seed+":"+airfield.CenterX+":"+airfield.CenterZ;
+                    if(carry==null||!carry.WasTaken(key))PoolroomsHelicopter.Create(this,parent,Vector3.zero,key);
+                }
                 string carKey="city11-car:"+layout.Config.Seed+":"+r.X+":"+r.Z;
                 if(airfield==null&&LiminalRegions.Hash(layout.Config.Seed,r.X,r.Z,0x1100CAu)%9==0&&(carry==null||!carry.WasTaken(carKey)))
                     PoolroomsCityVehicle.Create(this,parent,new Vector3(1.75f,0,-r.Depth*.29f),carKey);
@@ -634,7 +639,7 @@ namespace Poolrooms
             }
             Visit(RoomWorldPosition(layout.At(x,z))+Vector3.up*.1f);return true;
         }
-        public bool IsPilotingAircraft {get{return viewer!=null&&viewer.GetComponentInParent<PoolroomsExplorer>() is PoolroomsExplorer actor&&actor.Vehicle is PoolroomsAircraft;}}
+        public bool IsPilotingAircraft {get{return viewer!=null&&viewer.GetComponentInParent<PoolroomsExplorer>() is PoolroomsExplorer actor&&actor.Vehicle is PoolroomsFlyingVehicle;}}
         public bool IsPositionStreamed(Vector3 point)
         {
             if(layout==null)return false;
@@ -647,6 +652,12 @@ namespace Poolrooms
             if(layout==null||viewer==null)return false;var focus=NavigationFocus();CityAirfieldCell cell;
             if(!CityAirfields.Find(layout.Config,focus.x,focus.y,out cell))return false;
             Visit(CellWorldPosition(cell.X,cell.Z)+new Vector3(9,.1f,0));return true;
+        }
+        public bool VisitHelicopter()
+        {
+            if(layout==null||viewer==null)return false;var focus=NavigationFocus();CityAirfieldCell cell;
+            if(!CityAirfields.Find(layout.Config,focus.x,focus.y,out cell))return false;
+            Visit(CellWorldPosition(cell.CenterX+1,cell.CenterZ)+new Vector3(7,.1f,0));return true;
         }
         public bool VisitZone(int zoneIndex)
         {

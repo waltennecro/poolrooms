@@ -1,0 +1,74 @@
+{
+  "H_MH6.json": {
+    "bytes": 2941,
+    "sha256": "1f09cdfb3301fa8e2436f0a4616bbc2d390a6fd3707531afc373a85c0e10dc3e"
+  },
+  "Licenses/CC-BY-4.0.txt": {
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 585,
+    "sha256": "93efbcb730c3a9669e21e3e0447f8a23092161ba9a7f2cf0cc5f5a0718bef419"
+  },
+  "Licenses/SOURCE_CREDIT.txt": {
+    "bytes": 797,
+    "sha256": "4b9c4cd30de5a686cc96fc09344de8809a3400c7acda90225288360962b8f4c4"
+  },
+  "Models/H_MH6.mtl": {
+    "bytes": 110,
+    "sha256": "0ff250cafd862ce990a627b1b238daa1b9abe84903a0414e9625b77fd2f1049d"
+  },
+  "Models/H_MH6.obj": {
+    "bytes": 5900961,
+    "sha256": "8ee6d5e0b960f7623c83300011f5d541afab28b787a942af6a82d03b7b283370"
+  },
+  "Models/H_MH6_LOD1.obj": {
+    "bytes": 1580873,
+    "sha256": "270ee73a0ec092c7fc3c8dbc77f21e883bf708ece578e6207d4848a13a97b86b"
+  },
+  "Models/H_MH6_LOD2.obj": {
+    "bytes": 815885,
+    "sha256": "a736686bd655bd2f65b35a92ec790a530e823e193f8e60a82a3ddf237a3330ab"
+  },
+  "Textures/H_MH6_metal_albedo.png": {
+    "bytes": 939556,
+    "sha256": "31c2cfc796a76c13e2dbea0b3fbd050dbb8237542d8434e3145d05051d14911e"
+  },
+  "Textures/H_MH6_metal_mask.png": {
+    "bytes": 576547,
+    "sha256": "18ba081d49d10c5eccd3a76bd77bff9fd24932ee6c544fa26de2ce8ac12d7ea7"
+  },
+  "Textures/H_MH6_metal_normal.png": {
+    "bytes": 1106124,
+    "sha256": "89f8c8919fd18679aee7c1d6007b254aacbdeb603e1ec960e3869c0e473d5813"
+  },
+  "Textures/H_MH6_paint_albedo.png": {
+    "bytes": 934877,
+    "sha256": "216b4c63a2f8725dceceb8ee8c284e7b0777daa7b0e5b20a8f2e3b8f05dc9090"
+  },
+  "Textures/H_MH6_paint_mask.png": {
+    "bytes": 576187,
+    "sha256": "0c80aaf685f0fe64db9ffdc8ff4488361bdc298f415d7161d140ffb8569ec633"
+  },
+  "Textures/H_MH6_paint_normal.png": {
+    "bytes": 949202,
+    "sha256": "7b7d7eb5bb386f77f93f60410f1220f8f667feb58c0a95001818ef73771a94e1"
+  },
+  "Textures/H_MH6_rubber_albedo.png": {
+    "bytes": 951469,
+    "sha256": "d1e2e51d3b5f85b2c12a4b1041f4e248103d259db84fffe646af489c6ba4253e"
+  },
+  "Textures/H_MH6_rubber_mask.png": {
+    "bytes": 576489,
+    "sha256": "1a18f0cd897c0582e152223cd995edbe87b9761e735c845dad1c976a61e4fb73"
+  },
+  "Textures/H_MH6_rubber_normal.png": {
+    "bytes": 1106124,
+    "sha256": "89f8c8919fd18679aee7c1d6007b254aacbdeb603e1ec960e3869c0e473d5813"
+  },
+  "catalog.json": {
+    "bytes": 3476,
+    "sha256": "0bbf09455a54c7b3c53ba711cb6bb78c45eb31797b3748a05f717c9d5b2bd09c"
+  }
+}

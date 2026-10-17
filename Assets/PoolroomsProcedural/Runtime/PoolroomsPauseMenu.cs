@@ -337,6 +337,7 @@ namespace Poolrooms
             Note("WASD  ·  Caminar     Ratón  ·  Mirar     | / tecla junto a Z  ·  Correr\nShift  ·  Dash     Ctrl izquierdo  ·  Deslizarse\nEspacio  ·  Saltar / Doble salto     Esc  ·  Pausa     Y  ·  Chat\nF  ·  Linterna     V  ·  Intensidad     E  ·  Agarrar / Entrar\nQ  ·  Soltar objeto     M  ·  Administrador, si está desbloqueado");
             Note("Coche: E entrar / salir · WASD conducir · Ctrl frenar. Detente y deja libre un lateral para salir.");
             Note("Avión: E pilotar · W/S ajustar potencia · A/D girar · Espacio subir · Ctrl bajar y frenar. Aterriza y detente para salir con E.");
+            Note("Helicóptero: E pilotar · W/S avanzar / retroceder · A/D girar · Espacio subir · Ctrl bajar y frenar. Sin pulsar altura mantiene vuelo estacionario cuando el rotor alcanza régimen.");
             var torch=explorer.Flashlight;
             if(torch==null)return;
             Toggle("Linterna encendida","También puedes usar F durante la exploración.",torch.IsOn,v=>torch.SetOn(v),SettingsChange.None);
