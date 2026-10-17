@@ -28,6 +28,8 @@ R6 añade [detalle arquitectónico configurable](Assets/PoolroomsProcedural/Docu
 
 R7 incorpora un [sillón CC0 agarrable con PBR y LOD](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_CC0_R7.md), colocado en City11, biblioteca y patio. El catálogo acumulado tiene cinco modelos externos distintos; las repeticiones y los LOD no se cuentan como modelos nuevos.
 
+El [CI de R7](https://github.com/waltennecro/poolrooms/actions/runs/39005054928) pasó todas las comprobaciones y publicó su artefacto. Además se verificó una descarga nueva del repositorio: 428 archivos de Assets coinciden por SHA-256. [Evidencia](Verification/ci_sources_R7.json).
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.

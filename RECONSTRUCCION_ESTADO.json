@@ -49,7 +49,9 @@
     {
       "id": "R7",
       "feature": "Licensed interactable armchair with disjoint UV atlas baking, tangent-space normals and two LODs in City11/library/courtyard",
-      "status": "partial_source_catalog_native_validation_pending"
+      "status": "partial_source_catalog_native_validation_pending",
+      "commit": "12fd6ad",
+      "packageFiles": 428
     }
   ],
   "latestCoreChecks": {
@@ -62,14 +64,20 @@
     "citySourcesAudited": 5,
     "quietRooms": 72,
     "quietItemSupports": 540,
-    "dressingGeometryVariants": 16
+    "dressingGeometryVariants": 16,
+    "cityPngMapsAudited": 28
   },
   "pending": [
     {
       "id": "city11",
       "feature": "Licensed urban models, procedural districts, furnished accessible buildings, interactable objects and 35 vehicles",
       "status": "partial_city_and_one_vehicle_class_implemented",
-      "remaining": "More external architectural/furniture models, other vehicle classes including helicopter/airplane, urban refinement and native validation"
+      "remaining": "More external architectural/furniture models, other vehicle classes including helicopter/airplane, urban refinement and native validation",
+      "vehicleClasses": {
+        "groundCar": "implemented_native_validation_pending",
+        "helicopter": "not_implemented",
+        "airplane": "not_implemented"
+      }
     },
     {
       "id": "global_decoration",
@@ -89,7 +97,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Expand licensed source furniture/vehicle catalog where provenance and access can be verified; remaining vehicles including airplane/helicopter and native Unity validation stay explicit.",
+  "nextIndependentWork": "Broader licensed city architecture/furniture and other vehicle classes (including helicopter/airplane), then further decoration. kenney.nl access remains blocked until the saved environment network draft is published. Unity API compilation, native traversal/vehicle physics, shaders, visuals, memory and FPS remain unverified.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -157,5 +165,21 @@
       "api.github.com",
       "kenney.nl"
     ]
+  },
+  "sourceFurnitureCi": {
+    "run": "39005054928",
+    "status": "success",
+    "artifactId": "12091190427",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false
+  },
+  "latestPublicBackupDownload": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/12fd6ad6f5fb2e758c0231af317e4b1c2c2fa408",
+    "sourceRevision": "12fd6ad6f5fb2e758c0231af317e4b1c2c2fa408",
+    "bytes": 157704602,
+    "sha256": "82fd6e8ea673fed14fe4387d68ce906e4f472c766e8aac1436038a7131931391",
+    "assetFilesMatched": 428,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
   }
 }

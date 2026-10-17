@@ -93,3 +93,9 @@ Ver `Assets/PoolroomsProcedural/Documentation/MOBILIARIO_CC0_R7.md`. SheenChair 
 Núcleo: 16.828.897 aserciones y sintaxis de 179 scripts × cuatro configuraciones; los apoyos nuevos pasan. Se añaden comprobaciones analíticas del horneador a CI con dependencias fijadas; las auditorías previas no se omiten. R6 tiene CI correcto y paquete completo de 412 archivos, 88.545.632 bytes, SHA-256 `5fb0b9ffea381026c0eb826375b9781da218ddebb2b97a1f90f4ce682112dd0e`; evidencia en `Verification/ci_decoration_R6.json`.
 
 Sigue pendiente ampliar recursos urbanos/vehículos y validar en Unity. `kenney.nl` está bloqueado por la política de red; se guardó un borrador que añade ese dominio y conserva `api.github.com`, pendiente de revisión, guardado y publicación del entorno. No se da por activado ni se descargaron recursos por rutas alternativas.
+
+### Respaldo comprobado de R7
+
+Publicado en `12fd6ad`. CI [39005054928](https://github.com/waltennecro/poolrooms/actions/runs/39005054928) terminó correctamente, incluidos SDK, núcleo, texturas, fuentes/licencias, pruebas analíticas de UV y empaquetado/upload. Artefacto `12091190427`; digest y resultados en `Verification/ci_sources_R7.json`. La descarga autenticada del artefacto de Actions sigue sin ejecutarse aquí.
+
+Sí se descargó de nuevo el archivo público del repositorio para ese commit: 157.704.602 bytes, CRC correcto y los 428 archivos de Assets coinciden por SHA-256. Este ZIP de código fuente incluye carpetas externas a Assets; copiar únicamente `Assets/PoolroomsProcedural` a Unity. El paquete local completo para Assets tiene 98.580.007 bytes y SHA-256 `2e98412c969f836c34e7c7c43d7c0c1ba59a66ab68ea12ca30ba776927ca4a97`. Incluye todas las etapas R1–R7, no una recuperación exacta de v47.

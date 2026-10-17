@@ -1,0 +1,36 @@
+{
+  "run": "https://github.com/waltennecro/poolrooms/actions/runs/39005054928",
+  "job": "117315702970",
+  "commit": "12fd6ad6f5fb2e758c0231af317e4b1c2c2fa408",
+  "status": "success",
+  "steps": {
+    "Verify pinned SDK resolution": "success",
+    "Compile core, compare geometry, check CSharp syntax": "success",
+    "Check source texture hashes": "success",
+    "Check licensed City11 source assets and LODs": "success",
+    "Install pinned offline art verification tools": "success",
+    "Check UV baking transforms, colour sampling and normals": "success",
+    "Create verified complete Assets package": "success",
+    "Run actions/upload-artifact@v4": "success"
+  },
+  "artifactId": "12091190427",
+  "artifactDigest": "sha256:ff348186cf9671c1da5f8f8541e6d2a65183632dc26124af071dbe4eee921f6c",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "localPackage": {
+    "files": 428,
+    "bytes": 98580007,
+    "sha256": "2e98412c969f836c34e7c7c43d7c0c1ba59a66ab68ea12ca30ba776927ca4a97"
+  },
+  "freshPublicRepositoryDownload": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/12fd6ad6f5fb2e758c0231af317e4b1c2c2fa408",
+    "sourceRevision": "12fd6ad6f5fb2e758c0231af317e4b1c2c2fa408",
+    "bytes": 157704602,
+    "sha256": "82fd6e8ea673fed14fe4387d68ce906e4f472c766e8aac1436038a7131931391",
+    "assetFilesMatched": 428,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "auditedCityPngMaps": 28,
+  "unityValidated": false
+}
