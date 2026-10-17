@@ -417,5 +417,10 @@
   "nativeUnityValidated": false,
   "removedTrademarkMeshes": [],
   "atlasSeedFromUV0": true,
-  "defaultMaterialVariantOnly": true
+  "defaultMaterialVariantOnly": true,
+  "losslessNativeCompaction": {
+    "beforeVertices": 139476,
+    "afterVertices": 28261,
+    "perTriangleAttributeSha256": "0ac53f0ee22607ee9079ae9046f8f8ca50afe0da4ebe27d07d883b32a0e58508"
+  }
 }

@@ -131,6 +131,9 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
             start=0;faces=[]
             for e in group:faces.append(e[4]+start);start+=len(e[1])
             entries.append((material,*[np.concatenate([e[k] for e in group]) for k in (1,2,3)],np.concatenate(faces)));entry_names.append(label)
+    if resource_root=='Urban':
+        from source_lods import compact
+        entries=compact(entries)
     folder=dest/'Models';folder.mkdir(parents=True,exist_ok=True)
     if name=='ToyCar':
         points=np.concatenate([e[1] for e in entries]);_,axes=np.linalg.eigh(np.cov(points[:,[0,2]],rowvar=False));direction=axes[:,-1]

@@ -986,5 +986,10 @@
       "part": "Wheel_FR",
       "front": true
     }
-  ]
+  ],
+  "losslessNativeCompaction": {
+    "beforeVertices": 613673,
+    "afterVertices": 160090,
+    "perTriangleAttributeSha256": "40d65785b7401e41453b4a14de787779ac1f1d1d5dfe376748fe9eee74853e40"
+  }
 }

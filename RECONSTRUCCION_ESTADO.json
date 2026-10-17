@@ -93,13 +93,15 @@
       "feature": "Native Unity PlayMode runner with fresh-result verification and opt-in 30-second hardware/frame-time capture",
       "status": "tooling_implemented_native_execution_blocked",
       "nativeUnityExecuted": false,
-      "commit": "9784d0a"
+      "commit": "9784d0ab3321fb7e9da5c491fed76dd597fb5554",
+      "packageFiles": 509
     },
     {
       "id": "R14",
       "feature": "Three licensed urban source models, second ground-car model, authored PBR/UV/normal/colour pipeline, bounded automatic placement in eight biomes, street/facade refinement and accessible quiet-level entrances",
       "status": "implemented_native_validation_pending_partial_external_architecture_catalog",
-      "packageFiles": 607
+      "packageFiles": 607,
+      "commit": "f817114efc9940d3bde90632222974411a10d6b3"
     }
   ],
   "latestCoreChecks": {
@@ -140,7 +142,8 @@
     "cityDistrictDescriptors": 4,
     "newUrbanSources": 3,
     "newUrbanPngMaps": 66,
-    "oldCityRegenerationByteExact": true
+    "oldCityRegenerationByteExact": true,
+    "urbanTriangleAttributesPreservedAfterCompaction": true
   },
   "pending": [
     {
@@ -205,7 +208,15 @@
     "interiorSourceLicense": "CC-BY-4.0",
     "additionalUrbanSourceModels": 3,
     "placedGroundVehicleSourceTypes": 2,
-    "totalVehicleSourceTypes": 4
+    "totalVehicleSourceTypes": 4,
+    "urbanNativeCompaction": {
+      "carBeforeBytes": 73061252,
+      "carAfterBytes": 28026196,
+      "sofaBeforeBytes": 16493165,
+      "sofaAfterBytes": 5242622,
+      "trianglesRemoved": 0,
+      "trianglePositionNormalUvSha256Preserved": true
+    }
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -365,5 +376,13 @@
     "runner": "tools/run_unity_validation.py",
     "performanceMenu": "Tools/Poolrooms/Validaci\u00f3n/Capturar 30 segundos de rendimiento",
     "contractTestsUseFakeProcessNotUnity": true
+  },
+  "nativeToolingCi": {
+    "sourceRevision": "9784d0ab3321fb7e9da5c491fed76dd597fb5554",
+    "run": "39052313919",
+    "status": "success",
+    "artifactId": "12108068001",
+    "artifactPublished": true,
+    "nativeUnityExecuted": false
   }
 }

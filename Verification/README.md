@@ -28,3 +28,5 @@ Las auditorías de `verify_city_sources.py`, `verify_aircraft_sources.py`, `veri
 R11 separa las ruedas del coche mediante `tools/rig_city_car.py`, invocado por `python tools/import_city_sources.py --only ToyCar`. La auditoría comprueba sus cuatro grupos en los tres LOD, centros y radios. R12 añade comprobaciones de soporte y espacio para mobiliario real en centros comerciales y casas, sin introducir dependencias de Unity en el núcleo.
 
 R14 audita tres fuentes adicionales con `python tools/verify_urban_sources.py`. El horneador conserva colores lineales, tangentes originales y WebP; `source_lods.py` separa normales opuestas. `check_native_runner.py` usa un proceso falso para verificar estados/resultados y NO ejecuta Unity. Para la suite real y mediciones, leer `Assets/PoolroomsProcedural/Documentation/VALIDACION_NATIVA_R13.md`.
+
+`python tools/compact_urban_sources.py` suelda únicamente tuplas idénticas de posición/normal/UV en las fuentes urbanas. La auditoría vuelve a calcular el hash de atributos por triángulo para comprobar que la compactación conserva la geometría. No usar esto como medición de FPS.

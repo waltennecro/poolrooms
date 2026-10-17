@@ -1,6 +1,17 @@
 """Deterministic native vertex clustering; optional hard-normal seam preservation."""
 import numpy as np
 
+def compact(entries):
+ """Weld only identical native position/normal/UV tuples, retaining all faces."""
+ output=[]
+ for material,p,n,t,faces in entries:
+  native=np.column_stack((p,n,t));unique,inverse=np.unique(native,axis=0,return_inverse=True)
+  result=(material,unique[:,:3],unique[:,3:6],unique[:,6:8],inverse[faces])
+  # Triangle attributes, ordering, winding and UV/normal seams remain exact.
+  assert np.array_equal(native[faces],unique[result[4]])
+  output.append(result)
+ return output
+
 def cluster(entries,grid,uv_grid,lo,hi,preserve_normals=False):
  groups=[];epsilon=float((hi-lo).max())/grid
  for material,positions,normals,uv,indices in entries:

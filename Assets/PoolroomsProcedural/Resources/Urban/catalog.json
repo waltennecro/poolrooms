@@ -991,7 +991,12 @@
           "part": "Wheel_FR",
           "front": true
         }
-      ]
+      ],
+      "losslessNativeCompaction": {
+        "beforeVertices": 613673,
+        "afterVertices": 160090,
+        "perTriangleAttributeSha256": "40d65785b7401e41453b4a14de787779ac1f1d1d5dfe376748fe9eee74853e40"
+      }
     },
     {
       "id": "U_AntiqueCamera",
@@ -1105,7 +1110,12 @@
       "nativeUnityValidated": false,
       "removedTrademarkMeshes": [],
       "atlasSeedFromUV0": true,
-      "defaultMaterialVariantOnly": true
+      "defaultMaterialVariantOnly": true,
+      "losslessNativeCompaction": {
+        "beforeVertices": 21178,
+        "afterVertices": 21137,
+        "perTriangleAttributeSha256": "f0dea0d72072a15edb9bae3b3270da2e961f0ab8f34f7a80d7763b18a59d843d"
+      }
     },
     {
       "id": "U_SheenWoodLeatherSofa",
@@ -1526,7 +1536,12 @@
       "nativeUnityValidated": false,
       "removedTrademarkMeshes": [],
       "atlasSeedFromUV0": true,
-      "defaultMaterialVariantOnly": true
+      "defaultMaterialVariantOnly": true,
+      "losslessNativeCompaction": {
+        "beforeVertices": 139476,
+        "afterVertices": 28261,
+        "perTriangleAttributeSha256": "0ac53f0ee22607ee9079ae9046f8f8ca50afe0da4ebe27d07d883b32a0e58508"
+      }
     }
   ]
 }

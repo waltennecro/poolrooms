@@ -29,22 +29,31 @@ for model in catalog['models']:
  else:assert not model['uvBake'],'Already compatible UV0 must stay original'
  assert model['lods'][1]['triangles']<model['lods'][0]['triangles']<model['triangles']
  for level in [model]+model['lods']:
-  p=ROOT/'Assets/PoolroomsProcedural/Resources'/(level['resource']+'.obj');positions=[];normal=[];uv=0;faces=0;groups={};group=None;referenced=set()
+  p=ROOT/'Assets/PoolroomsProcedural/Resources'/(level['resource']+'.obj');positions=[];normal=[];uv=0;uv_values=[];faces=0;groups={};group=None;referenced=set()
+  attribute_hash=hashlib.sha256() if level is model and 'losslessNativeCompaction' in model else None
   with p.open() as stream:
    for line in stream:
     s=line.split()
     if not s:continue
-    if s[0]=='o':group=s[1];groups.setdefault(group,0)
+    if s[0]=='o':
+     group=s[1];groups.setdefault(group,0)
+     if attribute_hash is not None:attribute_hash.update(str(int(re.search(r'_m(\d+)$',group).group(1))).encode())
     elif s[0] in ('v','vn','vt'):
      value=list(map(float,s[1:]));assert all(math.isfinite(x) for x in value),p
      if s[0]=='v':positions.append(value)
      elif s[0]=='vn':normal.append(value)
-     else:uv+=1
+     else:uv+=1;uv_values.append(value)
     elif s[0]=='f':
      assert len(s)==4;faces+=1;groups[group]+=1
+     triangle=[]
      for token in s[1:]:
       a,b,c=map(int,token.split('/'));assert 0<a<=len(positions) and 0<b<=uv and 0<c<=len(normal);referenced.add(c-1)
+      if attribute_hash is not None:triangle.extend(positions[a-1]+normal[c-1]+uv_values[b-1])
+     if attribute_hash is not None:attribute_hash.update(struct.pack('<24d',*triangle))
   assert faces==level['triangles'];assert all(.99<math.sqrt(sum(x*x for x in normal[i]))<1.01 for i in referenced),'Referenced normal is not unit length: '+str(p)
+  if attribute_hash is not None:
+   assert attribute_hash.hexdigest()==model['losslessNativeCompaction']['perTriangleAttributeSha256'],'Lossless source triangle attributes changed'
+   assert len(positions)==model['losslessNativeCompaction']['afterVertices']
   if name=='U_CarConcept':
    for wheel in model['wheels']:
     assert sum(n for g,n in groups.items() if wheel['part'] in g and '_Caliper' not in g)>40

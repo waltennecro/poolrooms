@@ -67,8 +67,11 @@ namespace Poolrooms
         static bool PartBounds(Transform root,string part,out Bounds bounds)
         {
             bounds=new Bounds();MeshFilter best=null;
-            foreach(var filter in root.GetComponentsInChildren<MeshFilter>())if(filter.sharedMesh!=null&&filter.name.Contains(part)&&
-                !filter.name.Contains("_Caliper")&&(best==null||filter.sharedMesh.vertexCount>best.sharedMesh.vertexCount))best=filter;
+            foreach(var filter in root.GetComponentsInChildren<MeshFilter>())if(filter.sharedMesh!=null&&filter.name.Contains(part)&&!filter.name.Contains("_Caliper"))
+            {
+                bool tyre=filter.name.Contains("_Tyre"),bestTyre=best!=null&&best.name.Contains("_Tyre");
+                if(best==null||tyre&&!bestTyre||tyre==bestTyre&&filter.sharedMesh.vertexCount>best.sharedMesh.vertexCount)best=filter;
+            }
             if(best==null)return false;
             var local=best.sharedMesh.bounds;
             for(int i=0;i<8;i++)
