@@ -1,0 +1,104 @@
+{
+  "id": "B_Awning",
+  "resource": "Bistro/Models/B_Awning",
+  "minimum": [
+    -1.4914416074752808,
+    0.0,
+    -1.0781761407852173
+  ],
+  "maximum": [
+    1.4914416074752808,
+    0.8935533165931702,
+    1.0781761407852173
+  ],
+  "triangles": 7032,
+  "materials": [
+    {
+      "name": "B_Awning_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Bistro/Textures/B_Awning_m0_albedo",
+      "normal": "Bistro/Textures/B_Awning_m0_normal",
+      "mask": "Bistro/Textures/B_Awning_m0_mask",
+      "workflow": "specular",
+      "specular": "Bistro/Textures/B_Awning_m0_specular"
+    },
+    {
+      "name": "B_Awning_m1",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Bistro/Textures/B_Awning_m1_albedo",
+      "normal": "Bistro/Textures/B_Awning_m1_normal",
+      "mask": "Bistro/Textures/B_Awning_m1_mask",
+      "workflow": "specular",
+      "specular": "Bistro/Textures/B_Awning_m1_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "Bistro/Models/B_Awning_LOD1",
+      "triangles": 2037
+    },
+    {
+      "resource": "Bistro/Models/B_Awning_LOD2",
+      "triangles": 1150
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "082b09c785943a536ffe16300c39b990e9498c24eb5955bc6c39752bdad1b8bd",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Selected original subtree, metric rebasing, DDS to bounded PNG, authored specular/gloss conversion, native OBJ and two LOD derivatives; not an untouched original download",
+  "sourceRootNode": 31,
+  "sourceRootName": "paris_bistroawning_1",
+  "sourceMaterialIndices": [
+    2,
+    3
+  ],
+  "originalTriangles": 7032,
+  "sourceDimensionsMetres": [
+    2.982883229453484,
+    0.8935533162210705,
+    2.156352285081992
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "sourceSceneSha256": "c0972d6cd032c1aecb1ad609291a60d124975cd405097212c29de806851de2bb",
+  "sourceBinarySha256": "5fb11a1d61aeb2537197aa97833ff950638c9d42451ee4fafbc9550f03918faa",
+  "nativeUnityValidated": false
+}

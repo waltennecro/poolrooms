@@ -73,3 +73,5 @@ Estos dos comandos corresponden al commit original `20311f8`: el ZIP generado co
 ## Sobre el aviso de Cloud
 
 El aviso «No se pudo cargar este archivo de Cloud» corresponde al acceso al archivo del entorno del chat. Esta recuperación deja el código en GitHub para poder descargarlo o clonarlo aunque ese enlace de Cloud deje de funcionar. No repara el servicio de archivos de la aplicación ni recupera versiones posteriores que no estén en este respaldo.
+
+R15 integra terrazas de café en City11 con tres componentes de Amazon Bistro, licencia CC BY 4.0: toldo, mesa y silla. Incluye 16 mapas PBR, materiales HDRP Specular Color y dos LOD por pieza; como máximo una terraza por bloque, con muebles agarrables y comprobación del espacio de calles/puertas. Son componentes, no edificios completos de origen externo. Véase [el detalle y los límites de validación](Assets/PoolroomsProcedural/Documentation/CIUDAD_TERRAZAS_R15.md).

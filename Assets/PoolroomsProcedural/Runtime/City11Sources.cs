@@ -14,13 +14,13 @@ namespace Poolrooms
         [Serializable] public sealed class WheelDefinition{public string part;public float[] center;public float radius;public bool front;}
         [Serializable] public sealed class LODDefinition{public string resource;public int triangles;}
         [Serializable] public sealed class MaterialDefinition
-        {public string name,albedo,normal,emissive,mask;public float[] colour,emission;public float normalScale=1,metallic,roughness=.5f,clearcoat;public bool transparent,doubleSided;public string[] extensions;}
+        {public string name,albedo,normal,emissive,mask,workflow,specular;public float[] colour,emission;public float normalScale=1,metallic,roughness=.5f,clearcoat;public bool transparent,doubleSided;public string[] extensions;}
         private static readonly Dictionary<string,Definition> definitions=new Dictionary<string,Definition>();
         private static readonly Dictionary<string,Material> materials=new Dictionary<string,Material>();
         public static Definition Get(string id)
         {
             if(definitions.TryGetValue(id,out var value))return value;
-            var data=Resources.Load<TextAsset>((id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
+            var data=Resources.Load<TextAsset>((id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
             if(data==null)return null;value=JsonUtility.FromJson<Definition>(data.text);definitions.Add(id,value);return value;
         }
         public static GameObject Create(string id,Transform parent,Vector3 position,float targetLongest,out Vector3 size,int startLOD=0)
@@ -94,13 +94,30 @@ namespace Poolrooms
         static Material MaterialFor(MaterialDefinition d)
         {
             if(materials.TryGetValue(d.name,out var cached)&&cached!=null)return cached;
-            var shader=Shader.Find("HDRP/Lit")??Shader.Find("Universal Render Pipeline/Lit")??Shader.Find("Standard");
+            bool specularWorkflow=d.workflow=="specular";
+            var shader=Shader.Find("HDRP/Lit")??Shader.Find("Universal Render Pipeline/Lit")??Shader.Find(specularWorkflow?"Standard (Specular setup)":"Standard");
             var m=new Material(shader){name="Liminal licensed source / "+d.name,enableInstancing=true};
             Color colour=d.colour!=null&&d.colour.Length==4?new Color(d.colour[0],d.colour[1],d.colour[2],d.colour[3]).gamma:Color.white;
             Set(m,"_BaseColor",colour);Set(m,"_Color",colour);
             foreach(string property in new[]{"_BaseColorMap","_BaseMap","_MainTex"})Texture(m,property,d.albedo);
             bool masked=!string.IsNullOrEmpty(d.mask);Texture(m,"_MaskMap",d.mask);if(masked)m.EnableKeyword("_MASKMAP");
             Float(m,"_Metallic",d.metallic);Float(m,"_Smoothness",1-d.roughness);Float(m,"_Glossiness",1-d.roughness);Float(m,"_SmoothnessRemapMin",0);Float(m,"_SmoothnessRemapMax",masked?1:1-d.roughness);Float(m,"_MetallicRemapMin",0);Float(m,"_MetallicRemapMax",masked?1:d.metallic);
+            if(specularWorkflow)
+            {
+                // Bistro authored dielectric F0 is preserved, rather than forcing
+                // every fabric/wood surface to the standard metallic F0 value.
+                if(shader.name=="HDRP/Lit")
+                {
+                    Float(m,"_MaterialID",4);Set(m,"_SpecularColor",Color.white);Texture(m,"_SpecularColorMap",d.specular);
+                    m.EnableKeyword("_MATERIAL_FEATURE_SPECULAR_COLOR");m.EnableKeyword("_SPECULARCOLORMAP");
+                }
+                else
+                {
+                    Float(m,"_WorkflowMode",0);Set(m,"_SpecColor",Color.white);Texture(m,"_SpecGlossMap",d.specular);
+                    Float(m,"_Smoothness",1);Float(m,"_GlossMapScale",1);
+                    m.EnableKeyword("_SPECULAR_SETUP");m.EnableKeyword("_SPECGLOSSMAP");m.EnableKeyword("_METALLICSPECGLOSSMAP");
+                }
+            }
             if(d.clearcoat>0&&m.HasProperty("_CoatMask")){Float(m,"_CoatMask",Mathf.Clamp01(d.clearcoat));m.EnableKeyword("_MATERIAL_FEATURE_CLEAR_COAT");}
             if(!string.IsNullOrEmpty(d.normal))
             {Texture(m,"_NormalMap",d.normal);Texture(m,"_BumpMap",d.normal);Float(m,"_NormalScale",d.normalScale);Float(m,"_BumpScale",d.normalScale);m.EnableKeyword("_NORMALMAP");m.EnableKeyword("_NORMALMAP_TANGENT_SPACE");}

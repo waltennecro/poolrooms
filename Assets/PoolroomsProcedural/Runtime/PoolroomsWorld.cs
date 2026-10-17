@@ -397,6 +397,14 @@ namespace Poolrooms
                     if(carry==null||!carry.WasTaken(key))
                     {var created=PoolroomsPickup.CreateSource(key,SourceFurniture.Id(prop.Source),new Vector3(prop.Position.X,prop.Position.Y,prop.Position.Z),parent,SourceFurniture.Longest(prop.Source));if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}
                 }
+                if(CityTerraces.TryBuilding(r.Plan.City.Buildings,out var terrace))
+                {
+                    var p=CityTerraces.AwningBottom(terrace);
+                    var graphics=viewer!=null?viewer.GetComponentInParent<PoolroomsGameSettings>():null;
+                    bool low=graphics!=null&&graphics.Preferences!=null&&graphics.Preferences.graphicsQuality==0;
+                    var awning=City11Sources.Create("B_Awning",parent,new Vector3(p.X,p.Y,p.Z),CityTerraces.AwningLongest,out var size,low?1:0);
+                    if(awning!=null){awning.transform.localPosition+=Vector3.up*(size.y*.5f);awning.transform.localRotation=Quaternion.Euler(0,terrace.Turn?180:0,0);}
+                }
                 var airfield=r.Plan.City.Airfield;
                 if(airfield!=null&&airfield.AircraftSpawn)
                 {

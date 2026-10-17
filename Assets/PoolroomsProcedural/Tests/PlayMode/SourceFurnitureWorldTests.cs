@@ -57,7 +57,7 @@ namespace Poolrooms.Tests
             var root=new GameObject("Attributed furniture source import");
             try
             {
-                foreach(int id in new[]{3,4,5,6})
+                foreach(int id in new[]{3,4,5,6,7,8})
                 {
                     string source=SourceFurniture.Id(id);var pickup=PoolroomsPickup.CreateSource("native-test-"+id,source,Vector3.up*.02f,root.transform,SourceFurniture.Longest(id));
                     Assert.That(pickup,Is.Not.Null);var planned=SourceFurniture.Dimensions(id);var box=pickup.GetComponent<BoxCollider>();
@@ -78,6 +78,28 @@ namespace Poolrooms.Tests
             finally{Object.DestroyImmediate(root);}
         }
         [Test]
+        public void BistroSourcesKeepAuthoredSpecularMapsAndUprightAwning()
+        {
+            var root=new GameObject("Bistro native material and scale check");
+            try
+            {
+                foreach(string source in new[]{"B_Awning","B_CafeTable","B_CafeChair"})
+                {
+                    var model=City11Sources.Create(source,root.transform,Vector3.zero,1,out var size);Assert.That(model,Is.Not.Null);
+                    if(source=="B_Awning")Assert.That(size.y,Is.LessThan(.31f),"Exporter pitch/roll must not turn the awning upright");
+                    if(source=="B_CafeChair")Assert.That(size.y,Is.EqualTo(1).Within(.001f),"Chair must stand on its original vertical axis");
+                    foreach(var renderer in model.GetComponentsInChildren<MeshRenderer>())foreach(var material in renderer.sharedMaterials)
+                    {
+                        Assert.That(material.shader.isSupported,Is.True);
+                        if(material.shader.name!="HDRP/Lit")continue;
+                        Assert.That(material.GetFloat("_MaterialID"),Is.EqualTo(4),"Source dielectric F0 needs HDRP Specular Color mode");
+                        Assert.That(material.GetTexture("_SpecularColorMap"),Is.Not.Null);Assert.That(material.GetTexture("_MaskMap"),Is.Not.Null);
+                    }
+                }
+            }
+            finally{Object.DestroyImmediate(root);}
+        }
+        [Test]
         public void SourceFurnitureBoxesDoNotPenetrateShopArchitecture()
         {
             var c=new LayoutConfig{Seed=3,CellSize=36,Continuous=true,Procedural=LiminalGeneration.City11};var room=new Layout(c).At(-6,7);var geometry=Architecture.Build(room,c);
@@ -85,7 +107,7 @@ namespace Poolrooms.Tests
             try
             {
                 var owner=root.AddComponent<PoolroomsChunk>();var wall=MeshFactory.CreateCollider("City static supports",geometry.Structure,root.transform,owner).GetComponent<MeshCollider>();
-                foreach(var prop in room.Plan.City.Props)if(SourceFurniture.IsSeat(prop.Source)||prop.Source==6)
+                foreach(var prop in room.Plan.City.Props)if(SourceFurniture.IsSeat(prop.Source)||prop.Source==6||prop.Source==7)
                 {
                     var pickup=PoolroomsPickup.CreateSource("native-placement-"+prop.Source,SourceFurniture.Id(prop.Source),new Vector3(prop.Position.X,prop.Position.Y,prop.Position.Z),root.transform,SourceFurniture.Longest(prop.Source));
                     Assert.That(pickup,Is.Not.Null);pickup.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);Physics.SyncTransforms();

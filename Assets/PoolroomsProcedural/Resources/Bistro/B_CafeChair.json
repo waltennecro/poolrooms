@@ -1,0 +1,78 @@
+{
+  "id": "B_CafeChair",
+  "resource": "Bistro/Models/B_CafeChair",
+  "minimum": [
+    -0.2928653359413147,
+    0.0,
+    -0.3210115134716034
+  ],
+  "maximum": [
+    0.2928653359413147,
+    1.025856852531433,
+    0.3210115134716034
+  ],
+  "triangles": 3328,
+  "materials": [
+    {
+      "name": "B_CafeChair_m0",
+      "colour": [
+        0.5725806355476379,
+        0.40694332122802734,
+        0.2516584098339081,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Bistro/Textures/B_CafeChair_m0_albedo",
+      "normal": "Bistro/Textures/B_CafeChair_m0_normal",
+      "mask": "Bistro/Textures/B_CafeChair_m0_mask",
+      "workflow": "specular",
+      "specular": "Bistro/Textures/B_CafeChair_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "Bistro/Models/B_CafeChair_LOD1",
+      "triangles": 1388
+    },
+    {
+      "resource": "Bistro/Models/B_CafeChair_LOD2",
+      "triangles": 807
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "be6e9b5e95e2a2455b96fdbb73ef48b9f774b5057161ebe4265cd2014dbdc5e5",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Selected original subtree, metric rebasing, DDS to bounded PNG, authored specular/gloss conversion, native OBJ and two LOD derivatives; not an untouched original download",
+  "sourceRootNode": 305,
+  "sourceRootName": "Paris_Bistro_Chair_01",
+  "sourceMaterialIndices": [
+    89
+  ],
+  "originalTriangles": 3328,
+  "sourceDimensionsMetres": [
+    0.5857306537010345,
+    1.025856830686145,
+    0.6420230356030845
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "sourceSceneSha256": "c0972d6cd032c1aecb1ad609291a60d124975cd405097212c29de806851de2bb",
+  "sourceBinarySha256": "5fb11a1d61aeb2537197aa97833ff950638c9d42451ee4fafbc9550f03918faa",
+  "nativeUnityValidated": false
+}

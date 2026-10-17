@@ -1,0 +1,267 @@
+{
+  "distinctGeometryFamilies": 3,
+  "completeBuildingModels": 0,
+  "nativeUnityValidated": false,
+  "models": [
+    {
+      "id": "B_Awning",
+      "resource": "Bistro/Models/B_Awning",
+      "minimum": [
+        -1.4914416074752808,
+        0.0,
+        -1.0781761407852173
+      ],
+      "maximum": [
+        1.4914416074752808,
+        0.8935533165931702,
+        1.0781761407852173
+      ],
+      "triangles": 7032,
+      "materials": [
+        {
+          "name": "B_Awning_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "Bistro/Textures/B_Awning_m0_albedo",
+          "normal": "Bistro/Textures/B_Awning_m0_normal",
+          "mask": "Bistro/Textures/B_Awning_m0_mask",
+          "workflow": "specular",
+          "specular": "Bistro/Textures/B_Awning_m0_specular"
+        },
+        {
+          "name": "B_Awning_m1",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "Bistro/Textures/B_Awning_m1_albedo",
+          "normal": "Bistro/Textures/B_Awning_m1_normal",
+          "mask": "Bistro/Textures/B_Awning_m1_mask",
+          "workflow": "specular",
+          "specular": "Bistro/Textures/B_Awning_m1_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "Bistro/Models/B_Awning_LOD1",
+          "triangles": 2037
+        },
+        {
+          "resource": "Bistro/Models/B_Awning_LOD2",
+          "triangles": 1150
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "082b09c785943a536ffe16300c39b990e9498c24eb5955bc6c39752bdad1b8bd",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original subtree, metric rebasing, DDS to bounded PNG, authored specular/gloss conversion, native OBJ and two LOD derivatives; not an untouched original download",
+      "sourceRootNode": 31,
+      "sourceRootName": "paris_bistroawning_1",
+      "sourceMaterialIndices": [
+        2,
+        3
+      ],
+      "originalTriangles": 7032,
+      "sourceDimensionsMetres": [
+        2.982883229453484,
+        0.8935533162210705,
+        2.156352285081992
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "sourceSceneSha256": "c0972d6cd032c1aecb1ad609291a60d124975cd405097212c29de806851de2bb",
+      "sourceBinarySha256": "5fb11a1d61aeb2537197aa97833ff950638c9d42451ee4fafbc9550f03918faa",
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "B_CafeTable",
+      "resource": "Bistro/Models/B_CafeTable",
+      "minimum": [
+        -0.4504741430282593,
+        0.0,
+        -0.45049431920051575
+      ],
+      "maximum": [
+        0.4504741430282593,
+        0.8434156775474548,
+        0.45049431920051575
+      ],
+      "triangles": 1692,
+      "materials": [
+        {
+          "name": "B_CafeTable_m0",
+          "colour": [
+            0.572549045085907,
+            0.40784314274787903,
+            0.250980406999588,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "Bistro/Textures/B_CafeTable_m0_albedo",
+          "normal": "Bistro/Textures/B_CafeTable_m0_normal",
+          "mask": "Bistro/Textures/B_CafeTable_m0_mask",
+          "workflow": "specular",
+          "specular": "Bistro/Textures/B_CafeTable_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "Bistro/Models/B_CafeTable_LOD1",
+          "triangles": 598
+        },
+        {
+          "resource": "Bistro/Models/B_CafeTable_LOD2",
+          "triangles": 432
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "6302a74f5504ecc442a86ecd5cbe7dfc226935a6fa661053442748c2b59e80c4",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original subtree, metric rebasing, DDS to bounded PNG, authored specular/gloss conversion, native OBJ and two LOD derivatives; not an untouched original download",
+      "sourceRootNode": 319,
+      "sourceRootName": "Paris_Table_01",
+      "sourceMaterialIndices": [
+        94
+      ],
+      "originalTriangles": 1692,
+      "sourceDimensionsMetres": [
+        0.9009482792015113,
+        0.8434156591185238,
+        0.9009886487383882
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "sourceSceneSha256": "c0972d6cd032c1aecb1ad609291a60d124975cd405097212c29de806851de2bb",
+      "sourceBinarySha256": "5fb11a1d61aeb2537197aa97833ff950638c9d42451ee4fafbc9550f03918faa",
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "B_CafeChair",
+      "resource": "Bistro/Models/B_CafeChair",
+      "minimum": [
+        -0.2928653359413147,
+        0.0,
+        -0.3210115134716034
+      ],
+      "maximum": [
+        0.2928653359413147,
+        1.025856852531433,
+        0.3210115134716034
+      ],
+      "triangles": 3328,
+      "materials": [
+        {
+          "name": "B_CafeChair_m0",
+          "colour": [
+            0.5725806355476379,
+            0.40694332122802734,
+            0.2516584098339081,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "Bistro/Textures/B_CafeChair_m0_albedo",
+          "normal": "Bistro/Textures/B_CafeChair_m0_normal",
+          "mask": "Bistro/Textures/B_CafeChair_m0_mask",
+          "workflow": "specular",
+          "specular": "Bistro/Textures/B_CafeChair_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "Bistro/Models/B_CafeChair_LOD1",
+          "triangles": 1388
+        },
+        {
+          "resource": "Bistro/Models/B_CafeChair_LOD2",
+          "triangles": 807
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "be6e9b5e95e2a2455b96fdbb73ef48b9f774b5057161ebe4265cd2014dbdc5e5",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original subtree, metric rebasing, DDS to bounded PNG, authored specular/gloss conversion, native OBJ and two LOD derivatives; not an untouched original download",
+      "sourceRootNode": 305,
+      "sourceRootName": "Paris_Bistro_Chair_01",
+      "sourceMaterialIndices": [
+        89
+      ],
+      "originalTriangles": 3328,
+      "sourceDimensionsMetres": [
+        0.5857306537010345,
+        1.025856830686145,
+        0.6420230356030845
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "sourceSceneSha256": "c0972d6cd032c1aecb1ad609291a60d124975cd405097212c29de806851de2bb",
+      "sourceBinarySha256": "5fb11a1d61aeb2537197aa97833ff950638c9d42451ee4fafbc9550f03918faa",
+      "nativeUnityValidated": false
+    }
+  ]
+}

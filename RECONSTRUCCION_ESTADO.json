@@ -106,13 +106,19 @@
         "f817114efc9940d3bde90632222974411a10d6b3",
         "29c5b7b90e919ff92a55f9139204e75a8f573e70"
       ]
+    },
+    {
+      "id": "R15",
+      "feature": "Attributed Bistro component terraces integrated in City11 with authored HDRP specular/gloss workflow and bounded interactive furniture",
+      "status": "implemented_native_validation_pending_partial_external_architecture_catalog",
+      "packageFiles": 646
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16987647,
+    "assertions": 16989170,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 197,
+    "syntaxScripts": 198,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 36,
     "citySourcesAudited": 5,
@@ -147,7 +153,12 @@
     "newUrbanSources": 3,
     "newUrbanPngMaps": 66,
     "oldCityRegenerationByteExact": true,
-    "urbanTriangleAttributesPreservedAfterCompaction": true
+    "urbanTriangleAttributesPreservedAfterCompaction": true,
+    "bistroTerracesChecked": 32,
+    "bistroInteractableInstancesChecked": 96,
+    "bistroComponentSources": 3,
+    "bistroPngMaps": 16,
+    "bistroArtRegenerationByteExact": true
   },
   "pending": [
     {
@@ -179,7 +190,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Native Unity 6.3/HDRP 17.3 compile/PlayMode, shaders, vehicle/flight/carry collision and measured FPS/memory are blocked by missing Editor/project; use tools/run_unity_validation.py and the in-game capture. Expand approved complete external building models separately; existing 1212 sample buildings are procedural and must not be reported as downloaded assets.",
+  "nextIndependentWork": "Complete external building sources remain pending; Bistro adds three architectural/furniture components, not buildings. Native Unity compilation/Play/shaders/collision and measured visual performance remain blocked without Editor/project; use the R13 runner and capture. R15 does not recover exact lost v40-v47 files.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -190,11 +201,11 @@
     "carLODDerivatives": 2,
     "carColourVariants": 1,
     "downloadedBuildingModels": 0,
-    "downloadedFurnitureModels": 3,
+    "downloadedFurnitureModels": 5,
     "placedFurnitureSourceTypes": 3,
     "chairLODDerivatives": 2,
     "chairColourVariants": 1,
-    "distinctDownloadedSources": 12,
+    "distinctDownloadedSources": 15,
     "distinctDownloadedAircraftSources": 1,
     "aircraftLODDerivatives": 0,
     "aircraftColourVariants": 1,
@@ -205,7 +216,7 @@
     "helicopterSourceLicense": "CC-BY-4.0",
     "helicopterLODDerivatives": 2,
     "helicopterOriginalSourceDownloadVerified": false,
-    "distinctGeometryFamilies": 11,
+    "distinctGeometryFamilies": 14,
     "additionalExistingGeometryVariantSources": 1,
     "downloadedFurnitureVariantSources": 1,
     "interiorSourceFiles": 2,
@@ -220,7 +231,10 @@
       "sofaAfterBytes": 5242622,
       "trianglesRemoved": 0,
       "trianglePositionNormalUvSha256Preserved": true
-    }
+    },
+    "bistroComponentGeometryFamilies": 3,
+    "bistroCompleteBuildingModels": 0,
+    "bistroPngMaps": 16
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -270,7 +284,8 @@
     "sourceChairInstances": 1296,
     "proceduralFurnitureAssemblies": 15555,
     "carSpawnSitesSameSource": 40,
-    "simultaneouslyLoaded": false
+    "simultaneouslyLoaded": false,
+    "sourceItemInstances": 4944
   },
   "decorationCi": {
     "run": "39004073065",
@@ -318,7 +333,7 @@
     "blocks": 324,
     "proceduralBuildings": 1212,
     "floorSpaces": 4846,
-    "sourceItemInstances": 4040,
+    "sourceItemInstances": 4628,
     "carSpawnSitesSameSource": 37,
     "aircraftSpawnSites": 1,
     "helicopterSpawnSites": 1,
@@ -330,7 +345,8 @@
       "woodLeatherSofa": 185,
       "damaskChairVariant": 432
     },
-    "standingCameraInstances": 404
+    "standingCameraInstances": 404,
+    "additionalTerraceFurnitureInstances": 588
   },
   "helicopterCi": {
     "sourceRevision": "f0bc28b5270aea582d065b59dbbd86695bcf07fd",
@@ -378,7 +394,7 @@
     "projectAvailable": false,
     "packageRegistryAccess": "packages.unity.com tunnel 403",
     "runner": "tools/run_unity_validation.py",
-    "performanceMenu": "Tools/Poolrooms/Validaci\u00f3n/Capturar 30 segundos de rendimiento",
+    "performanceMenu": "Tools/Poolrooms/Validación/Capturar 30 segundos de rendimiento",
     "contractTestsUseFakeProcessNotUnity": true
   },
   "nativeToolingCi": {

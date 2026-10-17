@@ -1,0 +1,146 @@
+{
+  "B_Awning.json": {
+    "bytes": 2851,
+    "sha256": "78968594dc9e1fc2b314fcabf69927f04756b8be6d888ad3dc2aea5fcd607d36"
+  },
+  "B_CafeChair.json": {
+    "bytes": 2346,
+    "sha256": "42b6583f9ce033d69b478ae7f2ce0553bf0da738e562f6ddfa5f96ab786a66d4"
+  },
+  "B_CafeTable.json": {
+    "bytes": 2340,
+    "sha256": "7571141ccf4861e92e40da5e781b86d316c6a4a0e62be0bd3e8f2499ba65a9eb"
+  },
+  "Licenses/Bistro_CC_BY_4.txt": {
+    "bytes": 19242,
+    "sha256": "eb53f08e7a562c6f56d9ef93a260d1cbe26a726f959783dbf7e5091421e6a0d0"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 551,
+    "sha256": "9511288741b15b8b357fa9bd9786c0e9ea7d2c863e599b0502b754b69e690821"
+  },
+  "Licenses/upstream_MIT.txt": {
+    "bytes": 1073,
+    "sha256": "e3151c4e72486708e3f1273cb32943467b6f96cd66f3d2f0d89f99b404ef6db9"
+  },
+  "Licenses/upstream_README.md": {
+    "bytes": 153,
+    "sha256": "3ac1fed2e30089588606b49a60cdd6fc7908d10d04bce04568e61f7778c3e100"
+  },
+  "Models/B_Awning.mtl": {
+    "bytes": 68,
+    "sha256": "346a09c03173e183b77041ad37e10367879c119da8c8c317822877d0870a539b"
+  },
+  "Models/B_Awning.obj": {
+    "bytes": 870246,
+    "sha256": "9d3294880aa75b685e39d28c22462d4652bc9fe01d2aa439e9e1d633a693f12a"
+  },
+  "Models/B_Awning_LOD1.obj": {
+    "bytes": 276824,
+    "sha256": "6a4fc58e53f2d311d1bff5b2ac3eaaa9870ff445eccc8618a239306d40ae70d7"
+  },
+  "Models/B_Awning_LOD2.obj": {
+    "bytes": 163527,
+    "sha256": "01a3f9dbfd5a93fb3ca30003a69c43710474b02a7892ae705cb9c28b2e84f99d"
+  },
+  "Models/B_CafeChair.mtl": {
+    "bytes": 83,
+    "sha256": "52f5fe78cae2daee54af61a618de286f08d46d92f71d6e7959f86b3ac715c938"
+  },
+  "Models/B_CafeChair.obj": {
+    "bytes": 512481,
+    "sha256": "8c16d66cffb7a00597e8ef3a61ddcf3b8d36911550b69d2278fe0d164d296bd9"
+  },
+  "Models/B_CafeChair_LOD1.obj": {
+    "bytes": 258684,
+    "sha256": "96a5f84adc21013e1297f9b6b8fa0475f07ef7240d42dd5d64ab0c247ac924ef"
+  },
+  "Models/B_CafeChair_LOD2.obj": {
+    "bytes": 167082,
+    "sha256": "557663074c463fcecc1b1887e2a1b976b144551c6a5ad358286c8876b8892b99"
+  },
+  "Models/B_CafeTable.mtl": {
+    "bytes": 81,
+    "sha256": "0c585bc21db52081715ee77f33c5762ab6fd344542b2d839db44d01a9c9ed221"
+  },
+  "Models/B_CafeTable.obj": {
+    "bytes": 279727,
+    "sha256": "30015b472f9f158ff029a2427ec7fb650e65f4b4164224e5a93cbd04546378db"
+  },
+  "Models/B_CafeTable_LOD1.obj": {
+    "bytes": 134864,
+    "sha256": "a603999b0e913936213ca9c401095687b81e9829be18766e198bdbf392342664"
+  },
+  "Models/B_CafeTable_LOD2.obj": {
+    "bytes": 110458,
+    "sha256": "4c6b3dc7bfe3d47f6cf498a5779045c88c2c913f0b696f38408e0d8e9d38477a"
+  },
+  "Textures/B_Awning_m0_albedo.png": {
+    "bytes": 863351,
+    "sha256": "2bb661381bd1a7386a93575a07de23b2987039061c16a796db3eaca123a34362"
+  },
+  "Textures/B_Awning_m0_mask.png": {
+    "bytes": 105,
+    "sha256": "830cb8df9e9743353306562314e8ef88354821fdfc16d8605b7f39c88a63567f"
+  },
+  "Textures/B_Awning_m0_normal.png": {
+    "bytes": 400836,
+    "sha256": "55ec592d5ba7efc268102a3d6c4cfe8234c397827e9f5149d6ab6c463d338c59"
+  },
+  "Textures/B_Awning_m0_specular.png": {
+    "bytes": 107,
+    "sha256": "fd7fab7a390388435ef2d057487c52b2819f694abf2381b5364ac4908e0592ee"
+  },
+  "Textures/B_Awning_m1_albedo.png": {
+    "bytes": 1012143,
+    "sha256": "98ff673a1df979d355b61a9b3b916b05607119da21cc1eadfcfda4b7e5816895"
+  },
+  "Textures/B_Awning_m1_mask.png": {
+    "bytes": 6490,
+    "sha256": "2e4df8be27bbf0beccd5431d2117658e446e7d623af8f30fd8234e5b95b9f3ab"
+  },
+  "Textures/B_Awning_m1_normal.png": {
+    "bytes": 663626,
+    "sha256": "e54de0930006397e099d9a6044f266e04b815834bbedf24f587ed503a72289b1"
+  },
+  "Textures/B_Awning_m1_specular.png": {
+    "bytes": 109970,
+    "sha256": "7a6745d34543e2e4993f2e26300e9d7b6a1ae834316fd88fbeb2bf6c11ccaa1b"
+  },
+  "Textures/B_CafeChair_m0_albedo.png": {
+    "bytes": 1024316,
+    "sha256": "1617d2435328afdab8a3a31b0624fb677a70d75c00aa7c70be29ea41ef22581c"
+  },
+  "Textures/B_CafeChair_m0_mask.png": {
+    "bytes": 12777,
+    "sha256": "f9bcfe8b3fbb9e238838500fc91590ee46930ac77aaadc607c3d529cdc1a60f4"
+  },
+  "Textures/B_CafeChair_m0_normal.png": {
+    "bytes": 1311875,
+    "sha256": "57ec2b2dd09621f00c2504ba0504e1c75ce28bd02efc4a061e0c5aeafa6cb2cd"
+  },
+  "Textures/B_CafeChair_m0_specular.png": {
+    "bytes": 145341,
+    "sha256": "949bb6f3ac2d496be10185e6ab9676cfe920b98a510c249c0ce5c57b0cbfcf5b"
+  },
+  "Textures/B_CafeTable_m0_albedo.png": {
+    "bytes": 631692,
+    "sha256": "bf7f9ef1e4ce7de9a8c8541a4824d9e9b10fbcedaab6dd44572b77909a68a22a"
+  },
+  "Textures/B_CafeTable_m0_mask.png": {
+    "bytes": 3695,
+    "sha256": "75b48a30e1467d8302f06ecb365b48267d69e964c7029c7d7039b3c99c7bd5ba"
+  },
+  "Textures/B_CafeTable_m0_normal.png": {
+    "bytes": 776214,
+    "sha256": "f23411146af4c5a51c3cb0a76a7b7b160f2c54445b012f48cee2574074bdaea3"
+  },
+  "Textures/B_CafeTable_m0_specular.png": {
+    "bytes": 91626,
+    "sha256": "2fc264f132cb12e5b738b7db416214ac1d94c29cf673772a6ef37d64952f398e"
+  },
+  "catalog.json": {
+    "bytes": 8698,
+    "sha256": "7d8ff569041bea77b9f97716204aa082430ab8e8ad1eeebef96af4dafe37e7c6"
+  }
+}
