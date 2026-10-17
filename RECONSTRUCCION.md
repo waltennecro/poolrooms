@@ -59,3 +59,5 @@ Pasto económico: de 300 a un máximo de 588 triángulos por parche, sin ampliar
 Comprobación nueva: ocho distritos, propietarios de lotes, soporte finito y separaciones entre casas; límites de triángulos y desactivación del pasto; las 188 huellas anteriores se conservan. Resultado antes del ajuste de expectativa de la prueba nativa: 9.847.565 comprobaciones y sintaxis de 168 scripts × cuatro configuraciones. La prueba nativa de presupuesto económico se actualiza a 5.292 triángulos (nueve parches), sin eliminar su comprobación de suelo ni su prueba de desactivación.
 
 R2 publicado en `dd85ec1`; paquete completo de 351 archivos y 51.353.662 bytes, SHA-256 `96acbcc7ce5a2f785da31568e46df020cfcf57e922f6f6a5ec673d5e8a5f6470`.
+
+R3 publicado en `f2a201f`; paquete completo de 351 archivos y 51.353.863 bytes, SHA-256 `27a07f11411dccc105b6a6f632c7d571d32ac57e87651f778f1dbf90f2288b3b`. `RECONSTRUCCION_ESTADO.json` conserva una cola legible por herramientas. El workflow nuevo reproduce las comprobaciones locales y el paquete; no se presupone que GitHub Actions ya lo haya ejecutado.

@@ -18,6 +18,8 @@ La etapa R1 mejora los materiales y detalles del bioma infantil conservando su g
 python tools/package_assets.py --stage R1 --output /tmp/Poolrooms_R1_Desde_v39.zip
 ```
 
+La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.
@@ -36,7 +38,7 @@ python tools/verify_recovery.py
 python tools/verify_recovery.py --zip Poolrooms_v39_Recuperado_Para_Assets.zip
 ```
 
-El ZIP generado contiene el paquete original `PoolroomsProcedural/` para copiarlo en `Assets`. La verificación comprueba que no falten archivos y que sus bytes coincidan con la copia recuperada.
+Estos dos comandos corresponden al commit original `20311f8`: el ZIP generado contiene el paquete original `PoolroomsProcedural/` para copiarlo en `Assets`. En la rama reconstruida, la verificación original detectará las modificaciones intencionales. Para el estado actual usa `tools/package_assets.py`, que crea un manifiesto nuevo y comprueba los bytes del ZIP.
 
 ## Sobre el aviso de Cloud
 

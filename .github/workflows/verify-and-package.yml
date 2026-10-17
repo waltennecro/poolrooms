@@ -1,0 +1,28 @@
+name: Verify reconstructed core and package Assets
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.408'
+      - name: Compile core, compare geometry, check CSharp syntax
+        run: dotnet run --project Verification/Poolrooms.Checks.csproj
+      - name: Check source texture hashes
+        run: python tools/verify_play_textures.py
+      - name: Create verified complete Assets package
+        run: python tools/package_assets.py --stage reconstruccion --output "${{ runner.temp }}/Poolrooms_Reconstruccion_Assets.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Poolrooms-Reconstruccion-Assets
+          path: ${{ runner.temp }}/Poolrooms_Reconstruccion_Assets.zip
+          if-no-files-found: error
+          retention-days: 90
