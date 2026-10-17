@@ -141,3 +141,5 @@ Ruedas originales separadas y animadas en tres LOD, contactos medidos, vista ext
 ## R12 · Mobiliario en otras regiones
 
 Sofás y sillas con licencia sustituyen asientos provisionales de centros comerciales refinados y salones/salas de espera de casas variadas del nivel 94. Máximo dos por sector/casa detallada; las casas lejanas no incorporan recursos ni Rigidbody. Las claves sobreviven a la recarga de chunks durante la sesión. Núcleo: 34 asientos en 36 casas y 60 en 30 sectores, soporte completo y márgenes ante escaleras/frentes; 16.951.790 aserciones, 192 scripts × 4 configuraciones. No son modelos nuevos ni prueba nativa de Unity. Detalle: `Assets/PoolroomsProcedural/Documentation/MOBILIARIO_REGIONAL_R12.md`.
+
+Respaldo R11–R12: ambos CI completaron todos los pasos y publicaron artefactos. Descarga pública nueva de R12 contrastada con los 506 archivos de Assets; ZIP acumulativo local de 130.904.025 bytes, CRC y hashes comprobados. Se conservan evidencias en `Verification/ci_city_driving_R11.json` y `Verification/ci_regional_furniture_R12.json`. No se probó la descarga autenticada de Actions ni se ejecutó Unity.

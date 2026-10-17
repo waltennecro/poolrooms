@@ -79,13 +79,14 @@
       "feature": "Animated native car wheels across all LODs, exterior obstacle-aware camera, pause/loading physics freeze and matching six-metre City11 street openings",
       "status": "implemented_native_validation_pending",
       "packageFiles": 505,
-      "commit": "4dafe02"
+      "commit": "4dafe028610b3af7b24d78fa29af752ed91b09a0"
     },
     {
       "id": "R12",
       "feature": "Bounded licensed PBR source seating integrated in multistorey malls and detailed Level94 houses, replacing provisional seats with conservative clearance checks and stable carry keys",
       "status": "partial_global_furniture_native_validation_pending",
-      "packageFiles": 506
+      "packageFiles": 506,
+      "commit": "fd53d4e257e7141c3f52ad6572d4142f95651460"
     }
   ],
   "latestCoreChecks": {
@@ -256,11 +257,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/030debcf8084e7525beb02d1e025bd00b7227480",
-    "sourceRevision": "030debcf8084e7525beb02d1e025bd00b7227480",
-    "bytes": 196021021,
-    "sha256": "b7b2c6942d2b66c7ff83785ac9275d3e4524371bb8934eac20b1951394f52f51",
-    "assetFilesMatched": 502,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "bytes": 195976786,
+    "sha256": "85274f7c0122f6c450b0cb83d16d199c98868d838124891a51f7b8c1d589c493",
+    "assetFilesMatched": 506,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -306,10 +307,26 @@
     "authenticatedArtifactDownloadTested": false
   },
   "cityVehicleCi": {
-    "sourceRevision": "4dafe02",
+    "sourceRevision": "4dafe028610b3af7b24d78fa29af752ed91b09a0",
     "run": "39047605411",
     "status": "success",
     "artifactId": "12106223388",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false
+  },
+  "latestLocalAssetsPackage": {
+    "files": 506,
+    "bytes": 130904025,
+    "sha256": "7da3f0de67c9580c90aa3a901499fed32c65193ea329bedb05c4acee8a1dbac7",
+    "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "workingTreeChanged": false,
+    "crcAndPerFileHashesVerified": true
+  },
+  "regionalFurnitureCi": {
+    "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "run": "39048181017",
+    "status": "success",
+    "artifactId": "12106562921",
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false
   }

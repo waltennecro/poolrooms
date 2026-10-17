@@ -1,0 +1,47 @@
+{
+  "stage": "R12",
+  "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
+  "run": "39048181017",
+  "runUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39048181017",
+  "job": "117441057871",
+  "status": "success",
+  "coreAssertions": 16951790,
+  "syntaxScripts": 192,
+  "syntaxConfigurations": 4,
+  "artifactId": "12106562921",
+  "artifactDigest": "sha256:c59337f6586c2ec1fd38e19ad67cd39f8f1096d15aee7b0ec819ea49a943652d",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "nativeUnityTestsExecuted": false,
+  "checks": [
+    "pinned SDK 8.0.408",
+    "compiled Core / protected geometry / CSharp9 syntax in four symbol sets",
+    "687 reciprocal City11 street joins and 63 biome borders",
+    "four original car wheel groups across three LODs and exact measured pivots/radii",
+    "36 original PBR map hashes",
+    "five CC0 city sources / Apache aircraft / attributed helicopter and interior source assets",
+    "UV baking analytic checks",
+    "verified complete Assets packaging and artifact upload",
+    "34 source seats in 36 generated homes / 60 seats in 30 multistorey mall sectors: floor footprint, final geometry clearance and stable slots"
+  ],
+  "publicRepositoryArchive": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "bytes": 195976786,
+    "sha256": "85274f7c0122f6c450b0cb83d16d199c98868d838124891a51f7b8c1d589c493",
+    "assetFilesMatched": 506,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "localAssetsPackage": {
+    "files": 506,
+    "bytes": 130904025,
+    "sha256": "7da3f0de67c9580c90aa3a901499fed32c65193ea329bedb05c4acee8a1dbac7",
+    "sourceRevision": "fd53d4e257e7141c3f52ad6572d4142f95651460",
+    "workingTreeChanged": false,
+    "crcAndPerFileHashesVerified": true
+  },
+  "sourceGeometryFamilies": 8,
+  "sourceAssetsOrAdaptations": 9,
+  "additionalChairVariantSources": 1
+}

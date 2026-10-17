@@ -1,0 +1,26 @@
+{
+  "stage": "R11",
+  "sourceRevision": "4dafe028610b3af7b24d78fa29af752ed91b09a0",
+  "run": "39047605411",
+  "runUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39047605411",
+  "job": "117439376074",
+  "status": "success",
+  "coreAssertions": 16950397,
+  "syntaxScripts": 192,
+  "syntaxConfigurations": 4,
+  "artifactId": "12106223388",
+  "artifactDigest": "sha256:98a13352e6424b3339641d47b9de605b34ebc002d2373f3a870f6ad9e8e3b18a",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "nativeUnityTestsExecuted": false,
+  "checks": [
+    "pinned SDK 8.0.408",
+    "compiled Core / protected geometry / CSharp9 syntax in four symbol sets",
+    "687 reciprocal City11 street joins and 63 biome borders",
+    "four original car wheel groups across three LODs and exact measured pivots/radii",
+    "36 original PBR map hashes",
+    "five CC0 city sources / Apache aircraft / attributed helicopter and interior source assets",
+    "UV baking analytic checks",
+    "verified complete Assets packaging and artifact upload"
+  ]
+}

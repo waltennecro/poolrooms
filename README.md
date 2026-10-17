@@ -42,6 +42,8 @@ R11 mejora [ruedas, cámara y calles de City11](Assets/PoolroomsProcedural/Docum
 
 R12 extiende [el mobiliario PBR a centros comerciales y casas del nivel 94](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_REGIONAL_R12.md), con sustituciones limitadas, soporte comprobado y claves de interacción estables. No aumenta artificialmente el catálogo contando instancias como modelos nuevos. Las pruebas nativas siguen pendientes.
 
+El [CI de R12](https://github.com/waltennecro/poolrooms/actions/runs/39048181017) pasó todos los pasos. Una [descarga pública acumulativa](https://codeload.github.com/waltennecro/poolrooms/zip/fd53d4e257e7141c3f52ad6572d4142f95651460) fue comprobada de nuevo: 506 archivos de Assets coinciden por SHA-256; ZIP de 195.976.786 bytes con CRC válido. [Evidencia de R11](Verification/ci_city_driving_R11.json) y [R12, paquete y descarga](Verification/ci_regional_furniture_R12.json). Solo se importa `Assets/PoolroomsProcedural`.
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.
