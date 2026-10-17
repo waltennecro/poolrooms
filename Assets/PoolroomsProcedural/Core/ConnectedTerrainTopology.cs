@@ -9,8 +9,8 @@ namespace Poolrooms.Core
         public ConnectedTerrainSite(LayoutConfig c,int x,int z)
         {
             X=x;Z=z;var rng=new StableRandom(StableRandom.Hash(c.Seed,x,z,0x940024u));
-            RadiusX=(int)Math.Ceiling((20+rng.Range(13))*64/c.CellSize);
-            RadiusZ=(int)Math.Ceiling((20+rng.Range(13))*64/c.CellSize);
+            RadiusX=(int)Math.Ceiling((12+rng.Range(9))*64/c.CellSize);
+            RadiusZ=(int)Math.Ceiling((12+rng.Range(9))*64/c.CellSize);
             HalfWidth=(RadiusX+.5f)*c.CellSize;HalfDepth=(RadiusZ+.5f)*c.CellSize;
         }
         public long Key { get { return ContinuousTopology.CellKey(X,Z); } }

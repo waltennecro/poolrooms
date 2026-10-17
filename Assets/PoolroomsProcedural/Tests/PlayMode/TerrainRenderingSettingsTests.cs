@@ -77,7 +77,7 @@ namespace Poolrooms.Tests
                     meshes++;triangles+=mesh.sharedMesh.triangles.Length/3;
                     Assert.That(mesh.GetComponent<Collider>(),Is.Null);Assert.That(mesh.GetComponent<MeshRenderer>().shadowCastingMode,Is.EqualTo(ShadowCastingMode.Off));
                 }
-                Assert.That(meshes,Is.GreaterThan(0));Assert.That(triangles,Is.LessThanOrEqualTo(2700));
+                Assert.That(meshes,Is.GreaterThan(0));Assert.That(triangles,Is.LessThanOrEqualTo(5292),"Dense economy grass exceeded nine patches of 588 triangles");
                 var settings=actor.GetComponent<PoolroomsGameSettings>();settings.Preferences.terrainGrass=TerrainGrassQuality.High;settings.Change(SettingsChange.Graphics);
                 deadline=Time.realtimeSinceStartup+60;while(grass.PatchCount<25&&Time.realtimeSinceStartup<deadline)yield return null;
                 Assert.That(grass.PatchCount,Is.EqualTo(25));settings.Preferences.terrainGrass=TerrainGrassQuality.Off;settings.Change(SettingsChange.Graphics);yield return null;yield return null;

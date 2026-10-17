@@ -16,7 +16,7 @@ Este trabajo reconstruye funciones solicitadas después de v39. No recupera exac
 | Acabado visual del nuevo bioma infantil (v40 mencionada) | R1: 21 mapas originales PBR de 1024 px; redes oscuras separadas, fundas de postes, esferas con normales suaves, piso continuo y tonalidad coherente de luminarias. | Implementado; validación visual Unity pendiente |
 | Calidad gráfica adicional y RT mejorado sin quitar los modos previos | R2 añade Ultra: hasta 8 muestras, dos rebotes de reflejos y cuatro de GI; alternativa SSR/SSGI sin RT, sombras 2048, sin cambiar API gráfica. | Implementado; render Unity pendiente |
 | Nivel 11: ciudad extensa, 300 edificios/zonas, 500 espacios, 400 muebles, 2000 objetos y 35 vehículos, incluido avión/helicóptero; recursos en línea con licencia | No existe City11 en v39. Los números no prueban modelos distintos ni interacción. Requiere catálogo con procedencia/licencias, generación, interiores, controles y pruebas por partes. | Pendiente |
-| Nivel 94 más compacto y más pasto con tres opciones | Ya hay casas/pasto/ajustes; comparar densidades y mejorar cobertura sin multiplicar cuerpos físicos. | Pendiente |
+| Nivel 94 más compacto y más pasto con tres opciones | R3 reduce distritos, agrupa casas en vecindarios y casi duplica candidatos de pasto económico; conserva Off/Económico/Alto y límites de parches. | Implementado; apariencia/FPS pendientes |
 | Mejor física al caer objetos | R2 añade contactos por material, menor resistencia al aire, interpolación, CCD, solver y herencia limitada del movimiento al soltar. | Implementado; PhysX pendiente |
 | Dash con Shift y correr con `|` | R2: tres cargas, recarga, avance planar con colisiones y gravedad originales; cambio en ambos sistemas de entrada y ayuda. | Implementado; controles nativos pendientes |
 | 150 % más contenido y 100 % más decoración realista global (v47 mencionada) | No hay sistema de decoración global ni catálogos City11. Definir mediciones respecto de esta base; los porcentajes no implican igual coste ni garantizan variedad. | Pendiente |
@@ -49,3 +49,13 @@ Ultra se añade al final de la enumeración y conserva los tres modos previos. S
 Los objetos sueltos reciben perfiles de contacto distintos para embalaje, rígidos, espuma, pelota y goma. Se conserva el límite de 32 objetos sueltos y la física se activa solo al soltar. Nuevas pruebas PlayMode de caída y pared incluidas, **no ejecutadas**. Verificación real: 9.754.412 comprobaciones del núcleo/mallas/huellas y sintaxis de 168 scripts en cuatro configuraciones. APIs de teclado contrastadas con Input System 1.11.2 y PhysicsMaterial con UnityCsReference 6000.3; esto no sustituye la compilación en Unity.
 
 Respaldos ya publicados: `709436f` (R1) y `66be421` (exclusión de binarios de comprobación). Paquete R1 completo generado desde un árbol limpio: 347 archivos, 51.349.127 bytes, SHA-256 `5c619b2e028f0eccc62b3e163ab907bb0577025c85abd23bff2fa48997d3049f`. No incluye Roslyn ni herramientas dentro de Assets.
+
+### Etapa R3
+
+Nivel 94 pasa de envolventes nominales de 2,56–4,096 km por eje a 1,536–2,56 km; las reservas conectadas usan la misma fórmula y mantienen sus cuatro umbrales. Las casas se agrupan en lotes de cuatro con calles/descansos entre grupos; siguen teniendo una casa por celda de 64 m, conservando búsqueda, streaming, sótanos y soporte. La semilla sigue siendo determinista, pero esta distribución nueva cambia intencionalmente el terreno generado respecto a v39.
+
+Pasto económico: de 300 a un máximo de 588 triángulos por parche, sin ampliar los nueve parches próximos. Alto mantiene 25 parches con detalle según distancia; Off no genera hojas. No se añaden colliders, luces, sondas ni GameObjects por hoja. No se promete una cifra de FPS.
+
+Comprobación nueva: ocho distritos, propietarios de lotes, soporte finito y separaciones entre casas; límites de triángulos y desactivación del pasto; las 188 huellas anteriores se conservan. Resultado antes del ajuste de expectativa de la prueba nativa: 9.847.565 comprobaciones y sintaxis de 168 scripts × cuatro configuraciones. La prueba nativa de presupuesto económico se actualiza a 5.292 triángulos (nueve parches), sin eliminar su comprobación de suelo ni su prueba de desactivación.
+
+R2 publicado en `dd85ec1`; paquete completo de 351 archivos y 51.353.662 bytes, SHA-256 `96acbcc7ce5a2f785da31568e46df020cfcf57e922f6f6a5ec673d5e8a5f6470`.

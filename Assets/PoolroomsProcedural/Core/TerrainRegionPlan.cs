@@ -53,7 +53,7 @@ namespace Poolrooms.Core
         {
             WorldSeed=seed;AddressX=x;AddressZ=z;Seed=unchecked((int)StableRandom.Hash(seed,x,z,0x940024u));
             var random=new StableRandom(unchecked((uint)Seed));
-            Width=(20+random.Range(13))*128;Depth=(20+random.Range(13))*128;
+            Width=(12+random.Range(9))*128;Depth=(12+random.Range(9))*128;
             Connected=halfWidth>0&&halfDepth>0;HalfWidth=Connected?halfWidth:Width*.5f;HalfDepth=Connected?halfDepth:Depth*.5f;
             phase=random.Range(0,6.28f);Daylight=(TerrainDaylight)random.Range(3);SunYaw=random.Range(25,150);SunPitch=random.Range(32,56);
             float pitch=SunPitch*(float)Math.PI/180,yaw=SunYaw*(float)Math.PI/180;
@@ -62,8 +62,12 @@ namespace Poolrooms.Core
             for(int cz=-nz;cz<=nz;cz++)for(int cx=-nx;cx<=nx;cx++)
             {
                 var r=new StableRandom(StableRandom.Hash(Seed,cx,cz,0x9400Au));
-                if((cx!=0||cz!=0)&&r.Range(0f,1f)>.86f)continue;
-                float px=cx*TileSize+r.Range(-10,10),pz=cz*TileSize+r.Range(-10,10);
+                if((cx!=0||cz!=0)&&r.Range(0f,1f)>.96f)continue;
+                // Groups of four homes: narrower shared yards, larger breaks between clusters.
+                // Keep one indexed lot per 64 m terrain cell so streaming, basement cuts and
+                // collision queries continue to find exactly the same owning house.
+                float px=cx*TileSize+((cx&1)==0?11:-11)+r.Range(-1.5f,1.5f);
+                float pz=cz*TileSize+((cz&1)==0?11:-11)+r.Range(-1.5f,1.5f);
                 if(cx==0&&cz==0){px=24;pz=24;}
                 if(RoadDistance(px,pz)<19||Connected&&BoundaryDistance(px,pz)<192)continue;
                 var h=new TerrainHousePlan{CellX=cx,CellZ=cz,X=px,Z=pz,Width=10+r.Range(3),Depth=12+r.Range(3),

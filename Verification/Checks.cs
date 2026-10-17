@@ -50,6 +50,7 @@ static class Checks
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
         MovementAndQuality();
+        CompactTerrain();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
         var scripts=Directory.GetFiles(Path.Combine(root,"Assets"),"*.cs",SearchOption.AllDirectories);
         foreach(var config in symbols)foreach(var path in scripts)
@@ -94,5 +95,30 @@ static class Checks
         Check(new PickupPhysics(PickupSurface.Foam).Restitution<new PickupPhysics(PickupSurface.SoftBall).Restitution,"Foam bounces like a ball");
         Check(PickupPhysics.ReleaseVelocity(new V3(1000,50,-1000)).Length<=2.801f,"Dropping object turns dash into a projectile");
         Check(PickupPhysics.ReleaseVelocity(new V3(float.NaN,0,0)).Length==0,"Invalid release velocity");
+    }
+    static void CompactTerrain()
+    {
+        for(int seed=0;seed<8;seed++)
+        {
+            var plan=TerrainRegionPlan.Create(seed,11,-17);
+            Check(plan.Width>=1536&&plan.Width<=2560&&plan.Depth>=1536&&plan.Depth<=2560,"Terrain size outside compact budget");
+            foreach(var house in plan.Houses)
+            {
+                Check(plan.House(house.CellX,house.CellZ)==house,"Compact lot lost its streaming index");
+                Check(TerrainRegionPlan.Cell(house.X)==house.CellX&&TerrainRegionPlan.Cell(house.Z)==house.CellZ,"House moved out of owning tile");
+                Check(float.IsFinite(plan.Height(house.X,house.Z)),"Invalid house support");
+                for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++)
+                {
+                    if(dx==0&&dz==0)continue;var other=plan.House(house.CellX+dx,house.CellZ+dz);if(other==null)continue;
+                    Check(Math.Abs(house.X-other.X)>=(house.Width+other.Width)*.5f+5.9f||Math.Abs(house.Z-other.Z)>=(house.Depth+other.Depth)*.5f+5.9f,"Compact houses overlap their circulation margin");
+                }
+            }
+            Check(TerrainGrass.Build(plan,3,3,TerrainGrassQuality.Off).TriangleCount==0,"Grass off still renders blades");
+            var economy=TerrainGrass.Build(plan,3,3,TerrainGrassQuality.Economy);
+            var high=TerrainGrass.Build(plan,3,3,TerrainGrassQuality.High);
+            Validate(economy);Validate(high);
+            Check(economy.TriangleCount<=588&&high.TriangleCount<=11760,"Grass exceeded explicit patch budget");
+            Check(TerrainGrass.PatchBudget(TerrainGrassQuality.Economy)==9&&TerrainGrass.PatchBudget(TerrainGrassQuality.High)==25,"Grass streaming expanded unexpectedly");
+        }
     }
 }

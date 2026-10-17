@@ -28,7 +28,7 @@ namespace Poolrooms.Core
         {
             var m=new MeshData();if(p==null||quality==TerrainGrassQuality.Off)return m;
             bool high=quality==TerrainGrassQuality.High;int ring=Math.Max(0,Math.Min(2,distanceRing));
-            int n=high?(ring==0?24:ring==1?18:12):10,blades=high?(ring<2?ring==0?5:4:3):3;
+            int n=high?(ring==0?28:ring==1?22:16):14,blades=high?(ring<2?ring==0?5:4:3):3;
             var random=new StableRandom(StableRandom.Hash(p.Seed,cx,cz,0x943300u));
             float step=PatchSize/n,ox=cx*PatchSize,oz=cz*PatchSize;
             for(int z=0;z<n;z++)for(int x=0;x<n;x++)
