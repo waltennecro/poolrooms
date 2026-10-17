@@ -73,6 +73,7 @@ namespace Poolrooms.Core
             if(plan.Enhanced)MallArchitectureV20.ShellDetail(o,plan);
             if(plan.Refined)MallArchitectureV21.ShellDetail(o,plan);
             if(plan.Enhanced)SetMallTheme(o);
+            o.Dressing=ArchitecturalDressing.Build(o.Structure,LiminalRegions.Hash(plan.Seed,plan.AddressX,plan.AddressZ,0xDEC010u));
             return o;
         }
         internal static void SetMallTheme(RoomGeometry o)
@@ -163,6 +164,7 @@ namespace Poolrooms.Core
             {result.Pickups.Clear();SetMallTheme(o);MallArchitectureV20.Sector(result,plan,floor,sector,quality);
              if(plan.Refined)MallArchitectureV21.Sector(result,plan,floor,sector,quality);
              MallLighting.Sector(result,plan,floor,sector);}
+            o.Dressing=ArchitecturalDressing.Build(o.Structure,LiminalRegions.Hash(plan.Seed,floor,sector,0xDEC011u));
             return result;
         }
         public static void Box(MeshData m,float x,float z,float w,float d,float bottom,float top,Surface surface)

@@ -35,19 +35,27 @@
     {
       "id": "R5",
       "feature": "Integrated Archive906, Courtyard188 and Coast48 with distinct materials and real regional connections",
-      "status": "implemented_native_validation_pending"
+      "status": "implemented_native_validation_pending",
+      "commit": "80d7c7a",
+      "packageFiles": 409
+    },
+    {
+      "id": "R6",
+      "feature": "Bounded wall-supported architectural fittings across rooms, malls and detailed houses; graphics density controls",
+      "status": "partial_global_decoration_native_validation_pending"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16290728,
+    "assertions": 16828561,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 177,
+    "syntaxScripts": 179,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 24,
     "citySourcesAudited": 4,
     "quietRooms": 72,
-    "quietItemSupports": 300
+    "quietItemSupports": 300,
+    "dressingGeometryVariants": 16
   },
   "pending": [
     {
@@ -59,7 +67,8 @@
     {
       "id": "global_decoration",
       "feature": "Broader catalogues and realistic decoration across all existing regions",
-      "status": "not_implemented"
+      "status": "partial_architectural_detail_implemented",
+      "remaining": "Broader placed furniture/urban decoration catalog; native appearance, memory and FPS validation; percentages are not full-source recovery"
     },
     {
       "id": "three_levels",
@@ -73,7 +82,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Global decoration with measurable budgets; broader licensed city and vehicle catalog including airplane/helicopter, then native Unity validation. R1\u2013R5 are reconstruction, not exact v47 recovery.",
+  "nextIndependentWork": "Expand licensed source furniture/vehicle catalog where provenance and access can be verified; remaining vehicles including airplane/helicopter and native Unity validation stay explicit.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 4,
@@ -99,5 +108,19 @@
     "status": "success",
     "artifactId": "12089920365",
     "artifactPublished": true
-  }
+  },
+  "quietLevelsCi": {
+    "run": "39003715857",
+    "status": "success",
+    "artifactId": "12089503436",
+    "artifactPublished": true
+  },
+  "externalAcquisitionBlockers": [
+    {
+      "domain": "kenney.nl",
+      "status": "network_policy_blocked",
+      "downloaded": false,
+      "licenseAssumed": false
+    }
+  ]
 }

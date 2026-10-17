@@ -336,6 +336,7 @@ namespace Poolrooms
                     if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
                     if(td)
                     {
+                        PoolroomsArchitecturalDetail.Attach(houseData.Geometry.Dressing,home.transform,world.profile,owner,world);
                         // Fixtures use house-local coordinates. Keep registration in the same owner space.
                         V3 offset=new V3(house.X-tx*TerrainRegionPlan.TileSize,house.Base,house.Z-tz*TerrainRegionPlan.TileSize);
                         foreach(var f in houseData.Geometry.Fixtures){var fixture=f;fixture.Position+=offset;data.Fixtures.Add(fixture);}

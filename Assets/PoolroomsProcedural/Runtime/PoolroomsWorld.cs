@@ -339,6 +339,7 @@ namespace Poolrooms
             MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
             if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
+            PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,profile,chunk,this);
             MeshFactory.Create("Glazing",data.Glass,go.transform,profile,chunk,false);
             for(int i=0;i<data.VisualMeshes.Count;i++)MeshFactory.Create("Biome finish "+i,data.VisualMeshes[i],go.transform,profile,chunk,false);
             var water=MeshFactory.Create("Water footprint",data.Water,go.transform,profile,chunk,false,true);
@@ -455,7 +456,7 @@ namespace Poolrooms
             {connectedMalls.SetSuspended(OutsideRooms);if(!OutsideRooms)connectedMalls.Tick(Focus());}
             if(terrain!=null)terrain.TickConnected(Focus(),OutsideRooms);
             if(Time.unscaledTime<nextLightUpdate)return;
-            nextLightUpdate=Time.unscaledTime+.2f;LimitLights();
+            nextLightUpdate=Time.unscaledTime+.2f;LimitLights();PoolroomsArchitecturalDetail.Tick(this);
         }
         public bool PoolroomSunActive { get; private set; }
         public void SetPoolroomSunActive(bool active)

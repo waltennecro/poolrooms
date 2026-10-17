@@ -53,6 +53,7 @@ static class Checks
         CompactTerrain();
         CityGeneration();
         QuietGeneration();
+        DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
         var scripts=Directory.GetFiles(Path.Combine(root,"Assets"),"*.cs",SearchOption.AllDirectories);
         foreach(var config in symbols)foreach(var path in scripts)
@@ -172,6 +173,48 @@ static class Checks
             if(y<=origin.Y+.0001f&&y>highest)highest=y;
         }
         return highest;
+    }
+    static void DressingGeneration()
+    {
+        var shapes=new HashSet<string>();
+        for(int motif=0;motif<8;motif++)for(int variant=0;variant<2;variant++)
+        {
+            var m=ArchitecturalDressing.Fitting(motif,variant);Validate(m);shapes.Add(Hash(m));
+            Check(m.TriangleCount<=216,"Fitting detail exceeded budget");
+            foreach(var v in m.Positions)Check(Math.Abs(v.X)<=ArchitecturalDressing.HalfWidth&&Math.Abs(v.Y)<=ArchitecturalDressing.HalfHeight&&v.Z>=0&&v.Z<.13f,"Fitting extends outside supported footprint");
+        }
+        Check(shapes.Count==16,"Geometrical dressing variants are duplicates");
+        var portal=new MeshData();Shapes.Portal(portal,18,4,0,4,3,.3f,12,1.2f);string original=Hash(portal);
+        int total=0;
+        for(uint seed=0;seed<16;seed++)
+        {
+            var g=ArchitecturalDressing.Build(portal,seed);var again=ArchitecturalDressing.Build(portal,seed);Validate(g.First);Validate(g.Second);
+            Check(Hash(g.First,g.Second)==Hash(again.First,again.Second),"Dressing not deterministic");
+            Check(g.Anchors.Count>0&&g.Anchors.Count<=24&&g.First.TriangleCount+g.Second.TriangleCount<=5184,"Dressing budgets invalid");
+            foreach(var a in g.Anchors)
+            {
+                Check(Math.Abs(a.Normal.Y)<.005f,"Fitting mounted on floor or inclined arch");
+                // This rectangular part of the door is empty regardless of the arch tessellation.
+                Check(Math.Abs(a.Center.X)>=2+ArchitecturalDressing.HalfWidth||a.Center.Y-ArchitecturalDressing.HalfHeight>=1,"Dressing bridges a doorway");
+                foreach(var b in g.Anchors)if(!a.Center.Equals(b.Center))Check((a.Center-b.Center).Length>=1.1f,"Fittings overlap");
+            }
+            total+=g.Anchors.Count;
+        }
+        Check(Hash(portal)==original,"Dressing changed supporting geometry");
+        Check(ArchitecturalDressing.Build(new MeshData(),3).Anchors.Count==0,"Dressing invented support in empty space");
+        foreach(var mode in new[]{LiminalGeneration.Poolrooms,LiminalGeneration.SoftPlay,LiminalGeneration.IndoorPlay,LiminalGeneration.Supermarkets,LiminalGeneration.Offices,LiminalGeneration.City11,LiminalGeneration.Archive906,LiminalGeneration.Courtyard188,LiminalGeneration.Coast48})
+        {
+            var layout=new Layout(new LayoutConfig{Seed=12,Continuous=true,Procedural=mode});var g=Architecture.Build(layout.At(0,0),layout);
+            Check(g.Dressing!=null,"Room generation missed architectural detail");Validate(g.Dressing.First);Validate(g.Dressing.Second);
+        }
+        var mall=MallPlan.Create(81,0,0,true,true,true);
+        Check(MallArchitecture.Shell(mall).Dressing!=null&&MallArchitecture.Sector(mall,0,1,12).Geometry.Dressing!=null,"Mall path missed architectural detail");
+        var house=new TerrainHousePlan{Seed=10,Width=12,Depth=14,Floors=2};
+        Check(TerrainHouseArchitecture.Build(house,true).Geometry.Dressing!=null&&TerrainHouseArchitecture.Build(house,false).Geometry.Dressing==null,"Distant houses gained extra detail");
+        house.GenerateArchitecture();Check(TerrainHouseArchitecture.Build(house,true).Geometry.Dressing!=null,"Varied houses missed detail");
+        var prefs=new GamePreferences{dressingVersion=0,dressingDensity=0};prefs.Sanitize();Check(prefs.dressingDensity==2,"Old preferences did not migrate decoration");
+        prefs.dressingDensity=0;prefs.Sanitize();Check(prefs.dressingDensity==0,"Explicit original detail choice lost");
+        Console.WriteLine($"Dressing: 8 procedural fitting types / 16 distinct geometry variants; {total} doorway-safe placements in 16 wall samples. Not new downloaded source models.");
     }
     static void QuietGeneration()
     {

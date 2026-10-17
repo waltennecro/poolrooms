@@ -37,6 +37,7 @@ namespace Poolrooms.Core
     public sealed class RoomGeometry
     {
         public readonly MeshData Structure=new MeshData(),Water=new MeshData(),Decoration=new MeshData(),Glass=new MeshData(),CollisionOnly=new MeshData();
+        public DressingGeometry Dressing;
         public readonly List<Fixture> Fixtures=new List<Fixture>();
         // Optional batched visuals never enter the support/collision meshes.
         public readonly List<MeshData> VisualMeshes=new List<MeshData>();
@@ -61,6 +62,12 @@ namespace Poolrooms.Core
             return output;
         }
         public static RoomGeometry Build(Room r,LayoutConfig cfg)
+        {
+            RoomGeometry output=BuildBase(r,cfg);
+            output.Dressing=ArchitecturalDressing.Build(output.Structure,LiminalRegions.Hash(cfg.Seed,r.X,r.Z,0xDEC006u));
+            return output;
+        }
+        private static RoomGeometry BuildBase(Room r,LayoutConfig cfg)
         {
             if(r.TerrainGateway)return ConnectedTerrainArchitecture.Gateway(r,cfg);
             if(r.MallGateway)

@@ -206,6 +206,7 @@ namespace Poolrooms
             var chunk=go.AddComponent<PoolroomsChunk>();chunk.waterRegions=new WaterRegion[0];
             MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,chunk,world.BuildColliders);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,chunk,false);
+            PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,world.profile,chunk,world,-y);
             MeshFactory.Create("Windows and skylight glazing",data.Glass,go.transform,world.profile,chunk,world.BuildColliders);
             world.RegisterExternalChunk(chunk,data.Fixtures);return chunk;
         }

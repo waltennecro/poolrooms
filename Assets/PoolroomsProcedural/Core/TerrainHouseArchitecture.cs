@@ -20,6 +20,12 @@ namespace Poolrooms.Core
     {
         public static TerrainHouseGeometry Build(TerrainHousePlan house,bool detailed,TerrainRegionPlan region=null)
         {
+            var output=BuildBase(house,detailed,region);
+            if(detailed)output.Geometry.Dressing=ArchitecturalDressing.Build(output.Geometry.Structure,LiminalRegions.Hash(house.Seed,house.CellX,house.CellZ,0xDEC094u));
+            return output;
+        }
+        private static TerrainHouseGeometry BuildBase(TerrainHousePlan house,bool detailed,TerrainRegionPlan region)
+        {
             if(house==null)throw new ArgumentNullException(nameof(house));
             if(house.Blueprint!=null)return TerrainVariedHouseArchitecture.Build(house,detailed,region);
             var output=new TerrainHouseGeometry();var g=output.Geometry;float w=house.Width,d=house.Depth,h=TerrainHousePlan.FloorHeight;

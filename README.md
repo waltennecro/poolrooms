@@ -24,6 +24,8 @@ R4 añade la integración inicial de City11 y un primer coche. Consulta [sus fun
 
 R5 integra biblioteca 906, patio residencial 188 y costa 48 en el generador regional, con arquitectura transitable, objetos y materiales propios. Consulta [funciones, accesos y verificaciones](Assets/PoolroomsProcedural/Documentation/TRES_NIVELES_R5.md). Las pruebas nativas y la calidad visual continúan pendientes en Unity.
 
+R6 añade [detalle arquitectónico configurable](Assets/PoolroomsProcedural/Documentation/DECORACION_R6.md) en salas, centros comerciales y casas próximas: ocho familias originales con 16 variantes. Se ajusta en Gráficos/F7 sin regenerar el mundo.
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.

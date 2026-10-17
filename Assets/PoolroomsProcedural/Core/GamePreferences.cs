@@ -21,6 +21,7 @@ namespace Poolrooms.Core
         // -1 preserves the scene's preset until the player chooses a quality.
         public int graphicsQuality=-1,lightBudget=-1,shadowBudget=-1,waterDetail=-1;
         public float exposureEV=5.5f;
+        public int dressingVersion=1,dressingDensity=2;
         public int renderingVersion=1;
         public MasterViewOptions rendering=new MasterViewOptions();
         public TerrainGrassQuality terrainGrass=TerrainGrassQuality.Economy;
@@ -39,6 +40,7 @@ namespace Poolrooms.Core
         public bool invertY,toggleSprint,reduceMotion,reducedFlashes,highContrast,opaqueMenu,pauseOnFocusLoss=true;
         public void Sanitize()
         {
+            if(dressingVersion<1)dressingDensity=2;dressingVersion=1;dressingDensity=Math.Max(0,Math.Min(2,dressingDensity));
             if(renderingVersion<1){rendering=new MasterViewOptions();terrainGrass=TerrainGrassQuality.Economy;}renderingVersion=1;
             if(rendering==null)rendering=new MasterViewOptions();rendering.Sanitize();
             if(!Enum.IsDefined(typeof(TerrainGrassQuality),terrainGrass))terrainGrass=TerrainGrassQuality.Economy;
@@ -75,7 +77,7 @@ namespace Poolrooms.Core
                 case SettingsCategory.Display:frameLimit=defaults.frameLimit;vSync=defaults.vSync;break;
                 case SettingsCategory.Graphics:
                     graphicsQuality=-1;lightBudget=shadowBudget=waterDetail=-1;exposureEV=defaults.exposureEV;
-                    rendering=new MasterViewOptions();terrainGrass=defaults.terrainGrass;terrainVisuals=defaults.terrainVisuals;
+                    dressingDensity=defaults.dressingDensity;rendering=new MasterViewOptions();terrainGrass=defaults.terrainGrass;terrainVisuals=defaults.terrainVisuals;
                     reflections=indirectLight=ambientOcclusion=volumetricFog=waterRipples=waterFoam=underwater=true;
                     waterAppearance=defaults.waterAppearance;break;
                 case SettingsCategory.Camera:camera=new CameraPreferences();fieldOfView=defaults.fieldOfView;break;
