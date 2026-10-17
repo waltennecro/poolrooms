@@ -1,0 +1,57 @@
+{
+  "status": "draft_not_implemented",
+  "integratedIntoGame": false,
+  "nativeUnityValidated": false,
+  "requiresCurrentProject": true,
+  "existingEntrancesMayBeReplaced": false,
+  "existingRoomGeometryMayBeChanged": false,
+  "futureSocketsInitiallyActive": false,
+  "peacefulExploration": true,
+  "entities": false,
+  "damage": false,
+  "levels": [
+    {
+      "key": "archive906",
+      "inspiredBy": 906,
+      "name": "Biblioteca de luz cálida",
+      "spaces": ["atrio de lectura", "galería de estanterías", "archivo fotográfico", "sala de mapas", "hemeroteca", "salas de estudio", "depósitos", "balcones interiores"],
+      "floors": {"min": 2, "max": 3},
+      "palette": ["madera", "crema", "verde apagado", "azul apagado"],
+      "entry": {"type": "new_archival_gallery", "occlusion": "bent_vestibule", "fromCandidates": ["city11", "hotel"]},
+      "furnishing": ["estanterías", "mesas", "sillas tapizadas", "lámparas", "carros de libros", "archivadores"],
+      "pickups": ["libros", "cuadernos", "papelería", "botellas"],
+      "sourceModelsStaged": ["SheenChair", "Lantern", "WaterBottle"]
+    },
+    {
+      "key": "courtyard188",
+      "inspiredBy": 188,
+      "name": "Patio residencial de ventanas",
+      "spaces": ["patio central", "galerías", "apartamentos", "lavandería", "vestíbulos", "cuartos de servicio", "escaleras", "terrazas"],
+      "floors": {"min": 3, "max": 5},
+      "palette": ["pintura clara", "ladrillo cálido", "metal oscuro", "verde vegetal"],
+      "entry": {"type": "new_residential_lobby", "occlusion": "two_doors_and_corner", "fromCandidates": ["city11"]},
+      "furnishing": ["bancos", "mesas", "sillones", "macetas", "tendederos", "muebles domésticos"],
+      "pickups": ["utensilios", "libros", "botellas", "objetos domésticos"],
+      "sourceModelsStaged": ["SheenChair", "WaterBottle"]
+    },
+    {
+      "key": "coast48",
+      "inspiredBy": 48,
+      "name": "Costa tranquila al atardecer",
+      "spaces": ["playa", "dunas", "paseo", "muelle", "pabellones", "cafeterías", "miradores", "casetas de servicio"],
+      "palette": ["arena", "madera", "azul del agua", "luz cálida"],
+      "entry": {"type": "new_coastal_road", "occlusion": "road_bend_or_pedestrian_tunnel", "fromCandidates": ["city11", "terrain94"]},
+      "furnishing": ["bancos", "mesas de terraza", "sillas", "sombrillas", "faroles", "mostradores"],
+      "pickups": ["botellas", "tazas", "objetos de cafetería"],
+      "sourceModelsStaged": ["Lantern", "WaterBottle"],
+      "water": {"preferExistingHDRPSystem": true, "drowning": false, "separateExpensiveSimulation": false}
+    }
+  ],
+  "renderingPolicy": {
+    "preserveExistingQualityModes": true,
+    "rayTracingRequired": false,
+    "additionalCameraForVisiblePortals": false,
+    "oneReflectionProbePerRoom": false,
+    "modelsRequireLODsAndMaterialAdaptation": true
+  }
+}

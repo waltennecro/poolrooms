@@ -1,0 +1,190 @@
+[
+  {
+    "id": "SheenChair",
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/SheenChair/glTF-Binary/SheenChair.glb",
+    "sha256": "f0af2a2b102d28d540236306ae19f8fb36842df76bd38cf76f063f9bd2853399",
+    "bytes": 4125648,
+    "modelLicense": "CC0-1.0",
+    "metadataLicense": "CC-BY-4.0",
+    "authors": [
+      {
+        "license": "CC0-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "artist": "Eric Chadwick",
+        "year": "2020",
+        "owner": "Wayfair, LLC",
+        "what": "Everything",
+        "text": "Creative Commons Zero v1.0 Universal",
+        "spdx": "CC0-1.0",
+        "icon": "https://licensebuttons.net/p/zero/1.0/88x31.png"
+      }
+    ],
+    "audit": {
+      "sourceVertices": 22459,
+      "sourceTriangles": 39936,
+      "primitives": 4,
+      "materials": 6,
+      "images": [
+        {
+          "width": 1024,
+          "height": 1024,
+          "format": "PNG"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "format": "PNG"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "format": "PNG"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "format": "PNG"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "format": "PNG"
+        },
+        {
+          "width": 1024,
+          "height": 512,
+          "format": "PNG"
+        },
+        {
+          "width": 512,
+          "height": 512,
+          "format": "PNG"
+        }
+      ],
+      "extensionsRequired": [
+        "KHR_texture_transform"
+      ],
+      "extensionsUsed": [
+        "KHR_texture_transform",
+        "KHR_materials_sheen",
+        "KHR_materials_variants"
+      ],
+      "nativeUnityImportValidated": false
+    }
+  },
+  {
+    "id": "Lantern",
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Lantern/glTF-Binary/Lantern.glb",
+    "sha256": "a79458c4b02d695187a952f23a63b8bf278e7bc3d316a3c2a314f2d6974181f1",
+    "bytes": 9564264,
+    "modelLicense": "CC0-1.0",
+    "metadataLicense": "CC-BY-4.0",
+    "authors": [
+      {
+        "license": "CC0-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "artist": "sbtron",
+        "year": "2017",
+        "owner": "Microsoft",
+        "what": "Initial version",
+        "text": "Creative Commons Zero v1.0 Universal",
+        "spdx": "CC0-1.0",
+        "icon": "https://licensebuttons.net/p/zero/1.0/88x31.png"
+      },
+      {
+        "license": "CC0-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "artist": "Frank Galligan",
+        "year": "2018",
+        "owner": "Frank Galligan",
+        "what": "Draco compression",
+        "text": "Creative Commons Zero v1.0 Universal",
+        "spdx": "CC0-1.0",
+        "icon": "https://licensebuttons.net/p/zero/1.0/88x31.png"
+      }
+    ],
+    "audit": {
+      "sourceVertices": 4145,
+      "sourceTriangles": 5394,
+      "primitives": 3,
+      "materials": 1,
+      "images": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        }
+      ],
+      "extensionsRequired": [],
+      "extensionsUsed": [],
+      "nativeUnityImportValidated": false
+    }
+  },
+  {
+    "id": "WaterBottle",
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/WaterBottle/glTF-Binary/WaterBottle.glb",
+    "sha256": "b337e526fd6a162013c2984aeec163f5fbb4f717252724dfc3f3458bd51df94b",
+    "bytes": 8966700,
+    "modelLicense": "CC0-1.0",
+    "metadataLicense": "CC-BY-4.0",
+    "authors": [
+      {
+        "license": "CC0-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "artist": "Microsoft",
+        "year": "2017",
+        "owner": "Public",
+        "what": "Everything",
+        "text": "Creative Commons Zero v1.0 Universal",
+        "spdx": "CC0-1.0",
+        "icon": "https://licensebuttons.net/p/zero/1.0/88x31.png"
+      }
+    ],
+    "audit": {
+      "sourceVertices": 2549,
+      "sourceTriangles": 4510,
+      "primitives": 1,
+      "materials": 1,
+      "images": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG"
+        }
+      ],
+      "extensionsRequired": [],
+      "extensionsUsed": [],
+      "nativeUnityImportValidated": false
+    }
+  }
+]

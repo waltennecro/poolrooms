@@ -1,0 +1,23 @@
+{
+  "status": "blocked_missing_current_project",
+  "trackedFilesAtSourceInspection": [
+    "README.md"
+  ],
+  "sourceInspectionCommit": "84b23266bbcf90d5d32dc38969f56fd4be74d746",
+  "backupContainsCompleteGame": false,
+  "originalV1AttachmentRecovery": "file could not be authorized or resolved",
+  "levelsDesigned": 3,
+  "modelsDownloaded": 3,
+  "modelsImportValidated": false,
+  "levelsImplemented": 0,
+  "nativeUnityValidated": false,
+  "sourceAssetsBytes": 22656612,
+  "checks": [
+    "GLB headers/chunks/embedded buffers verified",
+    "Embedded images decoded and verified",
+    "Source mesh primitive counts inspected",
+    "CC0 model licenses read from upstream metadata",
+    "SHA256 verified for all three source models"
+  ],
+  "requiredNextInput": "Current PoolroomsProcedural scripts; code-only ZIP is sufficient to resume integration."
+}
