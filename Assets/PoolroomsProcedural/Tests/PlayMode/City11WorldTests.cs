@@ -15,7 +15,7 @@ namespace Poolrooms.Tests
             var root=new GameObject("City11 native source import");
             try
             {
-                foreach(string id in new[]{"WaterBottle","BoomBox","Lantern","ToyCar"})
+                foreach(string id in new[]{"WaterBottle","BoomBox","Lantern","ToyCar","SheenChair"})
                 {
                     var model=City11Sources.Create(id,root.transform,Vector3.zero,1,out var size);
                     Assert.That(model,Is.Not.Null,id);Assert.That(size.magnitude,Is.GreaterThan(.1f));

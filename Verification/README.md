@@ -12,3 +12,13 @@ El ejecutable compila el núcleo real con C# 9; compara 108 geometrías de suelo
 Esto no compila las APIs de Unity ni sustituye las pruebas PlayMode, PhysX o el render en Unity 6.3/HDRP 17.3. No copiar esta carpeta a `Assets`: usa Roslyn, que no forma parte del juego.
 
 Los mapas nuevos se regeneran con `python tools/generate_play_finish.py` (NumPy y Pillow); su procedencia y SHA-256 se guardan en `play_finish_textures.json`.
+
+Para regenerar fuentes externas/adaptaciones se necesitan las herramientas fijadas:
+
+```sh
+python -m pip install -r Verification/requirements-art-tools.txt
+python tools/check_uv_baker.py
+python tools/import_city_sources.py
+```
+
+`--only SheenChair` permite regenerar una fuente conservando las adaptaciones existentes de las demás; todas las fuentes siguen comprobando licencia y SHA. CI ejecuta el caso sintético completo de UV, color y normales; audita los resultados de las fuentes reales sin descargar ni regenerar todos los modelos en cada commit. Eso no certifica la apariencia de HDRP.

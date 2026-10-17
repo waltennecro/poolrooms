@@ -16,7 +16,8 @@ namespace Poolrooms.Core
     {
         public readonly V3 Position;
         public readonly int Source;
-        public CityPropPlan(V3 position,int source){Position=position;Source=source;}
+        public readonly float Yaw;
+        public CityPropPlan(V3 position,int source,float yaw=0){Position=position;Source=source;Yaw=yaw;}
     }
     public sealed class City11Plan
     {
@@ -25,9 +26,10 @@ namespace Poolrooms.Core
         public City11Plan(CityBuildingPlan[] buildings,CityPropPlan[] props){Buildings=buildings;Props=props;}
         public bool Valid(Room room,LayoutConfig c)
         {
-            if(room.Environment!=LiminalEnvironment.City11||room.Width!=c.CellSize||room.Depth!=c.CellSize||Buildings.Length!=4||Props.Length!=8)return false;
+            if(room.Environment!=LiminalEnvironment.City11||room.Width!=c.CellSize||room.Depth!=c.CellSize||Buildings.Length!=4||Props.Length!=12)return false;
             foreach(var b in Buildings)
                 if(b.Width<7.7f||b.Depth<7.7f||b.Floors<2||b.Floors>6||Math.Abs(b.X)+b.Width*.5f>room.Width*.5f-.5f||Math.Abs(b.Z)+b.Depth*.5f>room.Depth*.5f-.5f||Math.Abs(b.X)-b.Width*.5f<4.7f||Math.Abs(b.Z)-b.Depth*.5f<4.7f)return false;
+            foreach(var p in Props)if(p.Source<0||p.Source>2||!float.IsFinite(p.Position.X)||!float.IsFinite(p.Position.Y)||!float.IsFinite(p.Position.Z))return false;
             return true;
         }
     }
@@ -37,14 +39,15 @@ namespace Poolrooms.Core
         {
             room.ZoneId=-1;room.Environment=LiminalEnvironment.City11;room.Width=room.Depth=c.CellSize;room.Height=22;
             var rng=new StableRandom(LiminalRegions.Hash(c.Seed,room.X,room.Z,0x110001u));
-            var buildings=new CityBuildingPlan[4];var props=new CityPropPlan[8];int index=0;
+            var buildings=new CityBuildingPlan[4];var props=new CityPropPlan[12];int index=0;
             for(int z=-1;z<=1;z+=2)for(int x=-1;x<=1;x+=2)
             {
                 float maximum=Math.Min(18,c.CellSize*.5f-5.4f),minimum=Math.Max(7.8f,maximum-2);
                 float w=rng.Range(minimum,maximum),d=rng.Range(minimum,maximum);
                 var b=new CityBuildingPlan(x*(4.8f+w*.5f),z*(4.8f+d*.5f),w,d,2+rng.Range(5),rng.Range(8),rng.Range(4),rng.Next(),z<0);buildings[index]=b;
                 props[index*2]=new CityPropPlan(b.Point(w*.23f,1.02f,0),0);
-                props[index*2+1]=new CityPropPlan(b.Point(w*.23f,1.06f,d*.28f),1);index++;
+                props[index*2+1]=new CityPropPlan(b.Point(w*.23f,1.06f,d*.28f),1);
+                props[8+index]=new CityPropPlan(b.Point(w*.23f,.14f,1.12f),2,b.Turn?0:180);index++;
             }
             var city=new City11Plan(buildings,props);
             room.Plan=new ProceduralPlan(room.Environment,new PlannedModule[0],new WaterRegion[0],4.7f,0,0,city:city);

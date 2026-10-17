@@ -42,19 +42,26 @@
     {
       "id": "R6",
       "feature": "Bounded wall-supported architectural fittings across rooms, malls and detailed houses; graphics density controls",
-      "status": "partial_global_decoration_native_validation_pending"
+      "status": "partial_global_decoration_native_validation_pending",
+      "commit": "09da739",
+      "packageFiles": 412
+    },
+    {
+      "id": "R7",
+      "feature": "Licensed interactable armchair with disjoint UV atlas baking, tangent-space normals and two LODs in City11/library/courtyard",
+      "status": "partial_source_catalog_native_validation_pending"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16828561,
+    "assertions": 16828897,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
     "syntaxScripts": 179,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 24,
-    "citySourcesAudited": 4,
+    "citySourcesAudited": 5,
     "quietRooms": 72,
-    "quietItemSupports": 300,
+    "quietItemSupports": 540,
     "dressingGeometryVariants": 16
   },
   "pending": [
@@ -85,7 +92,7 @@
   "nextIndependentWork": "Expand licensed source furniture/vehicle catalog where provenance and access can be verified; remaining vehicles including airplane/helicopter and native Unity validation stay explicit.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
-    "distinctDownloadedCitySources": 4,
+    "distinctDownloadedCitySources": 5,
     "propSources": 3,
     "vehicleSources": 1,
     "placedPropSourceTypes": 3,
@@ -93,7 +100,10 @@
     "carLODDerivatives": 2,
     "carColourVariants": 1,
     "downloadedBuildingModels": 0,
-    "downloadedFurnitureModels": 0
+    "downloadedFurnitureModels": 1,
+    "placedFurnitureSourceTypes": 1,
+    "chairLODDerivatives": 2,
+    "chairColourVariants": 1
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -122,5 +132,30 @@
       "downloaded": false,
       "licenseAssumed": false
     }
-  ]
+  ],
+  "sampleCityPlan": {
+    "blocks": 324,
+    "proceduralBuildings": 1296,
+    "floorSpaces": 5185,
+    "smallSourcePropInstances": 2592,
+    "sourceChairInstances": 1296,
+    "proceduralFurnitureAssemblies": 15555,
+    "carSpawnSitesSameSource": 40,
+    "simultaneouslyLoaded": false
+  },
+  "decorationCi": {
+    "run": "39004073065",
+    "status": "success",
+    "artifactId": "12089583737",
+    "artifactPublished": true
+  },
+  "networkDraft": {
+    "saved": true,
+    "applied": false,
+    "requiresReviewSaveAndPublish": true,
+    "allowedDomains": [
+      "api.github.com",
+      "kenney.nl"
+    ]
+  }
 }

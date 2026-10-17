@@ -1,0 +1,16 @@
+{
+  "run": "https://github.com/waltennecro/poolrooms/actions/runs/39004073065",
+  "job": "117312819214",
+  "commit": "09da73915ec0353eedc22c6ed3a4daa3b8edd8d5",
+  "status": "success",
+  "allRequiredStepsSucceeded": true,
+  "artifactId": "12089583737",
+  "artifactDigest": "sha256:86bbe5f1dba1f493f07f52d12f102086e6c3c29c251c5715d9844495561d141d",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "localPackage": {
+    "files": 412,
+    "bytes": 88545632,
+    "sha256": "5fb0b9ffea381026c0eb826375b9781da218ddebb2b97a1f90f4ce682112dd0e"
+  }
+}

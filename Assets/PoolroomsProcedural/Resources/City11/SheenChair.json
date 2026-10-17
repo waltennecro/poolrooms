@@ -1,0 +1,195 @@
+{
+  "id": "SheenChair",
+  "resource": "City11/Models/SheenChair",
+  "minimum": [
+    -0.41402238607406616,
+    -6.977785233175382e-05,
+    -0.2767251133918762
+  ],
+  "maximum": [
+    0.41253557801246643,
+    0.6861773133277893,
+    0.293540358543396
+  ],
+  "triangles": 39936,
+  "materials": [
+    {
+      "name": "SheenChair_m0",
+      "colour": [
+        0.883,
+        0.035,
+        0,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.8,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "City11/Textures/SheenChair_m0_albedo",
+      "normal": "City11/Textures/SheenChair_m0_normal",
+      "mask": "City11/Textures/SheenChair_m0_mask"
+    },
+    {
+      "name": "SheenChair_m1",
+      "colour": [
+        0.14,
+        0.07,
+        0.01,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "City11/Textures/SheenChair_m1_albedo",
+      "mask": "City11/Textures/SheenChair_m1_mask"
+    },
+    {
+      "name": "SheenChair_m2",
+      "colour": [
+        0.28,
+        0.26,
+        0.23,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.3,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "City11/Textures/SheenChair_m2_mask"
+    },
+    {
+      "name": "SheenChair_m3",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "City11/Textures/SheenChair_m3_albedo",
+      "mask": "City11/Textures/SheenChair_m3_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "City11/Models/SheenChair_LOD1",
+      "triangles": 6169
+    },
+    {
+      "resource": "City11/Models/SheenChair_LOD2",
+      "triangles": 1210
+    }
+  ],
+  "uvBake": [
+    {
+      "material": 0,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1356317,
+      "resolution": 2048,
+      "uniqueCharts": 103
+    },
+    {
+      "material": 0,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1356317,
+      "resolution": 2048,
+      "uniqueCharts": 103
+    },
+    {
+      "material": 0,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 1356317,
+      "resolution": 2048,
+      "uniqueCharts": 103
+    },
+    {
+      "material": 1,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1159013,
+      "resolution": 2048,
+      "uniqueCharts": 61
+    },
+    {
+      "material": 1,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1159013,
+      "resolution": 2048,
+      "uniqueCharts": 61
+    },
+    {
+      "material": 1,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 1159013,
+      "resolution": 2048,
+      "uniqueCharts": 61
+    },
+    {
+      "material": 2,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 11297,
+      "resolution": 2048,
+      "uniqueCharts": 104
+    },
+    {
+      "material": 3,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 49665,
+      "resolution": 2048,
+      "uniqueCharts": 1
+    },
+    {
+      "material": 3,
+      "texture": "occlusionTexture",
+      "sourceUV": 1,
+      "bakedPixels": 49665,
+      "resolution": 2048,
+      "uniqueCharts": 1
+    }
+  ],
+  "sourceSha256": "f0af2a2b102d28d540236306ae19f8fb36842df76bd38cf76f063f9bd2853399",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review"
+}

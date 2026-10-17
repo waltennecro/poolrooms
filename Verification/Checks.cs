@@ -158,7 +158,7 @@ static class Checks
             var r=city.At(x,z);Check(r.Plan.City!=null,"Missing city plan in full-city mode");foreach(var b in r.Plan.City.Buildings)spaces+=b.Floors;
             if(LiminalRegions.Hash(city.Config.Seed,x,z,0x1100CAu)%9==0)carSites++;
         }
-        Console.WriteLine($"City plan snapshot (324 blocks, not simultaneous loaded objects): 1296 generated building instances, {spaces} furnished floor spaces, 2592 source-prop instances, {spaces*3} furniture assemblies, {carSites} car spawn sites. Downloaded source models remain 4; driveable model classes remain 1.");
+        Console.WriteLine($"City plan snapshot (324 blocks, not simultaneous loaded objects): 1296 generated building instances, {spaces} furnished floor spaces, 3888 source-prop/furniture instances, {spaces*3} procedural furniture assemblies, {carSites} car spawn sites. Downloaded source models now 5; driveable model classes remain 1.");
     }
     static float Support(MeshData mesh,V3 origin)
     {

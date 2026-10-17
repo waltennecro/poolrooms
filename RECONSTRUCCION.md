@@ -85,3 +85,11 @@ Comprobación acumulada: 16.290.728 aserciones, 177 scripts × cuatro configurac
 Ver `Assets/PoolroomsProcedural/Documentation/DECORACION_R6.md`. Monturas apoyadas en paredes, dos tandas visuales con presupuesto y opción Original/Realista/Doble en Gráficos/F7; sin nuevas colisiones ni luces. Salas de todos los ambientes, ambos sistemas de centros comerciales y casas detalladas comparten este acabado. No hay nuevos modelos externos: son ocho familias y 16 geometrías originales.
 
 Comprobación acumulada: 16.828.561 aserciones, 179 scripts × cuatro configuraciones, 24 mapas y cuatro fuentes CC0; linterna byte a byte igual a v39, y `Preparacion_V48` intacta. CI R5 terminó correctamente con artefacto publicado: `Verification/ci_quiet_levels_R5.json`. ZIP R5 completo limpio: 409 archivos, 88.539.175 bytes, SHA-256 `2dd9f8532a5e7793d94864ca497c9550d28aab6734e32a1225bcae59523d1d27`. Quedan los catálogos externos y más decoración urbana, vehículos/avión/helicóptero y validación nativa.
+
+### Etapa R7 — primer mueble externo y horneado de UV
+
+Ver `Assets/PoolroomsProcedural/Documentation/MOBILIARIO_CC0_R7.md`. SheenChair CC0 se integra como objeto agarrable de suelo en City11/biblioteca/patio. Cinco fuentes distintas en total, un vehículo y un modelo de mueble externo. Dos LOD del sillón (6.169/1.210 frente a 39.936 triángulos), horneado de UV0/UV1 con AO y normales, sin modificar originales. No se reproducen exactamente las extensiones opcionales de brillo textil.
+
+Núcleo: 16.828.897 aserciones y sintaxis de 179 scripts × cuatro configuraciones; los apoyos nuevos pasan. Se añaden comprobaciones analíticas del horneador a CI con dependencias fijadas; las auditorías previas no se omiten. R6 tiene CI correcto y paquete completo de 412 archivos, 88.545.632 bytes, SHA-256 `5fb0b9ffea381026c0eb826375b9781da218ddebb2b97a1f90f4ce682112dd0e`; evidencia en `Verification/ci_decoration_R6.json`.
+
+Sigue pendiente ampliar recursos urbanos/vehículos y validar en Unity. `kenney.nl` está bloqueado por la política de red; se guardó un borrador que añade ese dominio y conserva `api.github.com`, pendiente de revisión, guardado y publicación del entorno. No se da por activado ni se descargaron recursos por rutas alternativas.

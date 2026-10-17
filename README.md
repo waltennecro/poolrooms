@@ -15,16 +15,18 @@ La rama actual continúa sobre la v39 recuperada. Consulta [`RECONSTRUCCION.md`]
 La etapa R1 mejora los materiales y detalles del bioma infantil conservando su geometría transitable. Las verificaciones del núcleo están en [`Verification`](Verification/README.md), fuera de `Assets`. Para crear el paquete completo del estado actual:
 
 ```sh
-python tools/package_assets.py --stage R5 --output /tmp/Poolrooms_R5_Desde_v39.zip
+python tools/package_assets.py --stage R7 --output /tmp/Poolrooms_R7_Desde_v39.zip
 ```
 
 La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.
 
-R4 añade la integración inicial de City11 y un primer coche. Consulta [sus funciones y límites](Assets/PoolroomsProcedural/Documentation/CITY11_RECONSTRUCCION_R4.md): cuatro fuentes CC0 verificadas no equivalen a 35 modelos de vehículos ni a todos los recursos urbanos solicitados. Se conservan las funciones R1–R3.
+R4 añade la integración inicial de City11 y un primer coche. Consulta [sus funciones y límites](Assets/PoolroomsProcedural/Documentation/CITY11_RECONSTRUCCION_R4.md): el catálogo externo inicial no completa todos los vehículos ni recursos urbanos solicitados. Se conservan las funciones R1–R3.
 
 R5 integra biblioteca 906, patio residencial 188 y costa 48 en el generador regional, con arquitectura transitable, objetos y materiales propios. Consulta [funciones, accesos y verificaciones](Assets/PoolroomsProcedural/Documentation/TRES_NIVELES_R5.md). Las pruebas nativas y la calidad visual continúan pendientes en Unity.
 
 R6 añade [detalle arquitectónico configurable](Assets/PoolroomsProcedural/Documentation/DECORACION_R6.md) en salas, centros comerciales y casas próximas: ocho familias originales con 16 variantes. Se ajusta en Gráficos/F7 sin regenerar el mundo.
+
+R7 incorpora un [sillón CC0 agarrable con PBR y LOD](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_CC0_R7.md), colocado en City11, biblioteca y patio. El catálogo acumulado tiene cinco modelos externos distintos; las repeticiones y los LOD no se cuentan como modelos nuevos.
 
 ## Descargar y abrir
 

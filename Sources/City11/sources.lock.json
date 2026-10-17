@@ -58,5 +58,20 @@
     "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar/glTF-Binary/ToyCar.glb",
     "bytes": 5422412,
     "sha256": "01a60862de55cd4b9f3acfab0b0def86451800f9c42467fcd61052c16cb9838c"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/SheenChair_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenChair/metadata.json",
+    "bytes": 662,
+    "sha256": "a47e16c7cfaad0411769163dafcd4eeba8bd5327772d468e67d0e398a6965b65"
+  },
+  "Assets/PoolroomsProcedural/Resources/City11/Licenses/SheenChair_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenChair/LICENSE.md",
+    "bytes": 773,
+    "sha256": "52912ef39b0f19a2bf816de4fc5a161d058c334a912633f5470cf2c83e9c10c5"
+  },
+  "Sources/City11/SheenChair.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenChair/glTF-Binary/SheenChair.glb",
+    "bytes": 4125648,
+    "sha256": "f0af2a2b102d28d540236306ae19f8fb36842df76bd38cf76f063f9bd2853399"
   }
 }

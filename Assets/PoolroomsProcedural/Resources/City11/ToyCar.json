@@ -98,6 +98,7 @@
       "triangles": 3319
     }
   ],
+  "uvBake": [],
   "sourceSha256": "01a60862de55cd4b9f3acfab0b0def86451800f9c42467fcd61052c16cb9838c",
   "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
   "presentationClothRemoved": true,

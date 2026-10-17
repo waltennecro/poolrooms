@@ -6,7 +6,7 @@ No Draco, skins, morphs, external URIs or sparse accessors are silently accepted
 Requires NumPy and Pillow. Metadata/license text attribution is retained.
 """
 from pathlib import Path
-import hashlib,json,struct,urllib.request
+import argparse,hashlib,json,struct,urllib.request
 import numpy as np
 from PIL import Image
 from io import BytesIO
@@ -16,7 +16,7 @@ DEST=ROOT/'Assets/PoolroomsProcedural/Resources/City11'
 SOURCES=ROOT/'Sources/City11'
 UPSTREAM_REVISION='edc7c9e67c639d230715049ee31f9a96a6babbbe'
 BASE=f'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/{UPSTREAM_REVISION}/Models/'
-MODELS=('WaterBottle','Lantern','BoomBox','ToyCar')
+MODELS=('WaterBottle','Lantern','BoomBox','ToyCar','SheenChair')
 LOCK_PATH=SOURCES/'sources.lock.json'
 LOCK=json.loads(LOCK_PATH.read_text()) if LOCK_PATH.exists() else {}
 
@@ -31,6 +31,10 @@ def acquire(url,path):
     return data
 
 def convert(name,raw):
+    original_raw=raw;bake_report=[]
+    if name=='SheenChair':
+        from bake_gltf_uvs import bake
+        raw,bake_report=bake(raw)
     magic,version,total=struct.unpack_from('<III',raw)
     assert magic==0x46546c67 and version==2 and total==len(raw)
     n,tag=struct.unpack_from('<II',raw,12);assert tag==0x4e4f534a
@@ -134,8 +138,9 @@ def convert(name,raw):
             start+=len(positions)
     (folder/(name+'.mtl')).write_text(''.join('newmtl '+m['name']+'\nKd '+' '.join(map(str,m['colour'][:3]))+'\n' for m in materials))
     lods=[]
-    if name=='ToyCar':
-        for level,grid,uv_grid in [(1,64,64),(2,24,16)]:
+    if name in ('ToyCar','SheenChair'):
+        levels=[(1,64,64),(2,24,16)] if name=='ToyCar' else [(1,32,16),(2,12,8)]
+        for level,grid,uv_grid in levels:
             groups=[];epsilon=float((hi-lo).max())/grid
             for material,positions,normals,uv,indices in entries:
                 key=np.column_stack((np.rint((positions-lo)/epsilon),np.floor(uv*uv_grid))).astype(np.int64)
@@ -158,17 +163,18 @@ def convert(name,raw):
                     start+=len(positions)
             lods.append({'resource':'City11/Models/'+lod_name,'triangles':sum(len(e[4]) for e in groups)})
     record={'id':name,'resource':'City11/Models/'+name,'minimum':lo.tolist(),'maximum':hi.tolist(),'triangles':sum(len(e[4]) for e in entries),'materials':materials,'lods':lods,
-            'sourceSha256':hashlib.sha256(raw).hexdigest(),'upstreamRevision':UPSTREAM_REVISION,'presentationClothRemoved':name=='ToyCar','adaptation':'Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review'}
+            'uvBake':bake_report,'sourceSha256':hashlib.sha256(original_raw).hexdigest(),'upstreamRevision':UPSTREAM_REVISION,'presentationClothRemoved':name=='ToyCar','adaptation':'Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review'}
     (DEST/(name+'.json')).write_text(json.dumps(record,indent=2)+'\n');return record
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--only',nargs='+',choices=MODELS,help='Rebuild selected sources, retaining already adapted files for the others');args=parser.parse_args()
     licenses=DEST/'Licenses';licenses.mkdir(parents=True,exist_ok=True);reports=[]
     for name in MODELS:
         meta=acquire(BASE+name+'/metadata.json',licenses/(name+'_metadata.json'));j=json.loads(meta)
         assert j['legal'] and all(x.get('spdx')=='CC0-1.0' for x in j['legal']), 'Model license is not fully CC0: '+name
         acquire(BASE+name+'/LICENSE.md',licenses/(name+'_LICENSE.md'))
         raw=acquire(BASE+name+'/glTF-Binary/'+name+'.glb',SOURCES/(name+'.glb'))
-        report=convert(name,raw);report['sourceUrl']=BASE+name+'/glTF-Binary/'+name+'.glb';report['modelLicense']='CC0-1.0';report['metadataLicense']='CC-BY-4.0';report['authors']=[x['artist'] for x in j['legal']]
+        report=convert(name,raw) if args.only is None or name in args.only else json.loads((DEST/(name+'.json')).read_text());report['sourceUrl']=BASE+name+'/glTF-Binary/'+name+'.glb';report['modelLicense']='CC0-1.0';report['metadataLicense']='CC-BY-4.0';report['authors']=[x['artist'] for x in j['legal']]
         reports.append(report);print(name,report['triangles'],'triangles')
     catalog={'distinctSourceModels':len(reports),'colourVariantsCountAsModels':False,'nativeUnityValidated':False,'models':reports}
     (DEST/'catalog.json').write_text(json.dumps(catalog,indent=2)+'\n')

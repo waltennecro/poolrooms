@@ -17,11 +17,14 @@ namespace Poolrooms
         public float CarryRadius { get; private set; }=.27f;
         public static PoolroomsPickup CreateSource(string key,string source,Vector3 bottom,Transform parent,float longest)
         {
-            var go=City11Sources.Create(source,parent,bottom,longest,out var size);if(go==null)return null;
+            var world=parent!=null?parent.GetComponentInParent<PoolroomsWorld>():null;
+            var settings=world!=null&&world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsGameSettings>():null;
+            bool low=settings!=null&&settings.Preferences!=null&&settings.Preferences.graphicsQuality==0;
+            var go=City11Sources.Create(source,parent,bottom,longest,out var size,low?1:0);if(go==null)return null;
             go.transform.localPosition=bottom+Vector3.up*(size.y*.5f);
             var collider=go.AddComponent<BoxCollider>();collider.size=size;
             var item=go.AddComponent<PoolroomsPickup>();item.shape=collider;item.SpawnKey=key;item.surface=PickupSurface.Rigid;
-            item.mass=source=="WaterBottle"?.45f:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
+            item.mass=source=="WaterBottle"?.45f:source=="SheenChair"?6.5f:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
         }
         public static PoolroomsPickup Create(string key,Vector3 position,Transform parent,PoolroomsProfile profile)
         {

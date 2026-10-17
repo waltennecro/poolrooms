@@ -1,11 +1,11 @@
 {
   "BoomBox.json": {
-    "bytes": 1144,
-    "sha256": "7942e8252b1a0c2b6f3ad3d4a04a5e77f1a37a408b9b1c90657101bc20bc4ca8"
+    "bytes": 1160,
+    "sha256": "4d673b189fdaa92170fd02fc5a49f86d3f9d6cc6cb1e9172020e161275755653"
   },
   "Lantern.json": {
-    "bytes": 1133,
-    "sha256": "0d29106199296ec39ad5ca183d89a54d46ffe8008dfcb8a2c8ed0db605dd582b"
+    "bytes": 1149,
+    "sha256": "0d0ecddb27f8d10de9d126cd51212287641f2116d32ab683f610ae97da375621"
   },
   "Licenses/BoomBox_LICENSE.md": {
     "bytes": 770,
@@ -22,6 +22,14 @@
   "Licenses/Lantern_metadata.json": {
     "bytes": 1006,
     "sha256": "89f9dfb00347fbfd36ef4592d32d8493abb74ba000cd7c620e491bfc264a81ad"
+  },
+  "Licenses/SheenChair_LICENSE.md": {
+    "bytes": 773,
+    "sha256": "52912ef39b0f19a2bf816de4fc5a161d058c334a912633f5470cf2c83e9c10c5"
+  },
+  "Licenses/SheenChair_metadata.json": {
+    "bytes": 662,
+    "sha256": "a47e16c7cfaad0411769163dafcd4eeba8bd5327772d468e67d0e398a6965b65"
   },
   "Licenses/ToyCar_LICENSE.md": {
     "bytes": 911,
@@ -55,6 +63,22 @@
     "bytes": 637992,
     "sha256": "fae2d4611e648d5f68625746305b2bafce6c0bb98047ffa18f9e7bb784262cc7"
   },
+  "Models/SheenChair.mtl": {
+    "bytes": 146,
+    "sha256": "4c3a232f2f75f605e859e2716f382d756911796fb8a339f1adcdcceb4842eb42"
+  },
+  "Models/SheenChair.obj": {
+    "bytes": 14126701,
+    "sha256": "8ddcc559361b136d72644cf65584274e36f190e81b7c302fa9df165a3b8bb4ad"
+  },
+  "Models/SheenChair_LOD1.obj": {
+    "bytes": 683380,
+    "sha256": "cd3d79cd667cc0cb10f2a00701de3abefd653de1219217cef856b9c473902c6e"
+  },
+  "Models/SheenChair_LOD2.obj": {
+    "bytes": 157564,
+    "sha256": "4197051a599e6beadf805a16a0f635aee91220639c71125bb09089127d98508f"
+  },
   "Models/ToyCar.mtl": {
     "bytes": 93,
     "sha256": "b00c8fbd476dfe193eb3f026ede0840998cbe896c4d0cfd5839a4f676f9a3cb7"
@@ -78,6 +102,10 @@
   "Models/WaterBottle.obj": {
     "bytes": 454059,
     "sha256": "3f3ca533178b7218e5c3b69560e223d6e71a7e9bbdd2c92cb1e06372576e936d"
+  },
+  "SheenChair.json": {
+    "bytes": 4152,
+    "sha256": "e433711ac32b77824aa2387e7871ed3a7388c11d95bd5d53fb27ddc570d7e845"
   },
   "Textures/BoomBox_m0_albedo.png": {
     "bytes": 2842887,
@@ -110,6 +138,38 @@
   "Textures/Lantern_m0_normal.png": {
     "bytes": 2859904,
     "sha256": "054e8cf05dee8e218c18a358624e8682cc60b36ac0d3b6f269438d98ebb296ce"
+  },
+  "Textures/SheenChair_m0_albedo.png": {
+    "bytes": 1713981,
+    "sha256": "55a44b70fb331e918b0937c4610fead54bc07f64ea50cbd4a95d36a00f25cda2"
+  },
+  "Textures/SheenChair_m0_mask.png": {
+    "bytes": 488199,
+    "sha256": "98965c18529242a2301966e62b41975a52e8f530cc86d2f26f670a4ce076d344"
+  },
+  "Textures/SheenChair_m0_normal.png": {
+    "bytes": 2655198,
+    "sha256": "26da5acf9da497cfb63c4f09351d7806137ca9bb5c20e2a252360531ef44c83c"
+  },
+  "Textures/SheenChair_m1_albedo.png": {
+    "bytes": 1614141,
+    "sha256": "da89bd4d3fbea24250006470a4b81a1119485feaf7c688693f05ed2e35afebcd"
+  },
+  "Textures/SheenChair_m1_mask.png": {
+    "bytes": 1459498,
+    "sha256": "ed1844b3217c49ff61547042f8215428bb8ccd7bf6a404c52da2c726ebd13d9e"
+  },
+  "Textures/SheenChair_m2_mask.png": {
+    "bytes": 39105,
+    "sha256": "89c6110a6bd132b57ce1cfed997a8ec1d7d54007b6b0b853498f6b21a44e538b"
+  },
+  "Textures/SheenChair_m3_albedo.png": {
+    "bytes": 116393,
+    "sha256": "56f70e777f1cd60b7c0309855ec3be514ccce0e877de68dd9500f91f4cc3ed7c"
+  },
+  "Textures/SheenChair_m3_mask.png": {
+    "bytes": 35420,
+    "sha256": "6269e0d4a840cea916c238fdc0f7ea9e3c481aa57ccfe30ef32b3c7c71d8c265"
   },
   "Textures/ToyCar_m0_albedo.png": {
     "bytes": 266866,
@@ -160,15 +220,15 @@
     "sha256": "c6a09ea4509940b68fe8649be30d8c22ba30567e69cb80b23e6180cb6420dbe9"
   },
   "ToyCar.json": {
-    "bytes": 2274,
-    "sha256": "d7286db99c7690746f79b0c659e8a98f2c844529ab5c3029ac8f3bd5565d4371"
+    "bytes": 2290,
+    "sha256": "ed749dd9e1d4e67d371732b192db16cd575dc4c231ac576df33ea2ca43e570f2"
   },
   "WaterBottle.json": {
-    "bytes": 1170,
-    "sha256": "b8bc34ef6b9516512a280da08812f1778845c0e6c6d692d53a7e680335406201"
+    "bytes": 1186,
+    "sha256": "0b9749183a03fd3b0c11be4bae23104e2d9c7ff7b4a54f7414c0871c4ea442e8"
   },
   "catalog.json": {
-    "bytes": 8027,
-    "sha256": "1c4f0176a0b5e5a587ae86ba572e478a4f96a55ff53ba46a0eb8f01e7336d23f"
+    "bytes": 13337,
+    "sha256": "f8d9fb934d715b12d5dc9e4214beb4d63e3df23ed67784a8bbe8feda0c9bd986"
   }
 }

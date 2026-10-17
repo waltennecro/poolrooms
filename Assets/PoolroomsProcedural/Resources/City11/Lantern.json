@@ -39,6 +39,7 @@
     }
   ],
   "lods": [],
+  "uvBake": [],
   "sourceSha256": "a79458c4b02d695187a952f23a63b8bf278e7bc3d316a3c2a314f2d6974181f1",
   "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
   "presentationClothRemoved": false,

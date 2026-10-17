@@ -7,7 +7,8 @@ namespace Poolrooms.Core
         public readonly V3 Bottom;
         public readonly int CatalogId;
         public readonly string Source;
-        public QuietPropPlan(V3 bottom,int catalogId,string source=null){Bottom=bottom;CatalogId=catalogId;Source=source;}
+        public readonly float Yaw;
+        public QuietPropPlan(V3 bottom,int catalogId,string source=null,float yaw=0){Bottom=bottom;CatalogId=catalogId;Source=source;Yaw=yaw;}
     }
     public readonly struct PreparedTransition
     {
@@ -28,7 +29,7 @@ namespace Poolrooms.Core
         public QuietLevelPlan(LiminalEnvironment environment,int floors,int variant,uint seed,QuietPropPlan[] props,WaterRegion sea,float shore=0,bool pavilion=false)
         {Environment=environment;Floors=floors;Variant=variant;Seed=seed;Props=props;Sea=sea;Shore=shore;Pavilion=pavilion;}
         public bool Valid(Room room,LayoutConfig c)
-        {return QuietLevelPlanner.IsLevel(Environment)&&room.Environment==Environment&&room.Width==c.CellSize&&room.Depth==c.CellSize&&Props!=null&&Props.Length<=8&&Floors>=1&&Floors<=5;}
+        {return QuietLevelPlanner.IsLevel(Environment)&&room.Environment==Environment&&room.Width==c.CellSize&&room.Depth==c.CellSize&&Props!=null&&Props.Length<=12&&Floors>=1&&Floors<=5;}
         public bool Sheltered(float x,float z,float cellSize)
         {return Environment==LiminalEnvironment.Archive906||Environment==LiminalEnvironment.Courtyard188&&(Math.Abs(x)>cellSize*.25f||z>cellSize*.25f);}
     }
@@ -53,6 +54,17 @@ namespace Poolrooms.Core
                 else if(e==LiminalEnvironment.Courtyard188)
                     props[i]=new QuietPropPlan(new V3((i%2==0?-1:1)*(c.CellSize*.5f-2.5f),.92f,-half+11.3f+(i/2)*7),i%2==0?0:21*8);
                 else props[i]=new QuietPropPlan(new V3(-c.CellSize*.3f+.7f,.9f,-c.CellSize*.3f+i*.52f),-1,i==0?"Lantern":"WaterBottle");
+            }
+            if(e!=LiminalEnvironment.Coast48)
+            {
+                int prior=props.Length;Array.Resize(ref props,prior*2);
+                for(int i=0;i<prior;i++)
+                {
+                    var original=props[i].Bottom;
+                    props[prior+i]=e==LiminalEnvironment.Archive906?
+                        new QuietPropPlan(new V3((i%2==0?-1:1)*(half-4.4f),.02f,original.Z),-1,"SheenChair",i%2==0?-90:90):
+                        new QuietPropPlan(new V3(original.X,.02f,original.Z+.95f),-1,"SheenChair",180);
+                }
             }
             var sea=e==LiminalEnvironment.Coast48&&shore<half-.001f?new WaterRegion{CenterX=(shore+half)*.5f,CenterZ=0,Width=half-shore,Depth=c.CellSize,Radius=0,Bottom=-2,Level=c.WaterLevel}:new WaterRegion();
             var plan=new QuietLevelPlan(e,floors,variant,seed,props,sea,shore,pavilion);

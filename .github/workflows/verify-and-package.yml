@@ -26,6 +26,13 @@ jobs:
         run: python tools/verify_play_textures.py
       - name: Check licensed City11 source assets and LODs
         run: python tools/verify_city_sources.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned offline art verification tools
+        run: python -m pip install -r Verification/requirements-art-tools.txt
+      - name: Check UV baking transforms, colour sampling and normals
+        run: python tools/check_uv_baker.py
       - name: Create verified complete Assets package
         run: python tools/package_assets.py --stage reconstruccion --output "${{ runner.temp }}/Poolrooms_Reconstruccion_Assets.zip"
       - uses: actions/upload-artifact@v4
