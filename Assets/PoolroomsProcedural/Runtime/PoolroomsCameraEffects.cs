@@ -22,6 +22,7 @@ namespace Poolrooms
         public float SourceIntensityScale { get; set; }=1;
         public Vector4 Analog { get; set; }
         public float Diffusion { get; set; }
+        private readonly CameraLanding landing=new CameraLanding();
         private readonly CameraMotionTracker motion=new CameraMotionTracker();
         public Vector3 FlashlightOffset { get { return ToUnity(motion.Frame.FlashlightPosition); } }
         public Vector3 FlashlightAngles { get { return ToUnity(motion.Frame.FlashlightAngles); } }
@@ -78,7 +79,7 @@ namespace Poolrooms
             Wetness=Mathf.MoveTowards(Wetness,0,dt*.2f);ImpactPulse=Mathf.MoveTowards(ImpactPulse,0,dt*2.4f);
             if(!preferences.waterEffects){Wetness=0;ImpactPulse=0;}
             float dip=preferences.cameraMotion?ImpactPulse*preferences.splashIntensity:0;
-            transform.localPosition=restPosition+StanceOffset+ToUnity(motion.Frame.Position)+Vector3.down*(dip*.025f);
+            transform.localPosition=restPosition+StanceOffset+ToUnity(motion.Frame.Position)+Vector3.up*landing.Offset+Vector3.down*(dip*.025f);
             view.fieldOfView=restFov+motion.Frame.FieldOfView+dip*.65f;
         }
         private Vector3 StanceOffset { get { return explorer!=null&&explorer.eyes==transform?explorer.StanceCameraOffset:Vector3.zero; } }
@@ -92,12 +93,13 @@ namespace Poolrooms
             bool walking=enabled&&!explorer.InputCaptured&&!explorer.IsFlying&&Cursor.lockState==CursorLockMode.Locked;
             var frame=motion.Step(walking?speed:0,walking?velocity.x:0,walking&&explorer.ViewSprinting,walking&&explorer.ViewGrounded&&!explorer.IsSliding,
                 enabled,walking?explorer.ViewTurnRate.x:0,walking?explorer.ViewTurnRate.y:0,preferences.motionIntensity,explorer!=null&&explorer.IsPaused?0:Time.deltaTime);
+            landing.Step(ownsEyes&&explorer.ViewGrounded,velocity.y,walking&&preferences.landingMotion&&!explorer.IsSliding,preferences.motionIntensity,explorer!=null&&explorer.IsPaused?0:Time.deltaTime);
             transform.localRotation=BaseRotation*Quaternion.Euler(ToUnity(frame.Angles));
             float dip=preferences.cameraMotion&&preferences.waterEffects?ImpactPulse*preferences.splashIntensity:0;
-            transform.localPosition=restPosition+StanceOffset+ToUnity(frame.Position)+Vector3.down*(dip*.025f);
+            transform.localPosition=restPosition+StanceOffset+ToUnity(frame.Position)+Vector3.up*landing.Offset+Vector3.down*(dip*.025f);
             view.fieldOfView=restFov+frame.FieldOfView+dip*.65f;
         }
-        private void ResetMotionPose(){motion.Reset();if(view!=null){transform.localPosition=restPosition+StanceOffset;transform.localRotation=BaseRotation;view.fieldOfView=restFov;}}
+        private void ResetMotionPose(){motion.Reset();landing.Reset();if(view!=null){transform.localPosition=restPosition+StanceOffset;transform.localRotation=BaseRotation;view.fieldOfView=restFov;}}
         private float Score(Source source)
         {float score=source.Strength;for(int i=0;i<FlareCount;i++)if(selected[i].Id==source.Id){score*=1.12f;break;}return score;}
         private void Insert(Source source)
@@ -117,7 +119,7 @@ namespace Poolrooms
             if(world!=null&&preferences.flareIntensity>0)
             {
                 Vector3 eye=transform.position;
-                var lamps=world.Luminaires;
+                var lamps=world.VisibleLuminaires;
                 for(int i=0;i<lamps.Count;i++)
                 {
                     var lamp=lamps[i];

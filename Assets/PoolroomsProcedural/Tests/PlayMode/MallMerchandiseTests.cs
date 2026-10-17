@@ -21,7 +21,7 @@ namespace Poolrooms.Tests
             try
             {
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();actor=new GameObject("Catalogue carry test");
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var eyes=new GameObject("Eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 yield return null;yield return null;
                 var carry=actor.GetComponent<PoolroomsCarry>();var plan=MallPlan.Create(20,0,0,true,true,autonomous);

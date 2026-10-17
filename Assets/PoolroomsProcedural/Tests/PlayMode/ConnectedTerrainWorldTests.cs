@@ -19,7 +19,7 @@ namespace Poolrooms.Tests
                 Time.timeScale=1;AudioListener.pause=false;
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();profile.connectedTerrainShare=0;profile.connectedMallShare=0;profile.curveSegments=12;
                 root=new GameObject("disabled connected districts");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();world.profile=profile;
-                actor=new GameObject("disabled district explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;
+                actor=new GameObject("disabled district explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;
                 var eyes=new GameObject("eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;world.viewer=actor.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 Assert.That(world.Terrain.ConnectedMode,Is.False);Assert.That(world.Terrain.VisitNearest(),Is.False);
@@ -48,7 +48,7 @@ namespace Poolrooms.Tests
                 root=new GameObject("Connected v29 world");root.SetActive(false);root.transform.position=new Vector3(18,5,-7);
                 var world=root.AddComponent<PoolroomsWorld>();world.profile=savedProfile;
                 actor=new GameObject("Connected v29 explorer");actor.SetActive(false);actor.transform.position=root.transform.position+Vector3.up*.1f;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;
                 var eyes=new GameObject("eyes");eyes.transform.SetParent(actor.transform,false);var camera=eyes.AddComponent<Camera>();camera.farClipPlane=180;explorer.eyes=eyes.transform;world.viewer=actor.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 Assert.That(world.CurrentLayout.Config.ConnectedTerrain,Is.True);Assert.That(world.Terrain,Is.Not.Null);

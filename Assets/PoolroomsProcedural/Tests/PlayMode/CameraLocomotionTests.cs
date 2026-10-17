@@ -19,7 +19,7 @@ namespace Poolrooms.Tests
                 floor=GameObject.CreatePrimitive(PrimitiveType.Cube);floor.name="Camera gait test floor";
                 floor.transform.position=new Vector3(0,99.8f,0);floor.transform.localScale=new Vector3(60,.4f,60);
                 actor=new GameObject("Camera gait test actor");actor.transform.position=Vector3.up*100.05f;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var body=actor.GetComponent<CharacterController>();body.height=1.8f;body.center=Vector3.up*.9f;body.radius=.32f;body.stepOffset=.25f;
                 var eyes=new GameObject("Camera gait eyes");eyes.transform.SetParent(actor.transform,false);eyes.transform.localPosition=Vector3.up*1.65f;
                 eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;Physics.SyncTransforms();

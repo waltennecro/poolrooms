@@ -38,11 +38,21 @@ namespace Poolrooms
             if(shader==null)shader=Shader.Find("Standard");
             if(shader==null)throw new InvalidOperationException("Poolrooms: no compatible Lit shader is available.");
             var m=new Material(shader){name="Liminal "+theme+" / "+slot,enableInstancing=true};
+            // Specular anti-aliasing filters unresolved normals without changing texture,
+            // mesh LOD, reflection sample counts or the streaming distance.
+            if(m.HasProperty("_EnableGeometricSpecularAA"))
+            {
+                SetFloat(m,"_EnableGeometricSpecularAA",1);SetFloat(m,"_SpecularAAScreenSpaceVariance",.1f);SetFloat(m,"_SpecularAAThreshold",.2f);
+                m.EnableKeyword("_ENABLE_GEOMETRIC_SPECULAR_AA");
+            }
             Color color=Color.white;
             if(theme==SurfaceTheme.CityStreet&&slot==Surface.Tile)color=new Color(.19f,.2f,.21f);
             if(theme==SurfaceTheme.IndoorPlay)
             {V3 c=LiminalPalette.Color(slot,0);color=slot==Surface.Tile||slot==Surface.Plaster?new Color(.87f,.89f,.85f):new Color(c.X,c.Y,c.Z);}
             if(theme==SurfaceTheme.Hotel&&slot==Surface.Plaster)color=new Color(.95f,.91f,.84f);
+            if(theme==SurfaceTheme.Conservatory&&slot==Surface.Slide)color=new Color(.16f,.31f,.12f);
+            if(theme==SurfaceTheme.Conservatory&&slot==Surface.Metal)color=new Color(.3f,.36f,.3f);
+            if(theme==SurfaceTheme.TransitGallery&&slot==Surface.Plaster)color=new Color(.91f,.89f,.82f);
             SetColor(m,"_BaseColor",color);SetColor(m,"_Color",color);
             string set=textureOverride??BiomeSurfaces.TextureSet(theme,slot);float smooth=BiomeSurfaces.Smoothness(set);
             bool soft=theme==SurfaceTheme.SoftPlay||theme==SurfaceTheme.SoftPlayFinish||theme==SurfaceTheme.SoftPlayNet||theme==SurfaceTheme.SoftPlayFloor;

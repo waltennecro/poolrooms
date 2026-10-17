@@ -18,7 +18,7 @@ namespace Poolrooms.Tests
             {
                 Time.timeScale=1;AudioListener.pause=false;
                 actor=new GameObject("Master mode test");actor.transform.position=Vector3.up*100;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var eyes=new GameObject("Test eyes");eyes.transform.SetParent(actor.transform,false);
                 eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 yield return null;yield return null;
@@ -74,7 +74,7 @@ namespace Poolrooms.Tests
             {
                 PlayerPrefs.DeleteKey(key);
                 actor=new GameObject("Flashlight test");actor.transform.position=Vector3.up*100;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var eyes=new GameObject("Test eyes");eyes.transform.SetParent(actor.transform,false);
                 eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 yield return null;yield return null;

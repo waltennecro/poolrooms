@@ -163,3 +163,12 @@ Se integran automáticamente un toldo, una mesa y dos sillas como máximo por bl
 Comprobación del núcleo: 32 terrazas/96 objetos en 96 bloques; apoyo de nueve puntos, separación entre muebles, espacio de calle/puerta y ausencia de colisión con la fachada final. Auditoría offline de licencia, hashes, texturas, geometría/LOD y dimensiones. Pruebas nativas ampliadas pero pendientes de ejecución en Unity. **Continúan pendientes los edificios completos descargados y la validación nativa**, sin certificar apariencia ni FPS. Se amplía el catálogo a 15 fuentes/adaptaciones, 14 familias geométricas y una variante de silla; no son 15 modelos de edificios.
 
 Evidencia R15: revisión `e0e386ae43c7dae1326bd38f2d86e1701b59fa7d`, [CI 39070290885](https://github.com/waltennecro/poolrooms/actions/runs/39070290885) completa, artefacto `12114402973`. Paquete Assets: 646 archivos, 200.730.454 bytes, SHA-256 `8cb203497345fd803147379df8639bb79dd20f0dc0baeab14590b8a92becde70`. Respaldo público descargado: 304.195.508 bytes, SHA-256 `aa09f87a6aefd5ac9116c4e3a17012bfc7fd424b84b71b8b6727f6f3815fdbba`; CRC correcto y coincidencia de Assets y procedencia Bistro. La normalización inicial del glTF se corrigió preservando sus bytes de origen. Todo el historial permanece; no se reescribió.
+
+
+## R16 — actualización amplia de exploración
+
+Se añade portada integrada con ajustes y pausa, regreso al inicio sin teletransporte, inspección de objetos con R + ratón, cámara de aterrizaje opcional y estilo Arquitectura. Dos nuevos biomas originales, Jardín de cristal y Galería de tránsito, se encuentran en Expanded y el TP existente: tragaluces abiertos físicamente, sol regional, materiales independientes, mobiliario reutilizado con licencia y acústica propia. El menú no promete guardado de partida; retoma la sesión abierta.
+
+El streaming comprueba como máximo cinco salas al adjuntar una sala, conservando revisiones completas para cambios de regiones y descargas. Las ópticas usan la lista activa de luces, sin cambiar selección, presupuestos ni distancia. Se añade antialiasing especular a las fábricas de materiales. Ningún radio, LOD, mapa o muestreo RT se reduce.
+
+[Detalle, instalación y límites](Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R16.md). R16 no agrega modelos externos al catálogo ni recupera exactamente v47. Continúan pendientes los edificios externos completos y la validación nativa/visual/de rendimiento; no se certifica acabado AAA.

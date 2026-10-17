@@ -18,7 +18,7 @@ namespace Poolrooms.Tests
             {
                 Time.timeScale=.5f;AudioListener.pause=true;
                 actor=new GameObject("Camera pause test");actor.transform.position=Vector3.up*100;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var camera=new GameObject("Test eyes");camera.transform.SetParent(actor.transform,false);
                 camera.AddComponent<Camera>();explorer.eyes=camera.transform;
                 yield return null;
@@ -45,7 +45,7 @@ namespace Poolrooms.Tests
             try
             {
                 actor=new GameObject("Camera teleport test");actor.transform.position=Vector3.up*100;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var camera=new GameObject("Test eyes");camera.transform.SetParent(actor.transform,false);
                 camera.AddComponent<Camera>();explorer.eyes=camera.transform;
                 yield return null;

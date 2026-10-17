@@ -9,6 +9,14 @@ namespace Poolrooms
     {
         private PoolroomsExplorer explorer;
         private PoolroomsPickup held;
+        private Quaternion heldRotation=Quaternion.Euler(5,-12,-8);
+        public bool Inspect(Vector2 delta)
+        {
+            if(held==null||explorer.IsPaused||explorer.InputCaptured)return false;
+            delta=Vector2.ClampMagnitude(delta,80);
+            heldRotation=Quaternion.AngleAxis(-delta.x*.35f,Vector3.up)*Quaternion.AngleAxis(delta.y*.35f,Vector3.right)*heldRotation;
+            return true;
+        }
         private readonly HashSet<string> taken=new HashSet<string>();
         private readonly Queue<string> takenOrder=new Queue<string>();
         private readonly List<PoolroomsPickup> loose=new List<PoolroomsPickup>();
@@ -55,7 +63,7 @@ namespace Poolrooms
         public bool Grab(PoolroomsPickup item)
         {
             if(item==null||held!=null||explorer.IsPaused||explorer.InputCaptured)return false;
-            held=item;MarkTaken(item.SpawnKey);item.Attach(Eyes);return true;
+            heldRotation=Quaternion.Euler(5,-12,-8);held=item;MarkTaken(item.SpawnKey);item.Attach(Eyes);return true;
         }
         public bool Drop()
         {
@@ -65,6 +73,7 @@ namespace Poolrooms
             if(distance<.3f)return false;
             Vector3 release=Eyes.position+direction*distance;
             int contactCount=Physics.OverlapSphereNonAlloc(release,held.CarryRadius,overlaps,~0,QueryTriggerInteraction.Ignore);
+            if(contactCount==overlaps.Length)return false; // Saturated query cannot prove a safe release.
             for(int i=0;i<contactCount;i++)if(overlaps[i]!=null&&!overlaps[i].transform.IsChildOf(transform))return false;
             Transform target;
             var malls=explorer.world!=null?explorer.world.Malls:null;
@@ -106,7 +115,7 @@ namespace Poolrooms
             float available=FreeDistance(Eyes.position,world.normalized,world.magnitude);
             target*=Mathf.Max(.1f,available/world.magnitude);
             held.transform.localPosition=Vector3.Lerp(held.transform.localPosition,target,1-Mathf.Exp(-Time.deltaTime*15));
-            held.transform.localRotation=Quaternion.Slerp(held.transform.localRotation,Quaternion.Euler(5,-12,-8),1-Mathf.Exp(-Time.deltaTime*15));
+            held.transform.localRotation=Quaternion.Slerp(held.transform.localRotation,heldRotation,1-Mathf.Exp(-Time.deltaTime*15));
         }
         private void ShiftLoose(Vector3 shift){if(exteriorLooseRoot!=null)exteriorLooseRoot.position+=shift;}
     }

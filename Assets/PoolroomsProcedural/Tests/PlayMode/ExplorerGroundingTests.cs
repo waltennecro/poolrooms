@@ -26,7 +26,7 @@ namespace Poolrooms.Tests
                 var body=actor.AddComponent<CharacterController>(); // Reproduce default centre = zero.
                 body.center=Vector3.zero;body.minMoveDistance=.1f;body.detectCollisions=false;
                 var cameraObject=new GameObject("v26 eyes at feet");cameraObject.transform.SetParent(actor.transform,false);cameraObject.AddComponent<Camera>();cameraObject.AddComponent<PoolroomsCameraEffects>();
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;explorer.eyes=cameraObject.transform;world.viewer=actor.transform;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;explorer.eyes=cameraObject.transform;world.viewer=actor.transform;
                 world.BuildAllImmediate();actor.SetActive(true);root.SetActive(true);yield return null;yield return null;
                 Assert.That(body.center.y,Is.EqualTo(body.height*.5f).Within(.0001f));Assert.That(body.detectCollisions,Is.True);
                 Assert.That(body.minMoveDistance,Is.Zero);Assert.That(explorer.eyes.position.y-actor.transform.position.y,Is.GreaterThan(1.5f));

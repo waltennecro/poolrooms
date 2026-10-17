@@ -29,7 +29,7 @@ namespace Poolrooms.Tests
                         var world=root.AddComponent<PoolroomsWorld>();world.unifiedExploration=false;world.profile=profile;
                         actor=new GameObject("Generated explorer test");actor.transform.position=root.transform.position+Vector3.up*.1f;
                         var body=actor.AddComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.center=Vector3.up*.9f;body.stepOffset=.34f;
-                        var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.world=world;explorer.externalInput=true;
+                        var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.world=world;explorer.externalInput=true;
                         world.viewer=actor.transform;root.SetActive(true);
                         for(int i=0;i<240&&!world.ViewerReady;i++)yield return null;
                         Assert.That(world.ViewerReady,Is.True);

@@ -49,7 +49,7 @@ namespace Poolrooms.HDRP
             bool aerial=room!=null&&world.IsPilotingAircraft&&(world.Terrain==null||!world.Terrain.IsInside);
             bool active=aerial||room!=null&&room.Environment!=LiminalEnvironment.Poolrooms&&(world.Terrain==null||!world.Terrain.IsInside);
             volume.priority=aerial?14:4;
-            bool sunny=aerial||active&&(room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48);
+            bool sunny=aerial||active&&(room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
             bool archive=!aerial&&active&&room.Environment==LiminalEnvironment.Archive906;
             bool sunset=!aerial&&sunny&&room.Environment==LiminalEnvironment.Coast48;
             if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny;

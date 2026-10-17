@@ -21,7 +21,7 @@ namespace Poolrooms.Tests
                 PlayerPrefs.DeleteKey(key);Time.timeScale=1;Time.captureDeltaTime=.02f;AudioListener.pause=false;Physics.autoSyncTransforms=false;
                 floor=GameObject.CreatePrimitive(PrimitiveType.Cube);floor.transform.position=new Vector3(0,99.8f,0);floor.transform.localScale=new Vector3(500,.4f,500);
                 actor=new GameObject("v31 slide actor");actor.SetActive(false);actor.transform.position=new Vector3(0,100.05f,0);
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var body=actor.GetComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.center=Vector3.up*.9f;body.skinWidth=.025f;body.stepOffset=.3f;
                 var eyes=new GameObject("slide eyes");eyes.transform.SetParent(actor.transform,false);eyes.transform.localPosition=Vector3.up*1.65f;eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 Physics.SyncTransforms();actor.SetActive(true);yield return null;yield return null;

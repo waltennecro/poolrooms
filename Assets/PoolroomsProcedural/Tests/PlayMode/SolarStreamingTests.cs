@@ -24,7 +24,7 @@ namespace Poolrooms.Tests
                 root=new GameObject("Solar atlas streaming test");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();world.unifiedExploration=false;world.profile=profile;
                 actor=new GameObject("Solar atlas explorer");actor.transform.position=Vector3.up*.1f;
                 var body=actor.AddComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.center=Vector3.up*.9f;body.stepOffset=.34f;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;root.SetActive(true);
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;root.SetActive(true);
                 int chunks=0;
                 for(int frame=0;frame<600;frame++)
                 {chunks=0;foreach(var chunk in world.Chunks)chunks++;if(world.ViewerReady&&chunks>=9)break;yield return null;}

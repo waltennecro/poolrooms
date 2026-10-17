@@ -49,7 +49,7 @@ namespace Poolrooms.Tests
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();profile.columns=profile.rows=1;profile.continuousWorld=false;
                 profile.enableTerrainRegions=true;profile.enableGiantMalls=false;profile.terrainEntranceChance=0;profile.terrainViewRadius=2;
                 root=new GameObject("v34 appearance world");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();world.profile=profile;world.unifiedExploration=false;
-                actor=new GameObject("v34 explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;
+                actor=new GameObject("v34 explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;
                 var eyes=new GameObject("v34 eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 float deadline=Time.realtimeSinceStartup+90;while(!world.ViewerReady&&Time.realtimeSinceStartup<deadline)yield return null;

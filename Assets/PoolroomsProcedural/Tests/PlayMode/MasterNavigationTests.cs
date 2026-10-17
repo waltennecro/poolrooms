@@ -27,7 +27,7 @@ namespace Poolrooms.Tests
                 profile.enableGiantMalls=false;profile.enableTerrainRegions=false;
                 root=new GameObject("v27 radius world");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();world.unifiedExploration=false;world.profile=profile;
                 actor=new GameObject("v27 radius explorer");actor.SetActive(false);actor.transform.position=Vector3.up*100;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;
                 var eyes=new GameObject("v27 radius eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;world.viewer=actor.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 var master=explorer.MasterMode;master.Submit("/unlock mastermode");master.SetRoomLoadRadius(3);
@@ -60,7 +60,7 @@ namespace Poolrooms.Tests
             {
                 Time.timeScale=1;AudioListener.pause=false;
                 actor=new GameObject("v27 admin collision regression");actor.transform.position=new Vector3(23,100,-17);
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var eyes=new GameObject("v27 eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 yield return null;yield return null;
                 var master=explorer.MasterMode;var body=actor.GetComponent<CharacterController>();
@@ -104,7 +104,7 @@ namespace Poolrooms.Tests
                 profile.liminalGeneration=LiminalGeneration.Offices;profile.authoredRoomChance=0;profile.curveSegments=12;
                 profile.enableGiantMalls=false;profile.enableTerrainRegions=false;profile.mallEntranceChance=profile.terrainEntranceChance=0;
                 root=new GameObject("v27 district world");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();world.unifiedExploration=false;world.profile=profile;world.generateOnStart=false;world.streaming=false;
-                actor=new GameObject("v27 district explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;
+                actor=new GameObject("v27 district explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;
                 var eyes=new GameObject("v27 district eyes");eyes.transform.SetParent(actor.transform,false);var camera=eyes.AddComponent<Camera>();camera.farClipPlane=180;explorer.eyes=eyes.transform;world.viewer=actor.transform;
                 world.BuildAllImmediate();explorer.Teleport(world.SpawnWorldPosition);root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 string originalProfile=JsonUtility.ToJson(profile);var master=explorer.MasterMode;var view=actor.GetComponent<PoolroomsMasterView>();

@@ -19,7 +19,7 @@ namespace Poolrooms.Tests
             try
             {
                 PlayerPrefs.DeleteKey(key);actor=new GameObject("Minimal settings test");actor.transform.position=Vector3.up*100;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var eyes=new GameObject("Settings eyes");eyes.transform.SetParent(actor.transform,false);var camera=eyes.AddComponent<Camera>();camera.fieldOfView=73;explorer.eyes=eyes.transform;
                 yield return null;
                 var menu=actor.GetComponent<PoolroomsPauseMenu>();var settings=actor.GetComponent<PoolroomsGameSettings>();

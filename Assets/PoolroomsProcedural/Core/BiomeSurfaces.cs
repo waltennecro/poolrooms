@@ -1,7 +1,7 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
@@ -9,6 +9,8 @@ namespace Poolrooms.Core
             switch(environment)
             {
                 case LiminalEnvironment.Archive906:return SurfaceTheme.ArchiveWood;
+                case LiminalEnvironment.Conservatory:return SurfaceTheme.Conservatory;
+                case LiminalEnvironment.TransitGallery:return SurfaceTheme.TransitGallery;
                 case LiminalEnvironment.Courtyard188:return SurfaceTheme.CourtyardStone;
                 case LiminalEnvironment.Coast48:return SurfaceTheme.CoastSand;
                 case LiminalEnvironment.City11:return SurfaceTheme.CityFacade;
@@ -34,6 +36,7 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(theme==SurfaceTheme.Conservatory||theme==SurfaceTheme.TransitGallery)return slot==Surface.Glow?null:slot==Surface.Tile?"Terrazzo":slot==Surface.Metal?"Steel":slot==Surface.Accent?"Wood":"Paint";
             if(theme==SurfaceTheme.Airfield)return slot==Surface.Tile?"AirfieldAsphalt":slot==Surface.Metal?"Steel":slot==Surface.Glow?null:"Paint";
             if(theme==SurfaceTheme.ArchiveWood)return slot==Surface.Glow?null:slot==Surface.Tile||slot==Surface.Accent?"Wood":slot==Surface.Plaster?"Paint":slot==Surface.Metal?"Steel":"Fabric";
             if(theme==SurfaceTheme.CourtyardStone)return slot==Surface.Glow?null:slot==Surface.Tile?"Terrazzo":slot==Surface.Plaster?"Paint":slot==Surface.Accent?"Wood":slot==Surface.Metal?"Steel":"Fabric";

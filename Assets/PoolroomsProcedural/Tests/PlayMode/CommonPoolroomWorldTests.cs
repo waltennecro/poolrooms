@@ -42,7 +42,7 @@ namespace Poolrooms.Tests
                 root=new GameObject("Common Poolrooms v30");root.SetActive(false);
                 var world=root.AddComponent<PoolroomsWorld>();world.profile=profile;
                 actor=new GameObject("Common explorer");actor.SetActive(false);
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;
                 var eyes=new GameObject("eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;world.viewer=actor.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 Assert.That(PoolroomArchitectureMix.Enabled(world.CurrentLayout.Config),Is.True);

@@ -27,7 +27,7 @@ namespace Poolrooms.Tests
                 actor=new GameObject("Continuous test actor");actor.transform.position=Vector3.up*.1f;
                 var body=actor.AddComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.center=Vector3.up*.9f;
                 body.stepOffset=.34f;body.skinWidth=.025f;body.slopeLimit=48;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.world=world;explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.world=world;explorer.externalInput=true;
                 world.viewer=actor.transform;root.SetActive(true);
                 for(int frame=0;frame<240&&!world.ViewerReady;frame++)yield return null;
                 Assert.That(world.ViewerReady,Is.True,"Origin failed to load.");

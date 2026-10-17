@@ -22,7 +22,7 @@ namespace Poolrooms.Tests
                 profile.enableGiantMalls=true;profile.mallEntranceChance=1;profile.curveSegments=12;
                 root=new GameObject("Mall integration test");var world=root.AddComponent<PoolroomsWorld>();world.unifiedExploration=false;
                 world.profile=profile;world.generateOnStart=false;world.streaming=false;
-                actor=new GameObject("Mall explorer");var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                actor=new GameObject("Mall explorer");var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var body=actor.GetComponent<CharacterController>();body.height=1.8f;body.center=Vector3.up*.9f;body.radius=.32f;body.skinWidth=.025f;body.stepOffset=.25f;
                 var eyes=new GameObject("Test eyes");eyes.transform.SetParent(actor.transform,false);eyes.transform.localPosition=Vector3.up*1.65f;eyes.AddComponent<Camera>();
                 explorer.eyes=eyes.transform;explorer.world=world;world.viewer=actor.transform;
@@ -69,7 +69,7 @@ namespace Poolrooms.Tests
             try
             {
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();actor=new GameObject("Carry test");actor.transform.position=Vector3.up*100;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var eyes=new GameObject("Test eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 yield return null;yield return null;
                 sector=new GameObject("Disposable sector");sector.transform.position=eyes.transform.position;
@@ -83,7 +83,9 @@ namespace Poolrooms.Tests
                 Object.DestroyImmediate(sector);sector=null;yield return null;
                 Assert.That(item,Is.Not.Null);Assert.That(mesh,Is.Not.Null);Assert.That(item.transform.parent,Is.EqualTo(eyes.transform));
                 Assert.That(carry.Grab(PoolroomsPickup.Create("test:second",Vector3.forward,eyes.transform,profile)),Is.False);
-                explorer.SetPaused(true);Assert.That(carry.Drop(),Is.False);explorer.SetPaused(false);
+                Quaternion rotation=item.transform.localRotation;Assert.That(carry.Inspect(new Vector2(50,25)),Is.True);
+                yield return null;Assert.That(Quaternion.Angle(rotation,item.transform.localRotation),Is.GreaterThan(.01f));
+                explorer.SetPaused(true);Assert.That(carry.Inspect(new Vector2(50,25)),Is.False);Assert.That(carry.Drop(),Is.False);explorer.SetPaused(false);
                 wall=new GameObject("Close release wall");wall.transform.position=eyes.transform.position+Vector3.forward*.2f;
                 wall.AddComponent<BoxCollider>().size=new Vector3(3,3,.08f);Physics.SyncTransforms();
                 Assert.That(carry.Drop(),Is.False);Assert.That(carry.Held,Is.EqualTo(item));Object.DestroyImmediate(wall);wall=null;Physics.SyncTransforms();

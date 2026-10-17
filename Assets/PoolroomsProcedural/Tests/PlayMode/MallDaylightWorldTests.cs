@@ -55,7 +55,7 @@ namespace Poolrooms.Tests
                 root=new GameObject("v32 daylight world");root.SetActive(false);root.transform.position=new Vector3(21,6,-17);
                 var world=root.AddComponent<PoolroomsWorld>();world.profile=profile;world.activeLightBudgetOverride=8;world.shadowLightBudgetOverride=1;
                 actor=new GameObject("v32 daylight explorer");actor.SetActive(false);actor.transform.position=root.transform.position+Vector3.up*.1f;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;
                 var eyes=new GameObject("v32 eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;world.viewer=actor.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 float deadline=Time.realtimeSinceStartup+90;

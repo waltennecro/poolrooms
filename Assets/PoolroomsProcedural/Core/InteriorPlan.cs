@@ -83,7 +83,7 @@ namespace Poolrooms.Core
         {return environment>=LiminalEnvironment.Office&&environment<=LiminalEnvironment.DiningHall;}
         public static string Name(LiminalEnvironment environment)
         {
-            switch(environment){case LiminalEnvironment.Archive906:return "Biblioteca de luz cálida · 906";case LiminalEnvironment.Courtyard188:return "Patio de ventanas · 188";case LiminalEnvironment.Coast48:return "Costa al atardecer · 48";case LiminalEnvironment.City11:return "Nivel 11 · Ciudad vacía";case LiminalEnvironment.SoftPlay:return "Áreas infantiles multinivel";case LiminalEnvironment.Office:return "Oficinas vacías";case LiminalEnvironment.Hotel:return "Hotel silencioso";
+            switch(environment){case LiminalEnvironment.Conservatory:return "Jardín de cristal";case LiminalEnvironment.TransitGallery:return "Galería de tránsito";case LiminalEnvironment.Archive906:return "Biblioteca de luz cálida · 906";case LiminalEnvironment.Courtyard188:return "Patio de ventanas · 188";case LiminalEnvironment.Coast48:return "Costa al atardecer · 48";case LiminalEnvironment.City11:return "Nivel 11 · Ciudad vacía";case LiminalEnvironment.SoftPlay:return "Áreas infantiles multinivel";case LiminalEnvironment.Office:return "Oficinas vacías";case LiminalEnvironment.Hotel:return "Hotel silencioso";
                 case LiminalEnvironment.WaitingHall:return "Salas de espera";case LiminalEnvironment.DiningHall:return "Comedores antiguos";
                 case LiminalEnvironment.IndoorPlay:return "Juegos interiores";case LiminalEnvironment.Supermarket:return "Supermercado liminal";default:return "Poolrooms generadas";}
         }

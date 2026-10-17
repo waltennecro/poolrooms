@@ -31,6 +31,28 @@ namespace Poolrooms.Tests
             }
         }
         [UnityTest]
+        public IEnumerator CivicCentralRoutesStayTraversableUnderOpenSkylights()
+        {
+            foreach(var environment in new[]{LiminalEnvironment.Conservatory,LiminalEnvironment.TransitGallery})
+            {
+                var c=new LayoutConfig{CellSize=28,CurveSegments=12};var room=new Room{X=0,Z=0,Exits=15,Environment=environment};QuietLevelPlanner.Describe(room,c);var data=Architecture.Build(room,c);
+                var root=new GameObject("Civic native traversal");root.transform.position=new Vector3(18000,1000,18000);var actor=new GameObject("Civic walker");
+                try
+                {
+                    var owner=root.AddComponent<PoolroomsChunk>();MeshFactory.CreateCollider("Civic architecture",data.Structure,root.transform,owner);
+                    var body=actor.AddComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.center=Vector3.up*.9f;body.stepOffset=.34f;body.minMoveDistance=0;
+                    foreach(var direction in new[]{Vector3.right,Vector3.forward})
+                    {
+                        body.enabled=false;actor.transform.position=root.transform.position-direction*13+Vector3.up*.06f;body.enabled=true;Physics.SyncTransforms();
+                        for(int i=0;i<260;i++){body.Move(direction*.1f-Vector3.up*.02f);Assert.That(actor.transform.position.y-root.transform.position.y,Is.GreaterThan(-.1f));if(i%30==0)yield return null;}
+                        Assert.That(Vector3.Dot(actor.transform.position-root.transform.position,direction),Is.GreaterThan(12),environment+": aisle blocked");
+                    }
+                    Assert.That(Physics.Raycast(root.transform.position+Vector3.up*2,Vector3.up,8,~0,QueryTriggerInteraction.Ignore),Is.False,"Opaque collider seals the clerestory");
+                }
+                finally{Object.DestroyImmediate(actor);Object.DestroyImmediate(root);}
+            }
+        }
+        [UnityTest]
         public IEnumerator CoastalBoardwalkSupportsWalkingOverSea()
         {
             var c=new LayoutConfig{CellSize=36,Procedural=LiminalGeneration.Coast48,CurveSegments=12};var room=new Room{X=0,Z=0,Exits=15,Environment=LiminalEnvironment.Coast48};QuietLevelPlanner.Describe(room,c);var data=Architecture.Build(room,c);

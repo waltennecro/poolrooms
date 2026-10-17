@@ -98,6 +98,13 @@ namespace Poolrooms
             var shader=Shader.Find("HDRP/Lit")??Shader.Find("Universal Render Pipeline/Lit")??Shader.Find(specularWorkflow?"Standard (Specular setup)":"Standard");
             var m=new Material(shader){name="Liminal licensed source / "+d.name,enableInstancing=true};
             Color colour=d.colour!=null&&d.colour.Length==4?new Color(d.colour[0],d.colour[1],d.colour[2],d.colour[3]).gamma:Color.white;
+            // Specular anti-aliasing filters unresolved normals without changing texture,
+            // mesh LOD, reflection sample counts or the streaming distance.
+            if(m.HasProperty("_EnableGeometricSpecularAA"))
+            {
+                Float(m,"_EnableGeometricSpecularAA",1);Float(m,"_SpecularAAScreenSpaceVariance",.1f);Float(m,"_SpecularAAThreshold",.2f);
+                m.EnableKeyword("_ENABLE_GEOMETRIC_SPECULAR_AA");
+            }
             Set(m,"_BaseColor",colour);Set(m,"_Color",colour);
             foreach(string property in new[]{"_BaseColorMap","_BaseMap","_MainTex"})Texture(m,property,d.albedo);
             bool masked=!string.IsNullOrEmpty(d.mask);Texture(m,"_MaskMap",d.mask);if(masked)m.EnableKeyword("_MASKMAP");

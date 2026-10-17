@@ -2,12 +2,13 @@ using System;
 
 namespace Poolrooms.Core
 {
-    public enum CameraViewMode { Normal, SoftVHS, Nostalgia, Film35mm, SoftDream }
+    public enum CameraViewMode { Normal, SoftVHS, Nostalgia, Film35mm, SoftDream, Architectural }
 
     [Serializable]
     public sealed class CameraPreferences
     {
-        public int version=3;
+        public int version=4;
+        public bool landingMotion=true;
         public CameraViewMode viewMode=CameraViewMode.Normal;
         public float styleIntensity=1,flareIntensity=.55f,splashIntensity=.65f;
         public bool waterEffects=true,cameraMotion=false;
@@ -17,12 +18,13 @@ namespace Poolrooms.Core
         public float motionIntensity=.55f,flareSize=1,ghostIntensity=.5f;
         public void Sanitize()
         {
+            if(version<4)landingMotion=true;
             if(version<3){locomotionMotion=true;motionIntensity=.55f;flareSize=1;ghostIntensity=.5f;}
             if(version<2){bloomScale=grainScale=chromaticScale=vignetteScale=1;reduceMotion=false;}
             if(!Enum.IsDefined(typeof(CameraViewMode),viewMode))viewMode=CameraViewMode.Normal;
             styleIntensity=CameraPresentation.Unit(styleIntensity,1);
             flareIntensity=CameraPresentation.Unit(flareIntensity,.55f);
-            splashIntensity=CameraPresentation.Unit(splashIntensity,.65f);version=3;
+            splashIntensity=CameraPresentation.Unit(splashIntensity,.65f);version=4;
             motionIntensity=CameraPresentation.Unit(motionIntensity,.55f);
             flareSize=GamePreferences.Clamp(flareSize,.5f,1.5f,1);ghostIntensity=CameraPresentation.Unit(ghostIntensity,.5f);
             bloomScale=GamePreferences.Clamp(bloomScale,0,2,1);grainScale=CameraPresentation.Unit(grainScale,1);
@@ -54,6 +56,8 @@ namespace Poolrooms.Core
         {
             switch(mode)
             {
+                case CameraViewMode.Architectural:return new CameraLook("Arquitectura", "Color neutro, detalle limpio y resplandor contenido para leer materiales y espacios.",
+                    0,2,-1,.055f,0,0,.025f);
                 case CameraViewMode.SoftVHS:return new CameraLook("VHS suave","Cinta analógica: líneas tenues, color ligeramente corrido y grano. Sin parpadeos bruscos.",
                     4,-10,-18,.14f,.18f,.11f,.14f,.12f,1.15f,.35f,.035f,.12f);
                 case CameraViewMode.Nostalgia:return new CameraLook("Nostalgia","Recuerdo cálido: sombras suaves, luces cremosas y un grano casi imperceptible.",

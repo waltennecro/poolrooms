@@ -17,6 +17,8 @@ namespace Poolrooms.Core
             if(room.Plan!=null)
             {
                 float proceduralDelay=Math.Min(.045f,(room.Width+room.Depth)/1600);
+                if(room.Environment==LiminalEnvironment.Conservatory)return new AcousticLook(.08f,0,1.65f,.58f,proceduralDelay,proceduralDelay*1.6f);
+                if(room.Environment==LiminalEnvironment.TransitGallery)return new AcousticLook(.12f,0,2.1f,.63f,proceduralDelay,proceduralDelay*1.8f);
                 if(room.Plan.Interior!=null)
                 {
                     bool soft=room.Environment==LiminalEnvironment.Office||room.Environment==LiminalEnvironment.Hotel;

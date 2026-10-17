@@ -29,6 +29,7 @@ namespace Poolrooms
         private readonly List<PoolroomsLuminaire> lamps=new List<PoolroomsLuminaire>();
         // Reused buffers: the streaming loop runs every frame and must not allocate.
         private readonly List<long> removeScratch=new List<long>();
+        private readonly List<PoolroomsLuminaire> visibleLamps=new List<PoolroomsLuminaire>();
         private readonly List<RankedLamp> ranked=new List<RankedLamp>();
         private struct RankedLamp{public float Distance;public bool Eligible;public PoolroomsLuminaire Lamp;}
         // Distance first; the instance id breaks ties so equidistant lamps never swap on and off between updates.
@@ -71,6 +72,7 @@ namespace Poolrooms
         public Layout CurrentLayout { get { return layout; } }
         public Transform GeneratedRoot { get { return generatedRoot; } }
         public IReadOnlyList<PoolroomsLuminaire> Luminaires { get { return lamps; } }
+        public IReadOnlyList<PoolroomsLuminaire> VisibleLuminaires { get { return visibleLamps; } }
         public IEnumerable<PoolroomsChunk> Chunks
         {
             get
@@ -176,7 +178,7 @@ namespace Poolrooms
             if(terrain!=null)terrain.Exit();
             if(malls!=null)malls.Exit();
             if(connectedMalls!=null)connectedMalls.Clear();
-            generation++;loaded.Clear();lamps.Clear();origin.Reset();cacheFocusX=cacheFocusZ=int.MinValue;
+            generation++;loaded.Clear();lamps.Clear();visibleLamps.Clear();origin.Reset();cacheFocusX=cacheFocusZ=int.MinValue;
             if(generatedRoot!=null)
             {
                 // Immediately disable colliders; Destroy is deferred until end of frame.
@@ -249,7 +251,7 @@ namespace Poolrooms
                 // The player may have moved/teleported while the CPU mesh was being built.
                 if(OutsideRooms){yield return null;continue;}
                 if(LocalRoomStreaming&&Distance(next,Focus())>LoadRadius){yield return null;continue;}
-                Attach(next,data);RefreshConnections();LimitLights();Physics.SyncTransforms();GeometryChanged?.Invoke();
+                Attach(next,data);RefreshConnectionsNear(next.X,next.Z);LimitLights();Physics.SyncTransforms();GeometryChanged?.Invoke();
                 yield return null; // At most one room upload/collider cook per frame.
             }
         }
@@ -461,21 +463,32 @@ namespace Poolrooms
         }
         private void RefreshConnections()
         {
-            foreach(var pair in loaded)
+            foreach(var pair in loaded)RefreshConnections(pair.Value);
+        }
+        // A newly attached room can change only its own four edges and the reciprocal
+        // edges of its neighbours. Full refresh remains available for external regions.
+        private void RefreshConnectionsNear(int x,int z)
+        {
+            for(int side=-1;side<4;side++)
             {
-                PoolroomsChunk chunk=pair.Value;Room r=layout.At(chunk.cellX,chunk.cellZ);
-                for(int d=0;d<4;d++)if(r.HasExit(d))
-                {
-                    Room n=layout.Neighbour(r,d);bool joined=n!=null&&loaded.ContainsKey(ContinuousTopology.CellKey(n.X,n.Z));
-                    ConnectedMallSite site;
-                    ConnectedTerrainSite meadow;
-                    if(n!=null&&ConnectedTerrainTopology.At(layout.Config,n.X,n.Z,out meadow))
-                        joined=terrain!=null&&terrain.GatewayReady(meadow,r.X,r.Z);
-                    if(n!=null&&ConnectedMallTopology.At(layout.Config,n.X,n.Z,out site))
-                        joined=connectedMalls!=null&&connectedMalls.GatewayReady(site,r.X<site.X?-1:1);
-                    if(chunk.caps[d]!=null)chunk.caps[d].SetActive(!joined);
-                    if(d<2&&chunk.links[d]!=null)chunk.links[d].SetActive(joined);
-                }
+                long nx=(long)x+(side<0?0:Directions.DX[side]),nz=(long)z+(side<0?0:Directions.DZ[side]);
+                if(nx<int.MinValue||nx>int.MaxValue||nz<int.MinValue||nz>int.MaxValue)continue;
+                if(loaded.TryGetValue(ContinuousTopology.CellKey((int)nx,(int)nz),out var chunk))RefreshConnections(chunk);
+            }
+        }
+        private void RefreshConnections(PoolroomsChunk chunk)
+        {
+            Room r=layout.At(chunk.cellX,chunk.cellZ);
+            for(int d=0;d<4;d++)if(r.HasExit(d))
+            {
+                Room n=layout.Neighbour(r,d);bool joined=n!=null&&loaded.ContainsKey(ContinuousTopology.CellKey(n.X,n.Z));
+                ConnectedMallSite site;ConnectedTerrainSite meadow;
+                if(n!=null&&ConnectedTerrainTopology.At(layout.Config,n.X,n.Z,out meadow))
+                    joined=terrain!=null&&terrain.GatewayReady(meadow,r.X,r.Z);
+                if(n!=null&&ConnectedMallTopology.At(layout.Config,n.X,n.Z,out site))
+                    joined=connectedMalls!=null&&connectedMalls.GatewayReady(site,r.X<site.X?-1:1);
+                if(chunk.caps[d]!=null&&chunk.caps[d].activeSelf==joined)chunk.caps[d].SetActive(!joined);
+                if(d<2&&chunk.links[d]!=null&&chunk.links[d].activeSelf!=joined)chunk.links[d].SetActive(joined);
             }
         }
         private void Update()
@@ -524,7 +537,7 @@ namespace Poolrooms
             if(preferredSun!=null)for(int i=0;i<ranked.Count;i++)if(ranked[i].Lamp==preferredSun)
             {var entry=ranked[i];entry.Distance=-1;ranked[i]=entry;break;}
             ranked.Sort(ByDistance);
-            int active=0,shadowed=0;bool changed=false;
+            int active=0,shadowed=0;bool changed=false;visibleLamps.Clear();
             foreach(var entry in ranked)
             {
                 PoolroomsLuminaire lamp=entry.Lamp;
@@ -538,7 +551,7 @@ namespace Poolrooms
                 if(lamp.source.shadows!=shadows){lamp.source.shadows=shadows;changed=true;}
                 float range=MallLighting.Range(lamp.fullRange,lamp.shadowlessRange,shadows!=LightShadows.None);
                 if(Mathf.Abs(lamp.source.range-range)>.001f){lamp.source.range=range;changed=true;}
-                if(enabled)active++;if(shadows!=LightShadows.None)shadowed++;
+                if(enabled){active++;visibleLamps.Add(lamp);}if(shadows!=LightShadows.None)shadowed++;
             }
             ranked.Clear();
             if(changed)LightsChanged?.Invoke();

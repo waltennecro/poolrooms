@@ -61,6 +61,8 @@ static class Checks
         UrbanAndQuietRefinement();
         BistroTerraces();
         QuietGeneration();
+        CivicGeneration();
+        CameraLandingResponse();
         DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
         var scripts=Directory.GetFiles(Path.Combine(root,"Assets"),"*.cs",SearchOption.AllDirectories);
@@ -556,6 +558,68 @@ static class Checks
         var prefs=new GamePreferences{dressingVersion=0,dressingDensity=0};prefs.Sanitize();Check(prefs.dressingDensity==2,"Old preferences did not migrate decoration");
         prefs.dressingDensity=0;prefs.Sanitize();Check(prefs.dressingDensity==0,"Explicit original detail choice lost");
         Console.WriteLine($"Dressing: 8 procedural fitting types / 16 distinct geometry variants; {total} doorway-safe placements in 16 wall samples. Not new downloaded source models.");
+    }
+    static void CameraLandingResponse()
+    {
+        foreach(int fps in new[]{10,20,30,60,144,240})
+        {
+            var response=new CameraLanding();float dt=1f/fps;
+            Check(response.Step(true,0,true,1,dt)==0,"Initial spawn causes a false landing impulse");
+            response.Step(false,-12,true,1,dt);float impact=response.Step(true,0,true,1,dt);
+            Check(impact<0&&impact>=-.075f,"Landing response is missing or excessive");
+            Check(response.Step(true,0,true,1,0)==impact,"Camera contact moves while paused");
+            float previous=impact;
+            for(int frame=0;frame<fps;frame++)
+            {float next=response.Step(true,0,true,1,dt);Check(next>=previous&&next<=0,"Camera landing bounces or overshoots");previous=next;}
+            Check(Math.Abs(previous)<.00001f,"Landing fails to settle at low FPS");
+            response.Step(false,-12,true,1,dt);response.Step(true,0,true,1,dt);
+            Check(response.Step(true,0,false,1,dt)==0,"Reduced motion retains landing offset");
+            Check(response.Step(false,float.NaN,true,1,dt)==0,"Nonfinite velocity enters camera pose");
+        }
+        Check(CameraPresentation.Look(CameraViewMode.Architectural).Grain==0&&CameraPresentation.Look(CameraViewMode.Architectural).Chromatic==0,"Architectural look adds visual noise");
+        var old=new CameraPreferences{version=3,landingMotion=false,viewMode=CameraViewMode.Nostalgia};old.Sanitize();
+        Check(old.version==4&&old.landingMotion&&old.viewMode==CameraViewMode.Nostalgia,"Camera migration loses the selected look");
+        old.landingMotion=false;old.Sanitize();Check(!old.landingMotion,"Explicit landing preference overwritten");
+        Console.WriteLine("Camera landing: bounded and monotonic at 10–240 FPS; pause, reset and preference migration checked mathematically.");
+    }
+    static void CivicGeneration()
+    {
+        int built=0,objects=0;var variants=new HashSet<string>();
+        Check((int)LiminalEnvironment.Coast48==11&&(int)SurfaceTheme.Airfield==20,"Existing serialized IDs changed");
+        foreach(var mode in new[]{LiminalGeneration.Conservatory,LiminalGeneration.TransitGallery})foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int seed=0;seed<6;seed++)
+        {
+            var c=new LayoutConfig{Seed=seed,CellSize=size,DoorWidth=door,DoorHeight=Math.Max(4.2f,door*.5f+2.2f),Continuous=true,Procedural=mode,CurveSegments=12};var layout=new Layout(c);var r=layout.At(seed-3,7);
+            Check(r.Plan.Quiet!=null&&r.Plan.Valid(r,c),"Civic region is not integrated into Layout");
+            var g=Architecture.Build(r,layout);Validate(g.Structure);Validate(g.Decoration);Validate(g.Glass);Validate(g.CollisionOnly);
+            Check(g.Structure.Theme==(mode==LiminalGeneration.Conservatory?SurfaceTheme.Conservatory:SurfaceTheme.TransitGallery),"New level uses another biome's palette");
+            Check(g.Glass.TriangleCount>0,"Civic daylight roof has no glazing");
+            Check(Support(g.Structure,new V3(0,r.Height+.3f,0))<.03f,"An opaque roof blocks the skylight");
+            var repeat=Architecture.Build(new Layout(c).At(seed-3,7),c);
+            Check(Hash(g.Structure,g.Decoration,g.Glass)==Hash(repeat.Structure,repeat.Decoration,repeat.Glass),"Civic generation is not reproducible");
+            variants.Add(mode+":"+Hash(g.Structure,g.Decoration,g.Glass));
+            for(int d=0;d<4;d++)if(r.HasExit(d))for(float t=0;t<size*.5f-.2f;t+=.45f)
+            {
+                var point=new V3(Directions.DX[d]*t,1.9f,Directions.DZ[d]*t);
+                Check(Math.Abs(Support(g.Structure,point))<.002f,"Civic doorway approach contains a step or obstruction");
+            }
+            for(int i=0;i<r.Plan.Quiet.Props.Length;i++)
+            {
+                var p=r.Plan.Quiet.Props[i];int source=SourceFurniture.Index(p.Source);var half=SourceFurniture.HalfExtents(source,p.Yaw);
+                Check(Math.Abs(p.Bottom.X)+half.X<size*.5f-.3f&&Math.Abs(p.Bottom.Z)+half.Z<size*.5f-.3f,"Civic furniture penetrates envelope");
+                Check(SourceFurniture.Clear(g.Structure,new SourceFurniturePlacement(i,source,p.Bottom,p.Yaw),.005f),"Civic furnishing intersects solid architecture");
+                if(source==0)
+                {var table=r.Plan.Quiet.Props[i-1];Check(Math.Abs(p.Bottom.Y-(table.Bottom.Y+SourceFurniture.Dimensions(7).Y+.02f))<.0001f,"Bottle unsupported by its cafe table");}
+                else Check(Math.Abs(Support(g.Structure,p.Bottom)-p.Bottom.Y+.02f)<.001f,"Civic furniture is unsupported");
+                Check(Math.Abs(p.Bottom.X)-half.X>door*.5f&&Math.Abs(p.Bottom.Z)-half.Z>door*.5f,"Furniture blocks central circulation");objects++;
+            }
+            Check(g.Fixtures.All(f=>f.CustomColor&&f.Power>0&&f.Range>0),"Unspecified civic fixture colour or range");built++;
+        }
+        var mixed=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Expanded,EnableCivicLevels=true};
+        foreach(var e in new[]{LiminalEnvironment.Conservatory,LiminalEnvironment.TransitGallery})
+        {Check(LiminalRegions.Find(mixed,e,0,0,out int x,out int z),"Civic destination missing from mixed exploration / TP");Check(LiminalRegions.At(mixed,x,z)==e,"Civic TP selects a different environment");}
+        mixed.EnableCivicLevels=false;Check(!LiminalRegions.Find(mixed,LiminalEnvironment.Conservatory,0,0,out _,out _),"Disabled civic regions still found");
+        Check(variants.Count>=24,"New civic rooms lack architectural variation");
+        Console.WriteLine($"Civic levels: {built} generated rooms, {variants.Count} geometry variants and {objects} furniture instances checked; 2 new procedural environments, zero new downloaded models.");
     }
     static void QuietGeneration()
     {

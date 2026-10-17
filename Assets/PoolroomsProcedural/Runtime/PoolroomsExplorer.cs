@@ -113,9 +113,10 @@ namespace Poolrooms
                 pauseMenu.ApplyPreferences();
             }
             if(!IsPaused){Cursor.lockState=CursorLockMode.Locked;Cursor.visible=false;}
+            if(showStartMenu)pauseMenu.OpenStartMenu();
         }
         public void SetPaused(bool value)
-        {IsPaused=value;dash.Cancel();dashPressed=false;ClearViewMotion();sprintPreference.Reset();if(slide!=null)slide.Stop();slideHeld=false;FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);}
+        {IsPaused=value;inspectHeld=false;dash.Cancel();dashPressed=false;ClearViewMotion();sprintPreference.Reset();if(slide!=null)slide.Stop();slideHeld=false;FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);}
         public void ResetSprintPreference(){sprintPreference.Reset();}
         public void ResetToSpawn()
         {Teleport(world!=null?world.SpawnWorldPosition:Vector3.up*.1f);}
@@ -145,6 +146,9 @@ namespace Poolrooms
         {move=movement;look=mouseDelta;jump=jumpPressed;sprint=sprintHeld;escape=escapePressed;click=clickPressed;}
         public void FeedUtilityInput(bool chat,bool master,bool flash,bool cycle,bool up,bool down)
         {chatPressed=chat;masterPressed=master;flashPressed=flash;flashCycle=cycle;ascend=up;descend=down;}
+        [Tooltip("Open the title screen before exploration starts.")] public bool showStartMenu=true;
+        private bool inspectHeld;
+        public void FeedInspectInput(bool held){inspectHeld=held;}
         public void FeedCarryInput(bool grab,bool drop){grabPressed=grab;dropPressed=drop;}
         public void FeedSlideInput(bool held){slideHeld=held;}
         private bool renderingShortcut;
@@ -169,7 +173,7 @@ namespace Poolrooms
                 jump=Input.GetKeyDown(KeyCode.Space);sprint=Input.GetKey(KeyCode.Backslash)||Input.GetKey(KeyCode.BackQuote)||Input.GetKey(KeyCode.Less);FeedDashInput(Input.GetKeyDown(KeyCode.LeftShift));FeedSlideInput(Input.GetKey(KeyCode.LeftControl));
                 escape=Input.GetKeyDown(KeyCode.Escape);click=Input.GetMouseButtonDown(0);FeedRenderingShortcut(Input.GetKeyDown(KeyCode.F7));
                 FeedUtilityInput(Input.GetKeyDown(KeyCode.Y),Input.GetKeyDown(KeyCode.M),Input.GetKeyDown(KeyCode.F),Input.GetKeyDown(KeyCode.V),Input.GetKey(KeyCode.Space),Input.GetKey(KeyCode.LeftControl));
-                FeedCarryInput(Input.GetKeyDown(KeyCode.E),Input.GetKeyDown(KeyCode.Q));
+                FeedCarryInput(Input.GetKeyDown(KeyCode.E),Input.GetKeyDown(KeyCode.Q));FeedInspectInput(Input.GetKey(KeyCode.R));
 #else
                 FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);FeedUtilityInput(false,false,false,false,false,false);FeedCarryInput(false,false);FeedSlideInput(false);FeedDashInput(false);
 #endif
@@ -206,6 +210,7 @@ namespace Poolrooms
             if(Vehicle!=null){if(grab)Vehicle.TryExit();}
             else if(carry!=null&&carry.isActiveAndEnabled){if(drop)carry.Drop();else if(grab)carry.Interact();}
             if(world!=null&&!world.ViewerReady&&(waitForDestination||masterMode==null||!masterMode.Noclip)){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
+            if(inspectHeld&&Vehicle==null&&carry!=null&&carry.Inspect(look))look=Vector2.zero;
             float previousPitch=pitch;
             transform.Rotate(0,look.x*lookSensitivity,0);
             pitch=Mathf.Clamp(pitch-look.y*lookSensitivity*(invertLookY?-1:1),-85,85);

@@ -14,7 +14,8 @@ namespace Poolrooms
         [SerializeField] private string preferencesKey="Poolrooms.Camera.v1";
         private PoolroomsExplorer explorer;
         private PoolroomsGameSettings gameSettings;
-        private bool paused,settings;
+        private bool paused,settings,atTitle,journeyStarted;
+        private Button headerAction;
         private float previousTimeScale;
         private bool previousAudioPause,previousCursorVisible;
         private CursorLockMode previousCursorLock;
@@ -59,7 +60,29 @@ namespace Poolrooms
         {
             if(gameSettings!=null&&gameSettings.Display.Pending){gameSettings.RevertDisplay();return;}
             if(modal!=null){CloseModal();return;}
-            if(!paused)Pause();else if(settings)ShowHome();else Resume(true);
+            if(!paused)Pause();else if(settings)ShowHome();else if(!atTitle)Resume(true);
+        }
+        public void OpenStartMenu()
+        {
+            atTitle=true;
+            if(!paused)Pause();else ShowHome();
+        }
+        public void BeginExploration()
+        {
+            atTitle=false;journeyStarted=true;Resume(true);
+            Cursor.lockState=CursorLockMode.Locked;Cursor.visible=false;
+        }
+        private void ConfirmExit()
+        {
+            var dialog=CreateModal("Cerrar la exploración", "Los ajustes se conservan. La posición y los objetos movidos no se guardan entre sesiones.");
+            ActionButton("Salir",()=>{gameSettings?.Flush();
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying=false;
+#else
+                Application.Quit();
+#endif
+            },"pr-primary",dialog);
+            ActionButton("Seguir aquí",CloseModal,"pr-secondary",dialog);
         }
         public void Pause()
         {
@@ -124,26 +147,34 @@ namespace Poolrooms
             if(styles==null)throw new InvalidOperationException("Copia Runtime/Resources/PoolroomsSettings.uss con la actualización.");
             overlay.styleSheets.Add(styles);shell=Element("pr-shell",overlay);
             var header=Element("pr-header",shell);var brand=Element("pr-heading",header);
-            Label("POOLROOMS  /  EXPLORACIÓN", "pr-eyebrow",brand);title=Label("Pausa","pr-title",brand);subtitle=Label("Tu tiempo, tu ritmo.","pr-muted",brand);
-            ActionButton("Continuar  ·  Esc",()=>Resume(true),"pr-quiet-button",header);
-            body=Element("pr-body",shell);home=Element("pr-home",body);settingsBody=Element("pr-settings",body);
+            Label("ESPACIOS  /  EXPLORACIÓN", "pr-eyebrow",brand);title=Label("Pausa","pr-title",brand);subtitle=Label("Tu tiempo, tu ritmo.","pr-muted",brand);
+            headerAction=ActionButton("Continuar  ·  Esc",()=>{if(atTitle)ShowHome();else Resume(true);},"pr-quiet-button",header);
+            body=Element("pr-body",shell);home=new ScrollView(ScrollViewMode.Vertical);home.AddToClassList("pr-home");body.Add(home);settingsBody=Element("pr-settings",body);
             overlay.RegisterCallback<GeometryChangedEvent>(_=>Responsive());
             settingsBody.style.display=DisplayStyle.None;overlay.style.display=DisplayStyle.None;
         }
         private void ShowHome()
         {
             if(home==null)return;settings=false;query="";CloseModal();home.Clear();settingsBody.style.display=DisplayStyle.None;home.style.display=DisplayStyle.Flex;
-            title.text="Pausa";subtitle.text="Tu tiempo, tu ritmo.";
+            title.text=atTitle?"Espacios sin fin":"Pausa";subtitle.text=atTitle?"Un mundo para perder la noción del tiempo.":"Tu tiempo, tu ritmo.";
+            if(headerAction!=null){headerAction.text=atTitle?"Inicio":"Continuar  ·  Esc";}
+            shell.EnableInClassList("pr-title-screen",atTitle);
             var welcome=Element("pr-welcome",home);Label("UN MOMENTO DE CALMA","pr-eyebrow",welcome);
-            Label("El recorrido\npuede esperar.","pr-home-title",welcome);
+            Label(atTitle?"Hay otro lugar\nal otro lado.":"El recorrido\npuede esperar.","pr-home-title",welcome);
             var room=explorer.world!=null?explorer.world.RoomAtViewer():null;
             Label(explorer.world!=null&&explorer.world.InsideMall?"Centro comercial":room!=null?InteriorPlanner.Name(room.Environment):"Explora a tu ritmo.","pr-muted",welcome);
             var actions=Element("pr-home-actions",home);
-            ActionButton("Continuar explorando",()=>Resume(true),"pr-primary",actions);
+            ActionButton(atTitle?(journeyStarted?"Retomar recorrido":"Comenzar exploración"):"Continuar explorando",()=>{if(atTitle)BeginExploration();else Resume(true);},"pr-primary",actions);
             ActionButton("Ajustes",()=>OpenSettings(category),"pr-secondary",actions);
             ActionButton("Ver controles",()=>OpenSettings(SettingsCategory.Controls),"pr-secondary",actions);
-            if(explorer.MasterMode!=null&&explorer.MasterMode.IsActive)
+            if(!atTitle&&explorer.MasterMode!=null&&explorer.MasterMode.IsActive)
                 ActionButton("Modo administrador",()=>{Resume(true);explorer.MasterMode.ToggleMenu();},"pr-quiet-button",actions);
+            if(!atTitle)ActionButton("Volver al inicio",OpenStartMenu,"pr-quiet-button",actions);
+            if(atTitle){
+                ActionButton("Salir del juego",ConfirmExit,"pr-quiet-button",actions);
+                if(explorer.world!=null&&explorer.world.profile!=null)Label("Semilla del recorrido · "+explorer.world.profile.seed,"pr-footnote",home);
+                Label("Retomar conserva esta sesión abierta; todavía no hay guardado de partida.","pr-footnote",home);
+            }
             Label("Sin daño. Sin prisa. Sin objetivos obligatorios.","pr-footnote",home);
             home.schedule.Execute(()=>home.Q<Button>()?.Focus());Responsive();
         }
@@ -293,7 +324,7 @@ namespace Poolrooms
             var camera=Prefs.camera;
             Row("Visualización","Cada estilo conserva la iluminación propia de las habitaciones.",out var modes);modes.AddToClassList("pr-camera-cards");
             var buttons=new List<Button>();
-            for(int i=0;i<5;i++)
+            for(int i=0;i<Enum.GetValues(typeof(CameraViewMode)).Length;i++)
             {
                 int index=i;var look=CameraPresentation.Look((CameraViewMode)i);
                 var button=ActionButton(look.Name,()=>{Prefs.camera.viewMode=(CameraViewMode)index;Changed(SettingsChange.Camera);foreach(var b in buttons)b.EnableInClassList("pr-selected",buttons.IndexOf(b)==index);},"pr-camera-card",modes);
@@ -305,6 +336,7 @@ namespace Poolrooms
             Slider("Tamaño de destellos","Escala óptica de halos; no cambia la potencia de las lámparas.",.5f,1.5f,camera.flareSize,v=>Prefs.camera.flareSize=v,SettingsChange.Camera,percent:true);
             Slider("Reflejos de lente","Anillos y reflejos suaves alrededor de luces visibles.",0,1,camera.ghostIntensity,v=>Prefs.camera.ghostIntensity=v,SettingsChange.Camera,percent:true);
             locomotionToggle=Toggle("Balanceo al correr","Movimiento suave por desplazamiento real e inercia de la linterna.",camera.locomotionMotion,v=>Prefs.camera.locomotionMotion=v,SettingsChange.Camera);
+            Toggle("Respuesta al aterrizar","Flexión suave y breve de la cámara al tocar el suelo. Reducir movimiento la desactiva.",camera.landingMotion,v=>Prefs.camera.landingMotion=v,SettingsChange.Camera);
             Slider("Intensidad del balanceo","Controla cámara y linterna; cero deja la vista estable.",0,1,camera.motionIntensity,v=>Prefs.camera.motionIntensity=v,SettingsChange.Camera,percent:true);
             Slider("Salpicaduras y gotas","Cantidad del efecto al tocar el agua.",0,1,camera.splashIntensity,v=>Prefs.camera.splashIntensity=v,SettingsChange.Camera,percent:true);
             Toggle("Gotas en la cámara","Efectos de contacto con el agua.",camera.waterEffects,v=>Prefs.camera.waterEffects=v,SettingsChange.Camera);
@@ -326,6 +358,7 @@ namespace Poolrooms
         }
         private void DrawControls()
         {
+            Note("Objetos: E toma o interactúa; Q suelta. Mantén R y mueve el ratón para examinar el objeto sostenido sin girar la cámara.");
             Slider("Sensibilidad del ratón","Velocidad de la mirada.",.01f,.3f,Prefs.sensitivity,v=>Prefs.sensitivity=v,SettingsChange.Controls);
             Toggle("Invertir mirada vertical","Invierte el movimiento arriba y abajo.",Prefs.invertY,v=>Prefs.invertY=v,SettingsChange.Controls);
             Toggle("Correr con una pulsación","La tecla | alterna caminar y correr, sin mantenerla.",Prefs.toggleSprint,v=>Prefs.toggleSprint=v,SettingsChange.Controls);

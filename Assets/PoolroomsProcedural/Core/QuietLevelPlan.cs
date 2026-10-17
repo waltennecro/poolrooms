@@ -31,14 +31,17 @@ namespace Poolrooms.Core
         public bool Valid(Room room,LayoutConfig c)
         {return QuietLevelPlanner.IsLevel(Environment)&&room.Environment==Environment&&room.Width==c.CellSize&&room.Depth==c.CellSize&&Props!=null&&Props.Length<=12&&Floors>=1&&Floors<=5;}
         public bool Sheltered(float x,float z,float cellSize)
-        {return Environment==LiminalEnvironment.Archive906||Environment==LiminalEnvironment.Courtyard188&&(Math.Abs(x)>cellSize*.25f||z>cellSize*.25f);}
+        {return QuietLevelPlanner.IsCivic(Environment)||Environment==LiminalEnvironment.Archive906||Environment==LiminalEnvironment.Courtyard188&&(Math.Abs(x)>cellSize*.25f||z>cellSize*.25f);}
     }
     public static class QuietLevelPlanner
     {
+        public static bool IsCivic(LiminalEnvironment e)
+        {return e==LiminalEnvironment.Conservatory||e==LiminalEnvironment.TransitGallery;}
         public static bool IsLevel(LiminalEnvironment e)
-        {return e==LiminalEnvironment.Archive906||e==LiminalEnvironment.Courtyard188||e==LiminalEnvironment.Coast48;}
+        {return e==LiminalEnvironment.Archive906||e==LiminalEnvironment.Courtyard188||e==LiminalEnvironment.Coast48||IsCivic(e);}
         public static void Describe(Room room,LayoutConfig c)
         {
+            if(IsCivic(room.Environment)){DescribeCivic(room,c);return;}
             var e=room.Environment;room.ZoneId=-1;room.Width=room.Depth=c.CellSize;
             var random=new StableRandom(LiminalRegions.Hash(c.Seed,room.X,room.Z,0x480906u));uint seed=random.Next();
             int floors=e==LiminalEnvironment.Archive906?2:e==LiminalEnvironment.Courtyard188?3+random.Range(3):1;
@@ -73,6 +76,24 @@ namespace Poolrooms.Core
             var plan=new QuietLevelPlan(e,floors,variant,seed,props,sea,shore,pavilion);
             room.Plan=new ProceduralPlan(e,new PlannedModule[0],sea.Width>0?new[]{sea}:new WaterRegion[0],c.DoorWidth*.5f+.8f,0,0,quiet:plan);
             if(!plan.Valid(room,c))throw new ArgumentException("Invalid quiet level room.");
+        }
+        static void DescribeCivic(Room room,LayoutConfig c)
+        {
+            var e=room.Environment;room.ZoneId=-1;room.Width=room.Depth=c.CellSize;room.Height=e==LiminalEnvironment.Conservatory?9:8.5f;
+            uint seed=LiminalRegions.Hash(c.Seed,room.X,room.Z,0x160C03u);var random=new StableRandom(seed);
+            // Furniture lives in the four side bays, leaving a wide clear cross to every exit.
+            float bay=c.CellSize*(.26f+(seed%3)*.01f);bool garden=e==LiminalEnvironment.Conservatory;var props=new QuietPropPlan[garden?12:8];
+            for(int i=0;i<4;i++)
+            {
+                float x=(i%2==0?-1:1)*bay,z=(i<2?-1:1)*bay;
+                int slot=i*(garden?3:2);
+                props[slot]=new QuietPropPlan(new V3(x,.02f,z),-1,garden?"B_CafeTable":"U_SheenWoodLeatherSofa",i%2==0?90:-90);
+                props[slot+1]=new QuietPropPlan(new V3(x,garden?.88249021f:.02f,z+(garden?0:1.8f)),-1,garden?"WaterBottle":"U_AntiqueCamera");
+                if(garden)props[slot+2]=new QuietPropPlan(new V3(x+(i%2==0?-1:1)*1.05f,.02f,z),-1,"B_CafeChair",i%2==0?-90:90);
+            }
+            var plan=new QuietLevelPlan(e,1,random.Range(8),seed,props,new WaterRegion());
+            room.Plan=new ProceduralPlan(e,new PlannedModule[0],new WaterRegion[0],c.DoorWidth*.5f+.8f,0,0,quiet:plan);
+            if(!plan.Valid(room,c))throw new ArgumentException("Invalid civic level room.");
         }
         static float CoastShore(Room r,LayoutConfig c)
         {

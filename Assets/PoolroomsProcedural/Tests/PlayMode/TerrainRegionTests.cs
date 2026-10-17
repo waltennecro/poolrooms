@@ -20,7 +20,7 @@ namespace Poolrooms.Tests
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();profile.columns=profile.rows=1;profile.enableTerrainRegions=true;profile.terrainEntranceChance=1;profile.terrainViewRadius=2;
                 profile.zoneMode=ZoneMode.Single;for(int i=0;i<ZoneCatalog.Count;i++)if(ZoneCatalog.Get(i).Pools==PoolPlan.Dry){profile.singleZone=i;break;}
                 root=new GameObject("Terrain integration world");var world=root.AddComponent<PoolroomsWorld>();world.unifiedExploration=false;world.profile=profile;world.generateOnStart=false;world.streaming=false;
-                actor=new GameObject("Terrain integration explorer");var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;
+                actor=new GameObject("Terrain integration explorer");var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
                 var body=actor.GetComponent<CharacterController>();body.height=1.8f;body.center=Vector3.up*.9f;body.radius=.32f;body.skinWidth=.025f;body.stepOffset=.25f;
                 var eyes=new GameObject("Terrain test eyes");eyes.transform.SetParent(actor.transform,false);eyes.transform.localPosition=Vector3.up*1.65f;
                 var camera=eyes.AddComponent<Camera>();camera.farClipPlane=180;explorer.eyes=eyes.transform;explorer.world=world;world.viewer=actor.transform;

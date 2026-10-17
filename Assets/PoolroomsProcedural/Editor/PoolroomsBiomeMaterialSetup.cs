@@ -36,11 +36,11 @@ namespace Poolrooms.Editor
         private static void EnsureSoftPlay(PoolroomsBiomeMaterials library)
         {
             int capacity=System.Enum.GetValues(typeof(SurfaceTheme)).Length*6;
-            if(library.surfaces!=null&&library.surfaces.Length>=capacity&&library.Find(SurfaceTheme.Airfield,5)!=null)return;
+            if(library.surfaces!=null&&library.surfaces.Length>=capacity&&library.Find(SurfaceTheme.TransitGallery,5)!=null)return;
             Directory.CreateDirectory(Folder);AssetDatabase.Refresh();
             if(library.surfaces==null)library.surfaces=new Material[capacity];
             else if(library.surfaces.Length<capacity)System.Array.Resize(ref library.surfaces,capacity);
-            for(int theme=(int)SurfaceTheme.SoftPlay;theme<=(int)SurfaceTheme.Airfield;theme++)for(int slot=0;slot<6;slot++)
+            for(int theme=(int)SurfaceTheme.SoftPlay;theme<System.Enum.GetValues(typeof(SurfaceTheme)).Length;theme++)for(int slot=0;slot<6;slot++)
             {
                 if(library.Find((SurfaceTheme)theme,slot)!=null)continue;
                 string path=Folder+"/"+(SurfaceTheme)theme+"_"+(Surface)slot+".mat";
@@ -59,7 +59,7 @@ namespace Poolrooms.Editor
             var library=AssetDatabase.LoadAssetAtPath<PoolroomsBiomeMaterials>(Library);
             if(library==null){library=ScriptableObject.CreateInstance<PoolroomsBiomeMaterials>();AssetDatabase.CreateAsset(library,Library);}
             library.surfaces=new Material[System.Enum.GetValues(typeof(SurfaceTheme)).Length*6];
-            for(int theme=(int)SurfaceTheme.IndoorPlay;theme<=(int)SurfaceTheme.Airfield;theme++)for(int slot=0;slot<6;slot++)
+            for(int theme=(int)SurfaceTheme.IndoorPlay;theme<System.Enum.GetValues(typeof(SurfaceTheme)).Length;theme++)for(int slot=0;slot<6;slot++)
             {
                 string path=Folder+"/"+(SurfaceTheme)theme+"_"+(Surface)slot+".mat";
                 var m=AssetDatabase.LoadAssetAtPath<Material>(path);var generated=PoolroomsBiomeMaterialFactory.Create((SurfaceTheme)theme,(Surface)slot);

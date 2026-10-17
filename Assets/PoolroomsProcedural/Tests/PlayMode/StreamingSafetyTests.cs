@@ -52,7 +52,7 @@ namespace Poolrooms.Tests
                 for(int i=0;i<ZoneCatalog.Count;i++)if(ZoneCatalog.Get(i).Pools==PoolPlan.Dry){profile.singleZone=i;break;}
                 root=new GameObject("v36 publication test");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();
                 world.unifiedExploration=false;world.profile=profile;world.generateOnStart=false;world.streaming=false;
-                actor=new GameObject("v36 publication actor");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();
+                actor=new GameObject("v36 publication actor");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;
                 explorer.externalInput=true;explorer.world=world;world.viewer=actor.transform;
                 var body=actor.GetComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.skinWidth=.025f;body.center=Vector3.up*.9f;
                 root.SetActive(true);world.BuildAllImmediate();explorer.Teleport(world.SpawnWorldPosition);actor.SetActive(true);

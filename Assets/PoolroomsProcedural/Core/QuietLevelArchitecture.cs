@@ -18,13 +18,14 @@ namespace Poolrooms.Core
             {
                 Box(output.Structure,0,0,room.Width,room.Depth,-.3f,0,Surface.Tile);
                 Envelope(output,room,c);
-                if(plan.Environment==LiminalEnvironment.Archive906)Archive(output,room,c);else Courtyard(output,room,c);
+                if(QuietLevelPlanner.IsCivic(plan.Environment))Civic(output,room,c);
+                else if(plan.Environment==LiminalEnvironment.Archive906)Archive(output,room,c);else Courtyard(output,room,c);
             }
             Entrances(output,room,c);
             ProceduralArchitecture.Prune(output.Structure);ProceduralArchitecture.Prune(output.Decoration);return output;
         }
         public static SurfaceTheme Theme(LiminalEnvironment e)
-        {return e==LiminalEnvironment.Archive906?SurfaceTheme.ArchiveWood:e==LiminalEnvironment.Courtyard188?SurfaceTheme.CourtyardStone:SurfaceTheme.CoastSand;}
+        {return e==LiminalEnvironment.Archive906?SurfaceTheme.ArchiveWood:e==LiminalEnvironment.Conservatory?SurfaceTheme.Conservatory:e==LiminalEnvironment.TransitGallery?SurfaceTheme.TransitGallery:e==LiminalEnvironment.Courtyard188?SurfaceTheme.CourtyardStone:SurfaceTheme.CoastSand;}
         static void Envelope(RoomGeometry o,Room r,LayoutConfig c)
         {
             for(int side=0;side<4;side++)
@@ -34,6 +35,75 @@ namespace Poolrooms.Core
                 else Box(wall,0,0,r.Width,.28f,0,r.Height,Surface.Plaster);
                 wall.Indices[(int)Surface.Plaster].AddRange(wall.Indices[(int)Surface.Tile]);wall.Indices[(int)Surface.Tile].Clear();
                 wall.TranslateRotate(new V3(Directions.DX[side]*r.Width*.5f,0,Directions.DZ[side]*r.Depth*.5f),side*Shapes.Pi*.5f);o.Structure.Append(wall);
+            }
+        }
+        static void Civic(RoomGeometry o,Room r,LayoutConfig c)
+        {
+            bool garden=r.Environment==LiminalEnvironment.Conservatory;float half=r.Width*.5f;
+            // The roof is physically cut away for a long daylight clerestory. The glass
+            // sits above structural ribs, so the floor is never covered by a hidden slab.
+            float aperture=Math.Min(half-3, garden?r.Width*(.29f+(r.Plan.Quiet.Variant%3)*.015f):r.Width*(.21f+(r.Plan.Quiet.Variant%3)*.015f));
+            var roof=new List<PlanRect>{new PlanRect(-half,-half,half,half)};
+            PlanRect.Subtract(roof,new PlanRect(-aperture,-half+2,aperture,half-2));
+            foreach(var p in roof)Box(o.Structure,p.X,p.Z,p.Width,p.Depth,r.Height,r.Height+.2f,Surface.Plaster);
+            Box(o.Glass,0,0,aperture*2,r.Depth-4,r.Height+.06f,r.Height+.085f,Surface.Tile);
+            for(float z=-half+2;z<=half-2;z+=3.5f)
+            {
+                Box(o.Decoration,0,z,r.Width,.12f,r.Height-.2f,r.Height,Surface.Metal);
+                foreach(int sign in new[]{-1,1})
+                {
+                    float x=sign*(half-1.1f);
+                    Shapes.Column(o.Structure,x,z,.16f,0,r.Height,12,Surface.Metal,1.2f);
+                    Box(o.Decoration,x,z,.5f,.36f,r.Height-.55f,r.Height-.5f,Surface.Glow);
+                }
+            }
+            // Broad inlaid routes remain clear even with the largest doors in the profile.
+            float aisle=Math.Max(c.DoorWidth+1,4.5f);
+            Box(o.Decoration,0,0,aisle,r.Depth,.003f,.009f,Surface.Accent);
+            foreach(int sign in new[]{-1,1})Box(o.Decoration,sign*(half+aisle*.5f)*.5f,0,half-aisle*.5f,aisle,.003f,.009f,Surface.Accent);
+            foreach(int x in new[]{-1,1})foreach(int z in new[]{-1,1})
+            {
+                float bx=x*half*.79f,bz=z*half*.65f;
+                // Recessed planters and built-in seats do not block the central cross.
+                Box(o.Structure,bx,bz,1.2f,3.2f,0,.5f,Surface.Plaster);
+                if(garden)
+                {
+                    Box(o.Decoration,bx,bz,1.05f,3.05f,.5f,.52f,Surface.Accent);
+                    // Individual curved fronds, shared batched geometry, no collider/Update per leaf.
+                    for(int stem=0;stem<7;stem++)
+                    {
+                        float sz=bz-1.2f+stem*.4f,height=.9f+(r.Plan.Quiet.Seed+(uint)stem*31)%13*.07f;
+                        Shapes.Column(o.Decoration,bx,sz,.022f,.52f,height,5,Surface.Accent,1.2f);
+                        for(int leaf=0;leaf<6;leaf++)
+                        {
+                            float a=leaf*Shapes.Pi/3,cs=Shapes.Cos(a),sn=Shapes.Sin(a),y=height-.12f;
+                            var start=new V3(bx,y,sz);var tip=new V3(bx+cs*.52f,y+.14f,sz+sn*.52f);
+                            var left=new V3(bx+cs*.26f-sn*.12f,y+.23f,sz+sn*.26f+cs*.12f);
+                            var right=new V3(bx+cs*.26f+sn*.12f,y+.23f,sz+sn*.26f-cs*.12f);
+                            var n=V3.Cross(left-start,tip-start).Unit;if(n.Y<0)n=n*-1;
+                            var n2=V3.Cross(tip-start,right-start).Unit;if(n2.Y<0)n2=n2*-1;
+                            o.Decoration.Triangle(start,left,tip,n,n,n,new V2(0,0),new V2(.5f,1),new V2(1,0),Surface.Slide);
+                            o.Decoration.Triangle(start,tip,right,n2,n2,n2,new V2(0,0),new V2(1,0),new V2(.5f,1),Surface.Slide);
+                            o.Decoration.Triangle(start,left,tip,n*-1,n*-1,n*-1,new V2(0,0),new V2(.5f,1),new V2(1,0),Surface.Slide);
+                            o.Decoration.Triangle(start,tip,right,n2*-1,n2*-1,n2*-1,new V2(0,0),new V2(1,0),new V2(.5f,1),Surface.Slide);
+                        }
+                    }
+                }
+                else
+                {
+                    Box(o.Structure,bx-x*.8f,bz,.6f,3.2f,.05f,.48f,Surface.Accent);
+                    Box(o.Structure,bx-x*.55f,bz,.12f,3.2f,.48f,1.1f,Surface.Accent);
+                    // Tall timetable case, clock and ticket counter; no fake inaccessible doorway.
+                    Box(o.Structure,bx,bz,.18f,2.7f,.5f,2.55f,Surface.Metal);
+                    for(int row=0;row<9;row++)Box(o.Decoration,bx-x*.1f,bz,.018f,2.3f,1.15f+row*.13f,1.18f+row*.13f,Surface.Glow);
+                }
+            }
+            o.Decoration.EmissionTint=new V3(1,.94f,.84f);o.Decoration.EmissionStrength=.25f;
+            foreach(int sign in new[]{-1,1})
+            {
+                float z=sign*r.Depth*.24f;
+                o.Fixtures.Add(new Fixture{Position=new V3(0,r.Height-.4f,z),Width=aperture*1.8f,Depth=5,Power=9000,Range=r.Width*.75f,CustomColor=true,LightColor=new V3(1,.96f,.9f),SolarFill=true});
+                foreach(int side in new[]{-1,1})o.Fixtures.Add(new Fixture{Position=new V3(side*r.Width*.32f,4.5f,z),Width=1.2f,Depth=.4f,Power=1800,Range=12,CustomColor=true,LightColor=o.Decoration.EmissionTint});
             }
         }
         static void Archive(RoomGeometry o,Room r,LayoutConfig c)

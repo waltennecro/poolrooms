@@ -18,7 +18,7 @@ namespace Poolrooms
             explorer.FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);
             explorer.FeedUtilityInput(false,false,false,false,false,false);
             explorer.FeedCarryInput(false,false);explorer.FeedSlideInput(false);explorer.FeedRenderingShortcut(false);
-            explorer.FeedDashInput(false);
+            explorer.FeedDashInput(false);explorer.FeedInspectInput(false);
             explorer.externalInput=false;
         }
         private void Update()
@@ -33,7 +33,7 @@ namespace Poolrooms
             explorer.FeedUtilityInput(k!=null&&k.yKey.wasPressedThisFrame,k!=null&&k.mKey.wasPressedThisFrame,
                 k!=null&&k.fKey.wasPressedThisFrame,k!=null&&k.vKey.wasPressedThisFrame,k!=null&&k.spaceKey.isPressed,k!=null&&k.leftCtrlKey.isPressed);
             explorer.FeedCarryInput(k!=null&&k.eKey.wasPressedThisFrame,k!=null&&k.qKey.wasPressedThisFrame);
-            explorer.FeedSlideInput(k!=null&&k.leftCtrlKey.isPressed);
+            explorer.FeedSlideInput(k!=null&&k.leftCtrlKey.isPressed);explorer.FeedInspectInput(k!=null&&k.rKey.isPressed);
             explorer.FeedRenderingShortcut(k!=null&&k.f7Key.wasPressedThisFrame);
         }
     }

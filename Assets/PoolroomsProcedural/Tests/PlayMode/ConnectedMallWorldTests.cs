@@ -24,7 +24,7 @@ namespace Poolrooms.Tests
                 root=new GameObject("v28 connected world");root.transform.position=new Vector3(21,6,-17);root.SetActive(false);
                 var world=root.AddComponent<PoolroomsWorld>();world.profile=profile;
                 actor=new GameObject("v28 connected explorer");actor.SetActive(false);actor.transform.position=root.transform.position+Vector3.up*.1f;
-                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.externalInput=true;explorer.world=world;
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;
                 var eyes=new GameObject("v28 eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;world.viewer=actor.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 float deadline=Time.realtimeSinceStartup+90;while(!world.ViewerReady&&Time.realtimeSinceStartup<deadline)yield return null;

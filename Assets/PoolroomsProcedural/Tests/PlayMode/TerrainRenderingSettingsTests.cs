@@ -23,7 +23,7 @@ namespace Poolrooms.Tests
                 PlayerPrefs.DeleteKey(key);Time.timeScale=1;AudioListener.pause=false;
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();profile.columns=profile.rows=1;profile.continuousWorld=false;profile.enableTerrainRegions=false;profile.enableGiantMalls=false;profile.curveSegments=12;
                 root=new GameObject("v33 rendering world");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();world.profile=profile;world.unifiedExploration=false;world.generateOnStart=false;
-                actor=new GameObject("v33 graphics explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;
+                actor=new GameObject("v33 graphics explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;
                 var eyes=new GameObject("v33 eyes");eyes.transform.SetParent(actor.transform,false);var camera=eyes.AddComponent<Camera>();camera.farClipPlane=180;explorer.eyes=eyes.transform;
                 world.BuildAllImmediate();actor.transform.position=world.SpawnWorldPosition;root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 var settings=actor.GetComponent<PoolroomsGameSettings>();var menu=actor.GetComponent<PoolroomsPauseMenu>();var master=explorer.MasterMode;
@@ -63,7 +63,7 @@ namespace Poolrooms.Tests
                 PlayerPrefs.DeleteKey(key);Time.timeScale=1;AudioListener.pause=false;
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();profile.columns=profile.rows=1;profile.continuousWorld=false;profile.enableTerrainRegions=true;profile.enableGiantMalls=false;profile.terrainEntranceChance=0;profile.curveSegments=12;
                 root=new GameObject("v33 grass world");root.SetActive(false);var world=root.AddComponent<PoolroomsWorld>();world.profile=profile;world.unifiedExploration=false;
-                actor=new GameObject("v33 grass explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;
+                actor=new GameObject("v33 grass explorer");actor.SetActive(false);var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.world=world;explorer.externalInput=true;world.viewer=actor.transform;
                 var eyes=new GameObject("v33 eyes");eyes.transform.SetParent(actor.transform,false);eyes.AddComponent<Camera>();explorer.eyes=eyes.transform;
                 root.SetActive(true);actor.SetActive(true);yield return null;yield return null;
                 float deadline=Time.realtimeSinceStartup+90;while(!world.ViewerReady&&Time.realtimeSinceStartup<deadline)yield return null;

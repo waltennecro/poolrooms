@@ -118,13 +118,22 @@
         "678c559b505def2b63a58268b10374fa8f0f6e01",
         "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d"
       ]
+    },
+    {
+      "id": "R16",
+      "feature": "Integrated title/settings flow, two connected civic environments, camera landing/architectural look, held-object inspection, bounded connection refresh and active-light optical scanning",
+      "status": "implemented_native_validation_pending",
+      "newExternalModels": 0,
+      "newProceduralEnvironments": 2,
+      "documentation": "Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R16.md",
+      "packageFiles": 649
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16989170,
+    "assertions": 18354240,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 198,
+    "syntaxScripts": 200,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 36,
     "citySourcesAudited": 5,
@@ -164,7 +173,18 @@
     "bistroInteractableInstancesChecked": 96,
     "bistroComponentSources": 3,
     "bistroPngMaps": 16,
-    "bistroArtRegenerationByteExact": true
+    "bistroArtRegenerationByteExact": true,
+    "civicRoomSamples": 72,
+    "civicGeometryVariants": 66,
+    "civicFurnitureInstances": 720,
+    "cameraLandingFramerates": [
+      10,
+      20,
+      30,
+      60,
+      144,
+      240
+    ]
   },
   "pending": [
     {
@@ -196,7 +216,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Complete external building sources remain pending; Bistro adds three architectural/furniture components, not buildings. Native Unity compilation/Play/shaders/collision and measured visual performance remain blocked without Editor/project; use the R13 runner and capture. R15 does not recover exact lost v40-v47 files.",
+  "nextIndependentWork": "R16 adds two original civic environments and presentation/interaction improvements. Complete external building models and native Unity compilation, PlayMode, shaders, collision, visual quality, memory and FPS remain pending. Use the R13 runner and capture. Exact lost v40–v47 files have not been recovered; do not relabel reconstruction as exact recovery.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -430,5 +450,23 @@
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false,
     "nativeUnityExecuted": false
+  },
+  "r16Validation": {
+    "core": "passed",
+    "nativeUnityExecuted": false,
+    "roomSamples": 72,
+    "geometryVariants": 66,
+    "furnitureInstances": 720,
+    "protectedGeometryFingerprints": 188,
+    "renderDistanceReduced": false,
+    "sourceCatalogChanged": false,
+    "flashlightChanged": false,
+    "coreAssertions": 18354240,
+    "syntaxScripts": 200,
+    "syntaxConfigurations": 4,
+    "licenseAndTextureAudits": "passed",
+    "nativeRunnerContractChecks": "passed_fake_subprocess_not_Unity",
+    "uvBakerChecks": "passed",
+    "nativePlayModeTestsAddedButUnrun": true
   }
 }

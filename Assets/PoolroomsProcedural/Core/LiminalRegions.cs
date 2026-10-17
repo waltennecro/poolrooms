@@ -3,8 +3,8 @@ using System;
 namespace Poolrooms.Core
 {
     // Appended, opt-in settings keep all existing authored worlds intact.
-    public enum LiminalGeneration { Authored, Poolrooms, IndoorPlay, Mixed, Supermarkets, MixedWithRetail, Expanded, Offices, Hotels, WaitingHalls, DiningHalls, SoftPlay, City11, Archive906, Courtyard188, Coast48 }
-    public enum LiminalEnvironment { Poolrooms, IndoorPlay, Supermarket, Office, Hotel, WaitingHall, DiningHall, SoftPlay, City11, Archive906, Courtyard188, Coast48 }
+    public enum LiminalGeneration { Authored, Poolrooms, IndoorPlay, Mixed, Supermarkets, MixedWithRetail, Expanded, Offices, Hotels, WaitingHalls, DiningHalls, SoftPlay, City11, Archive906, Courtyard188, Coast48, Conservatory, TransitGallery }
+    public enum LiminalEnvironment { Poolrooms, IndoorPlay, Supermarket, Office, Hotel, WaitingHall, DiningHall, SoftPlay, City11, Archive906, Courtyard188, Coast48, Conservatory, TransitGallery }
 
     public static class LiminalRegions
     {
@@ -55,6 +55,8 @@ namespace Poolrooms.Core
                     return (LiminalEnvironment)((int)LiminalEnvironment.Archive906+kind);
                 }
             }
+            if(c.Procedural==LiminalGeneration.Expanded&&c.EnableCivicLevels&&Unit(Hash(c.Seed,selectedX,selectedZ,0x160C01u))<c.CivicLevelShare)
+                return Hash(c.Seed,selectedX,selectedZ,0x160C02u)%2==0?LiminalEnvironment.Conservatory:LiminalEnvironment.TransitGallery;
             if(c.Procedural==LiminalGeneration.Expanded&&c.EnableCity11&&Unit(Hash(c.Seed,ContinuousTopology.FloorDivide(selectedX,2),ContinuousTopology.FloorDivide(selectedZ,2),0x1100A0u))<c.City11Share)return LiminalEnvironment.City11;
             if(c.Procedural==LiminalGeneration.Expanded&&c.EnableSoftPlay&&Unit(Hash(c.Seed,selectedX,selectedZ,0x39000u))<c.SoftPlayShare)return LiminalEnvironment.SoftPlay;
             if(c.Procedural==LiminalGeneration.Expanded&&Unit(Hash(c.Seed,selectedX,selectedZ,0x170Au))<c.AdditionalEnvironmentShare)
@@ -74,7 +76,8 @@ namespace Poolrooms.Core
         {
             foundX=x;foundZ=z;
             if(!Enum.IsDefined(typeof(LiminalEnvironment),environment))return false;
-            if(QuietLevelPlanner.IsLevel(environment)&&c.Procedural!=LiminalGeneration.Archive906&&c.Procedural!=LiminalGeneration.Courtyard188&&c.Procedural!=LiminalGeneration.Coast48&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableQuietLevels||c.QuietLevelShare<=0))return false;
+            if(QuietLevelPlanner.IsCivic(environment)&&c.Procedural!=LiminalGeneration.Conservatory&&c.Procedural!=LiminalGeneration.TransitGallery&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableCivicLevels||c.CivicLevelShare<=0))return false;
+            if(QuietLevelPlanner.IsLevel(environment)&&!QuietLevelPlanner.IsCivic(environment)&&c.Procedural!=LiminalGeneration.Archive906&&c.Procedural!=LiminalGeneration.Courtyard188&&c.Procedural!=LiminalGeneration.Coast48&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableQuietLevels||c.QuietLevelShare<=0))return false;
             if(environment==LiminalEnvironment.City11&&c.Procedural!=LiminalGeneration.City11&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableCity11||c.City11Share<=0))return false;
             if(environment==LiminalEnvironment.SoftPlay&&c.Procedural!=LiminalGeneration.SoftPlay&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableSoftPlay||c.SoftPlayShare<=0))return false;
             LiminalEnvironment single;
@@ -100,7 +103,7 @@ namespace Poolrooms.Core
         }
         private static bool Single(LiminalGeneration mode,out LiminalEnvironment environment)
         {
-            switch(mode){case LiminalGeneration.Archive906:environment=LiminalEnvironment.Archive906;return true;case LiminalGeneration.Courtyard188:environment=LiminalEnvironment.Courtyard188;return true;case LiminalGeneration.Coast48:environment=LiminalEnvironment.Coast48;return true;case LiminalGeneration.City11:environment=LiminalEnvironment.City11;return true;case LiminalGeneration.SoftPlay:environment=LiminalEnvironment.SoftPlay;return true;case LiminalGeneration.Offices:environment=LiminalEnvironment.Office;return true;
+            switch(mode){case LiminalGeneration.Conservatory:environment=LiminalEnvironment.Conservatory;return true;case LiminalGeneration.TransitGallery:environment=LiminalEnvironment.TransitGallery;return true;case LiminalGeneration.Archive906:environment=LiminalEnvironment.Archive906;return true;case LiminalGeneration.Courtyard188:environment=LiminalEnvironment.Courtyard188;return true;case LiminalGeneration.Coast48:environment=LiminalEnvironment.Coast48;return true;case LiminalGeneration.City11:environment=LiminalEnvironment.City11;return true;case LiminalGeneration.SoftPlay:environment=LiminalEnvironment.SoftPlay;return true;case LiminalGeneration.Offices:environment=LiminalEnvironment.Office;return true;
                 case LiminalGeneration.Hotels:environment=LiminalEnvironment.Hotel;return true;
                 case LiminalGeneration.WaitingHalls:environment=LiminalEnvironment.WaitingHall;return true;
                 case LiminalGeneration.DiningHalls:environment=LiminalEnvironment.DiningHall;return true;
