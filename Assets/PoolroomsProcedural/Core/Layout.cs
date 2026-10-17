@@ -57,6 +57,7 @@ namespace Poolrooms.Core
         public bool AutonomousGeneration;
         public bool EnableSoftPlay;
         public bool EnableCity11;
+        public bool EnableAircraft;
         public float City11Share=.15f;
         public bool EnableQuietLevels;
         public float QuietLevelShare=.18f;

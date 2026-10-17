@@ -68,7 +68,7 @@ namespace Poolrooms.HDRP
                 int budget=world.shadowLightBudgetOverride>=0?world.shadowLightBudgetOverride:world.profile.maxShadowLights;
                 terrain.Sun.shadows=budget>0?LightShadows.Soft:LightShadows.None;
                 // A shadowless directional light would leak through the other biomes' roofs.
-                if(terrain.IsConnected)terrain.Sun.enabled=terrain.RegionRoot.gameObject.activeInHierarchy&&budget>0;
+                if(terrain.IsConnected)terrain.Sun.enabled=terrain.RegionRoot.gameObject.activeInHierarchy&&budget>0&&(!world.IsPilotingAircraft||terrain.IsInside);
             }
             bool active=present&&terrain.IsInside;
             PumpSky(active);if(volume==null)return; // A failed job can disable and release this component.

@@ -1,0 +1,4 @@
+Aircraft derived from CesiumJS, Copyright 2011–2026 CesiumJS Contributors.
+Apache License 2.0; full source license included.
+Source: https://raw.githubusercontent.com/CesiumGS/cesium/05adbc742db7c0aa9d53836ba46a5bbfdbb9fbc1/Apps/SampleData/models/CesiumAir/Cesium_Air.glb
+Changes: native OBJ conversion, HDRP metal/roughness mask, normalized placement and two propeller pivots.

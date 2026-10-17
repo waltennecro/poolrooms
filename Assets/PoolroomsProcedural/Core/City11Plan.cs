@@ -23,9 +23,11 @@ namespace Poolrooms.Core
     {
         public readonly CityBuildingPlan[] Buildings;
         public readonly CityPropPlan[] Props;
-        public City11Plan(CityBuildingPlan[] buildings,CityPropPlan[] props){Buildings=buildings;Props=props;}
+        public readonly CityAirfieldCell Airfield;
+        public City11Plan(CityBuildingPlan[] buildings,CityPropPlan[] props,CityAirfieldCell airfield=null){Buildings=buildings;Props=props;Airfield=airfield;}
         public bool Valid(Room room,LayoutConfig c)
         {
+            if(Airfield!=null)return room.Environment==LiminalEnvironment.City11&&Buildings.Length==0&&Props.Length==0&&Airfield.X==room.X&&Airfield.Z==room.Z;
             if(room.Environment!=LiminalEnvironment.City11||room.Width!=c.CellSize||room.Depth!=c.CellSize||Buildings.Length!=4||Props.Length!=12)return false;
             foreach(var b in Buildings)
                 if(b.Width<7.7f||b.Depth<7.7f||b.Floors<2||b.Floors>6||Math.Abs(b.X)+b.Width*.5f>room.Width*.5f-.5f||Math.Abs(b.Z)+b.Depth*.5f>room.Depth*.5f-.5f||Math.Abs(b.X)-b.Width*.5f<4.7f||Math.Abs(b.Z)-b.Depth*.5f<4.7f)return false;
@@ -38,6 +40,14 @@ namespace Poolrooms.Core
         public static void Describe(Room room,LayoutConfig c)
         {
             room.ZoneId=-1;room.Environment=LiminalEnvironment.City11;room.Width=room.Depth=c.CellSize;room.Height=22;
+            CityAirfieldCell airfield;
+            if(CityAirfields.At(c,room.X,room.Z,out airfield))
+            {
+                room.Height=12;
+                for(int side=0;side<4;side++)if(Math.Abs(airfield.Column+Directions.DX[side])<=1&&Math.Abs(airfield.Row+Directions.DZ[side])<=3)room.Exits|=1<<side;
+                var airport=new City11Plan(new CityBuildingPlan[0],new CityPropPlan[0],airfield);
+                room.Plan=new ProceduralPlan(room.Environment,new PlannedModule[0],new WaterRegion[0],4.7f,0,0,city:airport);return;
+            }
             var rng=new StableRandom(LiminalRegions.Hash(c.Seed,room.X,room.Z,0x110001u));
             var buildings=new CityBuildingPlan[4];var props=new CityPropPlan[12];int index=0;
             for(int z=-1;z<=1;z+=2)for(int x=-1;x<=1;x+=2)

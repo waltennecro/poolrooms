@@ -1,0 +1,12 @@
+{
+  "Cesium_Air.glb": {
+    "url": "https://raw.githubusercontent.com/CesiumGS/cesium/05adbc742db7c0aa9d53836ba46a5bbfdbb9fbc1/Apps/SampleData/models/CesiumAir/Cesium_Air.glb",
+    "bytes": 586652,
+    "sha256": "e72f627c5f0c9dc50726059703df55d74e634a32dbccb25b18f1783f913360b8"
+  },
+  "Cesium_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/CesiumGS/cesium/05adbc742db7c0aa9d53836ba46a5bbfdbb9fbc1/LICENSE.md",
+    "bytes": 55679,
+    "sha256": "721844bc0cdaa9b1a9a145dbca1f981e2de15a7e200a5d1fd9f5f1eed8e5d030"
+  }
+}

@@ -4,7 +4,7 @@ namespace Poolrooms
 {
     // First ground-vehicle implementation; native wheel/PhysX validation is still required.
     [DisallowMultipleComponent]
-    public sealed class PoolroomsCityVehicle : MonoBehaviour
+    public sealed class PoolroomsCityVehicle : PoolroomsVehicle
     {
         private PoolroomsWorld world;
         private PoolroomsExplorer driver;
@@ -17,7 +17,7 @@ namespace Poolrooms
         private bool brake,detached,exitRequested;
         private bool waitingSupport;
         private readonly RaycastHit[] support=new RaycastHit[16];
-        public bool IsDriving {get{return driver!=null;}}
+        public override bool IsDriving {get{return driver!=null;}}
         public static PoolroomsCityVehicle Create(PoolroomsWorld world,Transform parent,Vector3 position,string key)
         {
             var settings=world!=null&&world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsGameSettings>():null;
@@ -40,7 +40,7 @@ namespace Poolrooms
             }
             return car;
         }
-        public bool Enter(PoolroomsExplorer actor)
+        public override bool Enter(PoolroomsExplorer actor)
         {
             if(driver!=null||actor==null||actor.IsFlying||actor.IsPaused||actor.InputCaptured||actor.Vehicle!=null||world==null||!world.ViewerReady)return false;
             if(!actor.BeginDriving(this))return false;
@@ -50,7 +50,7 @@ namespace Poolrooms
             var carry=actor.GetComponent<PoolroomsCarry>();if(carry!=null)carry.MarkTaken(spawnKey);
             actor.transform.rotation=Quaternion.Euler(0,lastYaw,0);UpdateDriverPose();return true;
         }
-        public void Control(float horizontal,float vertical,bool handbrake)
+        public override void Control(float horizontal,float vertical,bool handbrake,float climb)
         {steer=Mathf.Clamp(horizontal,-1,1);throttle=Mathf.Clamp(vertical,-1,1);brake=handbrake;}
         void FixedUpdate()
         {
@@ -96,13 +96,13 @@ namespace Poolrooms
             }
             return true;
         }
-        public void DetachDriver(PoolroomsExplorer actor)
+        public override void DetachDriver(PoolroomsExplorer actor)
         {
             if(driver!=actor)return;driver=null;exitRequested=waitingSupport=false;
             if(!body.isKinematic){body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;body.isKinematic=true;}
             foreach(var wheel in wheels)wheel.enabled=false;
         }
-        public bool TryExit()
+        public override bool TryExit()
         {
             if(driver==null)return false;exitRequested=true;
             if(body.linearVelocity.sqrMagnitude>.5f)return false;

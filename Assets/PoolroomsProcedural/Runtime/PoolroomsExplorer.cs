@@ -35,10 +35,10 @@ namespace Poolrooms
         private readonly ExplorerDash dash=new ExplorerDash();
         private bool dashPressed;
         public bool IsDashing { get { return dash.Active; } }
-        public PoolroomsCityVehicle Vehicle {get;private set;}
-        public bool BeginDriving(PoolroomsCityVehicle vehicle)
+        public PoolroomsVehicle Vehicle {get;private set;}
+        public bool BeginDriving(PoolroomsVehicle vehicle)
         {if(Vehicle!=null||vehicle==null||IsPaused||InputCaptured)return false;Vehicle=vehicle;dash.Cancel();if(slide!=null)slide.Stop(true);locomotion.Suspend();body.enabled=false;ClearViewMotion();return true;}
-        public void EndDriving(PoolroomsCityVehicle vehicle,Vector3 feet)
+        public void EndDriving(PoolroomsVehicle vehicle,Vector3 feet)
         {if(Vehicle!=vehicle)return;Vehicle=null;if(body==null)return;body.enabled=true;Teleport(feet);}
         public int DashCharges { get { return dash.Charges; } }
         public void FeedDashInput(bool pressed){dashPressed=pressed;}
@@ -220,7 +220,7 @@ namespace Poolrooms
                 else if(body.enabled)body.Move(velocity*Time.deltaTime);
                 ClearViewMotion();locomotion.Reset();waterContacts.Reset();jump=false;return;
             }
-            if(Vehicle!=null){Vehicle.Control(move.x,move.y,slideHeld);dash.Cancel();jump=false;return;}
+            if(Vehicle!=null){Vehicle.Control(move.x,move.y,slideHeld,(ascend?1:0)-(descend?1:0));dash.Cancel();jump=false;return;}
             if(!body.enabled){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             if(checkSupport){checkSupport=false;RepairEmbeddedFeet();}
             float frameTime=ExplorerLocomotion.FrameTime(Time.deltaTime);

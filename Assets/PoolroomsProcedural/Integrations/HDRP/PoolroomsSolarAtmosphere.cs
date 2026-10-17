@@ -53,7 +53,7 @@ namespace Poolrooms.HDRP
             if(volume==null)return;
             var asset=GraphicsSettings.currentRenderPipeline as HDRenderPipelineAsset;
             Room room=world!=null&&world.isActiveAndEnabled&&world.viewer!=null&&adapter.isActiveAndEnabled&&asset!=null?world.RoomAtViewer():null;
-            bool sunny=room!=null&&world.CurrentLayout!=null&&world.CurrentLayout.Config.Lighting!=LightingDistribution.Classic&&room.Environment==LiminalEnvironment.Poolrooms&&room.Plan!=null&&room.Plan.Solar!=null&&SolarClimateRegions.HasSky(room.Plan.Solar.Climate);
+            bool sunny=room!=null&&!world.IsPilotingAircraft&&world.CurrentLayout!=null&&world.CurrentLayout.Config.Lighting!=LightingDistribution.Classic&&room.Environment==LiminalEnvironment.Poolrooms&&room.Plan!=null&&room.Plan.Solar!=null&&SolarClimateRegions.HasSky(room.Plan.Solar.Climate);
             int shadows=world!=null&&world.profile!=null?(world.shadowLightBudgetOverride>=0?world.shadowLightBudgetOverride:world.profile.maxShadowLights):0;
             int lights=world!=null&&world.profile!=null?(world.activeLightBudgetOverride>=0?world.activeLightBudgetOverride:world.profile.maxActiveLights):0;
             bool terrainSun=world!=null&&world.Terrain!=null&&world.Terrain.Sun!=null&&world.Terrain.Sun.enabled;

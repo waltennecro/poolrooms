@@ -1,0 +1,42 @@
+{
+  "A_CesiumAir.json": {
+    "bytes": 1906,
+    "sha256": "c56586dafa579e55821d75a29f06c94237385188e25a0cb45907f9c7d7a6e1b2"
+  },
+  "Licenses/Cesium_LICENSE.md": {
+    "bytes": 55679,
+    "sha256": "721844bc0cdaa9b1a9a145dbca1f981e2de15a7e200a5d1fd9f5f1eed8e5d030"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 380,
+    "sha256": "680c974326414162f268083b2b827d2d9714dc66a7a72aa6ec4e6352bec0669b"
+  },
+  "Models/A_CesiumAir.mtl": {
+    "bytes": 62,
+    "sha256": "fd2b395f2310501756d61978fea11264f9d49beb50071abd926b1fd9e9f40188"
+  },
+  "Models/A_CesiumAir.obj": {
+    "bytes": 668671,
+    "sha256": "3b96e2ef9664402603d606de958886335773c4160c5d4e28cdc2194649ff0493"
+  },
+  "Textures/A_CesiumAir_m0_albedo.png": {
+    "bytes": 637934,
+    "sha256": "c19472fe619cf014d0cf19dd7fd2c0aa21121a3e9af8b2fa916b129553fedb43"
+  },
+  "Textures/A_CesiumAir_m0_mask.png": {
+    "bytes": 78,
+    "sha256": "27cc46b8c99841ca223f73f3238b0a68bebea81184ad63eef179468de7f1fea0"
+  },
+  "Textures/A_CesiumAir_m1_albedo.png": {
+    "bytes": 151881,
+    "sha256": "bc1f3a23c168439627fbcc384797aa377e7abad4f4eea2e1116103d9f557ed2d"
+  },
+  "Textures/A_CesiumAir_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "27cc46b8c99841ca223f73f3238b0a68bebea81184ad63eef179468de7f1fea0"
+  },
+  "catalog.json": {
+    "bytes": 2322,
+    "sha256": "1e96492ce381970fbdd550cdc23e3cb2a658b1544e53c4370835ad9489f7fa20"
+  }
+}

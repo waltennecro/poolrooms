@@ -209,6 +209,7 @@ namespace Poolrooms
             Button("Volver al punto de aparición",()=>{explorer.ResetToSpawn();CloseInterface();});
             Button("Viajar al centro comercial 2010",()=>VisitMall());
             Button("Viajar a colinas Nivel 94",()=>VisitLevel94());
+            Button("Visitar aeródromo de City11",()=>{bool found=explorer.world!=null&&explorer.world.VisitAirfield();status=found?"Aeródromo encontrado.":"No hay un aeródromo disponible con el perfil actual.";if(found)CloseInterface();else Draw();});
             foreach(LiminalEnvironment environment in (LiminalEnvironment[])System.Enum.GetValues(typeof(LiminalEnvironment)))
             {
                 LiminalEnvironment target=environment;string name=InteriorPlanner.Name(target);

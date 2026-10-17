@@ -13,6 +13,7 @@ namespace Poolrooms.Core
         public static RoomGeometry Build(Room room,LayoutConfig c)
         {
             if(!room.Plan.City.Valid(room,c))throw new ArgumentException("Invalid city block.");
+            if(room.Plan.City.Airfield!=null)return CityAirfieldArchitecture.Build(room,c);
             var o=new RoomGeometry();o.Structure.Theme=o.Decoration.Theme=SurfaceTheme.CityFacade;o.Glass.Theme=SurfaceTheme.Glass;
             o.Decoration.EmissionTint=new V3(1,.91f,.77f);o.Decoration.EmissionStrength=.4f;
             Box(o.Structure,0,0,room.Width,room.Depth,-.3f,0,Surface.Tile);
@@ -115,7 +116,7 @@ namespace Poolrooms.Core
         {
             var o=new CorridorGeometry{Style=CorridorStyle.Straight};o.Structure.Theme=SurfaceTheme.CityStreet;
             float half=c.DoorWidth*.5f,z=c.CellSize*.5f;
-            o.Structure.Box(new V3(-half,-.2f,z-.2f),new V3(half,0,z+.2f),Surface.Tile);
+            o.Structure.Box(new V3(-half,-.2f,z-.2f),new V3(half,-.002f,z+.2f),Surface.Tile);
             if(direction==1)o.Structure.TranslateRotate(new V3(),Shapes.Pi*.5f);return o;
         }
     }

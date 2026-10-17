@@ -52,31 +52,42 @@
       "status": "partial_source_catalog_native_validation_pending",
       "commit": "12fd6ad",
       "packageFiles": 428
+    },
+    {
+      "id": "R8",
+      "feature": "Licensed civil aircraft and connected deterministic City11 airfields with assisted flight",
+      "status": "partial_vehicle_catalog_native_validation_pending",
+      "commit": "see_git_history",
+      "packageFiles": 448
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16828897,
+    "assertions": 16922764,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 179,
+    "syntaxScripts": 184,
     "syntaxConfigurations": 4,
-    "pbrMapsVerified": 24,
+    "pbrMapsVerified": 27,
     "citySourcesAudited": 5,
     "quietRooms": 72,
     "quietItemSupports": 540,
     "dressingGeometryVariants": 16,
-    "cityPngMapsAudited": 28
+    "cityPngMapsAudited": 28,
+    "aircraftSourcesAudited": 1,
+    "airfieldCells": 189,
+    "airfieldGeometrySamples": 9,
+    "assistedFlightTimesteps": 5
   },
   "pending": [
     {
       "id": "city11",
       "feature": "Licensed urban models, procedural districts, furnished accessible buildings, interactable objects and 35 vehicles",
-      "status": "partial_city_and_one_vehicle_class_implemented",
-      "remaining": "More external architectural/furniture models, other vehicle classes including helicopter/airplane, urban refinement and native validation",
+      "status": "partial_city_ground_vehicle_and_aircraft_implemented",
+      "remaining": "More external architectural/furniture models, remaining vehicle types including helicopter, urban refinement and native validation",
       "vehicleClasses": {
         "groundCar": "implemented_native_validation_pending",
         "helicopter": "not_implemented",
-        "airplane": "not_implemented"
+        "airplane": "implemented_native_validation_pending"
       }
     },
     {
@@ -97,7 +108,7 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Broader licensed city architecture/furniture and other vehicle classes (including helicopter/airplane), then further decoration. kenney.nl access remains blocked until the saved environment network draft is published. Unity API compilation, native traversal/vehicle physics, shaders, visuals, memory and FPS remain unverified.",
+  "nextIndependentWork": "More detailed licensed urban architecture/furniture and remaining vehicles including helicopter. Native Unity compilation, aircraft handling, shaders, visuals and FPS remain unverified; no 35-vehicle claim.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -111,7 +122,14 @@
     "downloadedFurnitureModels": 1,
     "placedFurnitureSourceTypes": 1,
     "chairLODDerivatives": 2,
-    "chairColourVariants": 1
+    "chairColourVariants": 1,
+    "distinctDownloadedSources": 6,
+    "distinctDownloadedAircraftSources": 1,
+    "aircraftLODDerivatives": 0,
+    "aircraftColourVariants": 1,
+    "aircraftSourceLicense": "Apache-2.0",
+    "placedAircraftSourceTypes": 1,
+    "driveableVehicleClasses": 2
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -135,8 +153,8 @@
   },
   "externalAcquisitionBlockers": [
     {
-      "domain": "kenney.nl",
-      "status": "network_policy_blocked",
+      "domain": "quaternius.com",
+      "status": "network_tunnel_403",
       "downloaded": false,
       "licenseAssumed": false
     }
@@ -164,7 +182,9 @@
     "allowedDomains": [
       "api.github.com",
       "kenney.nl"
-    ]
+    ],
+    "runtimeObservedKenneyReachable": true,
+    "runtimeObservation": "Official Car Kit, Furniture Kit and city kits downloaded for review outside repository; none integrated due stylized aesthetic. Draft publication state not inferred from HTTP success."
   },
   "sourceFurnitureCi": {
     "run": "39005054928",

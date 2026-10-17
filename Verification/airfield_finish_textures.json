@@ -1,0 +1,18 @@
+{
+  "size": 1024,
+  "provenance": "Original periodic numerical asphalt by this project",
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AirfieldAsphalt_Albedo.png": {
+      "bytes": 1143037,
+      "sha256": "209c67e1c537280278aaafea0841a3f8d70ceec61bcf0160baad2f5b546d1945"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AirfieldAsphalt_Normal.png": {
+      "bytes": 1400277,
+      "sha256": "8de8424e69f934da9b163e54fab29d1961e0e6b2ddf64dbf290d3d832f62f916"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AirfieldAsphalt_Mask.png": {
+      "bytes": 1032252,
+      "sha256": "5b8c724a73579460d06e2991082bb10ce1f88b224ea5a24a95eb3b898e06b064"
+    }
+  }
+}

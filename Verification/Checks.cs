@@ -52,6 +52,7 @@ static class Checks
         MovementAndQuality();
         CompactTerrain();
         CityGeneration();
+        AirfieldsAndFlight();
         QuietGeneration();
         DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
@@ -158,7 +159,84 @@ static class Checks
             var r=city.At(x,z);Check(r.Plan.City!=null,"Missing city plan in full-city mode");foreach(var b in r.Plan.City.Buildings)spaces+=b.Floors;
             if(LiminalRegions.Hash(city.Config.Seed,x,z,0x1100CAu)%9==0)carSites++;
         }
-        Console.WriteLine($"City plan snapshot (324 blocks, not simultaneous loaded objects): 1296 generated building instances, {spaces} furnished floor spaces, 3888 source-prop/furniture instances, {spaces*3} procedural furniture assemblies, {carSites} car spawn sites. Downloaded source models now 5; driveable model classes remain 1.");
+        Console.WriteLine($"City plan snapshot (324 blocks, not simultaneous loaded objects): 1296 generated building instances, {spaces} furnished floor spaces, 3888 source-prop/furniture instances, {spaces*3} procedural furniture assemblies, {carSites} car spawn sites. Snapshot with aircraft disabled; five City11 source models. The separate aircraft source is checked independently.");
+    }
+    static void AirfieldsAndFlight()
+    {
+        int cells=0;
+        foreach(int size in new[]{28,36,60})foreach(int seed in new[]{0,18,481516})
+        {
+            var c=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true};
+            CityAirfieldCell found;Check(CityAirfields.Find(c,-127,91,out found),"Airfield navigation found no site");
+            Check(found.AircraftSpawn,"Airfield destination must be its aircraft cell");
+            var layout=new Layout(c);int terminals=0,spawns=0;
+            for(int row=-3;row<=3;row++)for(int column=-1;column<=1;column++)
+            {
+                int x=found.CenterX+column,z=found.CenterZ+row;CityAirfieldCell tile;
+                Check(CityAirfields.At(c,x,z,out tile)&&tile.CenterX==found.CenterX&&tile.CenterZ==found.CenterZ,"Airfield reservation is fragmented");
+                var room=layout.At(x,z);var g=Architecture.Build(room,layout);cells++;
+                Check(room.Plan.City.Airfield!=null&&room.Plan.City.Valid(room,c)&&room.Plan.Valid(room,c),"Airfield plan violates the real room contract");
+                Check(room.Plan.City.Buildings.Length==0&&room.Plan.City.Props.Length==0,"Buildings overlap the runway");
+                Validate(g.Structure);Validate(g.Decoration);foreach(var v in g.VisualMeshes)Validate(v);
+                Check(Hash(g.Structure,g.Decoration)==Hash(Architecture.Build(room,c).Structure,Architecture.Build(room,c).Decoration),"Airfield geometry depends on generation order");
+                for(int side=0;side<4;side++)
+                {
+                    int dx=Directions.DX[side],dz=Directions.DZ[side];
+                    if(Math.Abs(column+dx)>1||Math.Abs(row+dz)>3)continue;
+                    Check(room.HasExit(side)&&layout.At(x+dx,z+dz).HasExit((side+2)%4),"Internal runway graph connection is not reciprocal");
+                    // Wheels and walkers need actual mesh support up to each seam.
+                    foreach(float offset in new[]{-.01f,0,.01f})
+                    {
+                        var point=new V3(dx*(size*.5f+offset),.04f,dz*(size*.5f+offset));
+                        var support=offset<=0?Support(g.Structure,point):Support(Architecture.Build(layout.At(x+dx,z+dz),c).Structure,new V3(point.X-dx*size,.04f,point.Z-dz*size));
+                        Check(Math.Abs(support)<.001f,"Airfield seam has no ground support");
+                    }
+                }
+                if(tile.Terminal){terminals++;Check(g.Fixtures.Count==1&&g.Fixtures[0].CustomColor,"Terminal lamp does not match its source");}
+                if(tile.AircraftSpawn)spawns++;
+                Check(Math.Abs(Support(g.Structure,new V3(0,.04f,0)))<.001f,"Runway floor missing");
+                if(column==0)Check(Support(g.Structure,new V3(0,2.8f,0))<.02f,"Overhead geometry blocks runway clearance");
+            }
+            Check(terminals==1&&spawns==1,"Airfield duplicates terminal or aircraft spawns");
+            CityAirfieldCell outside;Check(!CityAirfields.At(c,found.CenterX+2,found.CenterZ,out outside),"Airfield extends outside its district");
+            c.EnableAircraft=false;Check(!CityAirfields.Find(c,0,0,out outside),"Disabled aircraft still replace city buildings");
+        }
+        var mixed=new LayoutConfig{Seed=31,Continuous=true,Procedural=LiminalGeneration.Expanded,EnableCity11=true,EnableAircraft=true,City11Share=.3f};
+        CityAirfieldCell site;Check(CityAirfields.Find(mixed,0,0,out site),"Mixed world never generates an accessible airfield");
+        for(int dz=-3;dz<=3;dz++)for(int dx=-1;dx<=1;dx++)
+        {
+            int x=site.CenterX+dx,z=site.CenterZ+dz;ConnectedTerrainSite meadow;ConnectedMallSite mall;
+            Check(LiminalRegions.At(mixed,x,z)==LiminalEnvironment.City11&&!ConnectedTerrainTopology.Reserved(mixed,x,z)&&!ConnectedTerrainTopology.Gateway(mixed,x,z,out meadow)&&!ConnectedMallTopology.Gateway(mixed,x,z,out mall),"Runway overwrites a different biome or entrance");
+        }
+        foreach(int boundary in new[]{int.MinValue,int.MaxValue})CityAirfields.At(mixed,boundary,boundary,out site);
+        var flight=new AircraftDynamics();
+        Check(flight.Step(.02f,0,0,0,1,1,1,false).Authority==0,"Stationary aircraft levitates");
+        flight.Step(float.NaN,0,0,0,1,0,0,false);Check(float.IsFinite(flight.Throttle),"Invalid time poisoned throttle");
+        foreach(float axis in new[]{-100f,-1,0,1,100,float.NaN,float.PositiveInfinity})
+        foreach(float speed in new[]{-42f,0,9,18,42,100})
+        {
+            var f=flight.Step(.02f,speed,0,0,axis,axis,axis,false);
+            Check(float.IsFinite(f.Forward)&&float.IsFinite(f.Vertical)&&float.IsFinite(f.Pitch)&&float.IsFinite(f.Roll)&&float.IsFinite(f.YawRate),"Flight input creates nonfinite forces");
+            Check(Math.Abs(f.Pitch)<=9&&Math.Abs(f.Roll)<=12&&Math.Abs(f.YawRate)<=18&&f.Forward>=-10&&f.Forward<=5.8f,"Assisted flight exceeds force/turn budget");
+        }
+        float referenceSpeed=0;
+        foreach(int hz in new[]{20,30,50,60,120})
+        {
+            flight.Reset();float dt=1f/hz,speed=0,travel=0,height=0,vertical=0,takeoffDistance=-1;
+            for(int frame=0;frame<hz*8;frame++)
+            {
+                var f=flight.Step(dt,speed,vertical,height,1,0,0,false);speed+=f.Forward*dt;travel+=speed*dt;if(speed>=AircraftDynamics.TakeoffSpeed&&takeoffDistance<0)takeoffDistance=travel;
+                vertical+=(f.Vertical-9.81f)*dt;height+=vertical*dt;if(height<0){height=0;vertical=0;}
+            }
+            Check(speed>AircraftDynamics.TakeoffSpeed&&takeoffDistance>0&&takeoffDistance<145,"Takeoff speed is not reached before the runway end at minimum cell size");
+            if(hz==20)referenceSpeed=speed;else Check(Math.Abs(speed-referenceSpeed)<.15f,"Aircraft acceleration varies excessively with fixed timestep");
+            var cruise=flight.Step(dt,AircraftDynamics.MaximumSpeed,0,80,0,0,0,false);
+            var brake=flight.Step(dt,AircraftDynamics.MaximumSpeed,0,80,0,0,0,true);
+            Check(cruise.Forward<0&&Math.Abs(cruise.Vertical-9.81f)<.001f,"Cruise has no speed limit or level assistance");
+            Check(brake.Forward<cruise.Forward,"Air brake fails to reduce forward force");
+            var ceiling=flight.Step(dt,30,0,275,0,0,1,false);Check(ceiling.Vertical<9.81f,"Ceiling assistance does not descend");
+        }
+        Console.WriteLine($"Aircraft: {cells} generated airfield cells; reciprocal runway seams, reservations and deterministic geometry; bounded assisted flight at five fixed timesteps. Pure core assertions, not PhysX flight tests.");
     }
     static float Support(MeshData mesh,V3 origin)
     {

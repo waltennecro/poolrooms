@@ -8,7 +8,7 @@ namespace Poolrooms
     [CreateAssetMenu(menuName="Poolrooms/Independent biome materials",fileName="PoolroomsBiomeMaterials")]
     public sealed class PoolroomsBiomeMaterials : ScriptableObject
     {
-        public Material[] surfaces=new Material[120];
+        public Material[] surfaces=new Material[Enum.GetValues(typeof(SurfaceTheme)).Length*6];
         public Material Find(SurfaceTheme theme,int slot)
         {int index=(int)theme*6+slot;return surfaces!=null&&index<surfaces.Length?surfaces[index]:null;}
     }

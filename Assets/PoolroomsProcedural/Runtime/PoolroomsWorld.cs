@@ -349,6 +349,8 @@ namespace Poolrooms
             {
                 // Full solid cap seals a doorway until BOTH neighbouring chunks exist.
                 float half=SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
+                var airfield=r.Plan!=null&&r.Plan.City!=null?r.Plan.City.Airfield:null;
+                if(airfield!=null&&Math.Abs(airfield.Column+Directions.DX[d])<=1&&Math.Abs(airfield.Row+Directions.DZ[d])<=3)half=layout.Config.CellSize*.5f;
                 var cap=new MeshData{Theme=profile.mallDistricts&&r.Environment==LiminalEnvironment.Supermarket?SurfaceTheme.Mall:BiomeSurfaces.ForEnvironment(r.Environment),RetailPalette=r.Environment==LiminalEnvironment.Supermarket?1:0,PlayPalette=r.Environment==LiminalEnvironment.IndoorPlay?1:0,PaletteVariant=r.Plan!=null?r.Plan.Palette:0};
                 cap.Box(new V3(-half,r.Floor,-t*.5f),new V3(half,SolarConnections.DoorHeight(r,d,layout.Config),t*.5f),r.Environment==LiminalEnvironment.Poolrooms?Surface.Tile:Surface.Plaster,layout.Config.TextureWorldSize);
                 cap.TranslateRotate(new V3(Directions.DX[d]*r.Width*.5f,0,Directions.DZ[d]*r.Depth*.5f),d*Shapes.Pi*.5f);
@@ -387,8 +389,14 @@ namespace Poolrooms
                     if(carry==null||!carry.WasTaken(key))
                     {var created=PoolroomsPickup.CreateSource(key,prop.Source==0?"WaterBottle":prop.Source==1?"BoomBox":"SheenChair",new Vector3(prop.Position.X,prop.Position.Y,prop.Position.Z),parent,prop.Source==0?.28f:prop.Source==1?.4f:1);if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}
                 }
+                var airfield=r.Plan.City.Airfield;
+                if(airfield!=null&&airfield.AircraftSpawn)
+                {
+                    string key="city11-aircraft:"+layout.Config.Seed+":"+airfield.CenterX+":"+airfield.CenterZ;
+                    if(carry==null||!carry.WasTaken(key))PoolroomsAircraft.Create(this,parent,new Vector3(0,0,0),key);
+                }
                 string carKey="city11-car:"+layout.Config.Seed+":"+r.X+":"+r.Z;
-                if(LiminalRegions.Hash(layout.Config.Seed,r.X,r.Z,0x1100CAu)%9==0&&(carry==null||!carry.WasTaken(carKey)))
+                if(airfield==null&&LiminalRegions.Hash(layout.Config.Seed,r.X,r.Z,0x1100CAu)%9==0&&(carry==null||!carry.WasTaken(carKey)))
                     PoolroomsCityVehicle.Create(this,parent,new Vector3(1.75f,0,-r.Depth*.29f),carKey);
             }
             if(Application.isPlaying&&r.Plan!=null&&r.Plan.SoftPlay!=null)
@@ -625,6 +633,20 @@ namespace Poolrooms
                 if(!found)return false;
             }
             Visit(RoomWorldPosition(layout.At(x,z))+Vector3.up*.1f);return true;
+        }
+        public bool IsPilotingAircraft {get{return viewer!=null&&viewer.GetComponentInParent<PoolroomsExplorer>() is PoolroomsExplorer actor&&actor.Vehicle is PoolroomsAircraft;}}
+        public bool IsPositionStreamed(Vector3 point)
+        {
+            if(layout==null)return false;
+            if(terrain!=null&&terrain.IsInside||InsideMall)return ViewerReady;
+            Vector3 local=point-transform.position;int x=origin.CellX(local.x,layout.Config.CellSize),z=origin.CellZ(local.z,layout.Config.CellSize);
+            return ConnectedTerrainTopology.Reserved(layout.Config,x,z)?ViewerReady:IsRoomLoaded(x,z);
+        }
+        public bool VisitAirfield()
+        {
+            if(layout==null||viewer==null)return false;var focus=NavigationFocus();CityAirfieldCell cell;
+            if(!CityAirfields.Find(layout.Config,focus.x,focus.y,out cell))return false;
+            Visit(CellWorldPosition(cell.X,cell.Z)+new Vector3(9,.1f,0));return true;
         }
         public bool VisitZone(int zoneIndex)
         {

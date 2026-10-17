@@ -33,12 +33,12 @@ namespace Poolrooms
             if(explorer.IsPaused||explorer.InputCaptured||!isActiveAndEnabled)return;
             Transform eyes=Eyes;int count=Physics.RaycastNonAlloc(eyes.position,eyes.forward,hits,CarryModel.Reach,~0,QueryTriggerInteraction.Collide);
             if(count==hits.Length)return; // A truncated query may omit a nearer wall.
-            float solid=float.PositiveInfinity,candidate=float.PositiveInfinity;PoolroomsPickup pickup=null;PoolroomsMallPortal portal=null;PoolroomsTerrainPortal terrainPortal=null;PoolroomsCityVehicle vehicle=null;
+            float solid=float.PositiveInfinity,candidate=float.PositiveInfinity;PoolroomsPickup pickup=null;PoolroomsMallPortal portal=null;PoolroomsTerrainPortal terrainPortal=null;PoolroomsVehicle vehicle=null;
             for(int i=0;i<count;i++)
             {
                 var hit=hits[i];if(hit.collider==null||hit.collider.transform.IsChildOf(transform))continue;
                 var item=hit.collider.GetComponentInParent<PoolroomsPickup>();var door=hit.collider.GetComponentInParent<PoolroomsMallPortal>();var landscape=hit.collider.GetComponentInParent<PoolroomsTerrainPortal>();
-                var car=hit.collider.GetComponentInParent<PoolroomsCityVehicle>();
+                var car=hit.collider.GetComponentInParent<PoolroomsVehicle>();
                 if(!hit.collider.isTrigger)solid=Mathf.Min(solid,hit.distance);
                 if((item!=null||door!=null||landscape!=null||car!=null)&&hit.distance<candidate){candidate=hit.distance;pickup=item;portal=door;terrainPortal=landscape;vehicle=car;}
             }

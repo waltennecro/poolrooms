@@ -1,7 +1,7 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
@@ -34,6 +34,7 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(theme==SurfaceTheme.Airfield)return slot==Surface.Tile?"AirfieldAsphalt":slot==Surface.Metal?"Steel":slot==Surface.Glow?null:"Paint";
             if(theme==SurfaceTheme.ArchiveWood)return slot==Surface.Glow?null:slot==Surface.Tile||slot==Surface.Accent?"Wood":slot==Surface.Plaster?"Paint":slot==Surface.Metal?"Steel":"Fabric";
             if(theme==SurfaceTheme.CourtyardStone)return slot==Surface.Glow?null:slot==Surface.Tile?"Terrazzo":slot==Surface.Plaster?"Paint":slot==Surface.Accent?"Wood":slot==Surface.Metal?"Steel":"Fabric";
             if(theme==SurfaceTheme.CoastSand)return slot==Surface.Glow?null:slot==Surface.Tile?"QuietSand":slot==Surface.Plaster?"WeatheredPaint":slot==Surface.Accent?"Wood":slot==Surface.Metal?"Steel":"Fabric";

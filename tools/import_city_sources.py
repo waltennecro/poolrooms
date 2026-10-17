@@ -30,7 +30,8 @@ def acquire(url,path):
     LOCK[key]={'url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}
     return data
 
-def convert(name,raw):
+def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=False,source_license="CC0-1.0"):
+    dest=DEST if destination is None else destination
     original_raw=raw;bake_report=[]
     if name=='SheenChair':
         from bake_gltf_uvs import bake
@@ -67,7 +68,7 @@ def convert(name,raw):
             xx=(np.arange(w)*int(scale[0]))%w;yy=(np.arange(h)*int(scale[1]))%h
             image=Image.fromarray(data[yy[:,None],xx[None,:]])
         return image
-    materials=[];native=DEST/'Textures';native.mkdir(parents=True,exist_ok=True)
+    materials=[];native=dest/'Textures';native.mkdir(parents=True,exist_ok=True)
     for i,mat in enumerate(doc.get('materials',[{}])):
         pbr=mat.get('pbrMetallicRoughness',{});prefix=f'{name}_m{i}'
         definition={'name':prefix,'colour':pbr.get('baseColorFactor',[1,1,1,1]),'normalScale':mat.get('normalTexture',{}).get('scale',1),
@@ -80,7 +81,7 @@ def convert(name,raw):
                 image=image_for(tex)
                 if key=='normal':
                     data=np.array(image);data[:,:,1]=255-data[:,:,1];image=Image.fromarray(data)
-                image.save(native/(prefix+'_'+key+'.png'));definition[key]='City11/Textures/'+prefix+'_'+key
+                image.save(native/(prefix+'_'+key+'.png'));definition[key]=resource_root+'/Textures/'+prefix+'_'+key
         mr=pbr.get('metallicRoughnessTexture');ao=mat.get('occlusionTexture')
         if mr:assert mr.get('texCoord',0)==0
         if ao:assert ao.get('texCoord',0)==0
@@ -93,8 +94,8 @@ def convert(name,raw):
         if ao:
             strength=ao.get('strength',1);mask[:,:,1]=1-strength+strength*np.asarray(image_for(ao).resize(shape),dtype=np.float32)[:,:,0]/255
         Image.fromarray(np.uint8(np.clip(mask,0,1)*255+.5)).save(native/(prefix+'_mask.png'))
-        definition['mask']='City11/Textures/'+prefix+'_mask';materials.append(definition)
-    entries=[]
+        definition['mask']=resource_root+'/Textures/'+prefix+'_mask';materials.append(definition)
+    entries=[];entry_names=[]
     def walk(index,parent,ancestors):
         assert index not in ancestors,'Cyclic glTF node graph'
         node=doc['nodes'][index]
@@ -117,10 +118,10 @@ def convert(name,raw):
                 indices=accessor(primitive['indices']).reshape((-1,3)).astype(int)
                 if np.linalg.det(matrix[:3,:3])<0:indices=indices[:,[0,2,1]]
                 assert indices.min()>=0 and indices.max()<len(positions)
-                entries.append((primitive.get('material',0),positions,normals,uv,indices))
+                entries.append((primitive.get('material',0),positions,normals,uv,indices));entry_names.append(node.get('name','part'))
         for child in node.get('children',[]):walk(child,matrix,ancestors|{index})
     for node in doc['scenes'][doc.get('scene',0)]['nodes']:walk(node,np.eye(4),set())
-    folder=DEST/'Models';folder.mkdir(parents=True,exist_ok=True)
+    folder=dest/'Models';folder.mkdir(parents=True,exist_ok=True)
     if name=='ToyCar':
         points=np.concatenate([e[1] for e in entries]);_,axes=np.linalg.eigh(np.cov(points[:,[0,2]],rowvar=False));direction=axes[:,-1]
         angle=-np.arctan2(direction[0],direction[1]);co,si=np.cos(angle),np.sin(angle)
@@ -128,9 +129,11 @@ def convert(name,raw):
         entries=[(m,p@rotation.T,n@rotation.T,t,f) for m,p,n,t,f in entries]
     all_positions=np.concatenate([e[1] for e in entries]);lo=all_positions.min(axis=0);hi=all_positions.max(axis=0)
     with (folder/(name+'.obj')).open('w') as f:
-        f.write(f'# Adapted from verified CC0 glTF; see City11/Licenses\nmtllib {name}.mtl\n');start=1
-        for material,positions,normals,uv,indices in entries:
-            f.write(f'o {name}_m{material}\nusemtl {name}_m{material}\n')
+        header='# Adapted from verified CC0 glTF; see City11/Licenses' if source_license=='CC0-1.0' and resource_root=='City11' else f'# Adapted from licensed glTF ({source_license}); see {resource_root}/Licenses'
+        f.write(header+f'\nmtllib {name}.mtl\n');start=1
+        for entry_index,(material,positions,normals,uv,indices) in enumerate(entries):
+            part=(entry_names[entry_index].replace(' ','_')+'_') if preserve_nodes else ''
+            f.write(f'o {name}_{part}m{material}\nusemtl {name}_m{material}\n')
             for v in positions:f.write('v '+' '.join(f'{p:.8g}' for p in v)+'\n')
             for v in uv:f.write('vt '+' '.join(f'{p:.8g}' for p in v)+'\n')
             for v in normals:f.write('vn '+' '.join(f'{p:.8g}' for p in v)+'\n')
@@ -161,10 +164,11 @@ def convert(name,raw):
                     for v in normals:f.write('vn '+' '.join(f'{p:.8g}' for p in v)+'\n')
                     for face in indices:f.write('f '+' '.join(f'{i+start}/{i+start}/{i+start}' for i in face)+'\n')
                     start+=len(positions)
-            lods.append({'resource':'City11/Models/'+lod_name,'triangles':sum(len(e[4]) for e in groups)})
-    record={'id':name,'resource':'City11/Models/'+name,'minimum':lo.tolist(),'maximum':hi.tolist(),'triangles':sum(len(e[4]) for e in entries),'materials':materials,'lods':lods,
+            lods.append({'resource':resource_root+'/Models/'+lod_name,'triangles':sum(len(e[4]) for e in groups)})
+    record={'id':name,'resource':resource_root+'/Models/'+name,'minimum':lo.tolist(),'maximum':hi.tolist(),'triangles':sum(len(e[4]) for e in entries),'materials':materials,'lods':lods,
             'uvBake':bake_report,'sourceSha256':hashlib.sha256(original_raw).hexdigest(),'upstreamRevision':UPSTREAM_REVISION,'presentationClothRemoved':name=='ToyCar','adaptation':'Native OBJ, glTF core metal/roughness to HDRP mask; optional extensions require native review'}
-    (DEST/(name+'.json')).write_text(json.dumps(record,indent=2)+'\n');return record
+    if preserve_nodes:record['sourceNodeNames']=entry_names
+    (dest/(name+'.json')).write_text(json.dumps(record,indent=2)+'\n');return record
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--only',nargs='+',choices=MODELS,help='Rebuild selected sources, retaining already adapted files for the others');args=parser.parse_args()

@@ -1,0 +1,83 @@
+{
+  "id": "A_CesiumAir",
+  "resource": "Aircraft/Models/A_CesiumAir",
+  "minimum": [
+    -12.868298530578613,
+    -2.2960000038146973,
+    -13.39689826965332
+  ],
+  "maximum": [
+    12.868297576904297,
+    5.464059352874756,
+    8.004698753356934
+  ],
+  "triangles": 5984,
+  "materials": [
+    {
+      "name": "A_CesiumAir_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": true,
+      "albedo": "Aircraft/Textures/A_CesiumAir_m0_albedo",
+      "mask": "Aircraft/Textures/A_CesiumAir_m0_mask"
+    },
+    {
+      "name": "A_CesiumAir_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": true,
+      "doubleSided": true,
+      "albedo": "Aircraft/Textures/A_CesiumAir_m1_albedo",
+      "mask": "Aircraft/Textures/A_CesiumAir_m1_mask"
+    }
+  ],
+  "lods": [],
+  "uvBake": [],
+  "sourceSha256": "e72f627c5f0c9dc50726059703df55d74e634a32dbccb25b18f1783f913360b8",
+  "upstreamRevision": "05adbc742db7c0aa9d53836ba46a5bbfdbb9fbc1",
+  "presentationClothRemoved": false,
+  "adaptation": "Native OBJ/HDRP PBR; two propeller rotation tracks replaced with native RPM pivots; original GLB retained",
+  "sourceNodeNames": [
+    "part",
+    "Prop__2_",
+    "Prop__2_",
+    "Prop",
+    "Prop"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/CesiumGS/cesium/05adbc742db7c0aa9d53836ba46a5bbfdbb9fbc1/Apps/SampleData/models/CesiumAir/Cesium_Air.glb",
+  "modelLicense": "Apache-2.0",
+  "authors": [
+    "CesiumJS Contributors"
+  ],
+  "animatedPropellerNodes": [
+    "Prop",
+    "Prop__2_"
+  ]
+}

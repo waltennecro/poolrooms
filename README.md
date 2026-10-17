@@ -15,7 +15,7 @@ La rama actual continúa sobre la v39 recuperada. Consulta [`RECONSTRUCCION.md`]
 La etapa R1 mejora los materiales y detalles del bioma infantil conservando su geometría transitable. Las verificaciones del núcleo están en [`Verification`](Verification/README.md), fuera de `Assets`. Para crear el paquete completo del estado actual:
 
 ```sh
-python tools/package_assets.py --stage R7 --output /tmp/Poolrooms_R7_Desde_v39.zip
+python tools/package_assets.py --stage R8 --output /tmp/Poolrooms_R8_Desde_v39.zip
 ```
 
 La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.
@@ -29,6 +29,8 @@ R6 añade [detalle arquitectónico configurable](Assets/PoolroomsProcedural/Docu
 R7 incorpora un [sillón CC0 agarrable con PBR y LOD](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_CC0_R7.md), colocado en City11, biblioteca y patio. El catálogo acumulado tiene cinco modelos externos distintos; las repeticiones y los LOD no se cuentan como modelos nuevos.
 
 El [CI de R7](https://github.com/waltennecro/poolrooms/actions/runs/39005054928) pasó todas las comprobaciones y publicó su artefacto. Además se verificó una descarga nueva del repositorio: 428 archivos de Assets coinciden por SHA-256. [Evidencia](Verification/ci_sources_R7.json).
+
+R8 añade [aeródromos conectados y un avión civil Apache-2.0](Assets/PoolroomsProcedural/Documentation/AVIACION_R8.md). El catálogo acumulado tiene seis modelos externos y dos clases de vehículo. El helicóptero y el resto del catálogo siguen pendientes; el vuelo necesita comprobarse dentro de Unity.
 
 ## Descargar y abrir
 

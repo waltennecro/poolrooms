@@ -46,10 +46,12 @@ namespace Poolrooms.HDRP
         {
             if(volume==null)return;
             Room room=world!=null&&world.isActiveAndEnabled&&world.profile!=null&&world.profile.independentBiomeMaterials?world.RoomAtViewer():null;
-            bool active=room!=null&&room.Environment!=LiminalEnvironment.Poolrooms&&(world.Terrain==null||!world.Terrain.IsInside);
-            bool sunny=active&&(room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48);
-            bool archive=active&&room.Environment==LiminalEnvironment.Archive906;
-            bool sunset=sunny&&room.Environment==LiminalEnvironment.Coast48;
+            bool aerial=room!=null&&world.IsPilotingAircraft&&(world.Terrain==null||!world.Terrain.IsInside);
+            bool active=aerial||room!=null&&room.Environment!=LiminalEnvironment.Poolrooms&&(world.Terrain==null||!world.Terrain.IsInside);
+            volume.priority=aerial?14:4;
+            bool sunny=aerial||active&&(room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48);
+            bool archive=!aerial&&active&&room.Environment==LiminalEnvironment.Archive906;
+            bool sunset=!aerial&&sunny&&room.Environment==LiminalEnvironment.Coast48;
             if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny;
             if(sunny||archive)
             {
@@ -64,16 +66,18 @@ namespace Poolrooms.HDRP
                 if(room.Plan!=null&&room.Plan.Quiet!=null)shelter=room.Plan.Quiet.Sheltered(local.x,local.z,room.Width);
                 if(room.Plan!=null&&room.Plan.City!=null)foreach(var building in room.Plan.City.Buildings)
                     if(Mathf.Abs(local.x-building.X)<building.Width*.5f&&Mathf.Abs(local.z-building.Z)<building.Depth*.5f)shelter=true;
+                if(aerial)shelter=false;
                 float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(archive?6.3f:sunset?10.8f:shelter?7.7f:11.7f)+offset;
                 if(regionalEV<=0)regionalEV=target;
                 regionalEV=Mathf.Lerp(regionalEV,target,1-Mathf.Exp(-Time.unscaledDeltaTime*2));cityExposure.fixedExposure.Override(regionalEV);
             }
             if(volume.enabled!=active){volume.enabled=active;if(!active&&world!=null&&world.isActiveAndEnabled)world.ExternalGeometryChanged();}
             if(!active){configured=false;return;}
-            bool mall=world.InsideMall;
+            bool mall=!aerial&&world.InsideMall;
+            var effectiveEnvironment=aerial?LiminalEnvironment.City11:room.Environment;
             float height=mall?world.ActiveMallRoot.position.y:world.transform.position.y;
-            if(configured&&previous==room.Environment&&previousMall==mall&&Mathf.Abs(height-previousHeight)<.01f)return;
-            previous=room.Environment;previousMall=mall;previousHeight=height;configured=true;
+            if(configured&&previous==effectiveEnvironment&&previousMall==mall&&Mathf.Abs(height-previousHeight)<.01f)return;
+            previous=effectiveEnvironment;previousMall=mall;previousHeight=height;configured=true;
             environment.skyType.Override((int)(sunny?SkyType.PhysicallyBased:SkyType.Gradient));
             citySun.transform.localRotation=Quaternion.Euler(sunset?18:43,sunset?-65:-38,0);
             citySun.color=sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
