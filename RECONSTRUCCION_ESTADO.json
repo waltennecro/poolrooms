@@ -71,7 +71,7 @@
       "id": "R10",
       "feature": "Licensed sofa and damask variant of existing chair; source UV/PBR baking and clearance-aware placement in City11/archive/courtyard",
       "status": "partial_global_furniture_native_validation_pending",
-      "commit": "see_git_history",
+      "commit": "030debcf8084e7525beb02d1e025bd00b7227480",
       "packageFiles": 502
     }
   ],
@@ -236,11 +236,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/492fe0e6f111f39a1c336fd376b0db35381aad0b",
-    "sourceRevision": "492fe0e6f111f39a1c336fd376b0db35381aad0b",
-    "bytes": 162817438,
-    "sha256": "46a679ff9918f17cb3066cef7230bb67579ba6c84fde2e8d3d7731104e3de58e",
-    "assetFilesMatched": 448,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/030debcf8084e7525beb02d1e025bd00b7227480",
+    "sourceRevision": "030debcf8084e7525beb02d1e025bd00b7227480",
+    "bytes": 196021021,
+    "sha256": "b7b2c6942d2b66c7ff83785ac9275d3e4524371bb8934eac20b1951394f52f51",
+    "assetFilesMatched": 502,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -274,6 +274,14 @@
     "run": "39044589411",
     "status": "success",
     "artifactId": "12105436770",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false
+  },
+  "furnitureExpansionCi": {
+    "sourceRevision": "030debcf8084e7525beb02d1e025bd00b7227480",
+    "run": "39045905663",
+    "status": "success",
+    "artifactId": "12105399230",
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false
   }

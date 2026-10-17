@@ -36,6 +36,8 @@ R9 incorpora [helicóptero CC BY 4.0 y helipuerto conectado](Assets/PoolroomsPro
 
 R10 añade [sofá y variante tapizada de silla con texturas originales horneadas](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_R10.md) en City11, biblioteca y patio. Nueve fuentes/adaptaciones en total corresponden a ocho familias geométricas y una variante adicional; las repeticiones no se cuentan como modelos nuevos.
 
+El [CI de R10](https://github.com/waltennecro/poolrooms/actions/runs/39045905663) pasó todas las comprobaciones y publicó el paquete. Se verificó además una descarga pública nueva con los 502 archivos de Assets; [evidencia y hashes](Verification/ci_furniture_R10.json).
+
 ## Descargar y abrir
 
 1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.

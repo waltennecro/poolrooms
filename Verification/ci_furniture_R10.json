@@ -1,0 +1,55 @@
+{
+  "stage": "R10",
+  "sourceRevision": "030debcf8084e7525beb02d1e025bd00b7227480",
+  "run": "39045905663",
+  "runUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39045905663",
+  "job": "117434454547",
+  "status": "success",
+  "coreAssertions": 16939230,
+  "syntaxScripts": 190,
+  "syntaxConfigurations": 4,
+  "artifactId": "12105399230",
+  "artifactDigest": "sha256:34094ea4d8ccb9e4ed449443da02920129c781110fd2795f9b304d569c5061f8",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "checks": [
+    "pinned SDK 8.0.408",
+    "core / protected geometry / full source footprint and circulation checks / syntax",
+    "36 original PBR maps",
+    "CC0 city sources",
+    "Apache airplane source",
+    "CC-BY helicopter data / licence / pivots / LODs",
+    "two CC-BY furniture sources / 13 maps / Core dimensions",
+    "UV analytic checks",
+    "complete Assets package / upload"
+  ],
+  "nativeUnityTestsExecuted": false,
+  "publicRepositoryArchive": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/030debcf8084e7525beb02d1e025bd00b7227480",
+    "sourceRevision": "030debcf8084e7525beb02d1e025bd00b7227480",
+    "bytes": 196021021,
+    "sha256": "b7b2c6942d2b66c7ff83785ac9275d3e4524371bb8934eac20b1951394f52f51",
+    "assetFilesMatched": 502,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "localAssetsPackage": {
+    "files": 502,
+    "bytes": 130954768,
+    "sha256": "787042e2ac68c722422ee51ca89bbbf585ae0f3a92b82157d47d0cfa16378bae",
+    "sourceRevision": "030debcf8084e7525beb02d1e025bd00b7227480",
+    "workingTreeChanged": false,
+    "crcAndPerFileHashesVerified": true
+  },
+  "counts": {
+    "sourceAssets": 9,
+    "geometryFamilies": 8,
+    "additionalChairVariantSources": 1,
+    "vehicleClasses": 3,
+    "citySampleFurnitureInstances": {
+      "originalChair": 421,
+      "sofa": 359,
+      "damaskChairVariant": 432
+    }
+  }
+}
