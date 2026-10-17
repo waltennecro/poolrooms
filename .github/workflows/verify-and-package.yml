@@ -13,7 +13,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.408'
+          global-json-file: global.json
+      - name: Verify pinned SDK resolution
+        shell: bash
+        run: |
+          selected_sdk="$(dotnet --version)"
+          test "$selected_sdk" = "8.0.408"
+          dotnet --info
       - name: Compile core, compare geometry, check CSharp syntax
         run: dotnet run --project Verification/Poolrooms.Checks.csproj
       - name: Check source texture hashes
