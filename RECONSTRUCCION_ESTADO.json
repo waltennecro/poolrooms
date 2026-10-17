@@ -57,12 +57,12 @@
       "id": "R8",
       "feature": "Licensed civil aircraft and connected deterministic City11 airfields with assisted flight",
       "status": "partial_vehicle_catalog_native_validation_pending",
-      "commit": "see_git_history",
+      "commit": "3767d04632706452f4e6f2a1bd08b1718dd41f61",
       "packageFiles": 448
     }
   ],
   "latestCoreChecks": {
-    "assertions": 16922764,
+    "assertions": 16922766,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
     "syntaxScripts": 184,
@@ -76,7 +76,8 @@
     "aircraftSourcesAudited": 1,
     "airfieldCells": 189,
     "airfieldGeometrySamples": 9,
-    "assistedFlightTimesteps": 5
+    "assistedFlightTimesteps": 5,
+    "airfieldReserveTests": "ConnectedTerrain and ConnectedMalls enabled in mixed world; negative Level94-overlap candidate rejected"
   },
   "pending": [
     {
@@ -194,12 +195,20 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/12fd6ad6f5fb2e758c0231af317e4b1c2c2fa408",
-    "sourceRevision": "12fd6ad6f5fb2e758c0231af317e4b1c2c2fa408",
-    "bytes": 157704602,
-    "sha256": "82fd6e8ea673fed14fe4387d68ce906e4f472c766e8aac1436038a7131931391",
-    "assetFilesMatched": 428,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/3767d04632706452f4e6f2a1bd08b1718dd41f61",
+    "sourceRevision": "3767d04632706452f4e6f2a1bd08b1718dd41f61",
+    "bytes": 162815878,
+    "sha256": "8d46fa8583dac9af7ecf0bfd5589e0be4bafc8e17c428e378dbfcd6a72f9daae",
+    "assetFilesMatched": 448,
     "crcValid": true,
     "githubActionsArtifactDownload": false
+  },
+  "aircraftCi": {
+    "sourceRevision": "3767d04632706452f4e6f2a1bd08b1718dd41f61",
+    "run": "39042387666",
+    "status": "success",
+    "artifactId": "12104711696",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false
   }
 }

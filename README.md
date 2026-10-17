@@ -30,7 +30,7 @@ R7 incorpora un [sillón CC0 agarrable con PBR y LOD](Assets/PoolroomsProcedural
 
 El [CI de R7](https://github.com/waltennecro/poolrooms/actions/runs/39005054928) pasó todas las comprobaciones y publicó su artefacto. Además se verificó una descarga nueva del repositorio: 428 archivos de Assets coinciden por SHA-256. [Evidencia](Verification/ci_sources_R7.json).
 
-R8 añade [aeródromos conectados y un avión civil Apache-2.0](Assets/PoolroomsProcedural/Documentation/AVIACION_R8.md). El catálogo acumulado tiene seis modelos externos y dos clases de vehículo. El helicóptero y el resto del catálogo siguen pendientes; el vuelo necesita comprobarse dentro de Unity.
+R8 añade [aeródromos conectados y un avión civil Apache-2.0](Assets/PoolroomsProcedural/Documentation/AVIACION_R8.md). El catálogo acumulado tiene seis modelos externos y dos clases de vehículo. El helicóptero y el resto del catálogo siguen pendientes; el vuelo necesita comprobarse dentro de Unity. [CI y descarga pública de R8 verificados](Verification/ci_aircraft_R8.json): 448 archivos de Assets y ZIP no vacío.
 
 ## Descargar y abrir
 

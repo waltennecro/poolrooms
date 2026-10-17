@@ -1,0 +1,40 @@
+{
+  "stage": "R8",
+  "sourceRevision": "3767d04632706452f4e6f2a1bd08b1718dd41f61",
+  "run": "39042387666",
+  "runUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39042387666",
+  "job": "117424320171",
+  "status": "success",
+  "checks": [
+    "pinned SDK 8.0.408",
+    "compile core / protected geometry / four CSharp9 configurations",
+    "27 PBR texture maps",
+    "five CC0 sources and LODs",
+    "Apache aircraft source, OBJ groups, maps and licenses",
+    "UV baking analytic tests",
+    "complete Assets package",
+    "artifact upload"
+  ],
+  "artifactId": "12104711696",
+  "artifactDigest": "sha256:4ba61a02b0d384b60bd5eaa51a1e09a7fc465799531a7df9c21321a5be2890f6",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "coreAssertionsAtCiRevision": 16922764,
+  "unityNativeTestsExecuted": false,
+  "publicRepositoryArchive": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/3767d04632706452f4e6f2a1bd08b1718dd41f61",
+    "sourceRevision": "3767d04632706452f4e6f2a1bd08b1718dd41f61",
+    "bytes": 162815878,
+    "sha256": "8d46fa8583dac9af7ecf0bfd5589e0be4bafc8e17c428e378dbfcd6a72f9daae",
+    "assetFilesMatched": 448,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "localAssetsPackage": {
+    "files": 448,
+    "bytes": 103150479,
+    "sha256": "504320d40891bfdb0eeebb1a76429b29de1c2437e621a5151528affa9e733fb4",
+    "workingTreeChanged": false,
+    "crcAndPerFileHashesVerified": true
+  }
+}

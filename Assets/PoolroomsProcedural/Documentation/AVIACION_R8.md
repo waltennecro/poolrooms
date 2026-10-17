@@ -23,11 +23,11 @@ Vuelo asistido con gravedad, sustentación gradual, fuerzas acotadas, límite de
 
 Solo se simula el avión pilotado. Un avión usado se separa del chunk para que descargar la pista no lo destruya; al abandonarlo queda cinemático y se elimina cuando está muy lejos. Como los coches actuales, la marca de recogido evita duplicarlo en su punto original durante esa sesión: **no existe guardado persistente de vehículos aparcados**. No se mantiene activo un aeropuerto entero fuera de la distancia de carga configurada.
 
-Catálogo acumulado: seis modelos externos distintos (cinco CC0 y un Apache-2.0): tres objetos pequeños, un sillón, un coche y un avión. Dos clases de vehículo implementadas; 35 vehículos distintos y el helicóptero **siguen pendientes**. Las 21 celdas, repeticiones de aviones y LOD no son modelos nuevos. Se revisó el kit CC0 de Kenney, accesible nuevamente; su aspecto estilizado no se integró en esta etapa.
+Catálogo acumulado: seis modelos externos distintos (cinco CC0 y un Apache-2.0): tres objetos pequeños, un sillón, un coche y un avión. Dos clases de vehículo implementadas; objetivo de 35 vehículos y el helicóptero **siguen pendientes**. Las 21 celdas, repeticiones de aviones y LOD no son modelos nuevos. Se revisó el kit CC0 de Kenney, accesible nuevamente; su aspecto estilizado no se integró en esta etapa.
 
 ## Comprobaciones ejecutadas
 
-`dotnet run --project Verification/Poolrooms.Checks.csproj`: núcleo compilado, 189 celdas de nueve aeródromos (tres tamaños/tres semillas), soporte en uniones, conexiones, determinismo, reservas de mundo mixto y controles/fuerzas en cinco pasos temporales. Se mantienen las 108 huellas SoftPlay y 80 de otros biomas. Sintaxis C# 9 de 184 scripts en cuatro configuraciones. Resultado: 16.922.764 aserciones del núcleo; no son pruebas nativas de Unity.
+`dotnet run --project Verification/Poolrooms.Checks.csproj`: núcleo compilado, 189 celdas de nueve aeródromos (tres tamaños/tres semillas), soporte en uniones, conexiones, determinismo, reservas de mundo mixto y controles/fuerzas en cinco pasos temporales. Se mantienen las 108 huellas SoftPlay y 80 de otros biomas. Sintaxis C# 9 de 184 scripts en cuatro configuraciones. Resultado: 16.922.766 aserciones del núcleo; no son pruebas nativas de Unity.
 
 Auditorías de cinco fuentes CC0 y una Apache-2.0, licencias, hashes, PNG/OBJ y mapas; 27 mapas PBR originales verificados y pruebas analíticas del horneador UV. Pruebas PlayMode nuevas de importación/materiales/hélices y paso físico entre celdas incluidas **sin ejecutar**.
 
