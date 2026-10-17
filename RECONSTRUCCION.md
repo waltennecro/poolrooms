@@ -19,8 +19,8 @@ Este trabajo reconstruye funciones solicitadas después de v39. No recupera exac
 | Nivel 94 más compacto y más pasto con tres opciones | R3 reduce distritos, agrupa casas en vecindarios y casi duplica candidatos de pasto económico; conserva Off/Económico/Alto y límites de parches. | Implementado; apariencia/FPS pendientes |
 | Mejor física al caer objetos | R2 añade contactos por material, menor resistencia al aire, interpolación, CCD, solver y herencia limitada del movimiento al soltar. | Implementado; PhysX pendiente |
 | Dash con Shift y correr con `|` | R2: tres cargas, recarga, avance planar con colisiones y gravedad originales; cambio en ambos sistemas de entrada y ayuda. | Implementado; controles nativos pendientes |
-| 150 % más contenido y 100 % más decoración realista global (v47 mencionada) | No hay sistema de decoración global ni catálogos City11. Definir mediciones respecto de esta base; los porcentajes no implican igual coste ni garantizan variedad. | Pendiente |
-| Biblioteca inspirada en 906, patio residencial 188 y costa 48; entradas naturales; preparar entradas antiguas sin modificarlas aún | Solo existen diseño y tres modelos fuente en `Preparacion_V48`. No hay niveles integrados. City11 aún no existe como origen de transición. | Pendiente |
+| 150 % más contenido y 100 % más decoración realista global (v47 mencionada) | City11 tiene un catálogo inicial; falta la decoración global. Definir mediciones respecto de esta base; los porcentajes no implican igual coste ni garantizan variedad. | Pendiente |
+| Biblioteca inspirada en 906, patio residencial 188 y costa 48; entradas naturales; preparar entradas antiguas sin modificarlas aún | R5 integra los tres ambientes mediante el grafo regional, arquitectura, objetos y luz propia. Los accesos futuros de zonas anteriores son solo metadatos inactivos. | Implementado; validación Unity pendiente |
 
 No se puede determinar el reparto exacto de funciones entre los números v41–v47, ni recuperar sus pruebas o apariencia originales. Las cifras recordadas de catálogos de versiones perdidas sirven como contexto, no como código recuperado ni requisitos nuevos.
 
@@ -73,3 +73,9 @@ Ver `Assets/PoolroomsProcedural/Documentation/CITY11_RECONSTRUCCION_R4.md`. Inte
 Catálogo verificado: cuatro fuentes distintas, tres objetos y un coche; dos objetos y el coche tienen colocación, el farol queda preparado. No se cuentan texturas, LOD, repeticiones o combinaciones de parámetros como modelos descargados. La muestra de 324 manzanas contiene 1.296 edificios generados, 5.185 espacios de planta, 2.592 instancias de objetos, 15.555 conjuntos de mobiliario y 40 puntos del mismo coche. Los edificios/muebles son procedurales, no nuevos modelos de internet; no se declara cumplido el catálogo completo solicitado.
 
 Verificación nueva: 11.731.000 aserciones del núcleo/mallas/huellas/sintaxis, 174 scripts en cuatro configuraciones y auditoría de las cuatro fuentes/licencias/OBJ/LOD. Se mantienen las 188 huellas protegidas, la linterna y las entradas anteriores. Nuevos tests PlayMode de fuentes y recorridos incluidos, sin ejecutar. Regeneración de fuentes opcional con NumPy/Pillow; CI audita los archivos ya adaptados con Python estándar.
+
+### Etapa R5 — biblioteca, patio y costa
+
+Integración detallada en `Assets/PoolroomsProcedural/Documentation/TRES_NIVELES_R5.md`. El generador ya produce los tres ambientes y el TP los encuentra. Galerías/plantas físicas con escaleras y huecos reales; costa continua por distrito con pasarela seca, agua nativa y pabellones. Se conservan las entradas anteriores y los candidatos futuros permanecen inactivos. La arena incorpora tres mapas originales; no se añade ningún modelo descargado: el farol CC0 previamente preparado ya se coloca.
+
+Comprobación acumulada: 16.290.728 aserciones, 177 scripts × cuatro configuraciones, 72 salas nuevas y 300 apoyos de objetos, continuidad costera, 24 mapas PBR y cuatro fuentes. Las 188 huellas protegidas se mantienen. Se incluyen recorridos PlayMode, pendientes de ejecutar junto con shaders, APIs HDRP, físicas y FPS. CI de R4 confirmado correcto; evidencia en `Verification/ci_city11_R4.json`.

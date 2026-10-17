@@ -1,13 +1,16 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
         {
             switch(environment)
             {
+                case LiminalEnvironment.Archive906:return SurfaceTheme.ArchiveWood;
+                case LiminalEnvironment.Courtyard188:return SurfaceTheme.CourtyardStone;
+                case LiminalEnvironment.Coast48:return SurfaceTheme.CoastSand;
                 case LiminalEnvironment.City11:return SurfaceTheme.CityFacade;
                 case LiminalEnvironment.SoftPlay:return SurfaceTheme.SoftPlay;
                 case LiminalEnvironment.IndoorPlay:return SurfaceTheme.IndoorPlay;
@@ -31,6 +34,9 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(theme==SurfaceTheme.ArchiveWood)return slot==Surface.Glow?null:slot==Surface.Tile||slot==Surface.Accent?"Wood":slot==Surface.Plaster?"Paint":slot==Surface.Metal?"Steel":"Fabric";
+            if(theme==SurfaceTheme.CourtyardStone)return slot==Surface.Glow?null:slot==Surface.Tile?"Terrazzo":slot==Surface.Plaster?"Paint":slot==Surface.Accent?"Wood":slot==Surface.Metal?"Steel":"Fabric";
+            if(theme==SurfaceTheme.CoastSand)return slot==Surface.Glow?null:slot==Surface.Tile?"QuietSand":slot==Surface.Plaster?"WeatheredPaint":slot==Surface.Accent?"Wood":slot==Surface.Metal?"Steel":"Fabric";
             if(theme==SurfaceTheme.CityStreet)return slot==Surface.Tile?"DustyStone":"Paint";
             if(theme==SurfaceTheme.CityFacade)return slot==Surface.Tile?"DustyStone":slot==Surface.Plaster?"Paint":slot==Surface.Accent?"Wood":slot==Surface.Metal?"Steel":slot==Surface.Glow?null:"RetailVinyl";
             if(theme==SurfaceTheme.SoftPlayFloor)return "PlayFinishFloor";

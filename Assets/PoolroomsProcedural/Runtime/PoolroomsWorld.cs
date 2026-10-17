@@ -335,6 +335,7 @@ namespace Poolrooms
             go.transform.position=RoomWorldPosition(r);
             var chunk=go.AddComponent<PoolroomsChunk>();chunk.roomId=r.Id;chunk.cellX=r.X;chunk.cellZ=r.Z;
             chunk.waterRegions=data.Regions.ToArray();
+            chunk.preparedTransitions=data.PreparedTransitions.ToArray();
             MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
             if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
@@ -365,6 +366,17 @@ namespace Poolrooms
         }
         private void AttachRoomExtras(Room r,Transform parent)
         {
+            if(Application.isPlaying&&r.Plan!=null&&r.Plan.Quiet!=null)
+            {
+                var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
+                for(int i=0;i<r.Plan.Quiet.Props.Length;i++)
+                {
+                    var prop=r.Plan.Quiet.Props[i];string key="quiet:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;
+                    if(carry!=null&&carry.WasTaken(key))continue;Vector3 bottom=new Vector3(prop.Bottom.X,prop.Bottom.Y,prop.Bottom.Z);
+                    if(prop.CatalogId>=0){var item=MallItemCatalog.Get(prop.CatalogId);PoolroomsPickup.CreateCatalog(key,prop.CatalogId,bottom+Vector3.up*(item.Size.Y*.5f),parent,profile);}
+                    else PoolroomsPickup.CreateSource(key,prop.Source,bottom,parent,prop.Source=="Lantern"?1.3f:.28f);
+                }
+            }
             if(Application.isPlaying&&r.Plan!=null&&r.Plan.City!=null)
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;

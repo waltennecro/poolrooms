@@ -1,0 +1,78 @@
+using System;
+
+namespace Poolrooms.Core
+{
+    public readonly struct QuietPropPlan
+    {
+        public readonly V3 Bottom;
+        public readonly int CatalogId;
+        public readonly string Source;
+        public QuietPropPlan(V3 bottom,int catalogId,string source=null){Bottom=bottom;CatalogId=catalogId;Source=source;}
+    }
+    public readonly struct PreparedTransition
+    {
+        public readonly LiminalEnvironment Destination;
+        public readonly V3 Position;
+        public bool Active {get{return false;}}
+        public PreparedTransition(LiminalEnvironment destination,V3 position){Destination=destination;Position=position;}
+    }
+    public sealed class QuietLevelPlan
+    {
+        public readonly LiminalEnvironment Environment;
+        public readonly int Floors,Variant;
+        public readonly uint Seed;
+        public readonly QuietPropPlan[] Props;
+        public readonly WaterRegion Sea;
+        public readonly float Shore;
+        public readonly bool Pavilion;
+        public QuietLevelPlan(LiminalEnvironment environment,int floors,int variant,uint seed,QuietPropPlan[] props,WaterRegion sea,float shore=0,bool pavilion=false)
+        {Environment=environment;Floors=floors;Variant=variant;Seed=seed;Props=props;Sea=sea;Shore=shore;Pavilion=pavilion;}
+        public bool Valid(Room room,LayoutConfig c)
+        {return QuietLevelPlanner.IsLevel(Environment)&&room.Environment==Environment&&room.Width==c.CellSize&&room.Depth==c.CellSize&&Props!=null&&Props.Length<=8&&Floors>=1&&Floors<=5;}
+        public bool Sheltered(float x,float z,float cellSize)
+        {return Environment==LiminalEnvironment.Archive906||Environment==LiminalEnvironment.Courtyard188&&(Math.Abs(x)>cellSize*.25f||z>cellSize*.25f);}
+    }
+    public static class QuietLevelPlanner
+    {
+        public static bool IsLevel(LiminalEnvironment e)
+        {return e==LiminalEnvironment.Archive906||e==LiminalEnvironment.Courtyard188||e==LiminalEnvironment.Coast48;}
+        public static void Describe(Room room,LayoutConfig c)
+        {
+            var e=room.Environment;room.ZoneId=-1;room.Width=room.Depth=c.CellSize;
+            var random=new StableRandom(LiminalRegions.Hash(c.Seed,room.X,room.Z,0x480906u));uint seed=random.Next();
+            int floors=e==LiminalEnvironment.Archive906?2:e==LiminalEnvironment.Courtyard188?3+random.Range(3):1;
+            room.Height=e==LiminalEnvironment.Archive906?8.5f:e==LiminalEnvironment.Courtyard188?floors*3.2f+.24f:12;
+            int variant=random.Range(6);float half=c.CellSize*.5f,shore=0;
+            if(e==LiminalEnvironment.Coast48)shore=CoastShore(room,c);
+            bool pavilion=e==LiminalEnvironment.Coast48&&shore>-c.CellSize*.3f+2.4f&&variant<4;
+            var props=new QuietPropPlan[e==LiminalEnvironment.Archive906?6:e==LiminalEnvironment.Courtyard188?4:pavilion?4:0];
+            for(int i=0;i<props.Length;i++)
+            {
+                if(e==LiminalEnvironment.Archive906)
+                    props[i]=new QuietPropPlan(new V3((i%2==0?-1:1)*(c.CellSize*.5f-3.1f),.9f,-2+(i/2)*2),random.Range(8));
+                else if(e==LiminalEnvironment.Courtyard188)
+                    props[i]=new QuietPropPlan(new V3((i%2==0?-1:1)*(c.CellSize*.5f-2.5f),.92f,-half+11.3f+(i/2)*7),i%2==0?0:21*8);
+                else props[i]=new QuietPropPlan(new V3(-c.CellSize*.3f+.7f,.9f,-c.CellSize*.3f+i*.52f),-1,i==0?"Lantern":"WaterBottle");
+            }
+            var sea=e==LiminalEnvironment.Coast48&&shore<half-.001f?new WaterRegion{CenterX=(shore+half)*.5f,CenterZ=0,Width=half-shore,Depth=c.CellSize,Radius=0,Bottom=-2,Level=c.WaterLevel}:new WaterRegion();
+            var plan=new QuietLevelPlan(e,floors,variant,seed,props,sea,shore,pavilion);
+            room.Plan=new ProceduralPlan(e,new PlannedModule[0],sea.Width>0?new[]{sea}:new WaterRegion[0],c.DoorWidth*.5f+.8f,0,0,quiet:plan);
+            if(!plan.Valid(room,c))throw new ArgumentException("Invalid quiet level room.");
+        }
+        static float CoastShore(Room r,LayoutConfig c)
+        {
+            if(c.Procedural==LiminalGeneration.Coast48)return (float)Math.Max(-c.CellSize*.5f,Math.Min(c.CellSize*.5f,-(double)r.X*c.CellSize));
+            // Match the seed's Voronoi group. All rooms in a coastal district share one
+            // coastline instead of repeating a separate beach in every room.
+            int size=c.EnvironmentRegionSize,rx=ContinuousTopology.FloorDivide(r.X,size),rz=ContinuousTopology.FloorDivide(r.Z,size),selectedX=0;double best=double.MaxValue;
+            for(int z=-1;z<=1;z++)for(int x=-1;x<=1;x++)
+            {
+                int ax=rx+x,az=rz+z;uint a=LiminalRegions.Hash(c.Seed,ax,az,0xE01u),b=LiminalRegions.Hash(c.Seed,ax,az,0xE02u);
+                double px=(long)ax*size+(a>>8)*(size/16777216.0),pz=(long)az*size+(b>>8)*(size/16777216.0);if(ax==0&&az==0){px=0;pz=0;}
+                double dx=r.X-px,dz=r.Z-pz,d=dx*dx+dz*dz;if(d<best){best=d;selectedX=ax;}
+            }
+            int group=ContinuousTopology.FloorDivide(selectedX,2);double global=(2.0*group+1)*size*c.CellSize;
+            return (float)Math.Max(-c.CellSize*.5f,Math.Min(c.CellSize*.5f,global-(double)r.X*c.CellSize));
+        }
+    }
+}

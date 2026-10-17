@@ -1,0 +1,28 @@
+{
+  "run": "https://github.com/waltennecro/poolrooms/actions/runs/39001775184",
+  "job": "117306037158",
+  "commit": "fea9ff558868f4703667c3a9a464788cbd2f88ab",
+  "steps": {
+    "Set up job": "success",
+    "Run actions/checkout@v4": "success",
+    "Run actions/setup-dotnet@v4": "success",
+    "Verify pinned SDK resolution": "success",
+    "Compile core, compare geometry, check CSharp syntax": "success",
+    "Check source texture hashes": "success",
+    "Check licensed City11 source assets and LODs": "success",
+    "Create verified complete Assets package": "success",
+    "Run actions/upload-artifact@v4": "success",
+    "Post Run actions/setup-dotnet@v4": "success",
+    "Post Run actions/checkout@v4": "success",
+    "Complete job": "success"
+  },
+  "artifactId": "12089920365",
+  "artifactDigest": "sha256:44a793593373a9aa8893dcd76a379c69cdfef90456a2cb22a1f5524e8f39e190",
+  "artifactPublished": true,
+  "authenticatedArtifactDownloadTested": false,
+  "localPackage": {
+    "files": 402,
+    "bytes": 84863244,
+    "sha256": "d12efc174dda9883a655a74b3c40bea1c7515afe5fe29dc35e7fa1e1597a1bad"
+  }
+}

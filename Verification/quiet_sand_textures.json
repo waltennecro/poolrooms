@@ -1,0 +1,18 @@
+{
+  "source": "Original generated granular material",
+  "size": 1024,
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/QuietSand_Albedo.png": {
+      "bytes": 1180041,
+      "sha256": "1008ced630262c6821a75c373c4b01cc42befacfe227f9052c1d29b7e3107ed8"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/QuietSand_Mask.png": {
+      "bytes": 869910,
+      "sha256": "8c53f1b96eea92beccf032ba6054237020b72ce7d6240c75ddecfc1e12266e95"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/QuietSand_Normal.png": {
+      "bytes": 1612749,
+      "sha256": "0b990396949e09d8f08ef3c21c53efaea2732d9467fb685cda609d57a9588eaa"
+    }
+  }
+}

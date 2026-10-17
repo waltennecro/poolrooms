@@ -9,6 +9,9 @@ namespace Poolrooms
         [Header("Nivel 11 · reconstrucción incremental")]
         public bool enableCity11=true;
         [Range(0,.5f)] public float city11Share=.15f;
+        [Header("Biblioteca 906 · Patio 188 · Costa 48")]
+        public bool enableQuietLevels=true;
+        [Range(0,.5f)] public float quietLevelShare=.18f;
         [Header("Áreas infantiles multinivel / v39")]
         [Tooltip("Bioma independiente del infantil anterior. Aparece como regiones amplias en Expanded.")] public bool enableSoftPlay=true;
         [Range(0,.5f),Tooltip("Probabilidad por región; conserva los juegos interiores anteriores.")] public float softPlayShare=.18f;
@@ -120,7 +123,7 @@ namespace Poolrooms
         public bool colliders=true;
         public LayoutConfig Snapshot()
         {
-            var c=new LayoutConfig{EnableCity11=enableCity11,City11Share=city11Share,EnableSoftPlay=enableSoftPlay,SoftPlayShare=softPlayShare,CommonPoolrooms=commonPoolrooms,CommonSolarShare=commonSolarShare,CommonClimateRegionSize=commonClimateRegionSize,ConnectedTerrain=connectedTerrainGeneration&&enableTerrainRegions&&continuousWorld,ConnectedTerrainShare=connectedTerrainShare,ConnectedMalls=connectedMallGeneration&&continuousWorld,ConnectedMallShare=connectedMallShare,AutonomousGeneration=autonomousGeneration,IndependentBiomeMaterials=independentBiomeMaterials,MallDistricts=mallDistricts,Seed=seed,Columns=columns,Rows=rows,Continuous=continuousWorld,Procedural=liminalGeneration,Grammar=proceduralGrammar,SunlitRegionShare=sunlitRegionShare,PoolClimateRegionSize=poolClimateRegionSize,DirectRoomJoinChance=directRoomJoinChance,SupermarketShare=supermarketShare,AdditionalEnvironmentShare=additionalEnvironmentShare,EnvironmentRegionSize=environmentRegionSize,
+            var c=new LayoutConfig{EnableQuietLevels=enableQuietLevels,QuietLevelShare=quietLevelShare,EnableCity11=enableCity11,City11Share=city11Share,EnableSoftPlay=enableSoftPlay,SoftPlayShare=softPlayShare,CommonPoolrooms=commonPoolrooms,CommonSolarShare=commonSolarShare,CommonClimateRegionSize=commonClimateRegionSize,ConnectedTerrain=connectedTerrainGeneration&&enableTerrainRegions&&continuousWorld,ConnectedTerrainShare=connectedTerrainShare,ConnectedMalls=connectedMallGeneration&&continuousWorld,ConnectedMallShare=connectedMallShare,AutonomousGeneration=autonomousGeneration,IndependentBiomeMaterials=independentBiomeMaterials,MallDistricts=mallDistricts,Seed=seed,Columns=columns,Rows=rows,Continuous=continuousWorld,Procedural=liminalGeneration,Grammar=proceduralGrammar,SunlitRegionShare=sunlitRegionShare,PoolClimateRegionSize=poolClimateRegionSize,DirectRoomJoinChance=directRoomJoinChance,SupermarketShare=supermarketShare,AdditionalEnvironmentShare=additionalEnvironmentShare,EnvironmentRegionSize=environmentRegionSize,
                 IndoorPlayShare=indoorPlayShare,AuthoredRoomChance=authoredRoomChance,CellSize=cellSize,LoopChance=loopChance,
                 Distribution=distribution,DistrictSize=districtSize,Corridors=corridorStyle,
                 CorridorBend=corridorBend,CorridorLightSpacing=corridorLightSpacing,

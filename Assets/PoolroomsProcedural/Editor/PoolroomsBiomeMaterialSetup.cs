@@ -13,7 +13,7 @@ namespace Poolrooms.Editor
             var importer=(TextureImporter)assetImporter;bool normal=assetPath.EndsWith("_Normal.png"),mask=assetPath.EndsWith("_Mask.png");
             importer.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
             importer.sRGBTexture=!normal&&!mask;importer.mipmapEnabled=true;importer.wrapMode=TextureWrapMode.Repeat;
-            bool refined=assetPath.Contains("/PlayFinish");
+            bool refined=assetPath.Contains("/PlayFinish")||assetPath.Contains("/QuietSand");
             importer.anisoLevel=refined?8:4;importer.maxTextureSize=refined?1024:512;importer.textureCompression=TextureImporterCompression.Compressed;
             if(refined)importer.textureCompression=TextureImporterCompression.CompressedHQ;
             importer.alphaIsTransparency=false;
@@ -36,11 +36,11 @@ namespace Poolrooms.Editor
         private static void EnsureSoftPlay(PoolroomsBiomeMaterials library)
         {
             int capacity=System.Enum.GetValues(typeof(SurfaceTheme)).Length*6;
-            if(library.surfaces!=null&&library.surfaces.Length>=capacity&&library.Find(SurfaceTheme.CityFacade,5)!=null)return;
+            if(library.surfaces!=null&&library.surfaces.Length>=capacity&&library.Find(SurfaceTheme.CoastSand,5)!=null)return;
             Directory.CreateDirectory(Folder);AssetDatabase.Refresh();
             if(library.surfaces==null)library.surfaces=new Material[capacity];
             else if(library.surfaces.Length<capacity)System.Array.Resize(ref library.surfaces,capacity);
-            for(int theme=(int)SurfaceTheme.SoftPlay;theme<=(int)SurfaceTheme.CityFacade;theme++)for(int slot=0;slot<6;slot++)
+            for(int theme=(int)SurfaceTheme.SoftPlay;theme<=(int)SurfaceTheme.CoastSand;theme++)for(int slot=0;slot<6;slot++)
             {
                 if(library.Find((SurfaceTheme)theme,slot)!=null)continue;
                 string path=Folder+"/"+(SurfaceTheme)theme+"_"+(Surface)slot+".mat";
@@ -59,7 +59,7 @@ namespace Poolrooms.Editor
             var library=AssetDatabase.LoadAssetAtPath<PoolroomsBiomeMaterials>(Library);
             if(library==null){library=ScriptableObject.CreateInstance<PoolroomsBiomeMaterials>();AssetDatabase.CreateAsset(library,Library);}
             library.surfaces=new Material[System.Enum.GetValues(typeof(SurfaceTheme)).Length*6];
-            for(int theme=(int)SurfaceTheme.IndoorPlay;theme<=(int)SurfaceTheme.CityFacade;theme++)for(int slot=0;slot<6;slot++)
+            for(int theme=(int)SurfaceTheme.IndoorPlay;theme<=(int)SurfaceTheme.CoastSand;theme++)for(int slot=0;slot<6;slot++)
             {
                 string path=Folder+"/"+(SurfaceTheme)theme+"_"+(Surface)slot+".mat";
                 var m=AssetDatabase.LoadAssetAtPath<Material>(path);var generated=PoolroomsBiomeMaterialFactory.Create((SurfaceTheme)theme,(Surface)slot);

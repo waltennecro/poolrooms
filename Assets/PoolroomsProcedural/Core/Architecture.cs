@@ -40,6 +40,7 @@ namespace Poolrooms.Core
         public readonly List<Fixture> Fixtures=new List<Fixture>();
         // Optional batched visuals never enter the support/collision meshes.
         public readonly List<MeshData> VisualMeshes=new List<MeshData>();
+        public readonly List<PreparedTransition> PreparedTransitions=new List<PreparedTransition>();
         public readonly CorridorGeometry[] Connectors=new CorridorGeometry[2];
         public WaterRegion Region;
         public readonly List<WaterRegion> Regions=new List<WaterRegion>();
@@ -49,6 +50,8 @@ namespace Poolrooms.Core
         public static RoomGeometry Build(Room r,Layout layout)
         {
             RoomGeometry output=Build(r,layout.Config);
+            if(layout.Config.EnableQuietLevels&&!QuietLevelPlanner.IsLevel(r.Environment))
+            {foreach(var destination in new[]{LiminalEnvironment.Archive906,LiminalEnvironment.Courtyard188,LiminalEnvironment.Coast48})output.PreparedTransitions.Add(new PreparedTransition(destination,new V3(0,r.Floor,0)));}
             for(int d=0;d<2;d++)if(r.HasExit(d))
             {
                 Room neighbour=layout.Neighbour(r,d);

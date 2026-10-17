@@ -29,17 +29,25 @@
       "id": "R4",
       "feature": "Initial integrated City11, licensed source adaptation and first ground vehicle",
       "status": "partial_implementation_native_validation_pending",
-      "commit": "see_git_history"
+      "commit": "fea9ff5",
+      "packageFiles": 402
+    },
+    {
+      "id": "R5",
+      "feature": "Integrated Archive906, Courtyard188 and Coast48 with distinct materials and real regional connections",
+      "status": "implemented_native_validation_pending"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 11731000,
+    "assertions": 16290728,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 174,
+    "syntaxScripts": 177,
     "syntaxConfigurations": 4,
-    "pbrMapsVerified": 21,
-    "citySourcesAudited": 4
+    "pbrMapsVerified": 24,
+    "citySourcesAudited": 4,
+    "quietRooms": 72,
+    "quietItemSupports": 300
   },
   "pending": [
     {
@@ -56,7 +64,8 @@
     {
       "id": "three_levels",
       "feature": "Archive 906, courtyard 188, coast 48 and natural new transitions; inactive future sockets in existing zones",
-      "status": "preparation_only"
+      "status": "implemented_native_validation_pending",
+      "remaining": "Unity compilation, native traversal/visuals and refinement; old-zone future transition sockets intentionally inactive"
     },
     {
       "id": "native_validation",
@@ -64,13 +73,13 @@
       "status": "requires_unity_editor"
     }
   ],
-  "nextIndependentWork": "Broader licensed city/vehicle sources and global decoration; integrate the three prepared levels with new natural transitions. R4 is not full recovery of v47.",
+  "nextIndependentWork": "Global decoration with measurable budgets; broader licensed city and vehicle catalog including airplane/helicopter, then native Unity validation. R1\u2013R5 are reconstruction, not exact v47 recovery.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 4,
     "propSources": 3,
     "vehicleSources": 1,
-    "placedPropSourceTypes": 2,
+    "placedPropSourceTypes": 3,
     "placedVehicleSourceTypes": 1,
     "carLODDerivatives": 2,
     "carColourVariants": 1,
@@ -84,5 +93,11 @@
     "artifactId": "12088831812",
     "artifactPublished": true,
     "artifactDownloadTested": false
+  },
+  "city11Ci": {
+    "run": "39001775184",
+    "status": "success",
+    "artifactId": "12089920365",
+    "artifactPublished": true
   }
 }

@@ -30,9 +30,10 @@ namespace Poolrooms.Core
         public readonly SolarRoomPlan Solar;
         public readonly SoftPlayPlan SoftPlay;
         public readonly City11Plan City;
+        public readonly QuietLevelPlan Quiet;
         public GeneratedAssembly[] Assemblies { get; internal set; } = new GeneratedAssembly[0];
-        public ProceduralPlan(LiminalEnvironment environment,PlannedModule[] modules,WaterRegion[] pools,float clear,int ceiling,int palette,bool fallback=false,PlanCirculation circulation=null,RetailStore store=null,InteriorPlan interior=null,SolarRoomPlan solar=null,SoftPlayPlan softPlay=null,City11Plan city=null)
-        {Environment=environment;Modules=modules;Pools=pools;ClearHalfWidth=clear;CeilingPattern=ceiling;Palette=palette;IsFallback=fallback;Circulation=circulation;Store=store;Interior=interior;Solar=solar;SoftPlay=softPlay;City=city;}
+        public ProceduralPlan(LiminalEnvironment environment,PlannedModule[] modules,WaterRegion[] pools,float clear,int ceiling,int palette,bool fallback=false,PlanCirculation circulation=null,RetailStore store=null,InteriorPlan interior=null,SolarRoomPlan solar=null,SoftPlayPlan softPlay=null,City11Plan city=null,QuietLevelPlan quiet=null)
+        {Environment=environment;Modules=modules;Pools=pools;ClearHalfWidth=clear;CeilingPattern=ceiling;Palette=palette;IsFallback=fallback;Circulation=circulation;Store=store;Interior=interior;Solar=solar;SoftPlay=softPlay;City=city;Quiet=quiet;}
 
         public bool Valid(Room room,LayoutConfig c)
         {
@@ -48,6 +49,7 @@ namespace Poolrooms.Core
                     Modules.Length==0&&Pools.Length==0&&room.Width<=c.CellSize-6&&room.Depth<=c.CellSize-6&&room.Height>=c.DoorHeight+.5f;
             }
             if(!AutonomousPlanner.Valid(this,room,c))return false;
+            if(Quiet!=null)return Quiet.Valid(room,c);
             if(City!=null)return City.Valid(room,c);
             if(SoftPlay!=null)return SoftPlay.Valid(room,c);
             if(Solar!=null)return Solar.Valid(this,room,c);
@@ -110,6 +112,7 @@ namespace Poolrooms.Core
             }
             if(c.Procedural==LiminalGeneration.Authored)return;
             room.Environment=LiminalRegions.At(c,room.X,room.Z);
+            if(QuietLevelPlanner.IsLevel(room.Environment)){QuietLevelPlanner.Describe(room,c);return;}
             if(room.Environment==LiminalEnvironment.City11){City11Planner.Describe(room,c);return;}
             if(LiminalRegions.UsesAuthored(c,room.X,room.Z))return;
             if(room.Environment==LiminalEnvironment.Poolrooms&&c.Grammar==ProceduralGrammar.SolarAtlas){SolarPlanner.Describe(room,c);return;}

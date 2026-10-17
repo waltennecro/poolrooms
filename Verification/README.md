@@ -1,6 +1,6 @@
 # Comprobaciones fuera de Assets
 
-Requisitos: SDK .NET 8.0.408 o compatible. No hay dependencias NuGet: el compilador de sintaxis procede del propio SDK.
+Requisitos: SDK .NET **8.0.408**, fijado por `global.json`. No hay dependencias NuGet: el compilador de sintaxis procede del propio SDK. Instalar SDK 8 sin fijar su selección permitía que CI usara Roslyn de SDK 10, incompatible con net8.0; el workflow comprueba la versión elegida.
 
 ```sh
 dotnet run --project Verification/Poolrooms.Checks.csproj

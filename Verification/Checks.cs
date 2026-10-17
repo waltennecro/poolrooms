@@ -52,6 +52,7 @@ static class Checks
         MovementAndQuality();
         CompactTerrain();
         CityGeneration();
+        QuietGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
         var scripts=Directory.GetFiles(Path.Combine(root,"Assets"),"*.cs",SearchOption.AllDirectories);
         foreach(var config in symbols)foreach(var path in scripts)
@@ -171,5 +172,58 @@ static class Checks
             if(y<=origin.Y+.0001f&&y>highest)highest=y;
         }
         return highest;
+    }
+    static void QuietGeneration()
+    {
+        int built=0,pickups=0;
+        foreach(var mode in new[]{LiminalGeneration.Archive906,LiminalGeneration.Courtyard188,LiminalGeneration.Coast48})foreach(int size in new[]{28,36,60})for(int seed=0;seed<8;seed++)
+        {
+            var config=new LayoutConfig{Seed=seed,CellSize=size,Continuous=true,Procedural=mode,CurveSegments=12};var layout=new Layout(config);var room=layout.At(seed-4,-5);
+            Check(room.Plan.Quiet!=null&&room.Plan.Valid(room,config),"New level not integrated in actual layout");var data=Architecture.Build(room,layout);
+            Validate(data.Structure);Validate(data.Decoration);Validate(data.Glass);Validate(data.Water);Validate(data.CollisionOnly);
+            foreach(var link in data.Connectors)if(link!=null)Validate(link.Structure);
+            foreach(var prop in room.Plan.Quiet.Props)
+            {Check(Math.Abs(prop.Bottom.Y-Support(data.Structure,prop.Bottom)-.02f)<.001f,"New level item floats or overlaps furniture");pickups++;}
+            if(mode!=LiminalGeneration.Coast48)
+            {
+                float half=size*.5f,sx=mode==LiminalGeneration.Archive906?half-3:half*.75f,sz=-half+(mode==LiminalGeneration.Archive906?4.2f:4);
+                int floors=mode==LiminalGeneration.Archive906?2:room.Plan.Quiet.Floors;
+                foreach(int sign in new[]{-1,1})for(int level=0;level<floors-1;level++)for(int flight=0;flight<2;flight++)for(int step=0;step<9;step++)
+                {
+                    float x=sign*sx+(flight==0?-.95f:.95f),z=sz+(flight==0?-1.35f+(step+.5f)*.3f:1.35f-(step+.5f)*.3f),y=level*3.2f+flight*1.6f+(step+1)*1.6f/9;
+                    Check(Math.Abs(Support(data.Structure,new V3(x,y+.03f,z))-y)<.001f,"New level stair has no support");
+                    Check(Support(data.Structure,new V3(x,y+1.85f,z))<=y+.04f,"Upper floor blocks the stair headroom");
+                }
+            }
+            if(mode==LiminalGeneration.Coast48)
+            {
+                foreach(var p in new[]{new V3(0,.1f,0),new V3(0,.1f,size*.49f),new V3(size*.49f,.1f,0)})Check(Math.Abs(Support(data.Structure,p)-.06f)<.001f,"Coastal boardwalk has a gap");
+                if(room.Plan.Quiet.Sea.Width>0)Check(room.Plan.Pools.Length==1&&data.Regions.Count==1,"Sea not registered for native water and swimming");
+            }
+            built++;
+        }
+        var settings=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Poolrooms,Seed=23};var original=new Layout(settings);var r=original.At(4,8);var before=Architecture.Build(r,original);
+        settings.EnableQuietLevels=true;var prepared=new Layout(settings);var after=Architecture.Build(prepared.At(4,8),prepared);
+        Check(Hash(before.Structure,before.Decoration,before.Water)==Hash(after.Structure,after.Decoration,after.Water),"Preparing future sockets changed existing room geometry");
+        Check(after.PreparedTransitions.Count==3&&after.PreparedTransitions.All(p=>!p.Active),"Future transition metadata became active");
+        var mixed=new LayoutConfig{Procedural=LiminalGeneration.Expanded,Continuous=true,EnableQuietLevels=true,QuietLevelShare=.5f};
+        foreach(var env in new[]{LiminalEnvironment.Archive906,LiminalEnvironment.Courtyard188,LiminalEnvironment.Coast48})
+        {int x,z;Check(LiminalRegions.Find(mixed,env,0,0,out x,out z),"New level TP cannot find a region");}
+        int coastalEdges=0;
+        for(int z=-48;z<=48;z++)for(int x=-48;x<=48;x++)
+        {
+            if(LiminalRegions.At(mixed,x,z)!=LiminalEnvironment.Coast48)continue;
+            var a=new Room{X=x,Z=z,Environment=LiminalEnvironment.Coast48};QuietLevelPlanner.Describe(a,mixed);float half=mixed.CellSize*.5f;
+            for(int d=0;d<2;d++)
+            {
+                int nx=x+Directions.DX[d],nz=z+Directions.DZ[d];if(LiminalRegions.At(mixed,nx,nz)!=LiminalEnvironment.Coast48)continue;
+                var b=new Room{X=nx,Z=nz,Environment=LiminalEnvironment.Coast48};QuietLevelPlanner.Describe(b,mixed);
+                if(d==1)Check((a.Plan.Quiet.Shore>=half-.01f?0:-2)==(b.Plan.Quiet.Shore<=-half+.01f?-2:0),"Coastal shore repeats discontinuously at east/west cell seam");
+                else Check(a.Plan.Quiet.Shore==b.Plan.Quiet.Shore,"Coastal shoreline jumps between north/south neighbours");
+                coastalEdges++;
+            }
+        }
+        Check(coastalEdges>0,"No coastal seam samples were tested");
+        Console.WriteLine($"Quiet levels: {built} rooms across three sizes; {pickups} actual item supports, stair headroom, sea/boardwalk registration and inactive legacy sockets checked.");
     }
 }

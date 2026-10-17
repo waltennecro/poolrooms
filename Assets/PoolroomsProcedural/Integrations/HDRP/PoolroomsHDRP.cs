@@ -52,11 +52,14 @@ namespace Poolrooms.HDRP
         private PoolroomsWorld world;
         private bool refreshRequested;
         private bool waterGeometryDirty;
+        private bool coastalLook;
         private Layout waterLayout;
         private float causticGain=1;
         private void OnValidate(){refreshRequested=true;}
         private void Update()
         {
+            bool coast=world!=null&&world.RoomAtViewer()?.Environment==LiminalEnvironment.Coast48;
+            if(coast!=coastalLook){coastalLook=coast;RefreshWater();}
             if(refreshRequested)
             {
                 refreshRequested=false;ApplyVisualSettings();
@@ -143,6 +146,8 @@ namespace Poolrooms.HDRP
             water.refractionColor=custom?refraction:new Color(look.Refraction.X,look.Refraction.Y,look.Refraction.Z);
             water.scatteringColor=custom?scattering:new Color(look.Scattering.X,look.Scattering.Y,look.Scattering.Z);
             water.absorptionDistance=custom?Mathf.Max(.001f,absorptionDistance):look.Absorption;
+            if(coastalLook&&appearance==PoolWaterAppearance.ClearCeramic)
+            {water.refractionColor=new Color(.75f,.9f,.96f);water.scatteringColor=new Color(.035f,.15f,.22f);water.absorptionDistance=7;}
             water.maxRefractionDistance=custom?Mathf.Clamp(refractionDistance,0,3.5f):look.RefractionDistance;
             water.ambientScattering=.025f;water.heightScattering=.05f;water.displacementScattering=.12f;
             water.directLightTipScattering=.18f;water.directLightBodyScattering=.22f;
