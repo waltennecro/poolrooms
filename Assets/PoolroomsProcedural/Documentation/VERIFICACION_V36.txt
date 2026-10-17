@@ -1,0 +1,74 @@
+v36 — COLISIONES, CARGA Y SONIDO
+
+CORE .NET 8: not Unity API compilation
+  CoreChecks -> /workspace/poolrooms/Poolrooms_Unity/Verification/bin/Debug/net8.0/CoreChecks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:05.17
+
+SAFETY — New pure policy/envelope tests: stale LOD publication, 2000 seam oscillations, 9–16 bounded retained detailed tiles, slide audio and original ambience; background job regressions. Not native physics.
+Streaming safety PASS: late far/medium completions rejected, required promotions retained, boundary jitter has only two initial promotions across 2,000 oscillations; 9–16 bounded detailed tiles, negative coordinates, shrinking radius and demotion. Native publication/PhysX/FPS pending.
+Audio: 170 room acoustic profiles, dry-room silence, continuous unequal-room transitions, bounded splash gain and cadence at 10/20/30/60/120 FPS; idle/pause/teleport/airborne suppression.
+Slide audio PASS: 10–144 FPS, continuous speed envelope, walking suppression, smooth release, air/water/flight/stationary silence, pause/teleport/reset; original ambience, splashes and cadence regressions preserved. Native mixer/listening pending.
+Build jobs: in-flight overlap rejected; stale results discarded; active/abandoned faults recover; real seeded geometry preserved.
+PASS: 661417 streaming/audio/job assertions.
+
+MOVEMENT — Existing slide/jump/camera/settings regressions; player locomotion and camera source unchanged.
+Slide PASS: 10/15/20/30/60/120/144 FPS; 33 m in 3 seconds, bounded steering, slide-jump momentum, two jumps, release/rearm, pause/loading/wall cancellation, water/flight disable, low capsule and saved preference migration. Unity PhysX/appearance/FPS unrun.
+Locomotion v26 PASS: 7 simulations at 10/15/20/30/60/120/144 FPS; two impulses, third rejected, landing recharge, stale grounded, ledge, ceiling, loading, teleport, swimming and bounded substeps. Peak sampled 0.870..0.964 m. Native PhysX remains pending.
+Camera v23 PASS: motion at 10/15/20/30/60/120/144 FPS; actual-speed gating, stop/air/pause/reset/comfort, deterministic poses and bounded flashlight inertia. Max sampled bob 0.0178 m, rotation 0.440 degrees. Source scale, water grazing and optical fades passed. Unity/HDRP/shader/FPS validation pending.
+Settings: legacy look migration, bounded/saved preferences, isolated resets, accent-aware search, selective updates, 15 s unscaled display confirmation and sprint latch recovery passed. Unity UI/HDRP/OS display changes not executed.
+PASS: 11225 slide/movement/camera/settings assertions.
+
+HOUSES — 800 existing structural variants, door/stair/support/cellar/attic tests, 384 large seeded homes and 48 regional homes. Mathematical triangle checks, not PhysX.
+Generation sample: 58810 homes in 32 districts, all 800 IDs present; floors 1..5: 23354,17793,8966,5823,2874. Original paint assignments and lot population preserved; wider entrance lots retain portal clearing and neighbour separation.
+Additional budgets: 384 large furnished homes across 32 seeds, same structural identity across original paint palette and room programs.
+Regional integration: 48 real district homes incl. yards, 48 safe water-tower placements.
+Home v35 PASS: 800 unique structural meshes without paint/furniture; 20 connected footprints; 27520 tested door routes, 2400 full U-flights, 7892 supported stable pickups; all 16 room programs. Max near 43116, far 9192 triangles. Capsule-width clearance, multi-floor support, cellar excavation/LOD seams and attic volumes checked mathematically. Unity PhysX and visual/FPS validation pending.
+PASS: 86808413 house variety assertions.
+
+CONNECTED — Existing connected terrain thresholds, districts, support and reciprocal topology.
+Terrain connected PASS: 171 deterministic reserved districts; 48 walkable thresholds; 17895 supported houses; 1047120 reciprocal shared edges. Unity/HDRP/PhysX pending.
+PASS: 3652157 connected terrain assertions.
+
+MALLS — Existing connected mall approaches, sites and topology; native streaming safety tests remain unrun.
+Connected malls PASS: 393 deterministic non-overlapping sites, 24 supported physical approaches, 393120 reciprocal edges; connected room graphs across 12 seed/scale combinations. Unity/PhysX/HDRP pending.
+PASS: 2703781 connected world assertions.
+
+POOLS — Existing common original/solar pools, architecture and connections.
+Common Poolrooms PASS: 16509 solar / 16615 original (49.84% solar); all 768 solar and 170 original recipes, four space variants; 72 solar meshes, 36 original/solar thresholds, 36 shared openings; max discovery 3 graph steps in sampled starts. Unity/HDRP/PhysX pending.
+Common Poolrooms integration: seven legacy families retained; crowded recipe has real pool and free routes; 36 mall/terrain gateways checked with common architecture enabled.
+PASS: 2992345 common Poolroom assertions.
+
+CAMERA_WATER — Existing optics/motion, audio, pool geometry/budgets/contacts, settings and utility regressions.
+Camera: 5 gentle looks, saved preference recovery, bounded/attenuated flares, 100 specular water points; jump/entry contacts, no spawn/teleport/paused splashes.
+Camera v23 PASS: motion at 10/15/20/30/60/120/144 FPS; actual-speed gating, stop/air/pause/reset/comfort, deterministic poses and bounded flashlight inertia. Max sampled bob 0.0178 m, rotation 0.440 degrees. Source scale, water grazing and optical fades passed. Unity/HDRP/shader/FPS validation pending.
+Settings: legacy look migration, bounded/saved preferences, isolated resets, accent-aware search, selective updates, 15 s unscaled display confirmation and sprint latch recovery passed. Unity UI/HDRP/OS display changes not executed.
+Audio: 170 room acoustic profiles, dry-room silence, continuous unequal-room transitions, bounded splash gain and cadence at 10/20/30/60/120 FPS; idle/pause/teleport/airborne suppression.
+Water: three depth-aware looks; budgets 4/8/12; 479 translated rounded pools across 170 zones; bounded shallow displacement, no dry/outside impacts, pause/expiry/teleport and splash priority.
+Explorer utilities: exact local unlock/lock, permission gates, malformed input, bounded speeds/boost, finite settings recovery, session-only access, flight normalization/frame-rate integration and six increasing real-light presets passed. Unity UI, controller movement and HDRP light rendering are not executed here.
+PASS: 18870 camera/settings/audio/water/utility assertions; Unity integration remains pending.
+
+GRASS — Existing house/grass clearance and saved settings. Full-density core tests retain historical ceiling; runtime High keeps v34 distance rings/60480 hard limit.
+Terrain/rendering v33 PASS: 12 districts, 1385..2602 deterministic houses; mean sampled nearest home 57.71 m; 300 grass patch pairs, 59790 economy / 1716510 high triangles. Hard limits: 9 x 300 economy, 25 x 8640 high; off has zero geometry. Saved graphics and migrations passed. Unity/HDRP/PhysX/FPS pending.
+PASS: 21880319 terrain/rendering assertions.
+
+AUDIO ASSETS — offline wave measurements, not listening/mixer verification
+Tile PASS: 4 s mono PCM; RMS 0.12 peak 0.3648 100 ms energy range 0.976 1.03 loop boundary below ordinary 3-sigma difference.
+Metal PASS: 4 s mono PCM; RMS 0.12 peak 0.3355 100 ms energy range 0.976 1.028 loop boundary below ordinary 3-sigma difference.
+Soft PASS: 4 s mono PCM; RMS 0.12 peak 0.4034 100 ms energy range 0.943 1.042 loop boundary below ordinary 3-sigma difference.
+Wet PASS: 4 s mono PCM; RMS 0.12 peak 0.3366 100 ms energy range 0.974 1.019 loop boundary below ordinary 3-sigma difference.
+PASS: 4 distinct friction assets, no clipping/silence/repetitive energy bursts; softer high-frequency variation on soft ground. Native mixer and listening remain pending.
+
+SYNTAX ONLY
+C# 9 syntax: 156 scripts x 4 symbol configurations; 0 errors. 6 asmdef JSON files valid.
+Explicit core enum references checked: 10670; comments and strings excluded.
+Syntax parsing only; Unity/HDRP API compilation, shaders and runtime are not validated by this check.
+
+Total passed core assertions: 118728527
+Native tests added, INCLUDED BUT UNRUN: StreamingSafetyTests (physics-only mesh independence/support-prefix/skirt bounds, atomic multi-frame replacement/cancellation, real slide/audio-source integration, settled-work-search invalidation).
+Existing native house, movement, terrain, mall and solar tests retained unchanged. Unity Editor unavailable: full Unity/HDRP API compilation, shaders, PhysX, native tests, appearance, sound heard in game, build and actual FPS remain pending.
+Performance changes are based on verified source paths, not a measured FPS improvement. Large individual collider cooking, shader compilation and high view distances can still be costly.

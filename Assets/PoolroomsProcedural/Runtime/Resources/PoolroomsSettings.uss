@@ -1,0 +1,136 @@
+.pr-root {
+    position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+    align-items: center; justify-content: center;
+    background-color: rgba(8, 15, 17, 0.76); color: rgb(231, 236, 229);
+}
+.pr-shell {
+    background-color: rgba(24, 31, 33, 0.97); border-radius: 16px;
+    border-width: 1px; border-color: rgba(192, 214, 201, 0.2);
+    overflow: hidden; min-width: 0; min-height: 0;
+}
+.pr-header {
+    flex-direction: row; align-items: center; justify-content: space-between;
+    padding: 26px 30px 22px 30px; flex-shrink: 0;
+    border-bottom-width: 1px; border-bottom-color: rgba(219, 231, 222, 0.1);
+}
+.pr-heading { flex-grow: 1; min-width: 0; }
+.pr-eyebrow { font-size: 11px; color: rgb(159, 180, 168); margin-bottom: 9px; }
+.pr-title { font-size: 29px; -unity-font-style: bold; margin: 0 0 5px 0; }
+.pr-muted { font-size: 13px; white-space: normal; color: rgb(166, 180, 176); }
+.pr-body { flex-grow: 1; min-height: 0; min-width: 0; }
+.pr-settings { flex-grow: 1; flex-direction: row; min-height: 0; min-width: 0; }
+.pr-navigation {
+    width: 186px; flex-shrink: 0; padding: 19px 12px;
+    border-right-width: 1px; border-right-color: rgba(219, 231, 222, 0.1);
+    background-color: rgba(10, 17, 20, 0.15);
+}
+Button {
+    -unity-text-align: middle-center; font-size: 14px;
+    color: rgb(224, 232, 222); border-width: 1px;
+    border-color: rgba(205, 227, 214, 0.18); border-radius: 7px;
+    background-color: rgb(39, 48, 49);
+    padding: 8px 15px; margin: 3px; min-height: 36px;
+    transition-property: background-color, border-color;
+    transition-duration: 0.12s;
+}
+Button:hover { background-color: rgb(53, 65, 64); border-color: rgba(206, 230, 210, 0.5); }
+Button:focus { border-color: rgb(173, 205, 187); border-width: 2px; }
+Button:disabled { opacity: 0.4; }
+.pr-tab {
+    background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0);
+    -unity-text-align: middle-left; height: 43px; margin-bottom: 4px;
+}
+.pr-selected {
+    background-color: rgb(54, 74, 67); border-color: rgb(134, 168, 145);
+    color: rgb(236, 246, 230);
+}
+.pr-main { flex-grow: 1; min-width: 0; min-height: 0; padding: 20px 24px 0 24px; }
+.pr-search { flex-shrink: 0; height: 36px; margin: 0 0 15px 0; }
+.pr-search .unity-text-field__input {
+    padding: 6px 12px; font-size: 13px;
+    color: rgb(228, 238, 228); background-color: rgb(20, 27, 29);
+    border-width: 1px; border-color: rgba(172, 193, 180, 0.22); border-radius: 7px;
+}
+.pr-search .unity-text-field__input:focus { border-color: rgb(162, 190, 171); }
+.pr-search-caption {
+    position: absolute; left: 39px; top: 29px; color: rgb(153, 172, 167);
+    font-size: 13px; -unity-text-align: middle-left;
+}
+.pr-content { flex-grow: 1; min-height: 0; min-width: 0; }
+.pr-content .unity-scroll-view__content-container { padding-right: 9px; }
+.pr-content .unity-scroller--vertical { width: 10px; }
+.pr-content .unity-scroller__low-button, .pr-content .unity-scroller__high-button { display: none; }
+.pr-group { min-width: 0; margin-bottom: 16px; }
+.pr-section-title { font-size: 17px; -unity-font-style: bold; margin: 0 0 12px 0; }
+.pr-setting {
+    flex-direction: row; align-items: center; justify-content: space-between;
+    min-height: 62px; padding: 12px 0; min-width: 0;
+    border-bottom-width: 1px; border-bottom-color: rgba(211, 224, 215, 0.08);
+}
+.pr-setting-copy { flex-grow: 1; flex-shrink: 1; flex-basis: 0; min-width: 0; margin-right: 20px; }
+.pr-setting-title { font-size: 14px; color: rgb(231, 237, 228); white-space: normal; }
+.pr-setting-description { font-size: 11px; color: rgb(154, 170, 165); white-space: normal; margin-top: 5px; }
+.pr-control { width: 240px; min-width: 0; flex-shrink: 1; flex-direction: row; align-items: center; justify-content: flex-end; }
+.pr-control:disabled { opacity: 0.42; }
+.pr-slider { flex-grow: 1; min-width: 75px; }
+.pr-slider .unity-base-slider__tracker { height: 3px; background-color: rgb(70, 86, 81); border-radius: 2px; }
+.pr-slider .unity-base-slider__dragger { background-color: rgb(183, 210, 187); border-radius: 6px; width: 11px; height: 11px; }
+.pr-slider:focus .unity-base-slider__dragger { border-width: 1px; border-color: rgb(248, 255, 242); }
+.pr-value { font-size: 12px; width: 69px; margin-left: 11px; color: rgb(196, 214, 195); -unity-text-align: middle-right; }
+.pr-dropdown { flex-grow: 1; min-width: 0; font-size: 12px; }
+.pr-dropdown .unity-base-field__input {
+    min-height: 32px; background-color: rgb(33, 44, 44); color: rgb(224, 235, 219);
+    border-color: rgba(172, 193, 180, 0.3); border-width: 1px; border-radius: 6px;
+    padding: 3px 8px;
+}
+.pr-toggle { min-width: 32px; }
+.pr-toggle .unity-toggle__input { background-color: rgba(0, 0, 0, 0); }
+.pr-toggle .unity-toggle__checkmark { width: 23px; height: 23px; border-radius: 5px; border-width: 1px; border-color: rgb(137, 162, 148); }
+.pr-toggle:checked .unity-toggle__checkmark { background-color: rgb(145, 183, 149); }
+.pr-footer { flex-shrink: 0; flex-direction: row; align-items: center; padding: 12px 0; min-height: 56px; }
+.pr-footer .pr-footnote { flex-grow: 1; flex-shrink: 1; min-width: 0; margin-right: 8px; }
+.pr-footnote { font-size: 11px; white-space: normal; color: rgb(146, 164, 159); }
+.pr-note { font-size: 12px; white-space: normal; color: rgb(162, 181, 170); padding: 12px 0; }
+.pr-primary { background-color: rgb(171, 197, 169); color: rgb(21, 35, 28); border-color: rgb(185, 210, 181); min-height: 43px; }
+.pr-primary:hover { background-color: rgb(192, 214, 188); }
+.pr-secondary { min-height: 40px; }
+.pr-quiet-button { background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0); font-size: 12px; }
+.pr-quality-cards { flex-wrap: wrap; }
+.pr-choice { font-size: 11px; flex-grow: 1; padding: 8px 6px; }
+.pr-camera-cards { flex-wrap: wrap; width: 300px; }
+.pr-camera-card { width: 130px; flex-grow: 1; min-height: 52px; font-size: 12px; border-top-width: 3px; }
+.pr-camera-0 { border-top-color: rgb(211, 220, 213); }
+.pr-camera-1 { border-top-color: rgb(155, 168, 184); }
+.pr-camera-2 { border-top-color: rgb(202, 176, 127); }
+.pr-camera-3 { border-top-color: rgb(169, 166, 143); }
+.pr-camera-4 { border-top-color: rgb(159, 190, 182); }
+.pr-home { flex-grow: 1; padding: 34px 36px; min-height: 0; }
+.pr-welcome { flex-grow: 1; }
+.pr-home-title { font-size: 41px; color: rgb(229, 239, 219); -unity-font-style: bold; margin: 7px 0 17px 0; }
+.pr-home-actions { flex-direction: row; flex-wrap: wrap; margin-bottom: 24px; }
+.pr-home-actions Button { margin-right: 10px; min-width: 155px; }
+.pr-modal { position: absolute; left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgba(5, 12, 13, 0.88); }
+.pr-dialog { width: 460px; max-width: 90%; background-color: rgb(28, 38, 39); padding: 27px; border-radius: 13px; border-width: 1px; border-color: rgb(110, 138, 122); }
+.pr-dialog-title { font-size: 23px; white-space: normal; margin-bottom: 14px; }
+.pr-dialog .pr-muted { margin-bottom: 17px; }
+.pr-dialog Button { margin-top: 10px; }
+.pr-countdown { font-size: 14px; color: rgb(192, 212, 175); margin: 8px 0; }
+.pr-high-contrast .pr-shell { background-color: rgb(13, 20, 22); border-color: rgb(180, 207, 190); }
+.pr-high-contrast .pr-muted, .pr-high-contrast .pr-setting-description,
+.pr-high-contrast .pr-footnote, .pr-high-contrast .pr-note { color: rgb(225, 235, 226); }
+.pr-high-contrast .pr-setting { border-bottom-color: rgb(96, 115, 105); }
+.pr-opaque { background-color: rgb(13, 21, 23); }
+.pr-reduce-motion Button { transition-duration: 0s; }
+.pr-compact .pr-settings { flex-direction: column; }
+.pr-compact .pr-navigation { width: auto; padding: 6px 9px; flex-direction: row; flex-wrap: wrap; border-right-width: 0; border-bottom-width: 1px; border-bottom-color: rgba(219, 231, 222, 0.1); }
+.pr-compact .pr-tab { flex-grow: 1; padding: 5px 9px; height: 32px; min-height: 30px; font-size: 12px; -unity-text-align: middle-center; }
+.pr-compact .pr-header { padding: 14px 18px; }
+.pr-compact .pr-main { padding: 12px 14px 0 14px; }
+.pr-compact .pr-control { width: 210px; }
+.pr-compact .pr-home { padding: 20px 24px; }
+.pr-compact .pr-footer { flex-wrap: wrap; }
+.pr-short .pr-header { padding-top: 9px; padding-bottom: 9px; }
+.pr-short .pr-eyebrow { display: none; }
+.pr-short .pr-title { font-size: 23px; }
+.pr-short .pr-home-title { font-size: 29px; }
+.pr-short .pr-home-actions { margin-bottom: 8px; }

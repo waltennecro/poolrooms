@@ -1,0 +1,6 @@
+{
+  "name": "Poolrooms.InputSystem",
+  "references": ["Poolrooms.Runtime", "Unity.InputSystem"],
+  "defineConstraints": ["POOLROOMS_INPUT_SYSTEM", "ENABLE_INPUT_SYSTEM"],
+  "versionDefines": [{"name":"com.unity.inputsystem","expression":"[1.0.0,2.0.0)","define":"POOLROOMS_INPUT_SYSTEM"}]
+}

@@ -1,0 +1,7 @@
+<linker>
+  <!-- Runtime attaches these optional HDRP adapters by assembly-qualified name. -->
+  <assembly fullname="Poolrooms.HDRP" ignoreIfMissing="1">
+    <type fullname="Poolrooms.HDRP.PoolroomsFlashlightHDRP" preserve="all" />
+    <type fullname="Poolrooms.HDRP.PoolroomsCameraPresentation" preserve="all" />
+  </assembly>
+</linker>

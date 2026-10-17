@@ -1,0 +1,68 @@
+using System.IO;
+using Poolrooms.Core;
+using UnityEditor;
+using UnityEngine;
+
+namespace Poolrooms.Editor
+{
+    public sealed class PoolroomsBiomeTextureImporter : AssetPostprocessor
+    {
+        private void OnPreprocessTexture()
+        {
+            if(!assetPath.Contains("/Resources/PoolroomsBiomeTextures/"))return;
+            var importer=(TextureImporter)assetImporter;bool normal=assetPath.EndsWith("_Normal.png"),mask=assetPath.EndsWith("_Mask.png");
+            importer.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
+            importer.sRGBTexture=!normal&&!mask;importer.mipmapEnabled=true;importer.wrapMode=TextureWrapMode.Repeat;
+            importer.anisoLevel=4;importer.maxTextureSize=512;importer.textureCompression=TextureImporterCompression.Compressed;
+            importer.alphaIsTransparency=false;
+        }
+    }
+    public static class PoolroomsBiomeMaterialSetup
+    {
+        private const string Folder="Assets/PoolroomsProcedural/Resources/BiomeMaterials";
+        private const string Library="Assets/PoolroomsProcedural/Resources/PoolroomsBiomeMaterials.asset";
+        [InitializeOnLoadMethod]
+        private static void OnImport(){EditorApplication.delayCall+=EnsureOnImport;}
+        private static void EnsureOnImport()
+        {
+            if(EditorApplication.isCompiling||EditorApplication.isUpdating){EditorApplication.delayCall+=EnsureOnImport;return;}
+            if(Application.isPlaying||!Directory.Exists("Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures"))return;
+            var library=AssetDatabase.LoadAssetAtPath<PoolroomsBiomeMaterials>(Library);
+            if(library==null)Build();else EnsureSoftPlay(library);
+        }
+        // Existing libraries retain all their materials and GUIDs. Add only the new biome slots.
+        private static void EnsureSoftPlay(PoolroomsBiomeMaterials library)
+        {
+            if(library.Find(SurfaceTheme.SoftPlay,0)!=null&&library.Find(SurfaceTheme.SoftPlay,5)!=null)return;
+            Directory.CreateDirectory(Folder);AssetDatabase.Refresh();
+            if(library.surfaces==null)library.surfaces=new Material[72];
+            else if(library.surfaces.Length<72)System.Array.Resize(ref library.surfaces,72);
+            for(int slot=0;slot<6;slot++)
+            {
+                string path=Folder+"/SoftPlay_"+(Surface)slot+".mat";
+                var material=AssetDatabase.LoadAssetAtPath<Material>(path);
+                if(material==null){material=PoolroomsBiomeMaterialFactory.Create(SurfaceTheme.SoftPlay,(Surface)slot);PoolroomsBiomeMaterialFactory.Validate(material);AssetDatabase.CreateAsset(material,path);}
+                library.surfaces[(int)SurfaceTheme.SoftPlay*6+slot]=material;
+            }
+            EditorUtility.SetDirty(library);AssetDatabase.SaveAssets();
+        }
+        [MenuItem("Tools/Poolrooms/Centro comercial completo v20/Preparar materiales PBR independientes")]
+        public static void Prepare(){Build();}
+        public static PoolroomsBiomeMaterials Build()
+        {
+            if(Application.isPlaying)return AssetDatabase.LoadAssetAtPath<PoolroomsBiomeMaterials>(Library);
+            Directory.CreateDirectory(Folder);AssetDatabase.Refresh();
+            var library=AssetDatabase.LoadAssetAtPath<PoolroomsBiomeMaterials>(Library);
+            if(library==null){library=ScriptableObject.CreateInstance<PoolroomsBiomeMaterials>();AssetDatabase.CreateAsset(library,Library);}
+            library.surfaces=new Material[72];
+            for(int theme=(int)SurfaceTheme.IndoorPlay;theme<=(int)SurfaceTheme.SoftPlay;theme++)for(int slot=0;slot<6;slot++)
+            {
+                string path=Folder+"/"+(SurfaceTheme)theme+"_"+(Surface)slot+".mat";
+                var m=AssetDatabase.LoadAssetAtPath<Material>(path);var generated=PoolroomsBiomeMaterialFactory.Create((SurfaceTheme)theme,(Surface)slot);
+                if(m==null){m=generated;AssetDatabase.CreateAsset(m,path);}else{m.CopyPropertiesFromMaterial(generated);Object.DestroyImmediate(generated);}
+                PoolroomsBiomeMaterialFactory.Validate(m);EditorUtility.SetDirty(m);library.surfaces[theme*6+slot]=m;
+            }
+            EditorUtility.SetDirty(library);AssetDatabase.SaveAssets();return library;
+        }
+    }
+}

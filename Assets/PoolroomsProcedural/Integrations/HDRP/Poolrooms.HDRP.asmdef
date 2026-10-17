@@ -1,0 +1,7 @@
+{
+  "name": "Poolrooms.HDRP",
+  "rootNamespace": "Poolrooms.HDRP",
+  "references": ["Poolrooms.Core", "Poolrooms.Runtime", "Unity.RenderPipelines.HighDefinition.Runtime", "Unity.RenderPipelines.Core.Runtime"],
+  "defineConstraints": ["POOLROOMS_HDRP_17"],
+  "versionDefines": [{"name":"com.unity.render-pipelines.high-definition","expression":"[17.0.0,18.0.0)","define":"POOLROOMS_HDRP_17"}]
+}

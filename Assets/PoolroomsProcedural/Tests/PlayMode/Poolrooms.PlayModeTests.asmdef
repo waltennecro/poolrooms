@@ -1,0 +1,6 @@
+{
+  "name": "Poolrooms.PlayModeTests",
+  "references": ["Poolrooms.Core", "Poolrooms.Runtime"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"]
+}

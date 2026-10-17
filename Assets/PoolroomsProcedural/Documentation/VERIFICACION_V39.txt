@@ -1,0 +1,65 @@
+v39 — ÁREAS INFANTILES LIMINALES MULTINIVEL
+
+CORE .NET 8 — no es compilación de las API de Unity
+  CoreChecks -> /workspace/poolrooms/Poolrooms_Unity/Verification/bin/Debug/net8.0/CoreChecks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:05.81
+
+SOFT_PLAY_ACTUAL
+Built 108 halls (28/36/60 m; doors 3/4.4/6 m), 66 tubes / 42 open bridges. Max triangles: solid=4636, decoration=11818, safety=1480. Physics/render/FPS in Unity remain pending.
+PASS: 8096041 soft play assertions.
+
+PROCEDURAL
+Procedural plans: 3240 distinct plans across overlapping environment/settings samples.
+Procedural geometry: 240 rooms at 12/32/96 curve quality; physical and decorative meshes checked separately.
+Procedural: independent regional grammar, thousands of distinct plans, no fallback in supported settings; generated geometry, protected four-door circulation, real basin bottoms/steps, platform access, quality budgets, dry play acoustics, transitions and authored lookup passed.
+
+COMMON-POOLROOM
+Common Poolrooms PASS: 16509 solar / 16615 original (49.84% solar); all 768 solar and 170 original recipes, four space variants; 72 solar meshes, 36 original/solar thresholds, 36 shared openings; max discovery 3 graph steps in sampled starts. Unity/HDRP/PhysX pending.
+Common Poolrooms integration: seven legacy families retained; crowded recipe has real pool and free routes; 36 mall/terrain gateways checked with common architecture enabled.
+PASS: 2970529 common Poolroom assertions.
+
+CONNECTED-MALL
+Connected malls PASS: 393 deterministic non-overlapping sites, 24 supported physical approaches, 393120 reciprocal edges; connected room graphs across 12 seed/scale combinations. Unity/PhysX/HDRP pending.
+PASS: 2703781 connected world assertions.
+
+CONNECTED-TERRAIN
+Terrain connected PASS: 171 deterministic reserved districts; 48 walkable thresholds; 17895 supported houses; 1047120 reciprocal shared edges. Unity/HDRP/PhysX pending.
+PASS: 3652157 connected terrain assertions.
+
+POOLROOM-LIGHTING
+Reference room lamp flux: bright=18810 lm; dim=3290.4001 lm (fixture totals, not measured screen luminance).
+Lighting: 170 zone defaults, 10 looks, seeded determinism, classic opt-out, actual lamp power/color/off masks, unchanged geometry, corridor transitions and bright/dark contrast passed.
+Poolrooms v38: 1020 dim authored rooms, 240 atlas rooms; finite support at doorway approaches, high ceilings, five climates, sun/closed-room isolation and other-biome/Classic preservation passed. These are fixture/geometry checks, not pixel brightness measurements.
+PASS: 12105 Poolrooms illumination assertions.
+
+CAMERA-V23
+Camera: 5 gentle looks, saved preference recovery, bounded/attenuated flares, 100 specular water points; jump/entry contacts, no spawn/teleport/paused splashes.
+Camera v23 PASS: motion at 10/15/20/30/60/120/144 FPS; actual-speed gating, stop/air/pause/reset/comfort, deterministic poses and bounded flashlight inertia. Max sampled bob 0.0178 m, rotation 0.440 degrees. Source scale, water grazing and optical fades passed. Unity/HDRP/shader/FPS validation pending.
+Settings: legacy look migration, bounded/saved preferences, isolated resets, accent-aware search, selective updates, 15 s unscaled display confirmation and sprint latch recovery passed. Unity UI/HDRP/OS display changes not executed.
+Audio: 170 room acoustic profiles, dry-room silence, continuous unequal-room transitions, bounded splash gain and cadence at 10/20/30/60/120 FPS; idle/pause/teleport/airborne suppression.
+Water: three depth-aware looks; budgets 4/8/12; 479 translated rounded pools across 170 zones; bounded shallow displacement, no dry/outside impacts, pause/expiry/teleport and splash priority.
+Explorer utilities: exact local unlock/lock, permission gates, malformed input, bounded speeds/boost, finite settings recovery, session-only access, flight normalization/frame-rate integration and six increasing real-light presets passed. Unity UI, controller movement and HDRP light rendering are not executed here.
+PASS: 18870 camera/settings/audio/water/utility assertions; Unity integration remains pending.
+
+Total counted assertions across suites printing counters (procedural suite excluded from total): 17453483
+
+SYNTAX ONLY
+C# 9 syntax: 164 scripts x 4 symbol configurations; 0 errors. 6 asmdef JSON files valid.
+Explicit core enum references checked: 11096; comments and strings excluded.
+Syntax parsing only; Unity/HDRP API compilation, shaders and runtime are not validated by this check.
+
+COMPATIBILITY: v38 and v39 output matches byte-for-byte for old CrossV12 grammar. 144 finite/continuous Poolrooms/IndoorPlay/Mixed samples, two qualities, geometry and fixtures.
+CrossV12 fingerprint: 144 samples; 42281BDCFBE48C081E4DD5FC53EC2E3FAB0824E270097BF738C0B21D9A18A4B3
+
+TEXTURES: 15 original 256x256 PBR PNGs, RGB albedo/normal and RGBA HDRP masks. Reference archive: all 100 images reviewed; source index retained, photographs not shipped as textures.
+
+New biome: SoftPlay distinct from legacy IndoorPlay; appended enum IDs preserve serialized older types; full-cell halls and shared wide doors; two 3-4-level structures with actual U-stairs and landings, optional third frame; hollow tube or net bridge; physical slide with controller-driven glide; eight pickup props, batched decorative balls; independent PBR and lighting; existing reflection/light/shadow budgets.
+Geometry checks use actual triangles and mathematical ray tests, not Unity PhysX capsule sweeps. Mesh maxima in the 108 sampled Low-quality halls are 4636 solid, 11818 decoration and 1480 collision-only triangles. These are sampled maxima, not a universal FPS claim.
+Unified integration checks include the new biome alongside connected malls/terrain/common Poolrooms/autonomous generation; shared door widths, reciprocal graph exits, finite connectors, mixed solar/play zero-length threshold handling, and signed-coordinate endpoints.
+No Unity Editor is installed: full Unity/HDRP compilation, shader/material import, native PhysX, appearance, actual interaction/slide feel, memory, FPS and player builds remain pending. Three new native PlayMode tests are included for U-stair traversal, tube/ground capsule sweeps and pickup lifetime/physics; none was executed here.
+Existing native tests, shaders, WAVs, camera, flashlight, player controller, terrain/houses, malls and carry logic are retained byte-for-byte. Pickup collider storage was generalized to Collider so new balls may use SphereCollider; existing box dimensions/release behavior retained. Master menu already enumerates environments and now exposes the new label automatically.

@@ -1,0 +1,31 @@
+v31 — Deslizamiento del jugador. Fecha local: 2026-10-07, America/Mexico_City.
+
+Comandos ejecutados en Poolrooms_Unity con .NET 8:
+- dotnet build Verification/CoreChecks.csproj --no-restore
+  CoreChecks -> /workspace/poolrooms/Poolrooms_Unity/Verification/bin/Debug/net8.0/CoreChecks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.70
+
+- dotnet run --project Verification/CoreChecks.csproj --no-restore -- --slide-checks
+Slide PASS: 10/15/20/30/60/120/144 FPS; 33 m in 3 seconds, bounded steering, slide-jump momentum, two jumps, release/rearm, pause/loading/wall cancellation, water/flight disable, low capsule and saved preference migration. Unity PhysX/appearance/FPS unrun.
+Locomotion v26 PASS: 7 simulations at 10/15/20/30/60/120/144 FPS; two impulses, third rejected, landing recharge, stale grounded, ledge, ceiling, loading, teleport, swimming and bounded substeps. Peak sampled 0.870..0.964 m. Native PhysX remains pending.
+Camera v23 PASS: motion at 10/15/20/30/60/120/144 FPS; actual-speed gating, stop/air/pause/reset/comfort, deterministic poses and bounded flashlight inertia. Max sampled bob 0.0178 m, rotation 0.440 degrees. Source scale, water grazing and optical fades passed. Unity/HDRP/shader/FPS validation pending.
+Settings: legacy look migration, bounded/saved preferences, isolated resets, accent-aware search, selective updates, 15 s unscaled display confirmation and sprint latch recovery passed. Unity UI/HDRP/OS display changes not executed.
+PASS: 11225 slide/movement/camera/settings assertions.
+
+- dotnet run --project Verification/Syntax/SyntaxChecks.csproj --no-restore -- Assets/PoolroomsProcedural
+C# 9 syntax: 140 scripts x 4 symbol configurations; 0 errors. 6 asmdef JSON files valid.
+Explicit core enum references checked: 9940; comments and strings excluded.
+Syntax parsing only; Unity/HDRP API compilation, shaders and runtime are not validated by this check.
+
+Núcleo real aprobado. Sintaxis no compila las API de Unity/HDRP.
+ExplorerSlideTests y pruebas PlayMode anteriores: incluidas, no ejecutadas.
+Unity Editor no instalado; PhysX, compilación Unity/HDRP, apariencia y FPS pendientes.
+Las pruebas no miden FPS del juego. No se ha repetido la regresión completa de generación de v30; sus archivos son idénticos en esta entrega.
+ZIP contiene solo PoolroomsProcedural para Assets, sin Verification/Roslyn/.NET/bin/obj.
+Integridad CRC y comparación de todos los archivos fuente verificadas al empaquetar.
+PoolroomsFlashlight.cs: idéntico byte a byte a v30.

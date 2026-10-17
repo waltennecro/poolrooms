@@ -1,0 +1,908 @@
+{
+  "archive": "Areas_infantiles_liminales_100.zip",
+  "reviewedImages": 100,
+  "reviewMethod": "5 contact sheets of 20 images",
+  "purpose": "architectural reference; original procedural geometry and PBR textures",
+  "images": [
+    {
+      "file": "imagenes/juegos_001.jpg",
+      "dimensions": [
+        736,
+        491
+      ],
+      "bytes": 94398,
+      "sha256": "06c52fcd03623eb27f8e7d34cda71994a993e931098ddc5774991ce4e9cdf31b"
+    },
+    {
+      "file": "imagenes/juegos_002.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 79628,
+      "sha256": "800b13add0db69932280707f6089fecc75906ce87320c73d48669b74131a8cd0"
+    },
+    {
+      "file": "imagenes/juegos_003.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "bytes": 149642,
+      "sha256": "cb5cc3292c8a1f98a6d2d5cbd7684cbe2478d5a99cbf4db89230854b04fe53fb"
+    },
+    {
+      "file": "imagenes/juegos_004.jpg",
+      "dimensions": [
+        736,
+        736
+      ],
+      "bytes": 84286,
+      "sha256": "044d75bb1956f32eb94c57910548857f3c9f2df5896489093f987ed8fae1bcad"
+    },
+    {
+      "file": "imagenes/juegos_005.jpg",
+      "dimensions": [
+        410,
+        425
+      ],
+      "bytes": 32624,
+      "sha256": "9dbe6b5f3ceb4d6896fee02456b4f0a451cc6530cc2c3ac39c7ca119d848e979"
+    },
+    {
+      "file": "imagenes/juegos_006.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 77744,
+      "sha256": "adc86f0dde04b63e8cc8c6c09a4ef606b210ae58304816f082ec8b22a662bcf6"
+    },
+    {
+      "file": "imagenes/juegos_007.jpg",
+      "dimensions": [
+        736,
+        569
+      ],
+      "bytes": 89614,
+      "sha256": "0b5041cf62117647733280003f7b019d354834a4a91f4bc30130d13655829b22"
+    },
+    {
+      "file": "imagenes/juegos_008.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "bytes": 38120,
+      "sha256": "59b3a5a504fd0a6296fd46a37b281f7ed526652aafb065643182b2d4e139a33a"
+    },
+    {
+      "file": "imagenes/juegos_009.jpg",
+      "dimensions": [
+        338,
+        450
+      ],
+      "bytes": 35232,
+      "sha256": "7ce8d228eee7e31c478c506badfc5010e6d7edad34cc38eaf4e3ba96eccdb7dc"
+    },
+    {
+      "file": "imagenes/juegos_010.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "bytes": 172116,
+      "sha256": "642503cb49e50c4c55ec2ef476bccf0551d86bd129325c94af9d916e9777f3f2"
+    },
+    {
+      "file": "imagenes/juegos_011.jpg",
+      "dimensions": [
+        736,
+        736
+      ],
+      "bytes": 72975,
+      "sha256": "7d918043eda9983248dd232a33ddbfa36f77c6b776b9d6b7b53b631acdd603b2"
+    },
+    {
+      "file": "imagenes/juegos_012.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "bytes": 66864,
+      "sha256": "491ed05dfe9cdce2d60951c5dba9321a63f144a01a3ec6f84d1f7006010f3cc5"
+    },
+    {
+      "file": "imagenes/juegos_013.jpg",
+      "dimensions": [
+        736,
+        980
+      ],
+      "bytes": 138635,
+      "sha256": "07ff25485cd9e63c3bb53386a68476aa7017fe3f64c698e7f2ffc403bb1b9769"
+    },
+    {
+      "file": "imagenes/juegos_014.jpg",
+      "dimensions": [
+        564,
+        376
+      ],
+      "bytes": 49568,
+      "sha256": "197acfc83790c73323e7831bd07d46dffbc73884bddf2627eff10a19dda58795"
+    },
+    {
+      "file": "imagenes/juegos_015.jpg",
+      "dimensions": [
+        700,
+        394
+      ],
+      "bytes": 44217,
+      "sha256": "b5c3707cd507b3ab50016976548ba487fe40f4ebb55a6c750f5fb780d0d67f66"
+    },
+    {
+      "file": "imagenes/juegos_016.jpg",
+      "dimensions": [
+        736,
+        1081
+      ],
+      "bytes": 243511,
+      "sha256": "3c0e4c9ef481351026bb595494eb647d205c5f6a37a6a2c4ec7db3b440333c80"
+    },
+    {
+      "file": "imagenes/juegos_017.jpg",
+      "dimensions": [
+        736,
+        493
+      ],
+      "bytes": 92328,
+      "sha256": "ccb1d6d99fd6f12dbe5af209ca48694af6bcaf4beab7eb13003c0f478ea3333c"
+    },
+    {
+      "file": "imagenes/juegos_018.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "bytes": 130521,
+      "sha256": "57827e26fce1bca8d2627bd0f96b7b2e3a317e51acf48187f9658363db0cff25"
+    },
+    {
+      "file": "imagenes/juegos_019.jpg",
+      "dimensions": [
+        736,
+        491
+      ],
+      "bytes": 117247,
+      "sha256": "ebe62dc99c1f50770ec43c773a9a5428a2e3e60f5e750f9cda7631eb238b6c26"
+    },
+    {
+      "file": "imagenes/juegos_020.jpg",
+      "dimensions": [
+        720,
+        540
+      ],
+      "bytes": 92429,
+      "sha256": "d226fe261e5b9f6ec954070b7889aa50c2b7eca0e5a88bb72eba4c80f221bc6c"
+    },
+    {
+      "file": "imagenes/juegos_021.jpg",
+      "dimensions": [
+        720,
+        479
+      ],
+      "bytes": 69042,
+      "sha256": "68832514feb0376a5b584f6aa61c6d1bba26a085edb3073fb628da5d3b5668b8"
+    },
+    {
+      "file": "imagenes/juegos_022.jpg",
+      "dimensions": [
+        569,
+        946
+      ],
+      "bytes": 105458,
+      "sha256": "4dd85581b0ab4896187fa70af2a1d470ce2670c63849e78719a3b65e62354c8a"
+    },
+    {
+      "file": "imagenes/juegos_023.jpg",
+      "dimensions": [
+        736,
+        1104
+      ],
+      "bytes": 166609,
+      "sha256": "a7dd30dff4a416574550ce0f1c2748dc50fae0e0ad0ded713d468b066e95004c"
+    },
+    {
+      "file": "imagenes/juegos_024.jpg",
+      "dimensions": [
+        736,
+        480
+      ],
+      "bytes": 77739,
+      "sha256": "ec8b4fa488bbe6f16d3fd0e97bad74321d03b4ba6bc056c4490584d42a6a7f00"
+    },
+    {
+      "file": "imagenes/juegos_025.jpg",
+      "dimensions": [
+        736,
+        490
+      ],
+      "bytes": 87635,
+      "sha256": "dc7dfcf6da24f7b03c59e8371b0b8f702b83e26804cc71e411b1133c72e26d61"
+    },
+    {
+      "file": "imagenes/juegos_026.jpg",
+      "dimensions": [
+        736,
+        1104
+      ],
+      "bytes": 115369,
+      "sha256": "cc9d92730d8ecec856c795351ff24706efabf03b7121946d9774c37bad89dd63"
+    },
+    {
+      "file": "imagenes/juegos_027.jpg",
+      "dimensions": [
+        680,
+        510
+      ],
+      "bytes": 57520,
+      "sha256": "25d3e5e938dcaca304ffe19ae99da0959698885af3afff369031c2c23342b12f"
+    },
+    {
+      "file": "imagenes/juegos_028.jpg",
+      "dimensions": [
+        471,
+        710
+      ],
+      "bytes": 71747,
+      "sha256": "1e8f1e93cb54b108ac4142fc67824a309cdd91e42b529730fc692e3be65f15e4"
+    },
+    {
+      "file": "imagenes/juegos_029.jpg",
+      "dimensions": [
+        720,
+        531
+      ],
+      "bytes": 79644,
+      "sha256": "13ee4caeb14106aa9e02520cfd0653c3f789f9da57625dba277024704b1b09b1"
+    },
+    {
+      "file": "imagenes/juegos_030.jpg",
+      "dimensions": [
+        600,
+        397
+      ],
+      "bytes": 54661,
+      "sha256": "5692ee1d05c26b34b993fc43244577250bfa073d153858df01737c6ae3742fdf"
+    },
+    {
+      "file": "imagenes/juegos_031.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 87319,
+      "sha256": "0553937e178cb5c6a145b7b66f848909c758758ca7966bb3627fccf2cebe94cd"
+    },
+    {
+      "file": "imagenes/juegos_032.jpg",
+      "dimensions": [
+        736,
+        601
+      ],
+      "bytes": 104045,
+      "sha256": "a5c7036cf22d0e9a4e83291f71b20e7aa51c45b60e2d3ddb77cd811a9f955c24"
+    },
+    {
+      "file": "imagenes/juegos_033.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 71041,
+      "sha256": "fad68bf7c08eb423f9c3466d62aed68f1de459aeb42a73059debe5f461ee6458"
+    },
+    {
+      "file": "imagenes/juegos_034.jpg",
+      "dimensions": [
+        736,
+        753
+      ],
+      "bytes": 62495,
+      "sha256": "7a606dafce8a7e0894baca075252ec71c84c83cc801ff286a4ca21286782888c"
+    },
+    {
+      "file": "imagenes/juegos_035.jpg",
+      "dimensions": [
+        488,
+        489
+      ],
+      "bytes": 33887,
+      "sha256": "066506057851723e68d5372cdca69544f2a04e5ca2b83abb04741f5c72285bbb"
+    },
+    {
+      "file": "imagenes/juegos_036.jpg",
+      "dimensions": [
+        736,
+        731
+      ],
+      "bytes": 143093,
+      "sha256": "001acf9b24a003adb2ab76821ee5abcca1dcc74bfff781ac8308f04a3b64591f"
+    },
+    {
+      "file": "imagenes/juegos_037.jpg",
+      "dimensions": [
+        736,
+        1102
+      ],
+      "bytes": 258111,
+      "sha256": "42b238f23f77219ce8694ccfea389865aae6506dadb2991ba6ff651d55d8433f"
+    },
+    {
+      "file": "imagenes/juegos_038.jpg",
+      "dimensions": [
+        275,
+        183
+      ],
+      "bytes": 17930,
+      "sha256": "17e6f6df35cd939f6da45f79b24de11d1df2e1ecd5f3046f0f702901695bc1dd"
+    },
+    {
+      "file": "imagenes/juegos_039.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 59877,
+      "sha256": "96390987e0aeb8cabfacbd9025c24d3f2da5b2a2ca7f6c167c4754b55aadbe4b"
+    },
+    {
+      "file": "imagenes/juegos_040.jpg",
+      "dimensions": [
+        736,
+        722
+      ],
+      "bytes": 29475,
+      "sha256": "ddca18273da328016ed00d56efc1366d408947f58b6ba12e87ead81019d06c8b"
+    },
+    {
+      "file": "imagenes/juegos_041.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 58931,
+      "sha256": "c26351b99decf61ec6397ca3091836a8d90642e07df7764c986ab285eba820bd"
+    },
+    {
+      "file": "imagenes/juegos_042.jpg",
+      "dimensions": [
+        736,
+        525
+      ],
+      "bytes": 47841,
+      "sha256": "84c4a804590584406fbb11185f7670b4e3fd39ba35feefb25b43b9fd411a1195"
+    },
+    {
+      "file": "imagenes/juegos_043.jpg",
+      "dimensions": [
+        735,
+        592
+      ],
+      "bytes": 61503,
+      "sha256": "81644e31e68e98735192671f22b1be30e1f371e259aa2f91ded0d4a0452bda51"
+    },
+    {
+      "file": "imagenes/juegos_044.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "bytes": 32822,
+      "sha256": "c006f39b0b5877988cd3e42fbef60561b87aac10616f24ffaac224cb4990709a"
+    },
+    {
+      "file": "imagenes/juegos_045.jpg",
+      "dimensions": [
+        736,
+        916
+      ],
+      "bytes": 56564,
+      "sha256": "4dba4564a7f2c18b1b6d6eb5807208e11fa2a4744bcf5fe70d7e9d07ec849d51"
+    },
+    {
+      "file": "imagenes/juegos_046.jpg",
+      "dimensions": [
+        640,
+        488
+      ],
+      "bytes": 27633,
+      "sha256": "f2c5909738df12217a2744bd664c1a6e650793a1b2d722a5a1a84c663b091502"
+    },
+    {
+      "file": "imagenes/juegos_047.jpg",
+      "dimensions": [
+        736,
+        548
+      ],
+      "bytes": 60376,
+      "sha256": "efa03d7da94ac795a51ed1e52eed7fc13f54205c6dce27a303a38bfc57e8e2b5"
+    },
+    {
+      "file": "imagenes/juegos_048.jpg",
+      "dimensions": [
+        611,
+        481
+      ],
+      "bytes": 79825,
+      "sha256": "1101c6dbdc4c71f304f2812fdcfd6f7e6e589d44f417a1c98ac152f3f1369626"
+    },
+    {
+      "file": "imagenes/juegos_049.jpg",
+      "dimensions": [
+        428,
+        336
+      ],
+      "bytes": 27313,
+      "sha256": "66e3c20002a9da2e01ef9a3d26e30ade845acfbd239c95f6d42ca0ee659fea13"
+    },
+    {
+      "file": "imagenes/juegos_050.jpg",
+      "dimensions": [
+        736,
+        478
+      ],
+      "bytes": 85267,
+      "sha256": "9281faafb162d988a751af243def76fa3cdcf4c6b429e8bb4f4dd690fccaac32"
+    },
+    {
+      "file": "imagenes/juegos_051.jpg",
+      "dimensions": [
+        736,
+        1104
+      ],
+      "bytes": 149905,
+      "sha256": "11edd81f1080858db8103c4155643f5dbeed9c26a662b0945d5df69e775b0cf0"
+    },
+    {
+      "file": "imagenes/juegos_052.jpg",
+      "dimensions": [
+        676,
+        1200
+      ],
+      "bytes": 177098,
+      "sha256": "b9c2470766c550cbb68bf337b0e56c81711a09a524d397453586bb0449700655"
+    },
+    {
+      "file": "imagenes/juegos_053.jpg",
+      "dimensions": [
+        736,
+        551
+      ],
+      "bytes": 116250,
+      "sha256": "0ecf37d24784731809013b469383b5ecc44dcabb66f1e282f2c61449beb2a91f"
+    },
+    {
+      "file": "imagenes/juegos_054.jpg",
+      "dimensions": [
+        367,
+        550
+      ],
+      "bytes": 51730,
+      "sha256": "c2a0dbb39c55a007e4ceb6aef43fc1c0376b8c273d100083159303183f9eff27"
+    },
+    {
+      "file": "imagenes/juegos_055.jpg",
+      "dimensions": [
+        736,
+        491
+      ],
+      "bytes": 111858,
+      "sha256": "9144ebbefb6fcfe8a129f5fb5e86d16402a62c78bb7a58579d8acac07c080456"
+    },
+    {
+      "file": "imagenes/juegos_056.jpg",
+      "dimensions": [
+        540,
+        405
+      ],
+      "bytes": 54846,
+      "sha256": "60d8b36c6635bfcd1a588ef5ca06f0ad1607d2754cb105b38998747c5a84e61b"
+    },
+    {
+      "file": "imagenes/juegos_057.jpg",
+      "dimensions": [
+        736,
+        1305
+      ],
+      "bytes": 236469,
+      "sha256": "b8f119abc57c930409cd74834f7a5167a977d1e472a828d13444e7d346eca838"
+    },
+    {
+      "file": "imagenes/juegos_058.jpg",
+      "dimensions": [
+        736,
+        929
+      ],
+      "bytes": 185907,
+      "sha256": "dbc1a2afffa9de1c5a9cd45b2f1edd3d57a973887b36ad78c695ebd2580104e6"
+    },
+    {
+      "file": "imagenes/juegos_059.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 92633,
+      "sha256": "d0244bdeadf45f7d5c1bb564026554c56c2be1aa69367a8045524ef6f4ffb4f1"
+    },
+    {
+      "file": "imagenes/juegos_060.jpg",
+      "dimensions": [
+        736,
+        995
+      ],
+      "bytes": 129875,
+      "sha256": "66729d05972e41bf8de089bcf83817e942f254ff78d209928ec441ccd604bd5b"
+    },
+    {
+      "file": "imagenes/juegos_061.jpg",
+      "dimensions": [
+        563,
+        1000
+      ],
+      "bytes": 136731,
+      "sha256": "4f153cc32cdefa9646281d7d196362b8624f1b87170ce5aa876d32b30c10969f"
+    },
+    {
+      "file": "imagenes/juegos_062.jpg",
+      "dimensions": [
+        564,
+        1002
+      ],
+      "bytes": 119983,
+      "sha256": "1cbc5651638bf92d2a7ab0abe2199582448e4727da9efab42f3d287b8cc56ed8"
+    },
+    {
+      "file": "imagenes/juegos_063.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 86559,
+      "sha256": "106168adc8fa3e990c37885b756e2f2424c80c502d634f7a854e37e02183b10f"
+    },
+    {
+      "file": "imagenes/juegos_064.jpg",
+      "dimensions": [
+        734,
+        355
+      ],
+      "bytes": 49934,
+      "sha256": "f88e39a7100c2e91ee95e92cbb1890cfca3ca6bfb55bf390c4c69e1a947ac93b"
+    },
+    {
+      "file": "imagenes/juegos_065.jpg",
+      "dimensions": [
+        736,
+        358
+      ],
+      "bytes": 46028,
+      "sha256": "33688c60f7c799b98560995db006347fa47edb0ce77259a63acced4486684e63"
+    },
+    {
+      "file": "imagenes/juegos_066.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "bytes": 110308,
+      "sha256": "27ff8a79b59a6a4f8f1c4fb6b5ec7b8400e662df31528e1def1403fbb9fb8a47"
+    },
+    {
+      "file": "imagenes/juegos_067.jpg",
+      "dimensions": [
+        734,
+        352
+      ],
+      "bytes": 57524,
+      "sha256": "bb20492280ede61ffd42f8189aa98e5d5c2c524462b89ee2e6c460d631c20e15"
+    },
+    {
+      "file": "imagenes/juegos_068.jpg",
+      "dimensions": [
+        735,
+        529
+      ],
+      "bytes": 72764,
+      "sha256": "9bc98eed67fc2bd1b2ae54b9f5cbc3ae4e9c79a84c8db760e65eafdbd4cd8fd7"
+    },
+    {
+      "file": "imagenes/juegos_069.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 23471,
+      "sha256": "6b77af8224d3bd7243711b10dc020149be5997eb3d29c4d2cb96e19313bc91a2"
+    },
+    {
+      "file": "imagenes/juegos_070.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 23715,
+      "sha256": "f697ef8a759ebe11f963e367a5080e65e7297ed62c383983c04f0a793dcf813a"
+    },
+    {
+      "file": "imagenes/juegos_071.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 25020,
+      "sha256": "65c2cabbed8b38f24a5775d9dc03ee95b33483d674197258ec5b90cad70764af"
+    },
+    {
+      "file": "imagenes/juegos_072.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 20891,
+      "sha256": "9a8b379fd0d73f1ff21b9259a30213a2427b3ce6a2f79f9dfd9861239f737683"
+    },
+    {
+      "file": "imagenes/juegos_073.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 26007,
+      "sha256": "d5bc0026b9606b70f6bf3610e91940064b62b450f65b8ad90b1bcf74c897caa2"
+    },
+    {
+      "file": "imagenes/juegos_074.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 23411,
+      "sha256": "d6fa7af5e8f0674f79373ce68c52d4beb64ff025b62e66cd5e3e18a2e37a56be"
+    },
+    {
+      "file": "imagenes/juegos_075.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 21438,
+      "sha256": "3549ab2dd3e0fb4172d24ccbf8cf5f807e92c8ca8af12edf0581b66926e8f62c"
+    },
+    {
+      "file": "imagenes/juegos_076.jpg",
+      "dimensions": [
+        320,
+        240
+      ],
+      "bytes": 23366,
+      "sha256": "5c98047544ff833d7a776d85e1a458b409fcee7df8870e118105a01eabecbca5"
+    },
+    {
+      "file": "imagenes/juegos_077.jpg",
+      "dimensions": [
+        735,
+        386
+      ],
+      "bytes": 67431,
+      "sha256": "e3b05a0489b72bad7de222d97c7dd4735bba24c140f5637b246f37f21f711533"
+    },
+    {
+      "file": "imagenes/juegos_078.jpg",
+      "dimensions": [
+        240,
+        320
+      ],
+      "bytes": 24035,
+      "sha256": "cb984b5af5bcc3f0e69401e686c4a36482e78e1de951cef65ff86ca9345f2676"
+    },
+    {
+      "file": "imagenes/juegos_079.jpg",
+      "dimensions": [
+        320,
+        153
+      ],
+      "bytes": 15633,
+      "sha256": "baeb66a78af9ebe8f70ff2740e0e77d171f218ff275304baab3071749cc5011a"
+    },
+    {
+      "file": "imagenes/juegos_080.jpg",
+      "dimensions": [
+        450,
+        338
+      ],
+      "bytes": 36919,
+      "sha256": "c134c29193bd625f091e0abecf7be8b4e07a4d1928254d0ec02de63ae50ad4b2"
+    },
+    {
+      "file": "imagenes/juegos_081.jpg",
+      "dimensions": [
+        736,
+        736
+      ],
+      "bytes": 129177,
+      "sha256": "2ee89863be910d8d530ccd16256f6374a6d6fd23cbd6e55a2d2ae8a19e2a418c"
+    },
+    {
+      "file": "imagenes/juegos_082.jpg",
+      "dimensions": [
+        736,
+        735
+      ],
+      "bytes": 140983,
+      "sha256": "da21c015e8f1bfaf488e2d2d1e2f42891228c5fceadad2fefc5b86662875b82f"
+    },
+    {
+      "file": "imagenes/juegos_083.jpg",
+      "dimensions": [
+        736,
+        736
+      ],
+      "bytes": 121959,
+      "sha256": "62e07b101f8bf3cf3076c6ae9160943c88c724da68b3171ee2ab42771ab62ebb"
+    },
+    {
+      "file": "imagenes/juegos_084.jpg",
+      "dimensions": [
+        735,
+        735
+      ],
+      "bytes": 124232,
+      "sha256": "09e8e9182d0d5e896a596feade0dd3163d820e624902cdde62052ad2022e2386"
+    },
+    {
+      "file": "imagenes/juegos_085.jpg",
+      "dimensions": [
+        736,
+        736
+      ],
+      "bytes": 130990,
+      "sha256": "0eb3d557f7db0ef3bd20dfe7090f043130e10c27f2e201475f5e0995ae1c393e"
+    },
+    {
+      "file": "imagenes/juegos_086.jpg",
+      "dimensions": [
+        736,
+        491
+      ],
+      "bytes": 107948,
+      "sha256": "3dd8b6fef94d2cfc34c058fa3a083ab5742573087f0853b2be9b999b8cd15969"
+    },
+    {
+      "file": "imagenes/juegos_087.jpg",
+      "dimensions": [
+        720,
+        960
+      ],
+      "bytes": 241331,
+      "sha256": "fd3dd6975ac5764d4acb4a3a90a6fb583bf30526e38afd788422915b1909804b"
+    },
+    {
+      "file": "imagenes/juegos_088.jpg",
+      "dimensions": [
+        533,
+        356
+      ],
+      "bytes": 56574,
+      "sha256": "9f728d1e72986537ffb0498b71c0f94b066c04b62ed22db408fdde2bfea84256"
+    },
+    {
+      "file": "imagenes/juegos_089.jpg",
+      "dimensions": [
+        736,
+        491
+      ],
+      "bytes": 80119,
+      "sha256": "0f9cca5cdff4c6cfa343feaf5e7b403e61f1b2f23e9ad60f51e0e2f2888e9c7e"
+    },
+    {
+      "file": "imagenes/juegos_090.jpg",
+      "dimensions": [
+        666,
+        463
+      ],
+      "bytes": 42871,
+      "sha256": "92fc1d456a4aacc4ae38e486cbba74c59da3651b6dd65f740e5876dfb6c0a985"
+    },
+    {
+      "file": "imagenes/juegos_091.jpg",
+      "dimensions": [
+        736,
+        782
+      ],
+      "bytes": 104850,
+      "sha256": "4b4f3887d829d1bf3426e67a58b4e2c4a1ee204e50d497f707c06a59a8e69783"
+    },
+    {
+      "file": "imagenes/juegos_092.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 77878,
+      "sha256": "834b4aab0b91fea77062de47b2c4307706d536448f5586e3c09160866ec81409"
+    },
+    {
+      "file": "imagenes/juegos_093.jpg",
+      "dimensions": [
+        735,
+        449
+      ],
+      "bytes": 55186,
+      "sha256": "e40261392f45fc4acc6ce08b92358b254eebb89b4e260c823ba6eeac44ae7e04"
+    },
+    {
+      "file": "imagenes/juegos_094.jpg",
+      "dimensions": [
+        349,
+        261
+      ],
+      "bytes": 23091,
+      "sha256": "94ef62863f0044defeb8e92c374e0858673b5d5bd4ed2cc0a93cfd30aaa0d457"
+    },
+    {
+      "file": "imagenes/juegos_095.jpg",
+      "dimensions": [
+        440,
+        293
+      ],
+      "bytes": 27369,
+      "sha256": "8693b5b2885810358a6436a4b6a7a96d318447d05025881c919df1ae76e9a58e"
+    },
+    {
+      "file": "imagenes/juegos_096.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 84379,
+      "sha256": "10d0db16ff185c985cb28092cc27ad7bc37935fbb22f15bbdb1bfe5aa0ad26ba"
+    },
+    {
+      "file": "imagenes/juegos_097.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 83014,
+      "sha256": "cd27fea13a624b8e661b32d753847d657f9d200ac37421cb49c8461fa8464f91"
+    },
+    {
+      "file": "imagenes/juegos_098.jpg",
+      "dimensions": [
+        736,
+        470
+      ],
+      "bytes": 79962,
+      "sha256": "49d5b9de516384a9bec0575b582df43f31e6047886eeb8423f7902b4be63681c"
+    },
+    {
+      "file": "imagenes/juegos_099.jpg",
+      "dimensions": [
+        736,
+        552
+      ],
+      "bytes": 54181,
+      "sha256": "e1908e0f7dbed6a17e8bf330d7dd36e71d03d58bd33a9c8d0c035c841d436f91"
+    },
+    {
+      "file": "imagenes/juegos_100.jpg",
+      "dimensions": [
+        474,
+        355
+      ],
+      "bytes": 34917,
+      "sha256": "85a7532f0e15f27d9e199be75c705864b283a4993c09e5f971419c52e34499e2"
+    }
+  ]
+}

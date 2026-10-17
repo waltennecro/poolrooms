@@ -1,0 +1,5 @@
+{
+  "name": "Poolrooms.Core",
+  "rootNamespace": "Poolrooms.Core",
+  "noEngineReferences": true
+}

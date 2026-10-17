@@ -1,0 +1,5 @@
+{
+  "name": "Poolrooms.Runtime",
+  "rootNamespace": "Poolrooms",
+  "references": ["Poolrooms.Core"]
+}

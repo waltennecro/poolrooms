@@ -1,0 +1,20 @@
+# Unity caches and local editor state
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Bb]uild/
+[Bb]uilds/
+.vs/
+*.csproj
+*.sln
+*.slnx
+*.user
+*.pidb
+*.suo
+*.log
+__pycache__/
+*.pyc
+# Generated recovery archives are reproduced from tracked assets.
+/Poolrooms_v39_Recuperado_Para_Assets.zip

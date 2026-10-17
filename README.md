@@ -1,1 +1,33 @@
-# poolrooms
+# Poolrooms
+
+## Código recuperado: v39
+
+Este repositorio conserva el paquete **Poolrooms v39 — Áreas infantiles multinivel** recuperado de una copia local el 16 de octubre de 2026. Incluye los 326 archivos originales: código C#, shaders, texturas, sonidos, recursos y pruebas de Play Mode.
+
+El código está en [`Assets/PoolroomsProcedural`](Assets/PoolroomsProcedural). El inventario con SHA-256 y la procedencia están en [`RECUPERACION_V39.json`](RECUPERACION_V39.json).
+
+**No se ha recuperado la v47.** La carpeta [`Preparacion_V48`](Preparacion_V48) conserva el diseño y los modelos de tres niveles pendientes de integración. Sus documentos describen la investigación anterior a esta recuperación; esos niveles todavía no están implementados en la v39.
+
+## Descargar y abrir
+
+1. Usa **Code → Download ZIP** en este repositorio y extrae el archivo.
+2. Guarda una copia de tu proyecto Unity actual. Este repositorio contiene un **paquete para Assets**, no un proyecto con `Packages` y `ProjectSettings`.
+3. Con Unity cerrado, copia la carpeta `Assets/PoolroomsProcedural` del ZIP a la carpeta `Assets` de un proyecto HDRP. Evita superponerla sobre otra versión del paquete; usa un proyecto nuevo o retira primero la copia anterior a una carpeta de respaldo fuera de `Assets`.
+4. Abre el proyecto y espera a que termine la importación. Si compila sin errores, usa **Tools → Poolrooms → Crear demo**, guarda la escena y pulsa Play.
+
+El paquete contiene integraciones opcionales para HDRP e Input System. No se han cambiado sus archivos al recuperarlos. La importación, compilación y ejecución de esta copia todavía requieren comprobarse dentro de Unity; verificar los hashes no sustituye esa prueba.
+
+## Verificar o crear otro ZIP
+
+Con Python 3, desde la raíz del repositorio:
+
+```sh
+python tools/verify_recovery.py
+python tools/verify_recovery.py --zip Poolrooms_v39_Recuperado_Para_Assets.zip
+```
+
+El ZIP generado contiene el paquete original `PoolroomsProcedural/` para copiarlo en `Assets`. La verificación comprueba que no falten archivos y que sus bytes coincidan con la copia recuperada.
+
+## Sobre el aviso de Cloud
+
+El aviso «No se pudo cargar este archivo de Cloud» corresponde al acceso al archivo del entorno del chat. Esta recuperación deja el código en GitHub para poder descargarlo o clonarlo aunque ese enlace de Cloud deje de funcionar. No repara el servicio de archivos de la aplicación ni recupera versiones posteriores que no estén en este respaldo.

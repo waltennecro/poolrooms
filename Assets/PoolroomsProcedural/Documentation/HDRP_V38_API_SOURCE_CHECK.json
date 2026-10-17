@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-08",
+  "packageVersion": "17.3.0",
+  "method": "Read official Unity HDRP 17.3.0 source; verify named API fields. Not Unity compilation or runtime verification.",
+  "fieldsChecked": {
+    "HDLight": [
+      "public bool useScreenSpaceShadows",
+      "public bool useRayTracedShadows",
+      "public int numRayTracingSamples",
+      "public bool filterTracedShadow",
+      "public float angularDiameter",
+      "public bool interactsWithSky",
+      "public float flareSize",
+      "public float flareMultiplier",
+      "public bool affectSpecular"
+    ],
+    "Sky": [
+      "public ColorParameter groundTint",
+      "public ColorParameter horizonTint",
+      "public ColorParameter zenithTint",
+      "public ColorParameter airTint",
+      "public ColorParameter aerosolTint",
+      "public ClampedFloatParameter aerosolDensity",
+      "public ClampedFloatParameter aerosolAnisotropy"
+    ],
+    "ShadowManager": [
+      "public struct HDShadowInitParameters",
+      "public bool supportScreenSpaceShadows;"
+    ],
+    "Frames": [
+      "ScreenSpaceShadows = 34",
+      "hdShadowInitParams.supportScreenSpaceShadows"
+    ],
+    "Settings": [
+      "public HDShadowInitParameters hdShadowInitParams;"
+    ]
+  },
+  "sources": {
+    "Package": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/package.json",
+      "sha256": "c513591e4a79b9b08382f2141e824d1886c38c47c97ca750df90548b24593e6c"
+    },
+    "HDLight": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Lighting/Light/HDAdditionalLightData.cs",
+      "sha256": "9d3020aa02a67d328906618e9e2cd76c2fadf6cbc8608961953fda029144c262"
+    },
+    "Sky": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Sky/PhysicallyBasedSky/PhysicallyBasedSky.cs",
+      "sha256": "8e2f275c8169fc0e2a68c2cb8f0f330d355ec7e220273e4f79bec944ed68b734"
+    },
+    "ShadowManager": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Lighting/Shadow/HDShadowManager.cs",
+      "sha256": "d4f16b6bb7cb92e0ebc12f85b2a6d3efae4ae8c236496bb9dad7987df787b28f"
+    },
+    "Frames": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/Settings/FrameSettings.cs",
+      "sha256": "186f6d6caa7f0a1c9d1e5c7333d7fe64d19fed9d0fe786a75899ec04cb77d1fd"
+    },
+    "Settings": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/Settings/RenderPipelineSettings.cs",
+      "sha256": "f5e609d7483908a28948e142885d201806f0040256b04e3d907666ed7f2c101c"
+    },
+    "SSR": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Lighting/ScreenSpaceLighting/ScreenSpaceReflection.cs",
+      "sha256": "71010e26db3629c87ad69563c77324a9b4b3bbf49ed973fb2be12b7c7c125310"
+    },
+    "GI": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Lighting/GlobalIllumination.cs",
+      "sha256": "13f525a745bdf78a25032ca0d574d1b254bebcb8cbb7cd9b8d52c4861750ba01"
+    },
+    "Visual": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Sky/VisualEnvironment.cs",
+      "sha256": "41ca556ef2c3e2bb579cc82f978a96d5162fb10321d5d699eed0b6afbc4e8007"
+    }
+  }
+}

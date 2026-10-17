@@ -1,0 +1,48 @@
+v38 — LUZ TENUE Y SOL FÍSICO HDRP
+
+CORE .NET 8 — no es compilación de las API de Unity
+  CoreChecks -> /workspace/poolrooms/Poolrooms_Unity/Verification/bin/Debug/net8.0/CoreChecks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.75
+
+LIGHTING
+Reference room lamp flux: bright=18810 lm; dim=3290.4001 lm (fixture totals, not measured screen luminance).
+Lighting: 170 zone defaults, 10 looks, seeded determinism, classic opt-out, actual lamp power/color/off masks, unchanged geometry, corridor transitions and bright/dark contrast passed.
+Poolrooms v38: 1020 dim authored rooms, 240 atlas rooms; finite support at doorway approaches, high ceilings, five climates, sun/closed-room isolation and other-biome/Classic preservation passed. These are fixture/geometry checks, not pixel brightness measurements.
+PASS: 12095 Poolrooms illumination assertions.
+
+SOLAR
+SolarAtlas PASS: 1080 sampled plans, 768 distinct built recipes, 72 route-tested meshes, 126 links, 1287 direct edges; 5 climates, 20 detail families, 9 connection kinds; max 4588 triangles.
+PASS: 10036330 solar architecture assertions.
+
+POOLS
+Common Poolrooms PASS: 16509 solar / 16615 original (49.84% solar); all 768 solar and 170 original recipes, four space variants; 72 solar meshes, 36 original/solar thresholds, 36 shared openings; max discovery 3 graph steps in sampled starts. Unity/HDRP/PhysX pending.
+Common Poolrooms integration: seven legacy families retained; crowded recipe has real pool and free routes; 36 mall/terrain gateways checked with common architecture enabled.
+PASS: 2970529 common Poolroom assertions.
+
+MALL_LIGHTING
+Mall daylight PASS: 60 buildings, all 2–6 floors and 3 roof shapes; 309 glazed solar sources, 309 clear ground shafts; 675 floor-local sectors; 2961 lit / 1599 dim stores across 15 categories, three maintenance states. Existing light counts retained; Unity/HDRP/PhysX/appearance/FPS pending.
+PASS: 26689 mall daylight assertions.
+
+GRAPHICS
+128 assertions passed; 64 GPU/API/HDRP capability combinations. Only the fully compatible combination requests ray tracing.
+
+Total counted assertions: 13045771
+
+SYNTAX ONLY
+C# 9 syntax: 160 scripts x 4 symbol configurations; 0 errors. 6 asmdef JSON files valid.
+Explicit core enum references checked: 10762; comments and strings excluded.
+Syntax parsing only; Unity/HDRP API compilation, shaders and runtime are not validated by this check.
+
+API SOURCE CHECK: 21 declarations/references verified in official Unity HDRP 17.3.0 source on 6000.3/staging. Source URLs and hashes in HDRP_V38_API_SOURCE_CHECK.json. This is not a Unity API compilation.
+
+Reference-room 18810 / 3290.4001 lumen sums only describe fixtures; they are not screen luminance measurements or a guaranteed visibility level.
+Unity Editor unavailable: full Unity/HDRP API compilation, shaders, native PhysX, visual balance, RT rendering, FPS, memory and player builds remain pending. No native tests were run. Existing native tests retained byte-for-byte.
+Rendimiento/Alto use standard sun shadows. RT sun shadows also require Screen Space Shadows in the HDRP Asset/camera and a supported DX12 GPU. CinematicoRT requests RT only when all six existing capability prerequisites pass; incompatible hardware uses the existing Alto fallback.
+World reserves one existing light/shadow slot for its physical sun; local aperture substitutes are muted while it is active. Closed rooms/other biomes and an already active Level94 sun keep their existing systems. Native validation of this lifecycle remains pending.
+The sun profile uses fixed solar-location exposure, leaving the graphics brightness offset and flashlight code intact. Master visibility fill now reads solar exposure; streamed renderer transforms participate in RT origin updates.
+Dark Poolroom support: one finite diffuse-only fill per room, within the room envelope, no generated meshes/probes/shadows. Native HDRP range and appearance still require a render check.

@@ -1,0 +1,20 @@
+v28 — centros comerciales físicos y activación de interiores. 2026-10-08 UTC.
+
+Comandos ejecutados en /workspace/poolrooms/Poolrooms_Unity con .NET 8:
+- dotnet build Verification/CoreChecks.csproj --no-restore
+  Build succeeded; 0 warnings, 0 errors.
+- dotnet Verification/bin/Debug/net8.0/CoreChecks.dll
+  PASS: 220413481 assertions; legacy rooms, 640 distributions, 252 corridors and 170-zone expansion + zone lighting.
+  También pasaron Mall/v20/v21, interiores, atlas solar, generación autónoma, terreno, mobiliario, locomoción, ajustes, agua, cámara y audio.
+- dotnet run --project Verification/CoreChecks.csproj --no-restore -- --connected-mall-checks
+Connected malls PASS: 393 deterministic non-overlapping sites, 24 supported physical approaches, 393120 reciprocal edges; connected room graphs across 12 seed/scale combinations. Unity/PhysX/HDRP pending.
+PASS: 2703781 connected world assertions.
+- dotnet run --project Verification/Syntax/SyntaxChecks.csproj --no-restore -- Assets/PoolroomsProcedural
+C# 9 syntax: 131 scripts x 4 symbol configurations; 0 errors. 6 asmdef JSON files valid.
+Explicit core enum references checked: 9842; comments and strings excluded.
+Syntax parsing only; Unity/HDRP API compilation, shaders and runtime are not validated by this check.
+
+Las comprobaciones del grafo usan reservas de distritos conectados; los rayos de geometría ejecutan las mallas reales del núcleo. No ejecutan PhysX ni Unity.
+PlayMode ConnectedMallWorldTests: incluido, no ejecutado. Pruebas nativas anteriores: no ejecutadas; sus modos de compatibilidad son explícitos.
+Compilación Unity/HDRP, shaders, iluminación/render, interfaz, interacción, RAM/VRAM y FPS: no ejecutados. No hay Unity Editor instalado.
+El Nivel 94 no está integrado físicamente en v28; conserva su implementación anterior.

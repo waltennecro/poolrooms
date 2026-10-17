@@ -1,0 +1,6 @@
+{
+  "name": "Poolrooms.Editor",
+  "rootNamespace": "Poolrooms.Editor",
+  "references": ["Poolrooms.Core", "Poolrooms.Runtime"],
+  "includePlatforms": ["Editor"]
+}

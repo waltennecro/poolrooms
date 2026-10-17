@@ -1,0 +1,34 @@
+v32 — Centro comercial, luz solar y tiendas. Fecha local: 2026-10-07, America/Mexico_City.
+
+Comandos ejecutados desde Poolrooms_Unity con .NET 8:
+- dotnet build Verification/CoreChecks.csproj --no-restore
+  CoreChecks -> /workspace/poolrooms/Poolrooms_Unity/Verification/bin/Debug/net8.0/CoreChecks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.84
+
+- dotnet run --project Verification/CoreChecks.csproj --no-restore -- --mall-lighting-checks
+Mall daylight PASS: 60 buildings, all 2–6 floors and 3 roof shapes; 309 glazed solar sources, 309 clear ground shafts; 675 floor-local sectors; 2961 lit / 1599 dim stores across 15 categories, three maintenance states. Existing light counts retained; Unity/HDRP/PhysX/appearance/FPS pending.
+PASS: 26689 mall daylight assertions.
+
+- dotnet Verification/bin/Debug/net8.0/CoreChecks.dll --mall-v20-checks
+Mall v20: 300 complete seeded malls; all 2–6 floors, glass storefront entrances, stopped escalator support/headroom, real glazed roof apertures, 3 wing conditions, 795–8613 supported selectable articles per mall; 256 distinct catalogue models in 32 families. Max sampled item 492, shell 95824, sector 5750 triangles. Independent biome surfaces and gateway checks passed. Unity/PhysX/HDRP/FPS not executed.
+
+- dotnet Verification/bin/Debug/net8.0/CoreChecks.dll --mall-v21-checks
+Mall v21: 300 seeded plans; 4 atrium profiles x 3 roof shapes; 1634 supported cross bridges, all store entrances and escalators retained; 795–8613 stable articles. Detailed geometry/access checks on 12 architecture combinations. Max sampled shell 143164, low-detail furniture sector 17960 triangles (item batches measured separately). Unity/PhysX/HDRP/FPS not executed.
+
+- dotnet run --project Verification/Syntax/SyntaxChecks.csproj --no-restore -- Assets/PoolroomsProcedural
+C# 9 syntax: 142 scripts x 4 symbol configurations; 0 errors. 6 asmdef JSON files valid.
+Explicit core enum references checked: 9980; comments and strings excluded.
+Syntax parsing only; Unity/HDRP API compilation, shaders and runtime are not validated by this check.
+
+MallDaylightWorldTests y pruebas Unity anteriores: incluidas, no ejecutadas.
+Unity Editor no instalado: compilación contra Unity/HDRP, shaders, PhysX, apariencia y FPS pendientes.
+Las pruebas del núcleo verifican datos y mallas; no prueban iluminación renderizada ni FPS del juego.
+Las mallas del centro comercial no cambian; sus fixtures y selección de iluminación sí.
+ZIP solo contiene PoolroomsProcedural para Assets, sin Verification/Roslyn/.NET/bin/obj.
+Integridad CRC y comparación de todos los archivos fuente verificadas al empaquetar.
+Linterna, cámara, Explorer y deslizamiento: idénticos byte a byte a v31.
