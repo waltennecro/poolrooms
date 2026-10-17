@@ -61,3 +61,7 @@ Comprobación nueva: ocho distritos, propietarios de lotes, soporte finito y sep
 R2 publicado en `dd85ec1`; paquete completo de 351 archivos y 51.353.662 bytes, SHA-256 `96acbcc7ce5a2f785da31568e46df020cfcf57e922f6f6a5ec673d5e8a5f6470`.
 
 R3 publicado en `f2a201f`; paquete completo de 351 archivos y 51.353.863 bytes, SHA-256 `27a07f11411dccc105b6a6f632c7d571d32ac57e87651f778f1dbf90f2288b3b`. `RECONSTRUCCION_ESTADO.json` conserva una cola legible por herramientas. El workflow nuevo reproduce las comprobaciones locales y el paquete; no se presupone que GitHub Actions ya lo haya ejecutado.
+
+### Corrección de CI después de R3
+
+El primer run falló con CS1705: instalar SDK 8 no impedía que el runner eligiera SDK 10 y sus ensamblados Roslyn. `global.json` fija 8.0.408 sin roll-forward; setup-dotnet usa ese archivo y comprueba la versión elegida. El run [38999993092](https://github.com/waltennecro/poolrooms/actions/runs/38999993092) terminó correctamente, incluidos compilación/sintaxis, hashes, empaquetado y upload del artefacto de 49 MB. Evidencia y digest en `Verification/ci_sdk_fix.json`. La descarga autenticada del artefacto no se ha ejecutado desde este entorno; la página pública sí confirma su publicación. Las cifras del núcleo son aserciones, no pruebas nativas de Unity.

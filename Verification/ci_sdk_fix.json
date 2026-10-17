@@ -1,0 +1,25 @@
+{
+  "fixCommit": "0444bd9b5c0d7ca87ce199d6c7d47f30e191cf59",
+  "failure": "CS1705: Roslyn from SDK 10 referenced System.Runtime 10 while the checks target net8.0",
+  "correction": "global.json pins SDK 8.0.408 with rollForward disabled; setup-dotnet reads that file and a step checks dotnet --version",
+  "successfulRun": "https://github.com/waltennecro/poolrooms/actions/runs/38999993092",
+  "job": "117300694102",
+  "observedStepConclusions": {
+    "Verify pinned SDK resolution": "success",
+    "Compile core, compare geometry, check CSharp syntax": "success",
+    "Check source texture hashes": "success",
+    "Create verified complete Assets package": "success",
+    "Run actions/upload-artifact@v4": "success"
+  },
+  "artifact": {
+    "id": "12088831812",
+    "name": "Poolrooms-Reconstruccion-Assets",
+    "displayedSize": "49 MB",
+    "digest": "sha256:cb4cabe1294d6a123924b8eea326df4e32f1a809ccb43c832cad0d083ab8c758",
+    "published": true,
+    "downloadTestedInThisEnvironment": false,
+    "downloadLimitation": "The public GitHub page lists the artifact but requires GitHub sign-in for download. The API hostname is blocked by the current environment network policy."
+  },
+  "evidenceSource": "Public GitHub Actions run and job HTML; check-step data-conclusion attributes and artifact table",
+  "unityValidation": false
+}
