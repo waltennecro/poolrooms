@@ -173,6 +173,7 @@ namespace Poolrooms
                 var chunk=Attach("Mall floor "+(buildFloor+1)+" / sector "+buildSector,description.Geometry,baseY);
                 loaded.Add(Key(buildFloor,buildSector),chunk);
                 var carry=explorer.GetComponent<PoolroomsCarry>();
+                PoolroomsPickup.CreateMallSeats(target,description.Geometry,baseY,chunk.transform,carry);
                 if(target.Enhanced)
                 {
                     var display=chunk.gameObject.AddComponent<PoolroomsMallDisplay>();

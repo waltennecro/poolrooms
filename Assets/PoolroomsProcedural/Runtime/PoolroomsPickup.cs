@@ -15,6 +15,19 @@ namespace Poolrooms
         private PhysicsMaterial contactMaterial;
         public int CatalogId { get; private set; }=-1;
         public float CarryRadius { get; private set; }=.27f;
+        public static PoolroomsPickup CreateSourceSeat(string key,SourceFurniturePlacement seat,Transform parent,float offsetY=0)
+        {
+            var p=seat.Bottom;var item=CreateSource(key,SourceFurniture.Id(seat.Source),new Vector3(p.X,p.Y+offsetY,p.Z),parent,SourceFurniture.Longest(seat.Source));
+            if(item!=null)item.transform.localRotation=Quaternion.Euler(0,seat.Yaw,0);return item;
+        }
+        public static void CreateMallSeats(MallPlan plan,RoomGeometry data,float baseY,Transform parent,PoolroomsCarry carry)
+        {
+            foreach(var seat in data.SourceSeats)
+            {
+                string key="mall:"+plan.Seed+":"+plan.AddressX+":"+plan.AddressZ+":source-seat:"+seat.Slot;
+                if(carry==null||!carry.WasTaken(key))CreateSourceSeat(key,seat,parent,-baseY);
+            }
+        }
         public static PoolroomsPickup CreateSource(string key,string source,Vector3 bottom,Transform parent,float longest)
         {
             var world=parent!=null?parent.GetComponentInParent<PoolroomsWorld>():null;

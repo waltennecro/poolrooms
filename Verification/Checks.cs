@@ -56,6 +56,7 @@ static class Checks
         AirfieldsAndFlight();
         RotorFlight();
         SourceFurniturePlacement();
+        ExpandedFurniturePlacement();
         QuietGeneration();
         DressingGeneration();
         string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
@@ -369,6 +370,55 @@ static class Checks
         var city=new Layout(new LayoutConfig{Seed=481516,CellSize=36,Continuous=true,Procedural=LiminalGeneration.City11,EnableAircraft=true});var counts=new int[5];
         for(int z=0;z<18;z++)for(int x=0;x<18;x++)foreach(var prop in city.At(x,z).Plan.City.Props)counts[prop.Source]++;
         Console.WriteLine($"Furniture: {placements} supported source placements checked; active-airfield sample has {counts[2]} original chairs, {counts[3]} sofas and {counts[4]} damask chair variants. Chair variants are not new geometry families.");
+    }
+    static void ExpandedFurniturePlacement()
+    {
+        int homes=0,homeSeats=0,mallSectors=0,mallSeats=0;
+        var sourceTypes=new HashSet<int>();
+        foreach(int seed in new[]{0,94,481516})
+        {
+            var region=TerrainRegionPlan.Create(seed,3,-4);int sampled=0;
+            foreach(var house in region.Houses)
+            {
+                if(sampled++>=12)break;var data=TerrainHouseArchitecture.Build(house,true,region);homes++;
+                Check(data.Geometry.SourceSeats.Count<=2,"House exceeds bounded source furniture budget");
+                Check(TerrainHouseArchitecture.Build(house,false,region).Geometry.SourceSeats.Count==0,"Distant house loads source furniture");
+                var slots=new HashSet<int>();
+                foreach(var seat in data.Geometry.SourceSeats)
+                {
+                    Check(slots.Add(seat.Slot)&&seat.Slot>=8000,"Furniture ownership collides with existing house items");
+                    Check(seat.Bottom.Y==.02f,"Furniture entered a basement or protected upper flight");
+                    Check(SourceFurniture.Clear(data.Geometry.Structure,seat)&&SourceFurniture.Clear(data.Geometry.Decoration,seat)&&SourceFurniture.Clear(data.Geometry.Glass,seat),"Home source furniture intersects final architecture/details");
+                    var half=SourceFurniture.HalfExtents(seat.Source,seat.Yaw,.04f);var hole=house.Blueprint.StairHole;
+                    Check(seat.Bottom.X+half.X<hole.MinX-.3f||seat.Bottom.X-half.X>hole.MaxX+.3f||seat.Bottom.Z+half.Z<hole.MinZ-.3f||seat.Bottom.Z-half.Z>hole.MaxZ+.3f,"Furniture obstructs house stairs");
+                    int x=(int)MathF.Floor((seat.Bottom.X+house.Width*.5f)/7),z=(int)MathF.Floor((seat.Bottom.Z+house.Depth*.5f)/7);
+                    Check(x!=1||z!=0,"Furniture entered the stair cell");
+                    Check(seat.Bottom.X+half.X<=house.Blueprint.X(x)-1.2f,"Furniture narrows central cross-route below 2.4 m");
+                    foreach(int dx in new[]{-1,0,1})foreach(int dz in new[]{-1,0,1})
+                    {var p=seat.Bottom+new V3(dx*half.X,0,dz*half.Z);Check(Math.Abs(Support(data.Geometry.Structure,p))<.001f,"House source footprint lacks floor support");}
+                    homeSeats++;sourceTypes.Add(seat.Source);
+                }
+            }
+            var mall=MallPlan.Create(seed,-5,9,true,true,true);var shell=MallArchitecture.Shell(mall);
+            for(int f=0;f<mall.Floors;f++)foreach(int sector in new[]{1,mall.Bays/2,mall.Bays})
+            {
+                var data=MallArchitecture.Sector(mall,f,sector,12).Geometry;mallSectors++;
+                Check(data.SourceSeats.Count<=2,"Mall sector exceeds furniture budget");
+                foreach(var seat in data.SourceSeats)
+                {
+                    Check(seat.Slot>=8100&&seat.Bottom.Y==f*MallPlan.FloorHeight+.02f,"Mall furniture floor or stable ownership changed");
+                    Check(SourceFurniture.Clear(data.Structure,seat)&&SourceFurniture.Clear(data.Decoration,seat)&&SourceFurniture.Clear(data.Glass,seat)&&SourceFurniture.Clear(shell.Structure,seat)&&SourceFurniture.Clear(shell.Glass,seat),"Mall seat intersects final shell, frontage, railing or furnishing");
+                    var half=SourceFurniture.HalfExtents(seat.Source,seat.Yaw,.04f);
+                    Check(Math.Abs(seat.Bottom.Z)-half.Z>=20,"Furniture blocks the main mall gallery");
+                    Check(Math.Abs(seat.Bottom.Z)+half.Z<=MallPlan.ShopFront-.8f,"Furniture blocks storefront passage");
+                    foreach(int dx in new[]{-1,0,1})foreach(int dz in new[]{-1,0,1})
+                    {var p=seat.Bottom+new V3(dx*half.X,0,dz*half.Z);Check(mall.FloorSupported(f,p.X,p.Z)&&Math.Abs(Support(shell.Structure,p)-f*MallPlan.FloorHeight)<.001f,"Mall furniture spans atrium or stair void");}
+                    mallSeats++;sourceTypes.Add(seat.Source);
+                }
+            }
+        }
+        Check(homeSeats>20&&mallSeats>30&&sourceTypes.Contains(3)&&sourceTypes.Contains(4),"Expansion does not populate real houses and malls");
+        Console.WriteLine($"Expanded furniture: {homeSeats} supported seats in {homes} actual generated homes; {mallSeats} seats in {mallSectors} multistorey mall sectors. Same licensed families; <=2 per detailed home/sector.");
     }
     static float Support(MeshData mesh,V3 origin)
     {

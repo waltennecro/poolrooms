@@ -206,6 +206,7 @@ namespace Poolrooms
                 var chunk=Attach(d,"Mall floor "+(nextFloor+1)+" / sector "+nextSector,description.Geometry,y);
                 d.Sectors.Add(nextFloor*32+nextSector,chunk);
                 var actor=world.viewer.GetComponentInParent<PoolroomsExplorer>();var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
+                PoolroomsPickup.CreateMallSeats(d.Plan,description.Geometry,y,chunk.transform,carry);
                 var display=chunk.gameObject.AddComponent<PoolroomsMallDisplay>();display.Initialize(d.Plan,description,y,world.profile,chunk,carry);d.Displays.Add(nextFloor*32+nextSector,display);
                 world.ExternalGeometryChanged();yield return null;
             }

@@ -8,6 +8,50 @@ namespace Poolrooms.Tests
     public sealed class SourceFurnitureWorldTests
     {
         [Test]
+        public void MallSeatsKeepTheirActualUpperFloorWhenSectorMeshesAreRebased()
+        {
+            var plan=MallPlan.Create(94,-5,9,true,true,true);int floor=plan.Floors-1;
+            var data=MallArchitecture.Sector(plan,floor,1,12).Geometry;Assert.That(data.SourceSeats.Count,Is.GreaterThan(0));
+            var root=new GameObject("Upper mall furniture check");root.transform.position=new Vector3(18000,1000,18000);
+            try
+            {
+                var owner=root.AddComponent<PoolroomsChunk>();var shell=MallArchitecture.Shell(plan);
+                var shape=MeshFactory.CreateCollider("Mall actual floors and rails",shell.Structure,root.transform,owner).GetComponent<MeshCollider>();
+                var sector=new GameObject("Rebased upper sector");sector.transform.SetParent(root.transform,false);sector.transform.localPosition=Vector3.up*(floor*MallPlan.FloorHeight);
+                PoolroomsPickup.CreateMallSeats(plan,data,floor*MallPlan.FloorHeight,sector.transform,null);Physics.SyncTransforms();
+                var items=sector.GetComponentsInChildren<PoolroomsPickup>();Assert.That(items.Length,Is.EqualTo(data.SourceSeats.Count));
+                foreach(var item in items)
+                {
+                    var box=item.GetComponent<BoxCollider>();
+                    Assert.That(item.transform.localPosition.y-box.size.y*.5f,Is.EqualTo(.02f).Within(.001f));
+                    Assert.That(item.SpawnKey,Does.Contain(":source-seat:"));
+                    bool overlap=Physics.ComputePenetration(box,box.transform.position,box.transform.rotation,shape,shape.transform.position,shape.transform.rotation,out _,out float depth);
+                    Assert.That(overlap&&depth>.003f,Is.False,"Rebased source chair intersects the mall floor or railing");
+                }
+            }
+            finally{Object.DestroyImmediate(root);}
+        }
+        [Test]
+        public void HouseSourceSeatsReplaceOldSeatingWithoutIntersectingRooms()
+        {
+            var region=TerrainRegionPlan.Create(94,0,0);var house=region.House(0,0);house.SetArchitecture(0);
+            var data=TerrainHouseArchitecture.Build(house,true,region);Assert.That(data.Geometry.SourceSeats.Count,Is.GreaterThan(0));
+            var root=new GameObject("Level94 native source seats");root.transform.position=new Vector3(18000,1000,18000);
+            try
+            {
+                var owner=root.AddComponent<PoolroomsChunk>();var structure=MeshFactory.CreateCollider("House final architecture",data.Geometry.Structure,root.transform,owner).GetComponent<MeshCollider>();
+                foreach(var seat in data.Geometry.SourceSeats)
+                {
+                    var item=PoolroomsPickup.CreateSourceSeat(region.ItemKey(house,seat.Slot),seat,root.transform);Assert.That(item,Is.Not.Null);Physics.SyncTransforms();
+                    var box=item.GetComponent<BoxCollider>();
+                    bool overlap=Physics.ComputePenetration(box,box.transform.position,box.transform.rotation,structure,structure.transform.position,structure.transform.rotation,out _,out float depth);
+                    Assert.That(overlap&&depth>.003f,Is.False,"Source furniture intersects a wall or original furnishing");
+                    Assert.That(item.GetComponent<Rigidbody>(),Is.Null,"Unused furniture should not simulate rigid bodies");
+                }
+            }
+            finally{Object.DestroyImmediate(root);}
+        }
+        [Test]
         public void BakedFurnitureImportsAtItsPlannedScaleAndUsesSourceColour()
         {
             var root=new GameObject("Attributed furniture source import");

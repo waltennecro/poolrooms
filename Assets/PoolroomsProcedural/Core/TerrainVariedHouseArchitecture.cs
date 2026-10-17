@@ -75,6 +75,16 @@ namespace Poolrooms.Core
             o.Geometry.Decoration.Append(o.Envelope.Decoration);o.Geometry.Decoration.Append(o.Interior.Decoration);
             o.Geometry.Fixtures.AddRange(o.Interior.Fixtures);return o;
         }
+        private static bool SourceSeat(TerrainHouseGeometry o,TerrainHousePlan h,int level,int x,int z,float px,float pz,bool sofa)
+        {
+            // Ground-floor lounge/waiting rooms only, never the protected stair cell.
+            // The old furnishing remains the fallback; two sources per home is a hard budget.
+            if(level!=0||o.Geometry.SourceSeats.Count>=2)return false;
+            int source=sofa?3:StableRandom.Hash(h.Seed,x,z,0xF12094u)%2==0?2:4;
+            var seat=new SourceFurniturePlacement(8000+z*4+x,source,new V3(px,.02f,pz),180);
+            if(!SourceFurniture.Clear(o.Interior.Structure,seat)||!SourceFurniture.Clear(o.Envelope.Structure,seat)||!SourceFurniture.Clear(o.Interior.Decoration,seat))return false;
+            o.Geometry.SourceSeats.Add(seat);return true;
+        }
         private static void Wall(TerrainHouseGeometry o,float x,float z,float y,float height,bool side,bool door,bool cellar,float centre,V3 outward,bool internalWall,bool detailed,float portalHalf)
         {
             var m=internalWall?o.Interior.Structure:o.Envelope.Structure;
@@ -199,7 +209,7 @@ namespace Poolrooms.Core
             switch(kind)
             {
                 case TerrainHomeRoom.Living:
-                    Assembly(o,h,level,x,z,AssemblyKind.SeatGroup,left,rear,1.7f,1.3f);
+                    if(!SourceSeat(o,h,level,x,z,left,rear,true))Assembly(o,h,level,x,z,AssemblyKind.SeatGroup,left,rear,1.7f,1.3f);
                     Assembly(o,h,level,x,z,AssemblyKind.Sideboard,right,rear,1.7f,1.1f);break;
                 case TerrainHomeRoom.Kitchen:case TerrainHomeRoom.MirrorKitchen:
                     Kitchen(solid,trim,left,rear,y);
@@ -227,7 +237,8 @@ namespace Poolrooms.Core
                 case TerrainHomeRoom.Archive:
                     foreach(float xx in new[]{left,right})Assembly(o,h,level,x,z,AssemblyKind.FilingCabinet,xx,rear,1.65f,1.1f);break;
                 case TerrainHomeRoom.Waiting:
-                    foreach(float xx in new[]{left,right})Assembly(o,h,level,x,z,AssemblyKind.SeatGroup,xx,rear,1.7f,1.3f);break;
+                    if(!SourceSeat(o,h,level,x,z,left,rear,false))Assembly(o,h,level,x,z,AssemblyKind.SeatGroup,left,rear,1.7f,1.3f);
+                    Assembly(o,h,level,x,z,AssemblyKind.SeatGroup,right,rear,1.7f,1.3f);break;
                 case TerrainHomeRoom.Workshop:
                     Assembly(o,h,level,x,z,AssemblyKind.EquipmentCart,left,rear,1.65f,1.1f);
                     Assembly(o,h,level,x,z,AssemblyKind.Cabinet,right,rear,1.65f,1.1f);break;

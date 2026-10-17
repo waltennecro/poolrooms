@@ -42,6 +42,7 @@ namespace Poolrooms.Core
         // Optional batched visuals never enter the support/collision meshes.
         public readonly List<MeshData> VisualMeshes=new List<MeshData>();
         public readonly List<PreparedTransition> PreparedTransitions=new List<PreparedTransition>();
+        public readonly List<SourceFurniturePlacement> SourceSeats=new List<SourceFurniturePlacement>();
         public readonly CorridorGeometry[] Connectors=new CorridorGeometry[2];
         public WaterRegion Region;
         public readonly List<WaterRegion> Regions=new List<WaterRegion>();

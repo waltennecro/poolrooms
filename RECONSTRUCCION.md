@@ -137,3 +137,7 @@ Se descargó de nuevo el archivo público del repositorio de ese commit: 196.021
 ## R11 · Coche y calles
 
 Ruedas originales separadas y animadas en tres LOD, contactos medidos, vista exterior con esfera ante obstáculos y física suspendida al capturar entrada/faltar chunks. Las aperturas de City11 y sus barreras comparten anchos recíprocos de 6 m, respetando los enlaces y entradas existentes. No se añade un modelo al catálogo. Núcleo: 16.950.397 aserciones, 687 uniones y 63 bordes; 192 scripts × 4 configuraciones de sintaxis. Fuentes CC0 auditadas; prueba nativa del rig añadida pero sin ejecutar. Detalle: `Assets/PoolroomsProcedural/Documentation/COCHE_Y_CALLES_R11.md`.
+
+## R12 · Mobiliario en otras regiones
+
+Sofás y sillas con licencia sustituyen asientos provisionales de centros comerciales refinados y salones/salas de espera de casas variadas del nivel 94. Máximo dos por sector/casa detallada; las casas lejanas no incorporan recursos ni Rigidbody. Las claves sobreviven a la recarga de chunks durante la sesión. Núcleo: 34 asientos en 36 casas y 60 en 30 sectores, soporte completo y márgenes ante escaleras/frentes; 16.951.790 aserciones, 192 scripts × 4 configuraciones. No son modelos nuevos ni prueba nativa de Unity. Detalle: `Assets/PoolroomsProcedural/Documentation/MOBILIARIO_REGIONAL_R12.md`.

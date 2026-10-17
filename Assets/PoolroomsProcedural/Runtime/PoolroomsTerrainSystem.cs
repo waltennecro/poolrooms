@@ -340,7 +340,14 @@ namespace Poolrooms
                         // Fixtures use house-local coordinates. Keep registration in the same owner space.
                         V3 offset=new V3(house.X-tx*TerrainRegionPlan.TileSize,house.Base,house.Z-tz*TerrainRegionPlan.TileSize);
                         foreach(var f in houseData.Geometry.Fixtures){var fixture=f;fixture.Position+=offset;data.Fixtures.Add(fixture);}
-                        var carry=Explorer!=null?Explorer.GetComponent<PoolroomsCarry>():null;int itemBatch=0;foreach(var item in houseData.Items)
+                        var carry=Explorer!=null?Explorer.GetComponent<PoolroomsCarry>():null;
+                        foreach(var seat in houseData.Geometry.SourceSeats)
+                        {
+                            string key=plan.ItemKey(house,seat.Slot);
+                            if(carry==null||!carry.WasTaken(key))stagedPickups.Add(PoolroomsPickup.CreateSourceSeat(key,seat,home.transform));
+                            yield return null;if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
+                        }
+                        int itemBatch=0;foreach(var item in houseData.Items)
                         {
                             string key=plan.ItemKey(house,item.Slot);
                             if(carry==null||!carry.WasTaken(key))stagedPickups.Add(PoolroomsPickup.CreateCatalog(key,item.CatalogId,PoolroomsMallSystem.ToUnity(item.Position),home.transform,world.profile));

@@ -117,7 +117,17 @@ namespace Poolrooms.Core
                 float z=side*18;
                 if(sector>0&&sector<=plan.Bays)
                 {
-                    if(plan.Refined)MallFurnishingV21.PublicBench(o,x-4,side*20.5f,0,y,quality);
+                    if(plan.Refined)
+                    {
+                        // Replace an existing seating plot rather than cluttering the
+                        // central 18 m gallery or a storefront with extra furniture.
+                        int source=LiminalRegions.Hash(plan.Seed,sector,floor,0xF12011u+(uint)(side+1))%3==0?4:3;
+                        var seat=new SourceFurniturePlacement(8100+floor*64+sector*2+(side>0?1:0),source,new V3(x-4,y+.02f,side*20.6f),side>0?180:0);
+                        var ext=SourceFurniture.HalfExtents(source,seat.Yaw,.1f);bool supported=true;
+                        foreach(int dx in new[]{-1,1})foreach(int dz in new[]{-1,1})if(!plan.FloorSupported(floor,seat.Bottom.X+dx*ext.X,seat.Bottom.Z+dz*ext.Z))supported=false;
+                        if(supported&&SourceFurniture.Clear(o.Structure,seat)&&SourceFurniture.Clear(o.Decoration,seat)&&SourceFurniture.Clear(o.Glass,seat))o.SourceSeats.Add(seat);
+                        else MallFurnishingV21.PublicBench(o,x-4,side*20.5f,0,y,quality);
+                    }
                     else MallFurnishing.Bench(o.Structure,x-4,side*20.5f,0,y);
                     float plantZ=side*14.8f;
                     Box(o.Structure,x+5,plantZ,1,1,y,y+.9f,Surface.Accent);Box(o.Decoration,x+5,plantZ,.8f,.8f,y+.86f,y+.9f,Surface.Slide);

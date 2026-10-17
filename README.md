@@ -15,7 +15,7 @@ La rama actual continúa sobre la v39 recuperada. Consulta [`RECONSTRUCCION.md`]
 La etapa R1 mejora los materiales y detalles del bioma infantil conservando su geometría transitable. Las verificaciones del núcleo están en [`Verification`](Verification/README.md), fuera de `Assets`. Para crear el paquete completo del estado actual:
 
 ```sh
-python tools/package_assets.py --stage R10 --output /tmp/Poolrooms_R10_Desde_v39.zip
+python tools/package_assets.py --stage R12 --output /tmp/Poolrooms_R12_Desde_v39.zip
 ```
 
 La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.
@@ -37,6 +37,10 @@ R9 incorpora [helicóptero CC BY 4.0 y helipuerto conectado](Assets/PoolroomsPro
 R10 añade [sofá y variante tapizada de silla con texturas originales horneadas](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_R10.md) en City11, biblioteca y patio. Nueve fuentes/adaptaciones en total corresponden a ocho familias geométricas y una variante adicional; las repeticiones no se cuentan como modelos nuevos.
 
 El [CI de R10](https://github.com/waltennecro/poolrooms/actions/runs/39045905663) pasó todas las comprobaciones y publicó el paquete. Se verificó además una descarga pública nueva con los 502 archivos de Assets; [evidencia y hashes](Verification/ci_furniture_R10.json).
+
+R11 mejora [ruedas, cámara y calles de City11](Assets/PoolroomsProcedural/Documentation/COCHE_Y_CALLES_R11.md), conservando las conexiones existentes y sus barreras de carga. Su CI completó compilación del núcleo, auditorías y empaquetado.
+
+R12 extiende [el mobiliario PBR a centros comerciales y casas del nivel 94](Assets/PoolroomsProcedural/Documentation/MOBILIARIO_REGIONAL_R12.md), con sustituciones limitadas, soporte comprobado y claves de interacción estables. No aumenta artificialmente el catálogo contando instancias como modelos nuevos. Las pruebas nativas siguen pendientes.
 
 ## Descargar y abrir
 
