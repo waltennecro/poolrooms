@@ -87,6 +87,12 @@
       "status": "partial_global_furniture_native_validation_pending",
       "packageFiles": 506,
       "commit": "fd53d4e257e7141c3f52ad6572d4142f95651460"
+    },
+    {
+      "id": "R13",
+      "feature": "Native Unity PlayMode runner with fresh-result verification and opt-in 30-second hardware/frame-time capture",
+      "status": "tooling_implemented_native_execution_blocked",
+      "nativeUnityExecuted": false
     }
   ],
   "latestCoreChecks": {
@@ -329,5 +335,14 @@
     "artifactId": "12106562921",
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false
+  },
+  "nativeValidationPreflight": {
+    "status": "blocked_unity_editor_missing",
+    "nativeExecuted": false,
+    "projectAvailable": false,
+    "packageRegistryAccess": "packages.unity.com tunnel 403",
+    "runner": "tools/run_unity_validation.py",
+    "performanceMenu": "Tools/Poolrooms/Validaci\u00f3n/Capturar 30 segundos de rendimiento",
+    "contractTestsUseFakeProcessNotUnity": true
   }
 }
