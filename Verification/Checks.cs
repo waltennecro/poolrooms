@@ -48,6 +48,7 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--camera-avatar")){CameraAndAvatars();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} camera/avatar assertions; native Unity unrun.");return 0;}
         if(args.Contains("--water-optics")){WaterOptics();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} water optics and integration contract assertions; native Unity unrun.");return 0;}
         if(args.Contains("--walkable-only")){WalkableNetwork();Console.WriteLine($"PASS: {assertions} walkable network assertions; native Unity unrun.");return 0;}
         if(args.Contains("--rain-only")){RainHouses();Console.WriteLine($"PASS: {assertions} rain core assertions; native Unity unrun.");return 0;}
@@ -91,7 +92,7 @@ static partial class Checks
         ThermalBathGeneration();
         OrangerieGeneration();
         MovementAndQuality();
-        WaterOptics();IntegrationSourceContracts();
+        WaterOptics();CameraAndAvatars();IntegrationSourceContracts();
         ForgivingJumpTiming();
         CompactTerrain();
         CityGeneration();

@@ -109,6 +109,7 @@ namespace Poolrooms
         }
         private void ApplyCamera()
         {
+            if(explorer!=null&&explorer.Views!=null)explorer.Views.SetPerspective(Preferences.perspective);
             var p=Preferences.camera;
             effectiveCamera.viewMode=p.viewMode;effectiveCamera.styleIntensity=p.styleIntensity;effectiveCamera.flareIntensity=Preferences.EffectiveFlare;
             effectiveCamera.splashIntensity=p.splashIntensity;effectiveCamera.waterEffects=p.waterEffects;effectiveCamera.cameraMotion=Preferences.EffectiveCameraMotion;

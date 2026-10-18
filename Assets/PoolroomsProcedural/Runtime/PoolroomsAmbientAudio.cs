@@ -105,7 +105,7 @@ namespace Poolrooms
                 ventilation.volume=Mathf.Lerp(ventilation.volume,0,k);waterBed.volume=Mathf.Lerp(waterBed.volume,0,k);
                 reverb.enabled=false;positioned=false;stride.Reset();StopSlideAudio();return;
             }
-            Transform ears=explorer.eyes!=null?explorer.eyes:transform;
+            Transform ears=explorer.Aim;
             if(!ventilation.isPlaying&&ventilation.clip!=null)ventilation.Play();
             if(!waterBed.isPlaying&&waterBed.clip!=null)waterBed.Play();
             ventilation.transform.position=waterBed.transform.position=reverb.transform.position=ears.position;
@@ -236,7 +236,7 @@ namespace Poolrooms
             Vector3 point=world.RoomWorldPosition(cachedRoom)+new Vector3(region.CenterX+random.Range(-.2f,.2f)*region.Width,
                 region.Level+.04f,region.CenterZ+random.Range(-.2f,.2f)*region.Depth);
             float level;if(!world.TryGetWater(point,out level)||(point-transform.position).sqrMagnitude>225)return;
-            Vector3 ears=explorer.eyes!=null?explorer.eyes.position:transform.position+Vector3.up;
+            Vector3 ears=explorer.Aim.position;
             Vector3 delta=point-ears;float distance=delta.magnitude;if(distance<.1f)return;
             int count=Physics.RaycastNonAlloc(ears,delta/distance,hits,distance-.07f,surfaceMask,QueryTriggerInteraction.Ignore);
             for(int i=0;i<count;i++)if(hits[i].collider!=null&&!hits[i].collider.transform.IsChildOf(transform))return;

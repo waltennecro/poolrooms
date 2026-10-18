@@ -9,6 +9,9 @@ namespace Poolrooms
     {
         public PoolroomsWorld world;
         public Transform eyes;
+        public PoolroomsViewRig Views {get;private set;}
+        // Interactions and swimming stay at the player's head, independent of the visible camera.
+        public Transform Aim {get{return Views!=null&&Views.isActiveAndEnabled?Views.Aim:eyes!=null?eyes:transform;}}
         public float walkSpeed=3.2f,sprintSpeed=5.5f,lookSensitivity=.09f;
         [HideInInspector] public bool invertLookY,toggleSprint;
         private readonly SprintPreferenceTracker sprintPreference=new SprintPreferenceTracker();
@@ -113,6 +116,8 @@ namespace Poolrooms
                 var effects=camera.GetComponent<PoolroomsCameraEffects>();
                 if(effects==null)effects=camera.gameObject.AddComponent<PoolroomsCameraEffects>();
                 effects.explorer=this;effects.world=world;pauseMenu.cameraEffects=effects;
+                if(GetComponent<PoolroomsAvatar>()==null)gameObject.AddComponent<PoolroomsAvatar>();
+                Views=camera.GetComponent<PoolroomsViewRig>();if(Views==null)Views=camera.gameObject.AddComponent<PoolroomsViewRig>();Views.Bind(this);
                 var bridge=Type.GetType("Poolrooms.HDRP.PoolroomsCameraPresentation, Poolrooms.HDRP");
                 if(bridge!=null&&UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline!=null&&
                     UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline.GetType().Name.Contains("HDRenderPipeline")&&
@@ -161,6 +166,10 @@ namespace Poolrooms
         public void FeedSlideInput(bool held){slideHeld=held;}
         private bool renderingShortcut;
         public void FeedRenderingShortcut(bool pressed){renderingShortcut=pressed;}
+        private bool viewCycle,photoPressed,photoCapture,photoHide,photoLook,photoFast;
+        private float photoVertical,photoRoll,photoScroll;
+        public void FeedViewInput(bool cycle,bool photo,bool capture,bool hide,bool looking,float vertical,float roll,float scroll,bool fast)
+        {viewCycle=cycle;photoPressed=photo;photoCapture=capture;photoHide=hide;photoLook=looking;photoVertical=vertical;photoRoll=roll;photoScroll=scroll;photoFast=fast;}
         public void ResetMotionForMasterMode(bool repairGround=false)
         {
             if(aquatic!=null)aquatic.Cancel(true);
@@ -183,10 +192,15 @@ namespace Poolrooms
                 escape=Input.GetKeyDown(KeyCode.Escape);click=Input.GetMouseButtonDown(0);FeedRenderingShortcut(Input.GetKeyDown(KeyCode.F7));
                 FeedUtilityInput(Input.GetKeyDown(KeyCode.Y),Input.GetKeyDown(KeyCode.M),Input.GetKeyDown(KeyCode.F),Input.GetKeyDown(KeyCode.V),Input.GetKey(KeyCode.Space),Input.GetKey(KeyCode.LeftControl));
                 FeedCarryInput(Input.GetKeyDown(KeyCode.E),Input.GetKeyDown(KeyCode.Q));FeedInspectInput(Input.GetKey(KeyCode.R));
+                FeedViewInput(Input.GetKeyDown(KeyCode.F5),Input.GetKeyDown(KeyCode.F6),Input.GetKeyDown(KeyCode.F9),Input.GetKeyDown(KeyCode.F8),Input.GetMouseButton(1),
+                    (Input.GetKey(KeyCode.E)?1:0)-(Input.GetKey(KeyCode.Q)?1:0),(Input.GetKey(KeyCode.C)?1:0)-(Input.GetKey(KeyCode.Z)?1:0),Input.mouseScrollDelta.y,Input.GetKey(KeyCode.LeftShift));
 #else
                 FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);FeedUtilityInput(false,false,false,false,false,false);FeedCarryInput(false,false);FeedSlideInput(false);FeedDashInput(false);
 #endif
             }
+            bool viewConsumed=Views!=null&&Views.isActiveAndEnabled&&Views.HandleInput(move,look,viewCycle,photoPressed,escape,photoCapture,photoHide,photoLook,photoVertical,photoRoll,photoScroll,photoFast);
+            viewCycle=photoPressed=photoCapture=photoHide=false;photoScroll=0;
+            if(viewConsumed){escape=click=renderingShortcut=jump=dashPressed=grabPressed=dropPressed=chatPressed=masterPressed=flashPressed=flashCycle=false;slideHeld=inspectHeld=false;return;}
             if(renderingShortcut&&pauseMenu!=null&&pauseMenu.isActiveAndEnabled)pauseMenu.OpenRenderingSettings();
             else if(escape)
             {
@@ -230,7 +244,7 @@ namespace Poolrooms
             {
                 dash.Cancel();
                 if(slide!=null)slide.Stop();
-                Vector3 velocity=masterMode.Velocity(eyes,move,(ascend?1:0)-(descend?1:0),sprint);
+                Vector3 velocity=masterMode.Velocity(Aim,move,(ascend?1:0)-(descend?1:0),sprint);
                 if(masterMode.Noclip)transform.position+=velocity*Time.deltaTime;
                 else if(body.enabled)body.Move(velocity*Time.deltaTime);
                 ClearViewMotion();locomotion.Reset();waterContacts.Reset();jump=false;return;
@@ -249,7 +263,7 @@ namespace Poolrooms
                 float level=0;swimming=world!=null&&world.TryGetWater(transform.position,out level)&&transform.position.y<level-.75f;
                 bool pulse=pressed&&step==0;
                 if(step==0)swimKick=swimming&&pressed;
-                surfaceKick|=swimming&&pulse&&eyes!=null&&eyes.position.y>level+.1f;
+                surfaceKick|=swimming&&pulse&&Aim.position.y>level+.1f;
                 Vector3 horizontal=(transform.right*axis.x+transform.forward*axis.y)*(swimming?2.1f:(sprintRequested?sprintSpeed:walkSpeed));
                 // Resizing a controller can clear isGrounded before Move. Keep the real contact
                 // from this substep so jumping out of a slide does not consume the air jump.

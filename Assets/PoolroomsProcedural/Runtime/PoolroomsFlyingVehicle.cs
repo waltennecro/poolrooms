@@ -68,7 +68,7 @@ namespace Poolrooms
         {
             if(driver==null)return;
             float current=transform.eulerAngles.y;driver.transform.Rotate(0,Mathf.DeltaAngle(lastYaw,current),0,Space.World);lastYaw=current;
-            float eyeHeight=driver.eyes!=null?driver.eyes.localPosition.y:1.65f;
+            float eyeHeight=driver.Aim!=null?driver.Aim.localPosition.y:1.65f;
             // The source has an exterior, not a modeled cockpit. A chase view keeps
             // the camera outside the opaque fuselage and does not invent an interior.
             Vector3 anchor=transform.TransformPoint(new Vector3(0,size.y*.55f,0)),eye=transform.TransformPoint(new Vector3(0,size.y*.8f,-size.z*.8f));

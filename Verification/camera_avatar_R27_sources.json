@@ -1,0 +1,22 @@
+{
+  "method": "Official Unity 6000.3 source inspection, not native API compilation or runtime validation",
+  "sources": {
+    "Renderer": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/UnityCsReference/6000.3/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs",
+      "sha256": "5b4ef61dbf278823b42b4aca7e4f11e4bb9a6913f3ab334296a730e40edc50e7",
+      "declarationsChecked": [
+        "extern public Bounds localBounds",
+        "forceRenderingOff",
+        "motionVectorGenerationMode",
+        "rayTracingMode"
+      ]
+    },
+    "ScreenCapture": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/UnityCsReference/6000.3/Modules/ScreenCapture/ScriptBindings/ScreenCapture.bindings.cs",
+      "sha256": "0a4f5436f8983a4609256763292eb5ae0511b2fbe9f124ce8c318972641af765",
+      "declarationsChecked": [
+        "public static Texture2D CaptureScreenshotAsTexture()"
+      ]
+    }
+  }
+}

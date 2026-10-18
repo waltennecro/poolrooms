@@ -28,6 +28,7 @@ namespace Poolrooms
         public Vector3 FlashlightAngles { get { return ToUnity(motion.Frame.FlashlightAngles); } }
         private Quaternion restRotation;
         private Camera view;
+        private PoolroomsViewRig viewRig;
         private PoolroomsExplorer subscribed;
         private Vector3 restPosition;
         public bool HasRestPose { get { return view!=null; } }
@@ -64,6 +65,8 @@ namespace Poolrooms
             BindExplorer();
             if(explorer!=null&&(!explorer.IsReady||!explorer.isActiveAndEnabled)){ResetMotionPose();return;}
             ApplyMotion();
+            if(viewRig==null)viewRig=GetComponent<PoolroomsViewRig>();
+            if(viewRig!=null&&viewRig.isActiveAndEnabled)viewRig.ComposeView();
             // Settings can be previewed while paused; only optical source visibility refreshes.
             // World movement, particle simulation, droplets and analog animation use scaled time.
             if(Time.unscaledTime>=nextScan){nextScan=Time.unscaledTime+.12f;ScanSources();}
@@ -79,8 +82,8 @@ namespace Poolrooms
             Wetness=Mathf.MoveTowards(Wetness,0,dt*.2f);ImpactPulse=Mathf.MoveTowards(ImpactPulse,0,dt*2.4f);
             if(!preferences.waterEffects){Wetness=0;ImpactPulse=0;}
             float dip=preferences.cameraMotion?ImpactPulse*preferences.splashIntensity:0;
-            transform.localPosition=restPosition+StanceOffset+ToUnity(motion.Frame.Position)+Vector3.up*landing.Offset+Vector3.down*(dip*.025f);
-            view.fieldOfView=restFov+motion.Frame.FieldOfView+dip*.65f;
+            if(viewRig==null||!viewRig.isActiveAndEnabled||!viewRig.ExternalPose)
+            {transform.localPosition=restPosition+StanceOffset+ToUnity(motion.Frame.Position)+Vector3.up*landing.Offset+Vector3.down*(dip*.025f);view.fieldOfView=restFov+motion.Frame.FieldOfView+dip*.65f;}
         }
         private Vector3 StanceOffset { get { return explorer!=null&&explorer.eyes==transform?explorer.StanceCameraOffset:Vector3.zero; } }
         private Quaternion BaseRotation { get { return explorer!=null&&explorer.eyes==transform?Quaternion.Euler(explorer.ViewPitch,0,0):restRotation; } }

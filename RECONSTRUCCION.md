@@ -347,3 +347,20 @@ medios, paquete y artefacto. Assets: 842 archivos, 296237986 bytes.
 Respaldo público descargado: 462703146 bytes, CRC válido y 1037
 archivos coincidentes por SHA-256. Evidencia: `Verification/ci_water_R26.json`.
 Compilación Unity/HDRP, apariencia, shaders y FPS sin ejecutar.
+
+## R27 — Ocho perspectivas, modo foto y apariencias 3D
+
+F5 recorre ocho posiciones de cámara, con obstrucciones y ancla de interacción
+independiente. F6 abre fotografía local con pausa restaurable, encuadre,
+inclinación y captura PNG sin interfaz. Selección de apariencias en ajustes;
+OBJ local con MTL/texturas y preparación de FBX/OBJ/DAE/modelos importados
+mediante herramientas Unity. GLB/glTF requieren un importador compatible.
+No se descargan modelos ni se promete animación automática de OBJ.
+Se conservan fuentes de linterna, geometrías y distancia de renderizado.
+Documentación: `Assets/PoolroomsProcedural/Documentation/CAMARAS_APARIENCIAS_R27.md`.
+
+Pasan la regresión acumulativa, 188 huellas y sintaxis de 232 scripts en cuatro
+configuraciones, además de 17.899 aserciones de la comprobación final de cámara,
+OBJ y contratos de fuentes. Tres pruebas PlayMode añadidas sin ejecutar.
+Compilación Unity/HDRP, colisión nativa de cámara, fotos, importación y render de
+modelos, menús, animación y FPS siguen pendientes de Editor/GPU.

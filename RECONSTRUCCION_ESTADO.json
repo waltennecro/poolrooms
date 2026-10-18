@@ -552,13 +552,56 @@
       },
       "evidence": "Verification/ci_water_R26.json",
       "sourceRevision": "41357ae42cc9b0ef4d222dfedf6474c72390f8dd"
+    },
+    {
+      "id": "R27",
+      "feature": "Eight camera perspectives, collision-aware local photo mode, player appearance selection and OBJ/Unity model import workflow",
+      "status": "implemented_core_verified_native_pending",
+      "documentation": "Assets/PoolroomsProcedural/Documentation/CAMARAS_APARIENCIAS_R27.md",
+      "details": {
+        "perspectives": 8,
+        "perspectiveShortcut": "F5",
+        "photoShortcut": "F6",
+        "photoCaptureShortcut": "F9",
+        "photoPanelShortcut": "F8",
+        "photoRadiusMetres": 24,
+        "photoPngAtCurrentResolution": true,
+        "photoDoesNotMovePlayer": true,
+        "runtimeModelFormats": [
+          "OBJ"
+        ],
+        "editorModelFormats": [
+          "Unity-importable FBX",
+          "OBJ",
+          "DAE",
+          "3DS/DXF if editor supports them",
+          "prefabs"
+        ],
+        "gltfRequiresCompatibleImporter": true,
+        "runtimeObjVertexLimit": 150000,
+        "runtimeObjTriangleLimit": 200000,
+        "objPolygonWindingCases": 480,
+        "cameraRecoveryFpsCases": 7,
+        "flashlightSourceFilesChanged": false,
+        "flashlightEmissionReparentedToPlayerAimInExternalViews": true,
+        "renderDistanceReduced": false,
+        "newDownloadedModels": 0,
+        "newLevelsAdded": 0,
+        "nativePlayModeTestsAddedButUnrun": 3,
+        "nativeUnityExecuted": false,
+        "coreMathematicalAssertionsPassed": 1807460779,
+        "finalTargetedAssertionsPassed": 17899,
+        "syntaxScripts": 232,
+        "syntaxConfigurations": 4
+      },
+      "evidence": "Verification/ci_camera_avatar_R27.json"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1807458667,
+    "assertions": 1807460779,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 224,
+    "syntaxScripts": 232,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 82,
     "citySourcesAudited": 5,
@@ -651,7 +694,8 @@
     "walkableRegionBlocks": 9,
     "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
     "waterOpticsTargetedAssertions": 15864,
-    "lightUnitReducedBindingChecks": 6
+    "lightUnitReducedBindingChecks": 6,
+    "cameraAvatarFinalAssertions": 17899
   },
   "pending": [
     {

@@ -86,6 +86,7 @@ namespace Poolrooms
         }
         public void Pause()
         {
+            explorer?.Views?.ExitPhoto();
             if(paused||!isActiveAndEnabled||explorer==null||!explorer.isActiveAndEnabled)return;
             var master=explorer.MasterMode;if(master!=null)master.CloseInterface();
             previousTimeScale=Time.timeScale;previousAudioPause=AudioListener.pause;previousCursorLock=Cursor.lockState;previousCursorVisible=Cursor.visible;
@@ -166,6 +167,7 @@ namespace Poolrooms
             var actions=Element("pr-home-actions",home);
             ActionButton(atTitle?(journeyStarted?"Retomar recorrido":"Comenzar exploración"):"Continuar explorando",()=>{if(atTitle)BeginExploration();else Resume(true);},"pr-primary",actions);
             ActionButton("Ajustes",()=>OpenSettings(category),"pr-secondary",actions);
+            if(!atTitle)ActionButton("Modo foto · F6",()=>{Resume(true);explorer.Views?.EnterPhoto();},"pr-secondary",actions);
             ActionButton("Ver controles",()=>OpenSettings(SettingsCategory.Controls),"pr-secondary",actions);
             ActionButton("Créditos y licencias",ShowAssetCredits,"pr-quiet-button",actions);
             if(!atTitle&&explorer.MasterMode!=null&&explorer.MasterMode.IsActive)
@@ -322,6 +324,11 @@ namespace Poolrooms
         }
         private void DrawCamera()
         {
+            var perspectives=new List<string>();foreach(CameraPerspective p in Enum.GetValues(typeof(CameraPerspective)))perspectives.Add(CameraPerspectives.Get(p).Name);
+            Choice("Perspectiva · F5","Cambia la posición de cámara; las interacciones conservan el alcance del personaje.",perspectives,(int)Prefs.perspective,i=>{Prefs.perspective=(CameraPerspective)i;Changed(SettingsChange.Camera);});
+            Row("Modo foto · F6","Cámara libre local, encuadre, inclinación y PNG sin interfaz.",out var photoControl);
+            ActionButton("Entrar al modo foto",()=>{Resume(true);explorer.Views?.EnterPhoto();},"pr-secondary",photoControl).SetEnabled(!atTitle&&explorer.IsReady&&explorer.Views!=null);
+            DrawAvatar();
             var camera=Prefs.camera;
             Row("Visualización","Cada estilo conserva la iluminación propia de las habitaciones.",out var modes);modes.AddToClassList("pr-camera-cards");
             var buttons=new List<Button>();
@@ -347,6 +354,24 @@ namespace Poolrooms
             Slider("Separación de color","Aberración cromática del estilo elegido.",0,1,camera.chromaticScale,v=>Prefs.camera.chromaticScale=v,SettingsChange.Camera,percent:true);
             Slider("Viñeta","Oscurecimiento suave en los bordes.",0,1,camera.vignetteScale,v=>Prefs.camera.vignetteScale=v,SettingsChange.Camera,percent:true);
         }
+        private void DrawAvatar()
+        {
+            var avatar=explorer.GetComponent<PoolroomsAvatar>();if(avatar==null)return;
+            var definitions=avatar.Definitions();var files=avatar.ObjFiles();var names=new List<string>{"Neutral"};
+            foreach(var skin in definitions)names.Add(skin.name);foreach(var file in files)names.Add(System.IO.Path.GetFileName(file)+" · OBJ");
+            string saved=PlayerPrefs.GetString("Poolrooms.Avatar.Selection","");int index=0;
+            for(int i=0;i<definitions.Length;i++)if(saved=="asset:"+definitions[i].name)index=i+1;
+            for(int i=0;i<files.Length;i++)if(saved=="obj:"+files[i])index=1+definitions.Length+i;
+            Choice("Apariencia 3D","La skin es visual: no cambia altura física, colisiones ni habilidades.",names,index,i=>
+            {if(i==0)avatar.ResetAppearance();else if(i<=definitions.Length)avatar.Apply(definitions[i-1]);else avatar.LoadObj(files[i-definitions.Length-1]);});
+            Slider("Orientación del modelo","Corrige hacia dónde mira el modelo importado.",0,360,avatar.Yaw,v=>avatar.SetYaw(v),SettingsChange.None,"°");
+            Row("Modelos locales","Copia OBJ y su MTL/texturas aquí; FBX/DAE se preparan en Unity.",out var controls);
+            ActionButton("Abrir carpeta",()=>{System.IO.Directory.CreateDirectory(avatar.Folder);Application.OpenURL(new Uri(avatar.Folder).AbsoluteUri);},"pr-secondary",controls);
+            ActionButton("Actualizar lista",()=>SelectCategory(SettingsCategory.Camera),"pr-secondary",controls);
+            var status=Label(avatar.Status,"pr-muted",content);status.schedule.Execute(()=>status.text=avatar.Status).Every(500);
+            var credit=Label(avatar.Attribution,"pr-footnote",content);credit.schedule.Execute(()=>credit.text=avatar.Attribution).Every(500);
+            Note("OBJ estático: carpeta Avatars del jugador. FBX / OBJ / DAE / 3DS / DXF: arrastra a Assets y usa Tools > Poolrooms > Personaje > Crear apariencia desde modelo seleccionado. GLB/glTF necesitan un importador compatible. Los modelos con rig usan su Animator; un OBJ no incluye huesos.");
+        }
         private void DrawAudio()
         {
             Slider("Volumen general","Todos los sonidos de la exploración.",0,1,Prefs.masterVolume,v=>Prefs.masterVolume=v,SettingsChange.Audio,percent:true);
@@ -359,6 +384,7 @@ namespace Poolrooms
         }
         private void DrawControls()
         {
+            Note("Cámara: F5 recorre 8 perspectivas. F6 abre/cierra el modo foto; F8 oculta su panel y F9 guarda un PNG sin interfaz. En foto: WASD mover, E/Q subir/bajar, botón derecho mirar, Shift acelerar, Z/C inclinar y rueda ajustar encuadre.");
             Note("Objetos: E toma o interactúa; Q suelta. Mantén R y mueve el ratón para examinar el objeto sostenido sin girar la cámara.");
             Slider("Sensibilidad del ratón","Velocidad de la mirada.",.01f,.3f,Prefs.sensitivity,v=>Prefs.sensitivity=v,SettingsChange.Controls);
             Toggle("Invertir mirada vertical","Invierte el movimiento arriba y abajo.",Prefs.invertY,v=>Prefs.invertY=v,SettingsChange.Controls);

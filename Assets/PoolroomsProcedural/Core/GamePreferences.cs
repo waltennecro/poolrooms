@@ -18,6 +18,7 @@ namespace Poolrooms.Core
     {
         public int version=18;
         public CameraPreferences camera=new CameraPreferences();
+        public CameraPerspective perspective=CameraPerspective.FirstPerson;
         // -1 preserves the scene's preset until the player chooses a quality.
         public int graphicsQuality=-1,lightBudget=-1,shadowBudget=-1,waterDetail=-1;
         public float exposureEV=5.5f;
@@ -46,6 +47,7 @@ namespace Poolrooms.Core
             if(!Enum.IsDefined(typeof(TerrainGrassQuality),terrainGrass))terrainGrass=TerrainGrassQuality.Economy;
             if(!Enum.IsDefined(typeof(TerrainVisualQuality),terrainVisuals))terrainVisuals=TerrainVisualQuality.Economy;
             version=18;if(camera==null)camera=new CameraPreferences();camera.Sanitize();
+            if(!Enum.IsDefined(typeof(CameraPerspective),perspective))perspective=CameraPerspective.FirstPerson;
             if(slideVersion<1){allowSlide=true;slideSpeed=ExplorerSlide.DefaultSpeed;}slideVersion=1;
             if(graphicsQuality<-1||graphicsQuality>3)graphicsQuality=-1;
             if(waterDetail<-1||waterDetail>2)waterDetail=-1;
@@ -80,7 +82,7 @@ namespace Poolrooms.Core
                     dressingDensity=defaults.dressingDensity;rendering=new MasterViewOptions();terrainGrass=defaults.terrainGrass;terrainVisuals=defaults.terrainVisuals;
                     reflections=indirectLight=ambientOcclusion=volumetricFog=waterRipples=waterFoam=underwater=true;
                     waterAppearance=defaults.waterAppearance;break;
-                case SettingsCategory.Camera:camera=new CameraPreferences();fieldOfView=defaults.fieldOfView;break;
+                case SettingsCategory.Camera:camera=new CameraPreferences();perspective=CameraPerspective.FirstPerson;fieldOfView=defaults.fieldOfView;break;
                 case SettingsCategory.Audio:
                     masterVolume=defaults.masterVolume;environmentVolume=defaults.environmentVolume;footstepVolume=defaults.footstepVolume;
                     waterVolume=defaults.waterVolume;drips=reverb=muteUnfocused=true;break;

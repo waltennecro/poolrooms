@@ -123,7 +123,7 @@ namespace Poolrooms
         {
             if(driver==null)return;
             float yaw=transform.eulerAngles.y;driver.transform.Rotate(0,Mathf.DeltaAngle(lastYaw,yaw),0,Space.World);lastYaw=yaw;
-            float eyeHeight=driver.eyes!=null?driver.eyes.localPosition.y:1.65f;
+            float eyeHeight=driver.Aim!=null?driver.Aim.localPosition.y:1.65f;
             // This asset has no interior cabin. Keep the player's optics outside it.
             Vector3 anchor=transform.TransformPoint(new Vector3(0,size.y*.55f,0));
             Vector3 eye=transform.TransformPoint(new Vector3(0,size.y*1.15f,-size.z*1.15f));

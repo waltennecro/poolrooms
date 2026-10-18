@@ -35,7 +35,7 @@ namespace Poolrooms
             if(!taken.Add(key))return;takenOrder.Enqueue(key);
             while(takenOrder.Count>32768)taken.Remove(takenOrder.Dequeue());
         }
-        private Transform Eyes { get { return explorer.eyes!=null?explorer.eyes:transform; } }
+        private Transform Eyes { get { return explorer.Aim; } }
         public void Interact()
         {
             if(explorer.IsPaused||explorer.InputCaptured||!isActiveAndEnabled)return;
