@@ -167,7 +167,10 @@
         "nativeExecuted": false,
         "nativeStatus": "blocked_unity_editor_missing",
         "runnerContractChecks": "passed_fake_processes_not_Unity"
-      }
+      },
+      "commit": "9d29cccededc2df7976fe736cf899daae13680cb",
+      "evidence": "Verification/ci_movement_R18.json",
+      "ciStatus": "success"
     }
   ],
   "latestCoreChecks": {

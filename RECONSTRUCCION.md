@@ -191,3 +191,10 @@ aterrizar (120 ms), manteniendo dos saltos. Interfaces y carga descartan
 intenciones pendientes; la pausa conserva el impulso vertical. Sin cambios
 en gráficos, alcance de streaming ni linterna. Detalles y límites en
 `Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R18.md`.
+
+R18 publicada en `9d29cccededc2df7976fe736cf899daae13680cb`. CI
+[39092613980](https://github.com/waltennecro/poolrooms/actions/runs/39092613980)
+completada correctamente, incluido empaquetado y publicación del artefacto.
+Descarga pública independiente: 392.166.106 bytes, CRC válido y 868 archivos
+versionados coincidentes por SHA-256. Evidencias en
+`Verification/ci_movement_R18.json`; Unity sigue sin ejecutarse.

@@ -1,0 +1,59 @@
+{
+  "stage": "R18",
+  "sourceRevision": "9d29cccededc2df7976fe736cf899daae13680cb",
+  "localValidation": {
+    "coreAssertionsPassed": 24043831,
+    "newJumpTimingAssertions": 36,
+    "protectedGeometryFingerprints": 188,
+    "syntaxScripts": 202,
+    "syntaxConfigurations": 4,
+    "diffCheck": "passed",
+    "protectedFlashlightFilesUnchanged": 3
+  },
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R18_Reconstruccion_Acumulativa_Assets.zip",
+    "files": 719,
+    "bytes": 245962033,
+    "sha256": "5f2cbda430841edfad2fd0b35730e57e029ebae234c55425f27cf65b8c573869",
+    "sourceRevision": "9d29cccededc2df7976fe736cf899daae13680cb",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/9d29cccededc2df7976fe736cf899daae13680cb",
+    "sourceRevision": "9d29cccededc2df7976fe736cf899daae13680cb",
+    "bytes": 392166106,
+    "sha256": "761c3d804fcc4e8fd4e3593d65385cc697c9d97424ce8e9ed6b8800bc1553d73",
+    "assetFilesMatched": 719,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false,
+    "allTrackedFilesMatched": 868
+  },
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/Unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T03:08:56Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "ci": {
+    "run": 39092613980,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39092613980",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117572353623,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12123615409,
+        "name": "Poolrooms-Reconstruccion-Assets",
+        "bytes": 245110741,
+        "digest": "sha256:8e96f8e966888b26370f82ebf6e400bb4a592a9741d0290023311fd9e6754c4e"
+      }
+    ]
+  }
+}
