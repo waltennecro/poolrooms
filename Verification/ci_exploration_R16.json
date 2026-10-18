@@ -1,0 +1,128 @@
+{
+  "ci": {
+    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "run": "39073904650",
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39073904650",
+    "status": "success",
+    "job": 117516991322,
+    "artifactId": "12116605789",
+    "artifactDigest": "sha256:33f6b00fd482e8e8bf382b95884f31d3aab3aee5a0e6ac732912930ac66296df",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "nativeUnityExecuted": false
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify pinned SDK resolution",
+      "conclusion": "success"
+    },
+    {
+      "name": "Compile core, compare geometry, check CSharp syntax",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check source texture hashes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed City11 source assets and LODs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed aircraft sources and native resource hashes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed helicopter source, pivots and LODs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check attributed furniture, UV maps and placement dimensions",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check additional licensed urban sources and wheel assemblies",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check attributed Bistro components, PBR maps and metric dimensions",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install pinned offline art verification tools",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check UV baking transforms, colour sampling and normals",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check native runner rejects missing, stale, failed or empty results",
+      "conclusion": "success"
+    },
+    {
+      "name": "Create verified complete Assets package",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "localAssetsPackage": {
+    "files": 649,
+    "bytes": 200739256,
+    "sha256": "cfbb1765af8b3904161f8a2d6c7d8b88fb93cc692bca03b0955b16c87619a726",
+    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "workingTreeChanged": false
+  },
+  "independentlyDownloadedGitHubArchive": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "bytes": 304209169,
+    "sha256": "699d7e040da05f720c59268d07c4cfc7fea479de6db41c3c0c58b1ae1ac5aefe",
+    "assetFilesMatched": 649,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "coreAssertions": 18354240,
+  "syntaxScripts": 200,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "newCivicRoomsChecked": 72,
+  "newCivicGeometryVariants": 66,
+  "newFurnitureInstancesChecked": 720,
+  "nativeUnityExecuted": false
+}

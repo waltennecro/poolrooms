@@ -126,7 +126,8 @@
       "newExternalModels": 0,
       "newProceduralEnvironments": 2,
       "documentation": "Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R16.md",
-      "packageFiles": 649
+      "packageFiles": 649,
+      "commit": "3ae3da067ff571f61b33da509db942f7b73c8f74"
     }
   ],
   "latestCoreChecks": {
@@ -338,11 +339,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
-    "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
-    "bytes": 304195508,
-    "sha256": "aa09f87a6aefd5ac9116c4e3a17012bfc7fd424b84b71b8b6727f6f3815fdbba",
-    "assetFilesMatched": 646,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "bytes": 304209169,
+    "sha256": "699d7e040da05f720c59268d07c4cfc7fea479de6db41c3c0c58b1ae1ac5aefe",
+    "assetFilesMatched": 649,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -399,10 +400,10 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "files": 646,
-    "bytes": 200730454,
-    "sha256": "8cb203497345fd803147379df8639bb79dd20f0dc0baeab14590b8a92becde70",
-    "sourceRevision": "e0e386ae43c7dae1326bd38f2d86e1701b59fa7d",
+    "files": 649,
+    "bytes": 200739256,
+    "sha256": "cfbb1765af8b3904161f8a2d6c7d8b88fb93cc692bca03b0955b16c87619a726",
+    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -468,5 +469,17 @@
     "nativeRunnerContractChecks": "passed_fake_subprocess_not_Unity",
     "uvBakerChecks": "passed",
     "nativePlayModeTestsAddedButUnrun": true
+  },
+  "explorationUpdateCi": {
+    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "run": "39073904650",
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39073904650",
+    "status": "success",
+    "job": 117516991322,
+    "artifactId": "12116605789",
+    "artifactDigest": "sha256:33f6b00fd482e8e8bf382b95884f31d3aab3aee5a0e6ac732912930ac66296df",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "nativeUnityExecuted": false
   }
 }
