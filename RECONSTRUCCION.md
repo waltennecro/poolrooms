@@ -250,3 +250,10 @@ por sala y reflejos del sistema compartido, sin reducir streaming.
 Documentación: `Assets/PoolroomsProcedural/Documentation/EXPANSION_02_BANOS_TRAVERTINO.md`.
 Núcleo y sintaxis verificados; Unity, aspecto, física y FPS pendientes.
 Quedan ocho niveles y las 10.000 zonas globales separadas.
+
+R21: CI [39099486585](https://github.com/waltennecro/poolrooms/actions/runs/39099486585) completada correctamente, incluidos
+los auditores de fuentes/licencias y el paquete acumulativo. Assets: 791 archivos,
+288895774 bytes. Respaldo público descargado: 455319180 bytes,
+CRC válido y 970 archivos coincidentes por SHA-256. Evidencia:
+`Verification/ci_baths_R21.json`. El preflight nativo confirma Editor Unity ausente;
+compilación Unity/HDRP, aspecto, PhysX y FPS siguen pendientes.

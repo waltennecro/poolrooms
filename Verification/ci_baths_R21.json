@@ -1,0 +1,92 @@
+{
+  "stage": "R21",
+  "sourceRevision": "dce4d8bcb5b01833db119581d2bc075ed29d5372",
+  "newLevel": "ThermalBaths",
+  "structuralRecipesVerified": 2500,
+  "integratedBoundaryRooms": 120,
+  "distributedBasins": 6000,
+  "plannedObjectInstances": 40000,
+  "distinctNewOnlineModels": 1,
+  "licensedOnlineMaterialSets": 1,
+  "sourceModels": [
+    "LightsPunctualLamp"
+  ],
+  "sourceMaterials": [
+    "ClearcoatWicker"
+  ],
+  "licenses": [
+    "CC-BY-4.0",
+    "CC0-1.0"
+  ],
+  "lampLodTriangles": [
+    6000,
+    3952,
+    2012
+  ],
+  "sourcePbrImages": 9,
+  "licensedWickerMaps": 3,
+  "originalStonePbrMaps": 6,
+  "originalPbrResolution": 1024,
+  "allBasePbrMapsAudited": 54,
+  "maxArchitectureDetailGlassLoungerTriangles": 8936,
+  "triangleCountExcludesWaterImportedPropsAndGlobalDressing": true,
+  "curveSegmentsForTriangleCount": 16,
+  "candidateLightFixturesPerRoom": 8,
+  "sourceResourceCleanRegenerationByteExact": true,
+  "cleanRegeneratedBathResourceFiles": 23,
+  "cleanRegeneratedStoneMaps": 6,
+  "coreMathematicalAssertionsPassed": 307583855,
+  "syntaxScripts": 208,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "flashlightFilesUnchanged": 3,
+  "renderDistanceReduced": false,
+  "nativeUnityExecuted": false,
+  "nativeAppearancePhysicsAndFpsVerified": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/Unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T05:07:33Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R21_Banos_Travertino_Assets.zip",
+    "files": 791,
+    "bytes": 288895774,
+    "sha256": "82552d4089f8dd0b3ab4d728b04cbf0615ef1fd323196e1444b4c8dae240b660",
+    "sourceRevision": "dce4d8bcb5b01833db119581d2bc075ed29d5372",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 970,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/dce4d8bcb5b01833db119581d2bc075ed29d5372",
+    "sourceRevision": "dce4d8bcb5b01833db119581d2bc075ed29d5372",
+    "bytes": 455319180,
+    "sha256": "dcfdc4f861188ee9810cbd0819f45dd0178c2ca67604e8cac756380298047a01",
+    "assetFilesMatched": 791,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39099486585,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39099486585",
+    "sourceRevision": "dce4d8bcb5b01833db119581d2bc075ed29d5372",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117592633823,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12124854954,
+        "bytes": 288033400,
+        "digest": "sha256:168be55a122822a08136d667b7b85357b890d118fa3d429c7240797c7f03217f"
+      }
+    ]
+  }
+}
