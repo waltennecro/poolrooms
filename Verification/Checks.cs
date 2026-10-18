@@ -171,8 +171,8 @@ static class Checks
                     Check(SourceFurniture.Clear(g.Structure,placement,.005f),"Garden furniture intersects architecture: "+p.Source+" / "+size+" / "+door+" / "+r.Plan.Garden.Recipe);
                     var half=SourceFurniture.HalfExtents(source,p.Yaw);
                     Check(Math.Abs(p.Bottom.X)+half.X<size*.5f-.25f&&Math.Abs(p.Bottom.Z)+half.Z<size*.5f-.25f,"Garden furniture crosses its envelope");
-                    if(i%4==2)Check(Math.Abs(p.Bottom.Y-(r.Plan.Garden.Props[i-1].Bottom.Y+SourceFurniture.Dimensions(7).Y))<.001f,"Garden bottle not resting on table");
-                    else Check(Math.Abs(Support(g.Structure,p.Bottom))<.001f,"Garden furniture unsupported");
+                    if(source!=9&&i%4==2)Check(Math.Abs(p.Bottom.Y-(r.Plan.Garden.Props[i-1].Bottom.Y+SourceFurniture.Dimensions(7).Y))<.001f,"Garden bottle not resting on table");
+                    else Check(Math.Abs(Support(g.Structure,p.Bottom)-(source==9?p.Bottom.Y-.02f:0))<.001f,"Garden furniture unsupported");
                 }
                 else
                 {

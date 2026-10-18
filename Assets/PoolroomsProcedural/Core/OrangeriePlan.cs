@@ -21,7 +21,7 @@ namespace Poolrooms.Core
         }
         public bool Valid(Room room,LayoutConfig c)
         {
-            if(room.Environment!=LiminalEnvironment.Orangerie||room.Width!=c.CellSize||room.Depth!=c.CellSize||room.Height!=Height||Beds==null||Beds.Length!=4||Props==null||Props.Length!=16||Clear<c.DoorWidth*.5f+.8f)return false;
+            if(room.Environment!=LiminalEnvironment.Orangerie||room.Width!=c.CellSize||room.Depth!=c.CellSize||room.Height!=Height||Beds==null||Beds.Length!=4||Props==null||Props.Length!=((Hall==GardenHall.ReadingGarden||Hall==GardenHall.TeaGallery)?18:16)||Clear<c.DoorWidth*.5f+.8f)return false;
             float half=c.CellSize*.5f;
             for(int i=0;i<Beds.Length;i++)
             {
@@ -73,6 +73,11 @@ namespace Poolrooms.Core
                 props.Add(new QuietPropPlan(new V3(tx,.02f,tz),-1,"B_CafeTable"));
                 props.Add(new QuietPropPlan(new V3(tx-.16f,.86249021f,tz),-1,"WaterBottle"));
                 props.Add(new QuietPropPlan(new V3(tx+.15f,.86249021f,tz),((hall==1?0:20)*8)+(recipe+i)%8));
+            }
+            if(hall==1||hall==2)foreach(int index in new[]{0,2})
+            {
+                var b=beds[index];float x=b.X-(bay==2?b.Width*.29f:bay==3?b.Width*.32f:0);
+                props.Add(new QuietPropPlan(new V3(x,.42f+hall*.035f+.02f,b.Z),-1,"G_PottedPlant",index==0?35:155));
             }
             var p=new OrangeriePlan(recipe,seed,beds,props.ToArray(),clear);room.Height=p.Height;
             room.Plan=new ProceduralPlan(room.Environment,new PlannedModule[0],new WaterRegion[0],clear,0,0,garden:p);

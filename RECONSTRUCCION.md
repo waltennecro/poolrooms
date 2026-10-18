@@ -219,3 +219,14 @@ texturas, licencias y empaquetado. Assets acumulativos: 735 archivos,
 257.632.818 bytes; respaldo público descargado: 403.843.476 bytes, CRC válido
 y 888 archivos versionados coincidentes por SHA-256. Evidencias completas
 en `Verification/ci_orangerie_R19.json`. Unity no se ha ejecutado.
+
+## R20 — Planta con licencia y créditos visibles
+
+Una familia nueva (original CC0 de Rico Cilliers, materiales CC BY 4.0 de
+Eric Chadwick / DGG), adaptada sin insectos, luces ni animación de la demo.
+Dos plantas interactuables por sala de lectura/té de la Orangerie. Se añaden
+recorte alfa, seis mapas originales y dos LOD; regeneración desde cero idéntica.
+Créditos y licencias disponibles en inicio/pausa. 42.000 instancias planificadas
+en las 2.500 recetas; 2.000 son repeticiones de esa planta, no modelos nuevos.
+La transmisión difusa glTF no se reproduce exactamente; nativo pendiente.
+Documentación: `Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R20_RECURSOS.md`.

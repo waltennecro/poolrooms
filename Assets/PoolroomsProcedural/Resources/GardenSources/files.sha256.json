@@ -1,0 +1,70 @@
+{
+  "G_PottedPlant.json": {
+    "bytes": 2807,
+    "sha256": "a611571f676762afd173f89c17a0d7cb3be4dedd2b2aa4db317d7d2ee91e53ab"
+  },
+  "Licenses/CC-BY-4.0.txt": {
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "Licenses/CC0-1.0.txt": {
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "Licenses/DiffuseTransmissionPlant_LICENSE.md": {
+    "bytes": 936,
+    "sha256": "7d77d8b4a9c626f103cd94aaffc59ec41e4a70f7cfe7f5b4fa43e38cc45d3556"
+  },
+  "Licenses/DiffuseTransmissionPlant_metadata.json": {
+    "bytes": 1116,
+    "sha256": "6f4364881a1393c3d1ef1f0818efb3f3209e5c16aaff631eaed5f9e5cd1dda1a"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 578,
+    "sha256": "9091bf649761c670b288cdb3924219627b438ff12c643e14436a776592df0a47"
+  },
+  "Models/G_PottedPlant.mtl": {
+    "bytes": 66,
+    "sha256": "2f578747880abfc48d102bb0a76a8618a4892e7de4b1d3dba7f7ce6dfaa705ff"
+  },
+  "Models/G_PottedPlant.obj": {
+    "bytes": 4838238,
+    "sha256": "9cc62467d331899a48bfa7e611ff3f8b1e79cd52ef4ce685a14aab0d8f46533b"
+  },
+  "Models/G_PottedPlant_LOD1.obj": {
+    "bytes": 3972284,
+    "sha256": "ddbd6d4d9c137429b9cd5d7ef9e456202bb84818b7cb012c5e981355c2758b3c"
+  },
+  "Models/G_PottedPlant_LOD2.obj": {
+    "bytes": 2712840,
+    "sha256": "bed655bdff1ffa73cda8b9ce88eb4fbee93b87efbea358c7462b407299489018"
+  },
+  "Textures/G_PottedPlant_m0_albedo.png": {
+    "bytes": 1376843,
+    "sha256": "44a059afc2bbeb6799938e5019b77655dd856b75506bd42bbf9b6bf3de9865c3"
+  },
+  "Textures/G_PottedPlant_m0_mask.png": {
+    "bytes": 810463,
+    "sha256": "0cb6091b24bb4dc26c165c3d500322a48ca3cc5ae1e1bd4b9d52c9de675b48d8"
+  },
+  "Textures/G_PottedPlant_m0_normal.png": {
+    "bytes": 2017629,
+    "sha256": "16c5b4965daa6a1b72a61002ed723fd03ba28e9c5db29a66f6be1c15777afa0e"
+  },
+  "Textures/G_PottedPlant_m1_albedo.png": {
+    "bytes": 1370144,
+    "sha256": "1cb75392462486a02e98b32854a97598bc76b9f33a2004879823ff752cccec2b"
+  },
+  "Textures/G_PottedPlant_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "27cc46b8c99841ca223f73f3238b0a68bebea81184ad63eef179468de7f1fea0"
+  },
+  "Textures/G_PottedPlant_m1_normal.png": {
+    "bytes": 1576682,
+    "sha256": "ebf50c44dd03e9bf058d503323c8b40dc36fd7d91642e4e4621bc592294099c5"
+  },
+  "catalog.json": {
+    "bytes": 3329,
+    "sha256": "42686803a2e44b06ab309e2146d3b9391d21e6dfcefc7aaa2f3b963ceee5be5b"
+  }
+}

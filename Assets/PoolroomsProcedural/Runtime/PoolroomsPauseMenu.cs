@@ -167,6 +167,7 @@ namespace Poolrooms
             ActionButton(atTitle?(journeyStarted?"Retomar recorrido":"Comenzar exploración"):"Continuar explorando",()=>{if(atTitle)BeginExploration();else Resume(true);},"pr-primary",actions);
             ActionButton("Ajustes",()=>OpenSettings(category),"pr-secondary",actions);
             ActionButton("Ver controles",()=>OpenSettings(SettingsCategory.Controls),"pr-secondary",actions);
+            ActionButton("Créditos y licencias",ShowAssetCredits,"pr-quiet-button",actions);
             if(!atTitle&&explorer.MasterMode!=null&&explorer.MasterMode.IsActive)
                 ActionButton("Modo administrador",()=>{Resume(true);explorer.MasterMode.ToggleMenu();},"pr-quiet-button",actions);
             if(!atTitle)ActionButton("Volver al inicio",OpenStartMenu,"pr-quiet-button",actions);
@@ -404,6 +405,15 @@ namespace Poolrooms
             float width=overlay.resolvedStyle.width,height=overlay.resolvedStyle.height;
             shell.style.width=Mathf.Max(280,Mathf.Min(1100,width-32));shell.style.height=Mathf.Max(280,Mathf.Min(730,height-32));
             shell.EnableInClassList("pr-compact",width<880);shell.EnableInClassList("pr-short",height<560);
+        }
+        private void ShowAssetCredits()
+        {
+            var dialog=CreateModal("Créditos y licencias","Gracias a los autores que permiten compartir estos recursos.");
+            var scroll=new ScrollView(ScrollViewMode.Vertical);scroll.style.height=Mathf.Min(350,Screen.height*.42f);dialog.Add(scroll);
+            var credits=Resources.Load<TextAsset>("PoolroomsAssetCredits");
+            var text=Label(credits!=null?credits.text:"Las atribuciones acompañan al paquete de recursos.","pr-footnote",scroll);
+            text.style.whiteSpace=WhiteSpace.Normal;
+            ActionButton("Volver",CloseModal,"pr-secondary",dialog);
         }
         private void ConfirmReset()
         {

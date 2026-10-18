@@ -74,6 +74,7 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
         definition={'name':prefix,'colour':pbr.get('baseColorFactor',[1,1,1,1]),'normalScale':mat.get('normalTexture',{}).get('scale',1),
                     'metallic':pbr.get('metallicFactor',1),'roughness':pbr.get('roughnessFactor',1),'emission':mat.get('emissiveFactor',[0,0,0]),
                     'extensions':list(mat.get('extensions',{})),'transparent':mat.get('alphaMode')=='BLEND','doubleSided':mat.get('doubleSided',False)}
+        if mat.get('alphaMode')=='MASK':definition.update(alphaClip=True,alphaCutoff=mat.get('alphaCutoff',.5))
         strength=mat.get('extensions',{}).get('KHR_materials_emissive_strength',{}).get('emissiveStrength',1)
         if strength!=1:definition['emission']=[x*strength for x in definition['emission']]
         for prop,key in [('baseColorTexture','albedo'),('normalTexture','normal'),('emissiveTexture','emissive')]:
@@ -131,7 +132,7 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
             start=0;faces=[]
             for e in group:faces.append(e[4]+start);start+=len(e[1])
             entries.append((material,*[np.concatenate([e[k] for e in group]) for k in (1,2,3)],np.concatenate(faces)));entry_names.append(label)
-    if resource_root in ('Urban','Bistro','Buildings'):
+    if resource_root in ('Urban','Bistro','Buildings','GardenSources'):
         from source_lods import compact
         entries=compact(entries)
     folder=dest/'Models';folder.mkdir(parents=True,exist_ok=True)
@@ -162,7 +163,7 @@ def convert(name,raw,resource_root="City11",destination=None,preserve_nodes=Fals
         levels=lod_levels or ([(1,64,64),(2,24,16)] if name=='ToyCar' else [(1,32,16),(2,12,8)])
         for level,grid,uv_grid in levels:
             from source_lods import cluster
-            groups=cluster(entries,grid,uv_grid,lo,hi,preserve_normals=resource_root in ('Urban','Bistro','Buildings'))
+            groups=cluster(entries,grid,uv_grid,lo,hi,preserve_normals=resource_root in ('Urban','Bistro','Buildings','GardenSources'))
             lod_name=name+'_LOD'+str(level);start=1
             with (folder/(lod_name+'.obj')).open('w') as f:
                 license_label='CC0' if source_license=='CC0-1.0' else source_license

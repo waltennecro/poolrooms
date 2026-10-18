@@ -17,11 +17,11 @@ namespace Poolrooms.Core
     {
         public static string Id(int source)
         {
-            switch(source){case 0:return "WaterBottle";case 1:return "BoomBox";case 2:return "SheenChair";case 3:return "I_GlamVelvetSofa";case 4:return "I_ChairDamaskPurplegold";case 5:return "U_SheenWoodLeatherSofa";case 6:return "U_AntiqueCamera";case 7:return "B_CafeTable";case 8:return "B_CafeChair";default:throw new ArgumentOutOfRangeException(nameof(source));}
+            switch(source){case 0:return "WaterBottle";case 1:return "BoomBox";case 2:return "SheenChair";case 3:return "I_GlamVelvetSofa";case 4:return "I_ChairDamaskPurplegold";case 5:return "U_SheenWoodLeatherSofa";case 6:return "U_AntiqueCamera";case 7:return "B_CafeTable";case 8:return "B_CafeChair";case 9:return "G_PottedPlant";default:throw new ArgumentOutOfRangeException(nameof(source));}
         }
         public static bool IsSeat(int source){return source>=2&&source<=5||source==8;}
-        public static int Index(string source){for(int i=0;i<9;i++)if(Id(i)==source)return i;throw new ArgumentException("Unknown placed source: "+source);}
-        public static float Longest(int source){return source==0?.28f:source==1?.4f:source==3||source==5?2:source==6?1.5f:source==7?.9f:1;}
+        public static int Index(string source){for(int i=0;i<10;i++)if(Id(i)==source)return i;throw new ArgumentException("Unknown placed source: "+source);}
+        public static float Longest(int source){return source==9?1.15f:source==0?.28f:source==1?.4f:source==3||source==5?2:source==6?1.5f:source==7?.9f:1;}
         public static float Longest(string source)
         {if(source=="Lantern")return 1.3f;return Longest(Index(source));}
         public static V3 HalfExtents(int source,float yaw,float margin=0)
@@ -57,6 +57,7 @@ namespace Poolrooms.Core
                 case 6:return new V3(.5404695f,1.5f,.7063373f);
                 case 7:return new V3(.89995969f,.84249021f,.9f);
                 case 8:return new V3(.5709673f,1,.62584087f);
+                case 9:return new V3(0.95857222f,1.15000000f,0.89873235f);
                 default:throw new ArgumentOutOfRangeException(nameof(source));
             }
         }

@@ -68,3 +68,8 @@ física, interacción y FPS requieren Unity real. No se certifica calidad AAA.
 Las otras nueve entregas y las 10.000 zonas adicionales del mundo anterior
 siguen separadas y pendientes en `EXPANSION_NIVELES.json`. Esta entrega aporta
 un nivel nuevo; no se presenta el objetivo completo como terminado.
+
+Actualización R20: las salas de lectura y té incorporan dos plantas con
+licencia, alcanzando 18 objetos por sala elegible y 42.000 instancias
+planificadas en todo el catálogo. Ver `ACTUALIZACION_R20_RECURSOS.md`;
+el coste de esas plantas y sus LOD se cuenta por separado de la arquitectura.

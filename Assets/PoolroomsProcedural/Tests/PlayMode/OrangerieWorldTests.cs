@@ -49,6 +49,28 @@ namespace Poolrooms.Tests
             }
         }
         [Test]
+        public void LicensedPottedPlantLoadsWithCutoutLeavesAndPickupVolume()
+        {
+            var parent=new GameObject("Licensed garden source test");
+            try
+            {
+                var plant=PoolroomsPickup.CreateSource("test:garden", "G_PottedPlant",Vector3.zero,parent.transform,1.15f);
+                Assert.That(plant,Is.Not.Null);Assert.That(plant.SpawnKey,Is.EqualTo("test:garden"));
+                Assert.That(plant.GetComponentsInChildren<Collider>().Length,Is.EqualTo(1));
+                Assert.That(plant.GetComponentsInChildren<LODGroup>().Length,Is.EqualTo(1));
+                bool leaves=false;
+                foreach(var renderer in plant.GetComponentsInChildren<MeshRenderer>(true))foreach(var material in renderer.sharedMaterials)
+                {
+                    Assert.That(material,Is.Not.Null);
+                    if(!material.name.EndsWith("G_PottedPlant_m1"))continue;
+                    leaves=true;Assert.That(material.IsKeywordEnabled("_ALPHATEST_ON"),Is.True);
+                    if(material.HasProperty("_AlphaCutoff"))Assert.That(material.GetFloat("_AlphaCutoff"),Is.EqualTo(.5f));
+                }
+                Assert.That(leaves,Is.True);
+            }
+            finally{Object.DestroyImmediate(parent);}
+        }
+        [Test]
         public void GardenPbrMapsExistInAllFourFinishSets()
         {
             foreach(string set in new[]{"GardenLimestone","GardenLimewash","GardenTerracotta","GardenLeaves"})

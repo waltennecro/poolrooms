@@ -1,0 +1,109 @@
+{
+  "distinctSourceModels": 1,
+  "lodsCountAsModels": false,
+  "models": [
+    {
+      "id": "G_PottedPlant",
+      "resource": "GardenSources/Models/G_PottedPlant",
+      "minimum": [
+        -0.3966600392013788,
+        5.29596367833006e-05,
+        -0.4203125873318886
+      ],
+      "maximum": [
+        0.3044969942420721,
+        0.8412317134028444,
+        0.23707398148910033
+      ],
+      "triangles": 37251,
+      "materials": [
+        {
+          "name": "G_PottedPlant_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.75,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "GardenSources/Textures/G_PottedPlant_m0_albedo",
+          "normal": "GardenSources/Textures/G_PottedPlant_m0_normal",
+          "mask": "GardenSources/Textures/G_PottedPlant_m0_mask"
+        },
+        {
+          "name": "G_PottedPlant_m1",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.5,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": true,
+          "alphaClip": true,
+          "alphaCutoff": 0.5,
+          "albedo": "GardenSources/Textures/G_PottedPlant_m1_albedo",
+          "normal": "GardenSources/Textures/G_PottedPlant_m1_normal",
+          "mask": "GardenSources/Textures/G_PottedPlant_m1_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "GardenSources/Models/G_PottedPlant_LOD1",
+          "triangles": 29772
+        },
+        {
+          "resource": "GardenSources/Models/G_PottedPlant_LOD2",
+          "triangles": 19629
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "1748be8847e24bdd5cb6c5ac2bfd0afe8f11efc4f85091148550555e47c7ee83",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Only static pot, leaves and dirt. Native OBJ/LOD derivatives with original UV/normal/core PBR and alpha-tested leaves. Diffuse-transmission extension not reproduced; firefly emission disabled. Original presentation remains solely in Sources for provenance, not in runtime resources.",
+      "sourceNodeNames": [
+        "pot",
+        "leaves",
+        "dirt"
+      ],
+      "soilReducedOnly": true,
+      "originalPlantTriangles": 68273,
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionPlant/glTF-Binary/DiffuseTransmissionPlant.glb",
+      "preparedSourceSha256": "bc9e759609d33a453d89525028e4a11acc8be2f745efd7598b8ebdee92ccb0d8",
+      "modelLicense": "CC0-1.0 + CC-BY-4.0",
+      "authors": [
+        "Eric Chadwick",
+        "Rico Cilliers"
+      ],
+      "nativeUnityValidated": false,
+      "removedPresentation": [
+        "insects",
+        "lights",
+        "animation",
+        "paths"
+      ],
+      "diffuseTransmissionReproduced": false
+    }
+  ],
+  "nativeUnityValidated": false
+}

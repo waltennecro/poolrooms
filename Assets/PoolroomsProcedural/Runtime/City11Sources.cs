@@ -14,13 +14,13 @@ namespace Poolrooms
         [Serializable] public sealed class WheelDefinition{public string part;public float[] center;public float radius;public bool front;}
         [Serializable] public sealed class LODDefinition{public string resource;public int triangles;}
         [Serializable] public sealed class MaterialDefinition
-        {public string name,albedo,normal,emissive,mask,workflow,specular;public float[] colour,emission;public float normalScale=1,metallic,roughness=.5f,clearcoat;public bool transparent,doubleSided;public string[] extensions;}
+        {public string name,albedo,normal,emissive,mask,workflow,specular;public float[] colour,emission;public float normalScale=1,metallic,roughness=.5f,clearcoat;public bool transparent,doubleSided,alphaClip;public float alphaCutoff=.5f;public string[] extensions;}
         private static readonly Dictionary<string,Definition> definitions=new Dictionary<string,Definition>();
         private static readonly Dictionary<string,Material> materials=new Dictionary<string,Material>();
         public static Definition Get(string id)
         {
             if(definitions.TryGetValue(id,out var value))return value;
-            var data=Resources.Load<TextAsset>((id.StartsWith("B_Building",StringComparison.Ordinal)?"Buildings/":id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
+            var data=Resources.Load<TextAsset>((id.StartsWith("G_",StringComparison.Ordinal)?"GardenSources/":id.StartsWith("B_Building",StringComparison.Ordinal)?"Buildings/":id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
             if(data==null)return null;value=JsonUtility.FromJson<Definition>(data.text);definitions.Add(id,value);return value;
         }
         public static GameObject Create(string id,Transform parent,Vector3 position,float targetLongest,out Vector3 size,int startLOD=0,bool preservePivot=false)
@@ -130,6 +130,12 @@ namespace Poolrooms
             {Texture(m,"_NormalMap",d.normal);Texture(m,"_BumpMap",d.normal);Float(m,"_NormalScale",d.normalScale);Float(m,"_BumpScale",d.normalScale);m.EnableKeyword("_NORMALMAP");m.EnableKeyword("_NORMALMAP_TANGENT_SPACE");}
             if(d.emission!=null&&d.emission.Length==3)
             {Set(m,"_EmissiveColor",new Color(d.emission[0],d.emission[1],d.emission[2]));Texture(m,"_EmissiveColorMap",d.emissive);Float(m,"_UseEmissiveIntensity",0);if(!string.IsNullOrEmpty(d.emissive))m.EnableKeyword("_EMISSIVE_COLOR_MAP");}
+            if(d.alphaClip)
+            {
+                Float(m,"_AlphaCutoffEnable",1);Float(m,"_AlphaClip",1);Float(m,"_Cutoff",d.alphaCutoff);Float(m,"_AlphaCutoff",d.alphaCutoff);Float(m,"_AlphaCutoffShadow",d.alphaCutoff);
+                m.EnableKeyword("_ALPHATEST_ON");m.SetOverrideTag("RenderType","TransparentCutout");m.renderQueue=(int)RenderQueue.AlphaTest;
+                if(d.doubleSided){Float(m,"_DoubleSidedNormalMode",1);Float(m,"_Cull",0);m.EnableKeyword("_DOUBLESIDED_ON");}
+            }
             bool transmission=d.extensions!=null&&Array.IndexOf(d.extensions,"KHR_materials_transmission")>=0;
             if(transmission||d.transparent)
             {colour.a=transmission?.16f:colour.a;Set(m,"_BaseColor",colour);Set(m,"_Color",colour);Float(m,"_SurfaceType",1);Float(m,"_BlendMode",0);Float(m,"_ZWrite",0);Float(m,"_TransparentZWrite",0);m.renderQueue=3000;m.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");}

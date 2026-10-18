@@ -191,7 +191,7 @@ namespace Poolrooms.Core
                 for(int stone=0;stone<5;stone++)
                 {float x=b.X+(stone%2==0?-1:1)*w*.17f,z=b.Z-d*.32f+stone*d*.16f;Shapes.Column(o.Structure,x,z,.16f+stone*.035f,top,top+.22f+stone*.06f,9,Surface.Tile,1.2f);}
             }
-            else
+            else if(!((p.Hall==GardenHall.ReadingGarden||p.Hall==GardenHall.TeaGallery)&&index%2==0))
             {
                 int stems=p.Hall==GardenHall.PalmCourt?2:p.Hall==GardenHall.FernHall?6:4;
                 for(int stem=0;stem<stems;stem++)

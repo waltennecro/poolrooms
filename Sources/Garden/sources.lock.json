@@ -1,0 +1,27 @@
+{
+  "DiffuseTransmissionPlant_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionPlant/metadata.json",
+    "bytes": 1116,
+    "sha256": "6f4364881a1393c3d1ef1f0818efb3f3209e5c16aaff631eaed5f9e5cd1dda1a"
+  },
+  "DiffuseTransmissionPlant_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionPlant/LICENSE.md",
+    "bytes": 936,
+    "sha256": "7d77d8b4a9c626f103cd94aaffc59ec41e4a70f7cfe7f5b4fa43e38cc45d3556"
+  },
+  "CC0-1.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC0-1.0.txt",
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "CC-BY-4.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC-BY-4.0.txt",
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "DiffuseTransmissionPlant.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionPlant/glTF-Binary/DiffuseTransmissionPlant.glb",
+    "bytes": 5759100,
+    "sha256": "1748be8847e24bdd5cb6c5ac2bfd0afe8f11efc4f85091148550555e47c7ee83"
+  }
+}

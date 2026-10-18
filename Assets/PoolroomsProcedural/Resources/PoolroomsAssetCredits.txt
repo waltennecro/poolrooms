@@ -1,0 +1,83 @@
+Créditos de recursos externos
+
+Licencias y notas de adaptación incluidas con los recursos. No se implica respaldo de sus autores.
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Apache 2.0: https://www.apache.org/licenses/LICENSE-2.0
+
+
+BoomBox
+Microsoft · Public · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Lantern
+sbtron · Microsoft · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+Frank Galligan · Frank Galligan · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+SheenChair
+Eric Chadwick · Wayfair, LLC · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+ToyCar
+Guido Odendahl · Public · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+Eric Chadwick · Public · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+WaterBottle
+Microsoft · Public · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+
+Aircraft
+Aircraft derived from CesiumJS, Copyright 2011–2026 CesiumJS Contributors.
+Apache License 2.0; full source license included.
+Source: https://raw.githubusercontent.com/CesiumGS/cesium/05adbc742db7c0aa9d53836ba46a5bbfdbb9fbc1/Apps/SampleData/models/CesiumAir/Cesium_Air.glb
+Changes: native OBJ conversion, HDRP metal/roughness mask, normalized placement and two propeller pivots.
+
+
+
+Helicopters
+MH-6 Little Bird by AnirudhRao, Creative Commons Attribution 4.0 International.
+https://creativecommons.org/licenses/by/4.0/
+Original model: https://sketchfab.com/3d-models/mh-6-little-bird-d6ec6eeb84b240789f54923bdedafc86
+Geometry derivative from jdubba1/warbird at 251d6d85cbe5eedbebf7625a8df7fd2430f8d1a1.
+Changes: New crease-aware normals, metre-space UVs, original periodic PBR finishes, two derived LODs, native rotor pivots; no upstream game code/unlit shader, weapons or combat reused.
+Original derivative and its credit retained in Sources/Helicopter. No endorsement implied.
+
+
+
+Interiors
+GlamVelvetSofa and ChairDamaskPurplegold by Eric Chadwick, owned by Wayfair, 2021.
+Creative Commons Attribution 4.0 International: https://creativecommons.org/licenses/by/4.0/
+Original pinned sources/metadata and individual notices retained in this package/repository.
+Changes: native OBJ conversion and source PBR texture/normal/AO baking to new UV atlas; default material variant only; runtime scale/placement and pickup volumes.
+No endorsement implied.
+
+
+
+Urban
+CarConcept by Eric Chadwick, Darmstadt Graphics Group GmbH, 2024, CC BY 4.0.
+AntiqueCamera by Maximillan Kamps, UX3D, 2018, CC0; embedded UX3D mark has separate terms.
+SheenWoodLeatherSofa: original by Fran Calvente (CC0, 2021), improvements by Eric Chadwick / DGG (CC BY 4.0, 2024).
+All metadata, full licenses and pinned source references included. No endorsement or independent trademark rights implied.
+Changes: native meshes/LOD derivatives, original PBR UV/normal/AO atlas baking, default material choices; car mesh grouping, wheel pivots and removal of two logo meshes.
+
+
+
+Bistro
+Amazon Lumberyard Bistro v5.2, Amazon.com, Inc. or its affiliates, CC BY 4.0. Original: https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Geometry/data derivative from zeux/niagara_bistro, revision 2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e. Further changes: three selected subtrees, scene placement removed, bounded PNG textures, authored HDRP specular/gloss workflow, OBJ and two LOD derivatives. No endorsement. Full CC BY text and derivative MIT notice included. These are three component models, not three downloaded complete buildings.
+
+
+
+Buildings
+Amazon Lumberyard Bistro v5.2, Amazon.com, Inc. or its affiliates, CC BY 4.0. Original https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Data source zeux/niagara_bistro revision 2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e. Changes: two building subtree adaptations into four-storey doorway-safe exterior skins, cut interiors/windows/doors, native PNG/OBJ, authored specular/gloss conversion and LOD derivatives. Original interiors are not preserved; generated accessible interiors are by Poolrooms. No endorsement. Full CC BY and upstream MIT notices included.
+
+
+
+GardenSources
+Potted plant: original asset by Rico Cilliers (2021), CC0 1.0; materials by Eric Chadwick / Darmstadt Graphics Group GmbH (2024), CC BY 4.0.
+Source: KhronosGroup/glTF-Sample-Assets, revision edc7c9e67c639d230715049ee31f9a96a6babbbe. Full licenses and upstream notice included.
+Changes: static pot/leaves/dirt only, native OBJ and two LOD derivatives, original UV/normal/PBR conversion, alpha-cutout support, disabled presentation emission. No insects, animation or presentation lights imported. Optional glTF diffuse transmission not reproduced in HDRP. No endorsement implied.
