@@ -3,17 +3,19 @@ using System.Collections.Generic;
 
 namespace Poolrooms.Core
 {
-    public enum AquaticSlideStyle { OpenFlume, EnclosedS, TwinRacer, SpiralTube, GentleWave, FamilyFlume, SlalomTube, SweepingFlume }
+    public enum AquaticSlideStyle { OpenFlume, EnclosedS, TwinRacer, SpiralTube, GentleWave, FamilyFlume, SlalomTube, SweepingFlume, OffsetCascade, DoubleSweep }
     public sealed class AquaticSlidePath
     {
         public readonly V3[] Points;
         public readonly float[] Distances;
         public readonly float Radius;
         public readonly bool Enclosed;
+        public readonly AquaticSlideFamily Family;
+        public readonly int Color;
         public float Length {get{return Distances[Distances.Length-1];}}
-        public AquaticSlidePath(V3[] points,float radius,bool enclosed)
+        public AquaticSlidePath(V3[] points,float radius,bool enclosed,AquaticSlideFamily? family=null,int lane=0)
         {
-            Points=points;Radius=radius;Enclosed=enclosed;Distances=new float[points.Length];
+            Points=points;Radius=radius;Enclosed=enclosed;Family=family??AquaticSlideCatalog.Get(enclosed?10:0);Color=(Family.Color+lane*3)%AquaticSlideCatalog.ColorCount;Distances=new float[points.Length];
             for(int i=1;i<points.Length;i++)Distances[i]=Distances[i-1]+(points[i]-points[i-1]).Length;
         }
         public V3 Sample(float distance,out V3 tangent)
@@ -47,20 +49,35 @@ namespace Poolrooms.Core
     public sealed class AquaticParkPlan
     {
         public const int CatalogCount=5600;
-        public readonly int Recipe,Hall,PoolShape,Roof,HeightClass;
+        public readonly int Recipe,Hall,PoolShape,Roof,HeightClass,Orientation;
         public readonly AquaticSlideStyle Style;
+        public readonly AquaticSlideFamily Family;
         public readonly float Clear,Height,TowerHeight,Half;
         public readonly WaterRegion[] Pools;
         public readonly AquaticSlidePath[] Slides;
         public readonly QuietPropPlan[] Props;
         public readonly V3 Valve;
-        public int FlightSteps {get{return 15+HeightClass;}}
+        internal readonly WaterRegion[] LocalPools;
+        internal readonly AquaticSlidePath[] LocalSlides;
+        internal readonly V3 LocalValve;
+        public V3 Rotate(V3 p)
+        {switch(Orientation){case 1:return new V3(p.Z,p.Y,-p.X);case 2:return new V3(-p.X,p.Y,-p.Z);case 3:return new V3(-p.Z,p.Y,p.X);default:return p;}}
+        public V3 DeckApproach(AquaticSlidePath path){return path.Points[0]+Rotate(new V3(0,.04f,-.75f));}
+
+        public int FlightSteps {get{return 15+HeightClass+Family.SizeProfile;}}
         public float FlightRun {get{return FlightSteps*.27f;}}
-        public AquaticParkPlan(int recipe,float half,float clear,WaterRegion[] pools,AquaticSlidePath[] slides,QuietPropPlan[] props)
+        public AquaticParkPlan(int recipe,float half,float clear,WaterRegion[] pools,AquaticSlidePath[] slides,QuietPropPlan[] props,int familyId=-1,int orientation=0)
         {
-            Recipe=recipe;Hall=recipe%7;Style=(AquaticSlideStyle)(recipe/7%8);PoolShape=recipe/56%5;Roof=recipe/280%5;HeightClass=recipe/1400;
-            Half=half;Clear=clear;TowerHeight=(15+HeightClass)*.36f;Height=12.4f+HeightClass*.45f;Pools=pools;Slides=slides;Props=props;
-            Valve=new V3(-clear-.6f,1.1f,clear+1.2f);
+            Recipe=recipe;Hall=recipe%7;Family=AquaticSlideCatalog.Get(familyId<0?AquaticSlideCatalog.At(recipe):familyId);Style=Family.Route;PoolShape=recipe/56%5;Roof=recipe/280%5;HeightClass=recipe/1400;
+            Orientation=orientation&3;Half=half;Clear=clear;TowerHeight=(15+HeightClass+Family.SizeProfile)*.36f;Height=12.4f+HeightClass*.45f;LocalPools=pools;LocalSlides=slides;
+            Pools=new WaterRegion[pools.Length];
+            for(int i=0;i<pools.Length;i++)
+            {var pool=pools[i];var point=Rotate(new V3(pool.CenterX,0,pool.CenterZ));pool.CenterX=point.X;pool.CenterZ=point.Z;if((Orientation&1)!=0){float span=pool.Width;pool.Width=pool.Depth;pool.Depth=span;}Pools[i]=pool;}
+            Slides=new AquaticSlidePath[slides.Length];
+            for(int lane=0;lane<slides.Length;lane++)
+            {var original=slides[lane];var points=new V3[original.Points.Length];for(int i=0;i<points.Length;i++)points[i]=Rotate(original.Points[i]);Slides[lane]=new AquaticSlidePath(points,original.Radius,original.Enclosed,Family,lane);}
+            Props=new QuietPropPlan[props.Length];for(int i=0;i<props.Length;i++)Props[i]=new QuietPropPlan(Rotate(props[i].Bottom),props[i].CatalogId,props[i].Source,props[i].Yaw+Orientation*90);
+            LocalValve=new V3(-clear-.6f,1.1f,clear+1.2f);Valve=Rotate(LocalValve);
         }
         private static bool Finite(float v){return !float.IsNaN(v)&&!float.IsInfinity(v);}
         public bool Valid(Room r,LayoutConfig c)
@@ -71,7 +88,7 @@ namespace Poolrooms.Core
             {
                 if(slide.Length<10||slide.Radius<1.05f||slide.Points.Length<32)return false;
                 foreach(var v in slide.Points)
-                    if(!Finite(v.X)||!Finite(v.Y)||!Finite(v.Z)||Math.Abs(v.X)+slide.Radius+.09f>Half-.35f||Math.Abs(v.Z)+slide.Radius+.09f>Half-.35f||v.Y<.24f||v.Y+2*slide.Radius+.09f>Height-.8f||Math.Abs(v.Z)<Clear+.4f&&v.Y<2.65f)return false;
+                    if(!Finite(v.X)||!Finite(v.Y)||!Finite(v.Z)||Math.Abs(v.X)+slide.Radius+.09f>Half-.35f||Math.Abs(v.Z)+slide.Radius+.09f>Half-.35f||v.Y<.24f||v.Y+2*slide.Radius+.09f>Height-.8f||(Math.Abs(v.Z)<Clear+.4f||Math.Abs(v.X)<Clear+.4f)&&v.Y<2.65f)return false;
                 var end=slide.Points[slide.Points.Length-1];if(!Pools[0].Contains(end.X,end.Z))return false;
             }
             return true;
@@ -87,12 +104,13 @@ namespace Poolrooms.Core
             return (int)(((xx*70+zz)*multiplier+(h>>10))%5600);
         }
         public static void Describe(Room r,LayoutConfig c){DescribeRecipe(r,c,RecipeAt(c.Seed,r.X,r.Z));}
-        public static void DescribeRecipe(Room r,LayoutConfig c,int recipe)
+        public static void DescribeRecipe(Room r,LayoutConfig c,int recipe,int familyOverride=-1,int orientationOverride=-1)
         {
             if(recipe<0||recipe>=AquaticParkPlan.CatalogCount)throw new ArgumentOutOfRangeException(nameof(recipe));
             float half=c.CellSize*.5f,clear=AquaticParkArchitecture.MaxOpening(c)*.5f+.8f;
-            int hall=recipe%7,shape=recipe/56%5,hc=recipe/1400;var style=(AquaticSlideStyle)(recipe/7%8);
-            float height=(15+hc)*.36f,left=-(half+clear)*.5f,w=half-clear-2.1f;
+            int hall=recipe%7,shape=recipe/56%5,hc=recipe/1400;
+            var family=AquaticSlideCatalog.Get(familyOverride>=0?familyOverride:AquaticSlideCatalog.At(recipe));var style=family.Route;
+            float height=(15+hc+family.SizeProfile)*.36f,left=-(half+clear)*.5f,w=half-clear-2.1f;
             var pools=new List<WaterRegion>();float rz=clear+1.25f+(half-clear-2.25f)*.5f,depth=half-clear-2.25f;
             // Receiving pool stays off every ground-level exit route, with steps on all sides.
             pools.Add(new WaterRegion{CenterX=(clear+half-1.1f)*.5f,CenterZ=rz,Width=half-clear-1.1f,Depth=depth,Radius=0,Bottom=-.63f,Level=c.WaterLevel});
@@ -104,20 +122,20 @@ namespace Poolrooms.Core
             var slides=new List<AquaticSlidePath>();int lanes=style==AquaticSlideStyle.TwinRacer?2:1;
             for(int lane=0;lane<lanes;lane++)
             {
-                float radius=style==AquaticSlideStyle.FamilyFlume?1.3f:1.05f;
-                bool tube=style==AquaticSlideStyle.EnclosedS||style==AquaticSlideStyle.SpiralTube||style==AquaticSlideStyle.SlalomTube;
+                float radius=family.Radius;
+                bool tube=family.Enclosed;
                 var points=new List<V3>();float minX=clear+1.25f,maxX=half-4.6f;
-                float x=lanes==2?(lane==0?maxX:minX):maxX,z=-half+2.2f;
+                float x=lanes==2?(lane==0?maxX:minX):maxX-family.EntryOffset,z=-half+2.2f;
                 if(style==AquaticSlideStyle.FamilyFlume)x-=.25f;
                 points.Add(new V3(x,height,z));
                 float cruising=2.85f+hc*.08f;
                 if(style==AquaticSlideStyle.SpiralTube)
                 {
-                    float ring=1.55f,cz=-half+5.3f,cx=x-ring;
+                    float ring=1.55f+family.SizeProfile*.1f,cz=-half+5.3f,cx=x-ring;
                     for(int i=1;i<=16;i++)points.Add(new V3(x,height-.15f*i/16,z+(cz-z)*i/16));
                     for(int i=1;i<=96;i++)
-                    {float t=i/96f,a=t*2*Shapes.Pi;points.Add(new V3(cx+ring*Shapes.Cos(a),height-.15f-2.4f*t,cz+ring*Shapes.Sin(a)));}
-                    z=cz;cruising=height-2.55f;
+                    {float t=i/96f,a=t*2*Shapes.Pi;points.Add(new V3(cx+ring*Shapes.Cos(a),height-.15f-(2.4f+family.SizeProfile*.12f)*t,cz+ring*Shapes.Sin(a)));}
+                    z=cz;cruising=height-2.55f-family.SizeProfile*.12f;
                 }
                 float endZ=pools[0].CenterZ,endX=lanes==2?x:pools[0].CenterX;
                 for(int i=1;i<=96;i++)
@@ -127,6 +145,8 @@ namespace Poolrooms.Core
                     if(style==AquaticSlideStyle.EnclosedS)xx-=amplitude*Shapes.Sin(2*Shapes.Pi*t)*Shapes.Sin(Shapes.Pi*t);
                     else if(style==AquaticSlideStyle.SlalomTube)xx-=amplitude*Shapes.Sin(4*Shapes.Pi*t)*Shapes.Sin(Shapes.Pi*t);
                     else if(style==AquaticSlideStyle.SweepingFlume)xx-=amplitude*Shapes.Sin(Shapes.Pi*t);
+                    else if(style==AquaticSlideStyle.OffsetCascade)xx-=amplitude*.8f*Shapes.Sin(Shapes.Pi*t)*Shapes.Sin(Shapes.Pi*t);
+                    else if(style==AquaticSlideStyle.DoubleSweep)xx-=amplitude*.8f*Shapes.Sin(3*Shapes.Pi*t)*Shapes.Sin(Shapes.Pi*t);
                     else if(style==AquaticSlideStyle.GentleWave)xx-=amplitude*.4f*Shapes.Sin(Shapes.Pi*t);
                     float fall=Math.Max(0,Math.Min(1,(zz-clear-.55f)/(endZ-clear-.55f)));fall=fall*fall*(3-2*fall);
                     float early=Math.Max(0,Math.Min(1,(zz-z)/(-clear-.65f-z)));early=early*early*(3-2*early);
@@ -135,7 +155,7 @@ namespace Poolrooms.Core
                     if(style==AquaticSlideStyle.GentleWave&&zz<-clear)yy-=.16f*Shapes.Sin(t*6*Shapes.Pi)*Shapes.Sin(Shapes.Pi*t);
                     points.Add(new V3(xx,yy,zz));
                 }
-                slides.Add(new AquaticSlidePath(points.ToArray(),radius,tube));
+                slides.Add(new AquaticSlidePath(points.ToArray(),radius,tube,family,lane));
             }
             var props=new List<QuietPropPlan>();
             for(int i=0;i<4;i++)
@@ -143,9 +163,10 @@ namespace Poolrooms.Core
                 float px=-half+.6f,pz=(i<2?-1:1)*(clear+1.5f)+(i%2)*1.3f*(i<2?-1:1);
                 props.Add(new QuietPropPlan(new V3(px,.02f,pz),-1,"B_CafeChair",90));
                 props.Add(new QuietPropPlan(new V3(-half+1.0f,.02f,(i<2?-1:1)*(half-1.05f)+(i%2)*.65f*(i<2?1:-1)),(31+i%2)*8+(recipe+i)%8));
-                props.Add(new QuietPropPlan(new V3(half-1.0f,.02f,(i<2?-1:1)*(clear+1.0f)+(i%2)*.6f*(i<2?-1:1)),-1,"WaterBottle"));
+                props.Add(new QuietPropPlan(new V3(half-.5f,.02f,half-2.2f-i*.6f),-1,"WaterBottle"));
             }
-            var plan=new AquaticParkPlan(recipe,half,clear,pools.ToArray(),slides.ToArray(),props.ToArray());
+            int orientation=orientationOverride>=0?orientationOverride&3:(int)(LiminalRegions.Hash(c.Seed,r.X,r.Z,0x230F01u)%4);
+            var plan=new AquaticParkPlan(recipe,half,clear,pools.ToArray(),slides.ToArray(),props.ToArray(),family.Id,orientation);
             r.Environment=LiminalEnvironment.AquaticPark;r.ZoneId=-1;r.Width=r.Depth=c.CellSize;r.Height=plan.Height;
             r.Plan=new ProceduralPlan(r.Environment,new PlannedModule[0],plan.Pools,clear,0,0,aquatic:plan);
             if(!plan.Valid(r,c))throw new ArgumentException("Invalid aquatic park plan: "+recipe);

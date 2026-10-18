@@ -80,7 +80,7 @@ namespace Poolrooms
             if(returnToDeck&&explorer!=null&&explorer.world!=null&&ridingRoom!=null)
             {
                 // Cancellation restores a supported open deck, never stands up inside a curved tube.
-                var start=path.Points[0];transform.position=explorer.world.RoomWorldPosition(ridingRoom)+ToUnity(start)+new Vector3(0,.04f,-.75f);
+                var deck=ridingRoom.Plan.Aquatic.DeckApproach(path);transform.position=explorer.world.RoomWorldPosition(ridingRoom)+ToUnity(deck);
             }
             path=null;ridingRoom=null;if(body!=null)body.enabled=restoreBody;
         }

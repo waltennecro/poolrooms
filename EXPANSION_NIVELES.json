@@ -50,7 +50,8 @@
       "plansAcrossExtremeScalesVerified": 33600,
       "boundaryRoomsVerified": 144,
       "rideClearanceRooms": 48,
-      "rideClearanceSphereSamples": 1518
+      "rideClearanceSphereSamples": 1518,
+      "slideFamilyUpdate": "R23: 250 procedural families (10 routes x 5 covers x 5 size profiles), 12 colours, four room orientations and animated concave water film. Core, syntax and 33600 plans verified; native Unity pending."
     },
     {
       "number": 4,

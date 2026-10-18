@@ -27,6 +27,7 @@ namespace Poolrooms.Core
     public sealed class MeshData
     {
         public SurfaceTheme Theme;
+        public int AquaticColor=-1,FlowProfile;
         public float Weathering;
         public float PlayPalette;
         public float RetailPalette;

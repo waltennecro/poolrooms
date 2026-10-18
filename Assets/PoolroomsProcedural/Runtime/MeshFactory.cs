@@ -48,6 +48,7 @@ namespace Poolrooms
         private static Material PaletteMaterial(MeshData data,int surface,PoolroomsProfile profile,PoolroomsChunk owner)
         {
             SurfaceTheme theme=BiomeSurfaces.Resolve(data);
+            if(data.AquaticColor>=0&&surface==(int)Surface.Slide)return PoolroomsBiomeMaterialFactory.SlideColor(data.AquaticColor,owner);
             if(theme==SurfaceTheme.Poolrooms||theme==SurfaceTheme.Automatic)return profile.MaterialFor(surface);
             if(theme==SurfaceTheme.Mall&&data.Weathering>.5f&&(surface==(int)Surface.Tile||surface==(int)Surface.Plaster))return PoolroomsBiomeMaterialFactory.Weathered(surface,owner);
             Material material=PoolroomsBiomeMaterialFactory.Resolve(theme,surface,profile,owner);
@@ -99,7 +100,7 @@ namespace Poolrooms
             var go=new GameObject(name);go.transform.SetParent(parent,false);
             go.AddComponent<MeshFilter>().sharedMesh=mesh;
             var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterials=materials.ToArray();
-            renderer.shadowCastingMode=water||data.Theme==SurfaceTheme.Glass?ShadowCastingMode.Off:ShadowCastingMode.On;
+            renderer.shadowCastingMode=water||data.Theme==SurfaceTheme.Glass||data.Theme==SurfaceTheme.SlideGlass||data.Theme==SurfaceTheme.FlumeFlow?ShadowCastingMode.Off:ShadowCastingMode.On;
             renderer.receiveShadows=!water;renderer.motionVectorGenerationMode=MotionVectorGenerationMode.Camera;
             if(collider)go.AddComponent<MeshCollider>().sharedMesh=mesh;
             owner.ownedMeshes.Add(mesh);return go;

@@ -1,7 +1,7 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral, SlideGlass, FlumeFlow }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
@@ -39,6 +39,8 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(theme==SurfaceTheme.SlideGlass)return null;
+            if(theme==SurfaceTheme.FlumeFlow)return "FlumeFlow";
             if(theme==SurfaceTheme.AquaticPark||theme==SurfaceTheme.AquaticCoral)return slot==Surface.Glow?null:slot==Surface.Tile?"AquaticMosaic":slot==Surface.Slide?(theme==SurfaceTheme.AquaticCoral?"AquaticFiberglassCoral":"AquaticFiberglass"):slot==Surface.Plaster?"AquaticCeramic":slot==Surface.Metal?"Steel":"BathTravertineDry";
             if(theme==SurfaceTheme.ThermalWicker)return slot==Surface.Plaster?"Fabric":"BathWicker";
             if(theme==SurfaceTheme.ThermalStone)return slot==Surface.Glow?null:slot==Surface.Tile?"BathTravertineDry":slot==Surface.Slide?"BathTravertineWet":slot==Surface.Plaster?"GardenLimewash":slot==Surface.Metal?"Steel":"Wood";
@@ -75,7 +77,7 @@ namespace Poolrooms.Core
         public static float Smoothness(string set)
         {
             if(set!=null&&set.StartsWith("PlayFinish",System.StringComparison.Ordinal))return set=="PlayFinishFloor"?.2f:set=="PlayFinishNet"?.15f:set=="PlayFinishWall"?.22f:.48f;
-            switch(set){case "AquaticMosaic":return .64f;case "AquaticFiberglass":case "AquaticFiberglassCoral":return .74f;case "AquaticCeramic":return .38f;case "BathTravertineDry":return .4f;case "BathTravertineWet":return .68f;case "BathWicker":return .35f;case "GardenLimestone":return .46f;case "GardenTerracotta":return .19f;case "GardenLimewash":return .13f;case "GardenLeaves":return .33f;case "PlayRed":case "PlayYellow":case "PlayBlue":return .38f;case "PlayFoam":return .16f;case "PlayWall":return .2f;case "MallStone":return .76f;case "Terrazzo":return .55f;case "Steel":return .64f;case "Plastic":return .35f;
+            switch(set){case "FlumeFlow":return .96f;case "AquaticGelcoat":return .76f;case "AquaticMosaic":return .64f;case "AquaticFiberglass":case "AquaticFiberglassCoral":return .74f;case "AquaticCeramic":return .38f;case "BathTravertineDry":return .4f;case "BathTravertineWet":return .68f;case "BathWicker":return .35f;case "GardenLimestone":return .46f;case "GardenTerracotta":return .19f;case "GardenLimewash":return .13f;case "GardenLeaves":return .33f;case "PlayRed":case "PlayYellow":case "PlayBlue":return .38f;case "PlayFoam":return .16f;case "PlayWall":return .2f;case "MallStone":return .76f;case "Terrazzo":return .55f;case "Steel":return .64f;case "Plastic":return .35f;
                 case "RetailVinyl":case "Vinyl":return .3f;case "Wood":return .3f;case "Packaging":return .2f;default:return .1f;}
         }
     }

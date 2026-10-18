@@ -275,3 +275,13 @@ Assets: 809 archivos, 290354841 bytes. Respaldo público descargado:
 456787694 bytes, CRC válido y 991 archivos coincidentes por SHA-256.
 Evidencia: `Verification/ci_aquatic_R22.json`. Compilación Unity/HDRP, aspecto,
 PhysX y FPS siguen pendientes; el Editor no está instalado en la nube.
+
+## R23 — 250 familias de toboganes y agua interior
+
+Diez trazados, cinco cubiertas y cinco perfiles, con colores independientes del
+conteo. Cristal con colisión física, naves en cuatro orientaciones y película
+cóncava animada de agua sobre cada canal. Se conservan piscinas HDRP y distancias;
+la lámina es aproximación visual, no simulación hidráulica. Núcleo, 188 huellas
+antiguas y sintaxis C# verificados;
+Unity, shaders, aspecto, transparencia, física y FPS pendientes.
+Documentación: `Assets/PoolroomsProcedural/Documentation/TOBOGANES_250_R23.md`.

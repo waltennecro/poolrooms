@@ -344,7 +344,13 @@ namespace Poolrooms
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
             PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,profile,chunk,this);
             MeshFactory.Create("Glazing",data.Glass,go.transform,profile,chunk,false);
-            for(int i=0;i<data.VisualMeshes.Count;i++)MeshFactory.Create("Biome finish "+i,data.VisualMeshes[i],go.transform,profile,chunk,false);
+            for(int i=0;i<data.VisualMeshes.Count;i++)
+            {
+                var visual=data.VisualMeshes[i];Material[] overrides=null;
+                if(visual.Theme==SurfaceTheme.FlumeFlow)
+                {overrides=new Material[6];overrides[(int)Surface.Slide]=Application.isPlaying?PoolroomsFlumeFlow.For(this).Resolve(visual.FlowProfile):PoolroomsBiomeMaterialFactory.Resolve(SurfaceTheme.FlumeFlow,(int)Surface.Slide,profile,chunk);}
+                MeshFactory.Create(visual.Theme==SurfaceTheme.FlumeFlow?"Flowing flume water":"Biome finish "+i,visual,go.transform,profile,chunk,false,materialOverrides:overrides);
+            }
             var water=MeshFactory.Create("Water footprint",data.Water,go.transform,profile,chunk,false,true);
             chunk.water=water!=null?water.GetComponent<MeshRenderer>():null;
             float t=layout.Config.WallThickness;

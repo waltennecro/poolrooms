@@ -48,6 +48,7 @@ static class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--slide-families")){AquaticSlideFamilies();return 0;}
         if(args.Contains("--aquatic-plans")){AquaticPlansAcrossScales();return 0;}
         if(args.Contains("--aquatic-clearance")){AquaticRideClearance();return 0;}
         if(args.Contains("--aquatic-only")){AquaticParkGeneration();Console.WriteLine($"PASS: {assertions} aquatic core assertions; native Unity unrun.");return 0;}
@@ -80,6 +81,7 @@ static class Checks
         if(args.Contains("--capture-baseline")){Directory.CreateDirectory(Path.GetDirectoryName(baseline));File.WriteAllText(baseline,JsonSerializer.Serialize(actual,new JsonSerializerOptions{WriteIndented=true}));Console.WriteLine($"Captured {actual.Count} original geometry fingerprints");return 0;}
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
+        AquaticSlideFamilies();
         AquaticParkGeneration();
         ThermalBathGeneration();
         OrangerieGeneration();
@@ -110,6 +112,98 @@ static class Checks
         Console.WriteLine($"PASS: {assertions} checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax {scripts.Length} scripts x {symbols.Length} configurations.");
         Console.WriteLine("Core compiled; Unity/HDRP API compilation, shaders, PhysX, visual quality and FPS NOT executed.");return 0;
     }
+    static void AquaticSlideFamilies()
+    {
+        var fingerprints=new HashSet<string>();var names=new HashSet<string>();var usedColors=new HashSet<string>();int glassFamilies=0,poseSamples=0;
+        for(int id=0;id<AquaticSlideCatalog.Count;id++)
+        {
+            var family=AquaticSlideCatalog.Get(id);Check(names.Add(family.Name),"Duplicate slide family descriptor");usedColors.Add(HashColor(AquaticSlideCatalog.Palette(family.Color)));
+            var cfg=new LayoutConfig{CellSize=36,DoorWidth=4,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};var room=new Room{Exits=15};AquaticParkPlanner.DescribeRecipe(room,cfg,0,id);
+            var parts=room.Plan.Aquatic.Slides.Select(s=>AquaticFlumeGeometry.Build(s,16)).ToArray();Check(fingerprints.Add(Hash(parts.SelectMany(p=>new[]{p.Solid,p.Glass}).ToArray())),"Family differs only by colour: "+id);
+            bool glass=family.Cover==AquaticSlideCover.GlassTube||family.Cover==AquaticSlideCover.GlassCrown;
+            Check(parts.Any(p=>p.Glass.TriangleCount>0)==glass,"Glass cover missing or unexpected");if(glass)glassFamilies++;
+            foreach(var path in room.Plan.Aquatic.Slides)
+            {
+                var meshes=AquaticFlumeGeometry.Build(path,16);
+                foreach(var mesh in new[]{meshes.Solid,meshes.Glass,meshes.Flow})Validate(mesh);
+                Check(meshes.Flow.Theme==SurfaceTheme.FlumeFlow&&meshes.Flow.TriangleCount==(path.Points.Length-1)*16,"Water film has a gap or is not registered for animation");
+                Check(meshes.Flow.FlowProfile==family.SizeProfile&&meshes.Flow.Indices[(int)Surface.Glow].Count==0,"Flow profile or fake emission invalid");
+                foreach(float angle in new[]{-.3f,0,.3f})for(int i=0;i<path.Points.Length;i+=8)
+                {
+                    V3 at=AquaticFlumeGeometry.FilmPoint(path,i,angle),up=AquaticFlumeGeometry.Up(path,i),right=AquaticFlumeGeometry.Right(path,i),normal=up*Shapes.Cos(angle)-right*Shapes.Sin(angle);
+                    V3 floor=path.Points[i]+up*path.Radius+(right*Shapes.Sin(angle)-up*Shapes.Cos(angle))*path.Radius;
+                    Check(Math.Abs(V3.Dot(at-floor,normal)-AquaticFlumeGeometry.FilmDepth)<.0001f,"Water leaves flume interior");
+                }
+                for(int i=0;i<meshes.Flow.UV.Count;i+=3)Check(meshes.Flow.UV[i].X>=-.001f&&meshes.Flow.UV[i].X<=1.001f&&meshes.Flow.UV[i].Y>=0&&meshes.Flow.UV[i].Y<=path.Length/AquaticSlideCatalog.FlowTileLength+.001f,"Invalid flow UV arc distance");
+            }
+            // All covers/sizes, including wide clear tubes, at two opposite scale/height extremes.
+            foreach(int size in new[]{28,60})
+            {
+                var c=new LayoutConfig{CellSize=size,DoorWidth=6,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};var r=new Room{Exits=15};AquaticParkPlanner.DescribeRecipe(r,c,size==28?4200:0,id);var g=AquaticParkArchitecture.Build(r,c);
+                Check(r.Plan.Valid(r,c)&&g.CollisionOnly.TriangleCount>0,"Family not integrated with physical walls");
+                Check(g.CollisionOnly.TriangleCount==g.VisualMeshes.Where(v=>v.Theme!=SurfaceTheme.FlumeFlow).Sum(v=>v.TriangleCount),"Glass/solid shell does not match physical collision batch");
+                foreach(var path in r.Plan.Aquatic.Slides)for(int i=0;i<path.Points.Length;i+=12)
+                {
+                    var point=path.Points[i];
+                    Check(SphereClear(g.Structure,point+V3.Up*.45f,.2f)&&SphereClear(g.CollisionOnly,point+V3.Up*.45f,.2f),$"Family seated body blocked at {id}/{size}/{i}");
+                    Check(SphereClear(g.Structure,point+V3.Up*.86f,.16f)&&SphereClear(g.CollisionOnly,point+V3.Up*.86f,.16f),$"Family camera blocked at {id}/{size}/{i}");poseSamples++;
+                }
+            }
+        }
+        int orientations=0;
+        foreach(int family in new[]{0,13,20,31,49,203,212,249})
+        {
+            var cfg=new LayoutConfig{CellSize=36,DoorWidth=4,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};
+            var canonical=new Room{Exits=15};AquaticParkPlanner.DescribeRecipe(canonical,cfg,840,family,0);var original=AquaticParkArchitecture.Build(canonical,cfg);var baseline=canonical.Plan.Aquatic;
+            for(int turn=0;turn<4;turn++)
+            {
+                var room=new Room{Exits=15};AquaticParkPlanner.DescribeRecipe(room,cfg,840,family,turn);var plan=room.Plan.Aquatic;var geometry=AquaticParkArchitecture.Build(room,cfg);
+                for(int i=0;i<baseline.Pools.Length;i++)
+                {
+                    var a=baseline.Pools[i];var b=plan.Pools[i];var center=plan.Rotate(new V3(a.CenterX,0,a.CenterZ));
+                    Check((center-new V3(b.CenterX,0,b.CenterZ)).Length<.0001f&&Math.Abs(b.Width-((turn&1)==0?a.Width:a.Depth))<.0001f&&Math.Abs(b.Depth-((turn&1)==0?a.Depth:a.Width))<.0001f,"Rotated water footprint disagrees with room");
+                }
+                for(int lane=0;lane<plan.Slides.Length;lane++)
+                {
+                    for(int i=0;i<plan.Slides[lane].Points.Length;i++)Check((plan.Rotate(baseline.Slides[lane].Points[i])-plan.Slides[lane].Points[i]).Length<.0001f,"Rotated ride detached from flume");
+                    Check((plan.Rotate(baseline.DeckApproach(baseline.Slides[lane]))-plan.DeckApproach(plan.Slides[lane])).Length<.0001f,"Rotated boarding or cancel point misses deck");
+                }
+                Check((plan.Rotate(baseline.Valve)-plan.Valve).Length<.0001f,"Rotated valve interaction detached");
+                for(int i=0;i<plan.Props.Length;i++)Check((plan.Rotate(baseline.Props[i].Bottom)-plan.Props[i].Bottom).Length<.0001f&&Math.Abs(plan.Props[i].Yaw-baseline.Props[i].Yaw-turn*90)<.0001f,"Rotated furniture misplaced");
+                var before=new[]{original.Structure,original.Decoration,original.Water,original.Glass,original.CollisionOnly}.Concat(original.VisualMeshes).ToArray();
+                var after=new[]{geometry.Structure,geometry.Decoration,geometry.Water,geometry.Glass,geometry.CollisionOnly}.Concat(geometry.VisualMeshes).ToArray();
+                for(int m=0;m<before.Length;m++)
+                {
+                    Check(before[m].Positions.Count==after[m].Positions.Count,"Rotation changes mesh topology");
+                    // Envelope follows world exits; compare the independent pools, glass, shell and flow batches.
+                    if(m<2)continue;
+                    for(int v=0;v<before[m].Positions.Count;v++)Check((plan.Rotate(before[m].Positions[v])-after[m].Positions[v]).Length<.0001f,"Visual/collision/water meshes rotate inconsistently");
+                }
+                foreach(var aperture in AquaticParkArchitecture.RoofApertures(room))Check(Support(geometry.Structure,new V3(aperture.X,room.Height+.01f,aperture.Z))<room.Height-.1f,"Rotation seals skylight");
+                orientations++;
+            }
+        }
+        // A single world-space exit must stay on that side whatever direction the attractions face.
+        for(int turn=0;turn<4;turn++)for(int side=0;side<4;side++)
+        {
+            var cfg=new LayoutConfig{CellSize=36,DoorWidth=4,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};var room=new Room{Exits=(byte)(1<<side)};AquaticParkPlanner.DescribeRecipe(room,cfg,0,249,turn);var geometry=AquaticParkArchitecture.Build(room,cfg);
+            for(int probe=0;probe<4;probe++)
+            {
+                var point=new V3(Directions.DX[probe]*18,1,Directions.DZ[probe]*18);
+                Check(SphereClear(geometry.Structure,point,.2f)==(probe==side),"Rotating attractions moved a world exit");
+            }
+        }
+        for(int profile=0;profile<5;profile++)
+        {
+            float slow=0,fast=0;for(int i=0;i<300;i++)slow=AquaticSlideCatalog.AdvanceFlow(slow,1f/30,profile,false);for(int i=0;i<2400;i++)fast=AquaticSlideCatalog.AdvanceFlow(fast,1f/240,profile,false);
+            float delta=Math.Abs(slow-fast);Check(Math.Min(delta,1-delta)<.001f,"Water speed depends on FPS");Check(AquaticSlideCatalog.AdvanceFlow(slow,.1f,profile,true)==slow&&AquaticSlideCatalog.AdvanceFlow(slow,float.NaN,profile,false)==slow,"Pause/invalid time changes flow");
+        }
+        Check(fingerprints.Count==250&&glassFamilies==100&&usedColors.Count==12,"Incomplete families, glass or colours");
+        Console.WriteLine($"Slide families: {fingerprints.Count} geometric/cover fingerprints, {glassFamilies} glass families, {usedColors.Count} colours; {poseSamples} ride positions in 500 size/cover cases; {orientations} rotation contracts and 16 one-exit rooms. Animated film geometry and phase verified; no native shader/PhysX execution.");
+    }
+    static string HashColor(V3 c){return c.X+":"+c.Y+":"+c.Z;}
+    static string AquaticFingerprint(RoomGeometry g)
+    {return Hash(new[]{g.Structure,g.Decoration,g.Glass,g.CollisionOnly}.Concat(g.VisualMeshes.Where(v=>v.Theme!=SurfaceTheme.FlumeFlow)).ToArray());}
     static void AquaticPlansAcrossScales()
     {
         int count=0;
@@ -132,12 +226,12 @@ static class Checks
         for(int recipe=0;recipe<5600;recipe++)
         {
             var r=new Room{X=2,Z=3,Exits=15};AquaticParkPlanner.DescribeRecipe(r,cfg,recipe);var p=r.Plan.Aquatic;var g=AquaticParkArchitecture.Build(r,cfg);
-            Check(r.Plan.Valid(r,cfg),"Invalid aquatic plan");Check(structures.Add(Hash(g.Structure)),"Duplicate aquatic structural recipe: "+recipe);
-            foreach(var mesh in new[]{g.Structure,g.Decoration,g.Glass,g.Water})
+            Check(r.Plan.Valid(r,cfg),"Invalid aquatic plan");Check(structures.Add(AquaticFingerprint(g)),"Duplicate aquatic structural recipe: "+recipe);
+            foreach(var mesh in new[]{g.Structure,g.Decoration,g.Glass,g.Water,g.CollisionOnly}.Concat(g.VisualMeshes))
             {Validate(mesh);foreach(var n in mesh.Normals)Check(Math.Abs(n.Length-1)<.002f,"Non-unit aquatic normal");Check(mesh.Indices[(int)Surface.Glow].Count==0,"Artificial emissive in solar-only park");}
             Check(g.Fixtures.Count==0,"Solar-only park contains artificial lamps");
             Check(g.Regions.Count==3&&g.Water.TriangleCount>0&&g.Water.Positions.All(v=>Math.Abs(v.Y-cfg.WaterLevel)<.0001f),"Aquatic water mesh/physics disagree");
-            int triangles=g.Structure.TriangleCount+g.Decoration.TriangleCount+g.Glass.TriangleCount;maxTriangles=Math.Max(maxTriangles,triangles);Check(triangles<40000,"Unbounded aquatic triangle count");
+            int triangles=g.Structure.TriangleCount+g.Decoration.TriangleCount+g.Glass.TriangleCount+g.VisualMeshes.Sum(v=>v.TriangleCount);maxTriangles=Math.Max(maxTriangles,triangles);Check(triangles<40000,"Unbounded aquatic triangle count");
             foreach(var slide in p.Slides)
             {
                 Check(slide.Length>10&&slide.Radius>=1.05f,"Undersized slide");
@@ -147,7 +241,7 @@ static class Checks
             }
             objects+=p.Props.Length;rides+=p.Slides.Length;
             if(recipe%140==0)
-            {var repeat=AquaticParkArchitecture.Build(r,cfg);Check(Hash(g.Structure,g.Decoration,g.Water,g.Glass)==Hash(repeat.Structure,repeat.Decoration,repeat.Water,repeat.Glass),"Aquatic generation depends on load order");}
+            {var repeat=AquaticParkArchitecture.Build(r,cfg);Check(AquaticFingerprint(g)==AquaticFingerprint(repeat),"Aquatic generation depends on load order");}
         }
         AquaticRideClearance();
         int boundaries=0;
@@ -174,26 +268,26 @@ static class Checks
             float z0=-p.Half+2.2f;
             for(int i=0;i<p.FlightSteps;i++)
             {
-                var first=new V3(p.Half-1.35f,p.TowerHeight+2,z0+(i+.5f)*.27f);
-                var second=new V3(p.Half-2.8f,p.TowerHeight+2,z0+p.FlightRun-(i+.5f)*.27f);
+                var first=p.Rotate(new V3(p.Half-1.35f,p.TowerHeight+2,z0+(i+.5f)*.27f));
+                var second=p.Rotate(new V3(p.Half-2.8f,p.TowerHeight+2,z0+p.FlightRun-(i+.5f)*.27f));
                 Check(Math.Abs(Support(g.Structure,first)-(i+1)*.18f)<.002f,"First stair flight has wrong physical tread");
                 Check(Math.Abs(Support(g.Structure,second)-(p.FlightSteps+i+1)*.18f)<.002f,"Second stair flight has wrong physical tread");
             }
             foreach(var slide in p.Slides)
             {
-                var start=slide.Points[0]+new V3(0,.05f,-.75f);Check(Math.Abs(Support(g.Structure,start)-p.TowerHeight)<.002f,"Slide activation position has no supported deck");
+                var start=p.DeckApproach(slide);Check(Math.Abs(Support(g.Structure,start)-p.TowerHeight)<.002f,"Slide activation position has no supported deck");
                 var low=new AquaticRideMotion();low.Reset();var fast=new AquaticRideMotion();fast.Reset();for(int i=0;i<120;i++)low.Advance(slide,1f/30);for(int i=0;i<960;i++)fast.Advance(slide,1f/240);
                 Check(Math.Abs(low.Distance-fast.Distance)<.08f,"Ride speed depends strongly on frame rate");
                 float saved=low.Distance;low.Advance(slide,0);low.Advance(slide,float.NaN);Check(low.Distance==saved,"Paused or invalid time advances attraction");
                 for(int i=0;i<10000&&!fast.Finished;i++)fast.Advance(slide,1f/60);Check(fast.Finished&&Math.Abs(fast.Distance-slide.Length)<.001f,"Ride cannot reach receiving pool");
                 Check(slide.Points.All(v=>Math.Abs(v.Z)>p.Clear+.4f||v.Y>=2.65f),"Slide blocks walking headroom");
             }
-            Check(Math.Abs(Support(g.Structure,new V3(p.Valve.X+.45f,2,p.Valve.Z)))<.001f,"Valve not accessible on paving");
+            Check(Math.Abs(Support(g.Structure,p.Valve+p.Rotate(new V3(.45f,.9f,0))))<.001f,"Valve not accessible on paving");
             foreach(var prop in p.Props.Where(v=>v.Source!=null))Check(SourceFurniture.Clear(g.Structure,new SourceFurniturePlacement(0,SourceFurniture.Index(prop.Source),prop.Bottom,prop.Yaw),.005f),"Aquatic source furniture intersects structure: "+prop.Source);
             boundaries++;
         }
         var mixed=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Expanded,EnableAquaticPark=true};Check(LiminalRegions.Find(mixed,LiminalEnvironment.AquaticPark,0,0,out int fx,out int fz)&&LiminalRegions.At(mixed,fx,fz)==LiminalEnvironment.AquaticPark,"Aquatic park missing from mixed exploration / TP");mixed.EnableAquaticPark=false;Check(!LiminalRegions.Find(mixed,LiminalEnvironment.AquaticPark,0,0,out _,out _),"Disabled park still found");
-        Console.WriteLine($"Aquatic park: {structures.Count} unique structural recipes at identical coordinates/seed; {rides} planned ride instances, {objects} planned objects; {boundaries} boundary rooms; max {maxTriangles} architecture/detail/glass triangles at 16 cross segments. Unity traversal, shaders and FPS unrun.");
+        Console.WriteLine($"Aquatic park: {structures.Count} unique structural recipes at identical coordinates/seed; {rides} planned ride instances, {objects} planned objects; {boundaries} boundary rooms; max {maxTriangles} architecture/detail/glass/flume-film triangles at 16 cross segments. Unity traversal, shaders and FPS unrun.");
     }
     static float PointTriangleDistanceSquared(V3 p,V3 a,V3 b,V3 c)
     {
@@ -221,18 +315,18 @@ static class Checks
     static void AquaticRideClearance()
     {
         int samples=0;
-        foreach(int size in new[]{28,36,60})foreach(int height in new[]{0,3})for(int style=0;style<8;style++)
+        foreach(int size in new[]{28,36,60})foreach(int height in new[]{0,3})for(int style=0;style<10;style++)
         {
             var cfg=new LayoutConfig{CellSize=size,DoorWidth=6,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};var room=new Room{Exits=15};
-            AquaticParkPlanner.DescribeRecipe(room,cfg,height*1400+style*7);var g=AquaticParkArchitecture.Build(room,cfg);
+            AquaticParkPlanner.DescribeRecipe(room,cfg,height*1400+style*7,style);var g=AquaticParkArchitecture.Build(room,cfg);
             foreach(var slide in room.Plan.Aquatic.Slides)for(int i=0;i<slide.Points.Length;i+=4)
             {
                 V3 point=slide.Points[i];
-                Check(SphereClear(g.Structure,point+V3.Up*.45f,.2f),$"Seated rider intersects park at {size}/{height}/{style}/{i}");
-                Check(SphereClear(g.Structure,point+V3.Up*.86f,.16f),$"Ride camera intersects park at {size}/{height}/{style}/{i}");samples++;
+                Check(SphereClear(g.Structure,point+V3.Up*.45f,.2f)&&SphereClear(g.CollisionOnly,point+V3.Up*.45f,.2f),$"Seated rider intersects park at {size}/{height}/{style}/{i}");
+                Check(SphereClear(g.Structure,point+V3.Up*.86f,.16f)&&SphereClear(g.CollisionOnly,point+V3.Up*.86f,.16f),$"Ride camera intersects park at {size}/{height}/{style}/{i}");samples++;
             }
         }
-        Console.WriteLine($"Aquatic ride clearance: {samples} seated-body / camera sphere samples against actual triangles in 48 extreme-size/style rooms; not PhysX.");
+        Console.WriteLine($"Aquatic ride clearance: {samples} seated-body / camera sphere samples against actual triangles in 60 extreme-size/style rooms; not PhysX.");
     }
     static void ThermalBathGeneration()
     {

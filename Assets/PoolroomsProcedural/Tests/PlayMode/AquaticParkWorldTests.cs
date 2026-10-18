@@ -29,8 +29,8 @@ namespace Poolrooms.Tests
                 world.viewer=actor.transform;root.SetActive(true);actor.SetActive(true);
                 for(int frame=0;frame<600&&!world.ViewerReady;frame++)yield return null;
                 Assert.That(world.ViewerReady,Is.True);yield return null;yield return null;
-                var room=world.RoomAtViewer();var slide=room.Plan.Aquatic.Slides[0];var start=slide.Points[0];
-                explorer.Teleport(world.RoomWorldPosition(room)+new Vector3(start.X,start.Y+.04f,start.Z-.75f));
+                var room=world.RoomAtViewer();var slide=room.Plan.Aquatic.Slides[0];var start=room.Plan.Aquatic.DeckApproach(slide);
+                explorer.Teleport(world.RoomWorldPosition(room)+new Vector3(start.X,start.Y,start.Z));
                 for(int frame=0;frame<30;frame++){Cursor.lockState=CursorLockMode.Locked;yield return null;}
                 var traversal=actor.GetComponent<PoolroomsAquaticTraversal>();Assert.That(traversal.TryInteract(),Is.True,"Supported deck cannot activate ride");
                 Assert.That(body.enabled,Is.False);explorer.SetPaused(true);var at=actor.transform.position;yield return null;yield return null;
@@ -54,11 +54,11 @@ namespace Poolrooms.Tests
         public IEnumerator TwoFlightTowerCanBeClimbedByStandingPlayer()
         {
             var cfg=new LayoutConfig{CellSize=28,DoorWidth=6,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};
-            var room=new Room{X=0,Z=0,Exits=15};AquaticParkPlanner.DescribeRecipe(room,cfg,4200);var p=room.Plan.Aquatic;var geometry=AquaticParkArchitecture.Build(room,cfg);
+            var room=new Room{X=0,Z=0,Exits=15};AquaticParkPlanner.DescribeRecipe(room,cfg,4200,orientationOverride:0);var p=room.Plan.Aquatic;var geometry=AquaticParkArchitecture.Build(room,cfg);
             var root=new GameObject("Aquatic native stairs");root.transform.position=new Vector3(24000,2000,24000);var actor=new GameObject("Aquatic stair walker");
             try
             {
-                var owner=root.AddComponent<PoolroomsChunk>();MeshFactory.CreateCollider("Park architecture",geometry.Structure,root.transform,owner);
+                var owner=root.AddComponent<PoolroomsChunk>();MeshFactory.CreateCollider("Park architecture",geometry.Structure,root.transform,owner);MeshFactory.CreateCollider("Flume walls including glass",geometry.CollisionOnly,root.transform,owner);
                 var body=actor.AddComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.center=Vector3.up*.9f;body.skinWidth=.025f;body.stepOffset=.34f;body.minMoveDistance=0;
                 float z=-p.Half+2.2f;
                 body.enabled=false;actor.transform.position=root.transform.position+new Vector3(p.Half-1.35f,.04f,z-.4f);body.enabled=true;Physics.SyncTransforms();
@@ -81,7 +81,7 @@ namespace Poolrooms.Tests
                 var root=new GameObject("Aquatic native clearance");root.transform.position=new Vector3(25000,2000,25000);
                 try
                 {
-                    var owner=root.AddComponent<PoolroomsChunk>();MeshFactory.CreateCollider("Park supports",data.Structure,root.transform,owner);Physics.SyncTransforms();
+                    var owner=root.AddComponent<PoolroomsChunk>();MeshFactory.CreateCollider("Park supports",data.Structure,root.transform,owner);MeshFactory.CreateCollider("Flume walls including glass",data.CollisionOnly,root.transform,owner);Physics.SyncTransforms();
                     foreach(var axis in new[]{Vector3.forward,Vector3.right})for(float t=-13;t<=13;t+=.5f)
                     {
                         var feet=root.transform.position+axis*t+Vector3.up*.06f;

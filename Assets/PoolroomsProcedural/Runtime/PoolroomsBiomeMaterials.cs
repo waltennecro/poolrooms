@@ -25,6 +25,15 @@ namespace Poolrooms
             if(owner.paletteMaterials.TryGetValue(key,out cached))return cached;
             var material=Create(theme,(Surface)slot);owner.paletteMaterials.Add(key,material);owner.ownedMaterials.Add(material);return material;
         }
+        public static Material SlideColor(int color,PoolroomsChunk owner)
+        {
+            int key=24576+color;Material material;if(owner.paletteMaterials.TryGetValue(key,out material))return material;
+            material=Create(SurfaceTheme.AquaticPark,Surface.Slide,"AquaticFiberglass");
+            var neutral=Resources.Load<Texture2D>(TextureRoot+"AquaticGelcoat_Albedo");
+            foreach(string property in new[]{"_BaseColorMap","_BaseMap","_MainTex"})SetTexture(material,property,neutral);
+            V3 rgb=AquaticSlideCatalog.Palette(color);var tint=new Color(rgb.X,rgb.Y,rgb.Z);SetColor(material,"_BaseColor",tint);SetColor(material,"_Color",tint);
+            material.name="Aquatic gelcoat colour "+color;Validate(material);owner.paletteMaterials.Add(key,material);owner.ownedMaterials.Add(material);return material;
+        }
         public static Material Weathered(int slot,PoolroomsChunk owner)
         {
             int key=12288+slot;Material material;if(owner.paletteMaterials.TryGetValue(key,out material))return material;
@@ -82,7 +91,7 @@ namespace Poolrooms
             {SetFloat(m,"_CoatMask",1);m.EnableKeyword("_MATERIAL_FEATURE_CLEAR_COAT");}
             if(slot==Surface.Glow)
             {SetColor(m,"_EmissiveColor",Color.white);SetColor(m,"_EmissionColor",Color.white);m.EnableKeyword("_EMISSION");}
-            if(theme==SurfaceTheme.Glass)
+            if(theme==SurfaceTheme.Glass||theme==SurfaceTheme.SlideGlass||theme==SurfaceTheme.FlumeFlow)
             {
                 SetColor(m,"_BaseColor",new Color(.84f,.94f,.97f,.13f));SetColor(m,"_Color",new Color(.84f,.94f,.97f,.13f));
                 SetFloat(m,"_DoubleSidedEnable",1);SetFloat(m,"_DoubleSidedNormalMode",1);
@@ -93,6 +102,16 @@ namespace Poolrooms
                 SetFloat(m,"_ZWrite",0);SetFloat(m,"_TransparentZWrite",0);SetFloat(m,"_Smoothness",.93f);SetFloat(m,"_Metallic",0);
                 m.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");m.EnableKeyword("_ALPHAPREMULTIPLY_ON");m.SetOverrideTag("RenderType","Transparent");
                 m.renderQueue=3000;m.SetShaderPassEnabled("ShadowCaster",false);
+            }
+            if(theme==SurfaceTheme.SlideGlass||theme==SurfaceTheme.FlumeFlow)
+            {
+                bool film=theme==SurfaceTheme.FlumeFlow;
+                var tint=film?new Color(.88f,.98f,.99f,.24f):new Color(.9f,.97f,.98f,.08f);SetColor(m,"_BaseColor",tint);SetColor(m,"_Color",tint);
+                // Both wall faces already exist in the tube mesh. Cull backfaces instead of blending them twice.
+                SetFloat(m,"_DoubleSidedEnable",film?1:0);SetFloat(m,"_CullMode",film?0:2);SetFloat(m,"_CullModeForward",film?0:2);
+                SetFloat(m,"_EnableBlendModePreserveSpecularLighting",1);SetFloat(m,"_Ior",film?1.333f:1.49f);
+                SetFloat(m,"_NormalScale",film?.65f:.1f);SetFloat(m,"_BumpScale",film?.65f:.1f);
+                SetFloat(m,"_Smoothness",film?.96f:.94f);SetFloat(m,"_SmoothnessRemapMax",1);
             }
             Validate(m);return m;
         }
