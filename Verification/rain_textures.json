@@ -1,0 +1,54 @@
+{
+  "size": 1024,
+  "origin": "Original periodic PBR artwork, no downloaded photographs. Cedar/oak grain and joints, slate roofing and wet paving with bounded microsurface roughness.",
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainCedar_Albedo.png": {
+      "bytes": 498681,
+      "sha256": "f8f4ecd4fc473c7f3ba8f265dc94d15413cfff0b775f96f5e0bd2eddc80f4ded"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainCedar_Normal.png": {
+      "bytes": 340388,
+      "sha256": "8285a2e9c7b60d1d68a2e18926f27fca4839537678baa62742d0eac108db62eb"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainCedar_Mask.png": {
+      "bytes": 208604,
+      "sha256": "10f112fc53147631ccebe5cce887d4fe347373f79b2afb8d29063866624efbe4"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainOak_Albedo.png": {
+      "bytes": 575457,
+      "sha256": "dd1c69b7cbbf1415a605809492331fa0e9400b9fc5e3d7a5641a0338ae170191"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainOak_Normal.png": {
+      "bytes": 340388,
+      "sha256": "8285a2e9c7b60d1d68a2e18926f27fca4839537678baa62742d0eac108db62eb"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainOak_Mask.png": {
+      "bytes": 208705,
+      "sha256": "3055825be7021b68f1f2353a07c173f2f2ab920e1d65ac15656f071b022baae1"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainSlate_Albedo.png": {
+      "bytes": 555344,
+      "sha256": "ef8f038920a1357ecc8006b45f73fbea2852f98c50856c6a00ff532b077c2967"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainSlate_Normal.png": {
+      "bytes": 712001,
+      "sha256": "3fb0f51f9dc0f5bac6c356e1d7e951cd0e1016b72e2e053d6cab1948b30536f2"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainSlate_Mask.png": {
+      "bytes": 140996,
+      "sha256": "3c3e68ec66d2e53f472f8144a493e3c42323b33df879515394ef1a0a75b4ae40"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainPaving_Albedo.png": {
+      "bytes": 557570,
+      "sha256": "45ab36628b4e28a7595ac54c5529d0d81e4ec8c36f84ce2175bc5b248c6ff892"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainPaving_Normal.png": {
+      "bytes": 712001,
+      "sha256": "3fb0f51f9dc0f5bac6c356e1d7e951cd0e1016b72e2e053d6cab1948b30536f2"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/RainPaving_Mask.png": {
+      "bytes": 143436,
+      "sha256": "838f97107e35b378df1db1cd779c6f58dc2aeaa623f8204aa6c046a78b5c00c5"
+    }
+  }
+}

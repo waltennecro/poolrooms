@@ -26,6 +26,8 @@ jobs:
         run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --aquatic-plans
       - name: Check source texture hashes
         run: python tools/verify_play_textures.py
+      - name: Check original rain texture and audio resources
+        run: python tools/verify_rain_resources.py
       - name: Check licensed City11 source assets and LODs
         run: python tools/verify_city_sources.py
       - name: Check licensed aircraft sources and native resource hashes

@@ -1,0 +1,15 @@
+{
+  "origin": "Original generated rain streak and quiet noise/tap synthesis. No third-party audio.",
+  "audioSeconds": 16,
+  "audioSampleRate": 22050,
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsRain/QuietRainLoop.wav": {
+      "bytes": 705644,
+      "sha256": "3c6602693c7d7b289816fbf51e95d7aea3500f73dfb6dd2b7d6ced19dc511cb8"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsRain/RainStreak.png": {
+      "bytes": 2396,
+      "sha256": "f56d7a85be0640cc757c5821e6976402307916d6c9e62d60cb7629f05bdb4f87"
+    }
+  }
+}

@@ -48,6 +48,7 @@ static class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--rain-only")){RainHouses();Console.WriteLine($"PASS: {assertions} rain core assertions; native Unity unrun.");return 0;}
         if(args.Contains("--slide-families")){AquaticSlideFamilies();return 0;}
         if(args.Contains("--aquatic-plans")){AquaticPlansAcrossScales();return 0;}
         if(args.Contains("--aquatic-clearance")){AquaticRideClearance();return 0;}
@@ -81,6 +82,7 @@ static class Checks
         if(args.Contains("--capture-baseline")){Directory.CreateDirectory(Path.GetDirectoryName(baseline));File.WriteAllText(baseline,JsonSerializer.Serialize(actual,new JsonSerializerOptions{WriteIndented=true}));Console.WriteLine($"Captured {actual.Count} original geometry fingerprints");return 0;}
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
+        RainHouses();
         AquaticSlideFamilies();
         AquaticParkGeneration();
         ThermalBathGeneration();
@@ -111,6 +113,63 @@ static class Checks
         }
         Console.WriteLine($"PASS: {assertions} checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax {scripts.Length} scripts x {symbols.Length} configurations.");
         Console.WriteLine("Core compiled; Unity/HDRP API compilation, shaders, PhysX, visual quality and FPS NOT executed.");return 0;
+    }
+    static void RainHouses()
+    {
+        Check((int)LiminalEnvironment.AquaticPark==16&&(int)LiminalGeneration.AquaticPark==20&&(int)SurfaceTheme.FlumeFlow==30,"Serialized pre-rain IDs changed");
+        var unique=new HashSet<string>();int maxTriangles=0,objects=0,houses=0,samples=0;
+        var cfg=new LayoutConfig{CellSize=36,DoorWidth=4,Continuous=true,Procedural=LiminalGeneration.RainHouses};
+        for(int recipe=0;recipe<2500;recipe++)
+        {
+            var room=new Room{Exits=15};RainHousePlanner.DescribeRecipe(room,cfg,recipe);var plan=room.Plan.Rain;var g=RainHouseArchitecture.Build(room,cfg);
+            Check(plan.Valid(room,cfg)&&room.Plan.Valid(room,cfg),"Invalid rain plan");
+            Check(unique.Add(Hash(g.Structure,g.CollisionOnly)),"Duplicate physical rain structure "+recipe);
+            int triangles=g.Structure.TriangleCount+g.Decoration.TriangleCount+g.Glass.TriangleCount+g.VisualMeshes.Sum(m=>m.TriangleCount);maxTriangles=Math.Max(maxTriangles,triangles);Check(triangles<30000,"Rain geometry exceeds bounded cost");
+            foreach(var mesh in new[]{g.Structure,g.Decoration,g.Glass,g.CollisionOnly}.Concat(g.VisualMeshes))
+            {Validate(mesh);foreach(var normal in mesh.Normals)Check(Math.Abs(normal.Length-1)<.002f,"Rain normal is not unit length");}
+            Check(g.Fixtures.Count==8&&g.Water.TriangleCount==0,"Rain light budget or false swimming water");
+            foreach(var h in plan.Houses)
+            {
+                Check(plan.Sheltered(h.X,h.Z)&&plan.Sheltered(h.Door.X,h.Door.Z),"Rain falls inside house or porch");
+                foreach(float z in new[]{-h.Depth*.5f-.9f,-h.Depth*.5f,-h.Depth*.5f+.8f,0f})
+                {
+                    var at=h.ToRoom(new V3(0,0,z));
+                    Check(SphereClear(g.Structure,at+V3.Up*.9f,.34f)&&SphereClear(g.CollisionOnly,at+V3.Up*.9f,.34f),"Blocked rain house entrance or central aisle");
+                    Check(Math.Abs(Math.Max(Support(g.Structure,at+V3.Up*2),Support(g.CollisionOnly,at+V3.Up*2))-.01f)<.002f,"Rain house floor/porch missing");samples++;
+                }
+            }
+            if(recipe%125==0)foreach(var prop in plan.Props.Where(v=>v.Source!=null))Check(SourceFurniture.Clear(g.Structure,new SourceFurniturePlacement(0,SourceFurniture.Index(prop.Source),prop.Bottom,prop.Yaw),.005f),"Rain furniture intersects architecture: "+prop.Source+" recipe "+recipe);
+            objects+=plan.Props.Length;houses+=plan.Houses.Length;
+        }
+        int scalePlans=0,boundaries=0;
+        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})
+        {
+            var c=new LayoutConfig{CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2.1f,Continuous=true,Procedural=LiminalGeneration.RainHouses,AutonomousGeneration=true};
+            for(int recipe=0;recipe<2500;recipe++)
+            {var room=new Room{Exits=15};RainHousePlanner.DescribeRecipe(room,c,recipe);Check(room.Plan.Valid(room,c),"Rain plan fails supported scale");scalePlans++;}
+            var layout=new Layout(c);
+            for(int sample=0;sample<16;sample++)
+            {
+                var room=layout.At(sample-8,4);var g=Architecture.Build(room,layout);var p=room.Plan.Rain;
+                Check(p!=null&&room.Plan.Assemblies.Length==0&&g.SourceProps.Count==0,"Generic packing obstructs rain houses");
+                for(int side=0;side<4;side++)
+                {
+                    var n=layout.Neighbour(room,side);Check(Math.Abs(SolarConnections.DoorWidth(room,side,c)-SolarConnections.DoorWidth(n,(side+2)%4,c))<.001f&&Math.Abs(SolarConnections.DoorHeight(room,side,c)-SolarConnections.DoorHeight(n,(side+2)%4,c))<.001f,"Rain boundary socket mismatch");
+                    for(float t=0;t<size*.5f-.3f;t+=.75f)
+                    {var at=new V3(Directions.DX[side]*t,0,Directions.DZ[side]*t);Check(Math.Abs(Support(g.Structure,at+V3.Up*2))<.001f&&SphereClear(g.Structure,at+V3.Up,.35f),"Covered walking route obstructed");}
+                }
+                foreach(var h in p.Houses)foreach(float t in new[]{-.9f,0,.9f})
+                {var at=h.ToRoom(new V3(0,0,-h.Depth*.5f+t));Check(SphereClear(g.Structure,at+V3.Up*.9f,.34f),"Small-scale lodge entry blocked");}
+                foreach(var prop in p.Props.Where(v=>v.Source!=null))Check(SourceFurniture.Clear(g.Structure,new SourceFurniturePlacement(0,SourceFurniture.Index(prop.Source),prop.Bottom,prop.Yaw),.005f),"Scaled rain furniture intersects architecture");
+                if(sample==0)for(float x=-size*.5f+.4f;x<size*.5f-.3f;x+=1.5f)for(float z=-size*.5f+.4f;z<size*.5f-.3f;z+=1.5f)
+                    if(!p.Sheltered(x,z,.2f))Check(Math.Max(Support(g.Structure,new V3(x,8,z)),Support(g.CollisionOnly,new V3(x,8,z)))<.1f,"Rain exposure mask misses a physical roof");
+                boundaries++;
+            }
+        }
+        var recipes=new HashSet<int>();for(int x=-50;x<0;x++)for(int z=0;z<50;z++)recipes.Add(RainHousePlanner.RecipeAt(18,x,z));Check(recipes.Count==2500,"Incomplete rain permutation");
+        foreach(int x in new[]{int.MinValue,int.MaxValue})foreach(int z in new[]{int.MinValue,int.MaxValue})Check(RainHousePlanner.RecipeAt(18,x,z)>=0&&RainHousePlanner.RecipeAt(18,x,z)<2500,"Rain recipe overflow");
+        var mixed=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Expanded,EnableRainHouses=true};Check(LiminalRegions.Find(mixed,LiminalEnvironment.RainHouses,0,0,out int rx,out int rz)&&LiminalRegions.At(mixed,rx,rz)==LiminalEnvironment.RainHouses,"Rain biome missing from exploration/TP");mixed.EnableRainHouses=false;Check(!LiminalRegions.Find(mixed,LiminalEnvironment.RainHouses,0,0,out _,out _),"Disabled rain biome still found");
+        Console.WriteLine($"Rain houses: {unique.Count} structural recipes at identical coordinates/seed, {houses} planned houses and {objects} object instances; {samples} doorway/aisle probes; {scalePlans} scale plans, {boundaries} boundary rooms; max {maxTriangles} architectural/detail/glass triangles. Repeated licensed furniture, not new downloaded models; native Unity unrun.");
     }
     static void AquaticSlideFamilies()
     {

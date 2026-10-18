@@ -1,13 +1,14 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral, SlideGlass, FlumeFlow }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral, SlideGlass, FlumeFlow, RainLodge, RainRoof, RainInterior }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
         {
             switch(environment)
             {
+                case LiminalEnvironment.RainHouses:return SurfaceTheme.RainLodge;
                 case LiminalEnvironment.AquaticPark:return SurfaceTheme.AquaticPark;
                 case LiminalEnvironment.ThermalBaths:return SurfaceTheme.ThermalStone;
                 case LiminalEnvironment.Orangerie:return SurfaceTheme.Orangerie;
@@ -39,6 +40,9 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(theme==SurfaceTheme.RainRoof)return "RainSlate";
+            if(theme==SurfaceTheme.RainInterior)return slot==Surface.Tile?"RainOak":slot==Surface.Glow?null:"Wood";
+            if(theme==SurfaceTheme.RainLodge)return slot==Surface.Glow?null:slot==Surface.Tile?"RainPaving":slot==Surface.Plaster?"RainCedar":slot==Surface.Accent?"RainOak":slot==Surface.Metal?"Steel":"Fabric";
             if(theme==SurfaceTheme.SlideGlass)return null;
             if(theme==SurfaceTheme.FlumeFlow)return "FlumeFlow";
             if(theme==SurfaceTheme.AquaticPark||theme==SurfaceTheme.AquaticCoral)return slot==Surface.Glow?null:slot==Surface.Tile?"AquaticMosaic":slot==Surface.Slide?(theme==SurfaceTheme.AquaticCoral?"AquaticFiberglassCoral":"AquaticFiberglass"):slot==Surface.Plaster?"AquaticCeramic":slot==Surface.Metal?"Steel":"BathTravertineDry";
@@ -77,7 +81,7 @@ namespace Poolrooms.Core
         public static float Smoothness(string set)
         {
             if(set!=null&&set.StartsWith("PlayFinish",System.StringComparison.Ordinal))return set=="PlayFinishFloor"?.2f:set=="PlayFinishNet"?.15f:set=="PlayFinishWall"?.22f:.48f;
-            switch(set){case "FlumeFlow":return .96f;case "AquaticGelcoat":return .76f;case "AquaticMosaic":return .64f;case "AquaticFiberglass":case "AquaticFiberglassCoral":return .74f;case "AquaticCeramic":return .38f;case "BathTravertineDry":return .4f;case "BathTravertineWet":return .68f;case "BathWicker":return .35f;case "GardenLimestone":return .46f;case "GardenTerracotta":return .19f;case "GardenLimewash":return .13f;case "GardenLeaves":return .33f;case "PlayRed":case "PlayYellow":case "PlayBlue":return .38f;case "PlayFoam":return .16f;case "PlayWall":return .2f;case "MallStone":return .76f;case "Terrazzo":return .55f;case "Steel":return .64f;case "Plastic":return .35f;
+            switch(set){case "RainPaving":return .62f;case "RainOak":return .3f;case "RainCedar":return .21f;case "RainSlate":return .4f;case "FlumeFlow":return .96f;case "AquaticGelcoat":return .76f;case "AquaticMosaic":return .64f;case "AquaticFiberglass":case "AquaticFiberglassCoral":return .74f;case "AquaticCeramic":return .38f;case "BathTravertineDry":return .4f;case "BathTravertineWet":return .68f;case "BathWicker":return .35f;case "GardenLimestone":return .46f;case "GardenTerracotta":return .19f;case "GardenLimewash":return .13f;case "GardenLeaves":return .33f;case "PlayRed":case "PlayYellow":case "PlayBlue":return .38f;case "PlayFoam":return .16f;case "PlayWall":return .2f;case "MallStone":return .76f;case "Terrazzo":return .55f;case "Steel":return .64f;case "Plastic":return .35f;
                 case "RetailVinyl":case "Vinyl":return .3f;case "Wood":return .3f;case "Packaging":return .2f;default:return .1f;}
         }
     }

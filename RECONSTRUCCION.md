@@ -291,3 +291,14 @@ R23: CI [39147700285](https://github.com/waltennecro/poolrooms/actions/runs/3914
 290568748 bytes. Respaldo público descargado: 457009405 bytes, CRC
 válido y 1003 archivos coincidentes por SHA-256. Evidencia: `Verification/ci_flumes_R23.json`.
 Unity/HDRP, shaders, transparencia, aspecto, PhysX y FPS siguen sin ejecutar.
+
+## R24 — Casas de lluvia, expansión 4 de 10
+
+Barrio conectado con 2.500 recetas de cuatro casas accesibles, cinco programas
+de interior y cinco tejados. Mobiliario licenciado agarrable, porches y galerías
+con cristal físico, doce mapas PBR originales, cielo nublado, lluvia bajo un
+presupuesto compartido y bucle de audio original. No se cuentan las instancias
+como modelos nuevos. Núcleo, regresión acumulativa, 188 huellas anteriores y sintaxis C# comprobados.
+Documentación: `Assets/PoolroomsProcedural/Documentation/CASAS_DE_LLUVIA_R24.md`.
+Compilación Unity/HDRP, apariencia, partículas, audio, PhysX y FPS sin ejecutar.
+Quedan seis niveles y las 10.000 zonas globales separadas.

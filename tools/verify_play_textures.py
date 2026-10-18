@@ -6,7 +6,7 @@ import struct
 import zlib
 
 root=Path(__file__).resolve().parents[1]
-reports=[json.loads((root/name).read_text()) for name in ['Verification/play_finish_textures.json','Verification/quiet_sand_textures.json','Verification/airfield_finish_textures.json','Verification/helicopter_finish_textures.json','Verification/orangerie_textures.json','Verification/bath_textures.json','Verification/aquatic_textures.json','Verification/flume_textures.json']]
+reports=[json.loads((root/name).read_text()) for name in ['Verification/play_finish_textures.json','Verification/quiet_sand_textures.json','Verification/airfield_finish_textures.json','Verification/helicopter_finish_textures.json','Verification/orangerie_textures.json','Verification/bath_textures.json','Verification/aquatic_textures.json','Verification/flume_textures.json','Verification/rain_textures.json']]
 expected_maps={name:(record,report['size']) for report in reports for name,record in report['files'].items()}
 for name,(expected,expected_size) in expected_maps.items():
     path=root/name

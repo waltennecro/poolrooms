@@ -63,6 +63,8 @@ namespace Poolrooms.Core
         public bool EnableQuietLevels;
         public bool EnableCivicLevels;
         public bool EnableOrangerie;
+        public bool EnableRainHouses;
+        public float RainHouseShare=.1f;
         public bool EnableAquaticPark;
         public float AquaticParkShare=.12f;
         public bool EnableThermalBaths;
@@ -101,6 +103,7 @@ namespace Poolrooms.Core
 
         public void Validate()
         {
+            if(!Finite(RainHouseShare)||RainHouseShare<0||RainHouseShare>1)throw new ArgumentOutOfRangeException(nameof(RainHouseShare));
             if(!Finite(AquaticParkShare)||AquaticParkShare<0||AquaticParkShare>1)throw new ArgumentOutOfRangeException(nameof(AquaticParkShare));
             if(!Finite(ThermalBathShare)||ThermalBathShare<0||ThermalBathShare>1)throw new ArgumentOutOfRangeException(nameof(ThermalBathShare));
             if(!Finite(OrangerieShare)||OrangerieShare<0||OrangerieShare>1)throw new ArgumentOutOfRangeException(nameof(OrangerieShare));

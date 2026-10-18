@@ -25,7 +25,7 @@ namespace Poolrooms.Core
             ProceduralArchitecture.Prune(output.Structure);ProceduralArchitecture.Prune(output.Decoration);return output;
         }
         public static SurfaceTheme Theme(LiminalEnvironment e)
-        {return e==LiminalEnvironment.AquaticPark?SurfaceTheme.AquaticPark:e==LiminalEnvironment.ThermalBaths?SurfaceTheme.ThermalStone:e==LiminalEnvironment.Orangerie?SurfaceTheme.Orangerie:e==LiminalEnvironment.Archive906?SurfaceTheme.ArchiveWood:e==LiminalEnvironment.Conservatory?SurfaceTheme.Conservatory:e==LiminalEnvironment.TransitGallery?SurfaceTheme.TransitGallery:e==LiminalEnvironment.Courtyard188?SurfaceTheme.CourtyardStone:SurfaceTheme.CoastSand;}
+        {return e==LiminalEnvironment.RainHouses?SurfaceTheme.RainLodge:e==LiminalEnvironment.AquaticPark?SurfaceTheme.AquaticPark:e==LiminalEnvironment.ThermalBaths?SurfaceTheme.ThermalStone:e==LiminalEnvironment.Orangerie?SurfaceTheme.Orangerie:e==LiminalEnvironment.Archive906?SurfaceTheme.ArchiveWood:e==LiminalEnvironment.Conservatory?SurfaceTheme.Conservatory:e==LiminalEnvironment.TransitGallery?SurfaceTheme.TransitGallery:e==LiminalEnvironment.Courtyard188?SurfaceTheme.CourtyardStone:SurfaceTheme.CoastSand;}
         static void Envelope(RoomGeometry o,Room r,LayoutConfig c)
         {
             for(int side=0;side<4;side++)
@@ -286,7 +286,7 @@ namespace Poolrooms.Core
         public static CorridorGeometry Join(Room r,int direction,LayoutConfig c)
         {
             var result=new CorridorGeometry{Style=CorridorStyle.WideGallery};result.Structure.Theme=Theme(r.Environment);
-            float z=c.CellSize*.5f,half=c.DoorWidth*.5f;result.Structure.Box(new V3(-half,-.2f,z-.2f),new V3(half,r.Environment==LiminalEnvironment.Orangerie||r.Environment==LiminalEnvironment.ThermalBaths||r.Environment==LiminalEnvironment.AquaticPark?-.015f:0,z+.2f),Surface.Tile);
+            float z=c.CellSize*.5f,half=c.DoorWidth*.5f;result.Structure.Box(new V3(-half,-.2f,z-.2f),new V3(half,r.Environment==LiminalEnvironment.RainHouses||r.Environment==LiminalEnvironment.Orangerie||r.Environment==LiminalEnvironment.ThermalBaths||r.Environment==LiminalEnvironment.AquaticPark?-.015f:0,z+.2f),Surface.Tile);
             if(direction==1)result.Structure.TranslateRotate(new V3(),Shapes.Pi*.5f);return result;
         }
     }

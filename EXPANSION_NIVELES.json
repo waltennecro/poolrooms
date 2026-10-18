@@ -39,25 +39,39 @@
       "status": "implemented_core_verification_complete_native_pending",
       "theme": "Indoor sunlit waterpark, usable full-size flumes and clear pools",
       "plannedPools": 16800,
-      "plannedRideInstances": 6300,
+      "plannedRideInstances": 6160,
       "plannedObjectInstances": 67200,
       "newDownloadedSourceModels": 0,
       "reusedLicensedFurnitureTypes": 2,
-      "originalPbrMaps": 12,
+      "originalPbrMaps": 16,
       "documentation": "Assets/PoolroomsProcedural/Documentation/PARQUE_ACUATICO_R22.md",
       "scopeChange": "User explicitly requested this waterpark after level 2; replaces the next proposed slot, not an existing biome.",
       "structuralRecipesVerified": 5600,
       "plansAcrossExtremeScalesVerified": 33600,
       "boundaryRoomsVerified": 144,
-      "rideClearanceRooms": 48,
-      "rideClearanceSphereSamples": 1518,
+      "rideClearanceRooms": 60,
+      "rideClearanceSphereSamples": 1818,
       "slideFamilyUpdate": "R23: 250 procedural families (10 routes x 5 covers x 5 size profiles), 12 colours, four room orientations and animated concave water film. Core, syntax and 33600 plans verified; native Unity pending."
     },
     {
       "number": 4,
       "name": "Casas de lluvia",
-      "status": "proposed_not_implemented",
-      "theme": "Furnished timber lodges, covered walks and gentle rain"
+      "status": "implemented_core_verification_complete_native_pending",
+      "theme": "Furnished timber lodges, covered walks and gentle rain",
+      "environment": "RainHouses",
+      "housesPerSector": 4,
+      "plannedHouseInstances": 10000,
+      "plannedObjectInstances": 80000,
+      "interactableObjectsPerSector": 32,
+      "originalPbrMaps": 12,
+      "originalRainMedia": 2,
+      "newDownloadedModels": 0,
+      "reusedLicensedSourceIds": 7,
+      "documentation": "Assets/PoolroomsProcedural/Documentation/CASAS_DE_LLUVIA_R24.md",
+      "structuralRecipesVerified": 2500,
+      "plansAcrossExtremeScalesVerified": 15000,
+      "boundaryRoomsVerified": 96,
+      "doorAndAisleProbes": 40000
     },
     {
       "number": 5,
@@ -114,5 +128,5 @@
       "theme": "Empty ocean-view visitor centre and underwater galleries"
     }
   ],
-  "newLevelStructuralRecipesVerifiedTotal": 10600
+  "newLevelStructuralRecipesVerifiedTotal": 13100
 }
