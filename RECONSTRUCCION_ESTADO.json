@@ -546,9 +546,12 @@
         "pbrMapsVerified": 82,
         "nativeUnityExecuted": false,
         "nativeReflectionRegressionExtendedButUnrun": true,
-        "coreMathematicalAssertionsPassed": 1807458667
+        "coreMathematicalAssertionsPassed": 1807458667,
+        "cumulativeAssetsFiles": 842,
+        "publicBackupBytes": 462703146
       },
-      "evidence": "Verification/ci_water_R26.json"
+      "evidence": "Verification/ci_water_R26.json",
+      "sourceRevision": "41357ae42cc9b0ef4d222dfedf6474c72390f8dd"
     }
   ],
   "latestCoreChecks": {
@@ -1132,6 +1135,23 @@
         "id": 12146496454,
         "bytes": 295368553,
         "digest": "sha256:5893d7f4d25d921b15a10c3a660dbb866b0fa19565a65567032339338c930c17"
+      }
+    ]
+  },
+  "waterOpticsCi": {
+    "run": 39169093136,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39169093136",
+    "sourceRevision": "41357ae42cc9b0ef4d222dfedf6474c72390f8dd",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117798206512,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12152315709,
+        "bytes": 295372049,
+        "digest": "sha256:f547f0fadede2c920a11e4c005a7df6b0cbdef729bbe535206dd4ec3dc74c708"
       }
     ]
   }

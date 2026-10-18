@@ -341,3 +341,9 @@ comprobaciones reducidas de nombres no sustituyen una compilación nativa.
 R26: regresión local completa correcta, 188 huellas conservadas y 224 scripts en
 cuatro configuraciones. Son 1.807.458.667 aserciones matemáticas acumulativas,
 no pruebas nativas Unity. Auditoría de los 82 mapas PBR y medios de lluvia correcta.
+
+R26: CI [39169093136](https://github.com/waltennecro/poolrooms/actions/runs/39169093136) correcta, incluidos catálogos, fuentes/licencias,
+medios, paquete y artefacto. Assets: 842 archivos, 296237986 bytes.
+Respaldo público descargado: 462703146 bytes, CRC válido y 1037
+archivos coincidentes por SHA-256. Evidencia: `Verification/ci_water_R26.json`.
+Compilación Unity/HDRP, apariencia, shaders y FPS sin ejecutar.

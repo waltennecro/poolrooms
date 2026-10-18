@@ -1,0 +1,68 @@
+{
+  "stage": "R26",
+  "sourceRevision": "41357ae42cc9b0ef4d222dfedf6474c72390f8dd",
+  "reportedLightUnitErrors": 3,
+  "fixedFiles": 2,
+  "flashlightChange": "namespace import only",
+  "flashlightBehaviorChanged": false,
+  "renderDistanceReduced": false,
+  "nativeWaterUsesSSRAndProbeReflections": true,
+  "newDxrWaterGeometry": false,
+  "coreMathematicalAssertionsPassed": 1807458667,
+  "targetedOpticsAndSourceContractAssertionsPassed": 15864,
+  "lightUnitReducedBindingChecks": 6,
+  "bindingChecksAreNotNativeApiCompilation": true,
+  "syntaxScripts": 224,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "pbrMapsAudited": 82,
+  "nativeUnityExecuted": false,
+  "nativeReflectionRegressionExtendedButUnrun": true,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T21:40:10Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "officialSourceChecks": "Verification/hdrp_optics_R26_sources.json",
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R26_Agua_Reflejos_Assets.zip",
+    "files": 842,
+    "bytes": 296237986,
+    "sha256": "aefd85dccc9e0dc051bc71381ea5b21629264535dc6370c556d1950d36250128",
+    "sourceRevision": "41357ae42cc9b0ef4d222dfedf6474c72390f8dd",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1037,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/41357ae42cc9b0ef4d222dfedf6474c72390f8dd",
+    "sourceRevision": "41357ae42cc9b0ef4d222dfedf6474c72390f8dd",
+    "bytes": 462703146,
+    "sha256": "ae293a3f1dce5f765a10b6a6c23afde80ef8ddc4bb58bab6ba5983dc10269548",
+    "assetFilesMatched": 842,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39169093136,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39169093136",
+    "sourceRevision": "41357ae42cc9b0ef4d222dfedf6474c72390f8dd",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117798206512,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12152315709,
+        "bytes": 295372049,
+        "digest": "sha256:f547f0fadede2c920a11e4c005a7df6b0cbdef729bbe535206dd4ec3dc74c708"
+      }
+    ]
+  }
+}
