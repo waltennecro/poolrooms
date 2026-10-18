@@ -1,8 +1,14 @@
 #if UNITY_INCLUDE_TESTS
+using System;
+using System.IO;
+using System.Text;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Poolrooms.Core;
 using UnityEngine;
+using UnityEngine.TestTools;
+using Object=UnityEngine.Object;
 
 namespace Poolrooms.Tests
 {
@@ -40,6 +46,33 @@ namespace Poolrooms.Tests
                 Assert.That(source.boneWeights.Length,Is.Zero,"Original imported mesh must remain unchanged.");
             }
             finally{Object.DestroyImmediate(root);if(source!=null)Object.DestroyImmediate(source);if(baked!=null)Object.DestroyImmediate(baked);}
+        }
+        [UnityTest]
+        public IEnumerator ObjWithZUpNormalizesRootMeshAndBuildsAnimatedSkin()
+        {
+            string file=Path.Combine(Application.temporaryCachePath,"Humanoid_"+Guid.NewGuid().ToString("N")+".obj");
+            float previousYaw=PlayerPrefs.GetFloat("Poolrooms.Avatar.Yaw",0);bool yawSaved=PlayerPrefs.HasKey("Poolrooms.Avatar.Yaw");
+            string previous=PlayerPrefs.GetString("Poolrooms.Avatar.Selection","");bool saved=PlayerPrefs.HasKey("Poolrooms.Avatar.Selection");
+            GameObject root=null;Mesh source=null,baked=null;
+            try
+            {
+                source=Geometry();var text=new StringBuilder();foreach(var vertex in source.vertices)text.AppendLine(FormattableString.Invariant($"v {vertex.x:R} {vertex.z:R} {vertex.y:R}"));
+                var indices=source.triangles;for(int i=0;i<indices.Length;i+=3)text.AppendLine($"f {indices[i]+1} {indices[i+1]+1} {indices[i+2]+1}");File.WriteAllText(file,text.ToString());
+                root=new GameObject("OBJ import regression");root.SetActive(false);var explorer=root.AddComponent<PoolroomsExplorer>();explorer.enabled=false;explorer.showStartMenu=false;
+                var avatar=root.AddComponent<PoolroomsAvatar>();root.SetActive(true);avatar.Preferences.zUp=true;avatar.Preferences.restPose=HumanoidRestPose.T;avatar.SetYaw(0);avatar.LoadObj(file);
+                float deadline=Time.realtimeSinceStartup+20;while(avatar.Loading&&Time.realtimeSinceStartup<deadline)yield return null;
+                Assert.That(avatar.Loading,Is.False,"OBJ import timed out");Assert.That(avatar.Status,Does.Not.Contain("No se pudo"));
+                var renderer=root.GetComponentInChildren<SkinnedMeshRenderer>();Assert.That(renderer,Is.Not.Null,avatar.Status);baked=new Mesh();renderer.BakeMesh(baked);
+                float min=float.MaxValue,max=float.MinValue;foreach(var v in baked.vertices){float y=renderer.transform.TransformPoint(v).y;min=Mathf.Min(min,y);max=Mathf.Max(max,y);}
+                Assert.That(min,Is.EqualTo(0).Within(.001f));Assert.That(max-min,Is.EqualTo(1.75f).Within(.001f));
+                Assert.That(root.GetComponent<CharacterController>().height,Is.GreaterThan(1.5f));
+            }
+            finally
+            {
+                if(root!=null)Object.DestroyImmediate(root);if(source!=null)Object.DestroyImmediate(source);if(baked!=null)Object.DestroyImmediate(baked);if(File.Exists(file))File.Delete(file);
+                if(yawSaved)PlayerPrefs.SetFloat("Poolrooms.Avatar.Yaw",previousYaw);else PlayerPrefs.DeleteKey("Poolrooms.Avatar.Yaw");
+                if(saved)PlayerPrefs.SetString("Poolrooms.Avatar.Selection",previous);else PlayerPrefs.DeleteKey("Poolrooms.Avatar.Selection");PlayerPrefs.Save();
+            }
         }
         [Test]
         public void EmptySkinDoesNotAddPlaceholderOrChangeController()

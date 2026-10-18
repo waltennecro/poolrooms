@@ -637,7 +637,7 @@
         "protectedGeometryFingerprints": 188,
         "syntaxScripts": 238,
         "syntaxConfigurations": 5,
-        "nativeNewTestsAddedButUnrun": 2,
+        "nativeNewTestsAddedButUnrun": 3,
         "poseGeneratorManagedAllocationsPer10000Steps": 0
       }
     }

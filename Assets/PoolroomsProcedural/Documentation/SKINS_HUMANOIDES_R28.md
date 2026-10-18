@@ -89,7 +89,7 @@ queda oculto conservando la sombra opcional; el modo foto permite ocultarlo ente
 ajuste, pesos, simetría lateral, IK, estados y emotes a varias frecuencias, pausa,
 cancelación e IDs. La suite completa conserva 188 fingerprints de geometría.
 `Tests/PlayMode/HumanoidSkinTests.cs` comprueba malla deformada, bind poses,
-transformaciones reflejadas y ausencia de cambios en el original cuando se ejecute
+transformaciones reflejadas, importación OBJ con eje Z vertical y ausencia de cambios en el original cuando se ejecute
 con Unity. La prueba está añadida, **no ejecutada en la nube**.
 
 Siguen pendientes compilación real Unity/HDRP, importaciones de archivos reales,

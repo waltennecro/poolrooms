@@ -106,12 +106,12 @@ namespace Poolrooms
             foreach(var animation in instance.GetComponentsInChildren<Animator>(true)){animation.applyRootMotion=false;animation.enabled=false;}
             foreach(var animation in instance.GetComponentsInChildren<Animation>(true))animation.enabled=false;
         }
-        static bool Normalize(GameObject candidate,float height,float yaw,bool zUp=false)
+        static bool Normalize(GameObject candidate,float height,float yaw,bool zUp=false,bool reflectedZ=false)
         {
             var orientation=new GameObject("Source orientation").transform;orientation.SetParent(candidate.transform,false);
             var original=new List<Transform>();foreach(Transform child in candidate.transform)if(child!=orientation)original.Add(child);
             foreach(var child in original)child.SetParent(orientation,false);
-            orientation.localRotation=Quaternion.Euler(zUp?-90:0,yaw,0);
+            orientation.localRotation=Quaternion.Euler(zUp?(reflectedZ?90:-90):0,yaw,0);
             var renderers=candidate.GetComponentsInChildren<Renderer>(true);bool found=false;var bounds=new Bounds();
             foreach(var r in renderers)if(r is MeshRenderer||r is SkinnedMeshRenderer)
             {
@@ -171,7 +171,7 @@ namespace Poolrooms
                 geometry.AddComponent<MeshFilter>().sharedMesh=mesh;var renderer=geometry.AddComponent<MeshRenderer>();
                 renderer.sharedMaterials=AvatarObjMaterials.Create(data,path,resources);
                 // Convert OBJ handedness by reflecting Z and reversing winding together.
-                if(!Normalize(candidate,1.75f,targetYaw,Preferences.zUp))throw new FormatException("El OBJ no tiene altura válida.");
+                if(!Normalize(candidate,1.75f,targetYaw,Preferences.zUp,true))throw new FormatException("El OBJ no tiene altura válida.");
                 candidate.AddComponent<PoolroomsHumanoidSkin>().Build(Preferences,1.75f);
                 Replace(candidate);candidate=null;owned.AddRange(resources);resources.Clear();
                 Status=Path.GetFileName(path)+" · "+humanoid.Report;Attribution="Modelo local proporcionado por el jugador.";
