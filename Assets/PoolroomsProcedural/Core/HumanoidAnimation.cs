@@ -42,21 +42,21 @@ namespace Poolrooms.Core
             float activity=Math.Min(1,speed/.8f),breath=(float)Math.Sin(time*1.8f)*.0017f*h*intensity;
             var hip=rig.Rest[0];hip.Y-=h*(crouch+Math.Min(speed*.006f,.035f));hip.Y+=breath;
             if(Emote==HumanoidEmote.Dance)hip.X+=(float)Math.Sin(time*4)*.035f*h*emoteBlend;
-            Joints[0]=hip;Joints[1]=hip+new V3(0,rig.Rest[1].Y-rig.Rest[0].Y,lean*.12f*h);
-            Joints[2]=Joints[1]+new V3(0,(rig.Rest[2].Y-rig.Rest[1].Y)*(1-lean*.15f),lean*.13f*h);
-            Joints[3]=Joints[2]+new V3(0,(rig.Rest[3].Y-rig.Rest[2].Y)*(1-lean*.15f),lean*.05f*h);
-            Joints[4]=Joints[3]+new V3(0,rig.Rest[4].Y-rig.Rest[3].Y,(float)Math.Sin(GamePreferences.Clamp(input.LookPitch,-70,70,0)*Math.PI/180)*.025f*h);
+            Joints[0]=hip;Joints[1]=hip+(rig.Rest[1]-rig.Rest[0])+new V3(0,0,lean*.12f*h);
+            Joints[2]=Joints[1]+(rig.Rest[2]-rig.Rest[1])+new V3(0,-(rig.Rest[2].Y-rig.Rest[1].Y)*lean*.15f,lean*.13f*h);
+            Joints[3]=Joints[2]+(rig.Rest[3]-rig.Rest[2])+new V3(0,-(rig.Rest[3].Y-rig.Rest[2].Y)*lean*.15f,lean*.05f*h);
+            Joints[4]=Joints[3]+(rig.Rest[4]-rig.Rest[3])+new V3(0,0,(float)Math.Sin(GamePreferences.Clamp(input.LookPitch,-70,70,0)*Math.PI/180)*.025f*h);
             for(int side=0;side<2;side++)
             {
                 float sign=side==0?-1:1;int leg=side==0?13:17,arm=side==0?5:9;
-                Joints[leg]=hip+new V3(rig.Rest[leg].X,0,0);
+                Joints[leg]=hip+(rig.Rest[leg]-rig.Rest[0]);
                 float p=(phase+side*.5f)%1,z,y;
                 if(p<.5f){z=stride*(1-p*4);y=0;}else{float t=(p-.5f)*2;z=stride*(-1+2*t*t*(3-2*t));y=(float)Math.Sin(t*Math.PI)*(input.Sprint?.10f:.065f)*h*intensity;}
                 z*=activity;y*=activity;
                 float ground=GamePreferences.Clamp(side==0?input.LeftGround:input.RightGround,-.22f*h,.22f*h,0);
                 V3 ankle=rig.Rest[leg+2]+new V3(travel.X*z,y+ground,travel.Z*z);
-                ankle+=(new V3(sign*.09f*h,.065f*h,.38f*h)-ankle)*slidePose;
-                ankle+=(new V3(sign*.09f*h,.065f*h,.28f*h)-ankle)*seatedPose;
+                ankle+=(rig.Rest[leg+2]+new V3(sign*.015f*h,.01f*h,.38f*h)-ankle)*slidePose;
+                ankle+=(rig.Rest[leg+2]+new V3(sign*.015f*h,.01f*h,.28f*h)-ankle)*seatedPose;
                 var airFoot=rig.Rest[leg+2]+new V3(0,.09f*h+Math.Min(.08f,Math.Max(0,input.Velocity.Y*.014f))*h,sign*.045f*h);
                 ankle+=(airFoot-ankle)*air*(1-seatedPose)*(1-slidePose);
                 var swimFoot=Joints[leg]+new V3(sign*.015f*h,-.34f*h,.08f*h+(float)Math.Sin(time*4+side*Math.PI)*.075f*h);

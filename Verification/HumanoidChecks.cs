@@ -74,6 +74,13 @@ static partial class Checks
             HumanoidAnimation.Solve(new V3(),target,a,b,V3.Up,out var knee,out var end);
             Check(HumanoidRig.Finite(knee)&&HumanoidRig.Finite(end),"IK singularity");Check(Math.Abs(knee.Length-a)<.0002f,"IK upper length");Check(Math.Abs((end-knee).Length-b)<.0002f,"IK lower length");
         }
+        // Imported Humanoids can have off-centre hips and a nonvertical rest spine.
+        var centred=new HumanoidRig(1.75f,HumanoidRestPose.A);var offsetRig=new HumanoidRig(1.75f,HumanoidRestPose.A);var offset=new V3(.21f,0,-.14f);
+        for(int i=0;i<HumanoidRig.Count;i++)offsetRig.Rest[i]+=offset;
+        var poseA=new HumanoidAnimation();var poseB=new HumanoidAnimation();
+        foreach(var state in new[]{new HumanoidMotion{Grounded=true},new HumanoidMotion{Grounded=true,Slide=true},new HumanoidMotion{Grounded=true,Seated=true},new HumanoidMotion{Swimming=true}})
+        for(int frame=0;frame<60;frame++)
+        {poseA.Step(centred,state,1f/60);poseB.Step(offsetRig,state,1f/60);for(int bone=0;bone<HumanoidRig.Count;bone++)Check((poseB.Joints[bone]-poseA.Joints[bone]-offset).Length<.0001f,"Retargeting changed imported hip/spine offset");}
         var noAllocationRig=new HumanoidRig(1.75f,HumanoidRestPose.T);var noAllocation=new HumanoidAnimation();
         var standing=new HumanoidMotion{Grounded=true};for(int i=0;i<100;i++)noAllocation.Step(noAllocationRig,standing,.001f);noAllocation.Play(HumanoidEmote.Dance,true);
         long allocated=GC.GetAllocatedBytesForCurrentThread();for(int i=0;i<10000;i++)noAllocation.Step(noAllocationRig,standing,.001f);
