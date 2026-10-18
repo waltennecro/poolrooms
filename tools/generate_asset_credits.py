@@ -7,7 +7,7 @@ def build():
     for p in sorted((BASE/'City11/Licenses').glob('*_metadata.json')):
         legal=json.loads(p.read_text())['legal']
         text.append('\n'+p.name.replace('_metadata.json','')+'\n'+'\n'.join(x['artist']+' · '+x.get('owner','')+' · '+x.get('spdx',x.get('license',''))+'\n'+x.get('licenseUrl','') for x in legal))
-    for name in ['Aircraft','Helicopters','Interiors','Urban','Bistro','Buildings','GardenSources']:
+    for name in ['Aircraft','Helicopters','Interiors','Urban','Bistro','Buildings','GardenSources','BathSources']:
         text.append('\n\n'+name+'\n'+(BASE/name/'Licenses/NOTICE.txt').read_text())
     return '\n'.join(text)
 if __name__=='__main__':(BASE/'PoolroomsAssetCredits.txt').write_text(build())

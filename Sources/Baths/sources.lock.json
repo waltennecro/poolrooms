@@ -1,0 +1,42 @@
+{
+  "LightsPunctualLamp_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/LightsPunctualLamp/metadata.json",
+    "bytes": 644,
+    "sha256": "6e489fce8fd96eca57669d760550becc84973de9a1f9c765d301537502c8e0aa"
+  },
+  "LightsPunctualLamp_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/LightsPunctualLamp/LICENSE.md",
+    "bytes": 793,
+    "sha256": "5c86cf5fda539fceeec9eaaa1e0527defc00704d8c1a12d6122fcc39dbaedac3"
+  },
+  "CC-BY-4.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC-BY-4.0.txt",
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "LightsPunctualLamp.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/LightsPunctualLamp/glTF-Binary/LightsPunctualLamp.glb",
+    "bytes": 4341320,
+    "sha256": "b9a95cd0e17dea5284117e54807b49b746960038457a31a0011b9344acc11104"
+  },
+  "ClearcoatWicker_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ClearcoatWicker/metadata.json",
+    "bytes": 739,
+    "sha256": "b4e845954648203f9ac72ffb4b78ca01d18f965dd9f3a8df544bffb6c53473a5"
+  },
+  "ClearcoatWicker_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ClearcoatWicker/LICENSE.md",
+    "bytes": 778,
+    "sha256": "625cc9e6acf2055201162048d083b017e7f59c82ebb29c09eb1f648360eb7f4b"
+  },
+  "CC0-1.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC0-1.0.txt",
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "ClearcoatWicker.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ClearcoatWicker/glTF-Binary/ClearcoatWicker.glb",
+    "bytes": 1299752,
+    "sha256": "f162b0cd7f8e6b7cef211eec57762165a78039676b8592ce1f965e2ddb34e843"
+  }
+}

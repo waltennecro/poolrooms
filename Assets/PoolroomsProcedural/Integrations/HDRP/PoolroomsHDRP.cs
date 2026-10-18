@@ -52,14 +52,14 @@ namespace Poolrooms.HDRP
         private PoolroomsWorld world;
         private bool refreshRequested;
         private bool waterGeometryDirty;
-        private bool coastalLook;
+        private bool coastalLook,thermalLook;
         private Layout waterLayout;
         private float causticGain=1;
         private void OnValidate(){refreshRequested=true;}
         private void Update()
         {
-            bool coast=world!=null&&world.RoomAtViewer()?.Environment==LiminalEnvironment.Coast48;
-            if(coast!=coastalLook){coastalLook=coast;RefreshWater();}
+            var current=world!=null?world.RoomAtViewer():null;bool coast=current?.Environment==LiminalEnvironment.Coast48,bath=current?.Environment==LiminalEnvironment.ThermalBaths;
+            if(coast!=coastalLook||bath!=thermalLook){coastalLook=coast;thermalLook=bath;RefreshWater();}
             if(refreshRequested)
             {
                 refreshRequested=false;ApplyVisualSettings();
@@ -148,6 +148,8 @@ namespace Poolrooms.HDRP
             water.absorptionDistance=custom?Mathf.Max(.001f,absorptionDistance):look.Absorption;
             if(coastalLook&&appearance==PoolWaterAppearance.ClearCeramic)
             {water.refractionColor=new Color(.75f,.9f,.96f);water.scatteringColor=new Color(.035f,.15f,.22f);water.absorptionDistance=7;}
+            if(thermalLook&&appearance==PoolWaterAppearance.ClearCeramic)
+            {water.refractionColor=new Color(.79f,.92f,.89f);water.scatteringColor=new Color(.075f,.23f,.2f);water.absorptionDistance=4.2f;}
             water.maxRefractionDistance=custom?Mathf.Clamp(refractionDistance,0,3.5f):look.RefractionDistance;
             water.ambientScattering=.025f;water.heightScattering=.05f;water.displacementScattering=.12f;
             water.directLightTipScattering=.18f;water.directLightBodyScattering=.22f;

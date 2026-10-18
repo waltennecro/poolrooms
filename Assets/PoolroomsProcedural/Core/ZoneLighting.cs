@@ -43,6 +43,7 @@ namespace Poolrooms.Core
         }
         public static ZoneLightStyle Resolve(Room room,LayoutConfig c)
         {
+            if(room.Plan!=null&&room.Plan.Baths!=null)return room.Plan.Baths.Hall==BathHall.WarmCloister?ZoneLightStyle.WarmAmber:ZoneLightStyle.SoftDaylight;
             if(room.Plan!=null&&room.Plan.Garden!=null)return room.Plan.Garden.Hall==GardenHall.ReadingGarden?ZoneLightStyle.WarmAmber:ZoneLightStyle.SoftDaylight;
             if(room.Plan!=null&&room.Plan.Quiet!=null)return room.Environment==LiminalEnvironment.Archive906?ZoneLightStyle.WarmAmber:room.Environment==LiminalEnvironment.Coast48?ZoneLightStyle.SunsetRose:ZoneLightStyle.CleanWhite;
             if(room.Plan!=null&&room.Plan.Solar!=null)return SolarClimateRegions.LightStyle(room.Plan.Solar.Climate);
@@ -61,6 +62,7 @@ namespace Poolrooms.Core
         }
         public static void Apply(RoomGeometry geometry,Room room,LayoutConfig c)
         {
+            if(room.Plan!=null&&room.Plan.Baths!=null)return;
             if(room.Plan!=null&&room.Plan.Garden!=null)return;
             if(room.Plan!=null&&room.Plan.Quiet!=null)return;
             if(room.Plan!=null&&room.Plan.City!=null)return;

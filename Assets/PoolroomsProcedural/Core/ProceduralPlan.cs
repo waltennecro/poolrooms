@@ -32,9 +32,10 @@ namespace Poolrooms.Core
         public readonly City11Plan City;
         public readonly QuietLevelPlan Quiet;
         public readonly OrangeriePlan Garden;
+        public readonly ThermalBathPlan Baths;
         public GeneratedAssembly[] Assemblies { get; internal set; } = new GeneratedAssembly[0];
-        public ProceduralPlan(LiminalEnvironment environment,PlannedModule[] modules,WaterRegion[] pools,float clear,int ceiling,int palette,bool fallback=false,PlanCirculation circulation=null,RetailStore store=null,InteriorPlan interior=null,SolarRoomPlan solar=null,SoftPlayPlan softPlay=null,City11Plan city=null,QuietLevelPlan quiet=null,OrangeriePlan garden=null)
-        {Environment=environment;Modules=modules;Pools=pools;ClearHalfWidth=clear;CeilingPattern=ceiling;Palette=palette;IsFallback=fallback;Circulation=circulation;Store=store;Interior=interior;Solar=solar;SoftPlay=softPlay;City=city;Quiet=quiet;Garden=garden;}
+        public ProceduralPlan(LiminalEnvironment environment,PlannedModule[] modules,WaterRegion[] pools,float clear,int ceiling,int palette,bool fallback=false,PlanCirculation circulation=null,RetailStore store=null,InteriorPlan interior=null,SolarRoomPlan solar=null,SoftPlayPlan softPlay=null,City11Plan city=null,QuietLevelPlan quiet=null,OrangeriePlan garden=null,ThermalBathPlan baths=null)
+        {Environment=environment;Modules=modules;Pools=pools;ClearHalfWidth=clear;CeilingPattern=ceiling;Palette=palette;IsFallback=fallback;Circulation=circulation;Store=store;Interior=interior;Solar=solar;SoftPlay=softPlay;City=city;Quiet=quiet;Garden=garden;Baths=baths;}
 
         public bool Valid(Room room,LayoutConfig c)
         {
@@ -50,6 +51,7 @@ namespace Poolrooms.Core
                     Modules.Length==0&&Pools.Length==0&&room.Width<=c.CellSize-6&&room.Depth<=c.CellSize-6&&room.Height>=c.DoorHeight+.5f;
             }
             if(!AutonomousPlanner.Valid(this,room,c))return false;
+            if(Baths!=null)return Baths.Valid(room,c);
             if(Garden!=null)return Garden.Valid(room,c);
             if(Quiet!=null)return Quiet.Valid(room,c);
             if(City!=null)return City.Valid(room,c);

@@ -22,8 +22,15 @@
     {
       "number": 2,
       "name": "Baños de travertino",
-      "status": "proposed_not_implemented",
-      "theme": "Quiet thermal bath district with dry lounges and shaded courtyards"
+      "status": "implemented_core_verification_complete_native_pending",
+      "theme": "Quiet thermal bath district with dry lounges and shaded courtyards",
+      "environment": "ThermalBaths",
+      "structuralRecipesVerified": 2500,
+      "plannedBasinInstances": 6000,
+      "plannedObjectInstances": 40000,
+      "newOnlineModels": 1,
+      "licensedOnlineMaterialSets": 1,
+      "documentation": "Assets/PoolroomsProcedural/Documentation/EXPANSION_02_BANOS_TRAVERTINO.md"
     },
     {
       "number": 3,

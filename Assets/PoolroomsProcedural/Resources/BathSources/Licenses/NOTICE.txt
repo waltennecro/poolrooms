@@ -1,0 +1,4 @@
+Art-nouveau lamp: DGG, 2021, CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+Wicker material: Eric Chadwick, 2023, CC0 1.0. https://creativecommons.org/publicdomain/zero/1.0/
+Sources: Khronos glTF Sample Assets, revision edc7c9e67c639d230715049ee31f9a96a6babbbe. Full upstream notices, metadata and licences included.
+Changes: lamp OBJ/two LOD derivatives and original core PBR; original presentation lights/emission removed, glass transmission approximated. Wicker base colour, normals and AO/metal/roughness adapted to native HDRP maps on original lounger geometry; clearcoat normal omitted. Wicker demonstration sphere not placed in game. No endorsement implied.

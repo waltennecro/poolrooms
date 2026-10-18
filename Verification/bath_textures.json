@@ -1,0 +1,30 @@
+{
+  "size": 1024,
+  "origin": "Original procedural stone artwork; no external images. Online wicker PBR is separately audited under BathSources.",
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathTravertineDry_Albedo.png": {
+      "bytes": 360115,
+      "sha256": "4ff49d82252aceba90a9e982377bcc52c39d2fb698c39a612845bec28e133177"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathTravertineDry_Normal.png": {
+      "bytes": 2195965,
+      "sha256": "19505f6992318837e79b01b086fd47d95e720a31ed047359ef4f173993a1032d"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathTravertineDry_Mask.png": {
+      "bytes": 293649,
+      "sha256": "9e28f723f558dce803e05c5c18b8bc51ade5a2d289f70767129fbfb615504c02"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathTravertineWet_Albedo.png": {
+      "bytes": 406853,
+      "sha256": "4042733c6e57f6ef2c8ee6b20f600632367bdc4644c025da8dfe487dee092bdb"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathTravertineWet_Normal.png": {
+      "bytes": 2195965,
+      "sha256": "19505f6992318837e79b01b086fd47d95e720a31ed047359ef4f173993a1032d"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathTravertineWet_Mask.png": {
+      "bytes": 296617,
+      "sha256": "8282c6f9a0da2aede3af73530d7933ba671ee3dfdb37a600c1c08f6ef88b2943"
+    }
+  }
+}

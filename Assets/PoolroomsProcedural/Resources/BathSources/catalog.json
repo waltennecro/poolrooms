@@ -1,0 +1,143 @@
+{
+  "distinctNewModels": 1,
+  "licensedMaterialSets": 1,
+  "lodsCountAsModels": false,
+  "models": [
+    {
+      "id": "T_ArtNouveauLamp",
+      "resource": "BathSources/Models/T_ArtNouveauLamp",
+      "minimum": [
+        -0.3120085895061493,
+        0.0110623212531209,
+        -0.3619171977043152
+      ],
+      "maximum": [
+        0.8149782419204712,
+        1.8746249675750732,
+        0.35968679189682007
+      ],
+      "triangles": 6000,
+      "materials": [
+        {
+          "name": "T_ArtNouveauLamp_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": true,
+          "albedo": "BathSources/Textures/T_ArtNouveauLamp_m0_albedo",
+          "normal": "BathSources/Textures/T_ArtNouveauLamp_m0_normal",
+          "mask": "BathSources/Textures/T_ArtNouveauLamp_m0_mask"
+        },
+        {
+          "name": "T_ArtNouveauLamp_m1",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.5,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": true,
+          "doubleSided": true,
+          "albedo": "BathSources/Textures/T_ArtNouveauLamp_m1_albedo",
+          "normal": "BathSources/Textures/T_ArtNouveauLamp_m1_normal",
+          "mask": "BathSources/Textures/T_ArtNouveauLamp_m1_mask"
+        },
+        {
+          "name": "T_ArtNouveauLamp_m2",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_transmission"
+          ],
+          "transparent": false,
+          "doubleSided": true,
+          "albedo": "BathSources/Textures/T_ArtNouveauLamp_m2_albedo",
+          "normal": "BathSources/Textures/T_ArtNouveauLamp_m2_normal",
+          "mask": "BathSources/Textures/T_ArtNouveauLamp_m2_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "BathSources/Models/T_ArtNouveauLamp_LOD1",
+          "triangles": 3952
+        },
+        {
+          "resource": "BathSources/Models/T_ArtNouveauLamp_LOD2",
+          "triangles": 2012
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "b9a95cd0e17dea5284117e54807b49b746960038457a31a0011b9344acc11104",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Static decorative unlit lamp, only the three original meshes; demonstration punctual lights and emission removed. Native OBJ and LOD derivatives. Core PBR retained; transmission is an approximate transparent HDRP material, not an exact glTF glass reproduction.",
+      "preparedSourceSha256": "691afc56a0a47372b057a9092b0a77114da44badfb9eee491564a9748e379c6f",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/LightsPunctualLamp/glTF-Binary/LightsPunctualLamp.glb",
+      "modelLicense": "CC-BY-4.0",
+      "authors": [
+        "DGG"
+      ],
+      "nativeUnityValidated": false
+    }
+  ],
+  "wicker": {
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ClearcoatWicker/glTF-Binary/ClearcoatWicker.glb",
+    "sourceSha256": "f162b0cd7f8e6b7cef211eec57762165a78039676b8592ce1f965e2ddb34e843",
+    "authors": [
+      "Eric Chadwick"
+    ],
+    "license": "CC0-1.0",
+    "role": "PBR material adapted onto original procedural loungers; source demonstration sphere not instantiated",
+    "maps": {
+      "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathWicker_Albedo.png": {
+        "bytes": 448222,
+        "sha256": "2bdd4dd8aed133bcec0d3de035e46d91222e9bbf8196096e07300bf03faa5f86"
+      },
+      "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathWicker_Normal.png": {
+        "bytes": 381997,
+        "sha256": "2328f6679d0859d7e67a1793b2305bf42cf0bc8a6c024ff8b005abc4a5f80f8d"
+      },
+      "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/BathWicker_Mask.png": {
+        "bytes": 372810,
+        "sha256": "1efd144a515b1321a1d5eaa803c4ba402265968f3e93b4c2598abe366c4f3e9a"
+      }
+    },
+    "clearcoatNormalReproduced": false,
+    "nativeUnityValidated": false
+  },
+  "nativeUnityValidated": false
+}

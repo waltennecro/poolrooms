@@ -262,15 +262,53 @@
       "commit": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
       "ciStatus": "success",
       "evidence": "Verification/ci_garden_R20.json"
+    },
+    {
+      "id": "R21",
+      "feature": "Relaxing expansion level 2: connected travertine thermal baths",
+      "status": "implemented_core_verified_native_validation_pending",
+      "details": {
+        "newLevel": "ThermalBaths",
+        "distinctStructuralRecipes": 2500,
+        "boundaryRoomsChecked": 120,
+        "poolInstancesAcrossCatalogue": 6000,
+        "plannedObjectInstancesAcrossCatalogue": 40000,
+        "objectsPerRoom": 16,
+        "sourceLampInstancesAcrossCatalogue": 5000,
+        "nativeLampTriangles": [
+          6000,
+          3952,
+          2012
+        ],
+        "newAuthoredModels": 1,
+        "licensedOnlineMaterialSets": 1,
+        "maxArchitectureDetailGlassLoungerTriangles": 8936,
+        "candidateLightsPerRoom": 8,
+        "originalStonePbrMaps": 6,
+        "originalPbrMapSize": 1024,
+        "licensedWickerMaps": 3,
+        "sourceLampMaps": 9,
+        "importedPropsWaterAndGlobalDressingExcludedFromTriangleBudget": true,
+        "nativeUnityExecuted": false,
+        "flashlightChanged": false,
+        "renderDistanceReduced": false
+      },
+      "validationResults": {
+        "coreAssertionsPassed": 307583855,
+        "protectedGeometryFingerprints": 188,
+        "syntaxScripts": 208,
+        "syntaxConfigurations": 4,
+        "nativeUnityExecuted": false
+      }
     }
   ],
   "latestCoreChecks": {
-    "assertions": 176892100,
+    "assertions": 307583855,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 205,
+    "syntaxScripts": 208,
     "syntaxConfigurations": 4,
-    "pbrMapsVerified": 48,
+    "pbrMapsVerified": 54,
     "citySourcesAudited": 5,
     "quietRooms": 72,
     "quietItemSupports": 540,
@@ -325,14 +363,19 @@
     "buildingLodTrianglesAudited": 139312,
     "buildingPngMaps": 50,
     "buildingGenerationByteExact": true,
-    "stage": "R20",
+    "stage": "R21",
     "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
     "orangerieStructuralRecipes": 2500,
     "orangerieBoundaryRooms": 90,
     "orangerieDistributedObjectInstances": 42000,
     "orangerieMaxArchitectureTriangles": 10058,
     "orangerieMapsRegeneratedByteExact": true,
-    "gardenSourcePngMaps": 6
+    "gardenSourcePngMaps": 6,
+    "thermalBathStructuralRecipes": 2500,
+    "thermalBathBoundaryRooms": 120,
+    "thermalBathDistributedBasins": 6000,
+    "thermalBathObjectInstances": 40000,
+    "thermalBathMaxArchitectureTriangles": 8936
   },
   "pending": [
     {
@@ -367,14 +410,14 @@
     {
       "id": "relaxing_expansion",
       "feature": "10 new relaxing levels plus 10000 additional zones in existing world",
-      "status": "first_new_level_implemented_core_verified_native_pending",
+      "status": "two_new_levels_implemented_core_verified_native_pending",
       "roadmap": "EXPANSION_NIVELES.json",
-      "newLevelsRemaining": 9,
+      "newLevelsRemaining": 8,
       "globalAdditionalZonesImplemented": 0,
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "Continue the user-requested expansion one level at a time after the Orangerie delivery; nine proposed new levels and the separate 10000-zone global expansion remain pending in EXPANSION_NIVELES.json. Native Unity checks for all stages remain blocked by missing installed Editor/project/GPU. Do not claim the 35000-zone combined goal, native appearance or FPS is complete.",
+  "nextIndependentWork": "Continue the requested expansion with level 3 after the thermal-bath delivery. Eight new levels and the separate 10000-zone global expansion remain pending in EXPANSION_NIVELES.json. Native Unity compilation, shaders, visual, traversal and FPS checks remain unexecuted.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -389,7 +432,7 @@
     "placedFurnitureSourceTypes": 3,
     "chairLODDerivatives": 2,
     "chairColourVariants": 1,
-    "distinctDownloadedSources": 18,
+    "distinctDownloadedSources": 19,
     "distinctDownloadedAircraftSources": 1,
     "aircraftLODDerivatives": 0,
     "aircraftColourVariants": 1,
@@ -400,7 +443,7 @@
     "helicopterSourceLicense": "CC-BY-4.0",
     "helicopterLODDerivatives": 2,
     "helicopterOriginalSourceDownloadVerified": false,
-    "distinctGeometryFamilies": 17,
+    "distinctGeometryFamilies": 18,
     "additionalExistingGeometryVariantSources": 1,
     "downloadedFurnitureVariantSources": 1,
     "interiorSourceFiles": 2,
@@ -424,7 +467,12 @@
     "buildingPngMaps": 50,
     "gardenSourceFamilies": 1,
     "gardenSourcePngMaps": 6,
-    "gardenLODDerivatives": 2
+    "gardenLODDerivatives": 2,
+    "bathAuthoredModelFamilies": 1,
+    "bathLicensedMaterialSets": 1,
+    "bathSourceLODDerivatives": 2,
+    "bathSourcePngMaps": 9,
+    "bathWickerMaps": 3
   },
   "ciSdkFix": {
     "commit": "0444bd9",

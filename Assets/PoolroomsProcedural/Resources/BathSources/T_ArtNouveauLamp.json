@@ -1,0 +1,110 @@
+{
+  "id": "T_ArtNouveauLamp",
+  "resource": "BathSources/Models/T_ArtNouveauLamp",
+  "minimum": [
+    -0.3120085895061493,
+    0.0110623212531209,
+    -0.3619171977043152
+  ],
+  "maximum": [
+    0.8149782419204712,
+    1.8746249675750732,
+    0.35968679189682007
+  ],
+  "triangles": 6000,
+  "materials": [
+    {
+      "name": "T_ArtNouveauLamp_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": true,
+      "albedo": "BathSources/Textures/T_ArtNouveauLamp_m0_albedo",
+      "normal": "BathSources/Textures/T_ArtNouveauLamp_m0_normal",
+      "mask": "BathSources/Textures/T_ArtNouveauLamp_m0_mask"
+    },
+    {
+      "name": "T_ArtNouveauLamp_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": true,
+      "doubleSided": true,
+      "albedo": "BathSources/Textures/T_ArtNouveauLamp_m1_albedo",
+      "normal": "BathSources/Textures/T_ArtNouveauLamp_m1_normal",
+      "mask": "BathSources/Textures/T_ArtNouveauLamp_m1_mask"
+    },
+    {
+      "name": "T_ArtNouveauLamp_m2",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_transmission"
+      ],
+      "transparent": false,
+      "doubleSided": true,
+      "albedo": "BathSources/Textures/T_ArtNouveauLamp_m2_albedo",
+      "normal": "BathSources/Textures/T_ArtNouveauLamp_m2_normal",
+      "mask": "BathSources/Textures/T_ArtNouveauLamp_m2_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "BathSources/Models/T_ArtNouveauLamp_LOD1",
+      "triangles": 3952
+    },
+    {
+      "resource": "BathSources/Models/T_ArtNouveauLamp_LOD2",
+      "triangles": 2012
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "b9a95cd0e17dea5284117e54807b49b746960038457a31a0011b9344acc11104",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Static decorative unlit lamp, only the three original meshes; demonstration punctual lights and emission removed. Native OBJ and LOD derivatives. Core PBR retained; transmission is an approximate transparent HDRP material, not an exact glTF glass reproduction.",
+  "preparedSourceSha256": "691afc56a0a47372b057a9092b0a77114da44badfb9eee491564a9748e379c6f",
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/LightsPunctualLamp/glTF-Binary/LightsPunctualLamp.glb",
+  "modelLicense": "CC-BY-4.0",
+  "authors": [
+    "DGG"
+  ],
+  "nativeUnityValidated": false
+}

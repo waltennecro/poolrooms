@@ -380,11 +380,11 @@ namespace Poolrooms
                 foreach(var p in sources.sourceProps)
                 {string key="regional:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+p.slot;if(carry==null||!carry.WasTaken(key))PoolroomsPickup.CreateSourceSeat(key,p.Plan(),parent);}
             }
-            if(Application.isPlaying&&r.Plan!=null&&(r.Plan.Quiet!=null||r.Plan.Garden!=null))
+            if(Application.isPlaying&&r.Plan!=null&&(r.Plan.Quiet!=null||r.Plan.Garden!=null||r.Plan.Baths!=null))
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
-                var props=r.Plan.Garden!=null?r.Plan.Garden.Props:r.Plan.Quiet.Props;
-                string prefix=r.Plan.Garden!=null?"orangerie:":"quiet:";
+                var props=r.Plan.Baths!=null?r.Plan.Baths.Props:r.Plan.Garden!=null?r.Plan.Garden.Props:r.Plan.Quiet.Props;
+                string prefix=r.Plan.Baths!=null?"thermal:":r.Plan.Garden!=null?"orangerie:":"quiet:";
                 for(int i=0;i<props.Length;i++)
                 {
                     var prop=props[i];string key=prefix+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;

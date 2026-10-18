@@ -81,3 +81,11 @@ GardenSources
 Potted plant: original asset by Rico Cilliers (2021), CC0 1.0; materials by Eric Chadwick / Darmstadt Graphics Group GmbH (2024), CC BY 4.0.
 Source: KhronosGroup/glTF-Sample-Assets, revision edc7c9e67c639d230715049ee31f9a96a6babbbe. Full licenses and upstream notice included.
 Changes: static pot/leaves/dirt only, native OBJ and two LOD derivatives, original UV/normal/PBR conversion, alpha-cutout support, disabled presentation emission. No insects, animation or presentation lights imported. Optional glTF diffuse transmission not reproduced in HDRP. No endorsement implied.
+
+
+
+BathSources
+Art-nouveau lamp: DGG, 2021, CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+Wicker material: Eric Chadwick, 2023, CC0 1.0. https://creativecommons.org/publicdomain/zero/1.0/
+Sources: Khronos glTF Sample Assets, revision edc7c9e67c639d230715049ee31f9a96a6babbbe. Full upstream notices, metadata and licences included.
+Changes: lamp OBJ/two LOD derivatives and original core PBR; original presentation lights/emission removed, glass transmission approximated. Wicker base colour, normals and AO/metal/roughness adapted to native HDRP maps on original lounger geometry; clearcoat normal omitted. Wicker demonstration sphere not placed in game. No endorsement implied.

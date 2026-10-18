@@ -6,6 +6,9 @@ namespace Poolrooms
     [CreateAssetMenu(menuName="Poolrooms/Generation Profile",fileName="PoolroomsProfile")]
     public sealed class PoolroomsProfile : ScriptableObject
     {
+        [Header("Baños de travertino · expansión 2 de 10")]
+        public bool enableThermalBaths=true;
+        [Range(0,1)] public float thermalBathShare=.11f;
         [Header("Orangerie · expansión relajante 1 de 10")]
         public bool enableOrangerie=true;
         [Range(0,1)] public float orangerieShare=.14f;
@@ -130,7 +133,7 @@ namespace Poolrooms
         public bool colliders=true;
         public LayoutConfig Snapshot()
         {
-            var c=new LayoutConfig{EnableOrangerie=enableOrangerie,OrangerieShare=orangerieShare,EnableImportedBuildings=enableImportedBuildings,EnableCivicLevels=enableCivicLevels,CivicLevelShare=civicLevelShare,EnableAircraft=enableAircraft,EnableQuietLevels=enableQuietLevels,QuietLevelShare=quietLevelShare,EnableCity11=enableCity11,City11Share=city11Share,EnableSoftPlay=enableSoftPlay,SoftPlayShare=softPlayShare,CommonPoolrooms=commonPoolrooms,CommonSolarShare=commonSolarShare,CommonClimateRegionSize=commonClimateRegionSize,ConnectedTerrain=connectedTerrainGeneration&&enableTerrainRegions&&continuousWorld,ConnectedTerrainShare=connectedTerrainShare,ConnectedMalls=connectedMallGeneration&&continuousWorld,ConnectedMallShare=connectedMallShare,AutonomousGeneration=autonomousGeneration,IndependentBiomeMaterials=independentBiomeMaterials,MallDistricts=mallDistricts,Seed=seed,Columns=columns,Rows=rows,Continuous=continuousWorld,Procedural=liminalGeneration,Grammar=proceduralGrammar,SunlitRegionShare=sunlitRegionShare,PoolClimateRegionSize=poolClimateRegionSize,DirectRoomJoinChance=directRoomJoinChance,SupermarketShare=supermarketShare,AdditionalEnvironmentShare=additionalEnvironmentShare,EnvironmentRegionSize=environmentRegionSize,
+            var c=new LayoutConfig{EnableThermalBaths=enableThermalBaths,ThermalBathShare=thermalBathShare,EnableOrangerie=enableOrangerie,OrangerieShare=orangerieShare,EnableImportedBuildings=enableImportedBuildings,EnableCivicLevels=enableCivicLevels,CivicLevelShare=civicLevelShare,EnableAircraft=enableAircraft,EnableQuietLevels=enableQuietLevels,QuietLevelShare=quietLevelShare,EnableCity11=enableCity11,City11Share=city11Share,EnableSoftPlay=enableSoftPlay,SoftPlayShare=softPlayShare,CommonPoolrooms=commonPoolrooms,CommonSolarShare=commonSolarShare,CommonClimateRegionSize=commonClimateRegionSize,ConnectedTerrain=connectedTerrainGeneration&&enableTerrainRegions&&continuousWorld,ConnectedTerrainShare=connectedTerrainShare,ConnectedMalls=connectedMallGeneration&&continuousWorld,ConnectedMallShare=connectedMallShare,AutonomousGeneration=autonomousGeneration,IndependentBiomeMaterials=independentBiomeMaterials,MallDistricts=mallDistricts,Seed=seed,Columns=columns,Rows=rows,Continuous=continuousWorld,Procedural=liminalGeneration,Grammar=proceduralGrammar,SunlitRegionShare=sunlitRegionShare,PoolClimateRegionSize=poolClimateRegionSize,DirectRoomJoinChance=directRoomJoinChance,SupermarketShare=supermarketShare,AdditionalEnvironmentShare=additionalEnvironmentShare,EnvironmentRegionSize=environmentRegionSize,
                 IndoorPlayShare=indoorPlayShare,AuthoredRoomChance=authoredRoomChance,CellSize=cellSize,LoopChance=loopChance,
                 Distribution=distribution,DistrictSize=districtSize,Corridors=corridorStyle,
                 CorridorBend=corridorBend,CorridorLightSpacing=corridorLightSpacing,

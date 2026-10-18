@@ -38,9 +38,10 @@ namespace Poolrooms.Core
         public static bool IsCivic(LiminalEnvironment e)
         {return e==LiminalEnvironment.Conservatory||e==LiminalEnvironment.TransitGallery;}
         public static bool IsLevel(LiminalEnvironment e)
-        {return e==LiminalEnvironment.Orangerie||e==LiminalEnvironment.Archive906||e==LiminalEnvironment.Courtyard188||e==LiminalEnvironment.Coast48||IsCivic(e);}
+        {return e==LiminalEnvironment.ThermalBaths||e==LiminalEnvironment.Orangerie||e==LiminalEnvironment.Archive906||e==LiminalEnvironment.Courtyard188||e==LiminalEnvironment.Coast48||IsCivic(e);}
         public static void Describe(Room room,LayoutConfig c)
         {
+            if(room.Environment==LiminalEnvironment.ThermalBaths){ThermalBathPlanner.Describe(room,c);return;}
             if(room.Environment==LiminalEnvironment.Orangerie){OrangeriePlanner.Describe(room,c);return;}
             if(IsCivic(room.Environment)){DescribeCivic(room,c);return;}
             var e=room.Environment;room.ZoneId=-1;room.Width=room.Depth=c.CellSize;

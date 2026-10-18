@@ -1,0 +1,90 @@
+{
+  "Licenses/CC-BY-4.0.txt": {
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "Licenses/CC0-1.0.txt": {
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "Licenses/ClearcoatWicker_LICENSE.md": {
+    "bytes": 778,
+    "sha256": "625cc9e6acf2055201162048d083b017e7f59c82ebb29c09eb1f648360eb7f4b"
+  },
+  "Licenses/ClearcoatWicker_metadata.json": {
+    "bytes": 739,
+    "sha256": "b4e845954648203f9ac72ffb4b78ca01d18f965dd9f3a8df544bffb6c53473a5"
+  },
+  "Licenses/LightsPunctualLamp_LICENSE.md": {
+    "bytes": 793,
+    "sha256": "5c86cf5fda539fceeec9eaaa1e0527defc00704d8c1a12d6122fcc39dbaedac3"
+  },
+  "Licenses/LightsPunctualLamp_metadata.json": {
+    "bytes": 644,
+    "sha256": "6e489fce8fd96eca57669d760550becc84973de9a1f9c765d301537502c8e0aa"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 674,
+    "sha256": "29e779ceecbb82d3e1f4e0daec830377cfedaf26651c4957c27dd672190aab18"
+  },
+  "Models/T_ArtNouveauLamp.mtl": {
+    "bytes": 108,
+    "sha256": "b9fc817712658103b72fc4c531139640ac116ac03d0204344088dd3271ec2200"
+  },
+  "Models/T_ArtNouveauLamp.obj": {
+    "bytes": 714393,
+    "sha256": "a498ec39c23a7d63c3b1084220d3a75ba04b2a0582805687acd6863370655251"
+  },
+  "Models/T_ArtNouveauLamp_LOD1.obj": {
+    "bytes": 484745,
+    "sha256": "ad857aa416d5ad04d3c043518e548b20c0d94d1dc215ad474a41a31b171ecbb3"
+  },
+  "Models/T_ArtNouveauLamp_LOD2.obj": {
+    "bytes": 260412,
+    "sha256": "99ddb72d0e178ce6c52edb7caf77d2d675f5fce8b4ffb937e0f7d8cb73dc16f4"
+  },
+  "T_ArtNouveauLamp.json": {
+    "bytes": 2998,
+    "sha256": "f70093e58c3e7bdce284769d0f35e95219ac174cdeb6fb2ae3952396fbc454a4"
+  },
+  "Textures/T_ArtNouveauLamp_m0_albedo.png": {
+    "bytes": 2830511,
+    "sha256": "4c3693ec597066211a173701e0cd96c35058dd88f90332ad9735a1270ef6fc52"
+  },
+  "Textures/T_ArtNouveauLamp_m0_mask.png": {
+    "bytes": 904778,
+    "sha256": "2a5a9cfb6a207020ede50d087dc03f4a1fb1eaeb59b68625789cc8c647eb31a3"
+  },
+  "Textures/T_ArtNouveauLamp_m0_normal.png": {
+    "bytes": 2945189,
+    "sha256": "57a112ac5169674a1e3b63d249697b45b352b30c0ab73f0da2c4514269d0a691"
+  },
+  "Textures/T_ArtNouveauLamp_m1_albedo.png": {
+    "bytes": 52969,
+    "sha256": "5efca031cbef163e48391588ad61649f3b73f45eb502bdabb0a47af42c7dafe0"
+  },
+  "Textures/T_ArtNouveauLamp_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "27cc46b8c99841ca223f73f3238b0a68bebea81184ad63eef179468de7f1fea0"
+  },
+  "Textures/T_ArtNouveauLamp_m1_normal.png": {
+    "bytes": 2200,
+    "sha256": "5b3ed2d8323405632c2ed7ab9df4618d52bbdae198190f05424d1ee52c09b46a"
+  },
+  "Textures/T_ArtNouveauLamp_m2_albedo.png": {
+    "bytes": 2830511,
+    "sha256": "4c3693ec597066211a173701e0cd96c35058dd88f90332ad9735a1270ef6fc52"
+  },
+  "Textures/T_ArtNouveauLamp_m2_mask.png": {
+    "bytes": 904778,
+    "sha256": "2a5a9cfb6a207020ede50d087dc03f4a1fb1eaeb59b68625789cc8c647eb31a3"
+  },
+  "Textures/T_ArtNouveauLamp_m2_normal.png": {
+    "bytes": 2945189,
+    "sha256": "57a112ac5169674a1e3b63d249697b45b352b30c0ab73f0da2c4514269d0a691"
+  },
+  "catalog.json": {
+    "bytes": 4783,
+    "sha256": "00fa0594fa982c2c0608a9c94bbda59f6ae784c65128c2adcef8e903e7d1693c"
+  }
+}

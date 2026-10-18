@@ -77,6 +77,7 @@ static class Checks
         if(args.Contains("--capture-baseline")){Directory.CreateDirectory(Path.GetDirectoryName(baseline));File.WriteAllText(baseline,JsonSerializer.Serialize(actual,new JsonSerializerOptions{WriteIndented=true}));Console.WriteLine($"Captured {actual.Count} original geometry fingerprints");return 0;}
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
+        ThermalBathGeneration();
         OrangerieGeneration();
         MovementAndQuality();
         ForgivingJumpTiming();
@@ -104,6 +105,65 @@ static class Checks
         }
         Console.WriteLine($"PASS: {assertions} checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax {scripts.Length} scripts x {symbols.Length} configurations.");
         Console.WriteLine("Core compiled; Unity/HDRP API compilation, shaders, PhysX, visual quality and FPS NOT executed.");return 0;
+    }
+    static void ThermalBathGeneration()
+    {
+        Check((int)LiminalEnvironment.Orangerie==14&&(int)LiminalGeneration.Orangerie==18&&(int)SurfaceTheme.Orangerie==23,"Serialized pre-bath IDs changed");
+        var recipes=new HashSet<int>();foreach(int origin in new[]{-50,0,50})
+        {recipes.Clear();for(int x=origin;x<origin+50;x++)for(int z=origin;z<origin+50;z++)recipes.Add(ThermalBathPlanner.RecipeAt(99,x,z));Check(recipes.Count==2500,"Incomplete bath catalogue permutation");}
+        foreach(int x in new[]{int.MinValue,-1,0,int.MaxValue})foreach(int z in new[]{int.MinValue,-1,0,int.MaxValue})Check(ThermalBathPlanner.RecipeAt(77,x,z)>=0&&ThermalBathPlanner.RecipeAt(77,x,z)<2500,"Bath recipe overflow");
+        var structures=new HashSet<string>();int objects=0,pools=0,maxTriangles=0;
+        var config=new LayoutConfig{CellSize=36,Continuous=true,Procedural=LiminalGeneration.ThermalBaths,CurveSegments=16};
+        for(int recipe=0;recipe<2500;recipe++)
+        {
+            var r=new Room{X=2,Z=3,Exits=15};ThermalBathPlanner.DescribeRecipe(r,config,recipe);var g=ThermalBathArchitecture.Build(r,config);
+            Check(r.Plan.Valid(r,config),"Invalid bath plan");Check(structures.Add(Hash(g.Structure)),"Duplicate bath structural recipe: "+recipe);
+            foreach(var mesh in new[]{g.Structure,g.Decoration,g.Glass,g.Water}.Concat(g.VisualMeshes))
+            {Validate(mesh);foreach(var n in mesh.Normals)Check(float.IsFinite(n.Length)&&Math.Abs(n.Length-1)<.002f,"Non-unit bath normal");}
+            int triangles=g.Structure.TriangleCount+g.Decoration.TriangleCount+g.Glass.TriangleCount+g.VisualMeshes.Sum(m=>m.TriangleCount);maxTriangles=Math.Max(maxTriangles,triangles);Check(triangles<=20000,"Bath geometry exceeded bounded cost");
+            Check(g.Fixtures.Count==8&&g.Fixtures.Count(f=>f.SolarFill&&f.AmbientSupport)==4,"Bath source count or specular bounce invalid");
+            Check(g.Regions.Count==r.Plan.Baths.Pools.Length&&g.Water.TriangleCount>0,"Missing bath water geometry/metadata");
+            Check(g.Water.Positions.All(v=>Math.Abs(v.Y-config.WaterLevel)<.0001f),"Water mesh height differs from physics contacts");objects+=r.Plan.Baths.Props.Length;pools+=g.Regions.Count;
+            if(recipe%50==0)
+            {var copy=new Room{X=2,Z=3,Exits=15};ThermalBathPlanner.DescribeRecipe(copy,config,recipe);var repeat=ThermalBathArchitecture.Build(copy,config);Check(Hash(g.Structure,g.Decoration,g.Water,g.Glass)==Hash(repeat.Structure,repeat.Decoration,repeat.Water,repeat.Glass),"Bath generation depends on load order");}
+        }
+        int boundaryRooms=0;
+        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int sample=0;sample<20;sample++)
+        {
+            var c=new LayoutConfig{CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2.1f,Continuous=true,Procedural=LiminalGeneration.ThermalBaths,AutonomousGeneration=true,CurveSegments=16};var layout=new Layout(c);var r=layout.At(sample-10,7);var g=Architecture.Build(r,layout);
+            Check(r.Plan.Baths!=null&&r.Plan.Valid(r,c),"Bath level not integrated into normal generation");
+            Check(r.Plan.Assemblies.Length==0&&g.SourceProps.Count==0,"Generic packing overrides protected thermal paths");
+            foreach(var p in r.Plan.Baths.Pools)
+            {
+                Check(Math.Abs(Support(g.Structure,new V3(p.CenterX,2,p.CenterZ))-p.Bottom)<.001f,"Invisible floor seals bath or basin lacks support");
+                int steps=(int)Math.Round(-p.Bottom/.21f);
+                for(int k=1;k<=steps;k++)
+                {var point=new V3(p.CenterX+p.Width*.5f-.3f*(k-.5f),2,p.CenterZ);Check(Math.Abs(Support(g.Structure,point)+k*.21f)<.003f,"Bath entry/exit step has inconsistent rise or support");}
+                Check(p.Contains(p.CenterX,p.CenterZ)&&!p.Contains(0,0),"Water metadata covers a dry circulation route");
+            }
+            foreach(var a in ThermalBathArchitecture.Apertures(r))Check(Support(g.Structure,new V3(a.X,r.Height+.01f,a.Z))<r.Height-.5f,"Opaque roof seals bath skylight");
+            for(int d=0;d<4;d++)
+            {
+                var n=layout.Neighbour(r,d);Check(Math.Abs(SolarConnections.DoorWidth(r,d,c)-SolarConnections.DoorWidth(n,(d+2)%4,c))<.001f&&Math.Abs(SolarConnections.DoorHeight(r,d,c)-SolarConnections.DoorHeight(n,(d+2)%4,c))<.001f,"Bath openings are not reciprocal");
+                for(float t=0;t<size*.5f-.1f;t+=.5f)for(int edge=-1;edge<=1;edge++)
+                {float lateral=edge*(door*.5f+.2f);var point=new V3(Directions.DX[d]*t+Directions.DZ[d]*lateral,2,Directions.DZ[d]*t+Directions.DX[d]*lateral);Check(Math.Abs(Support(g.Structure,point))<.002f,"Bath route is obstructed or lacks dry support");}
+            }
+            for(int i=0;i<r.Plan.Baths.Props.Length;i++)
+            {
+                var p=r.Plan.Baths.Props[i];
+                if(p.Source!=null)
+                {
+                    int source=SourceFurniture.Index(p.Source);var half=SourceFurniture.HalfExtents(source,p.Yaw);Check(SourceFurniture.Clear(g.Structure,new SourceFurniturePlacement(i,source,p.Bottom,p.Yaw),.005f),"Bath furnishing intersects structure: "+p.Source);
+                    Check(Math.Abs(p.Bottom.X)+half.X<size*.5f-.25f&&Math.Abs(p.Bottom.Z)+half.Z<size*.5f-.25f,"Bath furniture crosses envelope");
+                    if(i%4==2||i%4==3)Check(Math.Abs(p.Bottom.Y-r.Plan.Baths.Props[i-i%4+1].Bottom.Y-SourceFurniture.Dimensions(7).Y)<.001f,"Bath tabletop object unsupported");
+                    else Check(Math.Abs(Support(g.Structure,p.Bottom))<.001f,"Bath furniture lacks floor support");
+                }
+                else Check(p.CatalogId>=0&&p.CatalogId<MallItemCatalog.Count,"Invalid bath item");
+            }
+            foreach(var link in g.Connectors)if(link!=null){Validate(link.Structure);Check(link.Structure.Positions.All(p=>p.Y<-.001f),"Bath connector causes coplanar floor overlap");}boundaryRooms++;
+        }
+        var mixed=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Expanded,EnableThermalBaths=true};Check(LiminalRegions.Find(mixed,LiminalEnvironment.ThermalBaths,0,0,out int fx,out int fz),"Bath absent from mixed world / TP");Check(LiminalRegions.At(mixed,fx,fz)==LiminalEnvironment.ThermalBaths,"Bath TP points at another environment");mixed.EnableThermalBaths=false;Check(!LiminalRegions.Find(mixed,LiminalEnvironment.ThermalBaths,0,0,out _,out _),"Disabled bath still found");
+        Console.WriteLine($"Thermal baths: {structures.Count} unique structural recipes at identical coordinates/seed; {pools} distributed basins, {objects} planned object instances, {boundaryRooms} integrated boundary rooms; max {maxTriangles} architecture/detail/glass/lounger triangles (imported props/global dressing excluded). Native Unity unrun.");
     }
     static void OrangerieGeneration()
     {

@@ -237,3 +237,16 @@ y el empaquetado. Assets acumulativos: 755 archivos, 268.127.124 bytes.
 Respaldo público descargado: 425.123.968 bytes, CRC válido y 919 archivos
 coincidentes por SHA-256. Evidencias en `Verification/ci_garden_R20.json`.
 Las pruebas nativas de aspecto, recorte, interacción y FPS siguen sin ejecutar.
+
+## R21 — Baños de travertino, expansión 2 de 10
+
+Bioma conectado con 2.500 composiciones estructurales verificadas, piscinas
+con fondos/escalones reales, tumbonas, lucernarios y 16 objetos por sala.
+Se descargan e integran una lámpara de DGG (CC BY 4.0) y un material de
+mimbre de Eric Chadwick (CC0), con fuentes, licencias y atribuciones.
+6.000 piscinas y 40.000 instancias distribuidas del catálogo, sin carga
+simultánea ni conteo de LOD como modelos nuevos. Ocho luces candidatas
+por sala y reflejos del sistema compartido, sin reducir streaming.
+Documentación: `Assets/PoolroomsProcedural/Documentation/EXPANSION_02_BANOS_TRAVERTINO.md`.
+Núcleo y sintaxis verificados; Unity, aspecto, física y FPS pendientes.
+Quedan ocho niveles y las 10.000 zonas globales separadas.
