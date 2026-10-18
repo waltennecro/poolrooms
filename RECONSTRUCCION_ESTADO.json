@@ -399,8 +399,11 @@
         "newArtRegenerationByteExact": true,
         "allBasePbrMapsAudited": 70,
         "nativePlayModeTestsAddedButUnrun": 2,
-        "coreMathematicalAssertionsPassed": 1568944916
-      }
+        "coreMathematicalAssertionsPassed": 1568944916,
+        "cumulativeAssetsFiles": 818,
+        "publicBackupBytes": 457009405
+      },
+      "evidence": "Verification/ci_flumes_R23.json"
     }
   ],
   "latestCoreChecks": {
@@ -486,7 +489,8 @@
     "slideFamilySizeCases": 500,
     "slideFamilyRidePositions": 5400,
     "aquaticRotationContracts": 32,
-    "aquaticSingleExitRooms": 16
+    "aquaticSingleExitRooms": 16,
+    "sourceRevision": "43235448497285282187843426bd7b90f6695189"
   },
   "pending": [
     {
@@ -528,7 +532,7 @@
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "R23 core verified; complete cumulative publication evidence. Native Unity/HDRP compilation, transparency ordering, rendering, physics and FPS remain pending; seven further relaxing levels and separate 10000-zone global expansion remain unimplemented.",
+  "nextIndependentWork": "R23 core, syntax, CI and cumulative backup complete. Native Unity/HDRP compilation, transparency ordering, rendering, physics and FPS remain pending; seven further relaxing levels and separate 10000-zone global expansion remain unimplemented.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -919,6 +923,23 @@
         "id": 12142534471,
         "bytes": 289490407,
         "digest": "sha256:acdd5c1f929b6094fca9f043f112907555bfee648c8074f8b8803d85a1ad8462"
+      }
+    ]
+  },
+  "flumeFamiliesCi": {
+    "run": 39147700285,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39147700285",
+    "sourceRevision": "43235448497285282187843426bd7b90f6695189",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117734799567,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12143509984,
+        "bytes": 289703589,
+        "digest": "sha256:f9d15e7d7a8c0c1f7bd161bd6e5e00be7b67a3b69af665ac89c5b73072b33b7f"
       }
     ]
   }

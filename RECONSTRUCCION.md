@@ -285,3 +285,9 @@ la lámina es aproximación visual, no simulación hidráulica. Núcleo, 188 hue
 antiguas y sintaxis C# verificados;
 Unity, shaders, aspecto, transparencia, física y FPS pendientes.
 Documentación: `Assets/PoolroomsProcedural/Documentation/TOBOGANES_250_R23.md`.
+
+R23: CI [39147700285](https://github.com/waltennecro/poolrooms/actions/runs/39147700285) completada correctamente, incluidos
+33.600 planes, auditores de texturas/fuentes y paquete acumulativo. Assets: 818 archivos,
+290568748 bytes. Respaldo público descargado: 457009405 bytes, CRC
+válido y 1003 archivos coincidentes por SHA-256. Evidencia: `Verification/ci_flumes_R23.json`.
+Unity/HDRP, shaders, transparencia, aspecto, PhysX y FPS siguen sin ejecutar.
