@@ -1,5 +1,7 @@
 # R27 — Perspectivas, fotografía y apariencias 3D
 
+> Las apariencias evolucionan en [R28](SKINS_HUMANOIDES_R28.md): sección Skins, rig común y adaptación de modelos sin huesos. Las instrucciones de apariencia de esta página describen R27.
+
 ## Uso
 
 Reemplaza únicamente `Assets/PoolroomsProcedural` fuera de Play, conservando

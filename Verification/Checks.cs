@@ -48,6 +48,7 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--humanoid")){HumanoidSkins();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} humanoid assertions; native Unity unrun.");return 0;}
         if(args.Contains("--camera-avatar")){CameraAndAvatars();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} camera/avatar assertions; native Unity unrun.");return 0;}
         if(args.Contains("--water-optics")){WaterOptics();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} water optics and integration contract assertions; native Unity unrun.");return 0;}
         if(args.Contains("--walkable-only")){WalkableNetwork();Console.WriteLine($"PASS: {assertions} walkable network assertions; native Unity unrun.");return 0;}
@@ -92,7 +93,7 @@ static partial class Checks
         ThermalBathGeneration();
         OrangerieGeneration();
         MovementAndQuality();
-        WaterOptics();CameraAndAvatars();IntegrationSourceContracts();
+        WaterOptics();CameraAndAvatars();HumanoidSkins();IntegrationSourceContracts();
         ForgivingJumpTiming();
         CompactTerrain();
         CityGeneration();
@@ -109,7 +110,7 @@ static partial class Checks
         CivicGeneration();
         CameraLandingResponse();
         DressingGeneration();
-        string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
+        string[][] symbols={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"},new[]{"UNITY_STANDALONE_WIN","ENABLE_LEGACY_INPUT_MANAGER","UNITY_INCLUDE_TESTS"}};
         var scripts=Directory.GetFiles(Path.Combine(root,"Assets"),"*.cs",SearchOption.AllDirectories);
         foreach(var config in symbols)foreach(var path in scripts)
         {

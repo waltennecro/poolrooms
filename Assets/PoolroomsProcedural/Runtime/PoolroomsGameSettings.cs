@@ -87,7 +87,7 @@ namespace Poolrooms
         }
         public void Reset(SettingsCategory category)
         {
-            Initialize();Preferences.Reset(category);
+            Initialize();if(category==SettingsCategory.Skins){GetComponent<PoolroomsAvatar>()?.ResetSettings();return;}Preferences.Reset(category);
             if(category==SettingsCategory.Controls){var torch=GetComponent<PoolroomsFlashlight>();if(torch!=null)torch.ResetPreferences();}
             if(category==SettingsCategory.Graphics&&sceneDefaults!=null)
             {

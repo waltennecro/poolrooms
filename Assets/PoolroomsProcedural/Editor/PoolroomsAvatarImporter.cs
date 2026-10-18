@@ -1,12 +1,40 @@
+using System;
 using System.IO;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Object=UnityEngine.Object;
 
 namespace Poolrooms.Editor
 {
+    [InitializeOnLoad]
     public static class PoolroomsAvatarImporter
     {
+        static PoolroomsAvatarImporter(){PoolroomsAvatar.ProjectImporter=ImportFile;}
+        public static PoolroomsAvatarDefinition ImportFile(string file)
+        {
+            string extension=Path.GetExtension(file).ToLowerInvariant();
+            if(extension!=".fbx"&&extension!=".dae"&&extension!=".3ds"&&extension!=".dxf"&&extension!=".blend")throw new NotSupportedException("Formato no compatible. Usa OBJ, FBX, DAE, 3DS, DXF, BLEND o GLB/glTF con glTFast.");
+            if(new FileInfo(file).Length>128*1024*1024)throw new FormatException("El modelo supera 128 MB. Exporta una versión optimizada para el jugador.");
+            string folder=AssetDatabase.GenerateUniqueAssetPath("Assets/ImportedSkins/"+Path.GetFileNameWithoutExtension(file));Directory.CreateDirectory(folder);
+            string target=folder+"/"+Path.GetFileName(file);File.Copy(file,target);int count=0;long bytes=0;
+            // Only explicit adjacent texture folders, never recursively copy a Downloads/Documents tree.
+            foreach(string directory in new[]{Path.GetDirectoryName(file),Path.Combine(Path.GetDirectoryName(file),"Textures"),Path.Combine(Path.GetDirectoryName(file),"textures")})
+            {
+                if(!Directory.Exists(directory))continue;
+                foreach(string image in Directory.GetFiles(directory))
+                {
+                    string ext=Path.GetExtension(image).ToLowerInvariant();if(ext!=".png"&&ext!=".jpg"&&ext!=".jpeg"&&ext!=".tga"&&ext!=".tif"&&ext!=".exr")continue;
+                    long size=new FileInfo(image).Length;if(size>16*1024*1024||count>=32||bytes+size>128*1024*1024)continue;
+                    string sub=directory==Path.GetDirectoryName(file)?"":Path.GetFileName(directory)+"/";Directory.CreateDirectory(folder+"/"+sub);
+                    string destination=folder+"/"+sub+Path.GetFileName(image);if(File.Exists(destination))continue;File.Copy(image,destination);count++;bytes+=size;
+                }
+            }
+            AssetDatabase.Refresh();AssetDatabase.ImportAsset(target,ImportAssetOptions.ForceSynchronousImport);
+            if(AssetImporter.GetAtPath(target) is ModelImporter importer){importer.isReadable=true;importer.SaveAndReimport();}
+            var model=AssetDatabase.LoadAssetAtPath<GameObject>(target);if(model==null)throw new FormatException("Unity no pudo importar el modelo. BLEND requiere Blender instalado; consulta la consola.");
+            Selection.activeObject=model;FromSelection();return Selection.activeObject as PoolroomsAvatarDefinition;
+        }
         [MenuItem("Tools/Poolrooms/Personaje/Crear apariencia desde modelo seleccionado")]
         public static void FromSelection()
         {
@@ -52,7 +80,7 @@ namespace Poolrooms.Editor
                 var definition=ScriptableObject.CreateInstance<PoolroomsAvatarDefinition>();definition.model=prefab;
                 string path=AssetDatabase.GenerateUniqueAssetPath(directory+"/"+name+".asset");AssetDatabase.CreateAsset(definition,path);AssetDatabase.SaveAssets();
                 Selection.activeObject=definition;EditorGUIUtility.PingObject(definition);
-                Debug.Log("Apariencia creada. Ajusta altura, orientación, materiales HDRP y controlador Animator si el modelo tiene rig. Aparecerá en Ajustes > Cámara > Apariencia. Materiales simples convertidos sin modificar los originales; revisa transparencias y mapas PBR avanzados. Conserva la licencia del modelo.",definition);
+                Debug.Log("Apariencia creada. Ajusta altura, orientación y materiales HDRP. Aparecerá en Ajustes > Skins. Humanoid conserva sus pesos y utiliza la animación común; otros modelos humanoides legibles reciben pesos automáticos. Materiales simples convertidos sin modificar los originales; revisa transparencias y mapas PBR avanzados. Conserva la licencia del modelo.",definition);
             }
             finally{if(holder!=null)Object.DestroyImmediate(holder);}
         }

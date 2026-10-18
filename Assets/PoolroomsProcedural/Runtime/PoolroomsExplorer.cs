@@ -161,6 +161,8 @@ namespace Poolrooms
         {chatPressed=chat;masterPressed=master;flashPressed=flash;flashCycle=cycle;ascend=up;descend=down;}
         [Tooltip("Open the title screen before exploration starts.")] public bool showStartMenu=true;
         private bool inspectHeld;
+        private bool emotePressed;
+        public void FeedEmoteInput(bool pressed){emotePressed=pressed;}
         public void FeedInspectInput(bool held){inspectHeld=held;}
         public void FeedCarryInput(bool grab,bool drop){grabPressed=grab;dropPressed=drop;}
         public void FeedSlideInput(bool held){slideHeld=held;}
@@ -191,7 +193,7 @@ namespace Poolrooms
                 jump=Input.GetKeyDown(KeyCode.Space);sprint=Input.GetKey(KeyCode.Backslash)||Input.GetKey(KeyCode.BackQuote)||Input.GetKey(KeyCode.Less);FeedDashInput(Input.GetKeyDown(KeyCode.LeftShift));FeedSlideInput(Input.GetKey(KeyCode.LeftControl));
                 escape=Input.GetKeyDown(KeyCode.Escape);click=Input.GetMouseButtonDown(0);FeedRenderingShortcut(Input.GetKeyDown(KeyCode.F7));
                 FeedUtilityInput(Input.GetKeyDown(KeyCode.Y),Input.GetKeyDown(KeyCode.M),Input.GetKeyDown(KeyCode.F),Input.GetKeyDown(KeyCode.V),Input.GetKey(KeyCode.Space),Input.GetKey(KeyCode.LeftControl));
-                FeedCarryInput(Input.GetKeyDown(KeyCode.E),Input.GetKeyDown(KeyCode.Q));FeedInspectInput(Input.GetKey(KeyCode.R));
+                FeedCarryInput(Input.GetKeyDown(KeyCode.E),Input.GetKeyDown(KeyCode.Q));FeedInspectInput(Input.GetKey(KeyCode.R));FeedEmoteInput(Input.GetKeyDown(KeyCode.B));
                 FeedViewInput(Input.GetKeyDown(KeyCode.F5),Input.GetKeyDown(KeyCode.F6),Input.GetKeyDown(KeyCode.F9),Input.GetKeyDown(KeyCode.F8),Input.GetMouseButton(1),
                     (Input.GetKey(KeyCode.E)?1:0)-(Input.GetKey(KeyCode.Q)?1:0),(Input.GetKey(KeyCode.C)?1:0)-(Input.GetKey(KeyCode.Z)?1:0),Input.mouseScrollDelta.y,Input.GetKey(KeyCode.LeftShift));
 #else
@@ -200,7 +202,7 @@ namespace Poolrooms
             }
             bool viewConsumed=Views!=null&&Views.isActiveAndEnabled&&Views.HandleInput(move,look,viewCycle,photoPressed,escape,photoCapture,photoHide,photoLook,photoVertical,photoRoll,photoScroll,photoFast);
             viewCycle=photoPressed=photoCapture=photoHide=false;photoScroll=0;
-            if(viewConsumed){escape=click=renderingShortcut=jump=dashPressed=grabPressed=dropPressed=chatPressed=masterPressed=flashPressed=flashCycle=false;slideHeld=inspectHeld=false;return;}
+            if(viewConsumed){emotePressed=false;escape=click=renderingShortcut=jump=dashPressed=grabPressed=dropPressed=chatPressed=masterPressed=flashPressed=flashCycle=false;slideHeld=inspectHeld=false;return;}
             if(renderingShortcut&&pauseMenu!=null&&pauseMenu.isActiveAndEnabled)pauseMenu.OpenRenderingSettings();
             else if(escape)
             {
@@ -219,7 +221,7 @@ namespace Poolrooms
             }
             chatPressed=masterPressed=flashPressed=flashCycle=false;
             bool blocked=IsPaused||InputCaptured||masterMode!=null&&masterMode.ClosedThisFrame||Time.timeScale<=0;
-            bool burst=dashPressed;dashPressed=false;
+            bool emote=emotePressed;emotePressed=false;bool burst=dashPressed;dashPressed=false;
             bool sprintRequested=sprintPreference.Sample(sprint,toggleSprint,blocked||Cursor.lockState!=CursorLockMode.Locked||world!=null&&!world.ViewerReady);
             bool grab=grabPressed,drop=dropPressed;grabPressed=dropPressed=false;
             if(blocked){locomotion.ClearJumpIntent();if(Vehicle!=null)Vehicle.Control(0,0,true);dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
@@ -285,6 +287,7 @@ namespace Poolrooms
             // CharacterController.velocity reports only the last substep; optics need full-frame travel.
             ViewVelocity=transform.InverseTransformDirection((transform.position-before)/Time.deltaTime);
             ViewGrounded=body.isGrounded&&!swimming;ViewSprinting=sprintRequested&&ViewGrounded&&!IsSliding&&!IsDashing;
+            if(emote&&!blocked){var avatar=GetComponent<PoolroomsAvatar>();if(avatar!=null)avatar.PlayEmote(avatar.Preferences.emote);}
             float contactLevel=0,impact=0;
             bool waterHere=world!=null&&world.TryGetWater(transform.position,out contactLevel);
             float feet=body.bounds.min.y;

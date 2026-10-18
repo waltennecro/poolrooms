@@ -141,3 +141,15 @@ Button:disabled { opacity: 0.4; }
 .pr-title-screen .pr-primary { background-color: rgb(73, 91, 71); }
 .pr-title-screen .pr-home-actions { margin-top: 12px; }
 .pr-camera-5 { border-color: rgb(163, 180, 185); }
+
+/* R28: skin paths/actions stay inside the control column at compact widths. */
+.pr-skin-import, .pr-skin-status { flex-direction: column; align-items: stretch; }
+.pr-skin-actions { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; }
+.pr-skin-actions Button { flex-grow: 1; padding-left: 8px; padding-right: 8px; }
+.pr-skin-path { min-width: 0; width: 100%; margin-bottom: 5px; }
+.pr-skin-path .unity-text-field__input {
+    color: rgb(228, 238, 228); background-color: rgb(20, 27, 29);
+    border-width: 1px; border-color: rgba(172, 193, 180, 0.22); border-radius: 6px;
+    padding: 7px; min-height: 32px;
+}
+.pr-skin-status Label { white-space: normal; min-width: 0; margin-bottom: 5px; }

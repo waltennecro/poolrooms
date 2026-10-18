@@ -35,7 +35,7 @@ static partial class Checks
     static void IntegrationSourceContracts()
     {
         string root=Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,"../../../../"));
-        string[][] configs={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"}};
+        string[][] configs={Array.Empty<string>(),new[]{"UNITY_EDITOR","UNITY_INCLUDE_TESTS","ENABLE_LEGACY_INPUT_MANAGER"},new[]{"POOLROOMS_HDRP_17","UNITY_EDITOR","UNITY_INCLUDE_TESTS"},new[]{"POOLROOMS_INPUT_SYSTEM","ENABLE_INPUT_SYSTEM","UNITY_INCLUDE_TESTS"},new[]{"UNITY_STANDALONE_WIN","ENABLE_LEGACY_INPUT_MANAGER","UNITY_INCLUDE_TESTS"}};
         int bindings=0;var references=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator).Select(p=>MetadataReference.CreateFromFile(p)).ToArray();
         foreach(string file in Directory.GetFiles(Path.Combine(root,"Assets"),"*.cs",SearchOption.AllDirectories))
         foreach(var config in configs)
@@ -63,6 +63,6 @@ static partial class Checks
             bindings++;
         }
         Check(bindings>=6,"HDRP LightUnit binding checks did not execute");
-        Console.WriteLine($"PASS: C# syntax/Tooltip contracts in four symbol configurations; {bindings} reduced LightUnit binding checks. Native Unity APIs NOT compiled.");
+        Console.WriteLine($"PASS: C# syntax/Tooltip contracts in {configs.Length} symbol configurations; {bindings} reduced LightUnit binding checks. Native Unity APIs NOT compiled.");
     }
 }

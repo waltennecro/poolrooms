@@ -59,7 +59,7 @@ namespace Poolrooms.Tests
             {
                 Create(out root,out var explorer);var controller=root.GetComponent<CharacterController>();float height=controller.height,radius=controller.radius;
                 var avatar=root.AddComponent<PoolroomsAvatar>();source=GameObject.CreatePrimitive(PrimitiveType.Cube);source.transform.localScale=new Vector3(2,4,1);
-                definition=ScriptableObject.CreateInstance<PoolroomsAvatarDefinition>();definition.name="Test model";definition.model=source;definition.height=1.75f;
+                definition=ScriptableObject.CreateInstance<PoolroomsAvatarDefinition>();definition.name="Test model";definition.model=source;definition.height=1.75f;definition.sharedHumanoid=false;
                 Assert.That(avatar.Apply(definition),Is.True);avatar.SetVisible(true,false);
                 var owned=(GameObject)typeof(PoolroomsAvatar).GetField("modelRoot",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(avatar);
                 var renderer=owned.GetComponentInChildren<Renderer>();Assert.That(renderer.bounds.size.y,Is.EqualTo(1.75f).Within(.001f));Assert.That(renderer.bounds.min.y,Is.EqualTo(0).Within(.001f));

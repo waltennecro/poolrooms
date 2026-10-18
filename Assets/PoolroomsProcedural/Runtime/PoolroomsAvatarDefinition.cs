@@ -8,7 +8,9 @@ namespace Poolrooms
         public GameObject model;
         [Range(.5f,2.5f)] public float height=1.75f;
         public float forwardCorrection;
-        public RuntimeAnimatorController controller;
+        [Tooltip("Usa las animaciones comunes. Desactiva solo para un modelo estático de diagnóstico.")]
+        public bool sharedHumanoid=true;
+        public RuntimeAnimatorController controller; // Legacy serialized field; common animation owns the skeleton.
         [TextArea] public string attribution;
     }
 }

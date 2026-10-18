@@ -1,0 +1,42 @@
+{
+  "stage": "R28",
+  "retrievedUtc": "2026-10-18",
+  "optionalPackage": "com.unity.cloud.gltfast@6.7.1",
+  "sourceVersionObserved": "6.7.1",
+  "assembly": "glTFast",
+  "usedPublicApis": [
+    "GltfImport optional constructor",
+    "Load(string, ImportSettings, CancellationToken)",
+    "InstantiateMainSceneAsync(Transform, CancellationToken)",
+    "IDisposable.Dispose"
+  ],
+  "packageInstalledInCloud": false,
+  "sourceCopiedIntoGame": false,
+  "nativeImportExecuted": false,
+  "sources": [
+    {
+      "purpose": "package",
+      "url": "https://raw.githubusercontent.com/atteneder/glTFast/main/package.json",
+      "sha256": "9f4d2e97d5e1988cee8594619e804f71004532911ea791e5a0b42eafe788a201",
+      "bytes": 640
+    },
+    {
+      "purpose": "assembly",
+      "url": "https://raw.githubusercontent.com/atteneder/glTFast/main/Runtime/Scripts/glTFast.asmdef",
+      "sha256": "94ca18f70436df92ee1e05ee34895807b558dab9df0fc7dcc5b4e12f4a61cc2c",
+      "bytes": 3157
+    },
+    {
+      "purpose": "api",
+      "url": "https://raw.githubusercontent.com/atteneder/glTFast/main/Runtime/Scripts/GltfImport.cs",
+      "sha256": "e3f2d06212014f49f41d65e197b956d140d869e47485398861e64b4030d9ed8b",
+      "bytes": 166248
+    },
+    {
+      "purpose": "license",
+      "url": "https://raw.githubusercontent.com/atteneder/glTFast/main/LICENSE.md",
+      "sha256": "cccf2d7a6c705ec991d5229a775e7fbd41fa6de57d4e3f33bbecb967c3055ef9",
+      "bytes": 10780
+    }
+  ]
+}

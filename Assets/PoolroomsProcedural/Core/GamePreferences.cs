@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Poolrooms.Core
 {
-    public enum SettingsCategory { Display,Graphics,Camera,Audio,Controls,Comfort }
+    public enum SettingsCategory { Display,Graphics,Camera,Audio,Controls,Comfort,Skins }
     public enum GameWindowMode { Window,Borderless,Exclusive,Maximized }
     public enum SettingsGraphicsFeature { Reflections,IndirectLight,AmbientOcclusion,Volumetrics,Water,WaterInteractions }
     public static class SettingsSearch
@@ -95,7 +95,7 @@ namespace Poolrooms.Core
         {
             switch(category){case SettingsCategory.Display:return SettingsChange.Timing;case SettingsCategory.Graphics:return SettingsChange.Graphics;
                 case SettingsCategory.Camera:return SettingsChange.Camera;case SettingsCategory.Audio:return SettingsChange.Audio;
-                case SettingsCategory.Controls:return SettingsChange.Controls;default:return SettingsChange.Comfort|SettingsChange.Camera;}
+                case SettingsCategory.Controls:return SettingsChange.Controls;case SettingsCategory.Skins:return SettingsChange.None;default:return SettingsChange.Comfort|SettingsChange.Camera;}
         }
     }
 

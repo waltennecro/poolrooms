@@ -370,3 +370,29 @@ medios, paquete y artefacto. Assets: 851 archivos, 296261592 bytes.
 Respaldo público descargado: 462733354 bytes, CRC válido y 1049
 archivos coincidentes por SHA-256. Evidencia: `Verification/ci_camera_avatar_R27.json`.
 Compilación Unity/HDRP, apariencias, animación, fotos, física y FPS sin ejecutar.
+
+## R28 · Skins humanoides con un movimiento común
+
+Se reemplaza la silueta neutral por importación de skins en una categoría Skins
+propia. Humanoid conserva pesos/huesos; OBJ/Generic legibles reciben 21 huesos y
+cuatro influencias anatómicas aproximadas. Marcha, carrera, saltos, caída, dash,
+deslizamiento, agua, vuelo, postura sentada y seis emotes usan el mismo generador
+de pose e IK; no cambia root motion ni cápsula. El ajuste es aproximado y permite
+corregir pose, eje, orientación, hombros y caderas. No es rig universal perfecto.
+
+OBJ directo con MTL; FBX/DAE/3DS/DXF/BLEND se preparan mediante el Editor, con
+carpetas de usuario fuera del paquete reemplazable. GLB/glTF tiene un adaptador
+opcional para Unity glTFast 6.7.1, sin instalarlo ni afirmar pruebas nativas.
+Los materiales compatibles se conservan y las modificaciones usan copias; RT
+dinámico solo con modo y hardware compatibles. Linterna y distancia conservadas.
+
+Documentación: `SKINS_HUMANOIDES_R28.md`. Añadidas comprobaciones matemáticas
+y pruebas PlayMode de bind pose/deformación; compilación Unity, apariencia,
+importadores, selector Windows, RT y FPS pendientes de ejecutar en el Editor.
+
+Comprobación local R28: suite completa correcta (188 fingerprints conservados),
+238 scripts con sintaxis C# 9 en cinco configuraciones y 82 mapas PBR sin cambios.
+Comprobaciones específicas de humanoides: pesos, IK, emotes y 10.000 pasos sin
+asignaciones administradas en el generador de pose. Son aserciones del núcleo,
+no pruebas nativas de Unity. Preflight nativo: Editor ausente; ninguna prueba
+PlayMode ejecutada. Respaldo y CI se registran aparte con la revisión publicada.

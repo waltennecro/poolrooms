@@ -33,8 +33,8 @@ namespace Poolrooms
         private readonly List<VisualElement> groups=new List<VisualElement>();
         private readonly List<SettingRow> rows=new List<SettingRow>();
         private readonly List<Button> tabs=new List<Button>();
-        private readonly string[] categories={"Pantalla","Gráficos","Cámara","Sonido","Controles","Comodidad"};
-        private readonly string[] captions={"A tu pantalla y a tu ritmo.","Luz, reflejos y detalle.","Encuentra tu manera de mirar.","Escucha el espacio.","Una exploración cómoda.","Pequeños ajustes para sentirte bien."};
+        private readonly string[] categories={"Pantalla","Gráficos","Cámara","Sonido","Controles","Comodidad","Skins"};
+        private readonly string[] captions={"A tu pantalla y a tu ritmo.","Luz, reflejos y detalle.","Encuentra tu manera de mirar.","Escucha el espacio.","Una exploración cómoda.","Pequeños ajustes para sentirte bien.","Tu personaje y sus movimientos."};
         private struct SettingRow {public VisualElement Element;public int Group;public string Search;}
         private VisualElement currentGroup;
         private int groupIndex,lastPreviewSecond=-1;
@@ -199,7 +199,7 @@ namespace Poolrooms
             {
                 groupIndex=i;currentGroup=Element("pr-group",content);currentGroup.name="settings-group-"+i;groups.Add(currentGroup);Label(categories[i],"pr-section-title",currentGroup);
                 switch((SettingsCategory)i){case SettingsCategory.Display:DrawDisplay();break;case SettingsCategory.Graphics:DrawGraphics();break;
-                    case SettingsCategory.Camera:DrawCamera();break;case SettingsCategory.Audio:DrawAudio();break;case SettingsCategory.Controls:DrawControls();break;default:DrawComfort();break;}
+                    case SettingsCategory.Camera:DrawCamera();break;case SettingsCategory.Audio:DrawAudio();break;case SettingsCategory.Controls:DrawControls();break;case SettingsCategory.Skins:DrawSkins();break;default:DrawComfort();break;}
             }
             var footer=Element("pr-footer",main);saveLabel=Label("Cambios guardados automáticamente","pr-footnote",footer);
             ActionButton("Restablecer categoría",ConfirmReset,"pr-quiet-button",footer);ActionButton("Volver",ShowHome,"pr-quiet-button",footer);
@@ -328,7 +328,6 @@ namespace Poolrooms
             Choice("Perspectiva · F5","Cambia la posición de cámara; las interacciones conservan el alcance del personaje.",perspectives,(int)Prefs.perspective,i=>{Prefs.perspective=(CameraPerspective)i;Changed(SettingsChange.Camera);});
             Row("Modo foto · F6","Cámara libre local, encuadre, inclinación y PNG sin interfaz.",out var photoControl);
             ActionButton("Entrar al modo foto",()=>{Resume(true);explorer.Views?.EnterPhoto();},"pr-secondary",photoControl).SetEnabled(!atTitle&&explorer.IsReady&&explorer.Views!=null);
-            DrawAvatar();
             var camera=Prefs.camera;
             Row("Visualización","Cada estilo conserva la iluminación propia de las habitaciones.",out var modes);modes.AddToClassList("pr-camera-cards");
             var buttons=new List<Button>();
@@ -354,23 +353,50 @@ namespace Poolrooms
             Slider("Separación de color","Aberración cromática del estilo elegido.",0,1,camera.chromaticScale,v=>Prefs.camera.chromaticScale=v,SettingsChange.Camera,percent:true);
             Slider("Viñeta","Oscurecimiento suave en los bordes.",0,1,camera.vignetteScale,v=>Prefs.camera.vignetteScale=v,SettingsChange.Camera,percent:true);
         }
-        private void DrawAvatar()
+        private void DrawSkins()
         {
-            var avatar=explorer.GetComponent<PoolroomsAvatar>();if(avatar==null)return;
-            var definitions=avatar.Definitions();var files=avatar.ObjFiles();var names=new List<string>{"Neutral"};
-            foreach(var skin in definitions)names.Add(skin.name);foreach(var file in files)names.Add(System.IO.Path.GetFileName(file)+" · OBJ");
+            var avatar=explorer.GetComponent<PoolroomsAvatar>();if(avatar==null)return;var skin=avatar.Preferences;
+            Row("Importar modelo","OBJ directo. GLB/glTF requieren Unity glTFast. En el Editor también FBX, DAE, 3DS, DXF y BLEND.",out var input);
+            input.AddToClassList("pr-skin-import");
+            var path=new TextField{value="",tooltip="Ruta local completa al archivo 3D"};path.AddToClassList("pr-skin-path");input.Add(path);
+            var fileActions=Element("pr-skin-actions",input);
+            ActionButton("Examinar…",()=>{string file=AvatarFilePicker.Open();if(!string.IsNullOrEmpty(file))path.value=file;},"pr-secondary",fileActions);
+            ActionButton("Importar",()=>avatar.LoadFile(path.value),"pr-primary",fileActions);
+            var definitions=avatar.Definitions();var files=avatar.ObjFiles();var names=new List<string>{"Sin skin"};
+            foreach(var definition in definitions)names.Add(definition.name);foreach(var file in files)names.Add(System.IO.Path.GetFileName(file));
             string saved=PlayerPrefs.GetString("Poolrooms.Avatar.Selection","");int index=0;
             for(int i=0;i<definitions.Length;i++)if(saved=="asset:"+definitions[i].name)index=i+1;
-            for(int i=0;i<files.Length;i++)if(saved=="obj:"+files[i])index=1+definitions.Length+i;
-            Choice("Apariencia 3D","La skin es visual: no cambia altura física, colisiones ni habilidades.",names,index,i=>
-            {if(i==0)avatar.ResetAppearance();else if(i<=definitions.Length)avatar.Apply(definitions[i-1]);else avatar.LoadObj(files[i-definitions.Length-1]);});
-            Slider("Orientación del modelo","Corrige hacia dónde mira el modelo importado.",0,360,avatar.Yaw,v=>avatar.SetYaw(v),SettingsChange.None,"°");
-            Row("Modelos locales","Copia OBJ y su MTL/texturas aquí; FBX/DAE se preparan en Unity.",out var controls);
-            ActionButton("Abrir carpeta",()=>{System.IO.Directory.CreateDirectory(avatar.Folder);Application.OpenURL(new Uri(avatar.Folder).AbsoluteUri);},"pr-secondary",controls);
-            ActionButton("Actualizar lista",()=>SelectCategory(SettingsCategory.Camera),"pr-secondary",controls);
-            var status=Label(avatar.Status,"pr-muted",content);status.schedule.Execute(()=>status.text=avatar.Status).Every(500);
-            var credit=Label(avatar.Attribution,"pr-footnote",content);credit.schedule.Execute(()=>credit.text=avatar.Attribution).Every(500);
-            Note("OBJ estático: carpeta Avatars del jugador. FBX / OBJ / DAE / 3DS / DXF: arrastra a Assets y usa Tools > Poolrooms > Personaje > Crear apariencia desde modelo seleccionado. GLB/glTF necesitan un importador compatible. Los modelos con rig usan su Animator; un OBJ no incluye huesos.");
+            for(int i=0;i<files.Length;i++)if(saved=="obj:"+files[i]||saved=="file:"+files[i])index=1+definitions.Length+i;
+            Choice("Skin seleccionada","Solo cambia la apariencia. Conserva colisiones y habilidades del jugador.",names,index,i=>
+            {if(i==0)avatar.ResetAppearance();else if(i<=definitions.Length)avatar.Apply(definitions[i-1]);else avatar.LoadFile(files[i-definitions.Length-1]);});
+            Row("Biblioteca local","Los modelos preparados en Unity permanecen fuera de la carpeta de código reemplazable.",out var library);
+            ActionButton("Abrir carpeta",()=>{System.IO.Directory.CreateDirectory(avatar.Folder);Application.OpenURL(new Uri(avatar.Folder).AbsoluteUri);},"pr-secondary",library);
+            ActionButton("Actualizar lista",()=>OpenSettings(SettingsCategory.Skins),"pr-secondary",library);
+            Row("Estado de la skin","La adaptación automática necesita un humanoide de pie y centrado.",out var state);
+            state.AddToClassList("pr-skin-status");
+            var status=Label(avatar.Status,"pr-muted",state);status.schedule.Execute(()=>status.text=avatar.Status+" · "+avatar.AnimationState).Every(500);
+            var credit=Label(avatar.Attribution,"pr-footnote",state);credit.schedule.Execute(()=>credit.text=avatar.Attribution).Every(500);
+            Toggle("Animación común","Descanso, caminar, correr, salto, caída, dash, deslizamiento, natación y emotes.",skin.animate,v=>{skin.animate=v;avatar.SavePreferences();},SettingsChange.None);
+            Slider("Intensidad corporal","Amplitud del movimiento. No cambia los efectos de cámara.",0,1.25f,skin.intensity,v=>{skin.intensity=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
+            Slider("Ritmo de animación","Ajuste de zancada y emotes.",.5f,1.5f,skin.animationSpeed,v=>{skin.animationSpeed=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
+            Choice("Emote · B","Se interrumpe al moverte, saltar, hacer dash o conducir.",new List<string>{"Ninguno","Saludar","Estirarse","Celebrar","Bailar","Reverencia","Sentarse"},(int)skin.emote,i=>{skin.emote=(HumanoidEmote)i;avatar.SavePreferences();});
+            Row("Previsualizar emote","Cambia a tercera persona con F5 para verlo.",out var emote);
+            ActionButton("Probar emote",()=>{Resume(true);avatar.PlayEmote(skin.emote);},"pr-secondary",emote).SetEnabled(!atTitle);
+            Note("Ajuste para modelos sin huesos: cambia los controles siguientes y pulsa Recalcular. Los Humanoid válidos conservan sus pesos originales. Ningún algoritmo automático garantiza una buena deformación en cualquier malla; revisa hombros y rodillas.");
+            Choice("Pose original","Cómo estaba el modelo antes de animarlo.",new List<string>{"Automática","Brazos en T","Brazos en A","Brazos hacia abajo"},(int)skin.restPose,i=>{skin.restPose=(HumanoidRestPose)i;avatar.SavePreferences();});
+            Toggle("Modelo con eje Z vertical","Para exportaciones con otro eje vertical. Requiere recalcular.",skin.zUp,v=>{skin.zUp=v;avatar.SavePreferences();},SettingsChange.None);
+            Slider("Orientación original","Corrige el frente antes de calcular pesos. Requiere recalcular.",0,360,avatar.Yaw,v=>avatar.SetYaw(v),SettingsChange.None,"°");
+            Slider("Anchura de hombros","Solo rig automático. Requiere recalcular.",.65f,1.4f,skin.shoulderScale,v=>{skin.shoulderScale=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
+            Slider("Altura de caderas","Fracción de la altura total. Solo rig automático; requiere recalcular.",.43f,.60f,skin.hipHeight,v=>{skin.hipHeight=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
+            Toggle("Piezas rígidas por malla","Para figuras segmentadas: cada malla sigue un solo hueso. No usar para un cuerpo de una sola pieza.",skin.rigidPieces,v=>{skin.rigidPieces=v;avatar.SavePreferences();},SettingsChange.None);
+            Toggle("Ver pose original","Pausa la animación visual para revisar el ajuste.",skin.previewBindPose,v=>{skin.previewBindPose=v;avatar.SavePreferences();},SettingsChange.None);
+            Row("Aplicar ajuste anatómico","Vuelve a importar el original. Si falla, conserva la skin anterior.",out var rebuild);
+            ActionButton("Recalcular adaptación",()=>avatar.Rebuild(),"pr-primary",rebuild);
+            Toggle("Proyectar sombras","La skin recibe la iluminación y reflejos de la calidad seleccionada.",skin.castShadows,v=>{skin.castShadows=v;avatar.SavePreferences();},SettingsChange.None);
+            Toggle("Ajustar acabado del material","Conserva texturas; sobrescribe metal y suavidad en copias del material. Desactiva para restaurar el original.",skin.materialOverride,v=>{skin.materialOverride=v;avatar.SavePreferences();},SettingsChange.None);
+            Slider("Suavidad de la skin","Solo con ajuste de acabado activado.",0,1,skin.smoothness,v=>{skin.smoothness=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
+            Slider("Metal de la skin","Cero para tela y piel; aumenta solo en superficies metálicas.",0,1,skin.metallic,v=>{skin.metallic=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
+            Note("Ray tracing: geometría animada dinámica en Cinemático RT/Ultra con hardware compatible; en otras calidades usa iluminación y reflejos disponibles. No agrega luces ni sondas por personaje. GLB/glTF: instala com.unity.cloud.gltfast 6.7.1 desde Package Manager. BLEND requiere Blender en el equipo del Editor.");
         }
         private void DrawAudio()
         {
