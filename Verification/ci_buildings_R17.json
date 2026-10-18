@@ -1,0 +1,158 @@
+{
+  "ci": {
+    "sourceRevision": "adb646bdd414238a982e19ff3b717ea48e133553",
+    "run": "39091032444",
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39091032444",
+    "status": "success",
+    "job": 117567637579,
+    "artifactId": "12122752613",
+    "artifactDigest": "sha256:287618888f4a150438a35c3e9c5dd28b23d879624481552267788d0682172641",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "nativeUnityExecuted": false
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify pinned SDK resolution",
+      "conclusion": "success"
+    },
+    {
+      "name": "Compile core, compare geometry, check CSharp syntax",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check source texture hashes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed City11 source assets and LODs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed aircraft sources and native resource hashes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed helicopter source, pivots and LODs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check attributed furniture, UV maps and placement dimensions",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check additional licensed urban sources and wheel assemblies",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check attributed Bistro components, PBR maps and metric dimensions",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install pinned offline art verification tools",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check building subtraction areas, UVs, licences and all LOD access volumes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check UV baking transforms, colour sampling and normals",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check native runner rejects missing, stale, failed or empty results",
+      "conclusion": "success"
+    },
+    {
+      "name": "Create verified complete Assets package",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "localAssetsPackage": {
+    "files": 718,
+    "bytes": 245959660,
+    "sha256": "a134b2d9d2cbe137a451651cfe07c459cca185a161328b5556b8426032bd894c",
+    "sourceRevision": "adb646bdd414238a982e19ff3b717ea48e133553",
+    "workingTreeChanged": false
+  },
+  "independentlyDownloadedGitHubArchive": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/adb646bdd414238a982e19ff3b717ea48e133553",
+    "sourceRevision": "adb646bdd414238a982e19ff3b717ea48e133553",
+    "bytes": 392160655,
+    "sha256": "39834816ed1c778f5accab8650ef046ea171d2be4b936b70c238ead82957e812",
+    "assetFilesMatched": 718,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false,
+    "allTrackedFilesMatched": 866,
+    "sourceAndLicenseFilesMatched": 54
+  },
+  "coreAssertions": 24043795,
+  "syntaxScripts": 202,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "buildingSourceAudit": {
+    "buildingSourceFamilies": 2,
+    "exteriorSkinAdaptations": 2,
+    "sourceTriangleCounts": [
+      25917,
+      61202
+    ],
+    "nativeTriangleCounts": {
+      "B_BuildingCourtyard": [
+        14718,
+        10332,
+        7968
+      ],
+      "B_BuildingCorner": [
+        50114,
+        31345,
+        24835
+      ]
+    },
+    "mapsAudited": 50,
+    "trianglesAudited": 139312,
+    "allLodClearanceVolumes": "independent_SAT_passed",
+    "nativeUnityExecuted": false
+  },
+  "buildingCleanGeneratedFilesMatched": 66,
+  "originalV39FilesReverified": 326,
+  "exactV40ToV47Recovered": false,
+  "nativeUnityExecuted": false
+}

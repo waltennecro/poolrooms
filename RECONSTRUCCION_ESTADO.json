@@ -136,7 +136,12 @@
       "newBuildingSourceFamilies": 2,
       "untouchedCompleteBuildingModels": 0,
       "documentation": "Assets/PoolroomsProcedural/Documentation/RECONSTRUCCION_R17.md",
-      "packageFiles": 718
+      "packageFiles": 718,
+      "commit": "adb646bdd414238a982e19ff3b717ea48e133553",
+      "implementationCommits": [
+        "d4bca06c31597d27affb0ff60f9f9d7f844069d9",
+        "adb646bdd414238a982e19ff3b717ea48e133553"
+      ]
     }
   ],
   "latestCoreChecks": {
@@ -357,13 +362,15 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/3ae3da067ff571f61b33da509db942f7b73c8f74",
-    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
-    "bytes": 304209169,
-    "sha256": "699d7e040da05f720c59268d07c4cfc7fea479de6db41c3c0c58b1ae1ac5aefe",
-    "assetFilesMatched": 649,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/adb646bdd414238a982e19ff3b717ea48e133553",
+    "sourceRevision": "adb646bdd414238a982e19ff3b717ea48e133553",
+    "bytes": 392160655,
+    "sha256": "39834816ed1c778f5accab8650ef046ea171d2be4b936b70c238ead82957e812",
+    "assetFilesMatched": 718,
     "crcValid": true,
-    "githubActionsArtifactDownload": false
+    "githubActionsArtifactDownload": false,
+    "allTrackedFilesMatched": 866,
+    "sourceAndLicenseFilesMatched": 54
   },
   "aircraftCi": {
     "sourceRevision": "492fe0e6f111f39a1c336fd376b0db35381aad0b",
@@ -418,10 +425,10 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "files": 649,
-    "bytes": 200739256,
-    "sha256": "cfbb1765af8b3904161f8a2d6c7d8b88fb93cc692bca03b0955b16c87619a726",
-    "sourceRevision": "3ae3da067ff571f61b33da509db942f7b73c8f74",
+    "files": 718,
+    "bytes": 245959660,
+    "sha256": "a134b2d9d2cbe137a451651cfe07c459cca185a161328b5556b8426032bd894c",
+    "sourceRevision": "adb646bdd414238a982e19ff3b717ea48e133553",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -536,5 +543,17 @@
     "previousBistroRegeneratedByteExact": true,
     "nativeUnityExecuted": false,
     "cleanCheckoutRegeneratedByteExact": true
+  },
+  "buildingSourcesCi": {
+    "sourceRevision": "adb646bdd414238a982e19ff3b717ea48e133553",
+    "run": "39091032444",
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39091032444",
+    "status": "success",
+    "job": 117567637579,
+    "artifactId": "12122752613",
+    "artifactDigest": "sha256:287618888f4a150438a35c3e9c5dd28b23d879624481552267788d0682172641",
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "nativeUnityExecuted": false
   }
 }
