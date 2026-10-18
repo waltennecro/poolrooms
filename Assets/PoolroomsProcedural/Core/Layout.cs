@@ -62,6 +62,8 @@ namespace Poolrooms.Core
         public float City11Share=.15f;
         public bool EnableQuietLevels;
         public bool EnableCivicLevels;
+        public bool EnableOrangerie;
+        public float OrangerieShare=.14f;
         public float CivicLevelShare=.12f;
         public float QuietLevelShare=.18f;
         public float SoftPlayShare=.18f;
@@ -95,6 +97,7 @@ namespace Poolrooms.Core
 
         public void Validate()
         {
+            if(!Finite(OrangerieShare)||OrangerieShare<0||OrangerieShare>1)throw new ArgumentOutOfRangeException(nameof(OrangerieShare));
             if(!Finite(CivicLevelShare)||CivicLevelShare<0||CivicLevelShare>1)throw new ArgumentOutOfRangeException(nameof(CivicLevelShare));
             if(!Finite(QuietLevelShare)||QuietLevelShare<0||QuietLevelShare>1)throw new ArgumentOutOfRangeException(nameof(QuietLevelShare));
             if(!Finite(City11Share)||City11Share<0||City11Share>1)throw new ArgumentOutOfRangeException(nameof(City11Share));

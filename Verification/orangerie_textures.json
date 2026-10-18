@@ -1,0 +1,57 @@
+{
+  "size": 1024,
+  "origin": "Original procedural artwork created for this repository; no third-party image inputs.",
+  "generator": "tools/create_orangerie_textures.py",
+  "maskChannels": "R metallic (0), G occlusion, B detail (0.5), A smoothness",
+  "heightDisplacementEnabled": false,
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLimestone_Albedo.png": {
+      "bytes": 372771,
+      "sha256": "69acb067dee4f85e177eb7ae7f55800162b9ddf7d582438efadf82dac56429de"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLimestone_Normal.png": {
+      "bytes": 2746584,
+      "sha256": "96de9390d55cc28b5672ee2fe716bfcdfda0735440c5bc26a5d623411ca071bc"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLimestone_Mask.png": {
+      "bytes": 305211,
+      "sha256": "b6d4226252c3eb51b1c73adfca93023cdc83cdb87a48256261d2777b6a96d4fb"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLimewash_Albedo.png": {
+      "bytes": 183949,
+      "sha256": "5e281bc4e9438b387c76e8d3c0f3b271e1587840342b45ca4d45d6861dc75732"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLimewash_Normal.png": {
+      "bytes": 2447426,
+      "sha256": "4d1227588eb8ccb063ebf19946374dd77f603fe11e07a756ad97e337c51fd1b8"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLimewash_Mask.png": {
+      "bytes": 161645,
+      "sha256": "c63eed231c5251521640e69464a9b6aee1b23d26e3525eaf6e13cb47f81b7197"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenTerracotta_Albedo.png": {
+      "bytes": 390042,
+      "sha256": "b81d309e55522d7acf765119dca74fb930cea0e144bf2b1603e60c4a82e32774"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenTerracotta_Normal.png": {
+      "bytes": 2829992,
+      "sha256": "bbc0e58dd6c09c8294012a44c6400b628a47131d9ac106ba9967a45bf5e65e1c"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenTerracotta_Mask.png": {
+      "bytes": 307441,
+      "sha256": "b19616e96cf8460c7485dd4dadb58b52366412ec1446e0bc54594c40b25f6af5"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLeaves_Albedo.png": {
+      "bytes": 84050,
+      "sha256": "ede6747a0407be1aaa59c79c63c6889a90eed8ee9086f9f0af71824045f1f5e0"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLeaves_Normal.png": {
+      "bytes": 1587533,
+      "sha256": "df40d9d23723af1ac4db788024206f11ce18ec9f130cd5094ac7e24530eb2a0c"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/GardenLeaves_Mask.png": {
+      "bytes": 235821,
+      "sha256": "3a78e6d15ed0dd3dbc0a7f9756595c7f45444e87dfe6590046b88db0d609408b"
+    }
+  }
+}

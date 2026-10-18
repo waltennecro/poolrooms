@@ -49,7 +49,7 @@ namespace Poolrooms.HDRP
             bool aerial=room!=null&&world.IsPilotingAircraft&&(world.Terrain==null||!world.Terrain.IsInside);
             bool active=aerial||room!=null&&room.Environment!=LiminalEnvironment.Poolrooms&&(world.Terrain==null||!world.Terrain.IsInside);
             volume.priority=aerial?14:4;
-            bool sunny=aerial||active&&(room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
+            bool sunny=aerial||active&&(room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
             bool archive=!aerial&&active&&room.Environment==LiminalEnvironment.Archive906;
             bool sunset=!aerial&&sunny&&room.Environment==LiminalEnvironment.Coast48;
             if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny;
@@ -63,11 +63,12 @@ namespace Poolrooms.HDRP
                 if(citySunData.useScreenSpaceShadows!=rt)citySunData.useScreenSpaceShadows=rt;if(citySunData.useRayTracedShadows!=rt)citySunData.useRayTracedShadows=rt;
                 if(citySunData.numRayTracingSamples!=(rt?8:1))citySunData.numRayTracingSamples=rt?8:1;if(!citySunData.filterTracedShadow)citySunData.filterTracedShadow=true;
                 Vector3 local=world.viewer.position-world.RoomWorldPosition(room);bool shelter=archive;
+                if(!aerial&&room.Plan!=null&&room.Plan.Garden!=null)shelter=true;
                 if(room.Plan!=null&&room.Plan.Quiet!=null)shelter=room.Plan.Quiet.Sheltered(local.x,local.z,room.Width);
                 if(room.Plan!=null&&room.Plan.City!=null)foreach(var building in room.Plan.City.Buildings)
                     if(Mathf.Abs(local.x-building.X)<building.Width*.5f&&Mathf.Abs(local.z-building.Z)<building.Depth*.5f)shelter=true;
                 if(aerial)shelter=false;
-                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(archive?6.3f:sunset?10.8f:shelter?7.7f:11.7f)+offset;
+                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?6.3f:sunset?10.8f:shelter?7.7f:11.7f)+offset;
                 if(regionalEV<=0)regionalEV=target;
                 regionalEV=Mathf.Lerp(regionalEV,target,1-Mathf.Exp(-Time.unscaledDeltaTime*2));cityExposure.fixedExposure.Override(regionalEV);
             }

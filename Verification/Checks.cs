@@ -77,6 +77,7 @@ static class Checks
         if(args.Contains("--capture-baseline")){Directory.CreateDirectory(Path.GetDirectoryName(baseline));File.WriteAllText(baseline,JsonSerializer.Serialize(actual,new JsonSerializerOptions{WriteIndented=true}));Console.WriteLine($"Captured {actual.Count} original geometry fingerprints");return 0;}
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
+        OrangerieGeneration();
         MovementAndQuality();
         ForgivingJumpTiming();
         CompactTerrain();
@@ -103,6 +104,94 @@ static class Checks
         }
         Console.WriteLine($"PASS: {assertions} checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax {scripts.Length} scripts x {symbols.Length} configurations.");
         Console.WriteLine("Core compiled; Unity/HDRP API compilation, shaders, PhysX, visual quality and FPS NOT executed.");return 0;
+    }
+    static void OrangerieGeneration()
+    {
+        Check((int)LiminalEnvironment.TransitGallery==13&&(int)LiminalGeneration.TransitGallery==17&&(int)SurfaceTheme.TransitGallery==22,"Serialized biome IDs changed");
+        var recipes=new HashSet<int>();
+        foreach(int origin in new[]{-50,0,50})
+        {
+            recipes.Clear();for(int z=origin;z<origin+50;z++)for(int x=origin;x<origin+50;x++)recipes.Add(OrangeriePlanner.RecipeAt(481516,x,z));
+            Check(recipes.Count==2500,"A 50x50 tile must expose the complete 2500-recipe catalogue");
+        }
+        foreach(int x in new[]{int.MinValue,-1,0,int.MaxValue})foreach(int z in new[]{int.MinValue,-1,0,int.MaxValue})
+            Check(OrangeriePlanner.RecipeAt(77,x,z)>=0&&OrangeriePlanner.RecipeAt(77,x,z)<2500,"Extreme-coordinate recipe overflow");
+        int maxTriangles=0,props=0;var structures=new HashSet<string>();
+        var c=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Orangerie,CurveSegments=12};
+        for(int recipe=0;recipe<2500;recipe++)
+        {
+            var r=new Room{X=2,Z=3,Exits=15};OrangeriePlanner.DescribeRecipe(r,c,recipe);
+            var g=OrangerieArchitecture.Build(r,c);Check(r.Plan.Valid(r,c),"Invalid Orangerie plan: "+recipe);
+            // Same seed/coordinates for every recipe: geometry uniqueness cannot come from a different RNG seed.
+            Check(structures.Add(Hash(g.Structure)),"Duplicate structural recipe: "+recipe);
+            foreach(var mesh in new[]{g.Structure,g.Decoration,g.Glass,g.VisualMeshes[0]})
+            {
+                Validate(mesh);
+                foreach(var n in mesh.Normals)Check(float.IsFinite(n.Length)&&Math.Abs(n.Length-1)<.002f,"Non-unit garden normal");
+            }
+            int triangles=g.Structure.TriangleCount+g.Decoration.TriangleCount+g.Glass.TriangleCount+g.VisualMeshes[0].TriangleCount;
+            maxTriangles=Math.Max(maxTriangles,triangles);Check(triangles<=14000,"Garden geometry exceeded its fixed triangle budget");
+            Check(g.VisualMeshes.Count==1&&g.VisualMeshes[0].Theme==SurfaceTheme.OrangerieFoliage&&g.CollisionOnly.TriangleCount==0,"Leaves must remain one non-colliding batch");
+            Check(g.Fixtures.Count==8&&g.Fixtures.All(f=>f.CustomColor&&f.Power>0&&f.Range>0),"Unbounded or unspecified garden lamps");
+            props+=r.Plan.Garden.Props.Length;
+            if(recipe%25==0)
+            {
+                var repeat=new Room{X=2,Z=3,Exits=15};OrangeriePlanner.DescribeRecipe(repeat,c,recipe);
+                var g2=OrangerieArchitecture.Build(repeat,c);Check(Hash(g.Structure,g.Decoration,g.Glass,g.VisualMeshes[0])==Hash(g2.Structure,g2.Decoration,g2.Glass,g2.VisualMeshes[0]),"Non-deterministic garden");
+            }
+        }
+        int sampleRooms=0;
+        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int sample=0;sample<15;sample++)
+        {
+            var cfg=new LayoutConfig{CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2.1f,Continuous=true,Procedural=LiminalGeneration.Orangerie,AutonomousGeneration=true};var layout=new Layout(cfg);var r=layout.At(sample-7,-3);var g=Architecture.Build(r,layout);
+            Check(r.Plan.Garden!=null&&r.Plan.Valid(r,cfg),"Garden not integrated into normal world pipeline");
+            Check(g.Dressing.First.Theme==SurfaceTheme.Orangerie&&g.Dressing.Second.Theme==SurfaceTheme.Orangerie,"Garden fittings use a different biome material");
+            Check(g.SourceProps.Count==0&&r.Plan.Assemblies.Length==0,"Generic packing overrides curated garden circulation");
+            foreach(var a in OrangerieArchitecture.Apertures(r))
+            {
+                float roof=Support(g.Structure,new V3(a.X,r.Height+.01f,a.Z));
+                Check(roof<r.Height-.5f,"Opaque structure seals the physical skylight");
+            }
+            for(int d=0;d<4;d++)
+            {
+                var neighbor=layout.Neighbour(r,d);Check(Math.Abs(SolarConnections.DoorWidth(r,d,cfg)-SolarConnections.DoorWidth(neighbor,((d+2)%4),cfg))<.001f,"Garden portal widths disagree");
+                Check(Math.Abs(SolarConnections.DoorHeight(r,d,cfg)-SolarConnections.DoorHeight(neighbor,((d+2)%4),cfg))<.001f,"Garden portal heights disagree");
+                for(float t=0;t<size*.5f-.1f;t+=.5f)for(int edge=-1;edge<=1;edge++)
+                {
+                    float lateral=edge*(cfg.DoorWidth*.5f+.2f);var point=new V3(Directions.DX[d]*t+Directions.DZ[d]*lateral,2,Directions.DZ[d]*t+Directions.DX[d]*lateral);
+                    Check(Math.Abs(Support(g.Structure,point))<.002f,"Garden route lacks a clear level floor");
+                }
+            }
+            for(int i=0;i<r.Plan.Garden.Props.Length;i++)
+            {
+                var p=r.Plan.Garden.Props[i];
+                if(p.Source!=null)
+                {
+                    int source=SourceFurniture.Index(p.Source);var placement=new SourceFurniturePlacement(i,source,p.Bottom,p.Yaw);
+                    Check(SourceFurniture.Clear(g.Structure,placement,.005f),"Garden furniture intersects architecture: "+p.Source+" / "+size+" / "+door+" / "+r.Plan.Garden.Recipe);
+                    var half=SourceFurniture.HalfExtents(source,p.Yaw);
+                    Check(Math.Abs(p.Bottom.X)+half.X<size*.5f-.25f&&Math.Abs(p.Bottom.Z)+half.Z<size*.5f-.25f,"Garden furniture crosses its envelope");
+                    if(i%4==2)Check(Math.Abs(p.Bottom.Y-(r.Plan.Garden.Props[i-1].Bottom.Y+SourceFurniture.Dimensions(7).Y))<.001f,"Garden bottle not resting on table");
+                    else Check(Math.Abs(Support(g.Structure,p.Bottom))<.001f,"Garden furniture unsupported");
+                }
+                else
+                {
+                    var table=r.Plan.Garden.Props[i-2];var item=MallItemCatalog.Get(p.CatalogId);
+                    Check(Math.Abs(p.Bottom.Y-(table.Bottom.Y+SourceFurniture.Dimensions(7).Y))<.001f,"Garden item lacks table support");
+                    Check(Math.Abs(p.Bottom.X-table.Bottom.X)+item.Size.X*.5f<.44f&&item.Size.Z*.5f<.44f,"Garden item overhangs table");
+                }
+            }
+            Check(g.Fixtures.All(f=>f.Power>0&&f.CustomColor),"Generic lighting replaced garden sources");
+            Check(g.Fixtures.Count(f=>f.SolarFill&&f.AmbientSupport)==4,"Garden bounce appears as fake specular lamps");
+            foreach(var link in g.Connectors)if(link!=null)
+            {Validate(link.Structure);Check(link.Structure.Positions.All(v=>v.Y<-.001f),"Garden connector overlaps the existing floor surface");}
+            sampleRooms++;
+        }
+        var expanded=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Expanded,EnableOrangerie=true,OrangerieShare=.14f};
+        Check(LiminalRegions.Find(expanded,LiminalEnvironment.Orangerie,0,0,out int fx,out int fz),"Garden absent from mixed world / TP");
+        Check(LiminalRegions.At(expanded,fx,fz)==LiminalEnvironment.Orangerie,"Garden TP selects wrong region");
+        expanded.EnableOrangerie=false;Check(!LiminalRegions.Find(expanded,LiminalEnvironment.Orangerie,0,0,out _,out _),"Disabled garden still found");
+        Console.WriteLine($"Orangerie: {structures.Count} distinct structural recipes at identical coordinates/seed, {props} distributed planned object instances, {sampleRooms} integrated boundary rooms; max {maxTriangles} triangles per recipe. One new level; other nine and global 10000 remain pending. No native Unity execution.");
     }
     static void Validate(MeshData m)
     {

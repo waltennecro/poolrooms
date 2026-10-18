@@ -380,12 +380,14 @@ namespace Poolrooms
                 foreach(var p in sources.sourceProps)
                 {string key="regional:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+p.slot;if(carry==null||!carry.WasTaken(key))PoolroomsPickup.CreateSourceSeat(key,p.Plan(),parent);}
             }
-            if(Application.isPlaying&&r.Plan!=null&&r.Plan.Quiet!=null)
+            if(Application.isPlaying&&r.Plan!=null&&(r.Plan.Quiet!=null||r.Plan.Garden!=null))
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
-                for(int i=0;i<r.Plan.Quiet.Props.Length;i++)
+                var props=r.Plan.Garden!=null?r.Plan.Garden.Props:r.Plan.Quiet.Props;
+                string prefix=r.Plan.Garden!=null?"orangerie:":"quiet:";
+                for(int i=0;i<props.Length;i++)
                 {
-                    var prop=r.Plan.Quiet.Props[i];string key="quiet:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;
+                    var prop=props[i];string key=prefix+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;
                     if(carry!=null&&carry.WasTaken(key))continue;Vector3 bottom=new Vector3(prop.Bottom.X,prop.Bottom.Y,prop.Bottom.Z);
                     if(prop.CatalogId>=0){var item=MallItemCatalog.Get(prop.CatalogId);PoolroomsPickup.CreateCatalog(key,prop.CatalogId,bottom+Vector3.up*(item.Size.Y*.5f),parent,profile);}
                     else {var created=PoolroomsPickup.CreateSource(key,prop.Source,bottom,parent,SourceFurniture.Longest(prop.Source));if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}

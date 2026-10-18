@@ -171,6 +171,47 @@
       "commit": "9d29cccededc2df7976fe736cf899daae13680cb",
       "evidence": "Verification/ci_movement_R18.json",
       "ciStatus": "success"
+    },
+    {
+      "id": "R19",
+      "feature": "Relaxing expansion 1 of 10: Orangerie with 2500 structural recipes",
+      "status": "implemented_core_verified_native_validation_pending",
+      "roadmap": "EXPANSION_NIVELES.json",
+      "details": {
+        "newLevels": 1,
+        "distinctStructuralRecipes": 2500,
+        "programmes": 5,
+        "skylightLayouts": 5,
+        "planterFootprints": 5,
+        "colonnadeRhythms": 5,
+        "canopyHeights": 4,
+        "plannedInteractableInstancesPerRoom": 16,
+        "catalogueDistributedObjectInstances": 40000,
+        "simultaneouslyLoaded": false,
+        "newDownloadedSourceModels": 0,
+        "originalPbrSets": 4,
+        "originalPbrMaps": 12,
+        "pbrMapResolution": 1024,
+        "originalMapsRegeneratedByteExact": true,
+        "maxArchitectureDetailGlassFoliageTriangles": 10282,
+        "integratedBoundarySamples": 90,
+        "mixedExplorationAndTP": true,
+        "flashlightChanged": false,
+        "renderDistanceReduced": false,
+        "nativeUnityExecuted": false
+      },
+      "scope": "One requested new level, distinct from existing Conservatory. Nine other new levels and separate 10000-zone global expansion remain pending.",
+      "validationResults": {
+        "coreAssertionsPassed": 188699920,
+        "protectedGeometryFingerprints": 188,
+        "syntaxScripts": 205,
+        "syntaxConfigurations": 4,
+        "newLevelStructuralRecipes": 2500,
+        "integratedBoundarySamples": 90,
+        "originalPbrMapsVerified": 12,
+        "allPbrMapsAudited": 48,
+        "nativeUnityExecuted": false
+      }
     }
   ],
   "latestCoreChecks": {
@@ -264,9 +305,18 @@
       "feature": "Unity 6.3/HDRP 17.3 compilation, shaders, PlayMode, visuals, memory and FPS",
       "status": "blocked_editor_project_gpu_and_package_access",
       "evidence": "Verification/recovery_audit_R17.json"
+    },
+    {
+      "id": "relaxing_expansion",
+      "feature": "10 new relaxing levels plus 10000 additional zones in existing world",
+      "status": "first_new_level_implemented_core_verified_native_pending",
+      "roadmap": "EXPANSION_NIVELES.json",
+      "newLevelsRemaining": 9,
+      "globalAdditionalZonesImplemented": 0,
+      "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "Run native Unity 6.3/HDRP 17.3 compilation, shaders, all PlayMode tests, traversal/driving/flight, visuals and performance capture on an installed licensed Editor with a real HDRP project and GPU. The cloud preflight is blocked; no Unity execution or AAA visual certification has occurred. Recovering exact v40-v47 original files requires original archives or another real backup; the available workspace/Git audit found none. Continue improvements without relabeling reconstruction as exact recovery.",
+  "nextIndependentWork": "Continue the user-requested expansion one level at a time after the Orangerie delivery; nine proposed new levels and the separate 10000-zone global expansion remain pending in EXPANSION_NIVELES.json. Native Unity checks for all stages remain blocked by missing installed Editor/project/GPU. Do not claim the 35000-zone combined goal, native appearance or FPS is complete.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,

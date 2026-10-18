@@ -50,6 +50,12 @@ namespace Poolrooms
             if(theme==SurfaceTheme.IndoorPlay)
             {V3 c=LiminalPalette.Color(slot,0);color=slot==Surface.Tile||slot==Surface.Plaster?new Color(.87f,.89f,.85f):new Color(c.X,c.Y,c.Z);}
             if(theme==SurfaceTheme.Hotel&&slot==Surface.Plaster)color=new Color(.95f,.91f,.84f);
+            if(theme==SurfaceTheme.Orangerie&&slot==Surface.Metal)color=new Color(.34f,.42f,.36f);
+            if(theme==SurfaceTheme.OrangerieFoliage)
+            {
+                // Leaf triangles supply both faces explicitly; no alpha overdraw or clipped shadows.
+                SetFloat(m,"_Metallic",0);SetFloat(m,"_DoubleSidedEnable",0);
+            }
             if(theme==SurfaceTheme.Conservatory&&slot==Surface.Slide)color=new Color(.16f,.31f,.12f);
             if(theme==SurfaceTheme.Conservatory&&slot==Surface.Metal)color=new Color(.3f,.36f,.3f);
             if(theme==SurfaceTheme.TransitGallery&&slot==Surface.Plaster)color=new Color(.91f,.89f,.82f);

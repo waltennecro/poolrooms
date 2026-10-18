@@ -198,3 +198,17 @@ completada correctamente, incluido empaquetado y publicación del artefacto.
 Descarga pública independiente: 392.166.106 bytes, CRC válido y 868 archivos
 versionados coincidentes por SHA-256. Evidencias en
 `Verification/ci_movement_R18.json`; Unity sigue sin ejecutarse.
+
+## R19 — Expansión relajante, nivel 1 de 10: Orangerie
+
+Nuevo bioma de jardines amueblados integrado en Expanded y en el TP.
+2.500 huellas estructurales distintas con coordenadas y semilla idénticas;
+16 objetos interactuables por receta (40.000 instancias distribuidas del
+catálogo, no modelos nuevos ni objetos simultáneos), cuatro acabados PBR
+originales a 1024 px y sol regional con la alternativa RT existente.
+Rutas anchas y ocho luces candidatas respetando los presupuestos actuales.
+Documentación: `Assets/PoolroomsProcedural/Documentation/EXPANSION_01_ORANGERIE.md`.
+Objetivo completo y conteos separados: `EXPANSION_NIVELES.json`. Los otros
+nueve niveles y las 10.000 zonas globales adicionales siguen pendientes.
+Las pruebas nativas añadidas no se han ejecutado; no hay certificación visual
+ni mediciones FPS. Esta etapa es nueva construcción, no recuperación exacta.
