@@ -464,13 +464,61 @@
         "publicBackupBytes": 462679134
       },
       "evidence": "Verification/ci_rain_R24.json"
+    },
+    {
+      "id": "R25",
+      "feature": "All implemented levels discoverable on foot in unified exploration, shuffled regional coverage and physical threshold fixes",
+      "status": "implemented_core_verified_native_pending",
+      "documentation": "Assets/PoolroomsProcedural/Documentation/EXPLORACION_CAMINANDO_R25.md",
+      "details": {
+        "implementedEnvironments": 18,
+        "additionalConnectedDistricts": [
+          "Complete multistorey malls",
+          "Level94"
+        ],
+        "poolroomClimateWitnesses": 2,
+        "administratorRequired": false,
+        "automaticTeleportation": false,
+        "shuffledRegionBlockDimensions": [
+          8,
+          8
+        ],
+        "candidateRegionsPerEnabledEnvironmentPerBlock": 2,
+        "permutation": "four-round keyed six-bit Feistel",
+        "mandatoryCandidateRegionsChecked": 324,
+        "independentlyShuffledBlocksChecked": 9,
+        "seedCases": [
+          0,
+          31,
+          481516,
+          87,
+          1234
+        ],
+        "cellSizes": [
+          28,
+          36,
+          60
+        ],
+        "graphWitnessRoutes": 110,
+        "physicalBoundaryPairsSampled": 148,
+        "districtBridgeCases": 10,
+        "targetedCoreAssertionsPassed": 531918,
+        "newDownloadedModels": 0,
+        "newLevelsAdded": 0,
+        "sourceProfileAssetModified": false,
+        "flashlightChanged": false,
+        "renderDistanceReduced": false,
+        "nativeUnityExecuted": false,
+        "nativePlayModeTestsAddedButUnrun": 2,
+        "coreMathematicalAssertionsPassed": 1807442803
+      }
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1806980005,
+    "assertions": 1807442803,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 222,
+    "syntaxScripts": 224,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 82,
     "citySourcesAudited": 5,
@@ -527,7 +575,7 @@
     "buildingLodTrianglesAudited": 139312,
     "buildingPngMaps": 50,
     "buildingGenerationByteExact": true,
-    "stage": "R24",
+    "stage": "R25",
     "orangerieStructuralRecipes": 2500,
     "orangerieBoundaryRooms": 90,
     "orangerieDistributedObjectInstances": 42000,
@@ -556,7 +604,11 @@
     "rainBoundaryRooms": 96,
     "rainMaxArchitectureTriangles": 11064,
     "rainOriginalResourcesRegeneratedByteExact": true,
-    "sourceRevision": "4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7"
+    "walkableWitnessRoutes": 110,
+    "walkablePhysicalBoundaryPairs": 148,
+    "walkableDistrictBridgeCases": 10,
+    "walkableCandidateRegions": 324,
+    "walkableRegionBlocks": 9
   },
   "pending": [
     {
@@ -598,7 +650,7 @@
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "R24 core, syntax, CI, resource audits and cumulative backup complete. Native Unity/HDRP compilation, weather rendering/audio, appearance, physics and FPS remain pending. Six relaxing levels and the separate 10000-zone global expansion remain unimplemented.",
+  "nextIndependentWork": "Complete R25 cumulative publication evidence. Native Unity/HDRP compilation, walking/streaming, appearance and FPS remain pending. Six relaxing levels and separate 10000-zone global expansion remain unimplemented.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,

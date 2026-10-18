@@ -46,6 +46,7 @@ namespace Poolrooms.Core
     public sealed class LayoutConfig
     {
         public bool IndependentBiomeMaterials,MallDistricts;
+        public bool DiscoveryCoverage;
         public bool CommonPoolrooms;
         public float CommonSolarShare=.5f;
         public int CommonClimateRegionSize=3;

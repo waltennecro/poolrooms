@@ -53,7 +53,10 @@ namespace Poolrooms.Core
                 foreach(int sign in new[]{-1,1})
                 {
                     float x=sign*(half-1.1f);
-                    Shapes.Column(o.Structure,x,z,.16f,0,r.Height,12,Surface.Metal,1.2f);
+                    // At 60 m the regular column rhythm lands exactly on the east/west
+                    // doorway centre. Keep the full approach clear for an ordinary player.
+                    if(Math.Abs(z)>c.DoorWidth*.5f+.6f||!r.HasExit(sign>0?1:3))
+                        Shapes.Column(o.Structure,x,z,.16f,0,r.Height,12,Surface.Metal,1.2f);
                     Box(o.Decoration,x,z,.5f,.36f,r.Height-.55f,r.Height-.5f,Surface.Glow);
                 }
             }

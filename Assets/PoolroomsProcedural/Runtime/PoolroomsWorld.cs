@@ -12,7 +12,7 @@ namespace Poolrooms
         public PoolroomsProfile profile;
         [Header("Mundo liminal conectado / v29")]
         [Tooltip("Activa en Play los ambientes interiores, atlas solar, centros comerciales y colinas del Nivel 94 físicos. Usa una copia temporal del perfil; desactiva para pruebas de recetas o mapas antiguos.")]
-        [InspectorName("Exploración unificada")] public bool unifiedExploration=true;
+        [InspectorName("Exploración unificada"),Tooltip("Incluye todos los niveles implementados con accesos caminables. Desactívalo para perfiles de prueba o generación personalizada.")] public bool unifiedExploration=true;
         private PoolroomsProfile sourceProfile,runtimeProfile;
         private PoolroomsConnectedMalls connectedMalls;
         public PoolroomsConnectedMalls ConnectedMalls { get { return connectedMalls; } }
@@ -131,7 +131,7 @@ namespace Poolrooms
             if((transform.lossyScale-Vector3.one).sqrMagnitude>.0001f||Quaternion.Angle(transform.rotation,Quaternion.identity)>.01f)
             {Debug.LogError("Poolrooms: world rotation must be 0 and scale 1. Translation is supported.",this);return false;}
             if(Application.isPlaying&&unifiedExploration&&profile.zoneMode!=ZoneMode.Catalog&&profile.zoneMode!=ZoneMode.Single)PrepareExplorationProfile();
-            try{var config=profile.Snapshot();if(!unifiedExploration){config.ConnectedMalls=false;config.ConnectedTerrain=false;config.CommonPoolrooms=false;}layout=new Layout(config);}
+            try{var config=profile.Snapshot();if(unifiedExploration&&profile.zoneMode!=ZoneMode.Catalog&&profile.zoneMode!=ZoneMode.Single)WalkableExploration.Configure(config);if(!unifiedExploration){config.ConnectedMalls=false;config.ConnectedTerrain=false;config.CommonPoolrooms=false;}layout=new Layout(config);}
             catch(Exception e){Debug.LogError("Poolrooms: "+e.Message,this);return false;}
             if(ConnectedMallTopology.Enabled(layout.Config))
             {connectedMalls=GetComponent<PoolroomsConnectedMalls>();if(connectedMalls==null)connectedMalls=gameObject.AddComponent<PoolroomsConnectedMalls>();connectedMalls.enabled=true;}
@@ -150,7 +150,7 @@ namespace Poolrooms
             if(profile!=runtimeProfile)
             {
                 if(runtimeProfile!=null)Destroy(runtimeProfile);
-                sourceProfile=profile;runtimeProfile=Instantiate(profile);runtimeProfile.name=profile.name+" / connected runtime v30";
+                sourceProfile=profile;runtimeProfile=Instantiate(profile);runtimeProfile.name=profile.name+" / exploración conectada";
                 runtimeProfile.hideFlags=HideFlags.DontSave;profile=runtimeProfile;
             }
             profile.continuousWorld=true;profile.liminalGeneration=LiminalGeneration.Expanded;

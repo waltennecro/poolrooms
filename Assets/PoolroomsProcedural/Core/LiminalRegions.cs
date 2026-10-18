@@ -43,6 +43,7 @@ namespace Poolrooms.Core
                 if(distance<best){best=distance;selectedX=sx;selectedZ=sz;}
             }
             if(selectedX==0&&selectedZ==0)return LiminalEnvironment.Poolrooms;
+            LiminalEnvironment discovered;if(WalkableExploration.Region(c,selectedX,selectedZ,out discovered))return discovered;
             if(c.Procedural==LiminalGeneration.Expanded&&c.EnableRainHouses&&Unit(Hash(c.Seed,selectedX,selectedZ,0x240A03u))<c.RainHouseShare)return LiminalEnvironment.RainHouses;
             if(c.Procedural==LiminalGeneration.Expanded&&c.EnableAquaticPark&&Unit(Hash(c.Seed,selectedX,selectedZ,0x220A03u))<c.AquaticParkShare)return LiminalEnvironment.AquaticPark;
             if(c.Procedural==LiminalGeneration.Expanded&&c.EnableThermalBaths&&Unit(Hash(c.Seed,selectedX,selectedZ,0x210BA3u))<c.ThermalBathShare)return LiminalEnvironment.ThermalBaths;
@@ -80,26 +81,31 @@ namespace Poolrooms.Core
         {
             foundX=x;foundZ=z;
             if(!Enum.IsDefined(typeof(LiminalEnvironment),environment))return false;
-            if(environment==LiminalEnvironment.RainHouses&&c.Procedural!=LiminalGeneration.RainHouses&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableRainHouses||c.RainHouseShare<=0))return false;
-            if(environment==LiminalEnvironment.AquaticPark&&c.Procedural!=LiminalGeneration.AquaticPark&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableAquaticPark||c.AquaticParkShare<=0))return false;
-            if(environment==LiminalEnvironment.ThermalBaths&&c.Procedural!=LiminalGeneration.ThermalBaths&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableThermalBaths||c.ThermalBathShare<=0))return false;
-            if(environment==LiminalEnvironment.Orangerie&&c.Procedural!=LiminalGeneration.Orangerie&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableOrangerie||c.OrangerieShare<=0))return false;
-            if(QuietLevelPlanner.IsCivic(environment)&&c.Procedural!=LiminalGeneration.Conservatory&&c.Procedural!=LiminalGeneration.TransitGallery&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableCivicLevels||c.CivicLevelShare<=0))return false;
-            if(environment!=LiminalEnvironment.RainHouses&&environment!=LiminalEnvironment.AquaticPark&&environment!=LiminalEnvironment.ThermalBaths&&environment!=LiminalEnvironment.Orangerie&&QuietLevelPlanner.IsLevel(environment)&&!QuietLevelPlanner.IsCivic(environment)&&c.Procedural!=LiminalGeneration.Archive906&&c.Procedural!=LiminalGeneration.Courtyard188&&c.Procedural!=LiminalGeneration.Coast48&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableQuietLevels||c.QuietLevelShare<=0))return false;
-            if(environment==LiminalEnvironment.City11&&c.Procedural!=LiminalGeneration.City11&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableCity11||c.City11Share<=0))return false;
-            if(environment==LiminalEnvironment.SoftPlay&&c.Procedural!=LiminalGeneration.SoftPlay&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableSoftPlay||c.SoftPlayShare<=0))return false;
-            LiminalEnvironment single;
-            if(Single(c.Procedural,out single))return environment==single;
-            if(InteriorPlanner.IsInterior(environment)&&(c.Procedural!=LiminalGeneration.Expanded||c.AdditionalEnvironmentShare==0))return false;
-            if(c.Procedural==LiminalGeneration.Expanded&&c.AdditionalEnvironmentShare==1&&!InteriorPlanner.IsInterior(environment)&&environment!=LiminalEnvironment.Poolrooms&&environment!=LiminalEnvironment.City11&&!QuietLevelPlanner.IsLevel(environment))return false;
-            if(c.Procedural==LiminalGeneration.Supermarkets&&environment!=LiminalEnvironment.Supermarket)return false;
-            if(environment==LiminalEnvironment.Supermarket&&
-                (c.Procedural!=LiminalGeneration.Supermarkets&&c.Procedural!=LiminalGeneration.MixedWithRetail&&c.Procedural!=LiminalGeneration.Expanded||(c.Procedural==LiminalGeneration.MixedWithRetail||c.Procedural==LiminalGeneration.Expanded)&&c.SupermarketShare==0))return false;
-            if((c.Procedural==LiminalGeneration.MixedWithRetail||c.Procedural==LiminalGeneration.Expanded)&&environment==LiminalEnvironment.IndoorPlay&&(c.SupermarketShare==1||c.IndoorPlayShare==0))return false;
-            if(c.Procedural==LiminalGeneration.Authored)return environment==LiminalEnvironment.Poolrooms;
-            if(c.Procedural==LiminalGeneration.Poolrooms&&environment!=LiminalEnvironment.Poolrooms)return false;
-            if(c.Procedural==LiminalGeneration.IndoorPlay&&environment!=LiminalEnvironment.IndoorPlay)return false;
-            if(c.Procedural==LiminalGeneration.Mixed&&c.IndoorPlayShare==0&&environment==LiminalEnvironment.IndoorPlay)return false;
+            bool coverage=c.DiscoveryCoverage&&c.Procedural==LiminalGeneration.Expanded;
+            if(coverage){if(!WalkableExploration.Enabled(c,environment))return false;}
+            else
+            {
+                if(environment==LiminalEnvironment.RainHouses&&c.Procedural!=LiminalGeneration.RainHouses&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableRainHouses||c.RainHouseShare<=0))return false;
+                if(environment==LiminalEnvironment.AquaticPark&&c.Procedural!=LiminalGeneration.AquaticPark&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableAquaticPark||c.AquaticParkShare<=0))return false;
+                if(environment==LiminalEnvironment.ThermalBaths&&c.Procedural!=LiminalGeneration.ThermalBaths&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableThermalBaths||c.ThermalBathShare<=0))return false;
+                if(environment==LiminalEnvironment.Orangerie&&c.Procedural!=LiminalGeneration.Orangerie&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableOrangerie||c.OrangerieShare<=0))return false;
+                if(QuietLevelPlanner.IsCivic(environment)&&c.Procedural!=LiminalGeneration.Conservatory&&c.Procedural!=LiminalGeneration.TransitGallery&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableCivicLevels||c.CivicLevelShare<=0))return false;
+                if(environment!=LiminalEnvironment.RainHouses&&environment!=LiminalEnvironment.AquaticPark&&environment!=LiminalEnvironment.ThermalBaths&&environment!=LiminalEnvironment.Orangerie&&QuietLevelPlanner.IsLevel(environment)&&!QuietLevelPlanner.IsCivic(environment)&&c.Procedural!=LiminalGeneration.Archive906&&c.Procedural!=LiminalGeneration.Courtyard188&&c.Procedural!=LiminalGeneration.Coast48&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableQuietLevels||c.QuietLevelShare<=0))return false;
+                if(environment==LiminalEnvironment.City11&&c.Procedural!=LiminalGeneration.City11&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableCity11||c.City11Share<=0))return false;
+                if(environment==LiminalEnvironment.SoftPlay&&c.Procedural!=LiminalGeneration.SoftPlay&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableSoftPlay||c.SoftPlayShare<=0))return false;
+                LiminalEnvironment single;
+                if(Single(c.Procedural,out single))return environment==single;
+                if(InteriorPlanner.IsInterior(environment)&&(c.Procedural!=LiminalGeneration.Expanded||c.AdditionalEnvironmentShare==0))return false;
+                if(c.Procedural==LiminalGeneration.Expanded&&c.AdditionalEnvironmentShare==1&&!InteriorPlanner.IsInterior(environment)&&environment!=LiminalEnvironment.Poolrooms&&environment!=LiminalEnvironment.City11&&!QuietLevelPlanner.IsLevel(environment))return false;
+                if(c.Procedural==LiminalGeneration.Supermarkets&&environment!=LiminalEnvironment.Supermarket)return false;
+                if(environment==LiminalEnvironment.Supermarket&&
+                    (c.Procedural!=LiminalGeneration.Supermarkets&&c.Procedural!=LiminalGeneration.MixedWithRetail&&c.Procedural!=LiminalGeneration.Expanded||(c.Procedural==LiminalGeneration.MixedWithRetail||c.Procedural==LiminalGeneration.Expanded)&&c.SupermarketShare==0))return false;
+                if((c.Procedural==LiminalGeneration.MixedWithRetail||c.Procedural==LiminalGeneration.Expanded)&&environment==LiminalEnvironment.IndoorPlay&&(c.SupermarketShare==1||c.IndoorPlayShare==0))return false;
+                if(c.Procedural==LiminalGeneration.Authored)return environment==LiminalEnvironment.Poolrooms;
+                if(c.Procedural==LiminalGeneration.Poolrooms&&environment!=LiminalEnvironment.Poolrooms)return false;
+                if(c.Procedural==LiminalGeneration.IndoorPlay&&environment!=LiminalEnvironment.IndoorPlay)return false;
+                if(c.Procedural==LiminalGeneration.Mixed&&c.IndoorPlayShare==0&&environment==LiminalEnvironment.IndoorPlay)return false;
+            }
             for(int radius=0;radius<=128;radius++)for(int offset=-radius;offset<=radius;offset++)for(int side=0;side<4;side++)
             {
                 long xx=(long)x+(side==0||side==2?offset:side==1?radius:-radius);

@@ -4,6 +4,8 @@
 
 This repository ships a Unity 6.3/HDRP 17.3 **Assets package**, not a complete Unity project. Game code lives in `Assets/PoolroomsProcedural`: engine-independent generation in `Core`, streaming and player components in `Runtime`, setup menus in `Editor`, and optional rendering/input bridges in `Integrations`. `Resources` and `Textures` contain shipped media. Native tests are under `Tests/PlayMode`.
 
+New biomes must join `WalkableExploration` and its route checks; Tools menus are optional shortcuts.
+
 Keep standalone verification in `Verification` and packaging scripts in `tools`, outside Assets. `RECUPERACION_V39.json` records the recovered original files; `RECONSTRUCCION.md` tracks reconstructed features and unfinished work. `Preparacion_V48` preserves historical proposals; current reconstructed level integration is documented under Assets/PoolroomsProcedural/Documentation.
 
 ## Build, Test, and Development Commands

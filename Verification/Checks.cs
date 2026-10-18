@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Poolrooms.Core;
 
-static class Checks
+static partial class Checks
 {
     static long assertions;
     static void Check(bool value,string why){assertions++;if(!value)throw new Exception(why);}
@@ -48,6 +48,7 @@ static class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--walkable-only")){WalkableNetwork();Console.WriteLine($"PASS: {assertions} walkable network assertions; native Unity unrun.");return 0;}
         if(args.Contains("--rain-only")){RainHouses();Console.WriteLine($"PASS: {assertions} rain core assertions; native Unity unrun.");return 0;}
         if(args.Contains("--slide-families")){AquaticSlideFamilies();return 0;}
         if(args.Contains("--aquatic-plans")){AquaticPlansAcrossScales();return 0;}
@@ -82,6 +83,7 @@ static class Checks
         if(args.Contains("--capture-baseline")){Directory.CreateDirectory(Path.GetDirectoryName(baseline));File.WriteAllText(baseline,JsonSerializer.Serialize(actual,new JsonSerializerOptions{WriteIndented=true}));Console.WriteLine($"Captured {actual.Count} original geometry fingerprints");return 0;}
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
+        WalkableNetwork();
         RainHouses();
         AquaticSlideFamilies();
         AquaticParkGeneration();

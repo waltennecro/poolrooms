@@ -308,3 +308,13 @@ catálogos y auditor de lluvia/audio, fuentes licenciadas, texturas y paquete ac
 Assets: 838 archivos, 296228351 bytes. Respaldo público descargado:
 462679134 bytes, CRC válido y 1028 archivos coincidentes por SHA-256.
 Evidencia: `Verification/ci_rain_R24.json`. No se ha ejecutado Unity nativo.
+
+## R25 — Exploración de todos los niveles a pie
+
+La exploración unificada incluye los 18 ambientes implementados y los distritos
+de centro comercial/nivel 94 incluso con perfiles antiguos que los desactivaban.
+Cobertura regional barajada sin orden obligatorio, umbrales de lluvia reparados
+y columnas apartadas de salidas cívicas. Pasan 110 rutas de grafo, 148 pares de
+conexiones físicas y 10 casos de puentes; regresión acumulativa y sintaxis C# verificadas.
+Documentación: `Assets/PoolroomsProcedural/Documentation/EXPLORACION_CAMINANDO_R25.md`.
+El modo maestro es opcional; pruebas nativas Unity y FPS siguen pendientes.
