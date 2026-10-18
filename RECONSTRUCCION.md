@@ -212,3 +212,10 @@ Objetivo completo y conteos separados: `EXPANSION_NIVELES.json`. Los otros
 nueve niveles y las 10.000 zonas globales adicionales siguen pendientes.
 Las pruebas nativas añadidas no se han ejecutado; no hay certificación visual
 ni mediciones FPS. Esta etapa es nueva construcción, no recuperación exacta.
+
+R19: CI [39095375276](https://github.com/waltennecro/poolrooms/actions/runs/39095375276)
+completada correctamente, incluido catálogo, huellas antiguas, sintaxis,
+texturas, licencias y empaquetado. Assets acumulativos: 735 archivos,
+257.632.818 bytes; respaldo público descargado: 403.843.476 bytes, CRC válido
+y 888 archivos versionados coincidentes por SHA-256. Evidencias completas
+en `Verification/ci_orangerie_R19.json`. Unity no se ha ejecutado.

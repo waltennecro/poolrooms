@@ -1,0 +1,75 @@
+{
+  "stage": "R19",
+  "sourceRevision": "82c0d23d87fb6f12e732e91d3b7478809ca050f1",
+  "newLevel": "Orangerie",
+  "newLevelsImplementedThisStage": 1,
+  "newLevelTarget": 10,
+  "structuralRecipesVerifiedAtSameSeedAndCoordinates": 2500,
+  "samplesPerFullCatalogue": 2500,
+  "integratedBoundaryRoomsChecked": 90,
+  "objectInstancesAcrossCatalogue": 40000,
+  "interactableInstancesPerRoom": 16,
+  "importedFurnitureAndGlobalDressingTrianglesIncludedInBudget": false,
+  "maxArchitectureDetailGlassFoliageTriangles": 10282,
+  "maxCandidateLightsPerRoom": 8,
+  "newDownloadedModels": 0,
+  "originalPbrSets": 4,
+  "originalPbrMaps": 12,
+  "pbrResolution": 1024,
+  "pbrRegenerationByteExact": true,
+  "coreAssertionsPassed": 188699920,
+  "syntaxScripts": 205,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "flashlightFilesUnchanged": 3,
+  "renderDistanceReduced": false,
+  "additionalGlobalZonesDelivered": 0,
+  "additionalGlobalZoneTarget": 10000,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/Unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T03:56:32Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R19_Orangerie_Assets.zip",
+    "files": 735,
+    "bytes": 257632818,
+    "sha256": "3003074a8b93ec688915d450382cc25d1cd0e0fa5c3ebc7c89f583a372edb0d2",
+    "sourceRevision": "82c0d23d87fb6f12e732e91d3b7478809ca050f1",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 888,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/82c0d23d87fb6f12e732e91d3b7478809ca050f1",
+    "sourceRevision": "82c0d23d87fb6f12e732e91d3b7478809ca050f1",
+    "bytes": 403843476,
+    "sha256": "d5ba48829be03bdf54fa3a621e72dd1841b25c4dcb7e56ecf70729d84e3c4591",
+    "assetFilesMatched": 735,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39095375276,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39095375276",
+    "sourceRevision": "82c0d23d87fb6f12e732e91d3b7478809ca050f1",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117580599645,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12124670877,
+        "bytes": 256784082,
+        "digest": "sha256:449a54dff56274120140281de166f7acaa5ef19686fc564911b1ae8baccce380"
+      }
+    ]
+  },
+  "maxNonCollidingFoliageBatchesPerRoom": 1
+}
