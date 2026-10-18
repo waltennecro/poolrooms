@@ -516,10 +516,43 @@
         "supplementalExplorationCompositionAssertions": 555390
       },
       "evidence": "Verification/ci_walkable_R25.json"
+    },
+    {
+      "id": "R26",
+      "feature": "Fix Unity LightUnit namespace errors and refine native HDRP water optics, reflection fidelity and capture stability",
+      "status": "implemented_core_verified_native_pending",
+      "documentation": "Assets/PoolroomsProcedural/Documentation/AGUA_REFLEJOS_R26.md",
+      "details": {
+        "lightUnitErrorsReported": 3,
+        "lightUnitFilesFixed": 2,
+        "flashlightBehaviorChanged": false,
+        "flashlightBridgeChange": "using UnityEngine.Rendering only; requested compile fix",
+        "waterRefractionScale": 0.6,
+        "customRefractionPreserved": true,
+        "captureResolutionByWaterDetail": [
+          128,
+          256,
+          512
+        ],
+        "defaultSharedCaptureLimit": 2,
+        "maximumSharedCaptureLimit": 8,
+        "performanceSSRStepsUnchanged": 32,
+        "highSSRSteps": 128,
+        "ultraSSRSteps": 192,
+        "renderDistanceReduced": false,
+        "physicalWaterOrGenerationChanged": false,
+        "targetedAssertionsPassed": 15864,
+        "lightUnitReducedNameBindingCases": 6,
+        "pbrMapsVerified": 82,
+        "nativeUnityExecuted": false,
+        "nativeReflectionRegressionExtendedButUnrun": true,
+        "coreMathematicalAssertionsPassed": 1807458667
+      },
+      "evidence": "Verification/ci_water_R26.json"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1807442803,
+    "assertions": 1807458667,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
     "syntaxScripts": 224,
@@ -613,7 +646,9 @@
     "walkableDistrictBridgeCases": 10,
     "walkableCandidateRegions": 324,
     "walkableRegionBlocks": 9,
-    "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7"
+    "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
+    "waterOpticsTargetedAssertions": 15864,
+    "lightUnitReducedBindingChecks": 6
   },
   "pending": [
     {

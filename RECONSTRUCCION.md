@@ -325,3 +325,19 @@ catálogos, fuentes/licencias, medios y paquete acumulativo. Assets: 841 archivo
 válido y 1033 archivos coincidentes por SHA-256. Evidencia: `Verification/ci_walkable_R25.json`.
 Un muestreo adicional con composición Exploration pasa 555.390 aserciones sobre
 los mismos archivos Core. Unity nativo y FPS siguen sin ejecutar.
+
+## R26 — Compatibilidad de luces y refinamiento de agua
+
+Se corrigen los tres CS0103 de LightUnit mediante dos importaciones de namespace;
+la linterna conserva sus intensidades y efectos. Agua con menor distorsión del
+fondo y suavizado conservado a media distancia, capturas HDRP 128/256/512 según
+detalle y asignaciones estables entre habitaciones cercanas. SSR con más pasos
+en Alto/Ultra, manteniendo Rendimiento y las distancias. El límite compartido
+de sondas se conserva; no se instala una sonda por habitación.
+Documentación: `Assets/PoolroomsProcedural/Documentation/AGUA_REFLEJOS_R26.md`.
+Compilación Unity/HDRP, shaders, imagen, PhysX y FPS siguen pendientes; las
+comprobaciones reducidas de nombres no sustituyen una compilación nativa.
+
+R26: regresión local completa correcta, 188 huellas conservadas y 224 scripts en
+cuatro configuraciones. Son 1.807.458.667 aserciones matemáticas acumulativas,
+no pruebas nativas Unity. Auditoría de los 82 mapas PBR y medios de lluvia correcta.

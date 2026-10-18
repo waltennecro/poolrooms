@@ -4,6 +4,21 @@ namespace Poolrooms.Core
 {
     public enum PoolWaterAppearance { ClearCeramic, SoftTurquoise, BluePorcelain, Custom }
     public enum PoolWaterDetail { Performance, High, Cinematic }
+    // Optical quality is independent of mesh/streaming distance and never changes physical water contacts.
+    public readonly struct PoolWaterOptics
+    {
+        public readonly float FarSmoothness,FadeStart,FadeDistance,RefractionScale;
+        public readonly int ProbeResolution;
+        public PoolWaterOptics(PoolWaterDetail detail)
+        {
+            bool low=detail==PoolWaterDetail.Performance,cinematic=detail==PoolWaterDetail.Cinematic;
+            FarSmoothness=low?.94f:cinematic?.965f:.955f;
+            FadeStart=low?25:cinematic?60:40;
+            FadeDistance=low?70:cinematic?160:120;
+            RefractionScale=.6f;
+            ProbeResolution=low?128:cinematic?512:256;
+        }
+    }
     public readonly struct PoolWaterLook
     {
         public readonly V3 Refraction,Scattering;

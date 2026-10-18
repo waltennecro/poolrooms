@@ -12,7 +12,7 @@ namespace Poolrooms.HDRP
     {
         [Tooltip("Enable Water in the active HDRP Asset and Camera Frame Settings first.")]
         public bool nativeWater=true;
-        [Header("Agua v9")]
+        [Header("Agua y reflejos")]
         public PoolWaterAppearance appearance=PoolWaterAppearance.ClearCeramic;
         public bool interactiveWater=true,impactFoam=true,underwaterEffects=true;
         [Range(0,1)] public float interactionIntensity=.8f;
@@ -28,6 +28,8 @@ namespace Poolrooms.HDRP
         [Range(.1f,5)] public float refractionDistance=1.2f;
         [Range(.1f,2)] public float waterTimeScale=.65f;
         [Range(0,1)] public float waterSmoothness=.97f;
+        [Tooltip("Conserva reflejos a media distancia y reduce la distorsión del fondo. Custom conserva su refracción manual.")]
+        public bool refinedWaterOptics=true;
         [HideInInspector] public bool lowCost,contactShadows=true;
         [HideInInspector] public int shadowResolution=1024;
         [HideInInspector] public float lightMultiplier=1;
@@ -142,6 +144,7 @@ namespace Poolrooms.HDRP
             water.transform.localPosition=new Vector3(0,level,0);
             water.surfaceType=WaterSurfaceType.Pool;water.ripples=true;water.ripplesWindSpeed=rippleWindSpeed;
             var look=PoolWaterModel.Look(appearance);var budget=PoolWaterModel.Budget(lowCost?PoolWaterDetail.Performance:waterDetail);
+            var optics=new PoolWaterOptics(lowCost?PoolWaterDetail.Performance:waterDetail);
             bool custom=appearance==PoolWaterAppearance.Custom;
             water.refractionColor=custom?refraction:new Color(look.Refraction.X,look.Refraction.Y,look.Refraction.Z);
             water.scatteringColor=custom?scattering:new Color(look.Scattering.X,look.Scattering.Y,look.Scattering.Z);
@@ -153,11 +156,14 @@ namespace Poolrooms.HDRP
             water.maxRefractionDistance=custom?Mathf.Clamp(refractionDistance,0,3.5f):look.RefractionDistance;
             if(aquaticLook&&appearance==PoolWaterAppearance.ClearCeramic)
             {water.refractionColor=new Color(.94f,.995f,.985f);water.scatteringColor=new Color(.018f,.095f,.09f);water.absorptionDistance=11;water.maxRefractionDistance=1.2f;}
+            if(refinedWaterOptics&&!custom)water.maxRefractionDistance*=optics.RefractionScale;
             water.ambientScattering=.025f;water.heightScattering=.05f;water.displacementScattering=.12f;
             water.directLightTipScattering=.18f;water.directLightBodyScattering=.22f;
             water.timeMultiplier=waterTimeScale;
-            water.startSmoothness=waterSmoothness;water.endSmoothness=Mathf.Min(waterSmoothness,.945f);
-            water.smoothnessFadeStart=12;water.smoothnessFadeDistance=35;
+            water.startSmoothness=Mathf.Clamp01(waterSmoothness);
+            water.endSmoothness=Mathf.Min(water.startSmoothness,refinedWaterOptics?optics.FarSmoothness:.945f);
+            water.smoothnessFadeStart=refinedWaterOptics?optics.FadeStart:12;
+            water.smoothnessFadeDistance=refinedWaterOptics?optics.FadeDistance:35;
             water.ripplesChaos=.35f;water.ripplesOrientationValue=25;
             water.ripplesMotionMode=WaterPropertyOverrideMode.Custom;
             water.tessellation=budget.Tessellation>0;water.maxTessellationFactor=budget.Tessellation;
@@ -228,6 +234,16 @@ namespace Poolrooms.HDRP
                 pendingProbes.Remove(probe);
                 if(probe!=null){probe.gameObject.SetActive(false);if(Application.isPlaying)Destroy(probe.gameObject);else DestroyImmediate(probe.gameObject);}
             }
+            // Keep captures attached to the same room when the nearest two exchange order.
+            // Reserve all surviving assignments before filling vacancies, to avoid stealing a valid slot.
+            for(int i=0;i<needed;i++)
+            {
+                int slot=probeAssignments.IndexOf(probeCandidates[i].Chunk.GetInstanceID());
+                if(slot<0||slot==i||i>=ownedProbes.Count)continue;
+                var previous=ownedProbes[i];ownedProbes[i]=ownedProbes[slot];ownedProbes[slot]=previous;
+                int previousId=probeAssignments[i];probeAssignments[i]=probeAssignments[slot];probeAssignments[slot]=previousId;
+            }
+            int resolution=new PoolWaterOptics(lowCost?PoolWaterDetail.Performance:waterDetail).ProbeResolution;
             for(int i=0;i<needed;i++)
             {
                 if(probeRoot==null){var root=new GameObject("Poolrooms bounded reflection pool");root.transform.SetParent(transform,false);probeRoot=root.transform;}
@@ -240,11 +256,16 @@ namespace Poolrooms.HDRP
                 }
                 var probe=ownedProbes[i];if(probe==null)continue;
                 var target=probeCandidates[i];Bounds bounds=target.Renderer.bounds;
-                bool changed=probeAssignments[i]!=target.Chunk.GetInstanceID()||(probe.transform.position-bounds.center).sqrMagnitude>.0001f||!probe.enabled;
+                bool changed=probeAssignments[i]!=target.Chunk.GetInstanceID()||(probe.transform.position-bounds.center).sqrMagnitude>.0001f||!probe.enabled||
+                    !probe.settingsRaw.cubeResolution.useOverride||(int)probe.settingsRaw.cubeResolution.@override!=resolution;
                 probeAssignments[i]=target.Chunk.GetInstanceID();probe.transform.position=bounds.center;
                 probe.transform.localRotation=Quaternion.identity;probe.transform.localScale=Vector3.one;
                 probe.mode=ProbeSettings.Mode.Realtime;probe.realtimeMode=ProbeSettings.RealtimeMode.OnDemand;
+                // HDRP reads this scalable setting, not the legacy ReflectionProbe.resolution field.
+                probe.settingsRaw.cubeResolution.useOverride=true;
+                probe.settingsRaw.cubeResolution.@override=(CubeReflectionResolution)resolution;
                 probe.influenceVolume.shape=InfluenceShape.Box;probe.influenceVolume.boxSize=bounds.size;
+                probe.settingsRaw.proxySettings.useInfluenceVolumeAsProxyVolume=true;
                 Vector3 capture=new Vector3(bounds.center.x,target.Chunk.transform.position.y+1.7f,bounds.center.z);
                 probe.settingsRaw.proxySettings.capturePositionProxySpace=probe.transform.InverseTransformPoint(capture);
                 probe.PrepareCulling();probe.enabled=true;

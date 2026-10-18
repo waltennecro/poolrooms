@@ -1,6 +1,7 @@
 #if POOLROOMS_HDRP_17
 using Poolrooms.Core;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
 namespace Poolrooms.HDRP

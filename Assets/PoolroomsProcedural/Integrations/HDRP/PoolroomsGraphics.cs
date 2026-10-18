@@ -200,7 +200,11 @@ namespace Poolrooms.HDRP
             ssr.tracing.Override(rt?RayCastingMode.RayTracing:RayCastingMode.RayMarching);
             var mode=settings.supportedRayTracingMode==RenderPipelineSettings.SupportedRayTracingMode.Performance?RayTracingMode.Performance:RayTracingMode.Quality;
             ssr.mode.Override(mode);ssr.sampleCount.Override(sampling.ReflectionSamples);ssr.bounceCount.Override(sampling.ReflectionBounces);
-            ssr.minSmoothness=.35f;ssr.smoothnessFadeStart=.6f;ssr.rayMaxIterations=low?32:96;
+            ssr.minSmoothness=.35f;ssr.smoothnessFadeStart=.6f;ssr.rayMaxIterations=low?32:sampling.Ultra?192:128;
+            // Missing screen-space information falls back to the bounded local captures and sky.
+            ssr.reflectSky.Override(true);
+            ssr.rayMiss.Override(RayTracingFallbackHierachy.ReflectionProbesAndSky);
+            ssr.lastBounceFallbackHierarchy.Override(RayTracingFallbackHierachy.ReflectionProbesAndSky);
             ssr.fullResolution=!low;ssr.rayLength=sampling.ReflectionDistance;ssr.denoise=true;ssr.denoiserRadius=sampling.Ultra?.35f:.5f;
             ssr.depthBufferThickness.Override(.12f);ssr.screenFadeDistance.Override(.08f);
             ssr.SetAllOverridesTo(true);

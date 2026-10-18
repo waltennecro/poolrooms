@@ -1,0 +1,56 @@
+{
+  "method": "Official source inspection and hashes, not a Unity API build or visual test",
+  "branch": "Unity 6000.3 / Graphics 6000.3 staging",
+  "sources": {
+    "LightUnit": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/UnityCsReference/6000.3/Runtime/Export/Graphics/GraphicsEnums.cs",
+      "sha256": "50663a70be27b5f955e4bf5572618d4ef93817e9c050a7f379d055529c306a56",
+      "declarationsChecked": [
+        "namespace UnityEngine.Rendering",
+        "public enum LightUnit"
+      ]
+    },
+    "WaterSurface": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Water/WaterSurface/WaterSurface.cs",
+      "sha256": "75c9c058f73e0d2cd80399b3d5b7e71460d955b85438387073f36eaca8ee42c5",
+      "declarationsChecked": [
+        "public float startSmoothness",
+        "public float endSmoothness",
+        "public float maxRefractionDistance"
+      ]
+    },
+    "HDProbe": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Lighting/Reflection/HDProbe.cs",
+      "sha256": "54173c2ee15abe52da0a31fb3f75268bc4a1b2e777de023225cec03b32032629",
+      "declarationsChecked": [
+        "public ref ProbeSettings settingsRaw",
+        "public CubeReflectionResolution cubeResolution"
+      ]
+    },
+    "ProbeSettings": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Utilities/ProbeSettings.cs",
+      "sha256": "beacd803db3b146a419912f762e0029bb88e4e3d20328dbc0f00accef1f5b27a",
+      "declarationsChecked": [
+        "public CubeReflectionResolutionScalableSettingValue cubeResolution",
+        "public bool useInfluenceVolumeAsProxyVolume"
+      ]
+    },
+    "ScalableSettings": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/Settings/ScalableSettingValue.cs",
+      "sha256": "f980ffd72576408e0c5d7e163a10fbb20948a66723a58de706d9499545169724",
+      "declarationsChecked": [
+        "public bool useOverride",
+        "public T @override"
+      ]
+    },
+    "SSR": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Lighting/ScreenSpaceLighting/ScreenSpaceReflection.cs",
+      "sha256": "71010e26db3629c87ad69563c77324a9b4b3bbf49ed973fb2be12b7c7c125310",
+      "declarationsChecked": [
+        "public BoolParameter reflectSky",
+        "public RayTracingFallbackHierachyParameter rayMiss",
+        "public RayTracingFallbackHierachyParameter lastBounceFallbackHierarchy"
+      ]
+    }
+  }
+}
