@@ -1,0 +1,72 @@
+{
+  "stage": "R20",
+  "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
+  "distinctNewModelFamilies": 1,
+  "model": "G_PottedPlant",
+  "originalAuthor": "Rico Cilliers",
+  "materialAuthor": "Eric Chadwick / Darmstadt Graphics Group GmbH",
+  "licenses": [
+    "CC0-1.0",
+    "CC-BY-4.0"
+  ],
+  "nativeTriangles": [
+    37251,
+    29772,
+    19629
+  ],
+  "originalPlantTriangles": 68273,
+  "sourcePbrMaps": 6,
+  "staticOnly": true,
+  "alphaClip": true,
+  "diffuseTransmissionReproduced": false,
+  "sourceResourceCleanRegenerationByteExact": true,
+  "generatedResourceFiles": 18,
+  "orangerieRecipesVerified": 2500,
+  "integratedBoundarySamples": 90,
+  "distributedObjectInstances": 42000,
+  "distributedPlantInstances": 2000,
+  "maxPlantsPerEligibleRoom": 2,
+  "coreAssertionsPassed": 176892100,
+  "syntaxScripts": 205,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "flashlightFilesUnchanged": 3,
+  "renderDistanceReduced": false,
+  "nativeUnityExecuted": false,
+  "nativeAppearancePhysicsAndFpsVerified": false,
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R20_Recursos_Licenciados_Assets.zip",
+    "files": 755,
+    "bytes": 268127124,
+    "sha256": "fcd071db3697079e15dbba07fa1800e5c7f259912390896e82a90fdb598b896d",
+    "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 919,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/9dc5e3243838e0a785add9af491e36e6b348e8ba",
+    "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
+    "bytes": 425123968,
+    "sha256": "ce08c407e7f1801f7688ad3c7c59c67fa192f0ea9c1e9c1e2b20040fd179f2e8",
+    "assetFilesMatched": 755,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39096093133,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39096093133",
+    "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117582740899,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12124339699,
+        "bytes": 267264043,
+        "digest": "sha256:3829777c1d5b7620de077eabd4bcfd0ce796091d1d50f1f4e316ab8577ab7643"
+      }
+    ]
+  }
+}

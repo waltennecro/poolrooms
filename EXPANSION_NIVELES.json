@@ -82,5 +82,6 @@
     "render distance",
     "peaceful exploration",
     "graphics preferences and RT fallback"
-  ]
+  ],
+  "assetPolicy": "Prefer suitable, high-quality third-party models and materials with verified redistribution/game-use licences (CC0, CC BY with attribution or other compatible terms). Keep source URL, author, licence, hashes and modification notes; expose attributions in game. Validate actual integration and bound LOD/placement costs. Never count instances or LODs as new models."
 }

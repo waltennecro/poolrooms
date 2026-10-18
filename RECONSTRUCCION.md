@@ -230,3 +230,10 @@ Créditos y licencias disponibles en inicio/pausa. 42.000 instancias planificada
 en las 2.500 recetas; 2.000 son repeticiones de esa planta, no modelos nuevos.
 La transmisión difusa glTF no se reproduce exactamente; nativo pendiente.
 Documentación: `Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R20_RECURSOS.md`.
+
+R20: CI [39096093133](https://github.com/waltennecro/poolrooms/actions/runs/39096093133)
+completada correctamente, incluido el nuevo auditor de la planta/licencias
+y el empaquetado. Assets acumulativos: 755 archivos, 268.127.124 bytes.
+Respaldo público descargado: 425.123.968 bytes, CRC válido y 919 archivos
+coincidentes por SHA-256. Evidencias en `Verification/ci_garden_R20.json`.
+Las pruebas nativas de aspecto, recorte, interacción y FPS siguen sin ejecutar.

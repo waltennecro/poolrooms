@@ -258,7 +258,10 @@
         "protectedGeometryFingerprints": 188,
         "gardenSourceAudit": "passed",
         "nativeUnityExecuted": false
-      }
+      },
+      "commit": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
+      "ciStatus": "success",
+      "evidence": "Verification/ci_garden_R20.json"
     }
   ],
   "latestCoreChecks": {
@@ -323,7 +326,7 @@
     "buildingPngMaps": 50,
     "buildingGenerationByteExact": true,
     "stage": "R20",
-    "sourceRevision": "82c0d23d87fb6f12e732e91d3b7478809ca050f1",
+    "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
     "orangerieStructuralRecipes": 2500,
     "orangerieBoundaryRooms": 90,
     "orangerieDistributedObjectInstances": 42000,
@@ -499,12 +502,12 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "allTrackedFilesMatched": 888,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/82c0d23d87fb6f12e732e91d3b7478809ca050f1",
-    "sourceRevision": "82c0d23d87fb6f12e732e91d3b7478809ca050f1",
-    "bytes": 403843476,
-    "sha256": "d5ba48829be03bdf54fa3a621e72dd1841b25c4dcb7e56ecf70729d84e3c4591",
-    "assetFilesMatched": 735,
+    "allTrackedFilesMatched": 919,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/9dc5e3243838e0a785add9af491e36e6b348e8ba",
+    "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
+    "bytes": 425123968,
+    "sha256": "ce08c407e7f1801f7688ad3c7c59c67fa192f0ea9c1e9c1e2b20040fd179f2e8",
+    "assetFilesMatched": 755,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -561,10 +564,10 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "files": 735,
-    "bytes": 257632818,
-    "sha256": "3003074a8b93ec688915d450382cc25d1cd0e0fa5c3ebc7c89f583a372edb0d2",
-    "sourceRevision": "82c0d23d87fb6f12e732e91d3b7478809ca050f1",
+    "files": 755,
+    "bytes": 268127124,
+    "sha256": "fcd071db3697079e15dbba07fa1800e5c7f259912390896e82a90fdb598b896d",
+    "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -706,6 +709,23 @@
         "id": 12124670877,
         "bytes": 256784082,
         "digest": "sha256:449a54dff56274120140281de166f7acaa5ef19686fc564911b1ae8baccce380"
+      }
+    ]
+  },
+  "gardenSourceCi": {
+    "run": 39096093133,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39096093133",
+    "sourceRevision": "9dc5e3243838e0a785add9af491e36e6b348e8ba",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117582740899,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12124339699,
+        "bytes": 267264043,
+        "digest": "sha256:3829777c1d5b7620de077eabd4bcfd0ce796091d1d50f1f4e316ab8577ab7643"
       }
     ]
   }
