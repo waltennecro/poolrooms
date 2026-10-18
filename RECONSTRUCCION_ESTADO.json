@@ -594,9 +594,12 @@
         "syntaxScripts": 232,
         "syntaxConfigurations": 4,
         "skinnedRendererRayTracingMode": "DynamicGeometry",
-        "rigidRendererRayTracingMode": "DynamicTransform"
+        "rigidRendererRayTracingMode": "DynamicTransform",
+        "cumulativeAssetsFiles": 851,
+        "publicBackupBytes": 462733354
       },
-      "evidence": "Verification/ci_camera_avatar_R27.json"
+      "evidence": "Verification/ci_camera_avatar_R27.json",
+      "sourceRevision": "383cf3b5c6435136591aa199eecdfbaf192b9a12"
     }
   ],
   "latestCoreChecks": {
@@ -1198,6 +1201,23 @@
         "id": 12152315709,
         "bytes": 295372049,
         "digest": "sha256:f547f0fadede2c920a11e4c005a7df6b0cbdef729bbe535206dd4ec3dc74c708"
+      }
+    ]
+  },
+  "cameraAvatarCi": {
+    "run": 39172162093,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39172162093",
+    "sourceRevision": "383cf3b5c6435136591aa199eecdfbaf192b9a12",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117807315723,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12153211500,
+        "bytes": 295395329,
+        "digest": "sha256:10a4cd86d2cd1e881bef58d1d128a74f1db778e5ea34109ce71b7c8673059781"
       }
     ]
   }

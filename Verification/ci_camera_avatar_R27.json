@@ -1,0 +1,93 @@
+{
+  "stage": "R27",
+  "sourceRevision": "383cf3b5c6435136591aa199eecdfbaf192b9a12",
+  "perspectives": 8,
+  "photoMode": {
+    "shortcut": "F6",
+    "panelShortcut": "F8",
+    "captureShortcut": "F9",
+    "radiusMetres": 24,
+    "movesPlayer": false,
+    "administratorRequired": false,
+    "screenshotResolution": "current screen",
+    "nativeCaptureExecuted": false
+  },
+  "avatarFormats": {
+    "runtime": [
+      "OBJ with diffuse MTL/PNG/JPEG"
+    ],
+    "editor": [
+      "Unity-imported FBX",
+      "OBJ",
+      "DAE",
+      "3DS/DXF when supported by Unity",
+      "prefabs"
+    ],
+    "gltfRequiresCompatibleImporter": true,
+    "autoRigging": false,
+    "newDownloadedModels": 0,
+    "skinnedRayTracingMode": "DynamicGeometry",
+    "rigidRayTracingMode": "DynamicTransform",
+    "rootMotion": false
+  },
+  "localCumulativeMathematicalAssertionsPassed": 1807460779,
+  "finalTargetedCoreAndSourceAssertionsPassed": 17899,
+  "objPolygonWindingCases": 480,
+  "cameraRecoveryFpsCases": 7,
+  "syntaxScripts": 232,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "pbrMapsAudited": 82,
+  "flashlightSourceFilesChanged": false,
+  "flashlightReparentedToPlayerAimInExternalViews": true,
+  "renderDistanceReduced": false,
+  "nativeUnityExecuted": false,
+  "nativePlayModeTestsAddedButUnrun": 3,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T22:15:46Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "officialSourceChecks": "Verification/camera_avatar_R27_sources.json",
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R27_Camaras_Apariencias_Final_Assets.zip",
+    "files": 851,
+    "bytes": 296261592,
+    "sha256": "485af4ce9fba061d762fdb16a7271ad9c3f9f9c2c839ee15ec433e78256dfbcb",
+    "sourceRevision": "383cf3b5c6435136591aa199eecdfbaf192b9a12",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1049,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/383cf3b5c6435136591aa199eecdfbaf192b9a12",
+    "sourceRevision": "383cf3b5c6435136591aa199eecdfbaf192b9a12",
+    "bytes": 462733354,
+    "sha256": "ef4c737f06096b655823b51102c671561c8afb61700aebdf30d09825083b016c",
+    "assetFilesMatched": 851,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39172162093,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39172162093",
+    "sourceRevision": "383cf3b5c6435136591aa199eecdfbaf192b9a12",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117807315723,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12153211500,
+        "bytes": 295395329,
+        "digest": "sha256:10a4cd86d2cd1e881bef58d1d128a74f1db778e5ea34109ce71b7c8673059781"
+      }
+    ]
+  }
+}

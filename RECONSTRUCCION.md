@@ -364,3 +364,9 @@ configuraciones, además de 17.899 aserciones de la comprobación final de cáma
 OBJ y contratos de fuentes. Tres pruebas PlayMode añadidas sin ejecutar.
 Compilación Unity/HDRP, colisión nativa de cámara, fotos, importación y render de
 modelos, menús, animación y FPS siguen pendientes de Editor/GPU.
+
+R27: CI [39172162093](https://github.com/waltennecro/poolrooms/actions/runs/39172162093) correcta, incluidos catálogos, fuentes/licencias,
+medios, paquete y artefacto. Assets: 851 archivos, 296261592 bytes.
+Respaldo público descargado: 462733354 bytes, CRC válido y 1049
+archivos coincidentes por SHA-256. Evidencia: `Verification/ci_camera_avatar_R27.json`.
+Compilación Unity/HDRP, apariencias, animación, fotos, física y FPS sin ejecutar.
