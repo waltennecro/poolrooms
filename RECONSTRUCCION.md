@@ -396,3 +396,12 @@ Comprobaciones específicas de humanoides: pesos, IK, emotes y 10.000 pasos sin
 asignaciones administradas en el generador de pose. Son aserciones del núcleo,
 no pruebas nativas de Unity. Preflight nativo: Editor ausente; ninguna prueba
 PlayMode ejecutada. Respaldo y CI se registran aparte con la revisión publicada.
+
+R28 final: CI [39175805957](https://github.com/waltennecro/poolrooms/actions/runs/39175805957) correcta para `89447c8b7777391bda60b9b6219ec8e07111094f`,
+incluidos núcleo completo, geometría protegida, catálogos acuáticos, texturas,
+fuentes/licencias y artefacto. Assets: 859 archivos, 296283776
+bytes. Respaldo público descargado: 462763192 bytes, CRC válido y
+1060 archivos coincidentes por SHA-256. La revisión final
+preserva además offsets de cadera/columna de Humanoid importados. Evidencia:
+`Verification/ci_humanoid_skins_R28.json`. Unity, importadores, RT, deformación
+y FPS siguen sin ejecutar.

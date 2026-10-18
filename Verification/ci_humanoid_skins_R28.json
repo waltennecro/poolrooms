@@ -1,0 +1,105 @@
+{
+  "stage": "R28",
+  "sourceRevision": "89447c8b7777391bda60b9b6219ec8e07111094f",
+  "sharedSkeletonBones": 21,
+  "maximumInfluences": 4,
+  "emotes": 6,
+  "autoWeightingIsApproximate": true,
+  "existingUnityHumanoidBonesWeightsAndMaterialsRetained": true,
+  "neutralPlaceholderRemoved": true,
+  "settingsCategory": "Skins",
+  "emoteShortcut": "B",
+  "locomotionAnimations": [
+    "idle/breathing",
+    "walk",
+    "run",
+    "jump",
+    "fall",
+    "dash",
+    "slide",
+    "swim",
+    "fly",
+    "seated"
+  ],
+  "runtimeFormats": [
+    "OBJ with diffuse MTL/PNG/JPEG",
+    "GLB/glTF when Unity glTFast 6.7.1 is installed"
+  ],
+  "editorFormats": [
+    "Unity-imported FBX/OBJ/DAE/3DS/DXF",
+    "BLEND with Blender installed",
+    "prefabs"
+  ],
+  "optionalPackageInstalledInCloud": false,
+  "newDownloadedModels": 0,
+  "rootMotion": false,
+  "playerColliderChanged": false,
+  "renderDistanceReduced": false,
+  "flashlightSourcesChanged": false,
+  "localCumulativeAssertionsPassedBeforeFinalRetargetOffsetFix": 1810350506,
+  "finalTargetedCoreAndSourceAssertionsPassed": 2911117,
+  "syntaxScripts": 238,
+  "syntaxConfigurations": 5,
+  "protectedGeometryFingerprints": 188,
+  "pbrMapsAudited": 82,
+  "poseGeneratorManagedAllocationsAcross10000Steps": 0,
+  "nativeNewTestsAddedButUnrun": 3,
+  "nativeUnityExecuted": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T23:02:21Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "officialOptionalPackageSourceChecks": "Verification/humanoid_R28_sources.json",
+  "nativePending": [
+    "Unity/HDRP API compilation",
+    "real artistic Humanoid retarget/deformation",
+    "FBX/OBJ/GLB import on Unity",
+    "Windows file picker",
+    "shaders/material conversion",
+    "IL2CPP optional importer preservation",
+    "ray tracing and shadows",
+    "FPS"
+  ],
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R28_Publicada_Skins_Assets.zip",
+    "files": 859,
+    "bytes": 296283776,
+    "sha256": "1a887d48d8e307af55b6850da6ec796316c5e9a37f130779a109e973ebd7d837",
+    "sourceRevision": "89447c8b7777391bda60b9b6219ec8e07111094f",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1060,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/89447c8b7777391bda60b9b6219ec8e07111094f",
+    "sourceRevision": "89447c8b7777391bda60b9b6219ec8e07111094f",
+    "bytes": 462763192,
+    "sha256": "da610ebc6ef7dfdbf7fb597743702ae1eaa84be727f298e27b8d8043cb66b008",
+    "assetFilesMatched": 859,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39175805957,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39175805957",
+    "sourceRevision": "89447c8b7777391bda60b9b6219ec8e07111094f",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117818099910,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12154516615,
+        "bytes": 295416293,
+        "digest": "sha256:fc14fe97cdb286ea2963f02d9d06dd163b7df65d368b8f36aa21a738e4fe09b2"
+      }
+    ]
+  }
+}

@@ -632,14 +632,17 @@
         "renderDistanceReduced": false,
         "verification": "Verification/HumanoidChecks.cs",
         "documentation": "Assets/PoolroomsProcedural/Documentation/SKINS_HUMANOIDES_R28.md",
-        "targetedCoreAndSourceAssertionsPassed": 2906073,
+        "targetedCoreAndSourceAssertionsPassed": 2911117,
         "localFullMathematicalAndSourceAssertionsPassed": 1810350506,
         "protectedGeometryFingerprints": 188,
         "syntaxScripts": 238,
         "syntaxConfigurations": 5,
         "nativeNewTestsAddedButUnrun": 3,
-        "poseGeneratorManagedAllocationsPer10000Steps": 0
-      }
+        "poseGeneratorManagedAllocationsPer10000Steps": 0,
+        "cumulativeAssetsFiles": 859,
+        "publicBackupBytes": 462763192
+      },
+      "sourceRevision": "89447c8b7777391bda60b9b6219ec8e07111094f"
     }
   ],
   "latestCoreChecks": {
@@ -1258,6 +1261,23 @@
         "id": 12153211500,
         "bytes": 295395329,
         "digest": "sha256:10a4cd86d2cd1e881bef58d1d128a74f1db778e5ea34109ce71b7c8673059781"
+      }
+    ]
+  },
+  "humanoidSkinsCi": {
+    "run": 39175805957,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39175805957",
+    "sourceRevision": "89447c8b7777391bda60b9b6219ec8e07111094f",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117818099910,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12154516615,
+        "bytes": 295416293,
+        "digest": "sha256:fc14fe97cdb286ea2963f02d9d06dd163b7df65d368b8f36aa21a738e4fe09b2"
       }
     ]
   }
