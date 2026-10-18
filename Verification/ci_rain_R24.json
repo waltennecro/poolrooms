@@ -1,0 +1,111 @@
+{
+  "stage": "R24",
+  "sourceRevision": "4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7",
+  "newLevel": "RainHouses",
+  "structuralRecipesVerifiedAtIdenticalSeedAndCoordinates": 2500,
+  "fingerprintUsesPhysicalStructureAndCollisionShells": true,
+  "catalogueFactors": [
+    5,
+    5,
+    5,
+    5,
+    4
+  ],
+  "housesPerSector": 4,
+  "plannedHouseInstancesAcrossCatalogue": 10000,
+  "plannedObjectInstancesAcrossCatalogue": 80000,
+  "interactableObjectsPerSector": 32,
+  "simultaneouslyLoaded": false,
+  "fullCatalogueScalePlanCases": 15000,
+  "doorwayAndAisleProbePositions": 40000,
+  "integratedBoundaryRooms": 96,
+  "sourceIdTypesReused": 7,
+  "newDownloadedModels": 0,
+  "originalPbrMapsAdded": 12,
+  "originalRainMediaAdded": 2,
+  "newResourcesRegeneratedByteExact": true,
+  "allBasePbrMapsAudited": 82,
+  "coreMathematicalAssertionsPassed": 1806980005,
+  "rainOnlyCoreMathematicalAssertionsPassed": 238035089,
+  "syntaxScripts": 222,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "maxArchitectureDetailGlassTriangles": 11064,
+  "triangleCountExcludesImportedObjectsAndGlobalDressing": true,
+  "lightCandidatesPerSector": 8,
+  "singleRainEmitterPerWorld": true,
+  "rainParticleBudget": 640,
+  "rainEmissionAttemptRates": [
+    180,
+    420
+  ],
+  "rainAudioSourceBudget": 1,
+  "rainAudioSeconds": 16,
+  "gradientOvercastNotVolumetricCloudSimulation": true,
+  "physicalRegionalLightLux": 2600,
+  "rainShelterMaskComparedAgainstPhysicalRoofs": true,
+  "existingRayTracingAndFallbackPolicyRetained": true,
+  "flashlightFilesUnchanged": 3,
+  "renderDistanceReduced": false,
+  "nativeUnityExecuted": false,
+  "nativePlayModeTestsAddedButUnrun": 2,
+  "nativeAppearancePhysicsAudioAndFpsVerified": false,
+  "apiSourceInspectionNotCompilation": {
+    "unityBranch": "6000.3",
+    "urls": [
+      "https://github.com/Unity-Technologies/UnityCsReference/blob/6000.3/Modules/ParticleSystem/Managed/ParticleSystemStructs.cs",
+      "https://github.com/Unity-Technologies/UnityCsReference/blob/6000.3/Modules/ParticleSystem/ScriptBindings/ParticleSystemRenderer.bindings.cs"
+    ],
+    "checked": [
+      "MinMaxGradient implicit Gradient conversion",
+      "EmitParams startLifetime/startSize",
+      "ParticleSystemRenderer lengthScale/velocityScale"
+    ]
+  },
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/Unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T17:33:12Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R24_Casas_de_Lluvia_Assets.zip",
+    "files": 838,
+    "bytes": 296228351,
+    "sha256": "0da292183abf2ad68b9b64aebd182d8f466e76f258b463b7af001c3991e93bcf",
+    "sourceRevision": "4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1028,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7",
+    "sourceRevision": "4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7",
+    "bytes": 462679134,
+    "sha256": "c9f2276d158da74c7074efdc7da1f74d2ee499fb349fea575393f88d0baa350a",
+    "assetFilesMatched": 838,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39150783950,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39150783950",
+    "sourceRevision": "4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117743816248,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12145342125,
+        "bytes": 295362914,
+        "digest": "sha256:7dd9e3d70097366e1075e02c161d9439151d03426044015187f781825c25bda9"
+      }
+    ]
+  }
+}

@@ -302,3 +302,9 @@ como modelos nuevos. Núcleo, regresión acumulativa, 188 huellas anteriores y s
 Documentación: `Assets/PoolroomsProcedural/Documentation/CASAS_DE_LLUVIA_R24.md`.
 Compilación Unity/HDRP, apariencia, partículas, audio, PhysX y FPS sin ejecutar.
 Quedan seis niveles y las 10.000 zonas globales separadas.
+
+R24: CI [39150783950](https://github.com/waltennecro/poolrooms/actions/runs/39150783950) completada correctamente, incluidos
+catálogos y auditor de lluvia/audio, fuentes licenciadas, texturas y paquete acumulativo.
+Assets: 838 archivos, 296228351 bytes. Respaldo público descargado:
+462679134 bytes, CRC válido y 1028 archivos coincidentes por SHA-256.
+Evidencia: `Verification/ci_rain_R24.json`. No se ha ejecutado Unity nativo.

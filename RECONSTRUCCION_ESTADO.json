@@ -459,8 +459,11 @@
         "nativePlayModeTestsAddedButUnrun": 2,
         "flashlightChanged": false,
         "renderDistanceReduced": false,
-        "coreMathematicalAssertionsPassed": 1806980005
-      }
+        "coreMathematicalAssertionsPassed": 1806980005,
+        "cumulativeAssetsFiles": 838,
+        "publicBackupBytes": 462679134
+      },
+      "evidence": "Verification/ci_rain_R24.json"
     }
   ],
   "latestCoreChecks": {
@@ -552,7 +555,8 @@
     "rainDoorAndAisleProbes": 40000,
     "rainBoundaryRooms": 96,
     "rainMaxArchitectureTriangles": 11064,
-    "rainOriginalResourcesRegeneratedByteExact": true
+    "rainOriginalResourcesRegeneratedByteExact": true,
+    "sourceRevision": "4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7"
   },
   "pending": [
     {
@@ -594,7 +598,7 @@
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "Complete R24 cumulative publication evidence. Native Unity/HDRP compilation, weather rendering/audio, appearance, physics and FPS remain pending. Six relaxing levels and the separate 10000-zone global expansion remain unimplemented.",
+  "nextIndependentWork": "R24 core, syntax, CI, resource audits and cumulative backup complete. Native Unity/HDRP compilation, weather rendering/audio, appearance, physics and FPS remain pending. Six relaxing levels and the separate 10000-zone global expansion remain unimplemented.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1002,6 +1006,23 @@
         "id": 12143509984,
         "bytes": 289703589,
         "digest": "sha256:f9d15e7d7a8c0c1f7bd161bd6e5e00be7b67a3b69af665ac89c5b73072b33b7f"
+      }
+    ]
+  },
+  "rainHouseCi": {
+    "run": 39150783950,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39150783950",
+    "sourceRevision": "4ae5d6c534036dc56b0bf84dd6f51d99d4ace9b7",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117743816248,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12145342125,
+        "bytes": 295362914,
+        "digest": "sha256:7dd9e3d70097366e1075e02c161d9439151d03426044015187f781825c25bda9"
       }
     ]
   }
