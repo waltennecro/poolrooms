@@ -24,6 +24,12 @@ namespace Poolrooms.Editor
                 if(!Directory.Exists(directory))continue;
                 foreach(string image in Directory.GetFiles(directory))
                 {
+                    // Do not copy unrelated photos from Downloads/Documents beside a selected model.
+                    if(directory==Path.GetDirectoryName(file))
+                    {
+                        string basename=Path.GetFileNameWithoutExtension(file),imageName=Path.GetFileNameWithoutExtension(image);
+                        if(!string.Equals(imageName,basename,StringComparison.OrdinalIgnoreCase)&&!imageName.StartsWith(basename+"_",StringComparison.OrdinalIgnoreCase)&&!imageName.StartsWith(basename+"-",StringComparison.OrdinalIgnoreCase))continue;
+                    }
                     string ext=Path.GetExtension(image).ToLowerInvariant();if(ext!=".png"&&ext!=".jpg"&&ext!=".jpeg"&&ext!=".tga"&&ext!=".tif"&&ext!=".exr")continue;
                     long size=new FileInfo(image).Length;if(size>16*1024*1024||count>=32||bytes+size>128*1024*1024)continue;
                     string sub=directory==Path.GetDirectoryName(file)?"":Path.GetFileName(directory)+"/";Directory.CreateDirectory(folder+"/"+sub);

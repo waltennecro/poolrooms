@@ -235,14 +235,14 @@ namespace Poolrooms
                 foreach(string property in scalarProperties)if(material.HasProperty(property))
                 {
                     float value=source.HasProperty(property)?source.GetFloat(property):0;
-                    if(Preferences.materialOverride)value=property=="_Metallic"?Preferences.metallic:Preferences.smoothness;
+                    if(Preferences.materialOverride)value=property.StartsWith("_Metallic",StringComparison.Ordinal)?Preferences.metallic:Preferences.smoothness;
                     material.SetFloat(property,value);
                 }
                 PoolroomsBiomeMaterialFactory.Validate(material);
             }
             visibilityValid=false;SetVisible(visible,hidden);
         }
-        static readonly string[] scalarProperties={"_Metallic","_Smoothness","_Glossiness","_SmoothnessRemapMin","_SmoothnessRemapMax"};
+        static readonly string[] scalarProperties={"_Metallic","_MetallicRemapMin","_MetallicRemapMax","_Smoothness","_Glossiness","_SmoothnessRemapMin","_SmoothnessRemapMax"};
         public bool PlayEmote(HumanoidEmote emote)
         {return humanoid!=null&&!Loading&&explorer!=null&&!explorer.IsPaused&&!explorer.InputCaptured&&explorer.IsReady&&!explorer.IsSliding&&!explorer.IsDashing&&!explorer.IsFlying&&!explorer.IsAquaticRiding&&explorer.Vehicle==null&&humanoid.Motion.Play(emote,explorer.ViewGrounded||body!=null&&body.enabled&&body.isGrounded);}
         private void LateUpdate(){if(humanoid!=null)humanoid.Tick(explorer,Preferences);}

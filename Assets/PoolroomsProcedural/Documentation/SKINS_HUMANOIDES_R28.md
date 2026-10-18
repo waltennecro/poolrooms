@@ -22,6 +22,9 @@ en `Application.persistentDataPath` y las definiciones de Resources.
   disponibles; no se promete un lector FBX en el ejecutable. Examinar/Importar copia
   el modelo y texturas adyacentes seleccionadas a `Assets/ImportedSkins`, habilita
   Read/Write y crea la definición/prefab en `Assets/Resources/PoolroomsAvatars`.
+  Solo copia imágenes de `Textures`/`textures` y, en la carpeta del modelo,
+  imágenes con su mismo nombre o prefijo; así evita incorporar fotografías ajenas
+  del directorio de descargas. Copia manualmente otras dependencias necesarias.
   Límite del archivo: 128 MB; copia de texturas acotada a 32/128 MB. BLEND necesita
   Blender instalado. Revisa dependencias/texturas que no estuvieran junto al modelo.
   También sigue disponible Tools > Poolrooms > Personaje > Crear apariencia desde
