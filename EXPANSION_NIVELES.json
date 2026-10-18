@@ -34,9 +34,23 @@
     },
     {
       "number": 3,
-      "name": "Observatorio marino",
-      "status": "proposed_not_implemented",
-      "theme": "Empty ocean-view visitor centre and underwater galleries"
+      "name": "Parque acuático del atardecer",
+      "environment": "AquaticPark",
+      "status": "implemented_core_verification_complete_native_pending",
+      "theme": "Indoor sunlit waterpark, usable full-size flumes and clear pools",
+      "plannedPools": 16800,
+      "plannedRideInstances": 6300,
+      "plannedObjectInstances": 67200,
+      "newDownloadedSourceModels": 0,
+      "reusedLicensedFurnitureTypes": 2,
+      "originalPbrMaps": 12,
+      "documentation": "Assets/PoolroomsProcedural/Documentation/PARQUE_ACUATICO_R22.md",
+      "scopeChange": "User explicitly requested this waterpark after level 2; replaces the next proposed slot, not an existing biome.",
+      "structuralRecipesVerified": 5600,
+      "plansAcrossExtremeScalesVerified": 33600,
+      "boundaryRoomsVerified": 144,
+      "rideClearanceRooms": 48,
+      "rideClearanceSphereSamples": 1518
     },
     {
       "number": 4,
@@ -90,5 +104,14 @@
     "peaceful exploration",
     "graphics preferences and RT fallback"
   ],
-  "assetPolicy": "Prefer suitable, high-quality third-party models and materials with verified redistribution/game-use licences (CC0, CC BY with attribution or other compatible terms). Keep source URL, author, licence, hashes and modification notes; expose attributions in game. Validate actual integration and bound LOD/placement costs. Never count instances or LODs as new models."
+  "assetPolicy": "Prefer suitable, high-quality third-party models and materials with verified redistribution/game-use licences (CC0, CC BY with attribution or other compatible terms). Keep source URL, author, licence, hashes and modification notes; expose attributions in game. Validate actual integration and bound LOD/placement costs. Never count instances or LODs as new models.",
+  "deferredIdeas": [
+    {
+      "number": 3,
+      "name": "Observatorio marino",
+      "status": "proposed_not_implemented",
+      "theme": "Empty ocean-view visitor centre and underwater galleries"
+    }
+  ],
+  "newLevelStructuralRecipesVerifiedTotal": 10600
 }

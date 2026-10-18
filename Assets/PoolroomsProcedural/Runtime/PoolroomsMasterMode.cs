@@ -90,6 +90,9 @@ namespace Poolrooms
         {
             if(body==null)body=GetComponent<CharacterController>();
             bool fly=session.Flying,noclip=session.Noclip,success=true;
+            // Return control from a seated ride before recording the controller state for noclip.
+            if(explorer!=null&&explorer.IsAquaticRiding&&(wasFlying!=fly||wasNoclip!=noclip))
+                explorer.GetComponent<PoolroomsAquaticTraversal>()?.Cancel(true);
             if(!noclip&&controllerOwned&&previousBodyEnabled)
             {
                 Vector3 localPosition;

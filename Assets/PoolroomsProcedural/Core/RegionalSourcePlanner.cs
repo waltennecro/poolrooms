@@ -15,7 +15,7 @@ namespace Poolrooms.Core
         }
         public static void Append(RoomGeometry o,Room room,LayoutConfig c)
         {
-            if(!c.AutonomousGeneration||room.Plan==null||room.Plan.City!=null||room.Plan.Baths!=null||room.Plan.Garden!=null||room.Plan.Quiet!=null||room.MallGateway||room.TerrainGateway)return;
+            if(!c.AutonomousGeneration||room.Plan==null||room.Plan.City!=null||room.Plan.Aquatic!=null||room.Plan.Baths!=null||room.Plan.Garden!=null||room.Plan.Quiet!=null||room.MallGateway||room.TerrainGateway)return;
             int budget=c.CurveSegments<=12?1:2;
             if(room.Plan.Interior!=null)foreach(var bay in room.Plan.Interior.Bays)
             {

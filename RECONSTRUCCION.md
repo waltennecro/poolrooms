@@ -257,3 +257,14 @@ los auditores de fuentes/licencias y el paquete acumulativo. Assets: 791 archivo
 CRC válido y 970 archivos coincidentes por SHA-256. Evidencia:
 `Verification/ci_baths_R21.json`. El preflight nativo confirma Editor Unity ausente;
 compilación Unity/HDRP, aspecto, PhysX y FPS siguen pendientes.
+
+## R22 — Parque acuático interior del atardecer
+
+Bioma conectado con 5.600 composiciones, ocho familias de toboganes a escala
+del jugador, torres de dos tramos, piscinas con fondos/escalones reales y válvulas
+de corriente suave. Sol/cielo sin lámparas de relleno; agua HDRP clara, PBR
+original y mobiliario ya licenciado. Los descensos son guiados, no simulación
+hidráulica. Núcleo, 188 huellas protegidas y sintaxis C# verificados; Unity nativo pendiente.
+Documentación: `Assets/PoolroomsProcedural/Documentation/PARQUE_ACUATICO_R22.md`.
+La petición concreta sustituye la propuesta del tercer nivel; quedan siete
+y las 10.000 zonas globales separadas.

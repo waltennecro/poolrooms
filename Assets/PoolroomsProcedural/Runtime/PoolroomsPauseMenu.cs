@@ -369,6 +369,7 @@ namespace Poolrooms
             Toggle("Deslizamiento rápido","Mantén Ctrl izquierdo. Puedes saltar conservando impulso; no consume energía.",Prefs.allowSlide,v=>Prefs.allowSlide=v,SettingsChange.Controls);
             Slider("Velocidad de deslizamiento","Más rápido que correr. Las paredes y los sectores sin cargar siguen bloqueando el paso.",ExplorerSlide.MinSpeed,ExplorerSlide.MaxSpeed,Prefs.slideSpeed,v=>Prefs.slideSpeed=v,SettingsChange.Controls," m/s");
             Note("WASD  ·  Caminar     Ratón  ·  Mirar     | / tecla junto a Z  ·  Correr\nShift  ·  Dash     Ctrl izquierdo  ·  Deslizarse\nEspacio  ·  Saltar / Doble salto     Esc  ·  Pausa     Y  ·  Chat\nF  ·  Linterna     V  ·  Intensidad     E  ·  Agarrar / Entrar\nQ  ·  Soltar objeto     M  ·  Administrador, si está desbloqueado");
+            Note("Parque acuático: E junto a la boca del tobogán, desde la plataforma y con las manos libres. E junto a la válvula activa o detiene la corriente suave. La pausa detiene el recorrido.");
             Note("Coche: E entrar / salir · WASD conducir · Ctrl frenar. Detente y deja libre un lateral para salir.");
             Note("Avión: E pilotar · W/S ajustar potencia · A/D girar · Espacio subir · Ctrl bajar y frenar. Aterriza y detente para salir con E.");
             Note("Helicóptero: E pilotar · W/S avanzar / retroceder · A/D girar · Espacio subir · Ctrl bajar y frenar. Sin pulsar altura mantiene vuelo estacionario cuando el rotor alcanza régimen.");

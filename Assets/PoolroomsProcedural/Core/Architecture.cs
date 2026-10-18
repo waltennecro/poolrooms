@@ -69,6 +69,7 @@ namespace Poolrooms.Core
             output.Dressing=ArchitecturalDressing.Build(output.Structure,LiminalRegions.Hash(cfg.Seed,r.X,r.Z,0xDEC006u));
             if(r.Plan!=null&&r.Plan.Garden!=null)
             {output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.Orangerie;}
+            if(r.Plan!=null&&r.Plan.Aquatic!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.AquaticPark;}
             if(r.Plan!=null&&r.Plan.Baths!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.ThermalStone;}
             RegionalSourcePlanner.Append(output,r,cfg);
             return output;

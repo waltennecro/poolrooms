@@ -380,11 +380,11 @@ namespace Poolrooms
                 foreach(var p in sources.sourceProps)
                 {string key="regional:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+p.slot;if(carry==null||!carry.WasTaken(key))PoolroomsPickup.CreateSourceSeat(key,p.Plan(),parent);}
             }
-            if(Application.isPlaying&&r.Plan!=null&&(r.Plan.Quiet!=null||r.Plan.Garden!=null||r.Plan.Baths!=null))
+            if(Application.isPlaying&&r.Plan!=null&&(r.Plan.Quiet!=null||r.Plan.Garden!=null||r.Plan.Baths!=null||r.Plan.Aquatic!=null))
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
-                var props=r.Plan.Baths!=null?r.Plan.Baths.Props:r.Plan.Garden!=null?r.Plan.Garden.Props:r.Plan.Quiet.Props;
-                string prefix=r.Plan.Baths!=null?"thermal:":r.Plan.Garden!=null?"orangerie:":"quiet:";
+                var props=r.Plan.Aquatic!=null?r.Plan.Aquatic.Props:r.Plan.Baths!=null?r.Plan.Baths.Props:r.Plan.Garden!=null?r.Plan.Garden.Props:r.Plan.Quiet.Props;
+                string prefix=r.Plan.Aquatic!=null?"aquatic:":r.Plan.Baths!=null?"thermal:":r.Plan.Garden!=null?"orangerie:":"quiet:";
                 for(int i=0;i<props.Length;i++)
                 {
                     var prop=props[i];string key=prefix+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;
@@ -392,6 +392,12 @@ namespace Poolrooms
                     if(prop.CatalogId>=0){var item=MallItemCatalog.Get(prop.CatalogId);PoolroomsPickup.CreateCatalog(key,prop.CatalogId,bottom+Vector3.up*(item.Size.Y*.5f),parent,profile);}
                     else {var created=PoolroomsPickup.CreateSource(key,prop.Source,bottom,parent,SourceFurniture.Longest(prop.Source));if(created!=null)created.transform.localRotation=Quaternion.Euler(0,prop.Yaw,0);}
                 }
+            }
+            if(Application.isPlaying&&r.Plan!=null&&r.Plan.Aquatic!=null)
+            {
+                var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;
+                if(actor!=null&&actor.GetComponent<PoolroomsAquaticTraversal>()==null)actor.gameObject.AddComponent<PoolroomsAquaticTraversal>();
+                PoolroomsAquaticControl.Attach(this,r,parent);
             }
             if(Application.isPlaying&&r.Plan!=null&&r.Plan.City!=null)
             {
@@ -595,6 +601,8 @@ namespace Poolrooms
             return new WaterRegion{Width=r.Kind==RoomKind.Atrium?12:13,Depth=r.Kind==RoomKind.Waterpark?14:12,
                 Radius=r.Kind==RoomKind.Atrium?5.8f:2.8f,Bottom=-1.2f,Level=cfg.WaterLevel};
         }
+        public PoolroomsAquaticControl AquaticControlAt(Room room)
+        {return room!=null&&loaded.TryGetValue(ContinuousTopology.CellKey(room.X,room.Z),out var chunk)&&chunk!=null?chunk.GetComponent<PoolroomsAquaticControl>():null;}
         public Room RoomAtViewer()
         {if(layout==null)return null;if(terrain!=null&&terrain.IsInside)return terrain.AcousticRoom;if(malls!=null&&malls.IsInside)return malls.AcousticRoom;if(connectedMalls!=null&&connectedMalls.AcousticRoom!=null)return connectedMalls.AcousticRoom;Vector2Int f=Focus();return layout.At(f.x,f.y);}
         // Explicit administrator travel does not depend on random portal probability or biome shares.

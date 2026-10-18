@@ -1,0 +1,54 @@
+{
+  "size": 1024,
+  "origin": "Original procedural artwork, metre UVs: 5cm pool mosaic and 25cm ceramic. Previously licensed furnishings reused; no new downloaded model counted.",
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticMosaic_Albedo.png": {
+      "bytes": 12845,
+      "sha256": "3f9a266d55f0446f4298bae902754364ae72b8cc5d9df8a7302748aa42294086"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticMosaic_Normal.png": {
+      "bytes": 344476,
+      "sha256": "9788eaf8e4c13c0f2d5e48b2f93992a6ad11d49bc914bdba44722856001203b7"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticMosaic_Mask.png": {
+      "bytes": 102756,
+      "sha256": "db41379d9d612da62b3523eb340ecac5d0338550b238a61db12715ef7473c7ac"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticCeramic_Albedo.png": {
+      "bytes": 5298,
+      "sha256": "175224e1a6c0d499a10bde793d312fa5cfd109eb8785d1e54bc8a81721cb113c"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticCeramic_Normal.png": {
+      "bytes": 288027,
+      "sha256": "bb85d5d01bc426bb5750662dce8563882a396b70d923893ef7bcc6746913e43e"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticCeramic_Mask.png": {
+      "bytes": 100046,
+      "sha256": "075ed3a58d8086d4cbc5eac3405972b8c54eb00e2189d515383902884ef2bc66"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticFiberglass_Albedo.png": {
+      "bytes": 108124,
+      "sha256": "306debabeaef515eaac9c989d774d4a774398771ae7aceb95ecea409845901d2"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticFiberglass_Normal.png": {
+      "bytes": 120153,
+      "sha256": "77c2e23a6991f1e6df88591533179f779a620149bf84123c568d14af1e2403af"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticFiberglass_Mask.png": {
+      "bytes": 88864,
+      "sha256": "5cd518dcc9830eeb7d12385b9c1d106cb642d6bd819242e91b9e1b851fda21b2"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticFiberglassCoral_Albedo.png": {
+      "bytes": 91172,
+      "sha256": "b22ed5915e14f5791c278203f871ff4d0370916456c2ae15cb0dc0dc484ef248"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticFiberglassCoral_Normal.png": {
+      "bytes": 120153,
+      "sha256": "77c2e23a6991f1e6df88591533179f779a620149bf84123c568d14af1e2403af"
+    },
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/AquaticFiberglassCoral_Mask.png": {
+      "bytes": 88864,
+      "sha256": "5cd518dcc9830eeb7d12385b9c1d106cb642d6bd819242e91b9e1b851fda21b2"
+    }
+  }
+}

@@ -52,14 +52,14 @@ namespace Poolrooms.HDRP
         private PoolroomsWorld world;
         private bool refreshRequested;
         private bool waterGeometryDirty;
-        private bool coastalLook,thermalLook;
+        private bool coastalLook,thermalLook,aquaticLook;
         private Layout waterLayout;
         private float causticGain=1;
         private void OnValidate(){refreshRequested=true;}
         private void Update()
         {
-            var current=world!=null?world.RoomAtViewer():null;bool coast=current?.Environment==LiminalEnvironment.Coast48,bath=current?.Environment==LiminalEnvironment.ThermalBaths;
-            if(coast!=coastalLook||bath!=thermalLook){coastalLook=coast;thermalLook=bath;RefreshWater();}
+            var current=world!=null?world.RoomAtViewer():null;bool coast=current?.Environment==LiminalEnvironment.Coast48,bath=current?.Environment==LiminalEnvironment.ThermalBaths,aquatic=current?.Environment==LiminalEnvironment.AquaticPark;
+            if(coast!=coastalLook||bath!=thermalLook||aquatic!=aquaticLook){coastalLook=coast;thermalLook=bath;aquaticLook=aquatic;RefreshWater();}
             if(refreshRequested)
             {
                 refreshRequested=false;ApplyVisualSettings();
@@ -151,6 +151,8 @@ namespace Poolrooms.HDRP
             if(thermalLook&&appearance==PoolWaterAppearance.ClearCeramic)
             {water.refractionColor=new Color(.79f,.92f,.89f);water.scatteringColor=new Color(.075f,.23f,.2f);water.absorptionDistance=4.2f;}
             water.maxRefractionDistance=custom?Mathf.Clamp(refractionDistance,0,3.5f):look.RefractionDistance;
+            if(aquaticLook&&appearance==PoolWaterAppearance.ClearCeramic)
+            {water.refractionColor=new Color(.94f,.995f,.985f);water.scatteringColor=new Color(.018f,.095f,.09f);water.absorptionDistance=11;water.maxRefractionDistance=1.2f;}
             water.ambientScattering=.025f;water.heightScattering=.05f;water.displacementScattering=.12f;
             water.directLightTipScattering=.18f;water.directLightBodyScattering=.22f;
             water.timeMultiplier=waterTimeScale;

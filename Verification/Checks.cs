@@ -10,7 +10,7 @@ using Poolrooms.Core;
 
 static class Checks
 {
-    static int assertions;
+    static long assertions;
     static void Check(bool value,string why){assertions++;if(!value)throw new Exception(why);}
     static string Hash(params MeshData[] meshes)
     {
@@ -48,6 +48,9 @@ static class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--aquatic-plans")){AquaticPlansAcrossScales();return 0;}
+        if(args.Contains("--aquatic-clearance")){AquaticRideClearance();return 0;}
+        if(args.Contains("--aquatic-only")){AquaticParkGeneration();Console.WriteLine($"PASS: {assertions} aquatic core assertions; native Unity unrun.");return 0;}
         string root=Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,"../../../../"));
         string baseline=Path.Combine(root,"Verification/Baselines/v39_geometry.json");
         var actual=new SortedDictionary<string,string>();
@@ -77,6 +80,7 @@ static class Checks
         if(args.Contains("--capture-baseline")){Directory.CreateDirectory(Path.GetDirectoryName(baseline));File.WriteAllText(baseline,JsonSerializer.Serialize(actual,new JsonSerializerOptions{WriteIndented=true}));Console.WriteLine($"Captured {actual.Count} original geometry fingerprints");return 0;}
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
+        AquaticParkGeneration();
         ThermalBathGeneration();
         OrangerieGeneration();
         MovementAndQuality();
@@ -105,6 +109,130 @@ static class Checks
         }
         Console.WriteLine($"PASS: {assertions} checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax {scripts.Length} scripts x {symbols.Length} configurations.");
         Console.WriteLine("Core compiled; Unity/HDRP API compilation, shaders, PhysX, visual quality and FPS NOT executed.");return 0;
+    }
+    static void AquaticPlansAcrossScales()
+    {
+        int count=0;
+        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int recipe=0;recipe<5600;recipe++)
+        {
+            var cfg=new LayoutConfig{CellSize=size,DoorWidth=door,Continuous=true,Procedural=LiminalGeneration.AquaticPark};var room=new Room{Exits=15};
+            AquaticParkPlanner.DescribeRecipe(room,cfg,recipe);Check(room.Plan.Valid(room,cfg),"Aquatic plan fails at supported scale");count++;
+        }
+        Console.WriteLine($"PASS: {count} aquatic plans across supported extreme scales; planning, not Unity physics.");
+    }
+    static void AquaticParkGeneration()
+    {
+        Check((int)LiminalEnvironment.ThermalBaths==15&&(int)LiminalGeneration.ThermalBaths==19&&(int)SurfaceTheme.ThermalWicker==26,"Serialized pre-park IDs changed");
+        var recipes=new HashSet<int>();
+        foreach(int origin in new[]{-160,0,160})
+        {recipes.Clear();for(int x=origin;x<origin+80;x++)for(int z=origin*7/8;z<origin*7/8+70;z++)recipes.Add(AquaticParkPlanner.RecipeAt(18,x,z));Check(recipes.Count==5600,"Incomplete aquatic catalogue permutation");}
+        foreach(int x in new[]{int.MinValue,-1,0,int.MaxValue})foreach(int z in new[]{int.MinValue,-1,0,int.MaxValue})Check(AquaticParkPlanner.RecipeAt(18,x,z)>=0&&AquaticParkPlanner.RecipeAt(18,x,z)<5600,"Aquatic recipe overflow");
+        var structures=new HashSet<string>();int objects=0,rides=0,maxTriangles=0;
+        var cfg=new LayoutConfig{CellSize=36,DoorWidth=4,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};
+        for(int recipe=0;recipe<5600;recipe++)
+        {
+            var r=new Room{X=2,Z=3,Exits=15};AquaticParkPlanner.DescribeRecipe(r,cfg,recipe);var p=r.Plan.Aquatic;var g=AquaticParkArchitecture.Build(r,cfg);
+            Check(r.Plan.Valid(r,cfg),"Invalid aquatic plan");Check(structures.Add(Hash(g.Structure)),"Duplicate aquatic structural recipe: "+recipe);
+            foreach(var mesh in new[]{g.Structure,g.Decoration,g.Glass,g.Water})
+            {Validate(mesh);foreach(var n in mesh.Normals)Check(Math.Abs(n.Length-1)<.002f,"Non-unit aquatic normal");Check(mesh.Indices[(int)Surface.Glow].Count==0,"Artificial emissive in solar-only park");}
+            Check(g.Fixtures.Count==0,"Solar-only park contains artificial lamps");
+            Check(g.Regions.Count==3&&g.Water.TriangleCount>0&&g.Water.Positions.All(v=>Math.Abs(v.Y-cfg.WaterLevel)<.0001f),"Aquatic water mesh/physics disagree");
+            int triangles=g.Structure.TriangleCount+g.Decoration.TriangleCount+g.Glass.TriangleCount;maxTriangles=Math.Max(maxTriangles,triangles);Check(triangles<40000,"Unbounded aquatic triangle count");
+            foreach(var slide in p.Slides)
+            {
+                Check(slide.Length>10&&slide.Radius>=1.05f,"Undersized slide");
+                Check((slide.Points[0]-slide.Sample(0,out _)).Length<.001f&&(slide.Points[slide.Points.Length-1]-slide.Sample(slide.Length,out _)).Length<.001f,"Ride sample endpoints do not match mesh");
+                for(int i=1;i<slide.Points.Length;i++)
+                {Check(slide.Distances[i]>slide.Distances[i-1],"Zero-length ride segment");Check(slide.Points[i].Y+2*slide.Radius<r.Height-.7f,"Tube through roof");}
+            }
+            objects+=p.Props.Length;rides+=p.Slides.Length;
+            if(recipe%140==0)
+            {var repeat=AquaticParkArchitecture.Build(r,cfg);Check(Hash(g.Structure,g.Decoration,g.Water,g.Glass)==Hash(repeat.Structure,repeat.Decoration,repeat.Water,repeat.Glass),"Aquatic generation depends on load order");}
+        }
+        AquaticRideClearance();
+        int boundaries=0;
+        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int sample=0;sample<24;sample++)
+        {
+            var c=new LayoutConfig{CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2.1f,Continuous=true,Procedural=LiminalGeneration.AquaticPark,AutonomousGeneration=true,CurveSegments=16};var layout=new Layout(c);var r=layout.At(sample-12,8);var p=r.Plan.Aquatic;var g=Architecture.Build(r,layout);
+            Check(p!=null&&r.Plan.Valid(r,c)&&r.Plan.Assemblies.Length==0&&g.SourceProps.Count==0,"Park not integrated or generic packing obstructs attractions");
+            foreach(var pool in p.Pools)
+            {
+                Check(!pool.Contains(0,0),"Pool floods main dry route");
+                // Stepping islands occupy only the first calm pool centre; probe an offset bottom too.
+                var at=new V3(pool.CenterX+pool.Width*.12f,2,pool.CenterZ+pool.Depth*.2f);
+                Check(Support(g.Structure,at)<.01f,"Invisible floor covers an aquatic basin");
+            }
+            foreach(var a in AquaticParkArchitecture.RoofApertures(r))Check(Support(g.Structure,new V3(a.X,r.Height+.01f,a.Z))<r.Height-.1f,"Opaque roof seals solar aperture");
+            for(int d=0;d<4;d++)
+            {
+                var n=layout.Neighbour(r,d);Check(Math.Abs(SolarConnections.DoorWidth(r,d,c)-SolarConnections.DoorWidth(n,(d+2)%4,c))<.001f&&Math.Abs(SolarConnections.DoorHeight(r,d,c)-SolarConnections.DoorHeight(n,(d+2)%4,c))<.001f,"Aquatic openings are not reciprocal");
+                for(float t=0;t<size*.5f-.3f;t+=.75f)
+                {
+                    var point=new V3(Directions.DX[d]*t,2,Directions.DZ[d]*t);Check(Math.Abs(Support(g.Structure,point))<.002f,"Aquatic exit lacks dry supported path");
+                }
+            }
+            float z0=-p.Half+2.2f;
+            for(int i=0;i<p.FlightSteps;i++)
+            {
+                var first=new V3(p.Half-1.35f,p.TowerHeight+2,z0+(i+.5f)*.27f);
+                var second=new V3(p.Half-2.8f,p.TowerHeight+2,z0+p.FlightRun-(i+.5f)*.27f);
+                Check(Math.Abs(Support(g.Structure,first)-(i+1)*.18f)<.002f,"First stair flight has wrong physical tread");
+                Check(Math.Abs(Support(g.Structure,second)-(p.FlightSteps+i+1)*.18f)<.002f,"Second stair flight has wrong physical tread");
+            }
+            foreach(var slide in p.Slides)
+            {
+                var start=slide.Points[0]+new V3(0,.05f,-.75f);Check(Math.Abs(Support(g.Structure,start)-p.TowerHeight)<.002f,"Slide activation position has no supported deck");
+                var low=new AquaticRideMotion();low.Reset();var fast=new AquaticRideMotion();fast.Reset();for(int i=0;i<120;i++)low.Advance(slide,1f/30);for(int i=0;i<960;i++)fast.Advance(slide,1f/240);
+                Check(Math.Abs(low.Distance-fast.Distance)<.08f,"Ride speed depends strongly on frame rate");
+                float saved=low.Distance;low.Advance(slide,0);low.Advance(slide,float.NaN);Check(low.Distance==saved,"Paused or invalid time advances attraction");
+                for(int i=0;i<10000&&!fast.Finished;i++)fast.Advance(slide,1f/60);Check(fast.Finished&&Math.Abs(fast.Distance-slide.Length)<.001f,"Ride cannot reach receiving pool");
+                Check(slide.Points.All(v=>Math.Abs(v.Z)>p.Clear+.4f||v.Y>=2.65f),"Slide blocks walking headroom");
+            }
+            Check(Math.Abs(Support(g.Structure,new V3(p.Valve.X+.45f,2,p.Valve.Z)))<.001f,"Valve not accessible on paving");
+            foreach(var prop in p.Props.Where(v=>v.Source!=null))Check(SourceFurniture.Clear(g.Structure,new SourceFurniturePlacement(0,SourceFurniture.Index(prop.Source),prop.Bottom,prop.Yaw),.005f),"Aquatic source furniture intersects structure: "+prop.Source);
+            boundaries++;
+        }
+        var mixed=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Expanded,EnableAquaticPark=true};Check(LiminalRegions.Find(mixed,LiminalEnvironment.AquaticPark,0,0,out int fx,out int fz)&&LiminalRegions.At(mixed,fx,fz)==LiminalEnvironment.AquaticPark,"Aquatic park missing from mixed exploration / TP");mixed.EnableAquaticPark=false;Check(!LiminalRegions.Find(mixed,LiminalEnvironment.AquaticPark,0,0,out _,out _),"Disabled park still found");
+        Console.WriteLine($"Aquatic park: {structures.Count} unique structural recipes at identical coordinates/seed; {rides} planned ride instances, {objects} planned objects; {boundaries} boundary rooms; max {maxTriangles} architecture/detail/glass triangles at 16 cross segments. Unity traversal, shaders and FPS unrun.");
+    }
+    static float PointTriangleDistanceSquared(V3 p,V3 a,V3 b,V3 c)
+    {
+        V3 ab=b-a,ac=c-a,ap=p-a;float d1=V3.Dot(ab,ap),d2=V3.Dot(ac,ap);
+        if(d1<=0&&d2<=0)return V3.Dot(ap,ap);
+        V3 bp=p-b;float d3=V3.Dot(ab,bp),d4=V3.Dot(ac,bp);
+        if(d3>=0&&d4<=d3)return V3.Dot(bp,bp);
+        float vc=d1*d4-d3*d2;if(vc<=0&&d1>=0&&d3<=0){V3 q=p-(a+ab*(d1/(d1-d3)));return V3.Dot(q,q);}
+        V3 cp=p-c;float d5=V3.Dot(ab,cp),d6=V3.Dot(ac,cp);
+        if(d6>=0&&d5<=d6)return V3.Dot(cp,cp);
+        float vb=d5*d2-d1*d6;if(vb<=0&&d2>=0&&d6<=0){V3 q=p-(a+ac*(d2/(d2-d6)));return V3.Dot(q,q);}
+        float va=d3*d6-d5*d4;if(va<=0&&d4-d3>=0&&d5-d6>=0){V3 q=p-(b+(c-b)*((d4-d3)/(d4-d3+d5-d6)));return V3.Dot(q,q);}
+        float inverse=1/(va+vb+vc);V3 delta=p-(a+ab*(vb*inverse)+ac*(vc*inverse));return V3.Dot(delta,delta);
+    }
+    static bool SphereClear(MeshData mesh,V3 center,float radius)
+    {
+        foreach(var sub in mesh.Indices)for(int i=0;i<sub.Count;i+=3)
+        {
+            V3 a=mesh.Positions[sub[i]],b=mesh.Positions[sub[i+1]],c=mesh.Positions[sub[i+2]];
+            if(Math.Max(a.X,Math.Max(b.X,c.X))<center.X-radius||Math.Min(a.X,Math.Min(b.X,c.X))>center.X+radius||Math.Max(a.Y,Math.Max(b.Y,c.Y))<center.Y-radius||Math.Min(a.Y,Math.Min(b.Y,c.Y))>center.Y+radius||Math.Max(a.Z,Math.Max(b.Z,c.Z))<center.Z-radius||Math.Min(a.Z,Math.Min(b.Z,c.Z))>center.Z+radius)continue;
+            if(PointTriangleDistanceSquared(center,a,b,c)<radius*radius)return false;
+        }
+        return true;
+    }
+    static void AquaticRideClearance()
+    {
+        int samples=0;
+        foreach(int size in new[]{28,36,60})foreach(int height in new[]{0,3})for(int style=0;style<8;style++)
+        {
+            var cfg=new LayoutConfig{CellSize=size,DoorWidth=6,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};var room=new Room{Exits=15};
+            AquaticParkPlanner.DescribeRecipe(room,cfg,height*1400+style*7);var g=AquaticParkArchitecture.Build(room,cfg);
+            foreach(var slide in room.Plan.Aquatic.Slides)for(int i=0;i<slide.Points.Length;i+=4)
+            {
+                V3 point=slide.Points[i];
+                Check(SphereClear(g.Structure,point+V3.Up*.45f,.2f),$"Seated rider intersects park at {size}/{height}/{style}/{i}");
+                Check(SphereClear(g.Structure,point+V3.Up*.86f,.16f),$"Ride camera intersects park at {size}/{height}/{style}/{i}");samples++;
+            }
+        }
+        Console.WriteLine($"Aquatic ride clearance: {samples} seated-body / camera sphere samples against actual triangles in 48 extreme-size/style rooms; not PhysX.");
     }
     static void ThermalBathGeneration()
     {
@@ -251,7 +379,7 @@ static class Checks
         Check(LiminalRegions.Find(expanded,LiminalEnvironment.Orangerie,0,0,out int fx,out int fz),"Garden absent from mixed world / TP");
         Check(LiminalRegions.At(expanded,fx,fz)==LiminalEnvironment.Orangerie,"Garden TP selects wrong region");
         expanded.EnableOrangerie=false;Check(!LiminalRegions.Find(expanded,LiminalEnvironment.Orangerie,0,0,out _,out _),"Disabled garden still found");
-        Console.WriteLine($"Orangerie: {structures.Count} distinct structural recipes at identical coordinates/seed, {props} distributed planned object instances, {sampleRooms} integrated boundary rooms; max {maxTriangles} triangles per recipe. One new level; other nine and global 10000 remain pending. No native Unity execution.");
+        Console.WriteLine($"Orangerie: {structures.Count} distinct structural recipes at identical coordinates/seed, {props} distributed planned object instances, {sampleRooms} integrated boundary rooms; max {maxTriangles} triangles per recipe. Orangerie catalogue only; overall expansion progress is in EXPANSION_NIVELES.json. No native Unity execution.");
     }
     static void Validate(MeshData m)
     {

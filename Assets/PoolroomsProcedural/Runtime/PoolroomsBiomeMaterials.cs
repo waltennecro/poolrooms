@@ -78,7 +78,7 @@ namespace Poolrooms
                 if(normal!=null){m.EnableKeyword("_NORMALMAP");m.EnableKeyword("_NORMALMAP_TANGENT_SPACE");}
                 if(mask!=null){m.EnableKeyword("_MASKMAP");SetFloat(m,"_SmoothnessRemapMax",theme==SurfaceTheme.Merchandise&&slot==Surface.Slide?.3f:1);}
             }
-            if(theme==SurfaceTheme.ThermalWicker&&slot!=Surface.Plaster&&m.HasProperty("_CoatMask"))
+            if((theme==SurfaceTheme.ThermalWicker&&slot!=Surface.Plaster||(theme==SurfaceTheme.AquaticPark||theme==SurfaceTheme.AquaticCoral)&&slot==Surface.Slide)&&m.HasProperty("_CoatMask"))
             {SetFloat(m,"_CoatMask",1);m.EnableKeyword("_MATERIAL_FEATURE_CLEAR_COAT");}
             if(slot==Surface.Glow)
             {SetColor(m,"_EmissiveColor",Color.white);SetColor(m,"_EmissionColor",Color.white);m.EnableKeyword("_EMISSION");}
