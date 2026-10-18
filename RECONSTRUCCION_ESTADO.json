@@ -510,8 +510,12 @@
         "renderDistanceReduced": false,
         "nativeUnityExecuted": false,
         "nativePlayModeTestsAddedButUnrun": 2,
-        "coreMathematicalAssertionsPassed": 1807442803
-      }
+        "coreMathematicalAssertionsPassed": 1807442803,
+        "cumulativeAssetsFiles": 841,
+        "publicBackupBytes": 462693803,
+        "supplementalExplorationCompositionAssertions": 555390
+      },
+      "evidence": "Verification/ci_walkable_R25.json"
     }
   ],
   "latestCoreChecks": {
@@ -608,7 +612,8 @@
     "walkablePhysicalBoundaryPairs": 148,
     "walkableDistrictBridgeCases": 10,
     "walkableCandidateRegions": 324,
-    "walkableRegionBlocks": 9
+    "walkableRegionBlocks": 9,
+    "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7"
   },
   "pending": [
     {
@@ -650,7 +655,7 @@
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "Complete R25 cumulative publication evidence. Native Unity/HDRP compilation, walking/streaming, appearance and FPS remain pending. Six relaxing levels and separate 10000-zone global expansion remain unimplemented.",
+  "nextIndependentWork": "R25 core, syntax, CI, geometry, shuffled availability and cumulative backup complete. Native Unity/HDRP compilation, walking/streaming, appearance and FPS remain pending. Six relaxing levels and separate 10000-zone global expansion remain unimplemented.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1075,6 +1080,23 @@
         "id": 12145342125,
         "bytes": 295362914,
         "digest": "sha256:7dd9e3d70097366e1075e02c161d9439151d03426044015187f781825c25bda9"
+      }
+    ]
+  },
+  "walkableDiscoveryCi": {
+    "run": 39153744898,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39153744898",
+    "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117752537492,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12146496454,
+        "bytes": 295368553,
+        "digest": "sha256:5893d7f4d25d921b15a10c3a660dbb866b0fa19565a65567032339338c930c17"
       }
     ]
   }

@@ -1,0 +1,128 @@
+{
+  "stage": "R25",
+  "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
+  "implementedEnvironmentsDiscoverable": 18,
+  "additionalConnectedDistricts": [
+    "Mall",
+    "Level94"
+  ],
+  "climateVariantsSampled": [
+    "Closed Poolrooms",
+    "Solar Poolrooms"
+  ],
+  "administratorRequired": false,
+  "automaticTeleportation": false,
+  "sourceProfileAssetModified": false,
+  "candidateRegionsPerEnvironmentPerBlock": 2,
+  "regionBlockDimensions": [
+    8,
+    8
+  ],
+  "permutation": "four-round keyed six-bit Feistel",
+  "mandatoryCandidateRegionsChecked": 324,
+  "independentlyShuffledBlocksChecked": 9,
+  "seedCases": [
+    0,
+    31,
+    481516,
+    87,
+    1234
+  ],
+  "cellSizeCases": [
+    36,
+    36,
+    36,
+    28,
+    60
+  ],
+  "graphWitnessRoutes": 110,
+  "physicalThresholdPairsSampled": 148,
+  "districtBridgeCases": 10,
+  "longestWitnessRoomEdgesPerCase": [
+    47,
+    46,
+    51,
+    71,
+    49
+  ],
+  "exploredGraphCellsPerCase": [
+    3985,
+    4054,
+    4716,
+    8916,
+    4152
+  ],
+  "searchUsesReservedCellBypassesNotDistrictInteriors": true,
+  "perSeedDistanceGuarantee": false,
+  "bodyClearanceSampledOnActualCoreTrianglesNotPhysX": true,
+  "coreMathematicalAssertionsPassed": 1807442803,
+  "targetedWalkableAssertionsPassed": 531918,
+  "supplementalComposedRun": {
+    "composition": "Exploration",
+    "assertionsPassed": 555390,
+    "graphWitnessRoutes": 110,
+    "physicalThresholdPairsSampled": 148,
+    "districtBridgeCases": 10,
+    "sameActualCoreFilesReferenced": true,
+    "temporaryVerificationCopyOnly": true,
+    "reproduction": "Use Verification/Checks.cs and ExplorationChecks.cs in a temporary SDK8 project referencing the unchanged repository Core files; set Composition=SpatialComposition.Exploration in the trial LayoutConfig in WalkableNetwork; run --walkable-only. No repository file modified during this supplemental run.",
+    "nativeUnityExecuted": false
+  },
+  "syntaxScripts": 224,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "basePbrMapsAudited": 82,
+  "newDownloadedModels": 0,
+  "newLevelsAdded": 0,
+  "flashlightFilesUnchanged": 3,
+  "renderDistanceReduced": false,
+  "nativeUnityExecuted": false,
+  "nativePlayModeTestsAddedButUnrun": 2,
+  "nativeWalkingStreamingAndFpsVerified": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/Unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T18:15:16Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R25_Exploracion_Caminando_Assets.zip",
+    "files": 841,
+    "bytes": 296235276,
+    "sha256": "630fb34917dfa581acc240dcd7464d5bf315b476a681c934207a8cf3fecbe47c",
+    "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1033,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
+    "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
+    "bytes": 462693803,
+    "sha256": "a144b4597d274a3a2d99d9705967142f92f1cd51ee05abefcd2f5852bf838b8d",
+    "assetFilesMatched": 841,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39153744898,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39153744898",
+    "sourceRevision": "e0624dc5aa7c504ebd18e30f7a533c8b07524dd7",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117752537492,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12146496454,
+        "bytes": 295368553,
+        "digest": "sha256:5893d7f4d25d921b15a10c3a660dbb866b0fa19565a65567032339338c930c17"
+      }
+    ]
+  }
+}

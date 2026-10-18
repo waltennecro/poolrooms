@@ -318,3 +318,10 @@ y columnas apartadas de salidas cívicas. Pasan 110 rutas de grafo, 148 pares de
 conexiones físicas y 10 casos de puentes; regresión acumulativa y sintaxis C# verificadas.
 Documentación: `Assets/PoolroomsProcedural/Documentation/EXPLORACION_CAMINANDO_R25.md`.
 El modo maestro es opcional; pruebas nativas Unity y FPS siguen pendientes.
+
+R25: CI [39153744898](https://github.com/waltennecro/poolrooms/actions/runs/39153744898) completada correctamente, incluidos
+catálogos, fuentes/licencias, medios y paquete acumulativo. Assets: 841 archivos,
+296235276 bytes. Respaldo público descargado: 462693803 bytes, CRC
+válido y 1033 archivos coincidentes por SHA-256. Evidencia: `Verification/ci_walkable_R25.json`.
+Un muestreo adicional con composición Exploration pasa 555.390 aserciones sobre
+los mismos archivos Core. Unity nativo y FPS siguen sin ejecutar.
