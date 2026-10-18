@@ -19,6 +19,7 @@ namespace Poolrooms
         private bool jump,sprint,escape,click,ready;
         private bool checkSupport=true;
         private readonly RaycastHit[] supportHits=new RaycastHit[24];
+        private readonly Collider[] repairClearance=new Collider[32];
         private bool chatPressed,masterPressed,flashPressed,flashCycle,ascend,descend;
         private bool grabPressed,dropPressed;
         private PoolroomsCarry carry;
@@ -116,7 +117,7 @@ namespace Poolrooms
             if(showStartMenu)pauseMenu.OpenStartMenu();
         }
         public void SetPaused(bool value)
-        {IsPaused=value;inspectHeld=false;dash.Cancel();dashPressed=false;ClearViewMotion();sprintPreference.Reset();if(slide!=null)slide.Stop();slideHeld=false;FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);}
+        {IsPaused=value;locomotion.ClearJumpIntent();inspectHeld=false;dash.Cancel();dashPressed=false;ClearViewMotion();sprintPreference.Reset();if(slide!=null)slide.Stop();slideHeld=false;FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);}
         public void ResetSprintPreference(){sprintPreference.Reset();}
         public void ResetToSpawn()
         {Teleport(world!=null?world.SpawnWorldPosition:Vector3.up*.1f);}
@@ -199,7 +200,7 @@ namespace Poolrooms
             bool burst=dashPressed;dashPressed=false;
             bool sprintRequested=sprintPreference.Sample(sprint,toggleSprint,blocked||Cursor.lockState!=CursorLockMode.Locked||world!=null&&!world.ViewerReady);
             bool grab=grabPressed,drop=dropPressed;grabPressed=dropPressed=false;
-            if(blocked){if(Vehicle!=null)Vehicle.Control(0,0,true);dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
+            if(blocked){locomotion.ClearJumpIntent();if(Vehicle!=null)Vehicle.Control(0,0,true);dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             if(world!=null&&!world.ViewerReady&&(waitForDestination||masterMode==null||!masterMode.Noclip))
             {
                 // Also pause after a teleport to an unloaded room, not only at the initial spawn.
@@ -280,6 +281,8 @@ namespace Poolrooms
             Vector3 feet=transform.TransformPoint(body.center-Vector3.up*(body.height*.5f));
             float extent=body.height*Mathf.Abs(transform.lossyScale.y);
             int count=Physics.RaycastNonAlloc(feet+Vector3.up*extent,Vector3.down,supportHits,extent+.2f,~0,QueryTriggerInteraction.Ignore);
+            // A saturated query cannot establish which floor is nearest. Never guess.
+            if(count>=supportHits.Length)return;
             float above=float.PositiveInfinity;bool supported=false;
             for(int i=0;i<count;i++)
             {
@@ -289,8 +292,19 @@ namespace Poolrooms
                 else if(delta>0&&delta<=Mathf.Min(1.25f,extent*.65f))above=Mathf.Min(above,hit.point.y);
             }
             if(supported||float.IsInfinity(above))return;
+            // Verify the entire destination capsule before lifting an embedded actor.
+            // A floor below a low ceiling is not a safe standing destination.
+            float lift=above-feet.y+Mathf.Max(.025f,body.skinWidth);
+            Vector3 candidate=feet+Vector3.up*lift;
+            Vector3 scale=transform.lossyScale;
+            float radius=body.radius*Mathf.Max(Mathf.Abs(scale.x),Mathf.Abs(scale.z));
+            float height=Mathf.Max(extent,2*radius),margin=Mathf.Max(.005f,body.skinWidth);
+            int overlaps=Physics.OverlapCapsuleNonAlloc(candidate+Vector3.up*radius,candidate+Vector3.up*(height-radius),Mathf.Max(.01f,radius-margin),repairClearance,~0,QueryTriggerInteraction.Ignore);
+            if(overlaps>=repairClearance.Length)return;
+            for(int i=0;i<overlaps;i++)
+                if(repairClearance[i]!=null&&!repairClearance[i].transform.IsChildOf(transform))return;
             // The probe ignores rendered water; a pool can only supply its real bottom or steps.
-            body.enabled=false;transform.position+=Vector3.up*(above-feet.y+Mathf.Max(.025f,body.skinWidth));body.enabled=true;
+            body.enabled=false;transform.position+=Vector3.up*lift;body.enabled=true;
             locomotion.Suspend();waterContacts.Reset();ClearViewMotion();
             if(ambientAudio!=null)ambientAudio.ResetMotion();Relocated?.Invoke();
         }

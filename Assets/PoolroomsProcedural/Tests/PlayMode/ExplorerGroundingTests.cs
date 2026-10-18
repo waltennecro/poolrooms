@@ -9,6 +9,40 @@ namespace Poolrooms.Tests
 {
     public sealed class ExplorerGroundingTests
     {
+        [Test]
+        public void EmbeddedFeetRepairChecksHeadroomBeforeMoving()
+        {
+            GameObject actor=null,floor=null,ceiling=null;
+            var oldLock=Cursor.lockState;bool oldVisible=Cursor.visible;
+            try
+            {
+                actor=new GameObject("Embedded feet headroom regression");
+                actor.SetActive(false);actor.transform.position=Vector3.up*-.65f;
+                var body=actor.AddComponent<CharacterController>();
+                var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;
+                actor.SetActive(true); // Awake configures the real controller; no frame runs Start.
+                floor=GameObject.CreatePrimitive(PrimitiveType.Cube);
+                floor.transform.position=Vector3.down*.1f;floor.transform.localScale=new Vector3(5,.2f,5);
+                ceiling=GameObject.CreatePrimitive(PrimitiveType.Cube);
+                ceiling.transform.position=Vector3.up*1.2f;ceiling.transform.localScale=new Vector3(5,.2f,5);
+                var repair=typeof(PoolroomsExplorer).GetMethod("RepairEmbeddedFeet",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+                Assert.That(repair,Is.Not.Null);
+                Physics.SyncTransforms();Vector3 before=actor.transform.position;
+                repair.Invoke(explorer,null);
+                Assert.That(actor.transform.position,Is.EqualTo(before),"Recovery must not lift the capsule into a ceiling.");
+                Object.DestroyImmediate(ceiling);ceiling=null;Physics.SyncTransforms();
+                repair.Invoke(explorer,null);
+                Assert.That(actor.transform.position.y,Is.GreaterThan(0),"Removing the obstruction must permit floor recovery.");
+                Assert.That(body.enabled,Is.True);
+            }
+            finally
+            {
+                if(actor!=null)Object.DestroyImmediate(actor);
+                if(floor!=null)Object.DestroyImmediate(floor);
+                if(ceiling!=null)Object.DestroyImmediate(ceiling);
+                Cursor.lockState=oldLock;Cursor.visible=oldVisible;
+            }
+        }
         [UnityTest]
         public IEnumerator DefaultCapsuleAndDisabledPreviewCollidersStillSupportPlayerAndDoubleJump()
         {

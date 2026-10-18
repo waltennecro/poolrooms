@@ -18,6 +18,34 @@ static class Checks
         foreach(var m in meshes){writer.Write(m.Positions.Count);foreach(var p in m.Positions){writer.Write(p.X);writer.Write(p.Y);writer.Write(p.Z);}foreach(var list in m.Indices){writer.Write(list.Count);foreach(int i in list)writer.Write(i);}}
         writer.Flush();return Convert.ToHexString(SHA256.HashData(stream.ToArray()));
     }
+    static void ForgivingJumpTiming()
+    {
+        foreach(float dt in new[]{1f/240,1f/60,1f/20})
+        {
+            var motion=new ExplorerLocomotion();motion.Step(dt,true,false,0,false);
+            Check(motion.Step(dt,false,false,0,true),"Edge grace must issue a jump");
+            Check(motion.RemainingJumps==1,"Edge grace must preserve the double jump");
+            Check(motion.Step(dt,false,false,0,true)&&motion.RemainingJumps==0,"Air jump remains available once");
+            Check(!motion.Step(dt,false,false,0,true),"Grace must never grant a third jump");
+            motion.Land(); // Rising contact must not reset the budget.
+            Check(motion.RemainingJumps==0,"Stale floor contact cannot refill rising jumps");
+            motion.HitCeiling();motion.Step(dt,false,false,0,false);motion.Land();
+            Check(motion.Step(dt,true,false,0,false),"Buffered press must fire on actual landing");
+            Check(!motion.Step(dt,false,false,0,false),"A buffered press must be consumed once");
+            motion.Reset();motion.Step(dt,true,false,0,false);
+            for(int i=0;i<40;i++)motion.Step(dt,false,false,0,false);
+            Check(motion.Step(dt,false,false,0,true)&&motion.RemainingJumps==0,"Expired edge grace leaves only the air jump");
+            motion.Step(dt,false,false,0,true);float falling=motion.VerticalSpeed;motion.ClearJumpIntent();
+            Check(motion.VerticalSpeed==falling,"Opening a menu must preserve vertical momentum");
+            motion.Suspend();motion.Land();
+            Check(!motion.Step(dt,true,false,0,false),"Pause or loading must discard buffered input");
+            motion.Reset();motion.Step(dt,true,false,0,false);motion.Step(dt,false,true,0,false);
+            Check(motion.Step(dt,false,false,0,true)&&motion.RemainingJumps==0,"Water exit must not inherit edge grace");
+            motion.Step(dt,false,false,0,true);
+            for(int i=0;i<40;i++)motion.Step(dt,false,false,0,false);
+            motion.Land();Check(!motion.Step(dt,true,false,0,false),"Expired buffer cannot autojump at landing");
+        }
+    }
     static int Main(string[] args)
     {
         string root=Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,"../../../../"));
@@ -50,6 +78,7 @@ static class Checks
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
         MovementAndQuality();
+        ForgivingJumpTiming();
         CompactTerrain();
         CityGeneration();
         CityStreetConnections();

@@ -142,6 +142,32 @@
         "d4bca06c31597d27affb0ff60f9f9d7f844069d9",
         "adb646bdd414238a982e19ff3b717ea48e133553"
       ]
+    },
+    {
+      "id": "R18",
+      "feature": "Forgiving double-jump timing and menu input isolation",
+      "status": "implemented_native_validation_pending",
+      "exactRecovery": false,
+      "details": {
+        "edgeGraceSeconds": 0.1,
+        "jumpBufferSeconds": 0.12,
+        "jumpBudget": 2,
+        "pausePreservesVerticalMomentum": true,
+        "flashlightChanged": false,
+        "graphicsOrRenderDistanceReduced": false,
+        "embeddedFeetRecoveryChecksFullCapsule": true,
+        "headroomPlayModeRegressionExecuted": false
+      },
+      "validation": "Core regression suite and four C# syntax configurations; actual results recorded in Documentation/ACTUALIZACION_R18.md. Unity execution remains unavailable.",
+      "validationResults": {
+        "coreAssertionsPassed": 24043831,
+        "protectedGeometryFingerprints": 188,
+        "syntaxScripts": 202,
+        "syntaxConfigurations": 4,
+        "nativeExecuted": false,
+        "nativeStatus": "blocked_unity_editor_missing",
+        "runnerContractChecks": "passed_fake_processes_not_Unity"
+      }
     }
   ],
   "latestCoreChecks": {
