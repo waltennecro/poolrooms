@@ -11,7 +11,6 @@ namespace Poolrooms
     {
         public PoolroomsProfile profile;
         [Header("Mundo liminal conectado / v29")]
-        [Tooltip("Activa en Play los ambientes interiores, atlas solar, centros comerciales y colinas del Nivel 94 físicos. Usa una copia temporal del perfil; desactiva para pruebas de recetas o mapas antiguos.")]
         [InspectorName("Exploración unificada"),Tooltip("Incluye todos los niveles implementados con accesos caminables. Desactívalo para perfiles de prueba o generación personalizada.")] public bool unifiedExploration=true;
         private PoolroomsProfile sourceProfile,runtimeProfile;
         private PoolroomsConnectedMalls connectedMalls;
