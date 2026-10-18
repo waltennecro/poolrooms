@@ -592,7 +592,9 @@
         "coreMathematicalAssertionsPassed": 1807460779,
         "finalTargetedAssertionsPassed": 17899,
         "syntaxScripts": 232,
-        "syntaxConfigurations": 4
+        "syntaxConfigurations": 4,
+        "skinnedRendererRayTracingMode": "DynamicGeometry",
+        "rigidRendererRayTracingMode": "DynamicTransform"
       },
       "evidence": "Verification/ci_camera_avatar_R27.json"
     }

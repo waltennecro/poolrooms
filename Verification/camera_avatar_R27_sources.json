@@ -17,6 +17,15 @@
       "declarationsChecked": [
         "public static Texture2D CaptureScreenshotAsTexture()"
       ]
+    },
+    "RayTracingMode": {
+      "url": "https://raw.githubusercontent.com/Unity-Technologies/UnityCsReference/6000.3/Runtime/Export/Graphics/GraphicsEnums.cs",
+      "sha256": "50663a70be27b5f955e4bf5572618d4ef93817e9c050a7f379d055529c306a56",
+      "declarationsChecked": [
+        "public enum RayTracingMode",
+        "DynamicGeometry = 3",
+        "DynamicTransform = 2"
+      ]
     }
   }
 }

@@ -14,7 +14,8 @@ de los estilos ópticos Normal/VHS/etc.; los IDs anteriores se conservan.
 La cámara externa comprueba obstrucciones con una esfera que contempla el
 plano cercano y el encuadre; se contrae inmediatamente y recupera distancia
 suavemente. Las consultas saturadas se cierran de forma conservadora.
-Interacciones, dirección de vuelo y oído permanecen en un ancla del personaje.
+Interacciones, dirección de vuelo y evaluación del ambiente sonoro usan un ancla
+del personaje. El AudioListener conserva su ubicación en la cámara visible.
 En vistas externas la linterna emite desde esa ancla; su código, potencia,
 sombras y efectos se conservan. La cámara real sigue siendo la misma, con
 sus estilos y HDRP. Primera persona oculta el cuerpo conservando sus sombras.
@@ -72,7 +73,8 @@ Las apariencias se ajustan al suelo y a escala del jugador **visualmente**;
 sus colisiones, luces y cámaras no sustituyen las del juego. Un OBJ es estático:
 no genera huesos ni animaciones. FBX con rig puede usar su controlador; se
 actualizan `Speed` (float), `Grounded` y `Sliding` (bool) si existen. Root motion
-queda desactivado. La silueta neutral es un sustituto básico, sin cara ni ojos.
+queda desactivado. Las mallas con esqueleto solicitan DynamicGeometry para
+actualizar su deformación en RT; las rígidas usan DynamicTransform. La silueta neutral es un sustituto básico, sin cara ni ojos.
 La selección y corrección frontal se conservan entre sesiones. Usa modelos
 cuya licencia permita incorporarlos; este cambio no descarga modelos externos.
 

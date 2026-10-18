@@ -152,7 +152,7 @@ namespace Poolrooms
             modelRoot=candidate;modelRoot.transform.localRotation=Quaternion.Euler(0,targetYaw,0);modelRoot.SetActive(true);animator=null;leftLeg=rightLeg=leftArm=rightArm=null;
             renderers=modelRoot.GetComponentsInChildren<Renderer>(true);
             visibilityValid=false;
-            foreach(var r in renderers){r.motionVectorGenerationMode=MotionVectorGenerationMode.Object;r.rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;}
+            foreach(var r in renderers){r.motionVectorGenerationMode=MotionVectorGenerationMode.Object;r.rayTracingMode=r is SkinnedMeshRenderer?UnityEngine.Experimental.Rendering.RayTracingMode.DynamicGeometry:UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;}
             SetVisible(visible,hidden);
         }
         private void CreateNeutral()
@@ -167,7 +167,7 @@ namespace Poolrooms
             rightArm=Limb("Right arm",root.transform,new Vector3(.28f,1.34f,0),new Vector3(.14f,.3f,.14f),material);
             renderers=modelRoot.GetComponentsInChildren<Renderer>();
             visibilityValid=false;
-            foreach(var r in renderers){r.motionVectorGenerationMode=MotionVectorGenerationMode.Object;r.rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;}
+            foreach(var r in renderers){r.motionVectorGenerationMode=MotionVectorGenerationMode.Object;r.rayTracingMode=r is SkinnedMeshRenderer?UnityEngine.Experimental.Rendering.RayTracingMode.DynamicGeometry:UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;}
             SetVisible(visible,hidden);Status="Apariencia neutral";Attribution="Silueta neutral original.";
         }
         static Transform Limb(string name,Transform root,Vector3 position,Vector3 size,Material material)
