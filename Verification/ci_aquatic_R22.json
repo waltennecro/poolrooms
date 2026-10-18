@@ -1,0 +1,98 @@
+{
+  "stage": "R22",
+  "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
+  "newLevel": "AquaticPark",
+  "structuralRecipesVerifiedAtSameSeedAndCoordinates": 5600,
+  "fullCataloguePlanningCasesAcrossSixScales": 33600,
+  "integratedBoundaryRooms": 144,
+  "independentTriangleClearanceRooms": 48,
+  "sampledRidePositions": 1518,
+  "bodyAndCameraSpheresPerPosition": 2,
+  "plannedRideInstancesAcrossCatalogue": 6300,
+  "plannedPoolInstancesAcrossCatalogue": 16800,
+  "plannedObjectInstancesAcrossCatalogue": 67200,
+  "simultaneouslyLoaded": false,
+  "slideFamilies": 8,
+  "seatedGuidedRideNotHydraulicSimulation": true,
+  "stairFlightWidthMetres": 1.25,
+  "stairRiserMetres": 0.18,
+  "stairTreadMetres": 0.27,
+  "towerHeightsMetres": [
+    5.4,
+    5.76,
+    6.12,
+    6.48
+  ],
+  "newDownloadedSourceModels": 0,
+  "reusedLicensedModels": [
+    "B_CafeChair",
+    "WaterBottle"
+  ],
+  "originalPbrMaps": 12,
+  "originalPbrResolution": 1024,
+  "newPbrMapsRegeneratedByteExact": true,
+  "allBasePbrMapsAudited": 66,
+  "maxArchitectureDetailGlassTriangles": 22916,
+  "triangleCountCrossSegments": 16,
+  "triangleCountExcludesWaterValveImportedObjectsAndGlobalDressing": true,
+  "artificialLightFixturesPerRoom": 0,
+  "emissiveGeometry": false,
+  "physicalRegionalSunAndSky": true,
+  "sunElevationDegrees": 24,
+  "rayTracingUsesExistingHardwareAndQualityGate": true,
+  "coreMathematicalAssertionsPassed": 1122381305,
+  "syntaxScripts": 213,
+  "syntaxConfigurations": 4,
+  "protectedGeometryFingerprints": 188,
+  "flashlightFilesUnchanged": 3,
+  "renderDistanceReduced": false,
+  "nativeUnityExecuted": false,
+  "nativePlayModeTestsAddedButUnrun": 3,
+  "nativeAppearancePhysicsAndFpsVerified": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/Unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T16:10:42Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R22_Parque_Acuatico_Assets.zip",
+    "files": 809,
+    "bytes": 290354841,
+    "sha256": "057752de5918593e0d09e16694290f8c37277d778d6a101d5a95dc3051cc1473",
+    "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 991,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/39e371da3356d993687c86ff64e9eea01fc44d04",
+    "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
+    "bytes": 456787694,
+    "sha256": "6a1c744b2e9cc439dad2f6fa012ce19a6434984ae3bffa711918d3fcecadeabe",
+    "assetFilesMatched": 809,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39144441223,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39144441223",
+    "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117725306970,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12142534471,
+        "bytes": 289490407,
+        "digest": "sha256:acdd5c1f929b6094fca9f043f112907555bfee648c8074f8b8803d85a1ad8462"
+      }
+    ]
+  }
+}

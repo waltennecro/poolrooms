@@ -268,3 +268,10 @@ hidráulica. Núcleo, 188 huellas protegidas y sintaxis C# verificados; Unity na
 Documentación: `Assets/PoolroomsProcedural/Documentation/PARQUE_ACUATICO_R22.md`.
 La petición concreta sustituye la propuesta del tercer nivel; quedan siete
 y las 10.000 zonas globales separadas.
+
+R22: CI [39144441223](https://github.com/waltennecro/poolrooms/actions/runs/39144441223) completada correctamente, incluido
+el barrido adicional de 33.600 planes, auditores de recursos y paquete acumulativo.
+Assets: 809 archivos, 290354841 bytes. Respaldo público descargado:
+456787694 bytes, CRC válido y 991 archivos coincidentes por SHA-256.
+Evidencia: `Verification/ci_aquatic_R22.json`. Compilación Unity/HDRP, aspecto,
+PhysX y FPS siguen pendientes; el Editor no está instalado en la nube.

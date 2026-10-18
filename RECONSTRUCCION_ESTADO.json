@@ -348,7 +348,11 @@
         "newPbrMapsRegeneratedByteExact": 12,
         "nativeUnityExecuted": false,
         "nativeStatus": "blocked_unity_editor_missing"
-      }
+      },
+      "commit": "39e371da3356d993687c86ff64e9eea01fc44d04",
+      "ciStatus": "success",
+      "evidence": "Verification/ci_aquatic_R22.json",
+      "packageFiles": 809
     }
   ],
   "latestCoreChecks": {
@@ -413,7 +417,7 @@
     "buildingPngMaps": 50,
     "buildingGenerationByteExact": true,
     "stage": "R22",
-    "sourceRevision": "dce4d8bcb5b01833db119581d2bc075ed29d5372",
+    "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
     "orangerieStructuralRecipes": 2500,
     "orangerieBoundaryRooms": 90,
     "orangerieDistributedObjectInstances": 42000,
@@ -605,12 +609,12 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "allTrackedFilesMatched": 970,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/dce4d8bcb5b01833db119581d2bc075ed29d5372",
-    "sourceRevision": "dce4d8bcb5b01833db119581d2bc075ed29d5372",
-    "bytes": 455319180,
-    "sha256": "dcfdc4f861188ee9810cbd0819f45dd0178c2ca67604e8cac756380298047a01",
-    "assetFilesMatched": 791,
+    "allTrackedFilesMatched": 991,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/39e371da3356d993687c86ff64e9eea01fc44d04",
+    "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
+    "bytes": 456787694,
+    "sha256": "6a1c744b2e9cc439dad2f6fa012ce19a6434984ae3bffa711918d3fcecadeabe",
+    "assetFilesMatched": 809,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -667,10 +671,10 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "files": 791,
-    "bytes": 288895774,
-    "sha256": "82552d4089f8dd0b3ab4d728b04cbf0615ef1fd323196e1444b4c8dae240b660",
-    "sourceRevision": "dce4d8bcb5b01833db119581d2bc075ed29d5372",
+    "files": 809,
+    "bytes": 290354841,
+    "sha256": "057752de5918593e0d09e16694290f8c37277d778d6a101d5a95dc3051cc1473",
+    "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -689,7 +693,7 @@
     "runner": "tools/run_unity_validation.py",
     "performanceMenu": "Tools/Poolrooms/Validación/Capturar 30 segundos de rendimiento",
     "contractTestsUseFakeProcessNotUnity": true,
-    "latestEvidence": "Verification/ci_baths_R21.json"
+    "latestEvidence": "Verification/ci_aquatic_R22.json"
   },
   "nativeToolingCi": {
     "sourceRevision": "9784d0ab3321fb7e9da5c491fed76dd597fb5554",
@@ -846,6 +850,23 @@
         "id": 12124854954,
         "bytes": 288033400,
         "digest": "sha256:168be55a122822a08136d667b7b85357b890d118fa3d429c7240797c7f03217f"
+      }
+    ]
+  },
+  "aquaticParkCi": {
+    "run": 39144441223,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39144441223",
+    "sourceRevision": "39e371da3356d993687c86ff64e9eea01fc44d04",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117725306970,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12142534471,
+        "bytes": 289490407,
+        "digest": "sha256:acdd5c1f929b6094fca9f043f112907555bfee648c8074f8b8803d85a1ad8462"
       }
     ]
   }
