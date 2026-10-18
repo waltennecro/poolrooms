@@ -41,6 +41,10 @@ jobs:
           python-version: '3.11'
       - name: Install pinned offline art verification tools
         run: python -m pip install -r Verification/requirements-art-tools.txt
+      - name: Check building subtraction areas, UVs, licences and all LOD access volumes
+        run: |
+          python tools/check_building_geometry.py
+          python tools/verify_building_sources.py
       - name: Check UV baking transforms, colour sampling and normals
         run: python tools/check_uv_baker.py
       - name: Check native runner rejects missing, stale, failed or empty results

@@ -1,0 +1,247 @@
+{
+  "id": "B_BuildingCourtyard",
+  "resource": "Buildings/Models/B_BuildingCourtyard",
+  "minimum": [
+    -5.300000190734863,
+    2.9247358313000404e-08,
+    -5.300000190734863
+  ],
+  "maximum": [
+    5.300000190734863,
+    12.920000076293945,
+    5.300000190734863
+  ],
+  "triangles": 14718,
+  "materials": [
+    {
+      "name": "B_BuildingCourtyard_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Buildings/Textures/B_BuildingCourtyard_m0_albedo",
+      "normal": "Buildings/Textures/B_BuildingCourtyard_m0_normal",
+      "mask": "Buildings/Textures/B_BuildingCourtyard_m0_mask",
+      "workflow": "specular",
+      "specular": "Buildings/Textures/B_BuildingCourtyard_m0_specular"
+    },
+    {
+      "name": "B_BuildingCourtyard_m1",
+      "colour": [
+        0.05286100134253502,
+        0.13843199610710144,
+        0.05286100134253502,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Buildings/Textures/B_BuildingCourtyard_m1_albedo",
+      "normal": "Buildings/Textures/B_BuildingCourtyard_m1_normal",
+      "mask": "Buildings/Textures/B_BuildingCourtyard_m1_mask",
+      "workflow": "specular",
+      "specular": "Buildings/Textures/B_BuildingCourtyard_m1_specular"
+    },
+    {
+      "name": "B_BuildingCourtyard_m2",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Buildings/Textures/B_BuildingCourtyard_m2_albedo",
+      "normal": "Buildings/Textures/B_BuildingCourtyard_m2_normal",
+      "mask": "Buildings/Textures/B_BuildingCourtyard_m2_mask",
+      "workflow": "specular",
+      "specular": "Buildings/Textures/B_BuildingCourtyard_m2_specular"
+    },
+    {
+      "name": "B_BuildingCourtyard_m3",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 1.0,
+      "roughness": 0.4,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "Buildings/Textures/B_BuildingCourtyard_m3_normal",
+      "mask": "Buildings/Textures/B_BuildingCourtyard_m3_mask"
+    },
+    {
+      "name": "B_BuildingCourtyard_m4",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Buildings/Textures/B_BuildingCourtyard_m4_albedo",
+      "normal": "Buildings/Textures/B_BuildingCourtyard_m4_normal",
+      "mask": "Buildings/Textures/B_BuildingCourtyard_m4_mask",
+      "workflow": "specular",
+      "specular": "Buildings/Textures/B_BuildingCourtyard_m4_specular"
+    },
+    {
+      "name": "B_BuildingCourtyard_m5",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "Buildings/Textures/B_BuildingCourtyard_m5_albedo",
+      "normal": "Buildings/Textures/B_BuildingCourtyard_m5_normal",
+      "mask": "Buildings/Textures/B_BuildingCourtyard_m5_mask",
+      "workflow": "specular",
+      "specular": "Buildings/Textures/B_BuildingCourtyard_m5_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "Buildings/Models/B_BuildingCourtyard_LOD1",
+      "triangles": 10332
+    },
+    {
+      "resource": "Buildings/Models/B_BuildingCourtyard_LOD2",
+      "triangles": 7968
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "6ec4c6adf02bbbf1a43bb1e4b290cd3190355d9791c203b62a2bafb34a16bab3",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Authored complete building subtree adapted as a visual skin, source interior/glass proxies removed, canonical four-storey fit, interior/door/window geometry subtracted with UV interpolation, authored PBR specular/gloss and two LOD derivatives. Native City11 primary architecture and collision remain authoritative.",
+  "sourceNodeNames": [
+    "part",
+    "part",
+    "part",
+    "part",
+    "part",
+    "part"
+  ],
+  "nativeDegenerateTrianglesRemovedByLod": [
+    0,
+    56,
+    50
+  ],
+  "hiddenOrientationMarkerTrianglesPerLod": 1,
+  "adapterFit": {
+    "sourceFacadePlanes": [
+      [
+        -4.85,
+        4.6
+      ],
+      [
+        -4.0,
+        4.3
+      ]
+    ],
+    "worldUpYawCorrectionRadians": 0.660571139873841,
+    "linearScale": [
+      1.0962962962962963,
+      0.9116912799561765,
+      1.2481927710843372
+    ],
+    "offset": [
+      -0.125,
+      0.0,
+      0.1499999999999999
+    ],
+    "targetFacadeHalfSpan": 5.18
+  },
+  "sourceSubtreeTriangles": 25917,
+  "sourceRootNode": 170,
+  "sourceRootName": "Paris_Building_011",
+  "sourceMaterialIndices": [
+    11,
+    12,
+    13,
+    14,
+    61,
+    62
+  ],
+  "originalTriangles": 14717,
+  "sourceDimensionsMetres": [
+    13.516369710471738,
+    14.171463832165909,
+    13.02991841241522
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceBinarySha256": "5fb11a1d61aeb2537197aa97833ff950638c9d42451ee4fafbc9550f03918faa",
+  "nativeUnityValidated": false,
+  "canonicalWidth": 10,
+  "canonicalDepth": 10,
+  "canonicalFloors": 4,
+  "canonicalFloorHeight": 3.2
+}

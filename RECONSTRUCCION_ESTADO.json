@@ -128,13 +128,22 @@
       "documentation": "Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R16.md",
       "packageFiles": 649,
       "commit": "3ae3da067ff571f61b33da509db942f7b73c8f74"
+    },
+    {
+      "id": "R17",
+      "feature": "Two attributed Bistro building source families adapted into doorway-safe four-storey exterior skins, integrated City11 placement, native-import orientation markers and independent all-LOD clearance verification; forensic recovery audit",
+      "status": "implemented_native_validation_pending",
+      "newBuildingSourceFamilies": 2,
+      "untouchedCompleteBuildingModels": 0,
+      "documentation": "Assets/PoolroomsProcedural/Documentation/RECONSTRUCCION_R17.md",
+      "packageFiles": 726
     }
   ],
   "latestCoreChecks": {
-    "assertions": 18354240,
+    "assertions": 24043795,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 200,
+    "syntaxScripts": 202,
     "syntaxConfigurations": 4,
     "pbrMapsVerified": 36,
     "citySourcesAudited": 5,
@@ -185,14 +194,19 @@
       60,
       144,
       240
-    ]
+    ],
+    "importedBuildingSamples": 73,
+    "importedBuildingFamilies": 2,
+    "buildingLodTrianglesAudited": 139312,
+    "buildingPngMaps": 58,
+    "buildingGenerationByteExact": true
   },
   "pending": [
     {
       "id": "city11",
       "feature": "Licensed urban models, procedural districts, furnished accessible buildings, interactable objects and 35 vehicles",
-      "status": "quantity_snapshot_met_by_instances_native_validation_and_external_building_catalog_pending",
-      "remaining": "The 324-cell sample has 1212 procedural buildings, 4846 floor spaces, 4628 source-item instances and 39 vehicle sites. Bistro adds three component families with terraces, not complete external buildings. The external building catalogue and native vehicle/flight/visual/performance validation remain pending.",
+      "status": "licensed_building_catalog_integrated_native_validation_pending",
+      "remaining": "Two building source families are integrated as adapted exterior skins over generated accessible four-storey interiors. Original procedural buildings and two-to-six-storey variety remain. Distributed instance targets pass in the R17 snapshot; native vehicle, flight, collision, rendering and FPS checks remain unexecuted. Exact lost v40-v47 originals are unavailable.",
       "vehicleClasses": {
         "groundCar": "implemented_native_validation_pending",
         "helicopter": "implemented_native_validation_pending",
@@ -203,7 +217,7 @@
       "id": "global_decoration",
       "feature": "Broader catalogues and realistic decoration across all existing regions",
       "status": "bounded_source_placement_covers_all_current_region_groups_native_validation_pending",
-      "remaining": "Support-based placement covers eight core biome types plus existing City11, malls, Level94 and all three quiet levels. Native appearance, carry, memory and FPS validation still pending; repeated instances and percentage requests are not new source models or exact v47 recovery."
+      "remaining": "Current integrated region groups retain source furniture, original procedural fittings and original materials, with two additional imported building exterior families. Native appearance, interaction, memory and FPS validation remains pending; percentages are not source-model counts."
     },
     {
       "id": "three_levels",
@@ -214,10 +228,11 @@
     {
       "id": "native_validation",
       "feature": "Unity 6.3/HDRP 17.3 compilation, shaders, PlayMode, visuals, memory and FPS",
-      "status": "requires_unity_editor"
+      "status": "blocked_editor_project_gpu_and_package_access",
+      "evidence": "Verification/recovery_audit_R17.json"
     }
   ],
-  "nextIndependentWork": "R16 adds two original civic environments and presentation/interaction improvements. Complete external building models and native Unity compilation, PlayMode, shaders, collision, visual quality, memory and FPS remain pending. Use the R13 runner and capture. Exact lost v40–v47 files have not been recovered; do not relabel reconstruction as exact recovery.",
+  "nextIndependentWork": "Run native Unity 6.3/HDRP 17.3 compilation, shaders, all PlayMode tests, traversal/driving/flight, visuals and performance capture on an installed licensed Editor with a real HDRP project and GPU. The cloud preflight is blocked; no Unity execution or AAA visual certification has occurred. Recovering exact v40-v47 original files requires original archives or another real backup; the available workspace/Git audit found none. Continue improvements without relabeling reconstruction as exact recovery.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -227,12 +242,12 @@
     "placedVehicleSourceTypes": 1,
     "carLODDerivatives": 2,
     "carColourVariants": 1,
-    "downloadedBuildingModels": 0,
+    "downloadedBuildingModels": 2,
     "downloadedFurnitureModels": 5,
     "placedFurnitureSourceTypes": 3,
     "chairLODDerivatives": 2,
     "chairColourVariants": 1,
-    "distinctDownloadedSources": 15,
+    "distinctDownloadedSources": 17,
     "distinctDownloadedAircraftSources": 1,
     "aircraftLODDerivatives": 0,
     "aircraftColourVariants": 1,
@@ -243,7 +258,7 @@
     "helicopterSourceLicense": "CC-BY-4.0",
     "helicopterLODDerivatives": 2,
     "helicopterOriginalSourceDownloadVerified": false,
-    "distinctGeometryFamilies": 14,
+    "distinctGeometryFamilies": 16,
     "additionalExistingGeometryVariantSources": 1,
     "downloadedFurnitureVariantSources": 1,
     "interiorSourceFiles": 2,
@@ -261,7 +276,10 @@
     },
     "bistroComponentGeometryFamilies": 3,
     "bistroCompleteBuildingModels": 0,
-    "bistroPngMaps": 16
+    "bistroPngMaps": 16,
+    "buildingExteriorSkinAdaptations": 2,
+    "untouchedCompleteBuildingModels": 0,
+    "buildingPngMaps": 58
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -418,10 +436,11 @@
     "status": "blocked_unity_editor_missing",
     "nativeExecuted": false,
     "projectAvailable": false,
-    "packageRegistryAccess": "packages.unity.com tunnel 403",
+    "packageRegistryAccess": "packages.unity.com tunnel 403, checked again in R17",
     "runner": "tools/run_unity_validation.py",
     "performanceMenu": "Tools/Poolrooms/Validación/Capturar 30 segundos de rendimiento",
-    "contractTestsUseFakeProcessNotUnity": true
+    "contractTestsUseFakeProcessNotUnity": true,
+    "latestEvidence": "Verification/recovery_audit_R17.json"
   },
   "nativeToolingCi": {
     "sourceRevision": "9784d0ab3321fb7e9da5c491fed76dd597fb5554",
@@ -480,6 +499,41 @@
     "artifactDigest": "sha256:33f6b00fd482e8e8bf382b95884f31d3aab3aee5a0e6ac732912930ac66296df",
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false,
+    "nativeUnityExecuted": false
+  },
+  "sampleCityPlanR17": {
+    "seed": 481516,
+    "cellsPerAxis": 18,
+    "coordinateRangeInclusive": [
+      -9,
+      8
+    ],
+    "enableImportedBuildings": true,
+    "enableAircraft": true,
+    "generatedBuildingInstances": 1212,
+    "furnishedFloorSpaces": 4778,
+    "sourceObjectInstances": 4565,
+    "importedExteriorInstances": 67,
+    "groundVehicleSites": 36,
+    "airplaneSites": 1,
+    "helicopterSites": 1,
+    "vehicleSitesTotal": 38,
+    "simultaneouslyLoaded": false,
+    "distinctBuildingSourceFamilies": 2
+  },
+  "buildingSourceAudit": {
+    "status": "passed",
+    "buildingFamilies": 2,
+    "exteriorSkinAdaptations": 2,
+    "models": [
+      "B_BuildingCourtyard",
+      "B_BuildingCorner"
+    ],
+    "pngMaps": 58,
+    "nativeLodTrianglesAudited": 139312,
+    "independentTriangleBoxSAT": true,
+    "resourcesRegeneratedByteExact": true,
+    "previousBistroRegeneratedByteExact": true,
     "nativeUnityExecuted": false
   }
 }

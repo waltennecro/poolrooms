@@ -58,6 +58,7 @@ namespace Poolrooms.Core
         public bool EnableSoftPlay;
         public bool EnableCity11;
         public bool EnableAircraft;
+        public bool EnableImportedBuildings;
         public float City11Share=.15f;
         public bool EnableQuietLevels;
         public bool EnableCivicLevels;

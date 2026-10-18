@@ -1,0 +1,28 @@
+{
+  "scope": "Available workspace archives, current Git object database and repository history. No access to files on the user PC or unprovided original ZIPs.",
+  "originalV39Revision": "20311f824ebda9ecbf553f28915f100e8e252995",
+  "originalV39FilesVerifiedAgainstInventory": 326,
+  "originalV39Sha256Verified": true,
+  "unreachableObjects": [
+    "unreachable tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+  ],
+  "originalV40ToV47Located": false,
+  "exactV47Recovered": false,
+  "currentWorkIsFunctionalReconstruction": true,
+  "buildingResourcesRegeneratedByteExact": true,
+  "existingBistroResourcesRegeneratedByteExact": true,
+  "nativeUnityExecuted": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/Unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-18T02:32:04Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "unityPackageRegistryProbe": "packages.unity.com tunnel 403",
+  "nativeGpuDevice": "no /dev/dri available"
+}

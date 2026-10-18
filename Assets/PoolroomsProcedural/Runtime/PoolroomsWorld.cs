@@ -372,6 +372,7 @@ namespace Poolrooms
         }
         private void AttachRoomExtras(Room r,Transform parent)
         {
+            if(r.Plan!=null&&r.Plan.City!=null)PoolroomsCityBuildings.Attach(r.Plan.City,parent,layout.Config);
             var sources=parent.GetComponent<PoolroomsChunk>();
             if(Application.isPlaying&&sources!=null&&sources.sourceProps!=null)
             {

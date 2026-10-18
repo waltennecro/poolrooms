@@ -13,7 +13,7 @@ namespace Poolrooms.Core
             foreach(var b in buildings)
             {
                 int type=CityStreetDetails.Typology(b);
-                if(b.Width>=10&&b.Depth>=10&&type!=0&&type!=4&&(b.Seed%3)==0){building=b;return true;}
+                if(b.ExteriorSource==0&&b.Width>=10&&b.Depth>=10&&type!=0&&type!=4&&(b.Seed%3)==0){building=b;return true;}
             }
             building=default;return false;
         }

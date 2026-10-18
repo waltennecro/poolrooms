@@ -53,6 +53,7 @@ static class Checks
         CompactTerrain();
         CityGeneration();
         CityStreetConnections();
+        ImportedCityBuildings();
         AirfieldsAndFlight();
         RotorFlight();
         SourceFurniturePlacement();
@@ -558,6 +559,54 @@ static class Checks
         var prefs=new GamePreferences{dressingVersion=0,dressingDensity=0};prefs.Sanitize();Check(prefs.dressingDensity==2,"Old preferences did not migrate decoration");
         prefs.dressingDensity=0;prefs.Sanitize();Check(prefs.dressingDensity==0,"Explicit original detail choice lost");
         Console.WriteLine($"Dressing: 8 procedural fitting types / 16 distinct geometry variants; {total} doorway-safe placements in 16 wall samples. Not new downloaded source models.");
+    }
+    static void ImportedCityBuildings()
+    {
+        int buildings=0,source1=0,source2=0;
+        var config=new LayoutConfig{Seed=481516,Continuous=true,Procedural=LiminalGeneration.City11,CellSize=36,EnableImportedBuildings=true,CurveSegments=12};
+        var layout=new Layout(config);
+        for(int z=-9;z<9;z++)for(int x=-9;x<9;x++)
+        {
+            var r=layout.At(x,z);Check(r.Plan.City.Valid(r,config),"Imported building invalidates its city block");
+            int perBlock=0;
+            foreach(var b in r.Plan.City.Buildings)
+            {
+                if(b.ExteriorSource==0)continue;
+                buildings++;perBlock++;if(b.ExteriorSource==1)source1++;else source2++;
+                Check(b.Width==10&&b.Depth==10&&b.Floors==4,"Native building skin and interior do not share a canonical fit");
+                Check(Math.Abs(b.X)-5.3f>=4.49f&&Math.Abs(b.Z)-5.3f>=4.49f,"Source exterior encroaches on the street");
+                Check(Math.Abs(b.X)+5.3f<18&&Math.Abs(b.Z)+5.3f<18,"Source decoration exceeds reserved room extent");
+                var g=Architecture.Build(r,layout);Validate(g.Structure);Validate(g.Decoration);
+                foreach(int level in new[]{0,1,2,3})
+                {
+                    float y=.12f+level*3.2f;
+                    Check(Math.Abs(Support(g.Structure,b.Point(1,y+.05f,1))-y)<.001f,"A source building storey has no floor");
+                    if(level<3)for(int flight=0;flight<2;flight++)for(int step=0;step<9;step++)
+                    {
+                        float sx=-2.8f+(flight==0?-.95f:.95f),sz=flight==0?-1.35f+(step+.5f)*.3f:1.35f-(step+.5f)*.3f,top=y+flight*1.6f+(step+1)*1.6f/9;
+                        Check(Math.Abs(Support(g.Structure,b.Point(sx,top+.03f,sz))-top)<.001f,"Source building stair support missing");
+                        Check(Support(g.Structure,b.Point(sx,top+1.85f,sz))<=top+.04f,"Source building upper slab blocks stair headroom");
+                    }
+                }
+                Check(Support(g.Structure,b.Point(0,2,-4.9f))<=.13f,"Source entry approach is blocked by core architecture");
+                if(CityTerraces.TryBuilding(r.Plan.City.Buildings,out var terrace))Check(terrace.ExteriorSource==0,"A competing cafe awning crosses the imported facade");
+            }
+            Check(perBlock<=1,"Unbounded imported models per streamed block");
+        }
+        Check(source1>=10&&source2>=10,"One of the licensed building families never generates");
+        config.EnableAircraft=true;var aerial=new Layout(config);int structures=0,floors=0,objects=0,imported=0,cars=0,planes=0,helicopters=0;
+        for(int z=-9;z<9;z++)for(int x=-9;x<9;x++)
+        {
+            var p=aerial.At(x,z).Plan.City;structures+=p.Buildings.Length;floors+=p.Buildings.Sum(b=>b.Floors);objects+=p.Props.Length;imported+=p.Buildings.Count(b=>b.ExteriorSource>0);
+            if(p.Airfield!=null){if(p.Airfield.AircraftSpawn)planes++;if(p.Airfield.HelicopterSpawn)helicopters++;}
+            else if(LiminalRegions.Hash(config.Seed,x,z,0x1100CAu)%9==0)cars++;
+        }
+        Check(structures>300&&floors>500&&objects>2000&&cars+planes+helicopters>=35,"Integrated city no longer meets its distributed instance targets");
+        Console.WriteLine($"R17 integrated city snapshot: {structures} generated buildings, {floors} floor spaces, {objects} source-object instances, {imported} imported exterior skins, {cars} car sites + {planes} plane + {helicopters} helicopter. These are distributed instances, not distinct downloaded models or simultaneous loaded objects.");
+        config.EnableAircraft=false;
+        config.CellSize=28;var small=new Layout(config);for(int i=-5;i<=5;i++)Check(small.At(i,i).Plan.City.Buildings.All(b=>b.ExteriorSource==0),"Imported facade squeezed into a narrow block");
+        config.CellSize=36;config.EnableImportedBuildings=false;var original=new Layout(config);for(int i=-5;i<=5;i++)Check(original.At(i,i).Plan.City.Buildings.All(b=>b.ExteriorSource==0),"Disabled source catalog changes an original city");
+        Console.WriteLine($"Imported architecture: {buildings} exterior-skin instances from 2 source families ({source1}/{source2}) in 324 blocks; four physical storeys, U-stair supports/headroom, street clearance and small-block fallback checked. Native visuals unrun.");
     }
     static void CameraLandingResponse()
     {

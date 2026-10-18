@@ -36,7 +36,7 @@ def matrix(n):
  x,y,z,w=n.get('rotation',[0,0,0,1]);m=np.eye(4)
  m[:3,:3]=np.array([[1-2*(y*y+z*z),2*(x*y-z*w),2*(x*z+y*w)],[2*(x*y+z*w),1-2*(x*x+z*z),2*(y*z-x*w)],[2*(x*z-y*w),2*(y*z+x*w),1-2*(x*x+y*y)]])@np.diag(n.get('scale',[1,1,1]));m[:3,3]=n.get('translation',[0,0,0]);return m
 
-def extract(doc,binary,node_name,cache):
+def extract(doc,binary,node_name,cache,geometry_transform=None):
  matches=[i for i,n in enumerate(doc['nodes']) if n.get('name')==node_name];assert len(matches)==1
  root=matches[0];parents={c:i for i,n in enumerate(doc['nodes']) for c in n.get('children',[])}
  def world(i):return (world(parents[i]) if i in parents else np.eye(4))@matrix(doc['nodes'][i])
@@ -68,6 +68,7 @@ def extract(doc,binary,node_name,cache):
   points=np.concatenate([e[1] for e in entries]);lo=points.min(0);hi=points.max(0)
  offset=np.array([(lo[0]+hi[0])*.5,lo[1],(lo[2]+hi[2])*.5])
  for e in entries:e[1]-=offset
+ if geometry_transform is not None:entries=geometry_transform(entries,doc)
  used=sorted({e[0] for e in entries});out={'asset':{'version':'2.0','generator':'Poolrooms licensed Bistro extraction'},'scenes':[{'nodes':[0]}],'scene':0,'nodes':[{'mesh':0}],'meshes':[{'primitives':[]}],'materials':[],'accessors':[],'bufferViews':[],'textures':[],'images':[]};blob=bytearray();specular=[]
  def append(raw):
   while len(blob)%4:blob.append(0)
@@ -81,8 +82,19 @@ def extract(doc,binary,node_name,cache):
  def texture(image):
   stream=BytesIO();image.save(stream,format='PNG');view=append(stream.getvalue());index=len(out['textures']);out['images'].append({'bufferView':view,'mimeType':'image/png'});out['textures'].append({'source':index});return {'index':index}
  for i in used:
-  original=doc['materials'][i];sg=original['extensions']['KHR_materials_pbrSpecularGlossiness'];assert original.get('alphaMode','OPAQUE')=='OPAQUE'
-  diffuse=image_for(sg['diffuseTexture']);spec=image_for(sg['specularGlossinessTexture']);normal=image_for(original['normalTexture']);data=np.asarray(spec,dtype=np.float32)/255
+  original=doc['materials'][i];assert original.get('alphaMode','OPAQUE')=='OPAQUE'
+  sg=original.get('extensions',{}).get('KHR_materials_pbrSpecularGlossiness')
+  if sg is None:
+   source_pbr=original.get('pbrMetallicRoughness',{});pbr={key:source_pbr[key] for key in ['baseColorFactor','metallicFactor','roughnessFactor'] if key in source_pbr}
+   for key in ['baseColorTexture','metallicRoughnessTexture']:
+    if key in source_pbr:pbr[key]=texture(image_for(source_pbr[key]))
+   material={'name':original['name'],'pbrMetallicRoughness':pbr,'doubleSided':original.get('doubleSided',False)}
+   if 'normalTexture' in original:material['normalTexture']=texture(image_for(original['normalTexture']))
+   out['materials'].append(material);specular.append(None);continue
+  diffuse=image_for(sg['diffuseTexture']) if 'diffuseTexture' in sg else Image.new('RGBA',(4,4),(255,255,255,255))
+  spec=image_for(sg['specularGlossinessTexture']) if 'specularGlossinessTexture' in sg else Image.new('RGBA',(4,4),(255,255,255,255))
+  normal=image_for(original['normalTexture']) if 'normalTexture' in original else Image.new('RGBA',(4,4),(128,128,255,255))
+  data=np.asarray(spec,dtype=np.float32)/255
   # Keep authored diffuse and dielectric F0 in HDRP Specular Color mode. Gloss
   # lives in source alpha; it is not a constant roughness approximation.
   rough=1-data[:,:,3]*sg.get('glossinessFactor',1);mr=np.ones_like(data);mr[:,:,1]=rough;mr[:,:,2]=0

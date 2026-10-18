@@ -20,10 +20,10 @@ namespace Poolrooms
         public static Definition Get(string id)
         {
             if(definitions.TryGetValue(id,out var value))return value;
-            var data=Resources.Load<TextAsset>((id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
+            var data=Resources.Load<TextAsset>((id.StartsWith("B_Building",StringComparison.Ordinal)?"Buildings/":id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
             if(data==null)return null;value=JsonUtility.FromJson<Definition>(data.text);definitions.Add(id,value);return value;
         }
-        public static GameObject Create(string id,Transform parent,Vector3 position,float targetLongest,out Vector3 size,int startLOD=0)
+        public static GameObject Create(string id,Transform parent,Vector3 position,float targetLongest,out Vector3 size,int startLOD=0,bool preservePivot=false)
         {
             size=Vector3.zero;var definition=Get(id);if(definition==null)return null;
             string resource=startLOD>0&&definition.lods!=null&&definition.lods.Length>0?definition.lods[0].resource:definition.resource;
@@ -42,7 +42,7 @@ namespace Poolrooms
             if(!found){UnityEngine.Object.Destroy(root);return null;}
             float scale=targetLongest/Mathf.Max(bounds.size.x,Mathf.Max(bounds.size.y,bounds.size.z));
             if(!float.IsFinite(scale)||scale<=0){UnityEngine.Object.Destroy(root);return null;}size=bounds.size*scale;
-            mesh.transform.localPosition=(mesh.transform.localPosition-bounds.center)*scale;mesh.transform.localScale*=scale;
+            mesh.transform.localPosition=(mesh.transform.localPosition-(preservePivot?Vector3.zero:bounds.center))*scale;mesh.transform.localScale*=scale;
             if(definition.lods!=null&&definition.lods.Length>0)
             {
                 var tiers=new List<LOD>{new LOD(.12f,mesh.GetComponentsInChildren<Renderer>())};

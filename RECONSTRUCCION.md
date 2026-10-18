@@ -174,3 +174,10 @@ El streaming comprueba como máximo cinco salas al adjuntar una sala, conservand
 [Detalle, instalación y límites](Assets/PoolroomsProcedural/Documentation/ACTUALIZACION_R16.md). R16 no agrega modelos externos al catálogo ni recupera exactamente v47. Continúan pendientes los edificios externos completos y la validación nativa/visual/de rendimiento; no se certifica acabado AAA.
 
 Evidencia R16: revisión `3ae3da067ff571f61b33da509db942f7b73c8f74`, [CI 39073904650](https://github.com/waltennecro/poolrooms/actions/runs/39073904650) completa y artefacto `12116605789` publicado. Paquete Assets: 649 archivos, 200.739.256 bytes, SHA-256 `cfbb1765af8b3904161f8a2d6c7d8b88fb93cc692bca03b0955b16c87619a726`. Respaldo público descargado y verificado: 304.209.169 bytes, SHA-256 `699d7e040da05f720c59268d07c4cfc7fea479de6db41c3c0c58b1ae1ac5aefe`; CRC y hashes de los 649 archivos correctos. Núcleo: 18.354.240 aserciones, 200 scripts en cuatro configuraciones sintácticas. Son comprobaciones matemáticas y sintácticas, no pruebas nativas de Unity.
+
+
+## R17 — edificios licenciados y cierre de auditoría de recuperación disponible
+
+Se integran dos fuentes de edificios CC BY 4.0 de Bistro como exteriores adaptados sobre arquitectura transitable de cuatro plantas. Se mantienen los edificios procedurales anteriores, el resto de alturas y los sistemas existentes. Hay recortes de entrada/ventanas/interiores, marcador oculto de orientación por LOD, materiales PBR de origen y selección limitada por manzana. [Detalles, cifras reales e instalación](Assets/PoolroomsProcedural/Documentation/RECONSTRUCCION_R17.md).
+
+Se vuelven a comprobar los 326 archivos originales de v39 en su revisión de Git. Los originales v40–v47 no aparecen entre los archivos/respaldos disponibles ni los objetos recuperables de Git: R1–R17 son reconstrucción y mejoras. La comprobación nativa se intentó mediante preflight y quedó bloqueada por ausencia de Unity Editor; no se ha ejecutado Unity. La integración de los tres niveles y la decoración permanece en código; su revisión de aspecto, física y rendimiento requiere el Editor.
