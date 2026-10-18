@@ -19,3 +19,15 @@ for _,points,_,_,faces in repeated:
  t=points[faces];second+=np.linalg.norm(np.cross(t[:,1]-t[:,0],t[:,2]-t[:,0]),axis=1).sum()*.5
 assert abs(second-area)<1e-8,'LOD re-clipping duplicates surface area'
 print('Building cutter: exact analytical areas, interpolated UVs/normals, full removal, disjoint preservation and repeated clipping verified. Not a Unity test.')
+
+# A failed/changed import must not leave stale maps in the reproducible package.
+from tempfile import TemporaryDirectory
+from import_building_sources import prune_unused_maps
+with TemporaryDirectory() as directory:
+    base=Path(directory);(base/'Textures').mkdir()
+    expected=base/'Textures/B_BuildingCorner_m0_albedo.png';expected.write_bytes(b'current')
+    stale=base/'Textures/B_BuildingCourtyard_m9_mask.png';stale.write_bytes(b'stale')
+    custom=base/'Textures/user_custom.png';custom.write_bytes(b'user')
+    removed=prune_unused_maps([{'materials':[{'albedo':'Buildings/Textures/B_BuildingCorner_m0_albedo'}]}],base)
+    assert removed==[stale.name] and expected.read_bytes()==b'current' and custom.read_bytes()==b'user'
+print('Building generator cleanup: stale owned maps removed; referenced maps and unrelated user files preserved.')

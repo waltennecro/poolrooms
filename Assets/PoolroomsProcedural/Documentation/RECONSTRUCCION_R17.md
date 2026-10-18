@@ -30,7 +30,7 @@ Recursos de cada edificio, incluyendo un triángulo de marcador oculto por LOD:
 | BuildingCourtyard | 14718 | 10332 | 7968 |
 | BuildingCorner | 50114 | 31345 | 24835 |
 
-Se auditan 58 mapas PNG, hashes, licencias, normales, UV y 139312 triángulos entre los tres LOD. El detector independiente mediante ejes separadores verifica que las mallas no invadan los volúmenes reservados para interiores, entrada y ventanas. Las pruebas analíticas de recorte comprueban áreas e interpolación de UV/normales. La generación de recursos es reproducible byte a byte; se verificó que regenerar los componentes Bistro anteriores tampoco modifica sus bytes.
+Se auditan 50 mapas PNG, hashes, licencias, normales, UV y 139312 triángulos entre los tres LOD. El detector independiente mediante ejes separadores verifica que las mallas no invadan los volúmenes reservados para interiores, entrada y ventanas. Las pruebas analíticas de recorte comprueban áreas e interpolación de UV/normales. La generación desde una carpeta limpia reproduce byte a byte los 66 archivos de recursos; se eliminan mapas generados sin referencias; se verificó que regenerar los componentes Bistro anteriores tampoco modifica sus bytes.
 
 ## Qué se recuperó y qué sigue sin poder certificarse
 

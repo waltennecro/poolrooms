@@ -20,6 +20,8 @@ assert 'Amazon' in (dest/'Licenses/NOTICE.txt').read_text() and 'Creative Common
 assert (source/'Bistro_CC_BY_4.txt').read_bytes()==(dest/'Licenses/Bistro_CC_BY_4.txt').read_bytes()
 lock=json.loads((source/'sources.lock.json').read_text());original=(ROOT/'Sources/Bistro/bistro_source.gltf').read_bytes();key=next(k for k in lock if k.endswith('/bistro.gltf'));assert hashlib.sha256(original).hexdigest()==lock[key]['sha256']
 catalog=json.loads((dest/'catalog.json').read_text());assert catalog['distinctBuildingSourceFamilies']==2 and catalog['exteriorSkinAdaptations']==2 and catalog['nativeUnityValidated'] is False
+referenced={m[key]+'.png' for model in catalog['models'] for m in model['materials'] for key in ['albedo','normal','mask','specular','emissive'] if m.get(key)}
+actual={'Buildings/Textures/'+p.name for p in (dest/'Textures').glob('*.png')};assert actual==referenced,'Unreferenced or missing generated maps prevent clean-checkout reproducibility'
 seen=set();total=0
 # Independent separating-axis test: a nondegenerate triangle and a slightly inset
 # box must be disjoint. It does not reuse the importer's polygon subtraction.

@@ -55,6 +55,15 @@ def adapt(entries,doc):
     return cut(entries,bounds+building_boxes())
 
 
+def prune_unused_maps(reports,destination):
+    used={Path(m[key]).name+'.png' for report in reports for m in report['materials'] for key in ['albedo','normal','mask','specular','emissive'] if m.get(key)}
+    removed=[]
+    for path in (destination/'Textures').glob('*.png'):
+        if path.name.startswith(tuple(MODELS)) and path.name not in used:
+            path.unlink();removed.append(path.name)
+    return sorted(removed)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--cache',required=True,type=Path);args=parser.parse_args()
     if (SOURCE/'sources.lock.json').exists():locked.update(json.loads((SOURCE/'sources.lock.json').read_text()))
@@ -112,6 +121,7 @@ def main():
     notice='Amazon Lumberyard Bistro v5.2, Amazon.com, Inc. or its affiliates, CC BY 4.0. Original https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Data source zeux/niagara_bistro revision '+REV+'. Changes: two building subtree adaptations into four-storey doorway-safe exterior skins, cut interiors/windows/doors, native PNG/OBJ, authored specular/gloss conversion and LOD derivatives. Original interiors are not preserved; generated accessible interiors are by Poolrooms. No endorsement. Full CC BY and upstream MIT notices included.\n'
     for p in [SOURCE,DEST/'Licenses']:(p/'NOTICE.txt').write_text(notice)
     (SOURCE/'sources.lock.json').write_text(json.dumps(locked,indent=2)+'\n')
+    prune_unused_maps(reports,DEST)
     (DEST/'catalog.json').write_text(json.dumps({'distinctBuildingSourceFamilies':2,'untouchedCompleteModels':0,'exteriorSkinAdaptations':2,'nativeUnityValidated':False,'models':reports},indent=2)+'\n')
     (DEST/'files.sha256.json').write_text(json.dumps({p.relative_to(DEST).as_posix():{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(DEST.rglob('*')) if p.is_file() and p.name!='files.sha256.json'},indent=2)+'\n')
 if __name__=='__main__':main()

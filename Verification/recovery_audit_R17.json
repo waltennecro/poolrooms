@@ -24,5 +24,8 @@
     "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
   },
   "unityPackageRegistryProbe": "packages.unity.com tunnel 403",
-  "nativeGpuDevice": "no /dev/dri available"
+  "nativeGpuDevice": "no /dev/dri available",
+  "buildingCleanCheckoutRegeneratedByteExact": true,
+  "buildingGeneratedFilesMatched": 66,
+  "unusedGeneratedMapsRemoved": 8
 }

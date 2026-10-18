@@ -136,7 +136,7 @@
       "newBuildingSourceFamilies": 2,
       "untouchedCompleteBuildingModels": 0,
       "documentation": "Assets/PoolroomsProcedural/Documentation/RECONSTRUCCION_R17.md",
-      "packageFiles": 726
+      "packageFiles": 718
     }
   ],
   "latestCoreChecks": {
@@ -198,7 +198,7 @@
     "importedBuildingSamples": 73,
     "importedBuildingFamilies": 2,
     "buildingLodTrianglesAudited": 139312,
-    "buildingPngMaps": 58,
+    "buildingPngMaps": 50,
     "buildingGenerationByteExact": true
   },
   "pending": [
@@ -279,7 +279,7 @@
     "bistroPngMaps": 16,
     "buildingExteriorSkinAdaptations": 2,
     "untouchedCompleteBuildingModels": 0,
-    "buildingPngMaps": 58
+    "buildingPngMaps": 50
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -529,11 +529,12 @@
       "B_BuildingCourtyard",
       "B_BuildingCorner"
     ],
-    "pngMaps": 58,
+    "pngMaps": 50,
     "nativeLodTrianglesAudited": 139312,
     "independentTriangleBoxSAT": true,
     "resourcesRegeneratedByteExact": true,
     "previousBistroRegeneratedByteExact": true,
-    "nativeUnityExecuted": false
+    "nativeUnityExecuted": false,
+    "cleanCheckoutRegeneratedByteExact": true
   }
 }
