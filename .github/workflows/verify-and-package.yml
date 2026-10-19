@@ -22,24 +22,24 @@ jobs:
           dotnet --info
       - name: Compile core, compare geometry, check CSharp syntax
         run: |
-          dotnet build Verification/Poolrooms.Checks.csproj -warnaserror
-          dotnet run --no-build --project Verification/Poolrooms.Checks.csproj
+          dotnet build Verification/Poolrooms.Checks.csproj --configuration Release -warnaserror
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj
       - name: Check all new restful recipe banks and architectural axes
-        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --restful-levels --restful-exhaustive
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-levels --restful-exhaustive
       - name: Check 200010 distinct new meshes and actual-world object placement counts
         run: |
-          dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --restful-mesh-catalog
-          dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --restful-world
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-mesh-catalog
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-world
       - name: Check newly licensed restful source objects
         run: python tools/verify_restful_sources.py
       - name: Check larger biome areas, populated Level94 and accessible mall expansion
-        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --biome-extents
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --biome-extents
       - name: Check expanded biome recipes, house footprints and mall reservations
-        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --variety-expansion
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --variety-expansion
       - name: Check full aquatic catalogue at extreme room scales
-        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --aquatic-plans
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --aquatic-plans
       - name: Audit generated data, source lookups and room streaming selection
-        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --generation-audit
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --generation-audit
       - name: Check source texture hashes
         run: python tools/verify_play_textures.py
       - name: Check original rain texture and audio resources

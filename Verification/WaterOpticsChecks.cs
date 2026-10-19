@@ -30,6 +30,16 @@ static partial class Checks
         Check(found&&Math.Abs(anchor.X-2)<.001f&&anchor.Y>pools[0].Level,"Water ambience detached from closest pool");
         anchor=SpatialAudioModel.WaterAnchor(pools,new V3(4.1f,1.6f,0),out found);
         Check(found&&Math.Abs(anchor.X-4)<.001f,"Swimming ambience follows listener instead of pool centre");
+        var rounded=new WaterRegion{Width=4,Depth=4,Radius=1,Bottom=-1,Level=-.08f};
+        anchor=SpatialAudioModel.WaterAnchor(new[]{rounded},new V3(-8,1.6f,-8),out found);
+        Check(found&&rounded.Contains(anchor.X,anchor.Z),"Rounded-pool sound anchor lies on the surrounding dry floor");
+        foreach(float radius in new[]{0,.5f,2})for(int direction=0;direction<32;direction++)
+        {
+            var shape=new WaterRegion{CenterX=-3,CenterZ=7,Width=4,Depth=6,Radius=radius,Bottom=-1,Level=-.08f};
+            var listener=new V3(-3+12*MathF.Cos(direction*MathF.PI/16),1.6f,7+12*MathF.Sin(direction*MathF.PI/16));
+            anchor=SpatialAudioModel.WaterAnchor(new[]{shape},listener,out found);
+            Check(found&&shape.Contains(anchor.X,anchor.Z),"Spatial source escapes a rectangular, rounded or capsule pool");
+        }
         var previous=new PoolWaterOptics(PoolWaterDetail.Performance);
         foreach(PoolWaterDetail detail in Enum.GetValues(typeof(PoolWaterDetail)))
         {

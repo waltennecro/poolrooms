@@ -557,3 +557,10 @@ Pendientes expresos: 100.001 familias estructurales diferentes por nivel, 20.001
 modelos descargados distintos si ese era el significado, y validación nativa
 Unity/HDRP/PhysX/audio/apariencia/FPS. No se promete equivalencia AAA ni ausencia
 absoluta de defectos. CI y publicación se anotarán tras verificar sus resultados.
+
+R33, última pasada: una prueba negativa reprodujo un emisor de sonido colocado
+en la esquina seca de una piscina redondeada. Se corrigió la proyección sobre
+el contorno real; los casos rectangulares, redondeados y de cápsula pasan.
+La prueba dirigida reúne 87.344 aserciones de agua/audio y contratos sintácticos.
+CI pasa a Release para ejecutar las mismas comprobaciones con menor coste;
+no se rebajan ni omiten catálogos, huellas, licencias, empaquetado o artefactos.

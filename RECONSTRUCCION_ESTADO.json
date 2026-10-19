@@ -1170,7 +1170,7 @@
     "placedFurnitureSourceTypes": 3,
     "chairLODDerivatives": 2,
     "chairColourVariants": 1,
-    "distinctDownloadedSources": 19,
+    "distinctDownloadedSources": 22,
     "distinctDownloadedAircraftSources": 1,
     "aircraftLODDerivatives": 0,
     "aircraftColourVariants": 1,
@@ -1181,7 +1181,7 @@
     "helicopterSourceLicense": "CC-BY-4.0",
     "helicopterLODDerivatives": 2,
     "helicopterOriginalSourceDownloadVerified": false,
-    "distinctGeometryFamilies": 18,
+    "distinctGeometryFamilies": 21,
     "additionalExistingGeometryVariantSources": 1,
     "downloadedFurnitureVariantSources": 1,
     "interiorSourceFiles": 2,
@@ -1210,7 +1210,9 @@
     "bathLicensedMaterialSets": 1,
     "bathSourceLODDerivatives": 2,
     "bathSourcePngMaps": 9,
-    "bathWickerMaps": 3
+    "bathWickerMaps": 3,
+    "r33NewSourceModels": 3,
+    "r33NewLodDerivatives": 6
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -1725,5 +1727,11 @@
     ]
   },
   "r33ExpansionEvidence": "Verification/expansion_R33_local.json",
-  "r33RequestInventory": "AMPLIACION_R33_ESTADO.json"
+  "r33RequestInventory": "AMPLIACION_R33_ESTADO.json",
+  "r33Refinement": {
+    "feature": "Rounded-pool audio anchors project onto the actual water contour; spatial regression reproduced before fix and passed after fix",
+    "targetedWaterAudioCoreAssertions": 87344,
+    "fullCoreAndCI": "pending",
+    "ciConfiguration": "Release, all existing and new checks retained"
+  }
 }

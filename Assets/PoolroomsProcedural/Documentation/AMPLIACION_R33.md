@@ -71,6 +71,8 @@ agudos con transiciones suaves; la sumersión mantiene su filtrado. Se conservan
 reverberación por sala, pasos, deslizamiento, pausa y origen flotante. Los dos
 nuevos controles están en Configuración → Audio. Se realizan como máximo dos
 consultas de oclusión cada 0,25 segundos; no se crea una fuente por objeto.
+La posición del sonido se proyecta sobre el contorno real de las piscinas
+redondeadas, evitando sus esquinas secas.
 
 ## Cinco pasadas y límites
 

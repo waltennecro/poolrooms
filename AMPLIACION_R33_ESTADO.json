@@ -43,7 +43,7 @@
       "number": 5,
       "scope": "Strict rebuild, cumulative CI and reproducible public backup",
       "status": "in_progress",
-      "result": "Local strict build reports zero errors/warnings. Native Unity preflight blocked by absent Editor; cloud publication pending."
+      "result": "Public backup of 8647643 verified: 492800760 bytes, 1149 tracked files, CRC/SHA256 match. Final review reproduced and fixed rounded-pool sound anchors on dry corners; targeted water/audio checks pass. Full cumulative CI continues, native Unity absent."
     }
   ],
   "status": "implemented_cloud_checks_passed_publication_pending_native_unrun",
