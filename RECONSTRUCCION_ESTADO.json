@@ -703,15 +703,23 @@
         "protectedGeometryFingerprints": 188,
         "flashlightSourcesChanged": false,
         "renderDistanceReduced": false,
-        "documentation": "Assets/PoolroomsProcedural/Documentation/AUDITORIA_GENERACION_R30.md"
-      }
+        "documentation": "Assets/PoolroomsProcedural/Documentation/AUDITORIA_GENERACION_R30.md",
+        "cumulativeCoreAssertionsPassed": 1810355850,
+        "syntaxScripts": 243,
+        "syntaxConfigurations": 5,
+        "cumulativeAssetsFiles": 866,
+        "publicBackupBytes": 462787545,
+        "ciRun": 39197528937,
+        "evidence": "Verification/ci_generation_audit_R30.json"
+      },
+      "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1810355734,
+    "assertions": 1810355850,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 241,
+    "syntaxScripts": 243,
     "syntaxConfigurations": 5,
     "pbrMapsVerified": 82,
     "citySourcesAudited": 5,
@@ -802,12 +810,15 @@
     "walkableDistrictBridgeCases": 10,
     "walkableCandidateRegions": 324,
     "walkableRegionBlocks": 9,
-    "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645",
+    "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
     "waterOpticsTargetedAssertions": 15864,
     "lightUnitReducedBindingChecks": 6,
     "cameraAvatarFinalAssertions": 17899,
     "aquaticPlansAndRuntimeItemModelsChecked": 33600,
-    "nativeUnityExecuted": false
+    "nativeUnityExecuted": false,
+    "generationPlansAudited": 81768,
+    "generationPropPlacementsResolved": 1395345,
+    "fullGenerationMeshesAudited": 396
   },
   "pending": [
     {
@@ -849,7 +860,7 @@
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "R29 confirmed aquatic-ID generation failure fixed; cumulative core, 33600 aquatic plans/item models, source syntax, protected geometry, textures/licences, CI and public backup verified. Native Unity/HDRP compilation, physical walking/streaming, directional shadows, appearance and FPS remain pending. Six relaxing levels and separate 10000-zone global expansion remain unimplemented.",
+  "nextIndependentWork": "R30 broad data audit, lazy room selection and streaming safety fixes implemented and backed up. Native Unity/HDRP compilation, PlayMode, actual streamed traversal/object physics, shadows, appearance and FPS remain pending. Six relaxing levels and separate 10000-zone global expansion remain unimplemented.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -982,12 +993,12 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "allTrackedFilesMatched": 1065,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/93e15b733fdb9acc140ad0fcd8c4789574353645",
-    "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645",
-    "bytes": 462774512,
-    "sha256": "d4f602345def207e006e1038f82898669d104e05650813c46f23990ef53a52d0",
-    "assetFilesMatched": 863,
+    "allTrackedFilesMatched": 1070,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+    "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+    "bytes": 462787545,
+    "sha256": "2208f7b9ff38d2e6ec5b51ff858af79f9d16274be9c57cd12769ce6f2204747c",
+    "assetFilesMatched": 866,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -1044,11 +1055,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "zip": "/workspace/output/Poolrooms_R29_Generacion_Corregida_Assets.zip",
-    "files": 863,
-    "bytes": 296291529,
-    "sha256": "d3e5105bb0537e338a4c6d6da24677987f83bcf21c32e952995689135f9346ec",
-    "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645",
+    "zip": "/workspace/output/Poolrooms_R30_Auditoria_Generacion_Assets.zip",
+    "files": 866,
+    "bytes": 296297218,
+    "sha256": "be7ce7857b2c9392c43fe1c7095845f33a214d5edef4f87b2b56466156211752",
+    "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -1067,7 +1078,7 @@
     "runner": "tools/run_unity_validation.py",
     "performanceMenu": "Tools/Poolrooms/Validación/Capturar 30 segundos de rendimiento",
     "contractTestsUseFakeProcessNotUnity": true,
-    "latestEvidence": "Verification/ci_generation_R29.json"
+    "latestEvidence": "Verification/ci_generation_audit_R30.json"
   },
   "nativeToolingCi": {
     "sourceRevision": "9784d0ab3321fb7e9da5c491fed76dd597fb5554",
@@ -1360,6 +1371,23 @@
         "id": 12156035671,
         "bytes": 295423989,
         "digest": "sha256:f954a43c510704771cf6f737d371b84a798006332b22b60c78e0aa61e4244603"
+      }
+    ]
+  },
+  "generationAuditCi": {
+    "run": 39197528937,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39197528937",
+    "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117883409614,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12163135137,
+        "bytes": 295429613,
+        "digest": "sha256:8cd4084abde66572cd0965aa1d67fd1056728b4da57c06a6a9def4eab933e4c8"
       }
     ]
   }

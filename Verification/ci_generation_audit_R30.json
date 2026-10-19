@@ -1,0 +1,116 @@
+{
+  "stage": "R30",
+  "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+  "audit": {
+    "recipeScalePlans": 78600,
+    "spatialPlans": 3168,
+    "totalPlans": 81768,
+    "fullRoomAndConnectorMeshes": 396,
+    "propPlacementsResolved": 1395345,
+    "catalogueItemsEncountered": 33,
+    "namedSourceReferencesChecked": 12,
+    "sourceReferencesAreNotNewModels": true,
+    "generationModes": 22,
+    "sizes": [
+      28,
+      36,
+      60
+    ],
+    "doorWidths": [
+      3,
+      6
+    ],
+    "seeds": [
+      0,
+      -1,
+      481516
+    ]
+  },
+  "roomSelection": {
+    "loadingOrderComparisons": 384,
+    "wideWindowRadius": 12,
+    "oldEagerCachedPlans": 625,
+    "newSelectedCachedPlans": 1,
+    "finiteMapsChecked": true,
+    "integerEdgeTerminationChecked": true,
+    "measuredUnityFps": false
+  },
+  "reviewedRuntimeFixes": [
+    "Readiness evaluated at requested position in mall and terrain",
+    "Empty commercial reservations rejected as support",
+    "Dropped-object simulation suspended across unloaded support with linear/angular velocity and sleep state retained",
+    "Grabbing/releasing clears stale frozen momentum",
+    "Per-frame directional-light arbitration excludes local lamps"
+  ],
+  "runtimeFixesReproducedInNativeUnity": false,
+  "nativeNewRegressionTestsAddedButUnrun": 3,
+  "cumulativeCoreAssertionsPassed": 1810355850,
+  "syntaxScripts": 243,
+  "syntaxConfigurations": 5,
+  "protectedGeometryFingerprints": 188,
+  "pbrMapsAudited": 82,
+  "renderDistanceReduced": false,
+  "flashlightSourcesChanged": false,
+  "existingStreamingSafetyTestsChanged": false,
+  "preservedSourceHashes": {
+    "Assets/PoolroomsProcedural/Core/FlashlightModel.cs": "91fff314f4418f82304807006cb01395ff8d1aa79ad040f8f9c78d59c50f7a89",
+    "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+    "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+    "Assets/PoolroomsProcedural/Tests/PlayMode/StreamingSafetyTests.cs": "6eb04fd0948abbb17a38d706f513e93f6cfac9283ffff92f5d95ab6d18426eae"
+  },
+  "nativeUnityExecuted": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-19T04:02:17Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "nativePending": [
+    "Unity/HDRP API compilation",
+    "PlayMode regressions",
+    "Actual driving/loose-object PhysX behavior at unloaded boundaries",
+    "Mall and Level94 walking transitions",
+    "Visual quality and FPS"
+  ],
+  "documentation": "Assets/PoolroomsProcedural/Documentation/AUDITORIA_GENERACION_R30.md",
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R30_Auditoria_Generacion_Assets.zip",
+    "files": 866,
+    "bytes": 296297218,
+    "sha256": "be7ce7857b2c9392c43fe1c7095845f33a214d5edef4f87b2b56466156211752",
+    "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1070,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+    "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+    "bytes": 462787545,
+    "sha256": "2208f7b9ff38d2e6ec5b51ff858af79f9d16274be9c57cd12769ce6f2204747c",
+    "assetFilesMatched": 866,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39197528937,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39197528937",
+    "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117883409614,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12163135137,
+        "bytes": 295429613,
+        "digest": "sha256:8cd4084abde66572cd0965aa1d67fd1056728b4da57c06a6a9def4eab933e4c8"
+      }
+    ]
+  }
+}

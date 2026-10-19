@@ -449,3 +449,12 @@ pruebas PlayMode añadidas, todas las anteriores conservadas. El árbitro de som
 filtra su lista por frame a luces direccionales. Linterna y distancia sin cambios.
 Documento: `Assets/PoolroomsProcedural/Documentation/AUDITORIA_GENERACION_R30.md`.
 Unity/HDRP, física, gráficos y FPS siguen sin ejecutar en la nube.
+
+R30 final: CI [39197528937](https://github.com/waltennecro/poolrooms/actions/runs/39197528937) correcta para `4c03ecb082067ea525dc53fb9048f2caf7c58d21`;
+incluye núcleo completo (1810355850 aserciones), auditoría ampliada, catálogos,
+188 geometrías protegidas, 243 scripts en cinco configuraciones, recursos,
+licencias y artefacto. Assets: 866 archivos, 296297218 bytes.
+Descarga pública: 462787545 bytes, CRC válido; coinciden por SHA-256 los
+1070 archivos versionados. Evidencia:
+`Verification/ci_generation_audit_R30.json`. Los cambios de física/carga revisados
+necesitan sus tres pruebas nuevas en Unity, aún no ejecutadas.
