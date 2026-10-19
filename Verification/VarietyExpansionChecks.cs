@@ -19,6 +19,14 @@ static partial class Checks
             foreach(int x in new[]{int.MinValue,-1,0,int.MaxValue})foreach(int z in new[]{int.MinValue,-1,0,int.MaxValue})
             {int id=BiomeVariety.RecipeAt(48,x,z,bank.Item1,bank.Item2,0x310190u);Check(id>=0&&id<ids.Count,"Extreme recipe address overflow");}
         }
+        // Topology assigns these flags after procedural planning. A room's previous
+        // ceiling program must not leak into its dedicated regional gateway geometry.
+        foreach(bool mall in new[]{false,true})
+        {
+            var gateway=new Room{Width=22,Depth=22,Height=6,ZoneId=-1,ExpansionProgram=2,MallGateway=mall,TerrainGateway=!mall};
+            var geometry=new RoomGeometry();RoomPrograms.Append(geometry,gateway,new LayoutConfig{ExpandedVariety=true});
+            Check(geometry.Structure.TriangleCount==0,"Regional gateway inherited another biome's ceiling program");
+        }
         int plans=0,meshes=0;
         foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})
         {

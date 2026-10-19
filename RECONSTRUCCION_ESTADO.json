@@ -812,7 +812,7 @@
         "nativeUnityExecuted": false,
         "documentation": "Assets/PoolroomsProcedural/Documentation/VARIEDAD_BIOMAS_R31.md",
         "cumulativeCoreAssertionsPassed": 1810347597,
-        "varietyAssertionsPassed": 37886935,
+        "varietyAssertionsPassed": 37886937,
         "varietyForcedAndProgramPlans": 42904,
         "additionalActualSelectorPlans": 800,
         "varietyMeshSamples": 606,
@@ -825,7 +825,10 @@
         "protectedGeometryFingerprints": 188,
         "syntaxScripts": 245,
         "syntaxConfigurations": 5,
-        "pbrMapsVerified": 82
+        "pbrMapsVerified": 82,
+        "regionalGatewayInheritedCeilingRegression": true,
+        "gatewayRegressionFailedBeforeFix": true,
+        "finalCoreRecheckPending": true
       }
     }
   ],

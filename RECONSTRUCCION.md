@@ -487,3 +487,8 @@ selecciones adicionales de exploración, 606 muestras de malla y 1.818 sondeos d
 espacio libre en 60 salas con las nuevas alturas acuáticas. La auditoría ampliada
 resuelve 121.068 planes y 2.083.044 colocaciones; 50.400 planes acuáticos a seis
 escalas y 82 mapas PBR verificados. Estos números no son pruebas nativas Unity.
+
+Revisión R31: una prueba negativa reprodujo cubiertas heredadas en accesos regionales
+convertidos por la topología después de planificar la sala. El constructor final
+las descarta; la regresión pasa para los dos tipos de acceso. Variedad ampliada:
+37.886.937 aserciones. Se repite el núcleo completo con esta corrección.

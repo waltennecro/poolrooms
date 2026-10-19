@@ -30,6 +30,7 @@ namespace Poolrooms.Core
         }
         public static void Append(RoomGeometry output,Room room,LayoutConfig c)
         {
+            if(room.MallGateway||room.TerrainGateway)return;
             int program=room.ExpansionProgram;
             if(room.ZoneId>=0)program=ZoneCatalog.Get(room.ZoneId).ExpansionStyle;
             if(program<=0)return;

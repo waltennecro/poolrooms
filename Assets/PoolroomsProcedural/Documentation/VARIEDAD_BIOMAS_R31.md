@@ -51,7 +51,9 @@ Los IDs previos conservan su significado. El núcleo mantiene selectores antiguo
 con `ExpandedVariety=false` para comprobar las 188 geometrías protegidas. Las nuevas
 casas conservan sus nuevas plantas al pasar por la generación por dirección; no se
 pierden al generar la estructura. Centro comercial y reserva territorial comparten
-la misma selección de profundidad. Se mantienen entradas y rutas hacia otros niveles.
+la misma selección de profundidad. Los accesos regionales descartan las cubiertas
+heredadas de la planificación anterior, incluso si la topología los convierte
+en accesos después de describir la sala. Se mantienen entradas y rutas hacia otros niveles.
 La semilla es determinista, pero al activar la ampliación cambia la selección de
 recetas en direcciones conocidas. No se modifica la linterna.
 
