@@ -900,7 +900,7 @@
     {
       "id": "R33",
       "feature": "Ten connected restful levels, 200010 distinct built room meshes, denser safe placements, three licensed source models, shared pickup visuals, clear water fallback and spatial occlusion",
-      "status": "implemented_cloud_ci_verified_native_unrun",
+      "status": "ceramic_polish_targeted_verified_cumulative_recheck_pending",
       "details": {
         "stage": "R33",
         "baseRevision": "c39e8c26187f6e76432a165ab2e47e15cb97f781",
@@ -1798,5 +1798,16 @@
       }
     ],
     "authenticatedArtifactDownloadSucceeded": false
+  },
+  "r33CeramicPolish": {
+    "status": "targeted_geometry_passed_cumulative_ci_pending",
+    "regressionReproducedBeforeFix": true,
+    "changes": [
+      "Outward smooth shell normals and matching triangle winding",
+      "Separate visible inner wall and physical rim thickness",
+      "Open mouth and inner floor",
+      "Immutable pure-geometry template cloned for placement"
+    ],
+    "nativeRenderingExecuted": false
   }
 }

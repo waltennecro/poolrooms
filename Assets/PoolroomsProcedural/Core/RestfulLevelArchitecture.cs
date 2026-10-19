@@ -6,6 +6,7 @@ namespace Poolrooms.Core
     public static class RestfulLevelArchitecture
     {
         public const float TableTop=.82f;
+        private static readonly MeshData CeramicTemplate=MakeCeramicVessel();
         static void Box(MeshData m,float x,float z,float w,float d,float lo,float hi,Surface s)
         {ZoneShapes.Box(m,x,z,w,d,lo,hi,s,1.2f);}
         public static RoomGeometry Build(Room r,LayoutConfig c)
@@ -127,23 +128,44 @@ namespace Poolrooms.Core
             {
                 float x=b.MinX+b.Width*(i+.5f)/count,z=b.Z+(i%2==0?-1:1)*b.Depth*.2f,h=.65f+i*.13f;
                 Shapes.Column(o.Structure,x,z,.27f,0,h,16,Surface.Plaster,1.2f);
-                var vessel=new MeshData();int rings=8,sides=16;float baseY=h+.02f;
-                for(int ring=0;ring<rings;ring++)
-                {
-                    float y0=ring*.085f,y1=(ring+1)*.085f,r0=.1f+.12f*Shapes.Sin(ring*Shapes.Pi/rings),r1=.1f+.12f*Shapes.Sin((ring+1)*Shapes.Pi/rings);
-                    for(int a=0;a<sides;a++)
-                    {
-                        float a0=a*Shapes.Pi*2/sides,a1=(a+1)*Shapes.Pi*2/sides;
-                        var v0=new V3(x+Shapes.Cos(a0)*r0,baseY+y0,z+Shapes.Sin(a0)*r0);var v1=new V3(x+Shapes.Cos(a1)*r0,baseY+y0,z+Shapes.Sin(a1)*r0);
-                        var v2=new V3(x+Shapes.Cos(a1)*r1,baseY+y1,z+Shapes.Sin(a1)*r1);var v3=new V3(x+Shapes.Cos(a0)*r1,baseY+y1,z+Shapes.Sin(a0)*r1);
-                        var n=V3.Cross(v1-v0,v2-v0).Unit;vessel.Triangle(v0,v1,v2,n,n,n,new V2((float)a/sides,(float)ring/rings),new V2((float)(a+1)/sides,(float)ring/rings),new V2((float)(a+1)/sides,(float)(ring+1)/rings),Surface.Accent);
-                        vessel.Triangle(v0,v2,v3,n,n,n,new V2((float)a/sides,(float)ring/rings),new V2((float)(a+1)/sides,(float)(ring+1)/rings),new V2((float)a/sides,(float)(ring+1)/rings),Surface.Accent);
-                    }
-                }
-                o.Decoration.Append(vessel);
+                var vessel=new MeshData();vessel.Append(CeramicTemplate);
+                vessel.TranslateRotate(new V3(x,h+.02f,z),0);o.Decoration.Append(vessel);
             }
             Box(o.Structure,b.X,b.MaxZ-.18f,b.Width,.18f,0,2.1f,Surface.Plaster);
             Box(o.Decoration,b.MinX+.05f,b.Z,.06f,b.Depth,.004f,.012f,Surface.Accent);
+        }
+        // Immutable pure-geometry template: generate the revolved profile once,
+        // clone before placement, and retain smooth outward/inward normals separately.
+        static MeshData MakeCeramicVessel()
+        {
+            var m=new MeshData();const int rings=8,sides=16;const float height=.68f,thickness=.018f;
+            for(int ring=0;ring<rings;ring++)
+            {
+                float y0=height*ring/rings,y1=height*(ring+1)/rings;
+                float r0=.1f+.12f*Shapes.Sin(ring*Shapes.Pi/rings),r1=.1f+.12f*Shapes.Sin((ring+1)*Shapes.Pi/rings);
+                float slope0=.12f*Shapes.Pi/height*Shapes.Cos(ring*Shapes.Pi/rings),slope1=.12f*Shapes.Pi/height*Shapes.Cos((ring+1)*Shapes.Pi/rings);
+                for(int a=0;a<sides;a++)
+                {
+                    float a0=a*Shapes.Pi*2/sides,a1=(a+1)*Shapes.Pi*2/sides;
+                    foreach(int shell in new[]{0,1})
+                    {
+                        float sign=shell==0?1:-1,lo=r0-shell*thickness,hi=r1-shell*thickness;
+                        var v0=new V3(Shapes.Cos(a0)*lo,y0,Shapes.Sin(a0)*lo);var v1=new V3(Shapes.Cos(a1)*lo,y0,Shapes.Sin(a1)*lo);
+                        var v2=new V3(Shapes.Cos(a1)*hi,y1,Shapes.Sin(a1)*hi);var v3=new V3(Shapes.Cos(a0)*hi,y1,Shapes.Sin(a0)*hi);
+                        var n0=new V3(Shapes.Cos(a0),-slope0,Shapes.Sin(a0)).Unit*sign;var n1=new V3(Shapes.Cos(a1),-slope0,Shapes.Sin(a1)).Unit*sign;
+                        var n2=new V3(Shapes.Cos(a1),-slope1,Shapes.Sin(a1)).Unit*sign;var n3=new V3(Shapes.Cos(a0),-slope1,Shapes.Sin(a0)).Unit*sign;
+                        m.QuadUV(v0,v1,v2,v3,n0,n1,n2,n3,new V2((float)a/sides,(float)ring/rings),new V2((float)(a+1)/sides,(float)ring/rings),new V2((float)(a+1)/sides,(float)(ring+1)/rings),new V2((float)a/sides,(float)(ring+1)/rings),Surface.Accent);
+                    }
+                }
+            }
+            for(int a=0;a<sides;a++)
+            {
+                float a0=a*Shapes.Pi*2/sides,a1=(a+1)*Shapes.Pi*2/sides;
+                var v0=new V3(Shapes.Cos(a0)*.1f,height,Shapes.Sin(a0)*.1f);var v1=new V3(Shapes.Cos(a1)*.1f,height,Shapes.Sin(a1)*.1f);
+                var v2=new V3(Shapes.Cos(a1)*(.1f-thickness),height,Shapes.Sin(a1)*(.1f-thickness));var v3=new V3(Shapes.Cos(a0)*(.1f-thickness),height,Shapes.Sin(a0)*(.1f-thickness));
+                m.Quad(v0,v1,v2,v3,V3.Up,Surface.Accent,1.2f);
+            }
+            Shapes.Column(m,0,0,.1f,0,thickness,sides,Surface.Accent,1.2f);return m;
         }
         static void Garden(RoomGeometry o,PlanRect b,RestfulLevelPlan p)
         {

@@ -49,6 +49,7 @@ static partial class Checks
     static int Main(string[] args)
     {
         if(args.Contains("--restful-mesh-catalog")){RestfulMeshCatalogue();return 0;}
+        if(args.Contains("--restful-normals")){RestfulCeramicNormals();return 0;}
         if(args.Contains("--restful-world")){RestfulWorldSnapshot();return 0;}
         if(args.Contains("--restful-levels")){RestfulExpansion(args.Contains("--restful-exhaustive"));IntegrationSourceContracts();return 0;}
         if(args.Contains("--biome-extents")){BiomeExtents();return 0;}

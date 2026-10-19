@@ -11,7 +11,9 @@ Se añaden biblioteca del atardecer, terminal de nubes, pabellones de té, galer
 cerámica, jardín de invierno, galerías de canales, estudios del silencio, patios
 de faroles, lavanderías de lino y santuario mineral. Cada programa construye su
 arquitectura y mobiliario: estanterías, marquesinas, pérgolas, expositores curvos,
-jardineras, puentes sobre vasos excavados, pianos, faroles, lavadoras y peristilos.
+jardineras, puentes sobre vasos excavados, pianos, faroles, lavadoras y peristilos. Los jarrones decorativos tienen caras
+exteriores e interiores orientadas, normales suaves, borde y fondo; la plantilla
+de geometría se comparte sin mutarla durante la generación.
 
 Hay 131.072 recetas por nivel: cuatro distribuciones y ocho valores para cada eje
 de anchura, profundidad, altura, claraboya y ritmo estructural. Son **recetas de

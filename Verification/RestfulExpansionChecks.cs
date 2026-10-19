@@ -6,6 +6,36 @@ using Poolrooms.Core;
 
 static partial class Checks
 {
+    static V3 NearestVisibleNormal(MeshData mesh,V3 origin,V3 direction,out float distance)
+    {
+        distance=float.PositiveInfinity;var result=new V3();
+        foreach(var indices in mesh.Indices)for(int i=0;i<indices.Count;i+=3)
+        {
+            var a=mesh.Positions[indices[i]];var b=mesh.Positions[indices[i+1]];var c=mesh.Positions[indices[i+2]];var n=V3.Cross(b-a,c-a).Unit;
+            float denominator=V3.Dot(n,direction);if(Math.Abs(denominator)<1e-6f)continue;
+            float t=V3.Dot(n,a-origin)/denominator;if(t<=.0001f||t>=distance)continue;
+            if(PointTriangleDistanceSquared(origin+direction*t,a,b,c)>.0000001f)continue;
+            distance=t;result=n;
+        }
+        return result;
+    }
+    static void RestfulCeramicNormals()
+    {
+        var c=new LayoutConfig{ObjectAbundance=3};var r=new Room{Environment=LiminalEnvironment.CeramicGalleria,Exits=15};RestfulLevelPlanner.DescribeRecipe(r,c,0);
+        var g=RestfulLevelArchitecture.Build(r,c);var b=r.Plan.Restful.Bays[0];float x=b.MinX+b.Width*.25f,z=b.Z-b.Depth*.2f,baseY=.67f;
+        foreach(float height in new[]{.1f,.23f,.4f,.6f})for(int angle=0;angle<8;angle++)
+        {
+            var radial=new V3(MathF.Cos(angle*MathF.PI/4),0,MathF.Sin(angle*MathF.PI/4));
+            var center=new V3(x,baseY+height,z);float distance;
+            var outer=NearestVisibleNormal(g.Decoration,center+radial*.5f,radial*-1,out distance);
+            Check(distance<.45f&&V3.Dot(outer,radial)>.2f,"Ceramic outer shell faces inward and disappears under backface culling");
+            var inner=NearestVisibleNormal(g.Decoration,center,radial,out distance);
+            Check(distance<.24f&&V3.Dot(inner,radial)<-.2f,"Ceramic vessel lacks a visible inner wall");
+        }
+        var floor=NearestVisibleNormal(g.Decoration,new V3(x,baseY+1,z),V3.Up*-1,out float depth);
+        Check(Math.Abs(depth-(1-.018f))<.003f&&floor.Y>.9f,"Ceramic vessel lacks a bottom or closes its open mouth");
+        Console.WriteLine("PASS: actual ceramic decoration shell exterior/interior winding, mouth clearance and inner floor checked by rays. Native rendering unrun.");
+    }
     static void RestfulMeshCatalogue()
     {
         const int perLevel=20001;var unique=new HashSet<string>();long triangles=0;
@@ -30,6 +60,7 @@ static partial class Checks
     }
     static void RestfulExpansion(bool exhaustive)
     {
+        RestfulCeramicNormals();
         var migrated=new GamePreferences{spatialAudioVersion=0,spatialAmbience=false,soundOcclusion=false};migrated.Sanitize();
         Check(migrated.spatialAudioVersion==1&&migrated.spatialAmbience&&migrated.soundOcclusion,"Old preferences omit spatial audio upgrade");
         migrated.spatialAmbience=migrated.soundOcclusion=false;migrated.Sanitize();Check(!migrated.spatialAmbience&&!migrated.soundOcclusion,"Explicit audio choice lost after migration");

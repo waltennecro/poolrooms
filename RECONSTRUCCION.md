@@ -575,3 +575,10 @@ archivos versionados coincidentes por SHA-256. Assets: 921 archivos,
 Evidencia: Verification/expansion_R33_ci.json. Cinco revisiones cloud completadas;
 las APIs nativas, shaders, PhysX, audio real, aspecto, avisos y FPS siguen sin
 validar en Unity. Los límites de familias/modelos y densidad están en el inventario.
+
+R33, revisión geométrica adicional dentro de la quinta pasada: una prueba sobre
+la decoración real reprodujo caras exteriores de jarrones orientadas hacia
+dentro. Se corrigió su orientación y suavidad; ahora tienen pared interior,
+borde abierto y fondo. Rayos desde fuera, dentro y arriba validan ambas caras
+y el hueco. La plantilla inmutable evita recalcular el perfil por cada jarrón.
+Las comprobaciones acumuladas y el respaldo de esta última corrección se repiten.
