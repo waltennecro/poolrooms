@@ -492,3 +492,11 @@ Revisión R31: una prueba negativa reprodujo cubiertas heredadas en accesos regi
 convertidos por la topología después de planificar la sala. El constructor final
 las descarta; la regresión pasa para los dos tipos de acceso. Variedad ampliada:
 37.886.937 aserciones. Se repite el núcleo completo con esta corrección.
+
+R31 final: CI [39201718996](https://github.com/waltennecro/poolrooms/actions/runs/39201718996) correcta para `e5b5a29a674bf88a32d8bb79159d04f98d4d9bda`;
+incluye regresiones completas, variedad ampliada, auditoría de generación, recursos,
+licencias, empaquetado y artefacto. Paquete Assets: 869 archivos,
+296304732 bytes. Descarga pública independiente: 462803676 bytes,
+CRC correcto y 1075 archivos versionados coincidentes
+por SHA-256. Evidencia: `Verification/ci_variety_expansion_R31.json`.
+Las doce regresiones nativas nuevas y Unity/HDRP, aspecto y FPS siguen pendientes.

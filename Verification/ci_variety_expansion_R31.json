@@ -1,0 +1,185 @@
+{
+  "stage": "R31",
+  "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+  "interpretation": "Fifty percent more finite structural recipes and at least fifty percent more main building programs. Not a territorial-area or simultaneous-load multiplier.",
+  "finiteCatalogues": [
+    {
+      "catalogue": "AuthoredPoolrooms",
+      "before": 170,
+      "after": 255,
+      "percentIncrease": 50
+    },
+    {
+      "catalogue": "SolarPoolrooms",
+      "before": 768,
+      "after": 1152,
+      "percentIncrease": 50
+    },
+    {
+      "catalogue": "AquaticPark",
+      "before": 5600,
+      "after": 8400,
+      "percentIncrease": 50
+    },
+    {
+      "catalogue": "Orangerie",
+      "before": 2500,
+      "after": 3750,
+      "percentIncrease": 50
+    },
+    {
+      "catalogue": "ThermalBaths",
+      "before": 2500,
+      "after": 3750,
+      "percentIncrease": 50
+    },
+    {
+      "catalogue": "RainHouses",
+      "before": 2500,
+      "after": 3750,
+      "percentIncrease": 50
+    },
+    {
+      "catalogue": "Terrain94HouseBlueprints",
+      "before": 800,
+      "after": 1200,
+      "percentIncrease": 50
+    },
+    {
+      "catalogue": "MallEnvelopes",
+      "before": 50,
+      "after": 75,
+      "percentIncrease": 50
+    }
+  ],
+  "catalogueTotals": {
+    "before": 14888,
+    "after": 22332,
+    "percentIncrease": 50
+  },
+  "otherPrograms": {
+    "quietLevels": [
+      6,
+      9
+    ],
+    "civicLevels": [
+      8,
+      12
+    ],
+    "cityFacadeTypologies": [
+      6,
+      9
+    ],
+    "originalIndoorPlayModuleChoices": [
+      6,
+      9
+    ],
+    "softPlayRoofPrograms": [
+      3,
+      5
+    ],
+    "interiorPrograms": [
+      3,
+      5
+    ],
+    "retailPrograms": [
+      3,
+      5
+    ]
+  },
+  "variety": {
+    "forcedAndProgramPlans": 42904,
+    "additionalActualExplorationSelectorPlans": 800,
+    "physicalMeshSamples": 606,
+    "connectedHouseFootprints": 30,
+    "mallEnvelopeCombinations": 75,
+    "newAquaticHeightRooms": 60,
+    "seatedBodyAndCameraClearanceSamples": 1818,
+    "coreAssertions": 37886937,
+    "negativeExtremeCoordinateBankPermutations": true,
+    "newRecipesPhysicallyDifferFromOldSamples": true
+  },
+  "generationAudit": {
+    "plans": 121068,
+    "fullRoomConnectorMeshes": 396,
+    "propPlacementsResolved": 2083044,
+    "catalogueItemsEncountered": 33,
+    "namedSourceReferences": 12,
+    "aquaticScalePlans": 50400
+  },
+  "cumulativeCoreAssertionsPassed": 1810347597,
+  "protectedGeometryFingerprints": 188,
+  "syntaxScripts": 245,
+  "syntaxConfigurations": 5,
+  "pbrMapsAudited": 82,
+  "newExternalModelsDownloaded": 0,
+  "nativeNewRegressionCasesAddedButUnrun": 12,
+  "regionalGatewayInheritedCeilingRegression": {
+    "failedBeforeFix": true,
+    "passedAfterFix": true,
+    "coreCases": 2
+  },
+  "preservedSourceHashes": {
+    "Assets/PoolroomsProcedural/Core/FlashlightModel.cs": "91fff314f4418f82304807006cb01395ff8d1aa79ad040f8f9c78d59c50f7a89",
+    "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+    "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+    "Assets/PoolroomsProcedural/Tests/PlayMode/StreamingSafetyTests.cs": "6eb04fd0948abbb17a38d706f513e93f6cfac9283ffff92f5d95ab6d18426eae",
+    "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
+  },
+  "renderDistanceReduced": false,
+  "loadingRadiusIncreased": false,
+  "nativeUnityExecuted": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-19T04:39:07Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "nativePending": [
+    "Unity/HDRP API compilation",
+    "New house cellar/attic/stair and play-roof PhysX tests",
+    "Actual streamed world exploration and new attraction traversal",
+    "Visual quality, shadows and FPS"
+  ],
+  "documentation": "Assets/PoolroomsProcedural/Documentation/VARIEDAD_BIOMAS_R31.md",
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R31_Final_Assets.zip",
+    "files": 869,
+    "bytes": 296304732,
+    "sha256": "1f4834cb96591ce41516278244e64145612e3dd22881a6a2215cb63a30a731cb",
+    "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1075,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+    "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+    "bytes": 462803676,
+    "sha256": "9c48b9ee8dea52dd631dd2ac77495d8fa311a881ece6c3e61d6e5a2f4d0e1925",
+    "assetFilesMatched": 869,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39201718996,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39201718996",
+    "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117895896315,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12164316389,
+        "bytes": 295434731,
+        "digest": "sha256:ebbe7179209ad33b92ecb34f143d69380b9795ad4084736da38eb02c471a86f5"
+      }
+    ]
+  }
+}
