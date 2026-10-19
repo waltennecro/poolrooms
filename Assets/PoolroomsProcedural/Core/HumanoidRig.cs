@@ -10,7 +10,7 @@ namespace Poolrooms.Core
     public sealed class SkinPreferences
     {
         public HumanoidRestPose restPose;
-        public bool zUp,animate=true,rigidPieces,castShadows=true,materialOverride,previewBindPose;
+        public bool zUp,animate=true,rigidPieces,castShadows=true,materialOverride,previewBindPose,objStatic;
         public float shoulderScale=1,hipHeight=.53f,animationSpeed=1,intensity=1,smoothness=.35f,metallic;
         public HumanoidEmote emote=HumanoidEmote.Wave;
         public void Sanitize()

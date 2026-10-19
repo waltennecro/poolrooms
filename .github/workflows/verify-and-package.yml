@@ -38,6 +38,10 @@ jobs:
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-world
       - name: Check newly licensed restful source objects
         run: python tools/verify_restful_sources.py
+      - name: Check normal wing flight and original geometry catalogue
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --wings
+      - name: Check licensed wing selector icons and source attribution
+        run: python tools/verify_wing_sources.py
       - name: Check larger biome areas, populated Level94 and accessible mall expansion
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --biome-extents
       - name: Check expanded biome recipes, house footprints and mall reservations

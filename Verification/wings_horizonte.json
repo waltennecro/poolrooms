@@ -1,0 +1,76 @@
+{
+  "release": "Horizonte · Alas",
+  "basedOn": "R34 final; no historical files relabelled as exact recovery",
+  "status": "implemented_core_checked_native_unrun",
+  "utc": "2026-10-19T23:50:00.590381+00:00",
+  "features": {
+    "normalFlightWithoutMaster": true,
+    "flightSpeedsMetresPerSecond": [
+      3,
+      8,
+      18,
+      36
+    ],
+    "toggleKey": "G",
+    "cycleSpeedKey": "H",
+    "designs": 144,
+    "distinctGeometryFingerprints": 144,
+    "families": 12,
+    "variantsPerFamily": 12,
+    "externalLicensedIcons": 12,
+    "newDownloaded3DModels": 0,
+    "maximumTrianglesPerWing": 7744,
+    "harnessTriangles": 12,
+    "simultaneousWingRenderers": 3,
+    "addedLights": 0,
+    "addedReflectionProbes": 0,
+    "maximumCapsuleMoveStepMetres": 0.18,
+    "staticObjMode": "opt_in_no_rig_fitting",
+    "defaultAnimatedObjImportPreserved": true
+  },
+  "checks": {
+    "strictCoreBuildErrors": 0,
+    "strictCoreBuildWarnings": 0,
+    "fullCoreAssertions": 1846931153,
+    "protectedGeometryFingerprints": 188,
+    "syntaxScripts": 258,
+    "syntaxConfigurations": 5,
+    "wingCoreAndIntegrationAssertions": 4522439,
+    "humanoidCoreAndIntegrationAssertions": 2912652,
+    "flightFpsCases": [
+      10,
+      20,
+      30,
+      60,
+      144,
+      240
+    ],
+    "licensedIconSourcesAndHashes": "passed",
+    "existingPbrMapsVerified": 83,
+    "creditsGardenBathAudits": "passed",
+    "nativeRunnerContracts": "passed"
+  },
+  "nativeTestsAdded": 3,
+  "nativeUnityExecuted": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing"
+  },
+  "sourceHashes": {
+    "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+    "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+    "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
+  },
+  "logHashes": {
+    "alas_full_checks.log": "8c10f2eb87400763610f39164017bd3ef7d4919292f35a4f6eeecea33136ed00",
+    "alas_humanoid_checks.log": "15cd0eec65f9f5eabca54cbaff70126417b09c870b2f9d815f78354ebb0f2889"
+  },
+  "pending": [
+    "Unity 6.3/HDRP API compilation",
+    "Native PlayMode collision and static OBJ import tests",
+    "Visual inspection of folding, camera visibility and shadows/reflections",
+    "Real FPS and memory profiling on target hardware"
+  ],
+  "ci": "pending_push",
+  "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md"
+}

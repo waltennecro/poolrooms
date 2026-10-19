@@ -1,0 +1,66 @@
+{
+  "Icons/angel-wings.png": {
+    "bytes": 8184,
+    "sha256": "5cd0ebf3881ba3fcc0ebbf0270c6731532460eb2fdeeba7b6f8bf124328ac11c"
+  },
+  "Icons/bat-wing.png": {
+    "bytes": 7061,
+    "sha256": "268c6fe2ff87739263b7f16198be85107562f806be1df5ef7aa35b3bd6a5ee31"
+  },
+  "Icons/batwing-emblem.png": {
+    "bytes": 5266,
+    "sha256": "0abcde443dbc7105ae4e158d87f0e4f42a8b850b61dec2de26a9c9ec8e12ed0d"
+  },
+  "Icons/butterfly.png": {
+    "bytes": 5504,
+    "sha256": "12db3a1ef8be141e88478d212c97357074c3b9fcf96cce95c0fc9dd134811bee"
+  },
+  "Icons/cog.png": {
+    "bytes": 7672,
+    "sha256": "7bec5a31e2fdcee5f3c8779d5ab2efa9415dc7b76c53d9a8fe7400e8e2a952bf"
+  },
+  "Icons/curly-wing.png": {
+    "bytes": 5637,
+    "sha256": "29645d56ad827bc91917add1a1472454bcf949cc2f22fd87f304cc30dc3bc71b"
+  },
+  "Icons/dragonfly.png": {
+    "bytes": 8733,
+    "sha256": "356984e6a7d998140a6dc0c39d9ae75c2e534ca633f07fe6fab713a76c92052c"
+  },
+  "Icons/feathered-wing.png": {
+    "bytes": 4625,
+    "sha256": "61be94b181cd023747689f82d0410d504ce900ece9bd84dc9d6000f8715ed0b2"
+  },
+  "Icons/fluffy-wing.png": {
+    "bytes": 5528,
+    "sha256": "bde66b5dda95764369a675d9186b5656c17fdd78876e162556f486eb347ea779"
+  },
+  "Icons/lightning-helix.png": {
+    "bytes": 5503,
+    "sha256": "e7f7bad19f32467d6e3f16c10a7c456d9ec727d6a95cc2c0cb688b0a9bca6d3e"
+  },
+  "Icons/steelwing-emblem.png": {
+    "bytes": 6659,
+    "sha256": "36e4933fd255630959c8a714ee57c3b63c2fe2dca3ad1f3e5bd628c0cb8ced13"
+  },
+  "Icons/winged-emblem.png": {
+    "bytes": 7314,
+    "sha256": "78cb1b26d0b3f2c757922fa72d3fc088dfa93361d72d1a76d081e13b8412fb56"
+  },
+  "Licenses/CC-BY-3.0.txt": {
+    "bytes": 19467,
+    "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 726,
+    "sha256": "f4c961443a6dc3833434cb0b7ed298edc45b1c60fe8f4d51894efc0052e9f5c0"
+  },
+  "Licenses/upstream_license.txt": {
+    "bytes": 1421,
+    "sha256": "fac95252798668fab5ea2cb08338f2ebc6bf894a72b19a15af1ca62f0a6d2e79"
+  },
+  "catalog.json": {
+    "bytes": 4122,
+    "sha256": "af19433c5bb9cf69188c03eeb91939dfa1bc628fc1ac27da10c3471f891dd071"
+  }
+}

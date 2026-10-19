@@ -172,9 +172,9 @@ namespace Poolrooms
                 renderer.sharedMaterials=AvatarObjMaterials.Create(data,path,resources);
                 // Convert OBJ handedness by reflecting Z and reversing winding together.
                 if(!Normalize(candidate,1.75f,targetYaw,Preferences.zUp,true))throw new FormatException("El OBJ no tiene altura válida.");
-                candidate.AddComponent<PoolroomsHumanoidSkin>().Build(Preferences,1.75f);
+                if(!Preferences.objStatic)candidate.AddComponent<PoolroomsHumanoidSkin>().Build(Preferences,1.75f);
                 Replace(candidate);candidate=null;owned.AddRange(resources);resources.Clear();
-                Status=Path.GetFileName(path)+" · "+humanoid.Report;Attribution="Modelo local proporcionado por el jugador.";
+                Status=Path.GetFileName(path)+" · "+(humanoid!=null?humanoid.Report:"OBJ estático · sin adaptación al esqueleto");Attribution="Modelo local proporcionado por el jugador.";
                 PlayerPrefs.SetString("Poolrooms.Avatar.Selection","file:"+path);PlayerPrefs.Save();
             }
             catch(Exception e){if(candidate!=null)Destroy(candidate);Status="No se pudo adaptar: "+e.GetBaseException().Message;}

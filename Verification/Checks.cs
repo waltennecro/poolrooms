@@ -48,6 +48,7 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--wings")){WingsAndNormalFlight();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} wing/core assertions; native Unity unrun.");return 0;}
         if(args.Contains("--restful-refinement")){RestfulRefinementSafety();return 0;}
         if(args.Contains("--restful-batches"))
         {
@@ -110,7 +111,7 @@ static partial class Checks
         ThermalBathGeneration();
         OrangerieGeneration();
         MovementAndQuality();
-        WaterOptics();CameraAndAvatars();HumanoidSkins();IntegrationSourceContracts();
+        WaterOptics();CameraAndAvatars();HumanoidSkins();WingsAndNormalFlight();IntegrationSourceContracts();
         ForgivingJumpTiming();
         CompactTerrain();
         CityGeneration();

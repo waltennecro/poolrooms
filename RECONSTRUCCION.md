@@ -627,3 +627,29 @@ con 923 archivos y 314294407 bytes; descarga pública real de
 coincidentes por SHA-256. Evidencia: Verification/refinement_R34_ci.json.
 La compilación y pruebas nativas de Unity siguen sin ejecutar; no se certifican
 apariencia, avisos HDRP, PhysX o FPS.
+
+
+## Horizonte · Alas
+
+Nuevo trabajo sobre R34, sin cambiar nombres de versiones históricas: vuelo del
+jugador normal con G, cuatro velocidades 3/8/18/36 m/s con H, ascenso Espacio y
+descenso Ctrl. Conserva CharacterController, pasos de 18 cm y espera de streaming;
+pausa/foto/chat mantienen hover sin inercia y no activan privilegios maestros.
+Viajes, vehículos y cambios del vuelo maestro cancelan el vuelo normal.
+
+Skins incorpora una sección de alas con 12 familias, 144 geometrías comprobadas
+distintas, plegado/aletear, anclaje y tamaño, sombras y RT según la calidad
+compatible. Solo se construye el diseño equipado (dos alas y arnés), sin luces
+ni sondas nuevas. Se importaron 12 iconos externos de Lorc, CC BY 3.0, fijados
+a revisión y con originales, hashes y créditos. Son iconos, no modelos 3D; las
+144 alas son construcciones nuevas del proyecto, no 144 modelos descargados.
+
+OBJ sigue disponible con su adaptación y materiales. Se añade un modo estático
+optativo que evita ajustar huesos; no requiere rediseñar el importador existente.
+
+Compilación estricta del núcleo sin errores ni avisos; suite completa con
+1.846.931.153 aserciones del núcleo y contratos, 188 huellas preservadas y
+258 scripts en cinco configuraciones sintácticas. Auditorías de fuentes y
+créditos correctas. Tres pruebas nativas añadidas, aún sin ejecutar por faltar
+Unity Editor. No se certifican APIs Unity, PhysX, aspecto, shaders, RT ni FPS.
+Evidencia persistente: Verification/wings_horizonte.json.

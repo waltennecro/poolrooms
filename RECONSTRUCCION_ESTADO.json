@@ -1469,13 +1469,19 @@
         }
       },
       "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995"
+    },
+    {
+      "id": "HORIZONTE_ALAS",
+      "feature": "Normal player wing flight, 144 geometry variants, wardrobe controls and opt-in static OBJ import",
+      "status": "implemented_core_checked_native_unrun",
+      "evidence": "Verification/wings_horizonte.json"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1842430893,
+    "assertions": 1846931153,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 253,
+    "syntaxScripts": 258,
     "syntaxConfigurations": 5,
     "pbrMapsVerified": 83,
     "citySourcesAudited": 5,
@@ -1532,7 +1538,7 @@
     "buildingLodTrianglesAudited": 139312,
     "buildingPngMaps": 50,
     "buildingGenerationByteExact": true,
-    "stage": "R34",
+    "stage": "Horizonte-Alas",
     "orangerieStructuralRecipes": 2500,
     "orangerieBoundaryRooms": 90,
     "orangerieDistributedObjectInstances": 42000,
@@ -1579,7 +1585,12 @@
     "expandedCatalogueTotal": 22332,
     "biomeExtentAssertions": 13383069,
     "restfulRefinementBatches": 21,
-    "restfulRefinedArchitectures": 200010
+    "restfulRefinedArchitectures": 200010,
+    "wingGeometryVariants": 144,
+    "wingFamilies": 12,
+    "wingFlightSpeeds": 4,
+    "wingExternalIcons": 12,
+    "wingNewExternal3DModels": 0
   },
   "pending": [
     {
@@ -1623,7 +1634,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "Push the existing local R34 documentation/CI closure commits after restoring GitHub authentication; all Assets/game code is already on main 7429aecdd397c7ad2b9099006a456036ba8d6995 and public CI 39340633032 passed. Then run native Unity/HDRP compilation, PlayMode, appearance and FPS. Earlier literal family/model targets remain explicitly unfinished.",
+  "nextIndependentWork": "Back up Horizonte-Alas and the existing R34 metadata commits without rewriting history; then validate the imported package in Unity/HDRP (PlayMode, API compilation, wing visibility/collisions, static OBJ, visuals and FPS). Literal historical family/model targets remain unfinished.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -2531,5 +2542,81 @@
     "gitPushError": "could not read Username for https://github.com: No such device or address",
     "publicCiVerifiedSuccess": 39340633032,
     "requiredAction": "Restore the Codex GitHub connection, then push the existing local metadata commits without rewriting history. All game code and the tested Assets package are already backed up."
+  },
+  "wingFlightEvidence": {
+    "release": "Horizonte · Alas",
+    "basedOn": "R34 final; no historical files relabelled as exact recovery",
+    "status": "implemented_core_checked_native_unrun",
+    "utc": "2026-10-19T23:50:00.590381+00:00",
+    "features": {
+      "normalFlightWithoutMaster": true,
+      "flightSpeedsMetresPerSecond": [
+        3,
+        8,
+        18,
+        36
+      ],
+      "toggleKey": "G",
+      "cycleSpeedKey": "H",
+      "designs": 144,
+      "distinctGeometryFingerprints": 144,
+      "families": 12,
+      "variantsPerFamily": 12,
+      "externalLicensedIcons": 12,
+      "newDownloaded3DModels": 0,
+      "maximumTrianglesPerWing": 7744,
+      "harnessTriangles": 12,
+      "simultaneousWingRenderers": 3,
+      "addedLights": 0,
+      "addedReflectionProbes": 0,
+      "maximumCapsuleMoveStepMetres": 0.18,
+      "staticObjMode": "opt_in_no_rig_fitting",
+      "defaultAnimatedObjImportPreserved": true
+    },
+    "checks": {
+      "strictCoreBuildErrors": 0,
+      "strictCoreBuildWarnings": 0,
+      "fullCoreAssertions": 1846931153,
+      "protectedGeometryFingerprints": 188,
+      "syntaxScripts": 258,
+      "syntaxConfigurations": 5,
+      "wingCoreAndIntegrationAssertions": 4522439,
+      "humanoidCoreAndIntegrationAssertions": 2912652,
+      "flightFpsCases": [
+        10,
+        20,
+        30,
+        60,
+        144,
+        240
+      ],
+      "licensedIconSourcesAndHashes": "passed",
+      "existingPbrMapsVerified": 83,
+      "creditsGardenBathAudits": "passed",
+      "nativeRunnerContracts": "passed"
+    },
+    "nativeTestsAdded": 3,
+    "nativeUnityExecuted": false,
+    "nativePreflight": {
+      "nativeExecuted": false,
+      "status": "blocked_unity_editor_missing"
+    },
+    "sourceHashes": {
+      "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+      "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+      "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
+    },
+    "logHashes": {
+      "alas_full_checks.log": "8c10f2eb87400763610f39164017bd3ef7d4919292f35a4f6eeecea33136ed00",
+      "alas_humanoid_checks.log": "15cd0eec65f9f5eabca54cbaff70126417b09c870b2f9d815f78354ebb0f2889"
+    },
+    "pending": [
+      "Unity 6.3/HDRP API compilation",
+      "Native PlayMode collision and static OBJ import tests",
+      "Visual inspection of folding, camera visibility and shadows/reflections",
+      "Real FPS and memory profiling on target hardware"
+    ],
+    "ci": "pending_push",
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md"
   }
 }

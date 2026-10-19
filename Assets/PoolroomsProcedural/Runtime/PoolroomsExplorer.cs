@@ -10,6 +10,9 @@ namespace Poolrooms
         public PoolroomsWorld world;
         public Transform eyes;
         public PoolroomsViewRig Views {get;private set;}
+        public PoolroomsWings Wings {get;private set;}
+        private bool wingToggle,wingSpeed;
+        public void FeedWingInput(bool toggle,bool cycleSpeed){wingToggle=toggle;wingSpeed=cycleSpeed;}
         // Interactions and swimming stay at the player's head, independent of the visible camera.
         public Transform Aim {get{return Views!=null&&Views.isActiveAndEnabled?Views.Aim:eyes!=null?eyes:transform;}}
         public float walkSpeed=3.2f,sprintSpeed=5.5f,lookSensitivity=.09f;
@@ -29,7 +32,7 @@ namespace Poolrooms
         private PoolroomsSlide slide;
         private PoolroomsAquaticTraversal aquatic;
         public bool IsAquaticRiding {get{return aquatic!=null&&aquatic.Riding;}}
-        public void SuspendForAquaticRide(){dash.Cancel();if(slide!=null)slide.Stop(true);locomotion.Suspend();ClearViewMotion();}
+        public void SuspendForAquaticRide(){Wings?.Stop();dash.Cancel();if(slide!=null)slide.Stop(true);locomotion.Suspend();ClearViewMotion();}
         public void FinishAquaticRide(Vector3 feet){transform.position=feet;locomotion.Suspend();ClearViewMotion();waterContacts.Reset();}
 
         private bool slideHeld;
@@ -46,7 +49,7 @@ namespace Poolrooms
         public bool IsDashing { get { return dash.Active; } }
         public PoolroomsVehicle Vehicle {get;private set;}
         public bool BeginDriving(PoolroomsVehicle vehicle)
-        {if(Vehicle!=null||vehicle==null||IsPaused||InputCaptured)return false;Vehicle=vehicle;dash.Cancel();if(slide!=null)slide.Stop(true);locomotion.Suspend();body.enabled=false;ClearViewMotion();return true;}
+        {if(Vehicle!=null||vehicle==null||IsPaused||InputCaptured)return false;Wings?.Stop();Vehicle=vehicle;dash.Cancel();if(slide!=null)slide.Stop(true);locomotion.Suspend();body.enabled=false;ClearViewMotion();return true;}
         public void EndDriving(PoolroomsVehicle vehicle,Vector3 feet)
         {if(Vehicle!=vehicle)return;Vehicle=null;if(body==null)return;body.enabled=true;Teleport(feet);}
         public int DashCharges { get { return dash.Charges; } }
@@ -57,7 +60,7 @@ namespace Poolrooms
         private readonly WaterContactTracker waterContacts=new WaterContactTracker();
         public bool IsPaused { get; private set; }
         public bool IsReady { get { return ready; } }
-        public bool IsFlying { get { return masterMode!=null&&masterMode.Flying; } }
+        public bool IsFlying { get { return masterMode!=null&&masterMode.Flying||Wings!=null&&Wings.Flying; } }
         public bool InputCaptured { get { return masterMode!=null&&masterMode.IsInterfaceOpen; } }
         public PoolroomsMasterMode MasterMode { get { return masterMode; } }
         public PoolroomsFlashlight Flashlight { get { return flashlight; } }
@@ -95,6 +98,7 @@ namespace Poolrooms
             flashlight=GetComponent<PoolroomsFlashlight>();if(flashlight==null)flashlight=gameObject.AddComponent<PoolroomsFlashlight>();
             carry=GetComponent<PoolroomsCarry>();if(carry==null)carry=gameObject.AddComponent<PoolroomsCarry>();
             if(GetComponent<PoolroomsGameSettings>()==null)gameObject.AddComponent<PoolroomsGameSettings>();
+            Wings=GetComponent<PoolroomsWings>();if(Wings==null)Wings=gameObject.AddComponent<PoolroomsWings>();
             pauseMenu=GetComponent<PoolroomsPauseMenu>();
             if(pauseMenu==null)pauseMenu=gameObject.AddComponent<PoolroomsPauseMenu>();
             Camera camera=eyes!=null?eyes.GetComponent<Camera>():GetComponentInChildren<Camera>();
@@ -129,7 +133,7 @@ namespace Poolrooms
             if(showStartMenu)pauseMenu.OpenStartMenu();
         }
         public void SetPaused(bool value)
-        {IsPaused=value;locomotion.ClearJumpIntent();inspectHeld=false;dash.Cancel();dashPressed=false;ClearViewMotion();sprintPreference.Reset();if(slide!=null)slide.Stop();slideHeld=false;FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);}
+        {IsPaused=value;Wings?.Suspend();FeedWingInput(false,false);locomotion.ClearJumpIntent();inspectHeld=false;dash.Cancel();dashPressed=false;ClearViewMotion();sprintPreference.Reset();if(slide!=null)slide.Stop();slideHeld=false;FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);}
         public void ResetSprintPreference(){sprintPreference.Reset();}
         public void ResetToSpawn()
         {Teleport(world!=null?world.SpawnWorldPosition:Vector3.up*.1f);}
@@ -144,6 +148,7 @@ namespace Poolrooms
         }
         public void Teleport(Vector3 position)
         {
+            Wings?.Stop();FeedWingInput(false,false);
             if(aquatic!=null)aquatic.Cancel(false);
             if(Vehicle!=null){var car=Vehicle;Vehicle=null;car.DetachDriver(this);body.enabled=true;}
             dash.Reset();dashPressed=false;
@@ -175,6 +180,7 @@ namespace Poolrooms
         {viewCycle=cycle;photoPressed=photo;photoCapture=capture;photoHide=hide;photoLook=looking;photoVertical=vertical;photoRoll=roll;photoScroll=scroll;photoFast=fast;}
         public void ResetMotionForMasterMode(bool repairGround=false)
         {
+            Wings?.Stop();FeedWingInput(false,false);
             if(aquatic!=null)aquatic.Cancel(true);
             if(Vehicle!=null){var car=Vehicle;Vehicle=null;car.DetachDriver(this);body.enabled=true;repairGround=true;}
             dash.Cancel();dashPressed=false;
@@ -195,15 +201,16 @@ namespace Poolrooms
                 escape=Input.GetKeyDown(KeyCode.Escape);click=Input.GetMouseButtonDown(0);FeedRenderingShortcut(Input.GetKeyDown(KeyCode.F7));
                 FeedUtilityInput(Input.GetKeyDown(KeyCode.Y),Input.GetKeyDown(KeyCode.M),Input.GetKeyDown(KeyCode.F),Input.GetKeyDown(KeyCode.V),Input.GetKey(KeyCode.Space),Input.GetKey(KeyCode.LeftControl));
                 FeedCarryInput(Input.GetKeyDown(KeyCode.E),Input.GetKeyDown(KeyCode.Q));FeedInspectInput(Input.GetKey(KeyCode.R));FeedEmoteInput(Input.GetKeyDown(KeyCode.B));
+                FeedWingInput(Input.GetKeyDown(KeyCode.G),Input.GetKeyDown(KeyCode.H));
                 FeedViewInput(Input.GetKeyDown(KeyCode.F5),Input.GetKeyDown(KeyCode.F6),Input.GetKeyDown(KeyCode.F9),Input.GetKeyDown(KeyCode.F8),Input.GetMouseButton(1),
                     (Input.GetKey(KeyCode.E)?1:0)-(Input.GetKey(KeyCode.Q)?1:0),(Input.GetKey(KeyCode.C)?1:0)-(Input.GetKey(KeyCode.Z)?1:0),Input.mouseScrollDelta.y,Input.GetKey(KeyCode.LeftShift));
 #else
-                FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);FeedUtilityInput(false,false,false,false,false,false);FeedCarryInput(false,false);FeedSlideInput(false);FeedDashInput(false);
+                FeedInput(Vector2.zero,Vector2.zero,false,false,false,false);FeedUtilityInput(false,false,false,false,false,false);FeedCarryInput(false,false);FeedSlideInput(false);FeedDashInput(false);FeedWingInput(false,false);
 #endif
             }
             bool viewConsumed=Views!=null&&Views.isActiveAndEnabled&&Views.HandleInput(move,look,viewCycle,photoPressed,escape,photoCapture,photoHide,photoLook,photoVertical,photoRoll,photoScroll,photoFast);
             viewCycle=photoPressed=photoCapture=photoHide=false;photoScroll=0;
-            if(viewConsumed){emotePressed=false;escape=click=renderingShortcut=jump=dashPressed=grabPressed=dropPressed=chatPressed=masterPressed=flashPressed=flashCycle=false;slideHeld=inspectHeld=false;return;}
+            if(viewConsumed){Wings?.Suspend();FeedWingInput(false,false);emotePressed=false;escape=click=renderingShortcut=jump=dashPressed=grabPressed=dropPressed=chatPressed=masterPressed=flashPressed=flashCycle=false;slideHeld=inspectHeld=false;return;}
             if(renderingShortcut&&pauseMenu!=null&&pauseMenu.isActiveAndEnabled)pauseMenu.OpenRenderingSettings();
             else if(escape)
             {
@@ -223,19 +230,20 @@ namespace Poolrooms
             chatPressed=masterPressed=flashPressed=flashCycle=false;
             bool blocked=IsPaused||InputCaptured||masterMode!=null&&masterMode.ClosedThisFrame||Time.timeScale<=0;
             bool emote=emotePressed;emotePressed=false;bool burst=dashPressed;dashPressed=false;
+            bool toggleWings=wingToggle,cycleWings=wingSpeed;FeedWingInput(false,false);
             bool sprintRequested=sprintPreference.Sample(sprint,toggleSprint,blocked||Cursor.lockState!=CursorLockMode.Locked||world!=null&&!world.ViewerReady);
             bool grab=grabPressed,drop=dropPressed;grabPressed=dropPressed=false;
-            if(blocked){locomotion.ClearJumpIntent();if(Vehicle!=null)Vehicle.Control(0,0,true);dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
+            if(blocked){Wings?.Suspend();locomotion.ClearJumpIntent();if(Vehicle!=null)Vehicle.Control(0,0,true);dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             if(world!=null&&!world.ViewerReady&&(waitForDestination||masterMode==null||!masterMode.Noclip))
             {
                 // Also pause after a teleport to an unloaded room, not only at the initial spawn.
-                dash.Cancel();if(slide!=null)slide.Stop();ready=false;checkSupport=true;locomotion.Suspend();jump=false;waterContacts.Reset();return;
+                Wings?.Suspend();dash.Cancel();if(slide!=null)slide.Stop();ready=false;checkSupport=true;locomotion.Suspend();jump=false;waterContacts.Reset();return;
             }
             waitForDestination=false;ready=true;
-            if(Cursor.lockState!=CursorLockMode.Locked){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
+            if(Cursor.lockState!=CursorLockMode.Locked){Wings?.Suspend();dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             if(Vehicle!=null){if(grab)Vehicle.TryExit();}
             else if(!IsAquaticRiding&&carry!=null&&carry.isActiveAndEnabled){if(drop)carry.Drop();else if(grab&&(aquatic==null||!aquatic.TryInteract()))carry.Interact();}
-            if(world!=null&&!world.ViewerReady&&(waitForDestination||masterMode==null||!masterMode.Noclip)){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
+            if(world!=null&&!world.ViewerReady&&(waitForDestination||masterMode==null||!masterMode.Noclip)){Wings?.Suspend();dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
             if(inspectHeld&&!IsAquaticRiding&&Vehicle==null&&carry!=null&&carry.Inspect(look))look=Vector2.zero;
             float previousPitch=pitch;
             transform.Rotate(0,look.x*lookSensitivity,0);
@@ -243,7 +251,7 @@ namespace Poolrooms
             if(eyes!=null)eyes.localRotation=Quaternion.Euler(pitch,0,0);
             if(Time.deltaTime>0)ViewTurnRate=new Vector2(look.x*lookSensitivity/Time.deltaTime,(pitch-previousPitch)/Time.deltaTime);
             if(IsAquaticRiding){aquatic.Tick(Time.deltaTime);jump=false;return;}
-            if(IsFlying)
+            if(masterMode!=null&&masterMode.Flying)
             {
                 dash.Cancel();
                 if(slide!=null)slide.Stop();
@@ -251,6 +259,21 @@ namespace Poolrooms
                 if(masterMode.Noclip)transform.position+=velocity*Time.deltaTime;
                 else if(body.enabled)body.Move(velocity*Time.deltaTime);
                 ClearViewMotion();locomotion.Reset();waterContacts.Reset();jump=false;return;
+            }
+            if(Wings!=null)
+            {
+                if(cycleWings)Wings.CycleSpeed();
+                if(toggleWings){Wings.ToggleFlight();locomotion.Suspend();jump=false;}
+                if(Wings.Flying&&body.enabled)
+                {
+                    if(checkSupport){checkSupport=false;RepairEmbeddedFeet();}
+                    dash.Cancel();if(slide!=null)slide.Stop(true);locomotion.Suspend();waterContacts.Reset();
+                    Vector3 beforeFlight=transform.position;
+                    Wings.TickFlight(Aim.forward*move.y+Aim.right*move.x+Vector3.up*((ascend?1:0)-(descend?1:0)),Time.deltaTime);
+                    ViewVelocity=Time.deltaTime>0?transform.InverseTransformDirection((transform.position-beforeFlight)/Time.deltaTime):Vector3.zero;
+                    ViewGrounded=ViewSprinting=false;jump=false;return;
+                }
+                if(Wings.Flying)Wings.Stop();
             }
             if(Vehicle!=null){Vehicle.Control(move.x,move.y,slideHeld,(ascend?1:0)-(descend?1:0));dash.Cancel();jump=false;return;}
             if(!body.enabled){dash.Cancel();if(slide!=null)slide.Stop();jump=false;return;}
@@ -338,6 +361,7 @@ namespace Poolrooms
         }
         private void OnDisable()
         {
+            Wings?.Stop();FeedWingInput(false,false);
             if(aquatic!=null)aquatic.Cancel(true);
             if(Vehicle!=null){var car=Vehicle;Vehicle=null;car.DetachDriver(this);if(body!=null)body.enabled=true;checkSupport=true;}
             dash.Cancel();dashPressed=false;

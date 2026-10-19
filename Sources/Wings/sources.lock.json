@@ -1,0 +1,72 @@
+{
+  "angel-wings.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/angel-wings.svg",
+    "bytes": 2262,
+    "sha256": "d1db8aafcfccada10322b08e842cd05abbca1cbb1f26893ea72a7dcb5b539b4f"
+  },
+  "fluffy-wing.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/fluffy-wing.svg",
+    "bytes": 1738,
+    "sha256": "6984bb9352394359a843266b4eb2c0a510f7086d4c33517ace1ced5300570158"
+  },
+  "feathered-wing.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/feathered-wing.svg",
+    "bytes": 631,
+    "sha256": "28c8ca8822759a2231d73e7425ec88cfaf3b2ca373a2f4f0f7a56cce96a49b29"
+  },
+  "bat-wing.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/bat-wing.svg",
+    "bytes": 881,
+    "sha256": "39bf2018a387f6f2a022a37ce1380d90785cacbe6e31c9f156618b9ccb1b95b8"
+  },
+  "batwing-emblem.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/batwing-emblem.svg",
+    "bytes": 1019,
+    "sha256": "a3fa1f4f6ac7dfb9f7998244ab97c4851cdd221353e74edbbe23358c049eee6a"
+  },
+  "butterfly.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/butterfly.svg",
+    "bytes": 817,
+    "sha256": "a40823a64300a68069cfd8abfb0c59fe6ab91bf5b322c8ad93abd807fdb73c7e"
+  },
+  "dragonfly.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/dragonfly.svg",
+    "bytes": 3922,
+    "sha256": "fd8c54f713b3c668125d4d7817145bb5c6bc3c4a1bff75e18aa53a7dd6c50233"
+  },
+  "steelwing-emblem.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/steelwing-emblem.svg",
+    "bytes": 1720,
+    "sha256": "bb7aea1f5c1536856011888e85a07061c1309dc5adc50ddfd76664ceb22c85c5"
+  },
+  "lightning-helix.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/lightning-helix.svg",
+    "bytes": 515,
+    "sha256": "c51e4ad3c189457b08c6cee6ce3bf9b3946b9a8e5a2acaa657b01c431aaa1b27"
+  },
+  "winged-emblem.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/winged-emblem.svg",
+    "bytes": 1536,
+    "sha256": "fc36358d962cb191e3b0754656e361bbd6c8f27ab2a5d09f97d749ff5783263c"
+  },
+  "curly-wing.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/curly-wing.svg",
+    "bytes": 1455,
+    "sha256": "dd33598544852cfa4f4992925f6a2221a6fb671a4732d1000d04d4578d03facf"
+  },
+  "cog.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/cog.svg",
+    "bytes": 1651,
+    "sha256": "79adb133e3bc3a9a38a0db715ecd1cb08d55bc012c70157a7bb9d650fb7cea6e"
+  },
+  "upstream_license.txt": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/license.txt",
+    "bytes": 1421,
+    "sha256": "fac95252798668fab5ea2cb08338f2ebc6bf894a72b19a15af1ca62f0a6d2e79"
+  },
+  "CC-BY-3.0.txt": {
+    "url": "https://raw.githubusercontent.com/spdx/license-list-data/v3.26.0/text/CC-BY-3.0.txt",
+    "bytes": 19467,
+    "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+  }
+}

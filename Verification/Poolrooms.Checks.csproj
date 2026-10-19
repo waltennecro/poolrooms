@@ -12,6 +12,7 @@
     <Compile Include="WaterOpticsChecks.cs" />
     <Compile Include="CameraAvatarChecks.cs" />
     <Compile Include="HumanoidChecks.cs" />
+    <Compile Include="WingChecks.cs" />
     <Compile Include="GenerationAuditChecks.cs" />
     <Compile Include="VarietyExpansionChecks.cs" />
     <Compile Include="BiomeExtentChecks.cs" />

@@ -96,6 +96,7 @@ namespace Poolrooms
             if(explorer!=null)explorer.SetPaused(false);
             effects?.RefreshPreferences();snap=true;
             if(avatar!=null)avatar.SetVisible(Perspective!=CameraPerspective.FirstPerson,false);
+            if(explorer!=null&&explorer.Wings!=null)explorer.Wings.SetVisible(Perspective!=CameraPerspective.FirstPerson,false);
         }
         public void ComposeView()
         {
@@ -116,6 +117,7 @@ namespace Poolrooms
             }
             if(avatar==null)avatar=explorer.GetComponent<PoolroomsAvatar>();
             if(avatar!=null)avatar.SetVisible(visible,PhotoActive&&!showAvatar);
+            if(explorer.Wings!=null)explorer.Wings.SetVisible(visible,PhotoActive&&!showAvatar);
             // The existing torch keeps its intensity/effects, but emits from the player's head in external views.
             var light=explorer.Flashlight!=null?explorer.Flashlight.Source:null;
             if(light!=null){var parent=ExternalPose?aim:transform;if(light.transform.parent!=parent)light.transform.SetParent(parent,false);}
@@ -170,6 +172,7 @@ namespace Poolrooms
         {
             ExitPhoto();if(explorer!=null){explorer.Relocated-=Relocated;explorer.OriginShifted-=Shift;}
             if(avatar!=null)avatar.SetVisible(false,false);
+            if(explorer!=null&&explorer.Wings!=null)explorer.Wings.SetVisible(false,false);
             if(aim!=null){while(aim.childCount>0)aim.GetChild(0).SetParent(transform,true);Destroy(aim.gameObject);aim=null;}
         }
     }

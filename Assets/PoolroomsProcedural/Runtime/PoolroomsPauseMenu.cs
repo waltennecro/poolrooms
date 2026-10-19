@@ -355,6 +355,7 @@ namespace Poolrooms
         }
         private void DrawSkins()
         {
+            DrawWings();
             var avatar=explorer.GetComponent<PoolroomsAvatar>();if(avatar==null)return;var skin=avatar.Preferences;
             Row("Importar modelo","OBJ directo. GLB/glTF requieren Unity glTFast. En el Editor también FBX, DAE, 3DS, DXF y BLEND.",out var input);
             input.AddToClassList("pr-skin-import");
@@ -362,6 +363,7 @@ namespace Poolrooms
             var fileActions=Element("pr-skin-actions",input);
             ActionButton("Examinar…",()=>{string file=AvatarFilePicker.Open();if(!string.IsNullOrEmpty(file))path.value=file;},"pr-secondary",fileActions);
             ActionButton("Importar",()=>avatar.LoadFile(path.value),"pr-primary",fileActions);
+            Toggle("OBJ sencillo · sin huesos","Importa el modelo como una skin estática, sin intentar adaptarlo. Conserva materiales, sombras y movimiento del jugador. Actívalo antes de importar o pulsa Recalcular para aplicarlo.",skin.objStatic,v=>{skin.objStatic=v;avatar.SavePreferences();},SettingsChange.None);
             var definitions=avatar.Definitions();var files=avatar.ObjFiles();var names=new List<string>{"Sin skin"};
             foreach(var definition in definitions)names.Add(definition.name);foreach(var file in files)names.Add(System.IO.Path.GetFileName(file));
             string saved=PlayerPrefs.GetString("Poolrooms.Avatar.Selection","");int index=0;
@@ -398,6 +400,29 @@ namespace Poolrooms
             Slider("Metal de la skin","Cero para tela y piel; aumenta solo en superficies metálicas.",0,1,skin.metallic,v=>{skin.metallic=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
             Note("Ray tracing: geometría animada dinámica en Cinemático RT/Ultra con hardware compatible; en otras calidades usa iluminación y reflejos disponibles. No agrega luces ni sondas por personaje. GLB/glTF: instala com.unity.cloud.gltfast 6.7.1 desde Package Manager. BLEND requiere Blender en el equipo del Editor.");
         }
+        private void DrawWings()
+        {
+            var wings=explorer.Wings!=null?explorer.Wings:explorer.GetComponent<PoolroomsWings>();if(wings==null)return;
+            var preferences=wings.Preferences;
+            Row("ALAS · HORIZONTE","Vuelo para cualquier jugador, sin desbloquear el modo maestro. 12 familias y 144 variantes de geometría.",out var preview);
+            var image=new Image{image=Resources.Load<Texture2D>("WingSources/Icons/"+WingCatalog.Icons[preferences.design/WingCatalog.Variants]),scaleMode=ScaleMode.ScaleToFit};
+            image.style.width=72;image.style.height=72;preview.Add(image);
+            Toggle("Equipar alas","G activa o detiene el vuelo. Las alas se conservan al cambiar de skin.",preferences.equipped,v=>{preferences.equipped=v;wings.SavePreferences();},SettingsChange.None);
+            Choice("Familia de alas","Ángel, serafín, cuervo, demonio, dragón, mariposa, libélula, robot, neón, luz, cristal o mecánico.",new List<string>(WingCatalog.FamilyNames),preferences.design/WingCatalog.Variants,i=>
+            {preferences.design=i*WingCatalog.Variants+preferences.design%WingCatalog.Variants;wings.SavePreferences();image.image=Resources.Load<Texture2D>("WingSources/Icons/"+WingCatalog.Icons[i]);});
+            var variants=new List<string>();for(int i=0;i<WingCatalog.Variants;i++)variants.Add(WingCatalog.Name(i).Split('·')[1].Trim());
+            Choice("Diseño de la familia","Cambia la silueta, longitud, disposición de plumas, lóbulos o paneles; no solo el color.",variants,preferences.design%WingCatalog.Variants,i=>{preferences.design=preferences.design/WingCatalog.Variants*WingCatalog.Variants+i;wings.SavePreferences();});
+            Choice("Velocidad de vuelo · H","Cuatro velocidades. H recorre la lista mientras exploras; no cambia la velocidad al caminar.",new List<string>(PoolroomsWings.SpeedNames),(int)preferences.speed,i=>{preferences.speed=(WingSpeed)i;wings.SavePreferences(false);});
+            Toggle("Plegar al caminar","Las alas se despliegan suavemente al volar y se recogen al aterrizar.",preferences.foldOnGround,v=>{preferences.foldOnGround=v;wings.SavePreferences(false);},SettingsChange.None);
+            Toggle("Sombras de las alas","Usan las luces y reflejos del nivel. En primera persona solo se proyecta su sombra.",preferences.castShadows,v=>{preferences.castShadows=v;wings.SavePreferences(false);},SettingsChange.None);
+            Slider("Tamaño de las alas","Ajuste cosmético; las colisiones siguen usando el cuerpo del jugador.",.6f,1.5f,preferences.size,v=>{preferences.size=v;wings.SavePreferences(false);},SettingsChange.None,percent:true);
+            Slider("Altura del anclaje","Ajusta el arnés a la espalda de tu modelo humanoide.",.55f,.85f,preferences.attachmentHeight,v=>{preferences.attachmentHeight=v;wings.SavePreferences(false);},SettingsChange.None,percent:true);
+            Slider("Separación de la espalda","Compensa el volumen de la skin o su ropa.",.08f,.4f,preferences.backOffset,v=>{preferences.backOffset=v;wings.SavePreferences(false);},SettingsChange.None," m");
+            Row("Estado de las alas","F5 permite verlas desde las cámaras externas; el modo foto también respeta Mostrar personaje.",out var state);
+            var status=Label(wings.Status,"pr-muted",state);status.schedule.Execute(()=>status.text=wings.Status).Every(500);
+            Note("Vuelo: G alternar · H velocidad · WASD dirección según la mirada · Espacio subir · Ctrl bajar. Sin pulsar dirección te quedas suspendido. Las paredes y los sectores sin cargar siguen bloqueando el paso. Al quitar las alas vuelve la gravedad.");
+            Note(PoolroomsWings.Attribution+" Créditos y fuentes completos en WingSources/Licenses.");
+        }
         private void DrawAudio()
         {
             Slider("Volumen general","Todos los sonidos de la exploración.",0,1,Prefs.masterVolume,v=>Prefs.masterVolume=v,SettingsChange.Audio,percent:true);
@@ -412,6 +437,7 @@ namespace Poolrooms
         }
         private void DrawControls()
         {
+            Note("Alas: G activa o detiene el vuelo normal · H cambia entre lento, medio, rápido y muy rápido · Espacio sube · Ctrl baja. Diseños y ajustes en Skins → Alas.");
             Note("Cámara: F5 recorre 8 perspectivas. F6 abre/cierra el modo foto; F8 oculta su panel y F9 guarda un PNG sin interfaz. En foto: WASD mover, E/Q subir/bajar, botón derecho mirar, Shift acelerar, Z/C inclinar y rueda ajustar encuadre.");
             Note("Objetos: E toma o interactúa; Q suelta. Mantén R y mueve el ratón para examinar el objeto sostenido sin girar la cámara.");
             Slider("Sensibilidad del ratón","Velocidad de la mirada.",.01f,.3f,Prefs.sensitivity,v=>Prefs.sensitivity=v,SettingsChange.Controls);

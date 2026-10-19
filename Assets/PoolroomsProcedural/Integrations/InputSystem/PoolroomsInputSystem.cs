@@ -19,6 +19,7 @@ namespace Poolrooms
             explorer.FeedUtilityInput(false,false,false,false,false,false);
             explorer.FeedCarryInput(false,false);explorer.FeedSlideInput(false);explorer.FeedRenderingShortcut(false);explorer.FeedEmoteInput(false);
             explorer.FeedDashInput(false);explorer.FeedInspectInput(false);
+            explorer.FeedWingInput(false,false);
             explorer.FeedViewInput(false,false,false,false,false,0,0,0,false);
             explorer.externalInput=false;
         }
@@ -31,6 +32,7 @@ namespace Poolrooms
             explorer.FeedInput(axis,m!=null?m.delta.ReadValue():Vector2.zero,k!=null&&k.spaceKey.wasPressedThisFrame,
                 runKey!=null&&runKey.isPressed,k!=null&&k.escapeKey.wasPressedThisFrame,m!=null&&m.leftButton.wasPressedThisFrame);
             explorer.FeedDashInput(k!=null&&k.leftShiftKey.wasPressedThisFrame);
+            explorer.FeedWingInput(k!=null&&k.gKey.wasPressedThisFrame,k!=null&&k.hKey.wasPressedThisFrame);
             explorer.FeedUtilityInput(k!=null&&k.yKey.wasPressedThisFrame,k!=null&&k.mKey.wasPressedThisFrame,
                 k!=null&&k.fKey.wasPressedThisFrame,k!=null&&k.vKey.wasPressedThisFrame,k!=null&&k.spaceKey.isPressed,k!=null&&k.leftCtrlKey.isPressed);
             explorer.FeedCarryInput(k!=null&&k.eKey.wasPressedThisFrame,k!=null&&k.qKey.wasPressedThisFrame);
