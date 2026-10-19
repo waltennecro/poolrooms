@@ -1,0 +1,112 @@
+{
+  "stage": "R29",
+  "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645",
+  "confirmedUserStack": "MallItemCatalog.Get(id) -> PoolroomsWorld.AttachRoomExtras -> Attach",
+  "cause": "AquaticParkPlanner used shape 32 even though the 32-shape catalogue ends at shape 31, stopping the room-upload coroutine.",
+  "invalidIdsBeforeFix": [
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263
+  ],
+  "validCatalogueRange": [
+    0,
+    255
+  ],
+  "beforeFixRegression": "Reproduced ArgumentOutOfRangeException(id) at MallItemCatalog.cs:39, exit code 134.",
+  "correctedDeckShapes": [
+    "Towel (30)",
+    "Soap (31)"
+  ],
+  "catalogueIdsRenumbered": false,
+  "invalidIdsClampedOrPropsOmitted": false,
+  "allAquaticRecipesAndSupportedScaleCombinationsChecked": 33600,
+  "catalogueItemLookupAndModelCreationIncluded": true,
+  "negativeControls": [
+    "Plan.Valid rejects ID 256",
+    "MallItemCatalog.Get(256) still throws"
+  ],
+  "cumulativeCoreAssertionsPassed": 1810355734,
+  "syntaxScripts": 241,
+  "syntaxConfigurations": 5,
+  "protectedGeometryFingerprints": 188,
+  "pbrMapsAudited": 82,
+  "streamingChanges": [
+    "Retain gateway-adjacent rooms outside mall/hill reserved footprints",
+    "Honour unified exploration using a temporary profile clone",
+    "Resolve unique Explorer viewer on initialization",
+    "Expose coroutine failure and current-position retry",
+    "Remove a partially uploaded room when an exception occurs",
+    "Temporary ground-loading feedback"
+  ],
+  "directionalShadowChanges": [
+    "Connected Level94 sun disabled outside region",
+    "One directional shadow owner chosen at end of frame",
+    "Restore template daylight when regional sun is inactive"
+  ],
+  "nativeNewRegressionTestsAddedButUnrun": 4,
+  "nativeUnityExecuted": false,
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-19T00:06:28Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "nativePending": [
+    "Unity/HDRP API compilation",
+    "Four new PlayMode regressions",
+    "World continuation after entering an aquatic park",
+    "Physical traversal of mall/hill gateways",
+    "HDRP cascaded shadows while crossing biome boundaries",
+    "Appearance and FPS"
+  ],
+  "flashlightSourcesChanged": false,
+  "renderDistanceReduced": false,
+  "teleportLogicChanged": false,
+  "newDownloadedModels": 0,
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R29_Generacion_Corregida_Assets.zip",
+    "files": 863,
+    "bytes": 296291529,
+    "sha256": "d3e5105bb0537e338a4c6d6da24677987f83bcf21c32e952995689135f9346ec",
+    "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1065,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/93e15b733fdb9acc140ad0fcd8c4789574353645",
+    "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645",
+    "bytes": 462774512,
+    "sha256": "d4f602345def207e006e1038f82898669d104e05650813c46f23990ef53a52d0",
+    "assetFilesMatched": 863,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39179530261,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39179530261",
+    "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117829120024,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12156035671,
+        "bytes": 295423989,
+        "digest": "sha256:f954a43c510704771cf6f737d371b84a798006332b22b60c78e0aa61e4244603"
+      }
+    ]
+  },
+  "documentation": "Assets/PoolroomsProcedural/Documentation/GENERACION_Y_SOMBRAS_R29.md"
+}

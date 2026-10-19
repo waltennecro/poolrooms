@@ -423,3 +423,13 @@ y las copias temporales del perfil; las escenas de catálogo optan por desactiva
 Los fallos de carga ahora se registran y limpian la sala parcial. No se reduce
 calidad/distancia ni se modifica la linterna. Documentación: GENERACION_Y_SOMBRAS_R29.md.
 Cuatro regresiones PlayMode añadidas, sin ejecutar por falta del Editor Unity.
+
+R29 final: CI [39179530261](https://github.com/waltennecro/poolrooms/actions/runs/39179530261) correcta para `93e15b733fdb9acc140ad0fcd8c4789574353645`.
+Núcleo completo: 1810355734 aserciones, 188 geometrías protegidas y 241 scripts
+en cinco configuraciones de sintaxis; además 33600 planes acuáticos con consulta
+y modelos del catálogo y controles negativos de ID. Comprobados texturas/licencias
+y empaquetado. Assets: 863 archivos, 296291529 bytes.
+Descarga pública independiente: 462774512 bytes, CRC válido y los
+1065 archivos versionados coinciden por SHA-256.
+Evidencia: `Verification/ci_generation_R29.json`. Cuatro pruebas PlayMode nuevas
+aún sin ejecutar; tampoco compilación Unity/HDRP, sombras visuales, física ni FPS.
