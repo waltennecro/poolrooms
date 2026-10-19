@@ -63,6 +63,7 @@ namespace Poolrooms.Core
         }
         public static void Apply(RoomGeometry geometry,Room room,LayoutConfig c)
         {
+            if(room.Plan!=null&&room.Plan.Restful!=null)return;
             if(room.Plan!=null&&room.Plan.Rain!=null)return;
             if(room.Plan!=null&&room.Plan.Aquatic!=null)return;
             if(room.Plan!=null&&room.Plan.Baths!=null)return;

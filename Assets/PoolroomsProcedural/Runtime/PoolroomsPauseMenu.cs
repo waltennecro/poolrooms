@@ -406,6 +406,8 @@ namespace Poolrooms
             Slider("Agua","Pasos mojados y contactos con las piscinas.",0,1,Prefs.waterVolume,v=>Prefs.waterVolume=v,SettingsChange.Audio,percent:true);
             Toggle("Goteos ocasionales","Sonidos discretos cerca del agua.",Prefs.drips,v=>Prefs.drips=v,SettingsChange.Audio);
             Toggle("Reverberación por sala","El sonido responde al tamaño del espacio.",Prefs.reverb,v=>Prefs.reverb=v,SettingsChange.Audio);
+            Toggle("Ambiente 3D","Circulación de piscinas y ventilación situadas en el espacio.",Prefs.spatialAmbience,v=>Prefs.spatialAmbience=v,SettingsChange.Audio);
+            Toggle("Oclusión del sonido","Las paredes atenúan el ambiente con transiciones suaves.",Prefs.soundOcclusion,v=>Prefs.soundOcclusion=v,SettingsChange.Audio);
             Toggle("Silenciar en segundo plano","Cuando cambias a otra aplicación.",Prefs.muteUnfocused,v=>Prefs.muteUnfocused=v,SettingsChange.Audio);
         }
         private void DrawControls()

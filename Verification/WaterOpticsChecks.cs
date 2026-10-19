@@ -10,6 +10,26 @@ static partial class Checks
 {
     static void WaterOptics()
     {
+        Check(Math.Abs(PoolWaterModel.Fresnel(1)-.02037f)<.0001f&&Math.Abs(PoolWaterModel.Fresnel(0)-1)<.0001f,"Water must reflect about 2% at normal incidence and all light at grazing angles");
+        float previousFresnel=1;
+        for(int i=0;i<=1000;i++)
+        {float f=PoolWaterModel.Fresnel(i/1000f);Check(f<=previousFresnel+1e-6f&&f>=.02f&&f<=1,"Invalid water Fresnel energy");previousFresnel=f;}
+        for(int t=0;t<160;t++)for(int d=0;d<400;d++)
+        {float packet=PoolWaterModel.RipplePacket(d*.025f,t*.025f);Check(float.IsFinite(packet)&&Math.Abs(packet)<=1,"Dispersive ripple packet adds unbounded energy");}
+        Check(PoolWaterModel.RipplePacket(1,float.NaN)==0&&PoolWaterModel.RipplePacket(-1,0)==0,"Invalid wave input contaminates the surface");
+        foreach(float dt in new[]{1f/240,1f/60,1f/20})
+        {
+            var occlusion=new OccludedSound(1,18000);
+            for(int i=0;i<(int)(2/dt);i++)occlusion=SpatialAudioModel.Step(occlusion,true,false,dt);
+            Check(Math.Abs(occlusion.Gain-.3f)<.001f&&Math.Abs(occlusion.Cutoff-2100)<1,"Frame-dependent or instant wall occlusion");
+            for(int i=0;i<(int)(2/dt);i++)occlusion=SpatialAudioModel.Step(occlusion,false,false,dt);
+            Check(Math.Abs(occlusion.Gain-1)<.001f&&Math.Abs(occlusion.Cutoff-18000)<1,"Opening a passage does not restore sound");
+        }
+        var pools=new[]{new WaterRegion{CenterX=4,Width=4,Depth=8,Bottom=-1,Level=-.08f},new WaterRegion{CenterX=-12,Width=3,Depth=3,Bottom=-1,Level=-.08f}};
+        var anchor=SpatialAudioModel.WaterAnchor(pools,new V3(0,1.6f,0),out bool found);
+        Check(found&&Math.Abs(anchor.X-2)<.001f&&anchor.Y>pools[0].Level,"Water ambience detached from closest pool");
+        anchor=SpatialAudioModel.WaterAnchor(pools,new V3(4.1f,1.6f,0),out found);
+        Check(found&&Math.Abs(anchor.X-4)<.001f,"Swimming ambience follows listener instead of pool centre");
         var previous=new PoolWaterOptics(PoolWaterDetail.Performance);
         foreach(PoolWaterDetail detail in Enum.GetValues(typeof(PoolWaterDetail)))
         {

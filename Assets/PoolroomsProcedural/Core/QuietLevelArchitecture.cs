@@ -25,7 +25,7 @@ namespace Poolrooms.Core
             ProceduralArchitecture.Prune(output.Structure);ProceduralArchitecture.Prune(output.Decoration);return output;
         }
         public static SurfaceTheme Theme(LiminalEnvironment e)
-        {return e==LiminalEnvironment.RainHouses?SurfaceTheme.RainLodge:e==LiminalEnvironment.AquaticPark?SurfaceTheme.AquaticPark:e==LiminalEnvironment.ThermalBaths?SurfaceTheme.ThermalStone:e==LiminalEnvironment.Orangerie?SurfaceTheme.Orangerie:e==LiminalEnvironment.Archive906?SurfaceTheme.ArchiveWood:e==LiminalEnvironment.Conservatory?SurfaceTheme.Conservatory:e==LiminalEnvironment.TransitGallery?SurfaceTheme.TransitGallery:e==LiminalEnvironment.Courtyard188?SurfaceTheme.CourtyardStone:SurfaceTheme.CoastSand;}
+        {return RestfulLevelPlanner.IsLevel(e)?RestfulLevelPlanner.Theme(e):e==LiminalEnvironment.RainHouses?SurfaceTheme.RainLodge:e==LiminalEnvironment.AquaticPark?SurfaceTheme.AquaticPark:e==LiminalEnvironment.ThermalBaths?SurfaceTheme.ThermalStone:e==LiminalEnvironment.Orangerie?SurfaceTheme.Orangerie:e==LiminalEnvironment.Archive906?SurfaceTheme.ArchiveWood:e==LiminalEnvironment.Conservatory?SurfaceTheme.Conservatory:e==LiminalEnvironment.TransitGallery?SurfaceTheme.TransitGallery:e==LiminalEnvironment.Courtyard188?SurfaceTheme.CourtyardStone:SurfaceTheme.CoastSand;}
         static void Envelope(RoomGeometry o,Room r,LayoutConfig c)
         {
             for(int side=0;side<4;side++)

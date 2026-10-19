@@ -58,9 +58,7 @@ namespace Poolrooms
         {
             var definition=MallItemCatalog.Get(catalogId);
             var go=new GameObject(definition.Name+" · E tomar / Q soltar");go.transform.SetParent(parent,false);go.transform.localPosition=position;
-            var owner=go.AddComponent<PoolroomsChunk>();owner.waterRegions=new WaterRegion[0];
-            MeshFactory.Create("Articulo",MallItemCatalog.Model(catalogId),go.transform,profile,owner,false);
-            foreach(var renderer in go.GetComponentsInChildren<MeshRenderer>())renderer.rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
+            PoolroomsPickupVisualCache.Create(catalogId,go.transform,profile);
             var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.CatalogId=catalogId;item.mass=definition.Mass;item.CarryRadius=definition.Radius;
             item.surface=PickupSurface.Rigid;
             var collider=go.AddComponent<BoxCollider>();collider.size=new Vector3(definition.Size.X,definition.Size.Y,definition.Size.Z);item.shape=collider;

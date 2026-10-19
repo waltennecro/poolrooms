@@ -1,0 +1,335 @@
+{
+  "distinctSourceModels": 3,
+  "lodsCountAsModels": false,
+  "models": [
+    {
+      "id": "R_Teacup",
+      "resource": "RestfulSources/Models/R_Teacup",
+      "minimum": [
+        -0.07430074224248528,
+        -0.0006779436790080392,
+        -0.07941566262610085
+      ],
+      "maximum": [
+        0.07431757589802146,
+        0.06970596543140904,
+        0.07431669501350811
+      ],
+      "triangles": 28184,
+      "materials": [
+        {
+          "name": "R_Teacup_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "RestfulSources/Textures/R_Teacup_m0_albedo",
+          "normal": "RestfulSources/Textures/R_Teacup_m0_normal",
+          "mask": "RestfulSources/Textures/R_Teacup_m0_mask"
+        },
+        {
+          "name": "R_Teacup_m1",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "RestfulSources/Textures/R_Teacup_m1_albedo",
+          "normal": "RestfulSources/Textures/R_Teacup_m1_normal",
+          "mask": "RestfulSources/Textures/R_Teacup_m1_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "RestfulSources/Models/R_Teacup_LOD1",
+          "triangles": 14578
+        },
+        {
+          "resource": "RestfulSources/Models/R_Teacup_LOD2",
+          "triangles": 6159
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "d4f567186fea262819aac6664cb9d7cef7f4600406038046771a69e10363935b",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Static OBJ and two LOD derivatives; core PBR maps. Anisotropy/diffuse transmission omitted; glass uses approximate alpha transparency. Presentation lights and emissive factor disabled. No exact subsurface/volume reproduction claimed.",
+      "sourceNodeNames": [
+        "tea_cup",
+        "tea_saucer"
+      ],
+      "preparedSourceSha256": "e42087ae2f269723c04ea34b4e34d203802da760cbc9e0bd23c040306d883aec",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionTeacup/glTF-Binary/DiffuseTransmissionTeacup.glb",
+      "modelLicense": "CC0-1.0",
+      "authors": [
+        "Polyhaven.com, and Eric Chadwick"
+      ],
+      "nativeUnityValidated": false,
+      "unsupportedExtensionsApproximated": [
+        "KHR_materials_diffuse_transmission"
+      ]
+    },
+    {
+      "id": "R_FlowerVase",
+      "resource": "RestfulSources/Models/R_FlowerVase",
+      "minimum": [
+        -0.05351734208417419,
+        0.0,
+        -0.06829223315862487
+      ],
+      "maximum": [
+        0.16375711036371704,
+        0.20321936156658935,
+        0.07420088071676423
+      ],
+      "triangles": 14036,
+      "materials": [
+        {
+          "name": "R_FlowerVase_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": true,
+          "alphaClip": true,
+          "alphaCutoff": 0.5,
+          "albedo": "RestfulSources/Textures/R_FlowerVase_m0_albedo",
+          "normal": "RestfulSources/Textures/R_FlowerVase_m0_normal",
+          "mask": "RestfulSources/Textures/R_FlowerVase_m0_mask"
+        },
+        {
+          "name": "R_FlowerVase_m1",
+          "colour": [
+            0.15,
+            0.15,
+            0.15,
+            0.3
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": true,
+          "doubleSided": false,
+          "mask": "RestfulSources/Textures/R_FlowerVase_m1_mask"
+        },
+        {
+          "name": "R_FlowerVase_m2",
+          "colour": [
+            1,
+            1,
+            1,
+            0.16
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_transmission",
+            "KHR_materials_volume"
+          ],
+          "transparent": true,
+          "doubleSided": false,
+          "mask": "RestfulSources/Textures/R_FlowerVase_m2_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "RestfulSources/Models/R_FlowerVase_LOD1",
+          "triangles": 9878
+        },
+        {
+          "resource": "RestfulSources/Models/R_FlowerVase_LOD2",
+          "triangles": 5162
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "430c9937664cfc74299205dcc388e4269bb688817f3d3866ef35aab71e93b852",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Static OBJ and two LOD derivatives; core PBR maps. Anisotropy/diffuse transmission omitted; glass uses approximate alpha transparency. Presentation lights and emissive factor disabled. No exact subsurface/volume reproduction claimed.",
+      "sourceNodeNames": [
+        "Flowers1",
+        "GlassAlpha",
+        "Flowers2",
+        "GlassTransmission"
+      ],
+      "preparedSourceSha256": "219c57ea0e2b8e10512d911c1c54479f68b0285df7555ed3cd45007ca38b596c",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlassVaseFlowers/glTF-Binary/GlassVaseFlowers.glb",
+      "modelLicense": "CC0-1.0",
+      "authors": [
+        "Eric Chadwick",
+        "Rico Cilliers"
+      ],
+      "nativeUnityValidated": false,
+      "unsupportedExtensionsApproximated": []
+    },
+    {
+      "id": "R_BarnLamp",
+      "resource": "RestfulSources/Models/R_BarnLamp",
+      "minimum": [
+        -0.10461914539337158,
+        -0.19829203188419342,
+        -2.435958322166698e-06
+      ],
+      "maximum": [
+        0.08619006723165512,
+        0.056946706026792526,
+        0.2265387922525406
+      ],
+      "triangles": 10203,
+      "materials": [
+        {
+          "name": "R_BarnLamp_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_clearcoat"
+          ],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "RestfulSources/Textures/R_BarnLamp_m0_albedo",
+          "normal": "RestfulSources/Textures/R_BarnLamp_m0_normal",
+          "mask": "RestfulSources/Textures/R_BarnLamp_m0_mask"
+        },
+        {
+          "name": "R_BarnLamp_m1",
+          "colour": [
+            0.09,
+            0.09,
+            0.09,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.7,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_emissive_strength"
+          ],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "RestfulSources/Textures/R_BarnLamp_m1_mask"
+        },
+        {
+          "name": "R_BarnLamp_m2",
+          "colour": [
+            1,
+            1,
+            1,
+            0.16
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_transmission",
+            "KHR_materials_volume"
+          ],
+          "transparent": true,
+          "doubleSided": false,
+          "mask": "RestfulSources/Textures/R_BarnLamp_m2_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "RestfulSources/Models/R_BarnLamp_LOD1",
+          "triangles": 4125
+        },
+        {
+          "resource": "RestfulSources/Models/R_BarnLamp_LOD2",
+          "triangles": 1845
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "0e728826c30bd6f3a18a0911db9f5f9ddc2dafa8e20bf9c3312c9625d1e32a24",
+      "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+      "presentationClothRemoved": false,
+      "adaptation": "Static OBJ and two LOD derivatives; core PBR maps. Anisotropy/diffuse transmission omitted; glass uses approximate alpha transparency. Presentation lights and emissive factor disabled. No exact subsurface/volume reproduction claimed.",
+      "sourceNodeNames": [
+        "Lamp Metal",
+        "Lamp Filament",
+        "Lamp Glass"
+      ],
+      "preparedSourceSha256": "dd9eaf375f935247ac8e59a7c9a32437949a4cc3b89cbc35c9b8e471b79ee783",
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AnisotropyBarnLamp/glTF-Binary/AnisotropyBarnLamp.glb",
+      "modelLicense": "CC-BY-4.0",
+      "authors": [
+        "Eric Chadwick"
+      ],
+      "nativeUnityValidated": false,
+      "unsupportedExtensionsApproximated": [
+        "KHR_materials_anisotropy"
+      ]
+    }
+  ],
+  "nativeUnityValidated": false
+}

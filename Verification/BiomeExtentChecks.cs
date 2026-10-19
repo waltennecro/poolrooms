@@ -34,7 +34,7 @@ static partial class Checks
     }
     static void BiomeExtents()
     {
-        var totalsBefore=new long[18];var totalsAfter=new long[18];int regionPairs=0,meshSamples=0;
+        var totalsBefore=new long[RestfulLevelPlanner.EnvironmentCount];var totalsAfter=new long[RestfulLevelPlanner.EnvironmentCount];int regionPairs=0,meshSamples=0;
         foreach(int seed in new[]{0,31,481516})
         {
             var before=new LayoutConfig{Seed=seed};var after=new LayoutConfig{Seed=seed};WalkableExploration.Configure(before);WalkableExploration.Configure(after);
@@ -53,7 +53,7 @@ static partial class Checks
                 var climate=SolarClimateRegions.At(after,x,z);Check(float.IsFinite(climate.SunDirection.X)&&float.IsFinite(climate.SunDirection.Y)&&float.IsFinite(climate.SunDirection.Z),"Expanded solar climate overflow");
             }
         }
-        for(int env=0;env<18;env++)
+        for(int env=0;env<RestfulLevelPlanner.EnvironmentCount;env++)
         {
             double ratio=totalsAfter[env]/(double)totalsBefore[env];
             Check(totalsBefore[env]>500&&ratio>1.46&&ratio<1.54,"Region area failed +50% sample for "+(LiminalEnvironment)env+": "+ratio);
@@ -118,6 +118,6 @@ static partial class Checks
             terrainSites++;
         }
         IntegrationSourceContracts();
-        Console.WriteLine($"PASS: biome extents; {regionPairs} matched complete region pairs across all 18 environments; {shopsBefore} -> {shopsAfter} accessible shops in paired mall plans; {oldHomes} -> {newHomes} generated Level94 houses, {outerHomes} in newly populated outer areas, {terrainSites} terrain cases; {meshSamples} mesh samples; {assertions} core assertions. Native Unity/PhysX/FPS unrun.");
+        Console.WriteLine($"PASS: biome extents; {regionPairs} matched complete region pairs across all 28 environments; {shopsBefore} -> {shopsAfter} accessible shops in paired mall plans; {oldHomes} -> {newHomes} generated Level94 houses, {outerHomes} in newly populated outer areas, {terrainSites} terrain cases; {meshSamples} mesh samples; {assertions} core assertions. Native Unity/PhysX/FPS unrun.");
     }
 }

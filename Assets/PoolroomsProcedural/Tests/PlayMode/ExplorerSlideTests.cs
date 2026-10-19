@@ -14,11 +14,11 @@ namespace Poolrooms.Tests
         {
             GameObject floor=null,actor=null,wall=null,roof=null;
             string key=PoolroomsGameSettings.PreferencesKey;bool had=PlayerPrefs.HasKey(key);string saved=PlayerPrefs.GetString(key);
-            float time=Time.timeScale,capture=Time.captureDeltaTime;bool audio=AudioListener.pause,sync=Physics.autoSyncTransforms,visible=Cursor.visible;var cursor=Cursor.lockState;
+            float time=Time.timeScale,capture=Time.captureDeltaTime;bool audio=AudioListener.pause,visible=Cursor.visible;var cursor=Cursor.lockState;
             int rate=Application.targetFrameRate,vsync=QualitySettings.vSyncCount;
             try
             {
-                PlayerPrefs.DeleteKey(key);Time.timeScale=1;Time.captureDeltaTime=.02f;AudioListener.pause=false;Physics.autoSyncTransforms=false;
+                PlayerPrefs.DeleteKey(key);Time.timeScale=1;Time.captureDeltaTime=.02f;AudioListener.pause=false;
                 floor=GameObject.CreatePrimitive(PrimitiveType.Cube);floor.transform.position=new Vector3(0,99.8f,0);floor.transform.localScale=new Vector3(500,.4f,500);
                 actor=new GameObject("v31 slide actor");actor.SetActive(false);actor.transform.position=new Vector3(0,100.05f,0);
                 var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;
@@ -84,7 +84,7 @@ namespace Poolrooms.Tests
             {
                 if(actor!=null)Object.DestroyImmediate(actor);if(wall!=null)Object.DestroyImmediate(wall);if(roof!=null)Object.DestroyImmediate(roof);if(floor!=null)Object.DestroyImmediate(floor);
                 if(had)PlayerPrefs.SetString(key,saved);else PlayerPrefs.DeleteKey(key);PlayerPrefs.Save();
-                Time.timeScale=time;Time.captureDeltaTime=capture;AudioListener.pause=audio;Physics.autoSyncTransforms=sync;Cursor.lockState=cursor;Cursor.visible=visible;
+                Time.timeScale=time;Time.captureDeltaTime=capture;AudioListener.pause=audio;Cursor.lockState=cursor;Cursor.visible=visible;
                 Application.targetFrameRate=rate;QualitySettings.vSyncCount=vsync;
             }
         }

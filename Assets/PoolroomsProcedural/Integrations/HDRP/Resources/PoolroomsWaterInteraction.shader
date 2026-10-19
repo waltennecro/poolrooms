@@ -38,7 +38,10 @@ Shader "Hidden/Poolrooms/WaterInteraction"
             float life=saturate(1-e.z*shape.y);life*=life;
             float distance=length(world-e.xy),front=.12+e.z*1.45;
             float phase=distance-front;
-            float packet=exp(-phase*phase/.09)*sin(phase*14);
+            float bands=.62*sin(distance*14-e.z*sqrt(9.81*14))+
+                .25*sin(distance*23-e.z*sqrt(9.81*23))+
+                .13*sin(distance*37-e.z*sqrt(9.81*37));
+            float packet=exp(-phase*phase/.09)*bands;
             height+=packet*e.w*life*boundary/(1+distance*.65);
             // A short, broken foam patch only after a strong contact. No ocean foam.
             float splash=saturate((shape.z-.22)*1.5)*shape.w;

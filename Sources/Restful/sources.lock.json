@@ -1,0 +1,57 @@
+{
+  "DiffuseTransmissionTeacup_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionTeacup/metadata.json",
+    "bytes": 738,
+    "sha256": "52c17438560674bdbf2ce1b88f708d2ec76c560c451208a9c380c7f270efca77"
+  },
+  "DiffuseTransmissionTeacup_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionTeacup/LICENSE.md",
+    "bytes": 789,
+    "sha256": "17a3116c1cd430aa6de9b26dae8827ed0eb5fbc5a58645a700ac25f2ee7b1ef7"
+  },
+  "CC0-1.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC0-1.0.txt",
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "DiffuseTransmissionTeacup.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionTeacup/glTF-Binary/DiffuseTransmissionTeacup.glb",
+    "bytes": 4795028,
+    "sha256": "d4f567186fea262819aac6664cb9d7cef7f4600406038046771a69e10363935b"
+  },
+  "GlassVaseFlowers_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlassVaseFlowers/metadata.json",
+    "bytes": 1170,
+    "sha256": "9b69d1bd334575a25487c90cf6fcee3d31e6f4d90fb57010d8b4f1c8d2437fa3"
+  },
+  "GlassVaseFlowers_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlassVaseFlowers/LICENSE.md",
+    "bytes": 927,
+    "sha256": "e34640bf1d808120087059dfceda5dc2bce8db73ec70dcd332c1e3f4d17b2d10"
+  },
+  "GlassVaseFlowers.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/GlassVaseFlowers/glTF-Binary/GlassVaseFlowers.glb",
+    "bytes": 1819824,
+    "sha256": "430c9937664cfc74299205dcc388e4269bb688817f3d3866ef35aab71e93b852"
+  },
+  "AnisotropyBarnLamp_metadata.json": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AnisotropyBarnLamp/metadata.json",
+    "bytes": 772,
+    "sha256": "295ef639003f7d5e31e042e7fa7d9cec4ac43f30fe51db866fc1d1c9d7eaaac3"
+  },
+  "AnisotropyBarnLamp_LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AnisotropyBarnLamp/LICENSE.md",
+    "bytes": 788,
+    "sha256": "94c499e10f0efaace94370f6430c743cd2f0a0c46b0997bd2d82755e222ea201"
+  },
+  "CC-BY-4.0.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/LICENSES/CC-BY-4.0.txt",
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "AnisotropyBarnLamp.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AnisotropyBarnLamp/glTF-Binary/AnisotropyBarnLamp.glb",
+    "bytes": 7833440,
+    "sha256": "0e728826c30bd6f3a18a0911db9f5f9ddc2dafa8e20bf9c3312c9625d1e32a24"
+  }
+}

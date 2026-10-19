@@ -16,6 +16,10 @@ Keep standalone verification in `Verification` and packaging scripts in `tools`,
 - `dotnet run --project Verification/Poolrooms.Checks.csproj -- --generation-audit`: audit room plans, prop/source lookups, full mesh samples and lazy streaming selection.
 - `dotnet run --project Verification/Poolrooms.Checks.csproj -- --variety-expansion`: check expanded recipes, new house footprints, architectural programs and mall reservations.
 - `dotnet run --project Verification/Poolrooms.Checks.csproj -- --biome-extents`: compare regional room areas, populated terrain expansion and accessible mall growth.
+- `dotnet run --project Verification/Poolrooms.Checks.csproj -- --restful-levels --restful-exhaustive`: verify ten new level banks, furnishing support and structural axes.
+- `dotnet run --project Verification/Poolrooms.Checks.csproj -- --restful-mesh-catalog`: fingerprint 200,010 built room meshes without counting colour or props.
+- `dotnet run --project Verification/Poolrooms.Checks.csproj -- --restful-world`: count distinct interactive and licensed-source placements in an actual unified coordinate snapshot.
+- `python tools/verify_restful_sources.py`: audit the three new licensed source models and six LOD derivatives.
 - `python tools/verify_play_textures.py`: check shipped finish textures and hashes using Python 3.
 - `python tools/package_assets.py --stage reconstruccion --output /tmp/Poolrooms_Assets.zip`: create a complete package with per-file hashes and source revision.
 - `python tools/verify_recovery.py`: compare against untouched v39; expected to report intentional reconstruction changes on current main.

@@ -68,6 +68,7 @@ namespace Poolrooms.Core
             RoomGeometry output=BuildBase(r,cfg);
             RoomPrograms.Append(output,r,cfg);
             output.Dressing=ArchitecturalDressing.Build(output.Structure,LiminalRegions.Hash(cfg.Seed,r.X,r.Z,0xDEC006u));
+            if(r.Plan?.Restful!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=RestfulLevelPlanner.Theme(r.Environment);}
             if(r.Plan!=null&&r.Plan.Garden!=null)
             {output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.Orangerie;}
             if(r.Plan!=null&&r.Plan.Rain!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.RainLodge;}

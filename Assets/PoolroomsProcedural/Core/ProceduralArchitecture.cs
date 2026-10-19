@@ -9,6 +9,7 @@ namespace Poolrooms.Core
     {
         public static RoomGeometry Build(Room room,LayoutConfig c)
         {
+            if(room.Plan!=null&&room.Plan.Restful!=null)return RestfulLevelArchitecture.Build(room,c);
             if(room.Plan!=null&&room.Plan.Rain!=null)return RainHouseArchitecture.Build(room,c);
             if(room.Plan!=null&&room.Plan.Aquatic!=null)return AquaticParkArchitecture.Build(room,c);
             if(room.Plan!=null&&room.Plan.Baths!=null)return ThermalBathArchitecture.Build(room,c);

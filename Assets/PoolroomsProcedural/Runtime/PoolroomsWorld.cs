@@ -420,11 +420,11 @@ namespace Poolrooms
                 foreach(var p in sources.sourceProps)
                 {string key="regional:"+layout.Config.Seed+":"+r.X+":"+r.Z+":"+p.slot;if(carry==null||!carry.WasTaken(key))PoolroomsPickup.CreateSourceSeat(key,p.Plan(),parent);}
             }
-            if(Application.isPlaying&&r.Plan!=null&&(r.Plan.Rain!=null||r.Plan.Quiet!=null||r.Plan.Garden!=null||r.Plan.Baths!=null||r.Plan.Aquatic!=null))
+            if(Application.isPlaying&&r.Plan!=null&&(r.Plan.Restful!=null||r.Plan.Rain!=null||r.Plan.Quiet!=null||r.Plan.Garden!=null||r.Plan.Baths!=null||r.Plan.Aquatic!=null))
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
-                var props=r.Plan.Rain!=null?r.Plan.Rain.Props:r.Plan.Aquatic!=null?r.Plan.Aquatic.Props:r.Plan.Baths!=null?r.Plan.Baths.Props:r.Plan.Garden!=null?r.Plan.Garden.Props:r.Plan.Quiet.Props;
-                string prefix=r.Plan.Rain!=null?"rainhouses:":r.Plan.Aquatic!=null?"aquatic:":r.Plan.Baths!=null?"thermal:":r.Plan.Garden!=null?"orangerie:":"quiet:";
+                var props=r.Plan.Restful!=null?r.Plan.Restful.Props:r.Plan.Rain!=null?r.Plan.Rain.Props:r.Plan.Aquatic!=null?r.Plan.Aquatic.Props:r.Plan.Baths!=null?r.Plan.Baths.Props:r.Plan.Garden!=null?r.Plan.Garden.Props:r.Plan.Quiet.Props;
+                string prefix=r.Plan.Restful!=null?"restful:":r.Plan.Rain!=null?"rainhouses:":r.Plan.Aquatic!=null?"aquatic:":r.Plan.Baths!=null?"thermal:":r.Plan.Garden!=null?"orangerie:":"quiet:";
                 for(int i=0;i<props.Length;i++)
                 {
                     var prop=props[i];string key=prefix+layout.Config.Seed+":"+r.X+":"+r.Z+":"+i;

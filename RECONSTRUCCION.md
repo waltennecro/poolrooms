@@ -531,3 +531,29 @@ recursos, licencias, empaquetado y artefacto. Assets: 871 archivos,
 CRC válido y 1079 archivos versionados coincidentes
 por SHA-256. Evidencia: `Verification/ci_biome_extents_R32.json`.
 Unity/HDRP, navegación/física real, aspecto y FPS siguen pendientes.
+
+## R33 · Ampliación y cinco revisiones
+
+Se integran diez ambientes nuevos con acceso caminable, 131.072 recetas por nivel
+y 200.010 mallas de sala distintas comprobadas sin colores, luces ni objetos.
+Hay 28 ambientes más los distritos físicos del centro comercial y Nivel 94.
+La muestra de coordenadas [-64,64] de la semilla 481516 contiene 4.569 salas nuevas,
+274.140 claves de objetos y 109.656 instancias de ocho modelos licenciados. Son
+planes del mundo; el streaming carga un subconjunto, no todos simultáneamente.
+
+Tres modelos nuevos en línea, seis LOD derivados, licencias y créditos auditados.
+El catálogo comparte visuales con referencias contadas; el agua tiene alternativa
+Lit transparente y ondas de contacto dispersivas; sonido ambiental con anclajes
+y oclusión acotada, y controles propios en Audio. Se mantiene distancia de
+renderizado, IDs, 188 geometrías protegidas y la linterna sin modificar.
+
+Las revisiones corrigieron solape de silla/planta junto a mesas y sincronizaron
+el generador de créditos. Pruebas de jugador usan SyncTransforms sin acceder al
+interruptor obsoleto. Núcleo estricto: cero errores/advertencias; 252 scripts
+comprobados sintácticamente en cinco configuraciones. Esto no compila APIs Unity.
+
+Inventario: AMPLIACION_R33_ESTADO.json; evidencia: Verification/expansion_R33_local.json.
+Pendientes expresos: 100.001 familias estructurales diferentes por nivel, 20.001
+modelos descargados distintos si ese era el significado, y validación nativa
+Unity/HDRP/PhysX/audio/apariencia/FPS. No se promete equivalencia AAA ni ausencia
+absoluta de defectos. CI y publicación se anotarán tras verificar sus resultados.

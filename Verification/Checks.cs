@@ -48,6 +48,9 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--restful-mesh-catalog")){RestfulMeshCatalogue();return 0;}
+        if(args.Contains("--restful-world")){RestfulWorldSnapshot();return 0;}
+        if(args.Contains("--restful-levels")){RestfulExpansion(args.Contains("--restful-exhaustive"));IntegrationSourceContracts();return 0;}
         if(args.Contains("--biome-extents")){BiomeExtents();return 0;}
         if(args.Contains("--variety-expansion")){VarietyExpansion();return 0;}
         if(args.Contains("--generation-audit")){GenerationAudit();IntegrationSourceContracts();return 0;}
@@ -90,6 +93,7 @@ static partial class Checks
         var expected=JsonSerializer.Deserialize<SortedDictionary<string,string>>(File.ReadAllText(baseline));
         foreach(var item in expected)Check(actual.TryGetValue(item.Key,out var hash)&&hash==item.Value,"Geometry changed: "+item.Key);
         WalkableNetwork();
+        RestfulExpansion(false);
         RainHouses();
         AquaticSlideFamilies();
         AquaticParkGeneration();

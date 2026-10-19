@@ -23,7 +23,7 @@ namespace Poolrooms.Core
             if(p?.Solar!=null){if(p.Solar.Recipe>=SolarCatalog.BaseCount)room.ExpansionProgram=p.Solar.Recipe/192-3;return;}
             if(p?.Garden!=null){if(p.Garden.Recipe>=OrangeriePlan.BaseCatalogCount)room.ExpansionProgram=p.Garden.Canopy-3;return;}
             if(p?.Baths!=null){if(p.Baths.Recipe>=ThermalBathPlan.BaseCatalogCount)room.ExpansionProgram=p.Baths.DepthClass-3;return;}
-            if(p?.Rain!=null||p?.Aquatic!=null||p?.City!=null)return;
+            if(p?.Restful!=null||p?.Rain!=null||p?.Aquatic!=null||p?.City!=null)return;
             if(room.ZoneId>=0){room.ExpansionProgram=ZoneCatalog.Get(room.ZoneId).ExpansionStyle;return;}
             uint hash=LiminalRegions.Hash(c.Seed,room.X,room.Z,0x310B10u);
             if(hash%3==2)room.ExpansionProgram=1+(int)((hash>>8)%2);

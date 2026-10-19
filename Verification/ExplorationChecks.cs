@@ -10,10 +10,10 @@ static partial class Checks
         var signatures=new HashSet<string>();int assigned=0;
         var defaults=new LayoutConfig{Zones=ZoneMode.Random,City11Share=0,QuietLevelShare=0,SoftPlayShare=0,RainHouseShare=0,AquaticParkShare=0,CommonSolarShare=0,ConnectedMallShare=0,ConnectedTerrainShare=0};
         WalkableExploration.Configure(defaults);defaults.Validate();Check(defaults.DiscoveryCoverage&&defaults.CommonSolarShare==.5f&&ConnectedMallTopology.Enabled(defaults)&&ConnectedTerrainTopology.Enabled(defaults),"Old profile leaves levels unavailable");
-        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==18,"Discovery policy must include newly appended environments");
+        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==RestfulLevelPlanner.EnvironmentCount,"Discovery policy must include newly appended environments");
         foreach(int bx in new[]{-3,0,2})foreach(int bz in new[]{-2,0,3})
         {
-            var counts=new int[18];var signature=new List<int>();
+            var counts=new int[RestfulLevelPlanner.EnvironmentCount];var signature=new List<int>();
             for(int x=0;x<8;x++)for(int z=0;z<8;z++)
             {bool covered=WalkableExploration.Region(defaults,bx*8+x,bz*8+z,out var e);signature.Add(covered?(int)e:-1);if(covered){counts[(int)e]++;assigned++;}}
             Check(counts.All(n=>n==2),"Missing or duplicate mandatory candidate region");signatures.Add(string.Join(",",signature));
@@ -28,7 +28,7 @@ static partial class Checks
         for(int trial=0;trial<seeds.Length;trial++)
         {
             var c=new LayoutConfig{Seed=seeds[trial],CellSize=sizes[trial],Zones=ZoneMode.Random,Grammar=ProceduralGrammar.SolarAtlas,AutonomousGeneration=true,IndependentBiomeMaterials=true,EnableAircraft=true,EnableImportedBuildings=true,CurveSegments=16};WalkableExploration.Configure(c);
-            var topology=new ContinuousTopology(c);var edges=new Dictionary<long,int>();var parents=new Dictionary<long,long>();var queue=new Queue<long>();var targets=new long?[22];var distances=new Dictionary<long,int>();
+            var topology=new ContinuousTopology(c);var edges=new Dictionary<long,int>();var parents=new Dictionary<long,long>();var queue=new Queue<long>();var targets=new long?[RestfulLevelPlanner.EnvironmentCount+4];var distances=new Dictionary<long,int>();
             long origin=ContinuousTopology.CellKey(0,0);queue.Enqueue(origin);parents[origin]=origin;distances[origin]=0;
             Func<int,int,int> exits=(x,z)=>{long key=ContinuousTopology.CellKey(x,z);if(!edges.TryGetValue(key,out int bits)){bits=ConnectedTerrainTopology.Exits(c,x,z,ConnectedMallTopology.Exits(c,x,z,topology.Exits(x,z)));edges[key]=bits;}return bits;};
             const int radius=112;
@@ -36,11 +36,11 @@ static partial class Checks
             {
                 long key=queue.Dequeue();int x=(int)(key>>32),z=unchecked((int)key);ConnectedMallSite mall;ConnectedTerrainSite meadow;
                 bool mg=ConnectedMallTopology.Gateway(c,x,z,out mall),tg=ConnectedTerrainTopology.Gateway(c,x,z,out meadow);
-                if(mg&&targets[18]==null)targets[18]=key;if(tg&&targets[19]==null)targets[19]=key;
+                if(mg&&targets[RestfulLevelPlanner.EnvironmentCount]==null)targets[RestfulLevelPlanner.EnvironmentCount]=key;if(tg&&targets[RestfulLevelPlanner.EnvironmentCount+1]==null)targets[RestfulLevelPlanner.EnvironmentCount+1]=key;
                 if(!mg&&!tg)
                 {
                     var e=LiminalRegions.At(c,x,z);if(targets[(int)e]==null)targets[(int)e]=key;
-                    if(e==LiminalEnvironment.Poolrooms){int solar=PoolroomArchitectureMix.UsesSolar(c,x,z)?20:21;if(targets[solar]==null)targets[solar]=key;}
+                    if(e==LiminalEnvironment.Poolrooms){int solar=PoolroomArchitectureMix.UsesSolar(c,x,z)?RestfulLevelPlanner.EnvironmentCount+2:RestfulLevelPlanner.EnvironmentCount+3;if(targets[solar]==null)targets[solar]=key;}
                 }
                 int bits=exits(x,z);
                 for(int side=0;side<4;side++)if((bits&(1<<side))!=0)
@@ -50,8 +50,8 @@ static partial class Checks
                     long next=ContinuousTopology.CellKey(nx,nz);if(parents.ContainsKey(next))continue;parents[next]=key;distances[next]=distances[key]+1;queue.Enqueue(next);
                 }
             }
-            Check(targets.All(v=>v!=null),"Unreachable walking destination for seed "+c.Seed+": "+string.Join(",",Enumerable.Range(0,22).Where(i=>targets[i]==null)));
-            int maxRoute=targets.Max(v=>distances[v.Value]);Console.WriteLine($"Walking graph seed {c.Seed}, cell {c.CellSize}: 18 environments + mall + Level94 and both Poolrooms climates reached; {parents.Count} explored cells; longest witness {maxRoute} room edges. Not a distance promise or PhysX test.");
+            Check(targets.All(v=>v!=null),"Unreachable walking destination for seed "+c.Seed+": "+string.Join(",",Enumerable.Range(0,targets.Length).Where(i=>targets[i]==null)));
+            int maxRoute=targets.Max(v=>distances[v.Value]);Console.WriteLine($"Walking graph seed {c.Seed}, cell {c.CellSize}: 28 environments + mall + Level94 and both Poolrooms climates reached; {parents.Count} explored cells; longest witness {maxRoute} room edges. Not a distance promise or PhysX test.");
             var layout=new Layout(c);var tested=new HashSet<string>();
             foreach(long? target in targets)
             {
@@ -69,10 +69,10 @@ static partial class Checks
                     at=prev;
                 }
             }
-            var mr=layout.At((int)(targets[18].Value>>32),unchecked((int)targets[18].Value));ConnectedMallTopology.Gateway(c,mr.X,mr.Z,out var site);
+            var mr=layout.At((int)(targets[RestfulLevelPlanner.EnvironmentCount].Value>>32),unchecked((int)targets[RestfulLevelPlanner.EnvironmentCount].Value));ConnectedMallTopology.Gateway(c,mr.X,mr.Z,out var site);
             Check(mr.MallGateway,"Mall witness ends at a tool-only entrance");var mb=ConnectedMallArchitecture.Bridge(site,mr,c);
             for(int step=0;step<=24;step++)CheckBridgePoint(mb.Structure,ConnectedMallArchitecture.Point(site,mr,c,step/24f));bridgeCases++;
-            var tr=layout.At((int)(targets[19].Value>>32),unchecked((int)targets[19].Value));ConnectedTerrainTopology.Gateway(c,tr.X,tr.Z,out var terrain);
+            var tr=layout.At((int)(targets[RestfulLevelPlanner.EnvironmentCount+1].Value>>32),unchecked((int)targets[RestfulLevelPlanner.EnvironmentCount+1].Value));ConnectedTerrainTopology.Gateway(c,tr.X,tr.Z,out var terrain);
             Check(tr.TerrainGateway,"Level94 witness ends at a tool-only entrance");var tb=ConnectedTerrainArchitecture.Bridge(terrain,tr,c);
             for(int step=0;step<=24;step++)CheckBridgePoint(tb.Structure,ConnectedTerrainArchitecture.Point(terrain,tr,c,step/24f));bridgeCases++;
         }

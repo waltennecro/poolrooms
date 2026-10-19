@@ -1,0 +1,5 @@
+Teacup: Polyhaven.com and Eric Chadwick, 2023, CC0-1.0.
+Glass vase: Eric Chadwick; flowers: Rico Cilliers, 2023, CC0-1.0.
+Barn lamp: Eric Chadwick, copyright 2023 Wayfair, LLC, CC BY 4.0.
+Khronos glTF Sample Assets revision edc7c9e67c639d230715049ee31f9a96a6babbbe.
+Full upstream notices, metadata and license texts included. Changes: OBJ exports and two LOD derivatives, core PBR maps; diffuse transmission and anisotropy omitted, glass transparency approximate, original lights/emission not instantiated. No endorsement implied.

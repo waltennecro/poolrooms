@@ -50,7 +50,7 @@ namespace Poolrooms
             initial.allowSlide=explorer.allowSlide;initial.slideSpeed=explorer.slideSpeed;
             if(cameraView!=null)initial.fieldOfView=cameraView.fieldOfView;
             var audio=GetComponent<PoolroomsAmbientAudio>();
-            if(audio!=null){initial.masterVolume=audio.masterVolume;initial.environmentVolume=audio.environmentVolume;initial.footstepVolume=audio.footstepVolume;initial.waterVolume=audio.waterVolume;initial.drips=audio.occasionalDrips;initial.reverb=audio.roomReverb;}
+            if(audio!=null){initial.masterVolume=audio.masterVolume;initial.environmentVolume=audio.environmentVolume;initial.footstepVolume=audio.footstepVolume;initial.waterVolume=audio.waterVolume;initial.drips=audio.occasionalDrips;initial.reverb=audio.roomReverb;initial.spatialAmbience=audio.spatialAmbience;initial.soundOcclusion=audio.soundOcclusion;}
             initial.frameLimit=GamePreferences.ValidFrameLimit(Application.targetFrameRate)?Application.targetFrameRate:-1;initial.vSync=QualitySettings.vSyncCount;
             initial.screenWidth=Screen.width;initial.screenHeight=Screen.height;initial.windowMode=CurrentDisplay().Mode;
             FindGraphics();if(graphics!=null)graphics.CaptureSettings(initial);
@@ -124,7 +124,7 @@ namespace Poolrooms
         {
             var audio=GetComponent<PoolroomsAmbientAudio>();if(audio==null)return;
             audio.masterVolume=!focused&&Preferences.muteUnfocused?0:Preferences.masterVolume;audio.environmentVolume=Preferences.environmentVolume;
-            audio.footstepVolume=Preferences.footstepVolume;audio.waterVolume=Preferences.waterVolume;audio.occasionalDrips=Preferences.drips;audio.roomReverb=Preferences.reverb;
+            audio.footstepVolume=Preferences.footstepVolume;audio.waterVolume=Preferences.waterVolume;audio.occasionalDrips=Preferences.drips;audio.roomReverb=Preferences.reverb;audio.spatialAmbience=Preferences.spatialAmbience;audio.soundOcclusion=Preferences.soundOcclusion;
         }
         private void Update()
         {

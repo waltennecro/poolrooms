@@ -1,3 +1,11 @@
+## Ampliación R33
+
+Diez niveles nuevos conectados caminando, 131.072 recetas por nivel, mayor densidad
+acotada de objetos, tres modelos nuevos con licencias verificadas, agua transparente
+alternativa y sonido ambiental espacial con oclusión. [Cambios, cifras y límites](Assets/PoolroomsProcedural/Documentation/AMPLIACION_R33.md).
+El inventario de las cinco revisiones es `AMPLIACION_R33_ESTADO.json`. Los recuentos
+de recetas/instancias no son modelos distintos; Unity, aspecto y FPS siguen pendientes.
+
 # Poolrooms
 
 R32 conserva el **50 % más de variedad de R31** y añade **~50 % más de salas por región al explorar**, centros comerciales mayores con más tiendas y nuevas áreas pobladas en el Nivel 94. [Cifras, funcionamiento y límites](Assets/PoolroomsProcedural/Documentation/EXTENSION_BIOMAS_R32.md). Actualiza únicamente `Assets/PoolroomsProcedural` con Play detenido; no hace falta recrear la demo. Unity/HDRP, física y FPS siguen pendientes.

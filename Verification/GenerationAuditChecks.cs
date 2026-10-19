@@ -34,7 +34,7 @@ static partial class Checks
             if(room.Plan==null)return;
             Check(room.Plan.Valid(room,config),"Invalid plan "+room.Environment+" at "+room.X+","+room.Z);
             var p=room.Plan;
-            foreach(var prop in p.Quiet?.Props??p.Garden?.Props??p.Baths?.Props??p.Aquatic?.Props??p.Rain?.Props??Array.Empty<QuietPropPlan>())Prop(prop);
+            foreach(var prop in p.Restful?.Props??p.Quiet?.Props??p.Garden?.Props??p.Baths?.Props??p.Aquatic?.Props??p.Rain?.Props??Array.Empty<QuietPropPlan>())Prop(prop);
             if(p.City!=null)foreach(var prop in p.City.Props)Prop(new QuietPropPlan(prop.Position,-1,SourceFurniture.Id(prop.Source),prop.Yaw));
         }
         void Mesh(MeshData mesh)

@@ -9,7 +9,7 @@ namespace Poolrooms.Core
         public const int RegionBlock=8;
         public static void Configure(LayoutConfig c)
         {
-            c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;
+            c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;c.EnableRestfulLevels=true;c.ObjectAbundance=3;
             c.Continuous=true;c.Procedural=LiminalGeneration.Expanded;c.DiscoveryCoverage=true;
             c.EnableRainHouses=c.EnableAquaticPark=c.EnableThermalBaths=c.EnableOrangerie=true;
             c.EnableQuietLevels=c.EnableCivicLevels=c.EnableCity11=c.EnableSoftPlay=true;
@@ -25,6 +25,7 @@ namespace Poolrooms.Core
         static float Positive(float value,float fallback){return value>0?value:fallback;}
         public static bool Enabled(LayoutConfig c,LiminalEnvironment e)
         {
+            if(RestfulLevelPlanner.IsLevel(e))return c.EnableRestfulLevels;
             switch(e)
             {
                 case LiminalEnvironment.RainHouses:return c.EnableRainHouses&&c.RainHouseShare>0;
@@ -57,9 +58,9 @@ namespace Poolrooms.Core
             for(int round=0;round<4;round++)
             {int next=left^(int)(LiminalRegions.Hash(unchecked((int)h),right,round,0x250A02u)&7);left=right;right=next;}
             int rank=(left<<3)|right,count=0;
-            for(int i=0;i<=17;i++)if(Enabled(c,(LiminalEnvironment)i))count++;
+            for(int i=0;i<RestfulLevelPlanner.EnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i))count++;
             if(rank>=2*count)return false;int pick=rank%count;
-            for(int i=0;i<=17;i++)if(Enabled(c,(LiminalEnvironment)i)&&pick--==0){environment=(LiminalEnvironment)i;return true;}
+            for(int i=0;i<RestfulLevelPlanner.EnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i)&&pick--==0){environment=(LiminalEnvironment)i;return true;}
             throw new InvalidOperationException("Invalid discovery coverage.");
         }
     }

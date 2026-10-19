@@ -1,0 +1,119 @@
+{
+  "id": "R_BarnLamp",
+  "resource": "RestfulSources/Models/R_BarnLamp",
+  "minimum": [
+    -0.10461914539337158,
+    -0.19829203188419342,
+    -2.435958322166698e-06
+  ],
+  "maximum": [
+    0.08619006723165512,
+    0.056946706026792526,
+    0.2265387922525406
+  ],
+  "triangles": 10203,
+  "materials": [
+    {
+      "name": "R_BarnLamp_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_clearcoat"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "RestfulSources/Textures/R_BarnLamp_m0_albedo",
+      "normal": "RestfulSources/Textures/R_BarnLamp_m0_normal",
+      "mask": "RestfulSources/Textures/R_BarnLamp_m0_mask"
+    },
+    {
+      "name": "R_BarnLamp_m1",
+      "colour": [
+        0.09,
+        0.09,
+        0.09,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.7,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "RestfulSources/Textures/R_BarnLamp_m1_mask"
+    },
+    {
+      "name": "R_BarnLamp_m2",
+      "colour": [
+        1,
+        1,
+        1,
+        0.16
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_transmission",
+        "KHR_materials_volume"
+      ],
+      "transparent": true,
+      "doubleSided": false,
+      "mask": "RestfulSources/Textures/R_BarnLamp_m2_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "RestfulSources/Models/R_BarnLamp_LOD1",
+      "triangles": 4125
+    },
+    {
+      "resource": "RestfulSources/Models/R_BarnLamp_LOD2",
+      "triangles": 1845
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "0e728826c30bd6f3a18a0911db9f5f9ddc2dafa8e20bf9c3312c9625d1e32a24",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Static OBJ and two LOD derivatives; core PBR maps. Anisotropy/diffuse transmission omitted; glass uses approximate alpha transparency. Presentation lights and emissive factor disabled. No exact subsurface/volume reproduction claimed.",
+  "sourceNodeNames": [
+    "Lamp Metal",
+    "Lamp Filament",
+    "Lamp Glass"
+  ],
+  "preparedSourceSha256": "dd9eaf375f935247ac8e59a7c9a32437949a4cc3b89cbc35c9b8e471b79ee783",
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AnisotropyBarnLamp/glTF-Binary/AnisotropyBarnLamp.glb",
+  "modelLicense": "CC-BY-4.0",
+  "authors": [
+    "Eric Chadwick"
+  ],
+  "nativeUnityValidated": false,
+  "unsupportedExtensionsApproximated": [
+    "KHR_materials_anisotropy"
+  ]
+}

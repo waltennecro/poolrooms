@@ -47,10 +47,10 @@ namespace Poolrooms.Tests
         public IEnumerator DefaultCapsuleAndDisabledPreviewCollidersStillSupportPlayerAndDoubleJump()
         {
             GameObject root=null,actor=null;PoolroomsProfile profile=null;
-            float scale=Time.timeScale,capture=Time.captureDeltaTime;bool sync=Physics.autoSyncTransforms,audio=AudioListener.pause,visible=Cursor.visible;var locked=Cursor.lockState;
+            float scale=Time.timeScale,capture=Time.captureDeltaTime;bool audio=AudioListener.pause,visible=Cursor.visible;var locked=Cursor.lockState;
             try
             {
-                Time.timeScale=1;AudioListener.pause=false;Physics.autoSyncTransforms=false;
+                Time.timeScale=1;AudioListener.pause=false;
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();profile.colliders=false;
                 profile.columns=profile.rows=1;profile.continuousWorld=false;profile.curveSegments=12;
                 profile.liminalGeneration=LiminalGeneration.Offices;profile.authoredRoomChance=0;
@@ -61,7 +61,7 @@ namespace Poolrooms.Tests
                 body.center=Vector3.zero;body.minMoveDistance=.1f;body.detectCollisions=false;
                 var cameraObject=new GameObject("v26 eyes at feet");cameraObject.transform.SetParent(actor.transform,false);cameraObject.AddComponent<Camera>();cameraObject.AddComponent<PoolroomsCameraEffects>();
                 var explorer=actor.AddComponent<PoolroomsExplorer>();explorer.showStartMenu=false;explorer.externalInput=true;explorer.world=world;explorer.eyes=cameraObject.transform;world.viewer=actor.transform;
-                world.BuildAllImmediate();actor.SetActive(true);root.SetActive(true);yield return null;yield return null;
+                world.BuildAllImmediate();actor.SetActive(true);root.SetActive(true);Physics.SyncTransforms();yield return null;yield return null;
                 Assert.That(body.center.y,Is.EqualTo(body.height*.5f).Within(.0001f));Assert.That(body.detectCollisions,Is.True);
                 Assert.That(body.minMoveDistance,Is.Zero);Assert.That(explorer.eyes.position.y-actor.transform.position.y,Is.GreaterThan(1.5f));
                 Assert.That(profile.colliders,Is.False,"Runtime correction must not edit the shared asset.");
@@ -97,7 +97,7 @@ namespace Poolrooms.Tests
             finally
             {
                 if(actor!=null)Object.DestroyImmediate(actor);if(root!=null)Object.DestroyImmediate(root);if(profile!=null)Object.DestroyImmediate(profile);
-                Time.timeScale=scale;Time.captureDeltaTime=capture;Physics.autoSyncTransforms=sync;AudioListener.pause=audio;Cursor.lockState=locked;Cursor.visible=visible;
+                Time.timeScale=scale;Time.captureDeltaTime=capture;AudioListener.pause=audio;Cursor.lockState=locked;Cursor.visible=visible;
             }
         }
     }

@@ -21,7 +21,17 @@ jobs:
           test "$selected_sdk" = "8.0.408"
           dotnet --info
       - name: Compile core, compare geometry, check CSharp syntax
-        run: dotnet run --project Verification/Poolrooms.Checks.csproj
+        run: |
+          dotnet build Verification/Poolrooms.Checks.csproj -warnaserror
+          dotnet run --no-build --project Verification/Poolrooms.Checks.csproj
+      - name: Check all new restful recipe banks and architectural axes
+        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --restful-levels --restful-exhaustive
+      - name: Check 200010 distinct new meshes and actual-world object placement counts
+        run: |
+          dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --restful-mesh-catalog
+          dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --restful-world
+      - name: Check newly licensed restful source objects
+        run: python tools/verify_restful_sources.py
       - name: Check larger biome areas, populated Level94 and accessible mall expansion
         run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --biome-extents
       - name: Check expanded biome recipes, house footprints and mall reservations

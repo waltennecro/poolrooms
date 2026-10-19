@@ -17,6 +17,11 @@ namespace Poolrooms.Core
             if(room.Plan!=null)
             {
                 float proceduralDelay=Math.Min(.045f,(room.Width+room.Depth)/1600);
+                if(room.Plan.Restful!=null)
+                {
+                    bool absorbent=room.Environment==LiminalEnvironment.SunsetLibrary||room.Environment==LiminalEnvironment.MusicStudios;
+                    return new AcousticLook(absorbent?.025f:.045f,room.Plan.Pools.Length>0?.14f:0,absorbent?.78f:1.75f,absorbent?.35f:.6f,proceduralDelay,proceduralDelay*1.5f);
+                }
                 if(room.Environment==LiminalEnvironment.RainHouses)return new AcousticLook(.015f,0,.65f,.35f,proceduralDelay*.6f,proceduralDelay);
                 if(room.Environment==LiminalEnvironment.AquaticPark)return new AcousticLook(.015f,.18f,2.5f,.55f,proceduralDelay,proceduralDelay*1.7f);
                 if(room.Environment==LiminalEnvironment.ThermalBaths)return new AcousticLook(.035f,.14f,2.05f,.52f,proceduralDelay,proceduralDelay*1.7f);

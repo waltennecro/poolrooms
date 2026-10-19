@@ -49,11 +49,11 @@ namespace Poolrooms.HDRP
             bool aerial=room!=null&&world.IsPilotingAircraft&&(world.Terrain==null||!world.Terrain.IsInside);
             bool active=aerial||room!=null&&room.Environment!=LiminalEnvironment.Poolrooms&&(world.Terrain==null||!world.Terrain.IsInside);
             volume.priority=aerial?14:4;
-            bool sunny=aerial||active&&(room.Environment==LiminalEnvironment.RainHouses||room.Environment==LiminalEnvironment.AquaticPark||room.Environment==LiminalEnvironment.ThermalBaths||room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
+            bool sunny=aerial||active&&(RestfulLevelPlanner.IsLevel(room.Environment)||room.Environment==LiminalEnvironment.RainHouses||room.Environment==LiminalEnvironment.AquaticPark||room.Environment==LiminalEnvironment.ThermalBaths||room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
             bool archive=!aerial&&active&&room.Environment==LiminalEnvironment.Archive906;
             bool rainy=!aerial&&sunny&&room.Environment==LiminalEnvironment.RainHouses;
             bool aquatic=!aerial&&sunny&&room.Environment==LiminalEnvironment.AquaticPark;
-            bool sunset=!aerial&&sunny&&(aquatic||room.Environment==LiminalEnvironment.Coast48);
+            bool sunset=!aerial&&sunny&&(room.Environment==LiminalEnvironment.SunsetLibrary||room.Environment==LiminalEnvironment.TeaPavilions||aquatic||room.Environment==LiminalEnvironment.Coast48);
             if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny&&!rainy;
             if(sunny||archive)
             {
@@ -65,7 +65,7 @@ namespace Poolrooms.HDRP
                 if(citySunData.useScreenSpaceShadows!=rt)citySunData.useScreenSpaceShadows=rt;if(citySunData.useRayTracedShadows!=rt)citySunData.useRayTracedShadows=rt;
                 if(citySunData.numRayTracingSamples!=(rt?8:1))citySunData.numRayTracingSamples=rt?8:1;if(!citySunData.filterTracedShadow)citySunData.filterTracedShadow=true;
                 Vector3 local=world.viewer.position-world.RoomWorldPosition(room);bool shelter=archive;
-                if(!aerial&&room.Plan!=null&&(room.Plan.Garden!=null||room.Plan.Baths!=null||room.Plan.Aquatic!=null))shelter=true;
+                if(!aerial&&room.Plan!=null&&(room.Plan.Restful!=null||room.Plan.Garden!=null||room.Plan.Baths!=null||room.Plan.Aquatic!=null))shelter=true;
                 if(room.Plan!=null&&room.Plan.Quiet!=null)shelter=room.Plan.Quiet.Sheltered(local.x,local.z,room.Width);
                 if(room.Plan!=null&&room.Plan.City!=null)foreach(var building in room.Plan.City.Buildings)
                     if(Mathf.Abs(local.x-building.X)<building.Width*.5f&&Mathf.Abs(local.z-building.Z)<building.Depth*.5f)shelter=true;

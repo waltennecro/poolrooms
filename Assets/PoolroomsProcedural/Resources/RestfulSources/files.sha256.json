@@ -1,0 +1,166 @@
+{
+  "Licenses/AnisotropyBarnLamp_LICENSE.md": {
+    "bytes": 788,
+    "sha256": "94c499e10f0efaace94370f6430c743cd2f0a0c46b0997bd2d82755e222ea201"
+  },
+  "Licenses/AnisotropyBarnLamp_metadata.json": {
+    "bytes": 772,
+    "sha256": "295ef639003f7d5e31e042e7fa7d9cec4ac43f30fe51db866fc1d1c9d7eaaac3"
+  },
+  "Licenses/CC-BY-4.0.txt": {
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "Licenses/CC0-1.0.txt": {
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "Licenses/DiffuseTransmissionTeacup_LICENSE.md": {
+    "bytes": 789,
+    "sha256": "17a3116c1cd430aa6de9b26dae8827ed0eb5fbc5a58645a700ac25f2ee7b1ef7"
+  },
+  "Licenses/DiffuseTransmissionTeacup_metadata.json": {
+    "bytes": 738,
+    "sha256": "52c17438560674bdbf2ce1b88f708d2ec76c560c451208a9c380c7f270efca77"
+  },
+  "Licenses/GlassVaseFlowers_LICENSE.md": {
+    "bytes": 927,
+    "sha256": "e34640bf1d808120087059dfceda5dc2bce8db73ec70dcd332c1e3f4d17b2d10"
+  },
+  "Licenses/GlassVaseFlowers_metadata.json": {
+    "bytes": 1170,
+    "sha256": "9b69d1bd334575a25487c90cf6fcee3d31e6f4d90fb57010d8b4f1c8d2437fa3"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 531,
+    "sha256": "b6dbb9bbd87a6dbfe7057911d91005850e65dfceb459354f40ac65be8c177e72"
+  },
+  "Models/R_BarnLamp.mtl": {
+    "bytes": 99,
+    "sha256": "20869100915cc7fac6fa0dad6916d6077a49e0bae3dbc3e96c2a797bd7964bb4"
+  },
+  "Models/R_BarnLamp.obj": {
+    "bytes": 1234522,
+    "sha256": "d0b21b5ec0d41c341585cbf642fdb62de6ed08b5d63d57bf92569a7728378f74"
+  },
+  "Models/R_BarnLamp_LOD1.obj": {
+    "bytes": 479911,
+    "sha256": "8dc28e1ee8a9301f7788256f969fab73b5682015f811ee36f4581447312e2d71"
+  },
+  "Models/R_BarnLamp_LOD2.obj": {
+    "bytes": 226996,
+    "sha256": "04b523cda9c8ce6430f182e322a07f9c4381fbd4c62a27f75a47472322c29438"
+  },
+  "Models/R_FlowerVase.mtl": {
+    "bytes": 105,
+    "sha256": "586dd1929fb566b69e964f7d68fa55d17f1c2f175c7cf656f2f0bf40a5d6ca6f"
+  },
+  "Models/R_FlowerVase.obj": {
+    "bytes": 1492287,
+    "sha256": "43040556f2b2f1a8c69201efa5d30e303079b9bb8c774e6f28095b933ebc23e5"
+  },
+  "Models/R_FlowerVase_LOD1.obj": {
+    "bytes": 1054042,
+    "sha256": "67011d953d0567030335c92bfa035f49fe133fa0411857c5edacd9d1a482f3c2"
+  },
+  "Models/R_FlowerVase_LOD2.obj": {
+    "bytes": 559479,
+    "sha256": "7982cb5cb948ccd7bffda883e3578ef5dbbd5448b06aad988d0fd95dad5c0baa"
+  },
+  "Models/R_Teacup.mtl": {
+    "bytes": 56,
+    "sha256": "eaf7bb9ccb193ed9bddb94f6a467ab860b051030c9281ddbde90963352cef8db"
+  },
+  "Models/R_Teacup.obj": {
+    "bytes": 10234361,
+    "sha256": "6fad72d9666e0176b285815772db1229620f9fadcf6c4415e1821321eb24304a"
+  },
+  "Models/R_Teacup_LOD1.obj": {
+    "bytes": 1450547,
+    "sha256": "a14ce4baa2da0e8ca4c13002a68dd130e42c984ae48e223a14de5253c4441d99"
+  },
+  "Models/R_Teacup_LOD2.obj": {
+    "bytes": 608227,
+    "sha256": "a39d5bda77cd6509ea6273ab3422e850649ee911a88b9fb51b9bca2f78030685"
+  },
+  "R_BarnLamp.json": {
+    "bytes": 2972,
+    "sha256": "1d1409c80bc05587bd12ced5553298abd7455378edd1a76ca9ff8c6bf0d7029f"
+  },
+  "R_FlowerVase.json": {
+    "bytes": 2935,
+    "sha256": "e6d697c9c189aabb7ee5f6b8a0aba677a34166060ba2fa9e55e03058b0c06bd8"
+  },
+  "R_Teacup.json": {
+    "bytes": 2534,
+    "sha256": "ec2bb2cb8196ad0a8965d158c033c01b375df91aa9095cbd3619927bb666b2c0"
+  },
+  "Textures/R_BarnLamp_m0_albedo.png": {
+    "bytes": 4422282,
+    "sha256": "bf10b2a542da6a35e98f95d8cb16d2d9d53bb6ac51fbb58eb7dec3a600be775a"
+  },
+  "Textures/R_BarnLamp_m0_mask.png": {
+    "bytes": 2984805,
+    "sha256": "49354d62e37a95f218f2c178f3d8092c873a7acea15dfe23324a4e46f3e29065"
+  },
+  "Textures/R_BarnLamp_m0_normal.png": {
+    "bytes": 233552,
+    "sha256": "0a6dbca48eee3d0212b115df3bb1461e91a7104e251add24de191c652fa14ec9"
+  },
+  "Textures/R_BarnLamp_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "58dcb335775eef095e18a05566147e5f4478610dd136f8e582761c1a051aa2bd"
+  },
+  "Textures/R_BarnLamp_m2_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/R_FlowerVase_m0_albedo.png": {
+    "bytes": 1051734,
+    "sha256": "3f17cf2eeae906217911ae3163c57fdb439a1f29b70b1f95d0fe0270a37fb7fc"
+  },
+  "Textures/R_FlowerVase_m0_mask.png": {
+    "bytes": 268144,
+    "sha256": "c492e023bdd07c2f72c6ffc64660adeb4660f972d33ee713249d97f95e0472ab"
+  },
+  "Textures/R_FlowerVase_m0_normal.png": {
+    "bytes": 1269093,
+    "sha256": "111fe76fda99a8c304b0d1db0928d3af87d32bb234f758edcb022794abd22383"
+  },
+  "Textures/R_FlowerVase_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/R_FlowerVase_m2_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/R_Teacup_m0_albedo.png": {
+    "bytes": 1136968,
+    "sha256": "75f0704f501eb2b4d0a024496bc1d0d6b5bf26c111838a311c16a547c78b06ab"
+  },
+  "Textures/R_Teacup_m0_mask.png": {
+    "bytes": 417274,
+    "sha256": "df67ed87d5e339f31fca5a266b0e674d42c78b2bd7c57bc7ffcd75d1329cdfb9"
+  },
+  "Textures/R_Teacup_m0_normal.png": {
+    "bytes": 184093,
+    "sha256": "f8650b9f8146049fc71230d5b89e801923def830bae49de29dc95281efafeb1c"
+  },
+  "Textures/R_Teacup_m1_albedo.png": {
+    "bytes": 1602215,
+    "sha256": "ba5916a10dac00263e4c59216a97591ab42ee7963df48c4e7c0e42a4169b24b3"
+  },
+  "Textures/R_Teacup_m1_mask.png": {
+    "bytes": 710914,
+    "sha256": "91ee95acc7a33ff60c42759f906903b95add9d98094e8bb021f6a48e213ffffe"
+  },
+  "Textures/R_Teacup_m1_normal.png": {
+    "bytes": 330463,
+    "sha256": "6ceeba1757f4835553fc40547d65d04527fb072c8f2046f714cbb97701aaac90"
+  },
+  "catalog.json": {
+    "bytes": 9869,
+    "sha256": "571c633a052a756d58a40e0adf5a0723016ff28e392e5e3bda975597d78e2fd6"
+  }
+}

@@ -13,6 +13,9 @@ namespace Poolrooms
         [Range(0,1)] public float masterVolume=.85f;
         [Range(0,1)] public float environmentVolume=.8f,footstepVolume=.65f,waterVolume=.75f;
         public bool occasionalDrips=true,roomReverb=true;
+        public bool spatialAmbience=true,soundOcclusion=true;
+        private bool ventilationBlocked,waterBlocked;
+        private OccludedSound ventilationTransmission=new OccludedSound(1,18000),waterTransmission=new OccludedSound(1,18000);
         public LayerMask surfaceMask=~0;
         private GameObject audioRoot;
         private AudioSource ventilation,waterBed;
@@ -108,7 +111,7 @@ namespace Poolrooms
             Transform ears=explorer.Aim;
             if(!ventilation.isPlaying&&ventilation.clip!=null)ventilation.Play();
             if(!waterBed.isPlaying&&waterBed.clip!=null)waterBed.Play();
-            ventilation.transform.position=waterBed.transform.position=reverb.transform.position=ears.position;
+            reverb.transform.position=ears.position;
             bool feetWet=false,swimming=false,underwater=false;float level;
             if(world.TryGetWater(transform.position,out level))
             {
@@ -120,20 +123,24 @@ namespace Poolrooms
             splashCooldown=Mathf.Max(0,splashCooldown-dt);
             if(Time.time>=nextAcousticUpdate)
             {
-                nextAcousticUpdate=Time.time+.25f;UpdateRoom();
+                nextAcousticUpdate=Time.time+.25f;UpdateRoom();UpdateSpatialAnchors(ears.position);
                 smoothed=AmbientAudioModel.Blend(smoothed,target,.45f);
                 reverb.decayTime=smoothed.Decay;reverb.decayHFRatio=underwater?.35f:smoothed.HighDecay;
                 reverb.reflectionsDelay=smoothed.ReflectionsDelay;reverb.reverbDelay=smoothed.ReverbDelay;
             }
             bool useReverb=roomReverb&&(world.Terrain==null||!world.Terrain.IsInside||world.Terrain.InsideHouse);
             if(reverb.enabled!=useReverb)reverb.enabled=useReverb;
-            ventilation.volume=Mathf.Lerp(ventilation.volume,smoothed.Ventilation*Unit(masterVolume)*Unit(environmentVolume),k);
-            waterBed.volume=Mathf.Lerp(waterBed.volume,smoothed.Water*Unit(masterVolume)*Unit(environmentVolume)*Unit(waterVolume),k);
+            ventilationTransmission=SpatialAudioModel.Step(ventilationTransmission,ventilationBlocked,underwater,dt);
+            waterTransmission=SpatialAudioModel.Step(waterTransmission,waterBlocked,underwater,dt);
+            ventilation.spatialBlend=waterBed.spatialBlend=spatialAmbience?1:0;
+            ventilation.volume=Mathf.Lerp(ventilation.volume,ventilationTransmission.Gain*smoothed.Ventilation*Unit(masterVolume)*Unit(environmentVolume),k);
+            waterBed.volume=Mathf.Lerp(waterBed.volume,waterTransmission.Gain*smoothed.Water*Unit(masterVolume)*Unit(environmentVolume)*Unit(waterVolume),k);
             float nextCutoff=Mathf.Lerp(cutoff,underwater?900:18000,1-Mathf.Exp(-dt*6));
             if(Mathf.Abs(nextCutoff-cutoff)>20)
             {
                 cutoff=nextCutoff;foreach(var filter in filters){filter.cutoffFrequency=cutoff;filter.enabled=cutoff<17500;}
             }
+            ApplyTransmission(0,ventilationTransmission);ApplyTransmission(1,waterTransmission);
             Vector3 position=transform.position;
             if(!positioned){previousPosition=position;positioned=true;}
             Vector3 travel=position-previousPosition;previousPosition=position;travel.y=0;
@@ -176,6 +183,35 @@ namespace Poolrooms
                 if(source.volume>.0001f&&!source.isPlaying&&source.clip!=null)source.Play();
                 else if(source.volume<=.0001f&&source.isPlaying)source.Stop();
             }
+        }
+        private void UpdateSpatialAnchors(Vector3 ears)
+        {
+            ventilationBlocked=waterBlocked=false;
+            if(cachedRoom==null||world==null||world.Terrain!=null&&world.Terrain.IsInside)
+            {ventilation.transform.position=waterBed.transform.position=ears;return;}
+            var origin=world.RoomWorldPosition(cachedRoom);
+            var vent=origin+new Vector3(cachedRoom.Width*.5f-.45f,Mathf.Min(cachedRoom.Height-.6f,3.2f),-cachedRoom.Depth*.28f);
+            ventilation.transform.position=vent;ventilation.minDistance=6;ventilation.maxDistance=90;ventilation.spread=55;
+            var listener=ears-origin;bool found;
+            var anchor=SpatialAudioModel.WaterAnchor(regions,new V3(listener.x,listener.y,listener.z),out found);
+            var wet=found?origin+new Vector3(anchor.X,anchor.Y,anchor.Z):ears;
+            waterBed.transform.position=wet;waterBed.minDistance=5;waterBed.maxDistance=75;waterBed.spread=75;
+            if(!spatialAmbience||!soundOcclusion)return;
+            ventilationBlocked=Occluded(ears,vent);waterBlocked=found&&Occluded(ears,wet);
+        }
+        private bool Occluded(Vector3 ears,Vector3 point)
+        {
+            var delta=point-ears;float distance=delta.magnitude;if(distance<.2f)return false;
+            int count=Physics.RaycastNonAlloc(ears,delta/distance,hits,distance-.12f,surfaceMask,QueryTriggerInteraction.Ignore);
+            if(count==hits.Length)return true;
+            for(int i=0;i<count;i++)if(hits[i].collider!=null&&!hits[i].collider.transform.IsChildOf(transform))return true;
+            return false;
+        }
+        private void ApplyTransmission(int index,OccludedSound sound)
+        {
+            var filter=filters[index];if(filter==null)return;
+            if(Mathf.Abs(filter.cutoffFrequency-sound.Cutoff)>10)filter.cutoffFrequency=sound.Cutoff;
+            filter.enabled=sound.Cutoff<17500;
         }
         private void UpdateRoom()
         {
@@ -281,7 +317,8 @@ namespace Poolrooms
         public void ResetMotion()
         {
             previousPosition=transform.position;positioned=false;stride.Reset();wetFeet=0;splashCooldown=0;
-            cachedRoom=null;cachedLayout=null;regions=null;nextAcousticUpdate=0;dripIn=8;
+            cachedRoom=null;cachedLayout=null;regions=null;ventilationBlocked=waterBlocked=false;
+            ventilationTransmission=waterTransmission=new OccludedSound(1,18000);nextAcousticUpdate=0;dripIn=8;
             foreach(var voice in voices)if(voice!=null)voice.Stop();
             StopSlideAudio();
         }

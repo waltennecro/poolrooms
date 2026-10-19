@@ -130,14 +130,33 @@
   ],
   "newLevelStructuralRecipesVerifiedTotal": 13100,
   "walkableDiscoveryUpdate": {
-    "stage": "R25",
+    "stage": "R33",
     "status": "implemented_core_verified_native_pending",
-    "allImplementedEnvironments": 18,
+    "allImplementedEnvironments": 28,
     "connectedDistricts": [
       "Mall",
       "Level94"
     ],
     "administratorRequired": false,
     "documentation": "Assets/PoolroomsProcedural/Documentation/EXPLORACION_CAMINANDO_R25.md"
+  },
+  "R33AdditionalExpansion": {
+    "status": "ten_additional_alternative_levels_integrated_cloud_verified_native_pending",
+    "levels": [
+      "SunsetLibrary",
+      "CloudTerminal",
+      "TeaPavilions",
+      "CeramicGalleria",
+      "WinterGarden",
+      "CanalGalleries",
+      "MusicStudios",
+      "LanternCourts",
+      "LinenLaundries",
+      "MineralSanctuary"
+    ],
+    "recipesPerLevel": 131072,
+    "distinctBuiltMeshesVerified": 200010,
+    "documentation": "Assets/PoolroomsProcedural/Documentation/AMPLIACION_R33.md",
+    "historicalUnimplementedProposalNamesRetained": true
   }
 }

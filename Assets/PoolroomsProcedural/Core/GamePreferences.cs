@@ -33,7 +33,8 @@ namespace Poolrooms.Core
         public int frameLimit=-1,vSync=0,screenWidth=0,screenHeight=0;
         public GameWindowMode windowMode=GameWindowMode.Borderless;
         public float masterVolume=.85f,environmentVolume=.8f,footstepVolume=.65f,waterVolume=.75f;
-        public bool drips=true,reverb=true,muteUnfocused=true;
+        public int spatialAudioVersion=1;
+        public bool drips=true,reverb=true,muteUnfocused=true,spatialAmbience=true,soundOcclusion=true;
         public float sensitivity=.09f,walkSpeed=3.2f,sprintSpeed=5.5f,fieldOfView=70,uiScale=1;
         public int slideVersion=1;
         public bool allowSlide=true;
@@ -46,6 +47,7 @@ namespace Poolrooms.Core
             if(rendering==null)rendering=new MasterViewOptions();rendering.Sanitize();
             if(!Enum.IsDefined(typeof(TerrainGrassQuality),terrainGrass))terrainGrass=TerrainGrassQuality.Economy;
             if(!Enum.IsDefined(typeof(TerrainVisualQuality),terrainVisuals))terrainVisuals=TerrainVisualQuality.Economy;
+            if(spatialAudioVersion<1){spatialAmbience=soundOcclusion=true;}spatialAudioVersion=1;
             version=18;if(camera==null)camera=new CameraPreferences();camera.Sanitize();
             if(!Enum.IsDefined(typeof(CameraPerspective),perspective))perspective=CameraPerspective.FirstPerson;
             if(slideVersion<1){allowSlide=true;slideSpeed=ExplorerSlide.DefaultSpeed;}slideVersion=1;
@@ -85,7 +87,7 @@ namespace Poolrooms.Core
                 case SettingsCategory.Camera:camera=new CameraPreferences();perspective=CameraPerspective.FirstPerson;fieldOfView=defaults.fieldOfView;break;
                 case SettingsCategory.Audio:
                     masterVolume=defaults.masterVolume;environmentVolume=defaults.environmentVolume;footstepVolume=defaults.footstepVolume;
-                    waterVolume=defaults.waterVolume;drips=reverb=muteUnfocused=true;break;
+                    waterVolume=defaults.waterVolume;drips=reverb=muteUnfocused=spatialAmbience=soundOcclusion=true;break;
                 case SettingsCategory.Controls:sensitivity=defaults.sensitivity;walkSpeed=defaults.walkSpeed;sprintSpeed=defaults.sprintSpeed;allowSlide=defaults.allowSlide;slideSpeed=defaults.slideSpeed;invertY=toggleSprint=false;break;
                 case SettingsCategory.Comfort:uiScale=1;reduceMotion=reducedFlashes=highContrast=opaqueMenu=false;pauseOnFocusLoss=true;break;
             }

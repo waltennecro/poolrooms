@@ -1,0 +1,13 @@
+{
+  "size": 1024,
+  "license": "CC0-1.0",
+  "authorship": "Original analytic texture generated for this project; no external image input.",
+  "generator": "tools/create_calm_water_normal.py",
+  "seamlessBordersVerified": true,
+  "files": {
+    "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/CalmWater_Normal.png": {
+      "bytes": 197725,
+      "sha256": "83df1e01d74740907ce4be5f47c677b8e85bccd256f520caaea797d17569fe0b"
+    }
+  }
+}

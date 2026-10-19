@@ -1,0 +1,92 @@
+{
+  "id": "R_Teacup",
+  "resource": "RestfulSources/Models/R_Teacup",
+  "minimum": [
+    -0.07430074224248528,
+    -0.0006779436790080392,
+    -0.07941566262610085
+  ],
+  "maximum": [
+    0.07431757589802146,
+    0.06970596543140904,
+    0.07431669501350811
+  ],
+  "triangles": 28184,
+  "materials": [
+    {
+      "name": "R_Teacup_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "RestfulSources/Textures/R_Teacup_m0_albedo",
+      "normal": "RestfulSources/Textures/R_Teacup_m0_normal",
+      "mask": "RestfulSources/Textures/R_Teacup_m0_mask"
+    },
+    {
+      "name": "R_Teacup_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "RestfulSources/Textures/R_Teacup_m1_albedo",
+      "normal": "RestfulSources/Textures/R_Teacup_m1_normal",
+      "mask": "RestfulSources/Textures/R_Teacup_m1_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "RestfulSources/Models/R_Teacup_LOD1",
+      "triangles": 14578
+    },
+    {
+      "resource": "RestfulSources/Models/R_Teacup_LOD2",
+      "triangles": 6159
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "d4f567186fea262819aac6664cb9d7cef7f4600406038046771a69e10363935b",
+  "upstreamRevision": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+  "presentationClothRemoved": false,
+  "adaptation": "Static OBJ and two LOD derivatives; core PBR maps. Anisotropy/diffuse transmission omitted; glass uses approximate alpha transparency. Presentation lights and emissive factor disabled. No exact subsurface/volume reproduction claimed.",
+  "sourceNodeNames": [
+    "tea_cup",
+    "tea_saucer"
+  ],
+  "preparedSourceSha256": "e42087ae2f269723c04ea34b4e34d203802da760cbc9e0bd23c040306d883aec",
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/DiffuseTransmissionTeacup/glTF-Binary/DiffuseTransmissionTeacup.glb",
+  "modelLicense": "CC0-1.0",
+  "authors": [
+    "Polyhaven.com, and Eric Chadwick"
+  ],
+  "nativeUnityValidated": false,
+  "unsupportedExtensionsApproximated": [
+    "KHR_materials_diffuse_transmission"
+  ]
+}

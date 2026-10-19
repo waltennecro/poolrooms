@@ -1,11 +1,12 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral, SlideGlass, FlumeFlow, RainLodge, RainRoof, RainInterior }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral, SlideGlass, FlumeFlow, RainLodge, RainRoof, RainInterior, SunsetLibrary, CloudTerminal, TeaPavilion, CeramicGalleria, WinterGarden, CanalGallery, MusicStudio, LanternCourt, LinenLaundry, MineralSanctuary }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
         {
+            if(RestfulLevelPlanner.IsLevel(environment))return RestfulLevelPlanner.Theme(environment);
             switch(environment)
             {
                 case LiminalEnvironment.RainHouses:return SurfaceTheme.RainLodge;
@@ -40,6 +41,7 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(RestfulLevelPlanner.IsTheme(theme))return RestfulLevelPlanner.TextureSet(theme,slot);
             if(theme==SurfaceTheme.RainRoof)return "RainSlate";
             if(theme==SurfaceTheme.RainInterior)return slot==Surface.Tile?"RainOak":slot==Surface.Glow?null:"Wood";
             if(theme==SurfaceTheme.RainLodge)return slot==Surface.Glow?null:slot==Surface.Tile?"RainPaving":slot==Surface.Plaster?"RainCedar":slot==Surface.Accent?"RainOak":slot==Surface.Metal?"Steel":"Fabric";

@@ -139,10 +139,10 @@ namespace Poolrooms.Core
         public static void Decorate(Room room,LayoutConfig c)
         {
             // Interior programs furnish their own bays; mall gateways must stay uncluttered.
-            if(room.Plan.Rain!=null||room.Plan.Aquatic!=null||room.Plan.Baths!=null||room.Plan.Garden!=null||room.Plan.Quiet!=null||room.Plan.City!=null||room.Plan.SoftPlay!=null||room.Plan.Interior!=null||c.MallDistricts&&room.Environment==LiminalEnvironment.Supermarket)return;
+            if(room.Plan.Restful!=null||room.Plan.Rain!=null||room.Plan.Aquatic!=null||room.Plan.Baths!=null||room.Plan.Garden!=null||room.Plan.Quiet!=null||room.Plan.City!=null||room.Plan.SoftPlay!=null||room.Plan.Interior!=null||c.MallDistricts&&room.Environment==LiminalEnvironment.Supermarket)return;
             var random=new StableRandom(LiminalRegions.Hash(c.Seed,room.X,room.Z,0x22001u));
             var bounds=new PlanRect(-room.Width*.5f+.85f,-room.Depth*.5f+.85f,room.Width*.5f-.85f,room.Depth*.5f-.85f);
-            room.Plan.Assemblies=AssemblyPacking.Fill(bounds,Obstacles(room,c),Kinds(room.Environment),random.Next(),3+random.Range(10));
+            room.Plan.Assemblies=AssemblyPacking.Fill(bounds,Obstacles(room,c),Kinds(room.Environment),random.Next(),Math.Min(AssemblyPacking.RoomLimit,(3+random.Range(10))*c.ObjectAbundance));
         }
         public static GeneratedAssembly[] Interior(InteriorBay bay,LiminalEnvironment environment)
         {

@@ -38,6 +38,25 @@ namespace Poolrooms.Core
     {
         public const int MaxRipples=12;
         public const float MaxHeight=.04f;
+        public const float RefractiveIndex=1.333f;
+        public static float Fresnel(float cosine)
+        {
+            cosine=CameraPresentation.Unit(cosine);
+            float ratio=(1-RefractiveIndex)/(1+RefractiveIndex),f0=ratio*ratio;
+            return f0+(1-f0)*(float)Math.Pow(1-cosine,5);
+        }
+        // Three dispersive capillary/gravity wave bands, matching the native decal.
+        // Envelope propagation, attenuation and the rim mask bound energy per event.
+        public static float RipplePacket(float distance,float age)
+        {
+            if(float.IsNaN(distance)||float.IsInfinity(distance)||float.IsNaN(age)||float.IsInfinity(age)||distance<0||age<0)return 0;
+            float phase=distance-(.12f+age*1.45f);
+            float packet=(float)Math.Exp(-phase*phase/.09f);
+            float waves=.62f*(float)Math.Sin(distance*14-age*(float)Math.Sqrt(9.81f*14))+
+                .25f*(float)Math.Sin(distance*23-age*(float)Math.Sqrt(9.81f*23))+
+                .13f*(float)Math.Sin(distance*37-age*(float)Math.Sqrt(9.81f*37));
+            return packet*waves/(1+distance*.65f);
+        }
         public static PoolWaterLook Look(PoolWaterAppearance appearance)
         {
             switch(appearance)

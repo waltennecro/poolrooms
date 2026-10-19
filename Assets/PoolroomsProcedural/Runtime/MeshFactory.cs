@@ -84,7 +84,7 @@ namespace Poolrooms
             foreach(var tris in data.Indices)if(tris.Count>0)count++;
             mesh.subMeshCount=count;int index=0;
             for(int i=0;i<data.Indices.Length;i++)if(data.Indices[i].Count>0)
-            {mesh.SetTriangles(data.Indices[i],index++,false);Material material=materialOverrides!=null&&i<materialOverrides.Length?materialOverrides[i]:water?profile.waterPreview:PaletteMaterial(data,i,profile,owner);
+            {mesh.SetTriangles(data.Indices[i],index++,false);Material material=materialOverrides!=null&&i<materialOverrides.Length?materialOverrides[i]:water?PoolroomsClearWaterMaterial.Resolve(profile,owner):PaletteMaterial(data,i,profile,owner);
                 if(!water&&i==(int)Surface.Glow&&data.EmissionStrength>=0&&material!=null)
                 {
                     material=new Material(material){name="Zone light panels"};
@@ -101,7 +101,7 @@ namespace Poolrooms
             go.AddComponent<MeshFilter>().sharedMesh=mesh;
             var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterials=materials.ToArray();
             renderer.shadowCastingMode=water||data.Theme==SurfaceTheme.Glass||data.Theme==SurfaceTheme.SlideGlass||data.Theme==SurfaceTheme.FlumeFlow?ShadowCastingMode.Off:ShadowCastingMode.On;
-            renderer.receiveShadows=!water;renderer.motionVectorGenerationMode=MotionVectorGenerationMode.Camera;
+            renderer.receiveShadows=true;renderer.motionVectorGenerationMode=MotionVectorGenerationMode.Camera;
             if(collider)go.AddComponent<MeshCollider>().sharedMesh=mesh;
             owner.ownedMeshes.Add(mesh);return go;
         }
