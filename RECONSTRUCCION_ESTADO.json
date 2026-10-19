@@ -1623,7 +1623,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "R34 is backed up and all 200010 existing architectures are structurally refined and compared in 21 batches; current core CI, resource audits, ZIP and public download passed. Run native Unity/HDRP API compilation, new bridge walking and material migration, interaction, visuals and FPS. R33 literal structural-family/source-model targets and separate old-biome expansion remain explicitly unfinished.",
+  "nextIndependentWork": "Push the existing local R34 documentation/CI closure commits after restoring GitHub authentication; all Assets/game code is already on main 7429aecdd397c7ad2b9099006a456036ba8d6995 and public CI 39340633032 passed. Then run native Unity/HDRP compilation, PlayMode, appearance and FPS. Earlier literal family/model targets remain explicitly unfinished.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -2521,5 +2521,15 @@
         "completed-at": "2026-10-19T23:26:44Z"
       }
     ]
+  },
+  "r34MetadataSync": {
+    "status": "metadata_push_blocked_authentication_expired",
+    "codeFullyBackedUp": true,
+    "backedCodeRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+    "pendingMetadataCommit": "ee5f52e8c00e5fcd3c2ba89cb2cce1716f0a9038",
+    "githubApiStatus": 401,
+    "gitPushError": "could not read Username for https://github.com: No such device or address",
+    "publicCiVerifiedSuccess": 39340633032,
+    "requiredAction": "Restore the Codex GitHub connection, then push the existing local metadata commits without rewriting history. All game code and the tested Assets package are already backed up."
   }
 }

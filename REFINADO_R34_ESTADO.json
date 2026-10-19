@@ -1018,5 +1018,15 @@
     "assetFilesMatched": 923,
     "crcValid": true,
     "githubActionsArtifactDownload": false
+  },
+  "r34MetadataSync": {
+    "status": "metadata_push_blocked_authentication_expired",
+    "codeFullyBackedUp": true,
+    "backedCodeRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+    "pendingMetadataCommit": "ee5f52e8c00e5fcd3c2ba89cb2cce1716f0a9038",
+    "githubApiStatus": 401,
+    "gitPushError": "could not read Username for https://github.com: No such device or address",
+    "publicCiVerifiedSuccess": 39340633032,
+    "requiredAction": "Restore the Codex GitHub connection, then push the existing local metadata commits without rewriting history. All game code and the tested Assets package are already backed up."
   }
 }
