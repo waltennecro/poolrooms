@@ -1,0 +1,212 @@
+{
+  "stage": "R32",
+  "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
+  "clarifiedScope": [
+    "fifty_percent_more_structural_variety_retained_from_R31",
+    "approximately_fifty_percent_more_room_cells_per_biome_region"
+  ],
+  "finiteRecipeCatalogueTotalRetained": 22332,
+  "regionalScaling": {
+    "areaMultiplier": 1.5,
+    "linearMultiplier": "sqrt(1.5)",
+    "matchedCompleteRegionPairs": 6502,
+    "sampleSeeds": [
+      0,
+      31,
+      481516
+    ],
+    "areaSamplesExcludeBuildingAndTerrainReservations": true,
+    "regionRoomCellSamplesByBiome": {
+      "Poolrooms": {
+        "roomCellsBefore": 22989,
+        "roomCellsAfter": 34478,
+        "measuredRatio": 1.4998
+      },
+      "IndoorPlay": {
+        "roomCellsBefore": 21996,
+        "roomCellsAfter": 33020,
+        "measuredRatio": 1.5012
+      },
+      "Supermarket": {
+        "roomCellsBefore": 21649,
+        "roomCellsAfter": 32486,
+        "measuredRatio": 1.5006
+      },
+      "Office": {
+        "roomCellsBefore": 20371,
+        "roomCellsAfter": 30513,
+        "measuredRatio": 1.4979
+      },
+      "Hotel": {
+        "roomCellsBefore": 20294,
+        "roomCellsAfter": 30436,
+        "measuredRatio": 1.4998
+      },
+      "WaitingHall": {
+        "roomCellsBefore": 21111,
+        "roomCellsAfter": 31627,
+        "measuredRatio": 1.4981
+      },
+      "DiningHall": {
+        "roomCellsBefore": 19992,
+        "roomCellsAfter": 29983,
+        "measuredRatio": 1.4997
+      },
+      "SoftPlay": {
+        "roomCellsBefore": 26000,
+        "roomCellsAfter": 39033,
+        "measuredRatio": 1.5013
+      },
+      "City11": {
+        "roomCellsBefore": 23773,
+        "roomCellsAfter": 35681,
+        "measuredRatio": 1.5009
+      },
+      "Archive906": {
+        "roomCellsBefore": 19881,
+        "roomCellsAfter": 29863,
+        "measuredRatio": 1.5021
+      },
+      "Courtyard188": {
+        "roomCellsBefore": 21519,
+        "roomCellsAfter": 32234,
+        "measuredRatio": 1.4979
+      },
+      "Coast48": {
+        "roomCellsBefore": 17497,
+        "roomCellsAfter": 26197,
+        "measuredRatio": 1.4972
+      },
+      "Conservatory": {
+        "roomCellsBefore": 18018,
+        "roomCellsAfter": 26996,
+        "measuredRatio": 1.4983
+      },
+      "TransitGallery": {
+        "roomCellsBefore": 18316,
+        "roomCellsAfter": 27476,
+        "measuredRatio": 1.5001
+      },
+      "Orangerie": {
+        "roomCellsBefore": 28959,
+        "roomCellsAfter": 43397,
+        "measuredRatio": 1.4986
+      },
+      "ThermalBaths": {
+        "roomCellsBefore": 28393,
+        "roomCellsAfter": 42680,
+        "measuredRatio": 1.5032
+      },
+      "AquaticPark": {
+        "roomCellsBefore": 33036,
+        "roomCellsAfter": 49611,
+        "measuredRatio": 1.5017
+      },
+      "RainHouses": {
+        "roomCellsBefore": 31091,
+        "roomCellsAfter": 46649,
+        "measuredRatio": 1.5004
+      }
+    },
+    "bothAtlasAndCommonSolarClimateFieldsChecked": true,
+    "logicalRegionLabelsPreserved": true,
+    "largerIntegerTerrainReservationsUseClosestWholeCellRectangle": true
+  },
+  "regionalBuildingSamples": {
+    "mallPlanPairs": 384,
+    "accessibleShopsBefore": 29358,
+    "accessibleShopsAfter": 45024,
+    "mallGrossFloorAreaMultiplier": 1.5,
+    "storeysRange": [
+      2,
+      6
+    ],
+    "baysRange": [
+      12,
+      18
+    ],
+    "terrainCases": 12,
+    "housesBefore": 6761,
+    "housesAfter": 10868,
+    "homesInNewOuterAreas": 1536,
+    "meshSamples": 156,
+    "samplesAreNotSimultaneouslyLoadedInstancesOrNewModels": true
+  },
+  "extentCoreAssertions": 13382463,
+  "cumulativeCoreAssertionsPassed": 1810356013,
+  "retainedVarietyAssertions": 37886992,
+  "generationAudit": {
+    "plans": 121068,
+    "fullRoomConnectorMeshes": 396,
+    "propPlacementsResolved": 2083108,
+    "catalogueItemsEncountered": 33,
+    "namedSources": 12
+  },
+  "protectedGeometryFingerprints": 188,
+  "syntaxScripts": 246,
+  "syntaxConfigurations": 5,
+  "pbrMapsAudited": 82,
+  "preservedSourceHashes": {
+    "Assets/PoolroomsProcedural/Core/FlashlightModel.cs": "91fff314f4418f82304807006cb01395ff8d1aa79ad040f8f9c78d59c50f7a89",
+    "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+    "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+    "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
+  },
+  "renderDistanceReduced": false,
+  "loadingRadiusIncreased": false,
+  "newExternalModels": 0,
+  "nativeUnityExecuted": false,
+  "existingNativeTestExtendedButUnrun": "ConnectedMallWorldTests.OldDemoAutomaticallyStreamsPhysicalMallAndKeepsExteriorVisible",
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-19T06:02:16Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "nativePending": [
+    "Unity/HDRP API compilation",
+    "Larger mall and populated Level94 collision and streaming traversal",
+    "Visual quality and performance at unchanged render-distance settings"
+  ],
+  "documentation": "Assets/PoolroomsProcedural/Documentation/EXTENSION_BIOMAS_R32.md",
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R32_Variedad_Y_Biomas_Extensos_Assets.zip",
+    "files": 871,
+    "bytes": 296308354,
+    "sha256": "a57ba2425be4398f03475c4507ca198a4b67e61290a1a0008c21cd4ec9b0fbca",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
+    "workingTreeChanged": false
+  },
+  "publicBackup": {
+    "allTrackedFilesMatched": 1079,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/7986923f9a6927a387baf07b4c69bbe737d15f0a",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
+    "bytes": 462814876,
+    "sha256": "2b4842437f4d92e318c424b122a2112cfe9f53f8477d915b825b5aa3b2fd2166",
+    "assetFilesMatched": 871,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "ci": {
+    "run": 39208189331,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39208189331",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117915507664,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12166866635,
+        "bytes": 295439056,
+        "digest": "sha256:edb27954371e4a32f789dd4ced93f9042d0f6d41b03454fa11bd55e0506dfd8a"
+      }
+    ]
+  }
+}

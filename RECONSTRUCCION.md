@@ -522,3 +522,12 @@ de malla y 13.382.463 aserciones del núcleo. Son muestras acumuladas, no objeto
 cargados a la vez ni modelos nuevos. Documento: EXTENSION_BIOMAS_R32.md.
 Se amplía una prueba PlayMode existente, aún sin ejecutar; Unity/HDRP, PhysX,
 aspecto y FPS siguen pendientes. No se añaden otros niveles en esta etapa.
+
+R32 final: CI [39208189331](https://github.com/waltennecro/poolrooms/actions/runs/39208189331) correcta para `7986923f9a6927a387baf07b4c69bbe737d15f0a`;
+incluye núcleo (1810356013 aserciones), 188 geometrías protegidas, 246 scripts
+en cinco configuraciones, extensión regional, variedad conservada, auditoría,
+recursos, licencias, empaquetado y artefacto. Assets: 871 archivos,
+296308354 bytes. Descarga pública comprobada: 462814876 bytes,
+CRC válido y 1079 archivos versionados coincidentes
+por SHA-256. Evidencia: `Verification/ci_biome_extents_R32.json`.
+Unity/HDRP, navegación/física real, aspecto y FPS siguen pendientes.

@@ -889,15 +889,20 @@
         "auditPlans": 121068,
         "auditRoomConnectorMeshes": 396,
         "auditPropPlacementsResolved": 2083108,
-        "pbrMapsVerified": 82
-      }
+        "pbrMapsVerified": 82,
+        "ciRun": 39208189331,
+        "cumulativeAssetsFiles": 871,
+        "publicBackupBytes": 462814876,
+        "evidence": "Verification/ci_biome_extents_R32.json"
+      },
+      "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1810347597,
+    "assertions": 1810356013,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 245,
+    "syntaxScripts": 246,
     "syntaxConfigurations": 5,
     "pbrMapsVerified": 82,
     "citySourcesAudited": 5,
@@ -988,17 +993,18 @@
     "walkableDistrictBridgeCases": 10,
     "walkableCandidateRegions": 324,
     "walkableRegionBlocks": 9,
-    "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
     "waterOpticsTargetedAssertions": 15864,
     "lightUnitReducedBindingChecks": 6,
     "cameraAvatarFinalAssertions": 17899,
     "aquaticPlansAndRuntimeItemModelsChecked": 33600,
     "nativeUnityExecuted": false,
     "generationPlansAudited": 121068,
-    "generationPropPlacementsResolved": 2083044,
+    "generationPropPlacementsResolved": 2083108,
     "fullGenerationMeshesAudited": 396,
-    "varietyExpansionAssertions": 37886937,
-    "expandedCatalogueTotal": 22332
+    "varietyExpansionAssertions": 37886992,
+    "expandedCatalogueTotal": 22332,
+    "biomeExtentAssertions": 13382463
   },
   "pending": [
     {
@@ -1173,12 +1179,12 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "allTrackedFilesMatched": 1075,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
-    "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
-    "bytes": 462803676,
-    "sha256": "9c48b9ee8dea52dd631dd2ac77495d8fa311a881ece6c3e61d6e5a2f4d0e1925",
-    "assetFilesMatched": 869,
+    "allTrackedFilesMatched": 1079,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/7986923f9a6927a387baf07b4c69bbe737d15f0a",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
+    "bytes": 462814876,
+    "sha256": "2b4842437f4d92e318c424b122a2112cfe9f53f8477d915b825b5aa3b2fd2166",
+    "assetFilesMatched": 871,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -1235,11 +1241,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "zip": "/workspace/output/Poolrooms_R31_Final_Assets.zip",
-    "files": 869,
-    "bytes": 296304732,
-    "sha256": "1f4834cb96591ce41516278244e64145612e3dd22881a6a2215cb63a30a731cb",
-    "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+    "zip": "/workspace/output/Poolrooms_R32_Variedad_Y_Biomas_Extensos_Assets.zip",
+    "files": 871,
+    "bytes": 296308354,
+    "sha256": "a57ba2425be4398f03475c4507ca198a4b67e61290a1a0008c21cd4ec9b0fbca",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -1258,7 +1264,7 @@
     "runner": "tools/run_unity_validation.py",
     "performanceMenu": "Tools/Poolrooms/Validación/Capturar 30 segundos de rendimiento",
     "contractTestsUseFakeProcessNotUnity": true,
-    "latestEvidence": "Verification/ci_variety_expansion_R31.json"
+    "latestEvidence": "Verification/ci_biome_extents_R32.json"
   },
   "nativeToolingCi": {
     "sourceRevision": "9784d0ab3321fb7e9da5c491fed76dd597fb5554",
@@ -1555,19 +1561,19 @@
     ]
   },
   "generationAuditCi": {
-    "run": 39201718996,
-    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39201718996",
-    "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda",
+    "run": 39208189331,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39208189331",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
     "status": "success",
     "nativeUnityExecuted": false,
-    "job": 117895896315,
+    "job": 117915507664,
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": false,
     "artifacts": [
       {
-        "id": 12164316389,
-        "bytes": 295434731,
-        "digest": "sha256:ebbe7179209ad33b92ecb34f143d69380b9795ad4084736da38eb02c471a86f5"
+        "id": 12166866635,
+        "bytes": 295439056,
+        "digest": "sha256:edb27954371e4a32f789dd4ced93f9042d0f6d41b03454fa11bd55e0506dfd8a"
       }
     ]
   },
@@ -1591,5 +1597,22 @@
   "requestedExpansionScope": [
     "structural_room_variety",
     "rooms_per_biome_region_area"
-  ]
+  ],
+  "biomeExtentCi": {
+    "run": 39208189331,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39208189331",
+    "sourceRevision": "7986923f9a6927a387baf07b4c69bbe737d15f0a",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 117915507664,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": false,
+    "artifacts": [
+      {
+        "id": 12166866635,
+        "bytes": 295439056,
+        "digest": "sha256:edb27954371e4a32f789dd4ced93f9042d0f6d41b03454fa11bd55e0506dfd8a"
+      }
+    ]
+  }
 }
