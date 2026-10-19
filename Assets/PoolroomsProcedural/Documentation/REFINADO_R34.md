@@ -13,7 +13,8 @@ ni familias nuevas, ni modelos descargados adicionales.
 
 - Todos: tableros con biseles geométricos, travesaños y cornisas fuera de los
   accesos. Se conserva la superficie plana necesaria para apoyar los objetos.
-- Biblioteca: respaldo y asiento perfilado en los bancos de lectura.
+- Biblioteca: respaldo y asiento perfilado en los bancos de lectura; estantes
+  retranqueados para dejar libre la aproximación a los bancos.
 - Terminal: marcos e indicadores con relieve en los paneles de información.
 - Té: vigas que unen los postes y bandejas apoyadas sobre las mesas bajas.
 - Cerámica: placas montadas en los pedestales y remates del muro de exposición.
@@ -60,7 +61,9 @@ La segunda orden necesita el núcleo ya compilado en Release y el objeto Git
 reproduce la ausencia del bisel, genera la referencia y compara cada receta con
 la versión actual. Exige que **todas** cambien, sigan siendo distintas y respeten
 los límites. Las muestras detalladas verifican apoyos, paso por los puentes y
-profundidad real de las ventanas de lavadora.
+profundidad real de las ventanas de lavadora. La última revisión también
+comprueba que el atril sobresalga de la carcasa del piano y que los estantes no
+invadan el paso delante del banco; ambos defectos se reprodujeron antes de corregirlos.
 
 Las comprobaciones cloud no certifican aspecto, APIs Unity, sombras HDRP,
 reflejos, PhysX o FPS. Hay una prueba PlayMode nueva para cruzar los puentes con

@@ -611,3 +611,10 @@ ejecutar: Unity no está instalado. Apariencia, APIs, física y FPS siguen pendi
 Inventario: REFINADO_R34_ESTADO.json; comparación reproducible y límites en
 Assets/PoolroomsProcedural/Documentation/REFINADO_R34.md. CI y descarga pública
 se anotarán cuando se verifiquen. Los pendientes cuantitativos de R33 se mantienen.
+
+R34, revisión de interiores: se reprodujeron contra el primer código R34 un atril
+oculto dentro del piano y un estante que invadía la aproximación al banco. Se
+adelantó el atril, se retranquearon los estantes y se añadió comprobación geométrica
+de ambas condiciones a las 240 muestras. Los 21 lotes, planes completos y
+regresiones se repitieron sobre esta corrección; el primer CI fue cancelado para
+verificar el código final en una ejecución nueva. Unity sigue sin ejecutarse.

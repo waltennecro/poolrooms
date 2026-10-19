@@ -1065,7 +1065,7 @@
         "stage": "R34",
         "baselineRevision": "0a43903830cf694377118229a23dbeeed9a6346b",
         "nativeUnityExecuted": false,
-        "fullCoreAssertions": 1842430888,
+        "fullCoreAssertions": 1842430893,
         "protectedGeometryFingerprints": 188,
         "syntaxScripts": 253,
         "syntaxConfigurations": 5,
@@ -1078,7 +1078,7 @@
         "exhaustiveRecipePlansValidated": 1310720,
         "fullAxisGeometrySamples": 1320,
         "additionalRefinementGeometrySamples": 240,
-        "refinementCoreAssertions": 6946560,
+        "refinementCoreAssertions": 6946752,
         "batchCoreAssertions": 2856563082,
         "beforeArchitectureTriangles": 713307288,
         "afterArchitectureTriangles": 951921000,
@@ -1128,7 +1128,14 @@
           "R34_textures.log": "51e56fb304f704f660d00fb106536ca5b707520b423dd0e5c7d299320fd7217d",
           "R34_native_contract.log": "9e221410f00bec0e2f90c8943ddf921aa31e175d14f6e60f2f09afe0b7db14ec",
           "before-regression.log": "b7247cf430ad91d850655139af895ec84349419f6ae1a6bb5f6c958ca36d7629",
-          "R34_optics_final.log": "4269cfe7b624befc54c766c5b49b453338c64a3b359357339c9af3939ed07afd"
+          "R34_optics_final.log": "4269cfe7b624befc54c766c5b49b453338c64a3b359357339c9af3939ed07afd",
+          "R34_strict_checked.log": "e28ec6e3edeb7044bf0a93e627bd4c7461ebfec3253ed6ba1407307f6301f860",
+          "R34_full_checked.log": "c78aa7a62147a41f0b4cb48692afd436c0580cb09a0f3660be195ec63b212656",
+          "R34_safety_checked.log": "6a71b3144d7ce24da88e4e1f102728e51eb742e8f76a4444e14a03fd836edd8f",
+          "R34_levels_checked.log": "4abe31625b3d2b4a6256e45cded4092bae23ee81cfd5283a755725c3c5abd97d",
+          "R34_checked_batches.log": "8f87ac6cbdfe2e6d54fddcc0bdf97317fa0480abeb4bb93105bf2d675be46810",
+          "before-piano.log": "34bc3509f05d0e597ffd9bc236f306e18af5e0c7262b489d6021fe69281d7403",
+          "before-library.log": "e463cf99688d446537cef245bd84d4799978d681563b0302210b76af5d4f1e4a"
         },
         "batchEvidence": "Verification/refinement_R34_batches.json",
         "ciStatus": "pending",
@@ -1141,16 +1148,28 @@
         "integrationSyntaxAndOpticsAssertions": 87388,
         "generatedMaterialMigration": "Only the canonical WinterGarden_Slide generated asset with known old default texture maps is updated, retaining GUID and colours. Native Editor behavior unrun.",
         "testedCoreAndEditorSha256": {
-          "Assets/PoolroomsProcedural/Core/RestfulLevelArchitecture.cs": "6a09bebd6b3233ae5cb65ede6a3ae489ce370b9e916e2cfea8795d8b8f6b521f",
+          "Assets/PoolroomsProcedural/Core/RestfulLevelArchitecture.cs": "a73b9d6062c1c78c949ff9860ea8ea5db0211c6d339b8c0e0a37501939a1ecf5",
           "Assets/PoolroomsProcedural/Core/RestfulLevelDetails.cs": "fa7bf777a7ff83f70ee87b61fc7f008e5323cb6ef3659ea941fd21a3370417a5",
           "Assets/PoolroomsProcedural/Core/RestfulLevelPlan.cs": "1a6178fdfadad9c517bf5460281b52873a3c3ed19f5bff069fb633f380468642",
           "Assets/PoolroomsProcedural/Editor/PoolroomsBiomeMaterialSetup.cs": "3b2758a612155b721f9329c8d3f5a77aae19a2b023db0bebdff96637bf38665c"
+        },
+        "interiorRegressions": {
+          "baselineRevision": "4929b39d3c43e8ab21d4dd71a12d723a65edb55b",
+          "hiddenMusicRestReproduced": true,
+          "benchApproachObstructionReproduced": true,
+          "currentSafetyChecksPassed": true,
+          "nativeUnityExecuted": false
+        },
+        "supersededCiRun": {
+          "id": 39338840648,
+          "status": "cancelled",
+          "reason": "Stopped after additional real interior-geometry defects were reproduced; final code requires a new CI run."
         }
       }
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1842430888,
+    "assertions": 1842430893,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
     "syntaxScripts": 253,

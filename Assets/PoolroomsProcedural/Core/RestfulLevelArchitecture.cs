@@ -85,9 +85,13 @@ namespace Poolrooms.Core
             for(int i=0;i<count;i++)
             {
                 float x=b.X,z=b.Z,w=b.Width,d=Math.Min(.7f,b.Depth*.22f);
+                // Keep a real approach in front of the reading bench. Small bays
+                // use shallower cases rather than pushing a shelf into its back.
+                float rear=kind==AssemblyKind.Bookcase?1.6f:.4f;
+                if(kind==AssemblyKind.Bookcase)d=Math.Min(d,Math.Max(.12f,(b.Depth-2.05f)/(count-1==0?1:count-1)*.8f));
                 if(p.Layout==1){w=(b.Width-1.2f)*.5f;x=b.MinX+w*.5f+i*(w+1.2f);}
-                if(p.Layout==2){w=b.Width*.76f;z=b.MinZ+.4f+i*(b.Depth-.8f);}
-                if(p.Layout==3){w=b.Width*.4f;x=b.MinX+w*.5f+i*b.Width*.28f;z=b.MinZ+.4f+i*(b.Depth-.8f)*.5f;}
+                if(p.Layout==2){w=b.Width*.76f;z=b.MinZ+.4f+i*(b.Depth-.4f-rear);}
+                if(p.Layout==3){w=b.Width*.4f;x=b.MinX+w*.5f+i*b.Width*.28f;z=b.MinZ+.4f+i*(b.Depth-.4f-rear)*.5f;}
                 var rect=new PlanRect(x-w*.5f,z-d*.5f,x+w*.5f,z+d*.5f);
                 AutonomousArchitecture.Build(o.Structure,o.Decoration,new GeneratedAssembly(kind,rect,0,(uint)(p.Recipe+i*71)),12);
             }
@@ -228,7 +232,7 @@ namespace Poolrooms.Core
             Box(o.Structure,x,z-1.3f,w*.7f,.44f,0,.45f,Surface.Accent);
             Box(o.Decoration,x,z,w+.04f,.7f,1.22f,1.26f,Surface.Accent);
             // Music rest and three floor-supported pedals, separated from the keys.
-            Box(o.Decoration,x,z-.18f,w*.55f,.045f,.9f,1.14f,Surface.Metal);
+            Box(o.Decoration,x,z-.34f,w*.55f,.05f,.9f,1.14f,Surface.Metal);
             for(int pedal=0;pedal<3;pedal++)Box(o.Decoration,x+(pedal-1)*.13f,z-.39f,.07f,.2f,0,.045f,Surface.Metal);
             for(int panel=0;panel<3+p.Layout;panel++)
             {float px=b.MinX+(panel+.5f)*b.Width/(3+p.Layout);Box(o.Structure,px,b.MinZ+.12f,b.Width/(3+p.Layout)*.6f,.12f,.5f,2.6f,Surface.Plaster);}

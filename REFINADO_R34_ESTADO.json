@@ -9,7 +9,7 @@
     "batchSize": 10000
   },
   "nativeUnityExecuted": false,
-  "status": "all_21_batches_core_verified_ci_pending_native_unrun",
+  "status": "all_21_batches_core_verified_final_ci_pending_native_unrun",
   "batches": [
     {
       "batch": 1,
@@ -22,7 +22,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "653CB35DBCDDFF5E9EA59A1E9531EEA78A0401D2BC5AB20C57F6D0296E7C746E"
+      "evidenceSha256": "9A1AFE13D094E823C01589B202A2D769446DF34C81335303B36DC3DDDEB2466E"
     },
     {
       "batch": 2,
@@ -35,7 +35,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "10FA08CC3C3E007845853DDDCD854093F0E6F620D096438643DAFB919C2197B3"
+      "evidenceSha256": "466DBEE1C2E98396FF072F4ED3DE8E5A6269336709DA72C947820C350D4561B3"
     },
     {
       "batch": 3,
@@ -49,7 +49,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "1FFB60BF2F6FB4C2108B86AC2F8FFA8DDDCA0A803FA9D0683C46DA9CF4848966"
+      "evidenceSha256": "D1F0D2CABAF67D7473D21C3BD61D83D0EA6B25BA49D3739503295A9A8F8BB858"
     },
     {
       "batch": 4,
@@ -62,7 +62,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "542CF21BB2258D65DD28B73D91C401E4CF71C4DE12AD174DD1908064ADDC10AC"
+      "evidenceSha256": "638B19E9B33E9AB67726B4A6C4B4F9A06139372E8C88C1CE57F15BEBECC13801"
     },
     {
       "batch": 5,
@@ -76,7 +76,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "0F1FF3AB743ED8CE500DDECC1B972D87BB05B22CFB0048CB2C66BDFD3175A9B3"
+      "evidenceSha256": "A4A0F1027561F71E502A811384CF5FA47A81FC0BA1AB08ADE9A3EC71F7BF3DA5"
     },
     {
       "batch": 6,
@@ -184,7 +184,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "8346F59893E64CDCC3BF42246042B3CE02B565997AA46372DCEEBA529D8F9D22"
+      "evidenceSha256": "B4D546DB08B03961D32F00476FE752A8C2F9EE0C48CE49350E9E49881047C335"
     },
     {
       "batch": 14,
@@ -197,7 +197,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "1FC51606CD3839FD586024C3FA22BF57A35531950629294E2D414469EDA440A6"
+      "evidenceSha256": "312C5632E944B607ED8A6D8C5BE5C53ED25EC832B2F9B4326AD7E76576D0AB3B"
     },
     {
       "batch": 15,
@@ -211,7 +211,7 @@
       "status": "core_verified_native_unrun",
       "changedMeshes": 10000,
       "changedStructures": 10000,
-      "evidenceSha256": "D58433C6FE0E51759889390DE88B6DA8AD197CBAFBC19288EB81D9F67CD6ABA7"
+      "evidenceSha256": "824FF8B8658083CCB7027DA5C1530F4B184CAFF9289572CD135FBE1187769A83"
     },
     {
       "batch": 16,
@@ -302,13 +302,13 @@
   "verifiedRooms": 200010,
   "resumeEvidenceDirectories": {
     "before": "/workspace/output/R34_before",
-    "after": "/workspace/output/R34_final"
+    "after": "/workspace/output/R34_checked"
   },
   "results": {
     "stage": "R34",
     "baselineRevision": "0a43903830cf694377118229a23dbeeed9a6346b",
     "nativeUnityExecuted": false,
-    "fullCoreAssertions": 1842430888,
+    "fullCoreAssertions": 1842430893,
     "protectedGeometryFingerprints": 188,
     "syntaxScripts": 253,
     "syntaxConfigurations": 5,
@@ -321,7 +321,7 @@
     "exhaustiveRecipePlansValidated": 1310720,
     "fullAxisGeometrySamples": 1320,
     "additionalRefinementGeometrySamples": 240,
-    "refinementCoreAssertions": 6946560,
+    "refinementCoreAssertions": 6946752,
     "batchCoreAssertions": 2856563082,
     "beforeArchitectureTriangles": 713307288,
     "afterArchitectureTriangles": 951921000,
@@ -371,7 +371,14 @@
       "R34_textures.log": "51e56fb304f704f660d00fb106536ca5b707520b423dd0e5c7d299320fd7217d",
       "R34_native_contract.log": "9e221410f00bec0e2f90c8943ddf921aa31e175d14f6e60f2f09afe0b7db14ec",
       "before-regression.log": "b7247cf430ad91d850655139af895ec84349419f6ae1a6bb5f6c958ca36d7629",
-      "R34_optics_final.log": "4269cfe7b624befc54c766c5b49b453338c64a3b359357339c9af3939ed07afd"
+      "R34_optics_final.log": "4269cfe7b624befc54c766c5b49b453338c64a3b359357339c9af3939ed07afd",
+      "R34_strict_checked.log": "e28ec6e3edeb7044bf0a93e627bd4c7461ebfec3253ed6ba1407307f6301f860",
+      "R34_full_checked.log": "c78aa7a62147a41f0b4cb48692afd436c0580cb09a0f3660be195ec63b212656",
+      "R34_safety_checked.log": "6a71b3144d7ce24da88e4e1f102728e51eb742e8f76a4444e14a03fd836edd8f",
+      "R34_levels_checked.log": "4abe31625b3d2b4a6256e45cded4092bae23ee81cfd5283a755725c3c5abd97d",
+      "R34_checked_batches.log": "8f87ac6cbdfe2e6d54fddcc0bdf97317fa0480abeb4bb93105bf2d675be46810",
+      "before-piano.log": "34bc3509f05d0e597ffd9bc236f306e18af5e0c7262b489d6021fe69281d7403",
+      "before-library.log": "e463cf99688d446537cef245bd84d4799978d681563b0302210b76af5d4f1e4a"
     },
     "batchEvidence": "Verification/refinement_R34_batches.json",
     "ciStatus": "pending",
@@ -384,11 +391,29 @@
     "integrationSyntaxAndOpticsAssertions": 87388,
     "generatedMaterialMigration": "Only the canonical WinterGarden_Slide generated asset with known old default texture maps is updated, retaining GUID and colours. Native Editor behavior unrun.",
     "testedCoreAndEditorSha256": {
-      "Assets/PoolroomsProcedural/Core/RestfulLevelArchitecture.cs": "6a09bebd6b3233ae5cb65ede6a3ae489ce370b9e916e2cfea8795d8b8f6b521f",
+      "Assets/PoolroomsProcedural/Core/RestfulLevelArchitecture.cs": "a73b9d6062c1c78c949ff9860ea8ea5db0211c6d339b8c0e0a37501939a1ecf5",
       "Assets/PoolroomsProcedural/Core/RestfulLevelDetails.cs": "fa7bf777a7ff83f70ee87b61fc7f008e5323cb6ef3659ea941fd21a3370417a5",
       "Assets/PoolroomsProcedural/Core/RestfulLevelPlan.cs": "1a6178fdfadad9c517bf5460281b52873a3c3ed19f5bff069fb633f380468642",
       "Assets/PoolroomsProcedural/Editor/PoolroomsBiomeMaterialSetup.cs": "3b2758a612155b721f9329c8d3f5a77aae19a2b023db0bebdff96637bf38665c"
+    },
+    "interiorRegressions": {
+      "baselineRevision": "4929b39d3c43e8ab21d4dd71a12d723a65edb55b",
+      "hiddenMusicRestReproduced": true,
+      "benchApproachObstructionReproduced": true,
+      "currentSafetyChecksPassed": true,
+      "nativeUnityExecuted": false
+    },
+    "supersededCiRun": {
+      "id": 39338840648,
+      "status": "cancelled",
+      "reason": "Stopped after additional real interior-geometry defects were reproduced; final code requires a new CI run."
     }
   },
-  "batchEvidence": "Verification/refinement_R34_batches.json"
+  "batchEvidence": "Verification/refinement_R34_batches.json",
+  "currentRevisionCompletedBatches": 21,
+  "firstCodeRevision": "4929b39d3c43e8ab21d4dd71a12d723a65edb55b",
+  "additionalRegressionsReproduced": [
+    "Hidden music rest inside piano housing",
+    "Bookcase obstructing reading bench approach"
+  ]
 }

@@ -62,6 +62,18 @@ static partial class Checks
                         NearestVisibleNormal(g.Decoration,origin,forward,out float drum);
                         Check(drum>pane+.3f&&drum<1,"Washer has no visible recessed drum behind glass");
                     }
+                    if(level==6)
+                    {
+                        var origin=new V3(b.X,1.02f,b.MaxZ-.45f-.8f);var forward=new V3(0,0,1);
+                        NearestVisibleNormal(g.Structure,origin,forward,out float body);
+                        var normal=NearestVisibleNormal(g.Decoration,origin,forward,out float rest);
+                        Check(body-rest>.03f&&normal.Z<-.9f,"Music rest is hidden inside the opaque piano housing");
+                    }
+                    if(level==0)
+                    {
+                        var approach=new V3(b.X,1,b.MaxZ-.9f);
+                        Check(Math.Abs(Support(g.Structure,approach))<.01f&&SphereClear(g.Structure,approach,.32f),"Bookcase overlaps the reading bench approach");
+                    }
                 }
                 samples++;
             }
