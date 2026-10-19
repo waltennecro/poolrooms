@@ -42,16 +42,17 @@
     {
       "number": 5,
       "scope": "Strict rebuild, cumulative CI and reproducible public backup",
-      "status": "in_progress",
-      "result": "Public backup of 8647643 verified: 492800760 bytes, 1149 tracked files, CRC/SHA256 match. Final review reproduced and fixed rounded-pool sound anchors on dry corners; targeted water/audio checks pass. Full cumulative CI continues, native Unity absent."
+      "status": "passed_cloud_build_ci_public_download_package",
+      "result": "Final refinement passed 1831471808 cumulative core assertions and strict zero-warning/error build. CI 39318842965 succeeded including all catalogues, source resources, licences, ZIP and nonempty artifact. Public ZIP 492801660 bytes, 1149 tracked files matched by SHA256. Native Editor absent."
     }
   ],
-  "status": "implemented_cloud_checks_passed_publication_pending_native_unrun",
+  "status": "implemented_with_explicit_limits_cloud_verified_native_unrun",
   "outstanding": [
-    "100001 genuinely different structural families per level",
-    "Clarify 20001 licensed model families versus placed licensed instances",
-    "Native Unity rendering, interaction, warnings, physics and performance validation",
-    "AAA equivalence on integrated GPU is not a verifiable guarantee"
+    "100001 genuinely different structural families per level; implemented: ten programmes with 131072 architectural recipes each",
+    "20001 distinct downloaded models if that was intended; implemented: 22 imported source records total and 109656 licensed-source instances in actual world coordinate sample",
+    "Tripling every old-biome final object count is not guaranteed: eligible requested budgets and new tabletop placements are tripled while safety/capacity limits remain",
+    "Native Unity/HDRP rendering, API compilation, physics, audio, warnings, interaction and FPS validation",
+    "AAA equivalence on integrated GPU and absolute absence of all errors cannot be certified"
   ],
   "results": {
     "newLevels": 10,
@@ -81,5 +82,42 @@
     "strictCoreBuildWarnings": 0,
     "strictCoreBuildErrors": 0
   },
-  "evidence": "Verification/expansion_R33_local.json"
+  "evidence": "Verification/expansion_R33_ci.json",
+  "ci": {
+    "run": 39318842965,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39318842965",
+    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 118287291013,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": true,
+    "artifacts": [
+      {
+        "id": 12218718020,
+        "bytes": 313078318,
+        "digest": "sha256:d63c94c992b2b1d77caa21c0665d88ce190aec553980a0d35bff08512779a2a4"
+      }
+    ],
+    "authenticatedArtifactDownloadSucceeded": false
+  },
+  "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+  "publicBackup": {
+    "allTrackedFilesMatched": 1149,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "bytes": 492801660,
+    "sha256": "946df9d04b0f19627564c1f2cefb34e3ebbc301f448a9ff5bbcfcfc158dc903a",
+    "assetFilesMatched": 921,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R33_Refinada_Diez_Niveles_Agua_Audio_Assets.zip",
+    "files": 921,
+    "bytes": 314287961,
+    "sha256": "b78883c715d7d650ffe3718798a9fd67ac290d4ffa6837c76bfd3a84a45bedb6",
+    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "workingTreeChanged": false
+  }
 }

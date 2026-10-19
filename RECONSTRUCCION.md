@@ -564,3 +564,14 @@ el contorno real; los casos rectangulares, redondeados y de cápsula pasan.
 La prueba dirigida reúne 87.344 aserciones de agua/audio y contratos sintácticos.
 CI pasa a Release para ejecutar las mismas comprobaciones con menor coste;
 no se rebajan ni omiten catálogos, huellas, licencias, empaquetado o artefactos.
+
+R33 final: código `8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6`, CI [39318842965](https://github.com/waltennecro/poolrooms/actions/runs/39318842965) correcta
+incluyendo compilación Release con cero errores/advertencias, catálogos completos,
+200.010 huellas nuevas distintas, exploración, recursos, licencias, ZIP y artefacto
+no vacío. 1831471808 aserciones acumuladas del núcleo; 188 geometrías protegidas.
+Descarga pública real: 492801660 bytes, CRC válido y 1149
+archivos versionados coincidentes por SHA-256. Assets: 921 archivos,
+314287961 bytes, paquete reproducible de árbol limpio.
+Evidencia: Verification/expansion_R33_ci.json. Cinco revisiones cloud completadas;
+las APIs nativas, shaders, PhysX, audio real, aspecto, avisos y FPS siguen sin
+validar en Unity. Los límites de familias/modelos y densidad están en el inventario.

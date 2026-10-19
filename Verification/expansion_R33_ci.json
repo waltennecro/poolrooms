@@ -1,0 +1,153 @@
+{
+  "stage": "R33",
+  "baseRevision": "c39e8c26187f6e76432a165ab2e47e15cb97f781",
+  "nativeUnityExecuted": false,
+  "fullCoreAssertions": 1831471808,
+  "protectedGeometryFingerprints": 188,
+  "syntaxScripts": 252,
+  "syntaxConfigurations": 5,
+  "strictCoreBuildWarnings": 0,
+  "strictCoreBuildErrors": 0,
+  "newLevels": 10,
+  "totalEnvironments": 28,
+  "structuralProgrammesAdded": 10,
+  "architecturalRecipeCapacityPerNewLevel": 131072,
+  "architecturalRecipeCapacityTotal": 1310720,
+  "exhaustiveRecipePlansValidated": 1310720,
+  "distinctNewBuiltMeshFingerprints": 200010,
+  "fullAxisGeometrySamples": 1320,
+  "supportedPropPlacementsAcrossGeometrySamples": 79200,
+  "licensedSourcePlacementsAcrossGeometrySamples": 31680,
+  "walkableWitnessRoutes": 160,
+  "walkablePhysicalBoundaryPairs": 249,
+  "walkableDistrictBridges": 10,
+  "actualWorldSnapshot": {
+    "seed": 481516,
+    "xRange": [
+      -64,
+      64
+    ],
+    "zRange": [
+      -64,
+      64
+    ],
+    "newLevelRooms": 4569,
+    "interactiveKeys": 274140,
+    "licensedSourceInstances": 109656,
+    "distinctLicensedSourceModelsUsed": 8,
+    "terrainReservationsExcluded": true,
+    "simultaneouslyLoaded": false,
+    "nativeRuntimeSnapshot": false
+  },
+  "newOnlineSourceModels": 3,
+  "newLODDerivatives": 6,
+  "newModelLicenses": [
+    "CC0-1.0",
+    "CC-BY-4.0"
+  ],
+  "pbrMapsAudited": 83,
+  "renderDistanceReduced": false,
+  "sourceHashPreservation": {
+    "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+    "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+    "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
+  },
+  "nativePreflight": {
+    "nativeExecuted": false,
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-19T13:33:24Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+  },
+  "sourceAudits": {
+    "verify_play_textures": "Verified 83 PBR maps: SHA-256, 1024px, PNG CRC and decompression.",
+    "verify_restful_sources": "PASS: 3 distinct newly downloaded source models, 6 LOD derivatives, 41 hashed resources, 94170 total LOD/source triangles; CC0 and CC BY 4.0 provenance, original downloads, OBJ bounds references and normals verified. Native Unity unrun.",
+    "verify_city_sources": "Verified 5 distinct CC0 sources; 3 small props + 1 chair + 1 car; car LODs are derivatives of that same source. Native Unity validation pending.",
+    "verify_interior_sources": "Verified two CC-BY furniture source files: one new sofa geometry family and one variant of the existing oval chair; 4196/9984 triangles, 13 baked PNG maps, licences and Core dimensions. Native Unity validation pending.",
+    "verify_garden_sources_final": "{\"distinctNewModels\": 1, \"triangles\": [37251, 29772, 19629], \"licensedMaps\": 6, \"sourceAndDerivativeHashes\": \"passed\", \"insectsLightsAndAnimationImported\": false, \"diffuseTransmissionReproduced\": false, \"nativeUnityExecuted\": false}",
+    "verify_bath_sources_final": "{\"newAuthoredModels\": 1, \"licensedMaterialSets\": 1, \"lampTriangles\": [6000, 3952, 2012], \"sourcePbrImages\": 9, \"wickerMaps\": 3, \"hashesLicencesAndDimensions\": \"passed\", \"nativeUnityExecuted\": false}",
+    "verify_urban_sources": "{\"distinctNewSourceModels\": 3, \"modelsAndDerivedLodTriangles\": {\"U_CarConcept\": [213195, 23612, 12331], \"U_AntiqueCamera\": [20066, 2192, 862], \"U_SheenWoodLeatherSofa\": [46492, 10735, 3044]}, \"mapsAudited\": 66, \"nativeUnityValidated\": false}",
+    "verify_bistro_sources": "Verified three CC-BY Bistro component adaptations, 16 bounded PNGs, original metric up-axis, material/source hashes and two LODs per model. No downloaded complete buildings or native Unity certification.",
+    "verify_building_sources": "{\"buildingSourceFamilies\": 2, \"exteriorSkinAdaptations\": 2, \"sourceTriangleCounts\": [25917, 61202], \"nativeTriangleCounts\": {\"B_BuildingCourtyard\": [14718, 10332, 7968], \"B_BuildingCorner\": [50114, 31345, 24835]}, \"mapsAudited\": 50, \"trianglesAudited\": 139312, \"allLodClearanceVolumes\": \"independent_SAT_passed\", \"nativeUnityExecuted\": false}",
+    "verify_aircraft_sources": "Verified 1 distinct Apache-2.0 aircraft source, 5984 native triangles, 2 propellers / 4 material groups and all resource/PNG/license hashes. Native Unity validation pending.",
+    "verify_helicopter_sources": "Verified 1 CC-BY-4.0 helicopter derivative; 40604/10771/5998 native triangles including 3 hidden pivot markers, nine original PBR maps, license and source hashes. Native Unity validation pending.",
+    "verify_rain_resources": "Rain media: two original resource hashes, full alpha PNG/CRC and nonempty bounded 16-second mono PCM verified. Native playback/rendering unrun.",
+    "check_native_runner": "Runner contract checks passed: zero, skipped-only, absent, failed and stale XML cannot report a successful native suite. These fake subprocess checks do NOT execute Unity.",
+    "uv_final": "UV baker: analytic transform/wrapping/bilinear tests and complete rotated-UV1 normal/AO GLB bake passed.\nUV atlas material 0 charts 2\nUV atlas material 1 charts 0\nUV baker: degenerate AO target fallback, original constant AO sampling and untouched uniform glass passed.\nUV atlas material 0 charts 2\nUV atlas material 1 charts 0\nUV baker: authored tangent handedness and linear vertex-colour albedo baking passed.\nUV atlas material 0 charts 2\nUV atlas material 1 charts 0\nUV baker: embedded EXT_texture_webp decoded and live material bindings replaced with native PNG passed.\nNative LOD clustering: thin opposite faces preserve distinct unit shading normals passed.",
+    "buildings_final": "Building cutter: exact analytical areas, interpolated UVs/normals, full removal, disjoint preservation and repeated clipping verified. Not a Unity test.\nBuilding generator cleanup: stale owned maps removed; referenced maps and unrelated user files preserved."
+  },
+  "logs": {
+    "full_final": "70d750f9befbff8343467c368a02ef3ae251622b26cbd80e635d445a3fcefaea",
+    "restful_final": "5c4c91e7409e7ac33d2fe7578a1744b8456a50d6fab09967b882a40829764be6",
+    "mesh_catalog_pass4": "60b4cfdda30cd3551525022755be87fc1475c95685a6400d4a76defacc5f7573",
+    "world_final": "b31a63cfdb2882c19d60951ff320b781f29177c4db2f691e79f97da672239b1e",
+    "extents_final": "8b3120312692d50766a6e4b2cdf2251074980a5b99537e233af48357a2418017",
+    "variety_final": "0bb0e78e4b2665b6a80e60023146a3740655eb61533059d0bfeb3d08f3f580de",
+    "audit_final": "155373e2cb948a7117dcee3fa9ea4ade366dbffcd1c42b7a58eda6fcbc5bde05",
+    "release_build_pass4": "d5b99e1d7188de1035c4bbe1b72b4f4ed195d43e7aee7773cd12af07adb9ef23"
+  },
+  "ci": {
+    "run": 39318842965,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39318842965",
+    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "status": "success",
+    "nativeUnityExecuted": false,
+    "job": 118287291013,
+    "artifactPublished": true,
+    "authenticatedArtifactDownloadTested": true,
+    "artifacts": [
+      {
+        "id": 12218718020,
+        "bytes": 313078318,
+        "digest": "sha256:d63c94c992b2b1d77caa21c0665d88ce190aec553980a0d35bff08512779a2a4"
+      }
+    ],
+    "authenticatedArtifactDownloadSucceeded": false
+  },
+  "publication": {
+    "allTrackedFilesMatched": 1149,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "bytes": 492801660,
+    "sha256": "946df9d04b0f19627564c1f2cefb34e3ebbc301f448a9ff5bbcfcfc158dc903a",
+    "assetFilesMatched": 921,
+    "crcValid": true,
+    "githubActionsArtifactDownload": false
+  },
+  "limitations": [
+    "131072 recipes per level belong to ten new structural programmes, not 100001 distinct families per level",
+    "Licensed instances are repeated placements, not 20001 distinct source models",
+    "Native Unity/HDRP APIs, shaders, visuals, warnings, physics, audio and FPS unrun",
+    "No AAA equivalence or maximum graphics on an integrated GPU is guaranteed",
+    "Plus 200 percent applies to new tabletop slots and requested eligible placement budgets; old biome safety and capacity limits remain"
+  ],
+  "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+  "waterAudioAssertions": 87344,
+  "package": {
+    "zip": "/workspace/output/Poolrooms_R33_Refinada_Diez_Niveles_Agua_Audio_Assets.zip",
+    "files": 921,
+    "bytes": 314287961,
+    "sha256": "b78883c715d7d650ffe3718798a9fd67ac290d4ffa6837c76bfd3a84a45bedb6",
+    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "workingTreeChanged": false
+  },
+  "artifactVerification": {
+    "authenticatedDownloadTested": true,
+    "downloadSucceeded": false,
+    "returnCode": 1,
+    "artifactId": 12218718020,
+    "publicBackupActuallyDownloaded": true,
+    "nativeUnityExecuted": false
+  },
+  "finalRefinement": {
+    "issue": "Rounded-pool emitter anchored to a dry bounding-box corner",
+    "negativeRegressionReproduced": true,
+    "fix": "Project onto inner box plus rounded radius; test rectangles, rounded rectangles and capsules",
+    "regressionCases": 97,
+    "nativeUnityExecuted": false
+  }
+}
