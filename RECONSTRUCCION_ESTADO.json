@@ -900,12 +900,12 @@
     {
       "id": "R33",
       "feature": "Ten connected restful levels, 200010 distinct built room meshes, denser safe placements, three licensed source models, shared pickup visuals, clear water fallback and spatial occlusion",
-      "status": "ceramic_polish_targeted_verified_cumulative_recheck_pending",
+      "status": "implemented_cloud_ci_verified_native_unrun",
       "details": {
         "stage": "R33",
         "baseRevision": "c39e8c26187f6e76432a165ab2e47e15cb97f781",
         "nativeUnityExecuted": false,
-        "fullCoreAssertions": 1831471808,
+        "fullCoreAssertions": 1833854219,
         "protectedGeometryFingerprints": 188,
         "syntaxScripts": 252,
         "syntaxConfigurations": 5,
@@ -983,40 +983,30 @@
           "uv_final": "UV baker: analytic transform/wrapping/bilinear tests and complete rotated-UV1 normal/AO GLB bake passed.\nUV atlas material 0 charts 2\nUV atlas material 1 charts 0\nUV baker: degenerate AO target fallback, original constant AO sampling and untouched uniform glass passed.\nUV atlas material 0 charts 2\nUV atlas material 1 charts 0\nUV baker: authored tangent handedness and linear vertex-colour albedo baking passed.\nUV atlas material 0 charts 2\nUV atlas material 1 charts 0\nUV baker: embedded EXT_texture_webp decoded and live material bindings replaced with native PNG passed.\nNative LOD clustering: thin opposite faces preserve distinct unit shading normals passed.",
           "buildings_final": "Building cutter: exact analytical areas, interpolated UVs/normals, full removal, disjoint preservation and repeated clipping verified. Not a Unity test.\nBuilding generator cleanup: stale owned maps removed; referenced maps and unrelated user files preserved."
         },
-        "logs": {
-          "full_final": "70d750f9befbff8343467c368a02ef3ae251622b26cbd80e635d445a3fcefaea",
-          "restful_final": "5c4c91e7409e7ac33d2fe7578a1744b8456a50d6fab09967b882a40829764be6",
-          "mesh_catalog_pass4": "60b4cfdda30cd3551525022755be87fc1475c95685a6400d4a76defacc5f7573",
-          "world_final": "b31a63cfdb2882c19d60951ff320b781f29177c4db2f691e79f97da672239b1e",
-          "extents_final": "8b3120312692d50766a6e4b2cdf2251074980a5b99537e233af48357a2418017",
-          "variety_final": "0bb0e78e4b2665b6a80e60023146a3740655eb61533059d0bfeb3d08f3f580de",
-          "audit_final": "155373e2cb948a7117dcee3fa9ea4ade366dbffcd1c42b7a58eda6fcbc5bde05",
-          "release_build_pass4": "d5b99e1d7188de1035c4bbe1b72b4f4ed195d43e7aee7773cd12af07adb9ef23"
-        },
         "ci": {
-          "run": 39318842965,
-          "url": "https://github.com/waltennecro/poolrooms/actions/runs/39318842965",
-          "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+          "run": 39320778179,
+          "url": "https://github.com/waltennecro/poolrooms/actions/runs/39320778179",
+          "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
           "status": "success",
           "nativeUnityExecuted": false,
-          "job": 118287291013,
+          "job": 118293938306,
           "artifactPublished": true,
           "authenticatedArtifactDownloadTested": true,
           "artifacts": [
             {
-              "id": 12218718020,
-              "bytes": 313078318,
-              "digest": "sha256:d63c94c992b2b1d77caa21c0665d88ce190aec553980a0d35bff08512779a2a4"
+              "id": 12218724660,
+              "bytes": 313078856,
+              "digest": "sha256:35c45b37be0425b268f571bd996d8609dc4b27ff1078293fa41d8930755f4d8a"
             }
           ],
           "authenticatedArtifactDownloadSucceeded": false
         },
         "publication": {
-          "allTrackedFilesMatched": 1149,
-          "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
-          "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
-          "bytes": 492801660,
-          "sha256": "946df9d04b0f19627564c1f2cefb34e3ebbc301f448a9ff5bbcfcfc158dc903a",
+          "allTrackedFilesMatched": 1150,
+          "url": "https://codeload.github.com/waltennecro/poolrooms/zip/634f967ae2329ae48e981035e153a1d474a272b3",
+          "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
+          "bytes": 492809130,
+          "sha256": "38cd132b92aa9b6a6f03dc018f24ed02a02593bb45554315d4657c6a95ae32c7",
           "assetFilesMatched": 921,
           "crcValid": true,
           "githubActionsArtifactDownload": false
@@ -1028,29 +1018,48 @@
           "No AAA equivalence or maximum graphics on an integrated GPU is guaranteed",
           "Plus 200 percent applies to new tabletop slots and requested eligible placement budgets; old biome safety and capacity limits remain"
         ],
-        "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+        "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
         "package": {
-          "zip": "/workspace/output/Poolrooms_R33_Refinada_Diez_Niveles_Agua_Audio_Assets.zip",
+          "zip": "/workspace/output/Poolrooms_R33_Detalle_Final_Assets.zip",
           "files": 921,
-          "bytes": 314287961,
-          "sha256": "b78883c715d7d650ffe3718798a9fd67ac290d4ffa6837c76bfd3a84a45bedb6",
-          "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+          "bytes": 314288391,
+          "sha256": "f671bf2d7edff9781ff084d260cac92a17d5172f3517c76dccdc828159b6e07a",
+          "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
           "workingTreeChanged": false
         },
         "artifactVerification": {
           "authenticatedDownloadTested": true,
           "downloadSucceeded": false,
           "returnCode": 1,
-          "artifactId": 12218718020,
+          "artifactId": 12218724660,
           "publicBackupActuallyDownloaded": true,
           "nativeUnityExecuted": false
-        }
+        },
+        "initialStageLogHashes": {
+          "full_final": "70d750f9befbff8343467c368a02ef3ae251622b26cbd80e635d445a3fcefaea",
+          "restful_final": "5c4c91e7409e7ac33d2fe7578a1744b8456a50d6fab09967b882a40829764be6",
+          "mesh_catalog_pass4": "60b4cfdda30cd3551525022755be87fc1475c95685a6400d4a76defacc5f7573",
+          "world_final": "b31a63cfdb2882c19d60951ff320b781f29177c4db2f691e79f97da672239b1e",
+          "extents_final": "8b3120312692d50766a6e4b2cdf2251074980a5b99537e233af48357a2418017",
+          "variety_final": "0bb0e78e4b2665b6a80e60023146a3740655eb61533059d0bfeb3d08f3f580de",
+          "audit_final": "155373e2cb948a7117dcee3fa9ea4ade366dbffcd1c42b7a58eda6fcbc5bde05",
+          "release_build_pass4": "d5b99e1d7188de1035c4bbe1b72b4f4ed195d43e7aee7773cd12af07adb9ef23"
+        },
+        "finalStageLogHashes": {
+          "R33_ceramic_strict.log": "1c4f0186f295fda36ad53be5b9a548bf1a79eb10440171b3d0b7a93890b86f68",
+          "R33_ceramic_full.log": "e4c3d7d6916ab2e40baa1c81005b123085c77c029499a72ef4ab9ef051b225b5",
+          "R33_ceramic_levels.log": "34d010b9d7937a703c168b7588fc36db043c5e185004430bbbaf500a81268e26",
+          "R33_ceramic_meshes.log": "d335c85e7419dd7b0a0f6538a82e97ec0485d9d6b2241ba954c4ece3d6c22752",
+          "R33_ceramic_optics.log": "bfabe5fd7f74e4d1b41919de6272e999615dd982c3dfa03e5a70f2fb4f014e49"
+        },
+        "exhaustiveRecipeCoreAssertions": 28514321,
+        "meshTrianglesFingerprintScanned": 713307288
       },
-      "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6"
+      "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3"
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1831471808,
+    "assertions": 1833854219,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
     "syntaxScripts": 252,
@@ -1144,8 +1153,8 @@
     "walkableDistrictBridgeCases": 10,
     "walkableCandidateRegions": 504,
     "walkableRegionBlocks": 9,
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
-    "waterOpticsTargetedAssertions": 87344,
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
+    "waterOpticsTargetedAssertions": 87354,
     "lightUnitReducedBindingChecks": 6,
     "cameraAvatarFinalAssertions": 17899,
     "aquaticPlansAndRuntimeItemModelsChecked": 33600,
@@ -1334,11 +1343,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "allTrackedFilesMatched": 1149,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
-    "bytes": 492801660,
-    "sha256": "946df9d04b0f19627564c1f2cefb34e3ebbc301f448a9ff5bbcfcfc158dc903a",
+    "allTrackedFilesMatched": 1150,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/634f967ae2329ae48e981035e153a1d474a272b3",
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
+    "bytes": 492809130,
+    "sha256": "38cd132b92aa9b6a6f03dc018f24ed02a02593bb45554315d4657c6a95ae32c7",
     "assetFilesMatched": 921,
     "crcValid": true,
     "githubActionsArtifactDownload": false
@@ -1396,11 +1405,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "zip": "/workspace/output/Poolrooms_R33_Refinada_Diez_Niveles_Agua_Audio_Assets.zip",
+    "zip": "/workspace/output/Poolrooms_R33_Detalle_Final_Assets.zip",
     "files": 921,
-    "bytes": 314287961,
-    "sha256": "b78883c715d7d650ffe3718798a9fd67ac290d4ffa6837c76bfd3a84a45bedb6",
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "bytes": 314288391,
+    "sha256": "f671bf2d7edff9781ff084d260cac92a17d5172f3517c76dccdc828159b6e07a",
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -1716,19 +1725,19 @@
     ]
   },
   "generationAuditCi": {
-    "run": 39318842965,
-    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39318842965",
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "run": 39320778179,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39320778179",
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
     "status": "success",
     "nativeUnityExecuted": false,
-    "job": 118287291013,
+    "job": 118293938306,
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": true,
     "artifacts": [
       {
-        "id": 12218718020,
-        "bytes": 313078318,
-        "digest": "sha256:d63c94c992b2b1d77caa21c0665d88ce190aec553980a0d35bff08512779a2a4"
+        "id": 12218724660,
+        "bytes": 313078856,
+        "digest": "sha256:35c45b37be0425b268f571bd996d8609dc4b27ff1078293fa41d8930755f4d8a"
       }
     ],
     "authenticatedArtifactDownloadSucceeded": false
@@ -1775,32 +1784,32 @@
   "r33RequestInventory": "AMPLIACION_R33_ESTADO.json",
   "r33Refinement": {
     "feature": "Rounded-pool audio anchors project onto the actual water contour; spatial regression reproduced before fix and passed after fix",
-    "targetedWaterAudioCoreAssertions": 87344,
+    "targetedWaterAudioCoreAssertions": 87354,
     "fullCoreAndCI": "passed",
     "ciConfiguration": "Release, all existing and new checks retained",
-    "cumulativeCoreAssertions": 1831471808,
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6"
+    "cumulativeCoreAssertions": 1833854219,
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3"
   },
   "r33ExpansionCi": {
-    "run": 39318842965,
-    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39318842965",
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "run": 39320778179,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39320778179",
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
     "status": "success",
     "nativeUnityExecuted": false,
-    "job": 118287291013,
+    "job": 118293938306,
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": true,
     "artifacts": [
       {
-        "id": 12218718020,
-        "bytes": 313078318,
-        "digest": "sha256:d63c94c992b2b1d77caa21c0665d88ce190aec553980a0d35bff08512779a2a4"
+        "id": 12218724660,
+        "bytes": 313078856,
+        "digest": "sha256:35c45b37be0425b268f571bd996d8609dc4b27ff1078293fa41d8930755f4d8a"
       }
     ],
     "authenticatedArtifactDownloadSucceeded": false
   },
   "r33CeramicPolish": {
-    "status": "targeted_geometry_passed_cumulative_ci_pending",
+    "status": "cumulative_core_catalogue_ci_passed_native_unrun",
     "regressionReproducedBeforeFix": true,
     "changes": [
       "Outward smooth shell normals and matching triangle winding",
@@ -1808,6 +1817,8 @@
       "Open mouth and inner floor",
       "Immutable pure-geometry template cloned for placement"
     ],
-    "nativeRenderingExecuted": false
+    "nativeRenderingExecuted": false,
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
+    "cumulativeCoreAssertions": 1833854219
   }
 }

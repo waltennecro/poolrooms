@@ -42,11 +42,11 @@
     {
       "number": 5,
       "scope": "Strict rebuild, cumulative CI and reproducible public backup",
-      "status": "in_progress_after_geometry_polish",
-      "result": "Previous full code stage and public backups are verified. Additional face-orientation audit reproduced culled ceramic shells; fixed smooth exterior/interior normals, open rim and bottom. Actual generated-decoration ray regression passes; cumulative recheck and refreshed packages pending."
+      "status": "passed_cloud_build_ci_public_download_package",
+      "result": "Final refinement passed 1833854219 cumulative core assertions and strict zero-warning/error build. CI 39320778179 succeeded including all catalogues, source resources, licences, ZIP and nonempty artifact. Public ZIP 492809130 bytes, 1150 tracked files matched by SHA256. Native Editor absent."
     }
   ],
-  "status": "ceramic_polish_targeted_passed_full_validation_pending",
+  "status": "implemented_with_explicit_limits_cloud_verified_native_unrun",
   "outstanding": [
     "100001 genuinely different structural families per level; implemented: ten programmes with 131072 architectural recipes each",
     "20001 distinct downloaded models if that was intended; implemented: 22 imported source records total and 109656 licensed-source instances in actual world coordinate sample",
@@ -84,40 +84,40 @@
   },
   "evidence": "Verification/expansion_R33_ci.json",
   "ci": {
-    "run": 39318842965,
-    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39318842965",
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "run": 39320778179,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39320778179",
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
     "status": "success",
     "nativeUnityExecuted": false,
-    "job": 118287291013,
+    "job": 118293938306,
     "artifactPublished": true,
     "authenticatedArtifactDownloadTested": true,
     "artifacts": [
       {
-        "id": 12218718020,
-        "bytes": 313078318,
-        "digest": "sha256:d63c94c992b2b1d77caa21c0665d88ce190aec553980a0d35bff08512779a2a4"
+        "id": 12218724660,
+        "bytes": 313078856,
+        "digest": "sha256:35c45b37be0425b268f571bd996d8609dc4b27ff1078293fa41d8930755f4d8a"
       }
     ],
     "authenticatedArtifactDownloadSucceeded": false
   },
-  "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+  "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
   "publicBackup": {
-    "allTrackedFilesMatched": 1149,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
-    "bytes": 492801660,
-    "sha256": "946df9d04b0f19627564c1f2cefb34e3ebbc301f448a9ff5bbcfcfc158dc903a",
+    "allTrackedFilesMatched": 1150,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/634f967ae2329ae48e981035e153a1d474a272b3",
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
+    "bytes": 492809130,
+    "sha256": "38cd132b92aa9b6a6f03dc018f24ed02a02593bb45554315d4657c6a95ae32c7",
     "assetFilesMatched": 921,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
   "package": {
-    "zip": "/workspace/output/Poolrooms_R33_Refinada_Diez_Niveles_Agua_Audio_Assets.zip",
+    "zip": "/workspace/output/Poolrooms_R33_Detalle_Final_Assets.zip",
     "files": 921,
-    "bytes": 314287961,
-    "sha256": "b78883c715d7d650ffe3718798a9fd67ac290d4ffa6837c76bfd3a84a45bedb6",
-    "sourceRevision": "8f9df12f3f895f41bfa0e3fd894cda90cb1d5da6",
+    "bytes": 314288391,
+    "sha256": "f671bf2d7edff9781ff084d260cac92a17d5172f3517c76dccdc828159b6e07a",
+    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
     "workingTreeChanged": false
   }
 }

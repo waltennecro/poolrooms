@@ -582,3 +582,14 @@ dentro. Se corrigió su orientación y suavidad; ahora tienen pared interior,
 borde abierto y fondo. Rayos desde fuera, dentro y arriba validan ambas caras
 y el hueco. La plantilla inmutable evita recalcular el perfil por cada jarrón.
 Las comprobaciones acumuladas y el respaldo de esta última corrección se repiten.
+
+R33 final: código `634f967ae2329ae48e981035e153a1d474a272b3`, CI [39320778179](https://github.com/waltennecro/poolrooms/actions/runs/39320778179) correcta
+incluyendo compilación Release con cero errores/advertencias, catálogos completos,
+200.010 huellas nuevas distintas, exploración, recursos, licencias, ZIP y artefacto
+no vacío. 1833854219 aserciones acumuladas del núcleo; 188 geometrías protegidas.
+Descarga pública real: 492809130 bytes, CRC válido y 1150
+archivos versionados coincidentes por SHA-256. Assets: 921 archivos,
+314288391 bytes, paquete reproducible de árbol limpio.
+Evidencia: Verification/expansion_R33_ci.json. Cinco revisiones cloud completadas;
+las APIs nativas, shaders, PhysX, audio real, aspecto, avisos y FPS siguen sin
+validar en Unity. Los límites de familias/modelos y densidad están en el inventario.
