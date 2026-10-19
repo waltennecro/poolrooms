@@ -6,10 +6,13 @@ namespace Poolrooms
     [CreateAssetMenu(menuName="Poolrooms/Generation Profile",fileName="PoolroomsProfile")]
     public sealed class PoolroomsProfile : ScriptableObject
     {
-        [Header("Variedad arquitectónica / R31")]
+        [Header("Variedad y extensión / R32")]
         [InspectorName("Ampliar variedad de biomas")]
         [Tooltip("Recetas arquitectónicas ampliadas y nuevas familias. Exploración unificada lo activa automáticamente. No aumenta el radio de carga.")]
         public bool expandedVariety=true;
+        [InspectorName("Biomas con más salas")]
+        [Tooltip("Amplía aproximadamente un 50 % el área y las salas por región. Incluye centros comerciales y Nivel 94. Exploración unificada lo activa al jugar; conserva el radio de carga.")]
+        public bool expandedBiomeAreas=true;
         [Header("Casas de lluvia · expansión 4 de 10")]
         public bool enableRainHouses=true;
         [Range(0,1)] public float rainHouseShare=.1f;
@@ -151,7 +154,7 @@ namespace Poolrooms
                 DoorWidth=doorWidth,DoorHeight=doorHeight,WallThickness=wallThickness,WaterLevel=waterLevel,
                 CurveSegments=curveSegments,TextureWorldSize=textureWorldSize,Weights=roomWeights==null?null:(float[])roomWeights.Clone(),
                 Composition=composition,Lighting=lighting,UniformLighting=uniformLighting,Zones=zoneMode,SingleZone=singleZone,ZoneFamilyFilter=zoneFamilyFilter};
-            c.ExpandedVariety=expandedVariety;c.Validate();return c;
+            c.ExpandedVariety=expandedVariety;c.ExpandedBiomeAreas=expandedBiomeAreas;c.Validate();return c;
         }
         public Material MaterialFor(int surface)
         {

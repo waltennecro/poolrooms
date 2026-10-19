@@ -50,7 +50,7 @@ namespace Poolrooms
         private void BeginConnected(ConnectedTerrainSite site)
         {
             connectedSite=site;EnsureMaterials();Explorer=world.viewer.GetComponentInParent<PoolroomsExplorer>();
-            Plan=TerrainRegionPlan.CreateConnected(world.CurrentLayout.Config.Seed,site,world.CurrentLayout.Config.ExpandedVariety);
+            Plan=TerrainRegionPlan.CreateConnected(world.CurrentLayout.Config.Seed,site,world.CurrentLayout.Config.ExpandedVariety,world.CurrentLayout.Config.ExpandedBiomeAreas);
             acousticRoom=new Room{X=site.X,Z=site.Z,Width=12,Depth=12,Height=3.2f,Environment=LiminalEnvironment.Hotel,
                 Plan=new ProceduralPlan(LiminalEnvironment.Hotel,new PlannedModule[0],new WaterRegion[0],4,0,0)};
             var root=new GameObject("Nivel 94 conectado · "+(site.HalfWidth*2)+" x "+(site.HalfDepth*2)+" m · "+site.X+","+site.Z);

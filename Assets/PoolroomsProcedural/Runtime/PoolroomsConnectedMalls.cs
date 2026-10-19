@@ -72,7 +72,7 @@ namespace Poolrooms
                 for(int iz=bz-1;iz<=bz+1;iz++)for(int ix=bx-1;ix<=bx+1;ix++)
                 {
                     ConnectedMallSite site;if(!ConnectedMallTopology.Site(config,ix,iz,out site)||site.Distance(focus.x,focus.y)>radius||districts.ContainsKey(site.Key))continue;
-                    var d=new District{Site=site,Plan=MallPlan.Create(config.Seed,site.X,site.Z,true,true,config.AutonomousGeneration,config.ExpandedVariety)};
+                    var d=new District{Site=site,Plan=MallPlan.Create(config.Seed,site.X,site.Z,true,true,config.AutonomousGeneration,config.ExpandedVariety,config.ExpandedBiomeAreas)};
                     var root=new GameObject("Connected mall · "+d.Plan.Floors+" floors · "+site.X+","+site.Z);d.Root=root.transform;d.Root.SetParent(world.transform,false);
                     d.Root.position=world.CellWorldPosition(site.X,site.Z);
                     d.Acoustic=new Room{X=site.X,Z=site.Z,Environment=LiminalEnvironment.Supermarket,Width=d.Plan.Width,Depth=d.Plan.Depth,Height=MallPlan.FloorHeight,

@@ -49,12 +49,19 @@ namespace Poolrooms.Core
         public IEnumerable<TerrainHousePlan> Houses { get { return houses.Values; } }
         public static long Key(int x,int z){return ContinuousTopology.CellKey(x,z);}
         public static int Cell(float value){return (int)Math.Floor((value+TileSize*.5f)/TileSize);}
-        private TerrainRegionPlan(int seed,int x,int z,float halfWidth=0,float halfDepth=0,bool variedHouses=true,bool expanded=false)
+        private TerrainRegionPlan(int seed,int x,int z,float halfWidth=0,float halfDepth=0,bool variedHouses=true,bool expanded=false,bool larger=false)
         {
             WorldSeed=seed;AddressX=x;AddressZ=z;Seed=unchecked((int)StableRandom.Hash(seed,x,z,0x940024u));
             var random=new StableRandom(unchecked((uint)Seed));
             Width=(12+random.Range(9))*128;Depth=(12+random.Range(9))*128;
-            Connected=halfWidth>0&&halfDepth>0;HalfWidth=Connected?halfWidth:Width*.5f;HalfDepth=Connected?halfDepth:Depth*.5f;
+            Connected=halfWidth>0&&halfDepth>0;
+            if(larger)
+            {
+                // Fill the enlarged reservation with populated lots, instead of a bare outer strip.
+                double linear=Math.Sqrt(BiomeExtent.AreaMultiplier);
+                Width=Connected?halfWidth*2:(float)(Width*linear);Depth=Connected?halfDepth*2:(float)(Depth*linear);
+            }
+            HalfWidth=Connected?halfWidth:Width*.5f;HalfDepth=Connected?halfDepth:Depth*.5f;
             phase=random.Range(0,6.28f);Daylight=(TerrainDaylight)random.Range(3);SunYaw=random.Range(25,150);SunPitch=random.Range(32,56);
             float pitch=SunPitch*(float)Math.PI/180,yaw=SunYaw*(float)Math.PI/180;
             SunDirection=new V3(-(float)Math.Sin(yaw)*(float)Math.Cos(pitch),(float)Math.Sin(pitch),-(float)Math.Cos(yaw)*(float)Math.Cos(pitch));
@@ -99,8 +106,8 @@ namespace Poolrooms.Core
                 {long key=Key(ix,iz);List<TerrainPath> list;if(!paths.TryGetValue(key,out list)){list=new List<TerrainPath>();paths.Add(key,list);}list.Add(line);}
             }
         }
-        public static TerrainRegionPlan Create(int seed,int x,int z,bool variedHouses=true,bool expanded=false){return new TerrainRegionPlan(seed,x,z,0,0,variedHouses,expanded);}
-        public static TerrainRegionPlan CreateConnected(int seed,ConnectedTerrainSite site,bool expanded=false){return new TerrainRegionPlan(seed,site.X,site.Z,site.HalfWidth,site.HalfDepth,true,expanded);}
+        public static TerrainRegionPlan Create(int seed,int x,int z,bool variedHouses=true,bool expanded=false,bool larger=false){return new TerrainRegionPlan(seed,x,z,0,0,variedHouses,expanded,larger);}
+        public static TerrainRegionPlan CreateConnected(int seed,ConnectedTerrainSite site,bool expanded=false,bool larger=false){return new TerrainRegionPlan(seed,site.X,site.Z,site.HalfWidth,site.HalfDepth,true,expanded,larger);}
         public bool Contains(float x,float z){return Math.Abs(x)<=HalfWidth&&Math.Abs(z)<=HalfDepth;}
         public bool IntersectsTile(int x,int z){return !Connected||Math.Abs(x*TileSize)-HalfTile<HalfWidth&&Math.Abs(z*TileSize)-HalfTile<HalfDepth;}
         public float BoundaryDistance(float x,float z){return Math.Min(HalfWidth-Math.Abs(x),HalfDepth-Math.Abs(z));}

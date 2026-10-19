@@ -22,6 +22,8 @@ jobs:
           dotnet --info
       - name: Compile core, compare geometry, check CSharp syntax
         run: dotnet run --project Verification/Poolrooms.Checks.csproj
+      - name: Check larger biome areas, populated Level94 and accessible mall expansion
+        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --biome-extents
       - name: Check expanded biome recipes, house footprints and mall reservations
         run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --variety-expansion
       - name: Check full aquatic catalogue at extreme room scales

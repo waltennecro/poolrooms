@@ -31,6 +31,7 @@ namespace Poolrooms.Tests
                 Assert.That(world.ViewerReady,Is.True);Assert.That(world.CurrentLayout.Config.Continuous,Is.True);
                 Assert.That(world.CurrentLayout.Config.Grammar,Is.EqualTo(ProceduralGrammar.SolarAtlas));Assert.That(world.CurrentLayout.Config.AutonomousGeneration,Is.True);
                 Assert.That(world.CurrentLayout.Config.Procedural,Is.EqualTo(LiminalGeneration.Expanded));
+                Assert.That(world.CurrentLayout.Config.ExpandedVariety&&world.CurrentLayout.Config.ExpandedBiomeAreas,Is.True);
                 Assert.That(JsonUtility.ToJson(profile),Is.EqualTo(saved),"Automatic upgrade edited the saved profile asset.");
                 ConnectedMallSite site;Assert.That(ConnectedMallTopology.Site(world.CurrentLayout.Config,0,0,out site),Is.True);
                 int gateX=site.X-site.RadiusX-1;var gateway=world.CurrentLayout.At(gateX,site.Z);
@@ -56,6 +57,8 @@ namespace Poolrooms.Tests
                 Assert.That(world.ActiveMallRoot.position.y,Is.EqualTo(world.transform.position.y));
                 Assert.That(world.GeneratedRoot.gameObject.activeSelf,Is.True,"Physical mall hid the shared world.");
                 Assert.That(world.ActiveMallPlan.Floors,Is.InRange(2,6));
+                Assert.That(world.ActiveMallPlan.Bays,Is.InRange(12,18));
+                Assert.That(world.ActiveMallPlan.ExpandedArea&&world.ActiveMallPlan.Valid(),Is.True);
                 // Floating-origin movement must keep the district at its logical address.
                 long key=site.Key;explorer.Teleport(world.CellWorldPosition(site.X+5,site.Z)+Vector3.up*30);yield return null;yield return null;
                 Assert.That(world.ConnectedMalls.DistrictCount,Is.GreaterThan(0));

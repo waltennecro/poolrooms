@@ -1,6 +1,6 @@
 # Poolrooms
 
-R31 amplía un **50 % la variedad de salas y zonas por bioma**, con nuevas plantas de casas y tamaños de centros comerciales integrados al caminar. [Cambios, cifras y límites](Assets/PoolroomsProcedural/Documentation/VARIEDAD_BIOMAS_R31.md). No hace falta recrear la demo; importa únicamente `Assets/PoolroomsProcedural` con Play detenido. Las pruebas nativas en Unity siguen pendientes.
+R32 conserva el **50 % más de variedad de R31** y añade **~50 % más de salas por región al explorar**, centros comerciales mayores con más tiendas y nuevas áreas pobladas en el Nivel 94. [Cifras, funcionamiento y límites](Assets/PoolroomsProcedural/Documentation/EXTENSION_BIOMAS_R32.md). Actualiza únicamente `Assets/PoolroomsProcedural` con Play detenido; no hace falta recrear la demo. Unity/HDRP, física y FPS siguen pendientes.
 
 ## Código recuperado: v39
 

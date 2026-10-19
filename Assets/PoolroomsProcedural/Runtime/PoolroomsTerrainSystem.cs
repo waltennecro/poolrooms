@@ -123,7 +123,7 @@ namespace Poolrooms
             Explorer=world.viewer.GetComponentInParent<PoolroomsExplorer>();if(Explorer==null)return false;
             if(world.Malls!=null&&world.Malls.IsInside)world.Malls.Exit();
             EnsureMaterials();entrance=room;returnPosition=world.RoomWorldPosition(room)+localEntrance-Vector3.forward*3+Vector3.up*.12f;
-            Plan=TerrainRegionPlan.Create(world.CurrentLayout.Config.Seed,room.X,room.Z,true,world.CurrentLayout.Config.ExpandedVariety);
+            Plan=TerrainRegionPlan.Create(world.CurrentLayout.Config.Seed,room.X,room.Z,true,world.CurrentLayout.Config.ExpandedVariety,world.CurrentLayout.Config.ExpandedBiomeAreas);
             acousticRoom=new Room{X=room.X,Z=room.Z,Width=12,Depth=12,Height=3.2f,Environment=LiminalEnvironment.Hotel,DetailSeed=room.DetailSeed,
                 Plan=new ProceduralPlan(LiminalEnvironment.Hotel,new PlannedModule[0],new WaterRegion[0],4,0,0)};
             var root=new GameObject("Nivel 94 · "+Plan.Width+" x "+Plan.Depth+" m · "+room.X+","+room.Z);RegionRoot=root.transform;RegionRoot.SetParent(transform,false);RegionRoot.localPosition=Vector3.up*1200;

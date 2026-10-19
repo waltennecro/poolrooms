@@ -28,20 +28,8 @@ namespace Poolrooms.Core
             if(c.Procedural==LiminalGeneration.Supermarkets)return LiminalEnvironment.Supermarket;
             if(c.Procedural==LiminalGeneration.IndoorPlay)return LiminalEnvironment.IndoorPlay;
             if(c.Procedural!=LiminalGeneration.Mixed&&c.Procedural!=LiminalGeneration.MixedWithRetail&&c.Procedural!=LiminalGeneration.Expanded)return LiminalEnvironment.Poolrooms;
-            int size=c.EnvironmentRegionSize,rx=ContinuousTopology.FloorDivide(x,size),rz=ContinuousTopology.FloorDivide(z,size);
-            double best=double.MaxValue;int selectedX=0,selectedZ=0;
-            // Jittered Voronoi regions: no distance stages, stripes or prescribed biome order.
-            for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++)
-            {
-                int sx=rx+dx,sz=rz+dz;
-                uint a=Hash(c.Seed,sx,sz,0xE01u),b=Hash(c.Seed,sx,sz,0xE02u);
-                double px=((long)sx*size)+(a>>8)*(size/16777216.0);
-                double pz=((long)sz*size)+(b>>8)*(size/16777216.0);
-                // The origin region starts in Poolrooms without a scripted sequence afterwards.
-                if(sx==0&&sz==0){px=0;pz=0;}
-                double xx=x-px,zz=z-pz,distance=xx*xx+zz*zz;
-                if(distance<best){best=distance;selectedX=sx;selectedZ=sz;}
-            }
+            // The same scaled Voronoi field drives coastlines and mixed biome selection.
+            int selectedX,selectedZ;BiomeExtent.NearestRegion(c,x,z,out selectedX,out selectedZ);
             if(selectedX==0&&selectedZ==0)return LiminalEnvironment.Poolrooms;
             LiminalEnvironment discovered;if(WalkableExploration.Region(c,selectedX,selectedZ,out discovered))return discovered;
             if(c.Procedural==LiminalGeneration.Expanded&&c.EnableRainHouses&&Unit(Hash(c.Seed,selectedX,selectedZ,0x240A03u))<c.RainHouseShare)return LiminalEnvironment.RainHouses;

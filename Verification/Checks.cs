@@ -48,6 +48,7 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--biome-extents")){BiomeExtents();return 0;}
         if(args.Contains("--variety-expansion")){VarietyExpansion();return 0;}
         if(args.Contains("--generation-audit")){GenerationAudit();IntegrationSourceContracts();return 0;}
         if(args.Contains("--humanoid")){HumanoidSkins();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} humanoid assertions; native Unity unrun.");return 0;}

@@ -47,13 +47,16 @@ namespace Poolrooms.Core
     {
         public static PoolClimateDescription At(LayoutConfig c,int x,int z)
         {
-            int size=PoolroomArchitectureMix.Enabled(c)?c.CommonClimateRegionSize:c.PoolClimateRegionSize,rx=ContinuousTopology.FloorDivide(x,size),rz=ContinuousTopology.FloorDivide(z,size),chosenX=rx,chosenZ=rz;
+            int size=PoolroomArchitectureMix.Enabled(c)?c.CommonClimateRegionSize:c.PoolClimateRegionSize;
+            double spacing=BiomeExtent.Spacing(c,size);
+            int rx=c.ExpandedBiomeAreas?BiomeExtent.Cell(x,spacing):ContinuousTopology.FloorDivide(x,size),rz=c.ExpandedBiomeAreas?BiomeExtent.Cell(z,spacing):ContinuousTopology.FloorDivide(z,size),chosenX=rx,chosenZ=rz;
             double best=double.MaxValue;
             for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++)
             {
                 int a=rx+dx,b=rz+dz;
-                double px=(long)a*size+Unit(LiminalRegions.Hash(c.Seed,a,b,0x1910u))*size;
-                double pz=(long)b*size+Unit(LiminalRegions.Hash(c.Seed,a,b,0x1911u))*size;
+                float ux=Unit(LiminalRegions.Hash(c.Seed,a,b,0x1910u)),uz=Unit(LiminalRegions.Hash(c.Seed,a,b,0x1911u));
+                double px=c.ExpandedBiomeAreas?(a+(double)ux)*spacing:(long)a*size+ux*size;
+                double pz=c.ExpandedBiomeAreas?(b+(double)uz)*spacing:(long)b*size+uz*size;
                 double xx=x-px,zz=z-pz,distance=xx*xx+zz*zz;
                 if(distance<best){best=distance;chosenX=a;chosenZ=b;}
             }

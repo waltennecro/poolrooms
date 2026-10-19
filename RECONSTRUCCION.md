@@ -500,3 +500,25 @@ licencias, empaquetado y artefacto. Paquete Assets: 869 archivos,
 CRC correcto y 1075 archivos versionados coincidentes
 por SHA-256. Evidencia: `Verification/ci_variety_expansion_R31.json`.
 Las doce regresiones nativas nuevas y Unity/HDRP, aspecto y FPS siguen pendientes.
+
+## R32 · Aclaración: ambas ampliaciones
+
+La respuesta pendiente del usuario pidió tanto más variedad como más salas por
+bioma. Se conserva R31 y se amplía el campo de regiones con sqrt(1,5) por eje.
+Una muestra emparejada de 6.502 regiones completas, en tres semillas y los 18
+ambientes, mide ~1,497–1,503 veces las celdas del campo. No descuenta reservas.
+Costa y climas solares/cerrados comparten la escala; no se impone un orden de niveles.
+
+Los centros tienen un 50 % más de superficie bruta por planta y al menos un 50 %
+más de tiendas accesibles (12–18 módulos de frente, 2–6 plantas). Reservas y
+edificios comparten dimensiones. Nivel 94 amplía reservas y población: hay casas
+en el terreno añadido. Se comprueban superposiciones, claves de sectores y accesos.
+Los radios y presupuestos activos se conservan; las mallas y planes mayores tienen
+un coste que necesita medición en Unity. La linterna no cambia.
+
+Prueba específica: 384 pares de centros, 29.358→45.024 tiendas; doce casos de
+Nivel94, 6.761→10.868 casas planificadas, 1.536 en las áreas nuevas; 156 muestras
+de malla y 13.382.463 aserciones del núcleo. Son muestras acumuladas, no objetos
+cargados a la vez ni modelos nuevos. Documento: EXTENSION_BIOMAS_R32.md.
+Se amplía una prueba PlayMode existente, aún sin ejecutar; Unity/HDRP, PhysX,
+aspecto y FPS siguen pendientes. No se añaden otros niveles en esta etapa.

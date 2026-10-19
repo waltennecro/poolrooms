@@ -835,6 +835,62 @@
         "evidence": "Verification/ci_variety_expansion_R31.json"
       },
       "sourceRevision": "e5b5a29a674bf88a32d8bb79159d04f98d4d9bda"
+    },
+    {
+      "id": "R32",
+      "feature": "Complete clarified request for both fifty-percent structural variety and larger biome regions, populated Level94 and accessible mall expansion",
+      "status": "implemented_native_validation_pending",
+      "details": {
+        "preservesR31Variety": true,
+        "finiteCatalogueTotal": 22332,
+        "regionalAreaMultiplier": 1.5,
+        "linearMultiplier": "sqrt(1.5)",
+        "mixedBiomesAndFiveSolarClimatesScaled": true,
+        "matchedCompleteRegionPairs": 6502,
+        "measured18BiomeAreaRatioRange": [
+          1.4972,
+          1.5032
+        ],
+        "areaSamplesExcludePhysicalReservations": true,
+        "mallPlanPairs": 384,
+        "mallShopsBefore": 29358,
+        "mallShopsAfter": 45024,
+        "mallFloorsRange": [
+          2,
+          6
+        ],
+        "mallBaysBeforeRange": [
+          8,
+          12
+        ],
+        "mallBaysAfterRange": [
+          12,
+          18
+        ],
+        "mallGrossFloorAreaMultiplier": 1.5,
+        "terrainCases": 12,
+        "terrainHousesBefore": 6761,
+        "terrainHousesAfter": 10868,
+        "housesInNewOuterAreas": 1536,
+        "extentMeshSamples": 156,
+        "extentCoreAssertions": 13382463,
+        "nativeExistingTestExtendedButUnrun": "OldDemoAutomaticallyStreamsPhysicalMallAndKeepsExteriorVisible",
+        "renderDistanceReduced": false,
+        "loadingRadiusIncreased": false,
+        "flashlightSourcesChanged": false,
+        "newExternalModels": 0,
+        "nativeUnityExecuted": false,
+        "documentation": "Assets/PoolroomsProcedural/Documentation/EXTENSION_BIOMAS_R32.md",
+        "cumulativeCoreAssertionsPassed": 1810356013,
+        "protectedGeometryFingerprints": 188,
+        "syntaxScripts": 246,
+        "syntaxConfigurations": 5,
+        "varietyCoreAssertionsPassed": 37886992,
+        "auditPlans": 121068,
+        "auditRoomConnectorMeshes": 396,
+        "auditPropPlacementsResolved": 2083108,
+        "pbrMapsVerified": 82
+      }
     }
   ],
   "latestCoreChecks": {
@@ -984,7 +1040,7 @@
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "R31 increases variety in every implemented biome and the two physical regional systems, retaining previous fixes. Native Unity/HDRP compilation, new house stair/roof/attraction collision tests, actual streamed traversal, visuals and FPS remain pending. Six additional relaxing levels and the separate 10000-zone global expansion remain unimplemented; this change is not a claim of their completion.",
+  "nextIndependentWork": "R32 implements both clarified fifty-percent variety and spatial region-room expansion, retaining R31 and prior fixes. Native Unity/HDRP compilation, larger mall and Level94 streamed traversal, collision, visuals and FPS remain pending. Six additional relaxing levels and the separate 10000-zone global recipe expansion remain unimplemented.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1531,5 +1587,9 @@
         "digest": "sha256:ebbe7179209ad33b92ecb34f143d69380b9795ad4084736da38eb02c471a86f5"
       }
     ]
-  }
+  },
+  "requestedExpansionScope": [
+    "structural_room_variety",
+    "rooms_per_biome_region_area"
+  ]
 }

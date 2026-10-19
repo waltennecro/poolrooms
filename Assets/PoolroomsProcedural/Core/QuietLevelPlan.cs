@@ -104,13 +104,8 @@ namespace Poolrooms.Core
             if(c.Procedural==LiminalGeneration.Coast48)return (float)Math.Max(-c.CellSize*.5f,Math.Min(c.CellSize*.5f,-(double)r.X*c.CellSize));
             // Match the seed's Voronoi group. All rooms in a coastal district share one
             // coastline instead of repeating a separate beach in every room.
-            int size=c.EnvironmentRegionSize,rx=ContinuousTopology.FloorDivide(r.X,size),rz=ContinuousTopology.FloorDivide(r.Z,size),selectedX=0;double best=double.MaxValue;
-            for(int z=-1;z<=1;z++)for(int x=-1;x<=1;x++)
-            {
-                int ax=rx+x,az=rz+z;uint a=LiminalRegions.Hash(c.Seed,ax,az,0xE01u),b=LiminalRegions.Hash(c.Seed,ax,az,0xE02u);
-                double px=(long)ax*size+(a>>8)*(size/16777216.0),pz=(long)az*size+(b>>8)*(size/16777216.0);if(ax==0&&az==0){px=0;pz=0;}
-                double dx=r.X-px,dz=r.Z-pz,d=dx*dx+dz*dz;if(d<best){best=d;selectedX=ax;}
-            }
+            int selectedX,selectedZ;BiomeExtent.NearestRegion(c,r.X,r.Z,out selectedX,out selectedZ);
+            double size=BiomeExtent.Spacing(c,c.EnvironmentRegionSize);
             int group=ContinuousTopology.FloorDivide(selectedX,2);double global=(2.0*group+1)*size*c.CellSize;
             return (float)Math.Max(-c.CellSize*.5f,Math.Min(c.CellSize*.5f,global-(double)r.X*c.CellSize));
         }
