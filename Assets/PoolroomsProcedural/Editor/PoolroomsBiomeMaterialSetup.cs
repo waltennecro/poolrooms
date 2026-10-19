@@ -30,7 +30,36 @@ namespace Poolrooms.Editor
             if(EditorApplication.isCompiling||EditorApplication.isUpdating){EditorApplication.delayCall+=EnsureOnImport;return;}
             if(Application.isPlaying||!Directory.Exists("Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures"))return;
             var library=AssetDatabase.LoadAssetAtPath<PoolroomsBiomeMaterials>(Library);
-            if(library==null)Build();else EnsureSoftPlay(library);
+            if(library==null)Build();else{EnsureSoftPlay(library);UpgradeWinterGardenFinish(library);}
+        }
+        // R33 generated this unused slot with leaf maps. R34 uses it for planter
+        // rims. Patch only that known generated asset/default map combination;
+        // preserve its GUID, colour edits and user-assigned/custom material maps.
+        private static void UpgradeWinterGardenFinish(PoolroomsBiomeMaterials library)
+        {
+            var material=library.Find(SurfaceTheme.WinterGarden,(int)Surface.Slide);
+            string path=Folder+"/WinterGarden_Slide.mat";
+            if(material==null||AssetDatabase.GetAssetPath(material)!=path)return;
+            string[][] properties={new[]{"_BaseColorMap","_BaseMap","_MainTex"},new[]{"_NormalMap","_BumpMap"},new[]{"_MaskMap"}};
+            string[] suffix={"Albedo","Normal","Mask"};var replacements=new Texture2D[3];bool foundOldAlbedo=false;
+            for(int group=0;group<properties.Length;group++)
+            {
+                var previous=Resources.Load<Texture2D>(PoolroomsBiomeMaterialFactory.TextureRoot+"GardenLeaves_"+suffix[group]);
+                replacements[group]=Resources.Load<Texture2D>(PoolroomsBiomeMaterialFactory.TextureRoot+"GardenTerracotta_"+suffix[group]);
+                if(previous==null||replacements[group]==null)return;
+                foreach(string property in properties[group])if(material.HasProperty(property))
+                {
+                    var current=material.GetTexture(property);
+                    if(current!=null&&current!=previous)return;
+                    if(group==0&&current==previous)foundOldAlbedo=true;
+                }
+            }
+            if(!foundOldAlbedo)return;
+            for(int group=0;group<properties.Length;group++)foreach(string property in properties[group])
+                if(material.HasProperty(property))material.SetTexture(property,replacements[group]);
+            float smooth=BiomeSurfaces.Smoothness("GardenTerracotta");
+            foreach(string property in new[]{"_Smoothness","_Glossiness"})if(material.HasProperty(property))material.SetFloat(property,smooth);
+            EditorUtility.SetDirty(material);AssetDatabase.SaveAssets();
         }
         // Existing libraries retain all their materials and GUIDs. Add only the new biome slots.
         private static void EnsureSoftPlay(PoolroomsBiomeMaterials library)

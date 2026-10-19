@@ -1056,15 +1056,106 @@
         "meshTrianglesFingerprintScanned": 713307288
       },
       "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3"
+    },
+    {
+      "id": "R34",
+      "feature": "Refine ten existing level generators and compare 200010 unchanged recipe IDs in 21 batches",
+      "status": "implemented_core_verified_ci_pending_native_unrun",
+      "details": {
+        "stage": "R34",
+        "baselineRevision": "0a43903830cf694377118229a23dbeeed9a6346b",
+        "nativeUnityExecuted": false,
+        "fullCoreAssertions": 1842430888,
+        "protectedGeometryFingerprints": 188,
+        "syntaxScripts": 253,
+        "syntaxConfigurations": 5,
+        "strictCoreBuildWarnings": 0,
+        "strictCoreBuildErrors": 0,
+        "completedBatches": 21,
+        "refinedArchitectures": 200010,
+        "distinctRefinedArchitectures": 200010,
+        "changedStructuralMeshes": 200010,
+        "exhaustiveRecipePlansValidated": 1310720,
+        "fullAxisGeometrySamples": 1320,
+        "additionalRefinementGeometrySamples": 240,
+        "refinementCoreAssertions": 6946560,
+        "batchCoreAssertions": 2856563082,
+        "beforeArchitectureTriangles": 713307288,
+        "afterArchitectureTriangles": 951921000,
+        "maximumAdditionalArchitecturalTrianglesPerComparedRoom": 5000,
+        "triangleBudgetExcludesSourceProps": true,
+        "sameRecipeIDs": true,
+        "oldPickupSlotsRetained": true,
+        "newSourceModels": 0,
+        "newRoomMaterials": 0,
+        "newRoomLights": 0,
+        "newLicensedPlantInstancesPerGardenRoom": 4,
+        "renderDistanceReduced": false,
+        "sourceHashPreservation": {
+          "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+          "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+          "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
+        },
+        "nativePreflight": {
+          "nativeExecuted": false,
+          "status": "blocked_unity_editor_missing",
+          "unity": "/opt/unity/Editor/Unity",
+          "project": "/workspace/poolrooms",
+          "fullSuite": true,
+          "headless": false,
+          "visualAndFpsCertified": false,
+          "startedUtc": "2026-10-19T22:54:49Z",
+          "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+        },
+        "actualWorldSnapshot": {
+          "newLevelRooms": 4569,
+          "interactiveKeys": 274976,
+          "licensedSourceInstances": 110492,
+          "distinctLicensedSourceModelsUsed": 8,
+          "simultaneouslyLoaded": false,
+          "nativeRuntimeSnapshot": false
+        },
+        "oldCoreRegression": "Old core reproduces missing physical bevel; refined core passes support, bevel, bridge and washer depth checks.",
+        "logSha256": {
+          "R34_strict_final.log": "bd27f9ea6eda7cf9d6d4f1ad302aa27563697f55343ea4517311a5fc923279f7",
+          "R34_full_final.log": "02215071429c3e0b13012acf5ce274adf417a11293a79599647ae17b53bbd2cd",
+          "R34_safety_final.log": "93d50b1ec3bb323eb9fa072f749d7e2c01fd15be04509bc1a6281df40ea5104a",
+          "R34_levels_final.log": "4abe31625b3d2b4a6256e45cded4092bae23ee81cfd5283a755725c3c5abd97d",
+          "R34_world.log": "949ff603b639caedf9c351d71dcc28059323c318b9a28e8f3d274be4e714c4e7",
+          "R34_final_batches.log": "581c0b4d86e5b8f9c725dfbfba619ad0aaa1a42aef23848429c6b19a58b8c9ae",
+          "R34_sources.log": "9537063006405fc81cd619e23bb9def3ebbeb66d28a2681a9ca64160bcecf77a",
+          "R34_garden.log": "20b0f3b1d8cf044a77a3caa8155b7e5ee2b02640c4a20d1d1991be93017d780a",
+          "R34_textures.log": "51e56fb304f704f660d00fb106536ca5b707520b423dd0e5c7d299320fd7217d",
+          "R34_native_contract.log": "9e221410f00bec0e2f90c8943ddf921aa31e175d14f6e60f2f09afe0b7db14ec",
+          "before-regression.log": "b7247cf430ad91d850655139af895ec84349419f6ae1a6bb5f6c958ca36d7629",
+          "R34_optics_final.log": "4269cfe7b624befc54c766c5b49b453338c64a3b359357339c9af3939ed07afd"
+        },
+        "batchEvidence": "Verification/refinement_R34_batches.json",
+        "ciStatus": "pending",
+        "limitations": [
+          "Geometry comparisons and mathematical checks are not native Unity tests or a visual/FPS certificate.",
+          "The sample contains existing generated recipes, not 200010 newly handcrafted rooms or structural families.",
+          "Four extra garden plants reuse an existing licensed model and LODs; source geometry cost is outside the room triangle budget.",
+          "R33 outstanding literal structural-family/model targets remain unchanged."
+        ],
+        "integrationSyntaxAndOpticsAssertions": 87388,
+        "generatedMaterialMigration": "Only the canonical WinterGarden_Slide generated asset with known old default texture maps is updated, retaining GUID and colours. Native Editor behavior unrun.",
+        "testedCoreAndEditorSha256": {
+          "Assets/PoolroomsProcedural/Core/RestfulLevelArchitecture.cs": "6a09bebd6b3233ae5cb65ede6a3ae489ce370b9e916e2cfea8795d8b8f6b521f",
+          "Assets/PoolroomsProcedural/Core/RestfulLevelDetails.cs": "fa7bf777a7ff83f70ee87b61fc7f008e5323cb6ef3659ea941fd21a3370417a5",
+          "Assets/PoolroomsProcedural/Core/RestfulLevelPlan.cs": "1a6178fdfadad9c517bf5460281b52873a3c3ed19f5bff069fb633f380468642",
+          "Assets/PoolroomsProcedural/Editor/PoolroomsBiomeMaterialSetup.cs": "3b2758a612155b721f9329c8d3f5a77aae19a2b023db0bebdff96637bf38665c"
+        }
+      }
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1833854219,
+    "assertions": 1842430888,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
-    "syntaxScripts": 252,
+    "syntaxScripts": 253,
     "syntaxConfigurations": 5,
-    "pbrMapsVerified": 82,
+    "pbrMapsVerified": 83,
     "citySourcesAudited": 5,
     "quietRooms": 72,
     "quietItemSupports": 540,
@@ -1119,7 +1210,7 @@
     "buildingLodTrianglesAudited": 139312,
     "buildingPngMaps": 50,
     "buildingGenerationByteExact": true,
-    "stage": "R25",
+    "stage": "R34",
     "orangerieStructuralRecipes": 2500,
     "orangerieBoundaryRooms": 90,
     "orangerieDistributedObjectInstances": 42000,
@@ -1164,7 +1255,9 @@
     "fullGenerationMeshesAudited": 576,
     "varietyExpansionAssertions": 37887588,
     "expandedCatalogueTotal": 22332,
-    "biomeExtentAssertions": 13383069
+    "biomeExtentAssertions": 13383069,
+    "restfulRefinementBatches": 21,
+    "restfulRefinedArchitectures": 200010
   },
   "pending": [
     {
@@ -1208,7 +1301,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "R33 code and cumulative package are backed up and cloud CI verified. Run native Unity 6.3/HDRP 17.3 compilation, shaders, walking/carry-cache PlayMode, spatial audio, visual checks and FPS on real hardware. Literal 100001 distinct structural families per level, 20001 distinct downloaded models if intended, tripled final counts in every old biome and the separate 10000-zone expansion in original biomes remain unimplemented; recipes and licensed instance counts are reported separately. Historical proposed level names remain optional unimplemented ideas.",
+  "nextIndependentWork": "R34 refines the ten R33 generators; 200010 unchanged recipe IDs are compared in 21 batches. Finish CI/public backup reporting, then run native Unity/HDRP compilation, PlayMode walking and source interaction, visuals and FPS. R33 literal structural-family/source-model targets and the separate old-biome expansion remain explicitly unfinished.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1421,14 +1514,15 @@
     "authenticatedArtifactDownloadTested": false
   },
   "nativeValidationPreflight": {
-    "status": "blocked_unity_editor_missing",
     "nativeExecuted": false,
-    "projectAvailable": false,
-    "packageRegistryAccess": "packages.unity.com tunnel 403, checked again in R17",
-    "runner": "tools/run_unity_validation.py",
-    "performanceMenu": "Tools/Poolrooms/Validación/Capturar 30 segundos de rendimiento",
-    "contractTestsUseFakeProcessNotUnity": true,
-    "latestEvidence": "Verification/expansion_R33_ci.json"
+    "status": "blocked_unity_editor_missing",
+    "unity": "/opt/unity/Editor/Unity",
+    "project": "/workspace/poolrooms",
+    "fullSuite": true,
+    "headless": false,
+    "visualAndFpsCertified": false,
+    "startedUtc": "2026-10-19T22:54:49Z",
+    "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
   },
   "nativeToolingCi": {
     "sourceRevision": "9784d0ab3321fb7e9da5c491fed76dd597fb5554",
@@ -1820,5 +1914,7 @@
     "nativeRenderingExecuted": false,
     "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
     "cumulativeCoreAssertions": 1833854219
-  }
+  },
+  "r34RefinementEvidence": "Verification/refinement_R34_local.json",
+  "r34RefinementInventory": "REFINADO_R34_ESTADO.json"
 }

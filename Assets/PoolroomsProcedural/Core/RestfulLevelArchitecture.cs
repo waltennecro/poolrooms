@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Poolrooms.Core
 {
-    public static class RestfulLevelArchitecture
+    public static partial class RestfulLevelArchitecture
     {
         public const float TableTop=.82f;
         private static readonly MeshData CeramicTemplate=MakeCeramicVessel();
@@ -17,7 +17,7 @@ namespace Poolrooms.Core
             foreach(var pool in p.Pools)PlanRect.Subtract(floor,new PlanRect(pool.CenterX-pool.Width*.5f,pool.CenterZ-pool.Depth*.5f,pool.CenterX+pool.Width*.5f,pool.CenterZ+pool.Depth*.5f));
             foreach(var f in floor)Box(o.Structure,f.X,f.Z,f.Width,f.Depth,-.28f,0,Surface.Tile);
             foreach(var pool in p.Pools)Basin(o,pool);
-            Envelope(o,r,c);Roof(o,r,c);
+            Envelope(o,r,c);Roof(o,r,c);PerimeterJoinery(o,r);
             for(int i=0;i<4;i++)
             {
                 var b=p.Bays[i];int sx=i%2==0?-1:1,sz=i<2?-1:1;
@@ -36,8 +36,10 @@ namespace Poolrooms.Core
                 }
                 // Separate reachable furniture alcove, identical support heights in plan/runtime.
                 float z=sz*(half-1.25f);
-                Box(o.Structure,b.X,z,2.65f,1.22f,TableTop-.09f,TableTop,Surface.Accent);
+                ChamferedTop(o.Structure,b.X,z,2.65f,1.22f,TableTop-.09f,TableTop,.025f,Surface.Accent);
                 foreach(int dx in new[]{-1,1})foreach(int dz in new[]{-1,1})Box(o.Structure,b.X+dx*1.1f,z+dz*.47f,.085f,.085f,0,TableTop-.09f,Surface.Metal);
+                // Under-table stretchers stop below knee height and outside the front approach.
+                Box(o.Decoration,b.X,z+.47f,2.2f,.045f,.22f,.27f,Surface.Metal);
                 // Skirting and inset ceiling joinery, with no decorative coplanar faces.
                 Box(o.Decoration,sx*(half-.12f),sz*(p.Clear+half)*.5f,.1f,half-p.Clear-.3f,.03f,.14f,Surface.Accent);
             }
@@ -102,6 +104,9 @@ namespace Poolrooms.Core
                 Box(o.Decoration,b.MinX+.1f,z,.08f,.13f,2.25f,3.1f,Surface.Accent);
             }
             Box(o.Structure,b.X,b.MaxZ-.3f,b.Width,.45f,0,.42f,Surface.Accent);
+            // A raised back and a separate seat edge give the reading bench a real profile.
+            Box(o.Structure,b.X,b.MaxZ-.1f,b.Width,.09f,.42f,.94f,Surface.Accent);
+            ChamferedTop(o.Decoration,b.X,b.MaxZ-.3f,b.Width,.45f,.42f,.46f,.018f,Surface.Slide);
         }
         static void Terminal(RoomGeometry o,PlanRect b,RestfulLevelPlan p)
         {
@@ -111,6 +116,10 @@ namespace Poolrooms.Core
             Box(o.Structure,b.X,b.MaxZ-.25f,b.Width,.14f,h,h+.16f,Surface.Metal);
             Box(o.Decoration,b.X,b.MaxZ-.32f,b.Width*.62f,.04f,h-.65f,h-.12f,Surface.Accent);
             for(int row=0;row<4;row++)Box(o.Decoration,b.X,b.MaxZ-.35f,b.Width*.53f,.015f,h-.55f+row*.09f,h-.53f+row*.09f,Surface.Plaster);
+            // Framed timetable with recessed rows, not a luminous rectangle.
+            foreach(int side in new[]{-1,1})Box(o.Decoration,b.X+side*b.Width*.32f,b.MaxZ-.35f,.035f,.05f,h-.69f,h-.08f,Surface.Metal);
+            Box(o.Decoration,b.X,b.MaxZ-.35f,b.Width*.65f,.05f,h-.69f,h-.66f,Surface.Metal);
+            for(int row=0;row<4;row++)Box(o.Decoration,b.X-b.Width*.2f,b.MaxZ-.37f,.045f,.016f,h-.56f+row*.09f,h-.51f+row*.09f,Surface.Metal);
         }
         static void Tea(RoomGeometry o,PlanRect b,RestfulLevelPlan p)
         {
@@ -120,6 +129,9 @@ namespace Poolrooms.Core
             Box(o.Structure,b.X,b.Z,Math.Min(1.8f,b.Width*.65f),Math.Min(1.15f,b.Depth*.4f),.32f,.4f,Surface.Accent);
             Box(o.Structure,b.X,b.MaxZ-.35f,b.Width-.2f,.5f,0,.3f,Surface.Accent);
             for(int slat=0;slat<5+p.Layout;slat++)Box(o.Decoration,b.MinX+(slat+.5f)*b.Width/(5+p.Layout),b.MaxZ-.15f,.035f,.045f,.4f,2.6f,Surface.Accent);
+            foreach(int side in new[]{-1,1})Box(o.Structure,b.X,b.Z+side*(b.Depth*.5f-.14f),b.Width,.14f,2.86f+p.Layout*.2f,3.02f+p.Layout*.2f,Surface.Accent);
+            // Low tea tray: its base really rests on the .4 m table top.
+            ChamferedTop(o.Decoration,b.X,b.Z,.54f,.34f,.4f,.425f,.009f,Surface.Metal);
         }
         static void Ceramics(RoomGeometry o,PlanRect b,RestfulLevelPlan p)
         {
@@ -132,6 +144,13 @@ namespace Poolrooms.Core
                 vessel.TranslateRotate(new V3(x,h+.02f,z),0);o.Decoration.Append(vessel);
             }
             Box(o.Structure,b.X,b.MaxZ-.18f,b.Width,.18f,0,2.1f,Surface.Plaster);
+            Box(o.Decoration,b.X,b.MaxZ-.18f,b.Width+.08f,.24f,2.1f,2.145f,Surface.Accent);
+            for(int i=0;i<count;i++)
+            {
+                float x=b.MinX+b.Width*(i+.5f)/count,z=b.Z+(i%2==0?-1:1)*b.Depth*.2f;
+                // Name plates are mounted on the pedestal, below the ceramic foot.
+                Box(o.Decoration,x,z-.272f,.16f,.014f,.48f,.55f,Surface.Metal);
+            }
             Box(o.Decoration,b.MinX+.05f,b.Z,.06f,b.Depth,.004f,.012f,Surface.Accent);
         }
         // Immutable pure-geometry template: generate the revolved profile once,
@@ -170,17 +189,29 @@ namespace Poolrooms.Core
         static void Garden(RoomGeometry o,PlanRect b,RestfulLevelPlan p)
         {
             float w=b.Width*(p.Layout==1?.45f:.85f),d=b.Depth*(p.Layout==2?.45f:.85f);
-            Box(o.Structure,b.X,b.Z,w,d,0,.38f,Surface.Plaster);Box(o.Decoration,b.X,b.Z,w-.08f,d-.08f,.38f,.395f,Surface.Accent);
-            // Licensed foliage comes through the standard interactable source loader.
+            Box(o.Structure,b.X,b.Z,w,d,0,.38f,Surface.Plaster);Box(o.Structure,b.X,b.Z,w-.08f,d-.08f,.38f,.395f,Surface.Slide);
+            foreach(int side in new[]{-1,1})
+            {
+                Box(o.Decoration,b.X+side*(w*.5f-.03f),b.Z,.06f,d,.38f,.43f,Surface.Slide);
+                Box(o.Decoration,b.X,b.Z+side*(d*.5f-.03f),w-.12f,.06f,.38f,.43f,Surface.Slide);
+            }
+            // The appended licensed plant has actual support on this inset bed.
             Box(o.Structure,b.MinX+.15f,b.Z,.24f,b.Depth,0,2.7f,Surface.Metal);
             for(int rail=0;rail<4+p.Layout;rail++)Box(o.Decoration,b.MinX+.15f,b.Z,.28f,b.Depth,.6f+rail*.35f,.64f+rail*.35f,Surface.Accent);
         }
         static void Canal(RoomGeometry o,PlanRect b,RestfulLevelPlan p)
         {
             // The deck does not span a hidden solid slab; water occupies a cut-out basin.
-            float bridge=.7f+p.Layout*.16f;
+            float bridge=1.8f+p.Layout*.12f;
             Box(o.Structure,b.X,b.Z,bridge,b.Depth,-.1f,.055f,Surface.Accent);
-            foreach(int side in new[]{-1,1})Box(o.Structure,b.X+side*(bridge*.5f+.06f),b.Z,.06f,b.Depth,0,.75f,Surface.Metal);
+            foreach(int side in new[]{-1,1})
+            {
+                float x=b.X+side*(bridge*.5f+.06f);
+                Box(o.Structure,x,b.Z,.06f,b.Depth,.99f,1.05f,Surface.Metal);
+                for(int post=0;post<4;post++)Box(o.Structure,x,b.MinZ+.1f+(b.Depth-.2f)*post/3,.06f,.06f,.055f,.99f,Surface.Metal);
+            }
+            int boards=Math.Max(4,(int)Math.Ceiling(b.Depth/.32f));
+            for(int board=1;board<boards;board++)Box(o.Decoration,b.X,b.MinZ+b.Depth*board/boards,bridge,.012f,.055f,.059f,Surface.Metal);
             foreach(int side in new[]{-1,1})Shapes.Column(o.Structure,b.MinX+.2f,b.Z+side*b.Depth*.35f,.12f,0,2.7f+p.Layout*.15f,12,Surface.Plaster,1.2f);
         }
         static void Music(RoomGeometry o,PlanRect b,RestfulLevelPlan p)
@@ -195,6 +226,10 @@ namespace Poolrooms.Core
                 if(key%7!=2&&key%7!=6)Box(o.Decoration,kx+w/44,z-.33f,w/22*.45f,.1f,.765f,.79f,Surface.Metal);
             }
             Box(o.Structure,x,z-1.3f,w*.7f,.44f,0,.45f,Surface.Accent);
+            Box(o.Decoration,x,z,w+.04f,.7f,1.22f,1.26f,Surface.Accent);
+            // Music rest and three floor-supported pedals, separated from the keys.
+            Box(o.Decoration,x,z-.18f,w*.55f,.045f,.9f,1.14f,Surface.Metal);
+            for(int pedal=0;pedal<3;pedal++)Box(o.Decoration,x+(pedal-1)*.13f,z-.39f,.07f,.2f,0,.045f,Surface.Metal);
             for(int panel=0;panel<3+p.Layout;panel++)
             {float px=b.MinX+(panel+.5f)*b.Width/(3+p.Layout);Box(o.Structure,px,b.MinZ+.12f,b.Width/(3+p.Layout)*.6f,.12f,.5f,2.6f,Surface.Plaster);}
             Box(o.Decoration,b.MinX+.04f,b.Z,.06f,b.Depth,.004f,.012f,Surface.Accent);
@@ -209,6 +244,8 @@ namespace Poolrooms.Core
                 Box(o.Decoration,x,z,.4f,.4f,h-.5f,h,Surface.Plaster);
                 foreach(int side in new[]{-1,1})Box(o.Decoration,x+side*.22f,z,.035f,.45f,h-.55f,h+.07f,Surface.Accent);
                 Box(o.Decoration,x,z,.52f,.52f,h+.03f,h+.1f,Surface.Accent);
+                foreach(int edge in new[]{-1,1})Box(o.Decoration,x,z+edge*.215f,.4f,.025f,h-.52f,h+.01f,Surface.Accent);
+                Box(o.Decoration,x,z,.48f,.48f,h-.57f,h-.53f,Surface.Accent);
             }
             Box(o.Structure,b.X,b.MaxZ-.25f,b.Width,.4f,0,.4f,Surface.Plaster);
         }
@@ -218,13 +255,10 @@ namespace Poolrooms.Core
             for(int i=0;i<count;i++)
             {
                 float x=b.MinX+(i+.5f)*b.Width/count,z=b.MaxZ-.5f;
-                Box(o.Structure,x,z,width,.8f,0,1.05f,Surface.Plaster);
-                // Cylindrical door faces out into a real approach aisle; no decal windows.
-                var ring=new MeshData();Shapes.Column(ring,0,0,width*.34f,0,.055f,24,Surface.Metal,1.2f);
-                for(int v=0;v<ring.Positions.Count;v++){var q=ring.Positions[v];ring.Positions[v]=new V3(x+q.X,.51f+q.Z,z-.405f-q.Y);var n=ring.Normals[v];ring.Normals[v]=new V3(n.X,n.Z,-n.Y);}
-                o.Decoration.Append(ring);
+                Washer(o,x,z,width);
                 Box(o.Decoration,x,z-.414f,width*.72f,.015f,.88f,.99f,Surface.Metal);
                 for(int knob=0;knob<3;knob++)Box(o.Decoration,x-width*.22f+knob*width*.22f,z-.425f,.045f,.025f,.91f,.95f,Surface.Plaster);
+                Box(o.Decoration,x-width*.29f,z-.422f,width*.2f,.02f,.78f,.85f,Surface.Metal);
             }
             Box(o.Structure,b.X,b.MinZ+.3f,b.Width,.55f,.74f,.82f,Surface.Accent);
             foreach(int side in new[]{-1,1})Box(o.Structure,b.X+side*b.Width*.4f,b.MinZ+.3f,.08f,.4f,0,.74f,Surface.Metal);
@@ -237,8 +271,14 @@ namespace Poolrooms.Core
                 float x=b.X+sx*(b.Width*.5f-.12f),z=b.Z+sz*(b.Depth*.5f-.12f);
                 Shapes.Column(o.Structure,x,z,.115f,0,h,16,Surface.Plaster,1.2f);
                 Shapes.Column(o.Decoration,x,z,.17f,h-.14f,h,16,Surface.Accent,1.2f);
+                Shapes.Column(o.Decoration,x,z,.2f,0,.09f,16,Surface.Plaster,1.2f);
+                Shapes.Column(o.Decoration,x,z,.145f,.09f,.16f,16,Surface.Accent,1.2f);
             }
-            foreach(int side in new[]{-1,1})Box(o.Structure,b.X,b.Z+side*(b.Depth*.5f-.12f),b.Width,.2f,h,h+.18f,Surface.Plaster);
+            foreach(int side in new[]{-1,1})
+            {
+                Box(o.Structure,b.X,b.Z+side*(b.Depth*.5f-.12f),b.Width,.2f,h,h+.18f,Surface.Plaster);
+                Box(o.Decoration,b.X,b.Z+side*(b.Depth*.5f-.12f),b.Width+.1f,.27f,h+.18f,h+.23f,Surface.Accent);
+            }
         }
         static void Basin(RoomGeometry o,WaterRegion p)
         {

@@ -48,6 +48,15 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--restful-refinement")){RestfulRefinementSafety();return 0;}
+        if(args.Contains("--restful-batches"))
+        {
+            int at=Array.IndexOf(args,"--restful-batches");
+            if(at+1>=args.Length)throw new ArgumentException("Supply a new evidence directory");
+            int previousBatch=Array.IndexOf(args,"--compare-batches");
+            if(previousBatch>=0&&previousBatch+1>=args.Length)throw new ArgumentException("Supply the baseline directory");
+            RestfulBatches(args[at+1],previousBatch<0?null:args[previousBatch+1]);return 0;
+        }
         if(args.Contains("--restful-mesh-catalog")){RestfulMeshCatalogue();return 0;}
         if(args.Contains("--restful-normals")){RestfulCeramicNormals();return 0;}
         if(args.Contains("--restful-world")){RestfulWorldSnapshot();return 0;}

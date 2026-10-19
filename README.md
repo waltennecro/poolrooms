@@ -1,3 +1,14 @@
+## Refinado R34 por lotes
+
+Se refinan los diez niveles de R33: mobiliario con perfiles reales, jardines
+plantados, puentes más anchos y lavadoras con cristal y profundidad de tambor,
+además de remates propios de cada ambiente. La comparación conserva las mismas
+200.010 recetas y las procesa en **20 lotes de 10.000 y uno de 10**.
+[Cambios y límites](Assets/PoolroomsProcedural/Documentation/REFINADO_R34.md).
+El inventario es `REFINADO_R34_ESTADO.json`; la evidencia se guarda por lote.
+Con Play detenido, actualiza solo `Assets/PoolroomsProcedural`; no hace falta
+recrear la demo. El aspecto y los FPS requieren validación en Unity.
+
 ## Ampliación R33
 
 Diez niveles nuevos conectados caminando, 131.072 recetas por nivel, mayor densidad
@@ -25,7 +36,7 @@ La rama actual continúa sobre la v39 recuperada. Consulta [`RECONSTRUCCION.md`]
 La etapa R1 mejora los materiales y detalles del bioma infantil conservando su geometría transitable. Las verificaciones del núcleo están en [`Verification`](Verification/README.md), fuera de `Assets`. Para crear el paquete completo del estado actual:
 
 ```sh
-python tools/package_assets.py --stage R14 --output /tmp/Poolrooms_R14_Desde_v39.zip
+python tools/package_assets.py --stage R34 --output /tmp/Poolrooms_R34_Desde_v39.zip
 ```
 
 La rama incluye también R2 (Ultra, dash y física de objetos) y R3 (Nivel 94 compacto y pasto más denso). El empaquetador siempre incluye el estado actual completo; `--stage` solo etiqueta su manifiesto. El workflow de GitHub comprueba el núcleo y guarda un paquete como artefacto cuando se ejecuta correctamente; su resultado no sustituye las pruebas de Unity.

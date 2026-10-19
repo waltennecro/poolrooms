@@ -10,6 +10,28 @@ namespace Poolrooms.Tests
     public sealed class RestfulLevelWorldTests
     {
         [UnityTest]
+        public IEnumerator CanalBridgeAllowsOrdinaryControllerAcrossBothApproaches()
+        {
+            foreach(int recipe in new[]{0,1,2,3,131071})
+            {
+                var c=new LayoutConfig{CellSize=28,DoorWidth=6,DoorHeight=5.1f,CurveSegments=12,ObjectAbundance=3};
+                var r=new Room{Environment=LiminalEnvironment.CanalGalleries,Exits=15};RestfulLevelPlanner.DescribeRecipe(r,c,recipe);
+                var bay=r.Plan.Restful.Bays[0];var root=new GameObject("Canal bridge walking regression");var actor=new GameObject("Walker");
+                root.transform.position=new Vector3(4000,1800,4000);
+                try
+                {
+                    var owner=root.AddComponent<PoolroomsChunk>();MeshFactory.CreateCollider("Actual canal structure",Architecture.Build(r,c).Structure,root.transform,owner);
+                    actor.transform.position=root.transform.position+new Vector3(bay.X,.08f,bay.MinZ-.3f);
+                    var body=actor.AddComponent<CharacterController>();body.height=1.8f;body.radius=.32f;body.center=Vector3.up*.9f;body.stepOffset=.3f;body.skinWidth=.025f;Physics.SyncTransforms();
+                    int steps=Mathf.CeilToInt((bay.Depth+.6f)/.05f);
+                    for(int step=0;step<steps;step++){body.Move(Vector3.forward*.05f-Vector3.up*.02f);if(step%20==0)yield return null;}
+                    Assert.That(actor.transform.position.z-root.transform.position.z,Is.GreaterThan(bay.MaxZ+.15f));
+                    Assert.That(actor.transform.position.y-root.transform.position.y,Is.InRange(-.08f,.15f));
+                }
+                finally{Object.DestroyImmediate(actor);Object.DestroyImmediate(root);}
+            }
+        }
+        [UnityTest]
         public IEnumerator PlayerCrossesEveryNewLevelThresholdWithOrdinaryController()
         {
             for(int level=0;level<RestfulLevelPlanner.LevelCount;level++)

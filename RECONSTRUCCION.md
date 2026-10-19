@@ -593,3 +593,21 @@ archivos versionados coincidentes por SHA-256. Assets: 921 archivos,
 Evidencia: Verification/expansion_R33_ci.json. Cinco revisiones cloud completadas;
 las APIs nativas, shaders, PhysX, audio real, aspecto, avisos y FPS siguen sin
 validar en Unity. Los límites de familias/modelos y densidad están en el inventario.
+
+## R34 — refinado en lotes de 10.000
+
+Los diez generadores de R33 incorporan biseles físicos, remates propios, plantas
+sobre parterres, puentes de 1,80–2,16 m y lavadoras con cristal y tambor profundo.
+Las 200.010 mismas recetas se compararon contra R33 en 20 lotes de 10.000 y
+uno de 10: todas cambian de estructura y siguen siendo distintas. El registro
+por lote conserva rangos, SHA-256 y coste; no son nuevas familias ni modelos.
+
+Se conservaron claves previas, linterna, distancias y 188 huellas protegidas.
+Compilación del núcleo estricta sin errores/advertencias; 253 scripts en cinco
+configuraciones sintácticas; 1.310.720 planes, 1.320 muestras de ejes y 240 muestras
+específicas de seguridad. Hay una prueba PlayMode de los nuevos puentes sin
+ejecutar: Unity no está instalado. Apariencia, APIs, física y FPS siguen pendientes.
+
+Inventario: REFINADO_R34_ESTADO.json; comparación reproducible y límites en
+Assets/PoolroomsProcedural/Documentation/REFINADO_R34.md. CI y descarga pública
+se anotarán cuando se verifiquen. Los pendientes cuantitativos de R33 se mantienen.

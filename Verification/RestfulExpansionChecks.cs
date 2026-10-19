@@ -90,7 +90,7 @@ static partial class Checks
                 var r=new Room{Environment=e,Exits=15};RestfulLevelPlanner.DescribeRecipe(r,c,recipe);var p=r.Plan.Restful;
                 Check(p.Valid(r,c)&&r.Plan.Valid(r,c),"Invalid new level plan: "+e+" / "+recipe);
                 Check(recipe==p.Layout+4*p.Span+32*p.Reach+256*p.Elevation+2048*p.Roof+16384*p.Rhythm,"Recipe tuple aliases another recipe");
-                Check(p.Props.Length==60,"+200% tabletop slot target changed");plans++;
+                Check(p.Props.Length==(e==LiminalEnvironment.WinterGarden?64:60),"+200% tabletop slot target or appended garden plants changed");plans++;
             }
             // Check each geometry axis independently at all supported extreme cell sizes.
             foreach(int size in new[]{28,36,60})foreach(int axis in new[]{1,4,32,256,2048,16384})

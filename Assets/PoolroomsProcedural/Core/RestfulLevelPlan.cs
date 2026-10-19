@@ -23,7 +23,8 @@ namespace Poolrooms.Core
         }
         public bool Valid(Room room,LayoutConfig c)
         {
-            if(!RestfulLevelPlanner.IsLevel(Environment)||room.Environment!=Environment||room.Width!=c.CellSize||room.Depth!=c.CellSize||room.Height!=Height||Bays==null||Bays.Length!=4||Props==null||Props.Length!=4*(6+3*c.ObjectAbundance)||Clear<c.DoorWidth*.5f+.8f)return false;
+            int planted=Environment==LiminalEnvironment.WinterGarden?4:0;
+            if(!RestfulLevelPlanner.IsLevel(Environment)||room.Environment!=Environment||room.Width!=c.CellSize||room.Depth!=c.CellSize||room.Height!=Height||Bays==null||Bays.Length!=4||Props==null||Props.Length!=4*(6+3*c.ObjectAbundance)+planted||Clear<c.DoorWidth*.5f+.8f)return false;
             float half=c.CellSize*.5f;
             for(int i=0;i<4;i++)
             {
@@ -72,7 +73,7 @@ namespace Poolrooms.Core
             if(s==Surface.Glow)return null;if(s==Surface.Metal)return "Steel";
             if(s==Surface.Plaster)return t==SurfaceTheme.MusicStudio?"Fabric":"GardenLimewash";
             if(s==Surface.Accent)return t==SurfaceTheme.CeramicGalleria?"GardenTerracotta":"Wood";
-            if(s==Surface.Slide)return t==SurfaceTheme.WinterGarden?"GardenLeaves":t==SurfaceTheme.CanalGallery||t==SurfaceTheme.MineralSanctuary?"BathTravertineWet":"Fabric";
+            if(s==Surface.Slide)return t==SurfaceTheme.WinterGarden?"GardenTerracotta":t==SurfaceTheme.CanalGallery||t==SurfaceTheme.MineralSanctuary?"BathTravertineWet":"Fabric";
             return t==SurfaceTheme.SunsetLibrary||t==SurfaceTheme.TeaPavilion?"RainOak":t==SurfaceTheme.CloudTerminal||t==SurfaceTheme.LinenLaundry?"Terrazzo":t==SurfaceTheme.CeramicGalleria?"GardenTerracotta":"GardenLimestone";
         }
         public static int RecipeAt(LayoutConfig c,LiminalEnvironment e,int x,int z)
@@ -107,6 +108,10 @@ namespace Poolrooms.Core
                 if(r.Environment==LiminalEnvironment.CanalGalleries||r.Environment==LiminalEnvironment.MineralSanctuary)
                     pools.Add(new WaterRegion{CenterX=x,CenterZ=z,Width=span-.6f,Depth=reach-.6f,Bottom=-.72f,Level=c.WaterLevel,Radius=0});
             }
+            // Append after all original slots: saved/taken pickup IDs retain their
+            // meaning. Existing alpha-masked licensed foliage uses its own PBR maps.
+            if(r.Environment==LiminalEnvironment.WinterGarden)
+                foreach(var bay in bays)props.Add(new QuietPropPlan(new V3(bay.X,.401f,bay.Z),-1,"G_PottedPlant",(recipe%4)*90));
             var plan=new RestfulLevelPlan(recipe,r.Environment,clear,bays,props.ToArray(),pools.ToArray());
             r.ZoneId=-1;r.Width=r.Depth=c.CellSize;r.Height=plan.Height;
             r.Plan=new ProceduralPlan(r.Environment,new PlannedModule[0],plan.Pools,clear,0,0,restful:plan);

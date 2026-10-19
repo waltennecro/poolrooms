@@ -16,6 +16,7 @@
     <Compile Include="VarietyExpansionChecks.cs" />
     <Compile Include="BiomeExtentChecks.cs" />
     <Compile Include="RestfulExpansionChecks.cs" />
+    <Compile Include="RestfulBatchChecks.cs" />
     <Reference Include="Microsoft.CodeAnalysis" HintPath="$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.dll" />
     <Reference Include="Microsoft.CodeAnalysis.CSharp" HintPath="$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll" />
   </ItemGroup>

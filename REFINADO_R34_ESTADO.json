@@ -1,0 +1,394 @@
+{
+  "stage": "R34",
+  "request": "Refine all 200010 R33 architectures in batches of 10000",
+  "baselineRevision": "0a43903830cf694377118229a23dbeeed9a6346b",
+  "scope": "Ten existing R33 structural programmes; recipes retain identity. Changes apply to their entire generator banks, not only the verification sample.",
+  "sampleMapping": {
+    "perLevel": 20001,
+    "recipe": "((index * 65539) + level * 73) & 131071",
+    "batchSize": 10000
+  },
+  "nativeUnityExecuted": false,
+  "status": "all_21_batches_core_verified_ci_pending_native_unrun",
+  "batches": [
+    {
+      "batch": 1,
+      "startInclusive": 0,
+      "endExclusive": 10000,
+      "rooms": 10000,
+      "levels": [
+        "SunsetLibrary"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "653CB35DBCDDFF5E9EA59A1E9531EEA78A0401D2BC5AB20C57F6D0296E7C746E"
+    },
+    {
+      "batch": 2,
+      "startInclusive": 10000,
+      "endExclusive": 20000,
+      "rooms": 10000,
+      "levels": [
+        "SunsetLibrary"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "10FA08CC3C3E007845853DDDCD854093F0E6F620D096438643DAFB919C2197B3"
+    },
+    {
+      "batch": 3,
+      "startInclusive": 20000,
+      "endExclusive": 30000,
+      "rooms": 10000,
+      "levels": [
+        "SunsetLibrary",
+        "CloudTerminal"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "1FFB60BF2F6FB4C2108B86AC2F8FFA8DDDCA0A803FA9D0683C46DA9CF4848966"
+    },
+    {
+      "batch": 4,
+      "startInclusive": 30000,
+      "endExclusive": 40000,
+      "rooms": 10000,
+      "levels": [
+        "CloudTerminal"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "542CF21BB2258D65DD28B73D91C401E4CF71C4DE12AD174DD1908064ADDC10AC"
+    },
+    {
+      "batch": 5,
+      "startInclusive": 40000,
+      "endExclusive": 50000,
+      "rooms": 10000,
+      "levels": [
+        "CloudTerminal",
+        "TeaPavilions"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "0F1FF3AB743ED8CE500DDECC1B972D87BB05B22CFB0048CB2C66BDFD3175A9B3"
+    },
+    {
+      "batch": 6,
+      "startInclusive": 50000,
+      "endExclusive": 60000,
+      "rooms": 10000,
+      "levels": [
+        "TeaPavilions"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "FA0842D804E5ED49AE97020357C5D301D3EA9A02F57E8B34FC20BA574E11E068"
+    },
+    {
+      "batch": 7,
+      "startInclusive": 60000,
+      "endExclusive": 70000,
+      "rooms": 10000,
+      "levels": [
+        "TeaPavilions",
+        "CeramicGalleria"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "EE6FBC7A14E123D00D89B99CB756D52B5D7FF08D2706BCFB05AEC095067E495C"
+    },
+    {
+      "batch": 8,
+      "startInclusive": 70000,
+      "endExclusive": 80000,
+      "rooms": 10000,
+      "levels": [
+        "CeramicGalleria"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "B42F400297D969552145F1AA6D4EB4BE7FB80739F2ADD91FFFEB5D79C190BDB9"
+    },
+    {
+      "batch": 9,
+      "startInclusive": 80000,
+      "endExclusive": 90000,
+      "rooms": 10000,
+      "levels": [
+        "CeramicGalleria",
+        "WinterGarden"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "0ABF076373D7ED33D13A67A621D44AD258EB493942B6B38B276B0779F1BA6AAC"
+    },
+    {
+      "batch": 10,
+      "startInclusive": 90000,
+      "endExclusive": 100000,
+      "rooms": 10000,
+      "levels": [
+        "WinterGarden"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "F2783C253726DBA75F69448782F7E43FF834697D46FEC9B29F92B6430C5E98BE"
+    },
+    {
+      "batch": 11,
+      "startInclusive": 100000,
+      "endExclusive": 110000,
+      "rooms": 10000,
+      "levels": [
+        "WinterGarden",
+        "CanalGalleries"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "E18AA55117FCA8FACA75A4F4090088E30564EB395FB5363E797F6D17D924C9C3"
+    },
+    {
+      "batch": 12,
+      "startInclusive": 110000,
+      "endExclusive": 120000,
+      "rooms": 10000,
+      "levels": [
+        "CanalGalleries"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "A3F121EBE11FA4D225B65F7C3E79340EC1A36E8CD67624347D70B6D0509F53CF"
+    },
+    {
+      "batch": 13,
+      "startInclusive": 120000,
+      "endExclusive": 130000,
+      "rooms": 10000,
+      "levels": [
+        "CanalGalleries",
+        "MusicStudios"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "8346F59893E64CDCC3BF42246042B3CE02B565997AA46372DCEEBA529D8F9D22"
+    },
+    {
+      "batch": 14,
+      "startInclusive": 130000,
+      "endExclusive": 140000,
+      "rooms": 10000,
+      "levels": [
+        "MusicStudios"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "1FC51606CD3839FD586024C3FA22BF57A35531950629294E2D414469EDA440A6"
+    },
+    {
+      "batch": 15,
+      "startInclusive": 140000,
+      "endExclusive": 150000,
+      "rooms": 10000,
+      "levels": [
+        "MusicStudios",
+        "LanternCourts"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "D58433C6FE0E51759889390DE88B6DA8AD197CBAFBC19288EB81D9F67CD6ABA7"
+    },
+    {
+      "batch": 16,
+      "startInclusive": 150000,
+      "endExclusive": 160000,
+      "rooms": 10000,
+      "levels": [
+        "LanternCourts"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "E22A573808731ED1CDCF6CDE9AF5D7D757ABC9ACEDA163357F5D5FD4BEFBD13B"
+    },
+    {
+      "batch": 17,
+      "startInclusive": 160000,
+      "endExclusive": 170000,
+      "rooms": 10000,
+      "levels": [
+        "LanternCourts",
+        "LinenLaundries"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "6D183A6CEEFC5501FF098F5A30857E9E3B687D61441AADFC533B76E167A2AF53"
+    },
+    {
+      "batch": 18,
+      "startInclusive": 170000,
+      "endExclusive": 180000,
+      "rooms": 10000,
+      "levels": [
+        "LinenLaundries"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "5E9285968A510071685F488856AABCFA0DB4ECB9C5BD0BF2D7F317F0981DA60A"
+    },
+    {
+      "batch": 19,
+      "startInclusive": 180000,
+      "endExclusive": 190000,
+      "rooms": 10000,
+      "levels": [
+        "LinenLaundries",
+        "MineralSanctuary"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "8BE0E69B6B65307C8877A56B0CD593868BB42C1DEFC4AFDB5718A1BEEFD115FF"
+    },
+    {
+      "batch": 20,
+      "startInclusive": 190000,
+      "endExclusive": 200000,
+      "rooms": 10000,
+      "levels": [
+        "MineralSanctuary"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "evidenceSha256": "727CBA2076C170CDDFA0FF17C4BA17FCE1C7AF29BB25726273169F3639107722"
+    },
+    {
+      "batch": 21,
+      "startInclusive": 200000,
+      "endExclusive": 200010,
+      "rooms": 10,
+      "levels": [
+        "MineralSanctuary"
+      ],
+      "status": "core_verified_native_unrun",
+      "changedMeshes": 10,
+      "changedStructures": 10,
+      "evidenceSha256": "25ED01D00277DE0A028070D53DBD59698417FCE03D53E2C0E0B3562B60E92390"
+    }
+  ],
+  "newSourceModels": 0,
+  "newMaterials": 0,
+  "newLightsPerRoom": 0,
+  "renderDistanceReduced": false,
+  "completedBatches": 21,
+  "verifiedRooms": 200010,
+  "resumeEvidenceDirectories": {
+    "before": "/workspace/output/R34_before",
+    "after": "/workspace/output/R34_final"
+  },
+  "results": {
+    "stage": "R34",
+    "baselineRevision": "0a43903830cf694377118229a23dbeeed9a6346b",
+    "nativeUnityExecuted": false,
+    "fullCoreAssertions": 1842430888,
+    "protectedGeometryFingerprints": 188,
+    "syntaxScripts": 253,
+    "syntaxConfigurations": 5,
+    "strictCoreBuildWarnings": 0,
+    "strictCoreBuildErrors": 0,
+    "completedBatches": 21,
+    "refinedArchitectures": 200010,
+    "distinctRefinedArchitectures": 200010,
+    "changedStructuralMeshes": 200010,
+    "exhaustiveRecipePlansValidated": 1310720,
+    "fullAxisGeometrySamples": 1320,
+    "additionalRefinementGeometrySamples": 240,
+    "refinementCoreAssertions": 6946560,
+    "batchCoreAssertions": 2856563082,
+    "beforeArchitectureTriangles": 713307288,
+    "afterArchitectureTriangles": 951921000,
+    "maximumAdditionalArchitecturalTrianglesPerComparedRoom": 5000,
+    "triangleBudgetExcludesSourceProps": true,
+    "sameRecipeIDs": true,
+    "oldPickupSlotsRetained": true,
+    "newSourceModels": 0,
+    "newRoomMaterials": 0,
+    "newRoomLights": 0,
+    "newLicensedPlantInstancesPerGardenRoom": 4,
+    "renderDistanceReduced": false,
+    "sourceHashPreservation": {
+      "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
+      "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsFlashlightHDRP.cs": "d5e65a0b929997c92ac37e1f6bf91ddba4943b3c8defc23733aa6c7ec469176f",
+      "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
+    },
+    "nativePreflight": {
+      "nativeExecuted": false,
+      "status": "blocked_unity_editor_missing",
+      "unity": "/opt/unity/Editor/Unity",
+      "project": "/workspace/poolrooms",
+      "fullSuite": true,
+      "headless": false,
+      "visualAndFpsCertified": false,
+      "startedUtc": "2026-10-19T22:54:49Z",
+      "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
+    },
+    "actualWorldSnapshot": {
+      "newLevelRooms": 4569,
+      "interactiveKeys": 274976,
+      "licensedSourceInstances": 110492,
+      "distinctLicensedSourceModelsUsed": 8,
+      "simultaneouslyLoaded": false,
+      "nativeRuntimeSnapshot": false
+    },
+    "oldCoreRegression": "Old core reproduces missing physical bevel; refined core passes support, bevel, bridge and washer depth checks.",
+    "logSha256": {
+      "R34_strict_final.log": "bd27f9ea6eda7cf9d6d4f1ad302aa27563697f55343ea4517311a5fc923279f7",
+      "R34_full_final.log": "02215071429c3e0b13012acf5ce274adf417a11293a79599647ae17b53bbd2cd",
+      "R34_safety_final.log": "93d50b1ec3bb323eb9fa072f749d7e2c01fd15be04509bc1a6281df40ea5104a",
+      "R34_levels_final.log": "4abe31625b3d2b4a6256e45cded4092bae23ee81cfd5283a755725c3c5abd97d",
+      "R34_world.log": "949ff603b639caedf9c351d71dcc28059323c318b9a28e8f3d274be4e714c4e7",
+      "R34_final_batches.log": "581c0b4d86e5b8f9c725dfbfba619ad0aaa1a42aef23848429c6b19a58b8c9ae",
+      "R34_sources.log": "9537063006405fc81cd619e23bb9def3ebbeb66d28a2681a9ca64160bcecf77a",
+      "R34_garden.log": "20b0f3b1d8cf044a77a3caa8155b7e5ee2b02640c4a20d1d1991be93017d780a",
+      "R34_textures.log": "51e56fb304f704f660d00fb106536ca5b707520b423dd0e5c7d299320fd7217d",
+      "R34_native_contract.log": "9e221410f00bec0e2f90c8943ddf921aa31e175d14f6e60f2f09afe0b7db14ec",
+      "before-regression.log": "b7247cf430ad91d850655139af895ec84349419f6ae1a6bb5f6c958ca36d7629",
+      "R34_optics_final.log": "4269cfe7b624befc54c766c5b49b453338c64a3b359357339c9af3939ed07afd"
+    },
+    "batchEvidence": "Verification/refinement_R34_batches.json",
+    "ciStatus": "pending",
+    "limitations": [
+      "Geometry comparisons and mathematical checks are not native Unity tests or a visual/FPS certificate.",
+      "The sample contains existing generated recipes, not 200010 newly handcrafted rooms or structural families.",
+      "Four extra garden plants reuse an existing licensed model and LODs; source geometry cost is outside the room triangle budget.",
+      "R33 outstanding literal structural-family/model targets remain unchanged."
+    ],
+    "integrationSyntaxAndOpticsAssertions": 87388,
+    "generatedMaterialMigration": "Only the canonical WinterGarden_Slide generated asset with known old default texture maps is updated, retaining GUID and colours. Native Editor behavior unrun.",
+    "testedCoreAndEditorSha256": {
+      "Assets/PoolroomsProcedural/Core/RestfulLevelArchitecture.cs": "6a09bebd6b3233ae5cb65ede6a3ae489ce370b9e916e2cfea8795d8b8f6b521f",
+      "Assets/PoolroomsProcedural/Core/RestfulLevelDetails.cs": "fa7bf777a7ff83f70ee87b61fc7f008e5323cb6ef3659ea941fd21a3370417a5",
+      "Assets/PoolroomsProcedural/Core/RestfulLevelPlan.cs": "1a6178fdfadad9c517bf5460281b52873a3c3ed19f5bff069fb633f380468642",
+      "Assets/PoolroomsProcedural/Editor/PoolroomsBiomeMaterialSetup.cs": "3b2758a612155b721f9329c8d3f5a77aae19a2b023db0bebdff96637bf38665c"
+    }
+  },
+  "batchEvidence": "Verification/refinement_R34_batches.json"
+}

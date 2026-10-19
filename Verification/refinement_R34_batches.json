@@ -1,0 +1,379 @@
+{
+  "stage": "R34",
+  "baselineRevision": "0a43903830cf694377118229a23dbeeed9a6346b",
+  "rooms": 200010,
+  "batchSize": 10000,
+  "batches": [
+    {
+      "batch": 1,
+      "startInclusive": 0,
+      "endExclusive": 10000,
+      "rooms": 10000,
+      "levels": [
+        0
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 34857840,
+      "beforeTriangles": 28617840,
+      "maximumTriangles": 4440,
+      "sha256": "653CB35DBCDDFF5E9EA59A1E9531EEA78A0401D2BC5AB20C57F6D0296E7C746E",
+      "beforeSha256": "554938C763A4B62449427116C262E964C2C2EC02CA70AC4A7AF9ED5ADDF664FB",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 2,
+      "startInclusive": 10000,
+      "endExclusive": 20000,
+      "rooms": 10000,
+      "levels": [
+        0
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 35200632,
+      "beforeTriangles": 28960632,
+      "maximumTriangles": 4488,
+      "sha256": "10FA08CC3C3E007845853DDDCD854093F0E6F620D096438643DAFB919C2197B3",
+      "beforeSha256": "77AF88D8D2F72C2AF000DAC9A7577EE4CA03AEB4BB5F37D680094748943ABE2C",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 3,
+      "startInclusive": 20000,
+      "endExclusive": 30000,
+      "rooms": 10000,
+      "levels": [
+        0,
+        1
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 39746760,
+      "beforeTriangles": 32546856,
+      "maximumTriangles": 4824,
+      "sha256": "1FFB60BF2F6FB4C2108B86AC2F8FFA8DDDCA0A803FA9D0683C46DA9CF4848966",
+      "beforeSha256": "2864ECCAC31194C3C63F5D0F9121F25A855FB26E46C23578E7A43DC72DE6A6A0",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 4,
+      "startInclusive": 30000,
+      "endExclusive": 40000,
+      "rooms": 10000,
+      "levels": [
+        1
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 40094292,
+      "beforeTriangles": 32894292,
+      "maximumTriangles": 4872,
+      "sha256": "542CF21BB2258D65DD28B73D91C401E4CF71C4DE12AD174DD1908064ADDC10AC",
+      "beforeSha256": "CFF105C25981664165691E3CB5429B4585A151319D84F3FBF9973224CBC384F2",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 5,
+      "startInclusive": 40000,
+      "endExclusive": 50000,
+      "rooms": 10000,
+      "levels": [
+        1,
+        2
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 31740228,
+      "beforeTriangles": 25020132,
+      "maximumTriangles": 4200,
+      "sha256": "0F1FF3AB743ED8CE500DDECC1B972D87BB05B22CFB0048CB2C66BDFD3175A9B3",
+      "beforeSha256": "0CA8BE4F0533CDF22B21B7826A916610CF3878BD686C8C3E5F01A00E44635E5D",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 6,
+      "startInclusive": 50000,
+      "endExclusive": 60000,
+      "rooms": 10000,
+      "levels": [
+        2
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 32087880,
+      "beforeTriangles": 25367880,
+      "maximumTriangles": 3480,
+      "sha256": "FA0842D804E5ED49AE97020357C5D301D3EA9A02F57E8B34FC20BA574E11E068",
+      "beforeSha256": "D03F7F9C9428584E8526E1FF03FE6483D0D049C4CE5EA8F5D8A6C1651B7A12A0",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 7,
+      "startInclusive": 60000,
+      "endExclusive": 70000,
+      "rooms": 10000,
+      "levels": [
+        2,
+        3
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 111159384,
+      "beforeTriangles": 105159096,
+      "maximumTriangles": 15240,
+      "sha256": "EE6FBC7A14E123D00D89B99CB756D52B5D7FF08D2706BCFB05AEC095067E495C",
+      "beforeSha256": "795BF2BF1BCB9EE087E3B53C23473DDC9E0CD685512A6BBEAAD34B6D965BD467",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 8,
+      "startInclusive": 70000,
+      "endExclusive": 80000,
+      "rooms": 10000,
+      "levels": [
+        3
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 111531600,
+      "beforeTriangles": 105531600,
+      "maximumTriangles": 15288,
+      "sha256": "B42F400297D969552145F1AA6D4EB4BE7FB80739F2ADD91FFFEB5D79C190BDB9",
+      "beforeSha256": "791EE5303A4A8003A9702C01A655FAB66C9F54BAD434649AA4DFC3DBDFD7056B",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 9,
+      "startInclusive": 80000,
+      "endExclusive": 90000,
+      "rooms": 10000,
+      "levels": [
+        3,
+        4
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 20016000,
+      "beforeTriangles": 14255904,
+      "maximumTriangles": 15288,
+      "sha256": "0ABF076373D7ED33D13A67A621D44AD258EB493942B6B38B276B0779F1BA6AAC",
+      "beforeSha256": "12A9818CC300AD117C85AF32A67514395FF696F3E5E59B2F2CA3AE512D21ACE2",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 10,
+      "startInclusive": 90000,
+      "endExclusive": 100000,
+      "rooms": 10000,
+      "levels": [
+        4
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 20335308,
+      "beforeTriangles": 14575308,
+      "maximumTriangles": 2232,
+      "sha256": "F2783C253726DBA75F69448782F7E43FF834697D46FEC9B29F92B6430C5E98BE",
+      "beforeSha256": "220F8E560437F8AAA4B5778C5FC666020E715C0EF3C66A041FCF66F2C690CBA3",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 11,
+      "startInclusive": 100000,
+      "endExclusive": 110000,
+      "rooms": 10000,
+      "levels": [
+        4,
+        5
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 40229804,
+      "beforeTriangles": 20376860,
+      "maximumTriangles": 4408,
+      "sha256": "E18AA55117FCA8FACA75A4F4090088E30564EB395FB5363E797F6D17D924C9C3",
+      "beforeSha256": "B16C54F30EDF6F94F2263348BBC9D6D1E756516A98A2A9AB48BB64710BF0C5F7",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 12,
+      "startInclusive": 110000,
+      "endExclusive": 120000,
+      "rooms": 10000,
+      "levels": [
+        5
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 40600192,
+      "beforeTriangles": 20738752,
+      "maximumTriangles": 4456,
+      "sha256": "A3F121EBE11FA4D225B65F7C3E79340EC1A36E8CD67624347D70B6D0509F53CF",
+      "beforeSha256": "E958615093B555C326E0E899DD7FB1D803166F6CEE4245EC3F4614D41E576E5F",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 13,
+      "startInclusive": 120000,
+      "endExclusive": 130000,
+      "rooms": 10000,
+      "levels": [
+        5,
+        6
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 38702448,
+      "beforeTriangles": 32453280,
+      "maximumTriangles": 4360,
+      "sha256": "8346F59893E64CDCC3BF42246042B3CE02B565997AA46372DCEEBA529D8F9D22",
+      "beforeSha256": "1E424FDB964732CD1B8851C57B2759CA0FA2FF83349BA6161B39BCB9FE8F5716",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 14,
+      "startInclusive": 130000,
+      "endExclusive": 140000,
+      "rooms": 10000,
+      "levels": [
+        6
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 39062472,
+      "beforeTriangles": 32822472,
+      "maximumTriangles": 4104,
+      "sha256": "1FC51606CD3839FD586024C3FA22BF57A35531950629294E2D414469EDA440A6",
+      "beforeSha256": "3AE2C1BD52AF56C3F6D0A361642CC3783EC1187AF04EC8F5CEF7A464F73C52C1",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 15,
+      "startInclusive": 140000,
+      "endExclusive": 150000,
+      "rooms": 10000,
+      "levels": [
+        6,
+        7
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 36782904,
+      "beforeTriangles": 26465544,
+      "maximumTriangles": 4440,
+      "sha256": "D58433C6FE0E51759889390DE88B6DA8AD197CBAFBC19288EB81D9F67CD6ABA7",
+      "beforeSha256": "7356F26329EF5CE81DA80F316E081363AACD71118154EA5B754B7050F03D40A2",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 16,
+      "startInclusive": 150000,
+      "endExclusive": 160000,
+      "rooms": 10000,
+      "levels": [
+        7
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 37146180,
+      "beforeTriangles": 26826180,
+      "maximumTriangles": 4488,
+      "sha256": "E22A573808731ED1CDCF6CDE9AF5D7D757ABC9ACEDA163357F5D5FD4BEFBD13B",
+      "beforeSha256": "66FB995683B06957C5624DD85303952419A27B3E63D4FBC8A9B9AD69B9E92C6B",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 17,
+      "startInclusive": 160000,
+      "endExclusive": 170000,
+      "rooms": 10000,
+      "levels": [
+        7,
+        8
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 59083524,
+      "beforeTriangles": 33415812,
+      "maximumTriangles": 7896,
+      "sha256": "6D183A6CEEFC5501FF098F5A30857E9E3B687D61441AADFC533B76E167A2AF53",
+      "beforeSha256": "273D3F24B79DD75B86110F1FFBC1948A861A0BC9C640081A2E6491FF44A012C2",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 18,
+      "startInclusive": 170000,
+      "endExclusive": 180000,
+      "rooms": 10000,
+      "levels": [
+        8
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 59469720,
+      "beforeTriangles": 33789720,
+      "maximumTriangles": 7944,
+      "sha256": "5E9285968A510071685F488856AABCFA0DB4ECB9C5BD0BF2D7F317F0981DA60A",
+      "beforeSha256": "3F37B72A3CEA0044C38CBF8BC4DC279D5087403644C993A8E032AB40BE0F8718",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 19,
+      "startInclusive": 180000,
+      "endExclusive": 190000,
+      "rooms": 10000,
+      "levels": [
+        8,
+        9
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 61817432,
+      "beforeTriangles": 36538008,
+      "maximumTriangles": 7944,
+      "sha256": "8BE0E69B6B65307C8877A56B0CD593868BB42C1DEFC4AFDB5718A1BEEFD115FF",
+      "beforeSha256": "0174AFB0EB5312946922A121563BF00C77F45A52A01735E8FB22641780343A6D",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 20,
+      "startInclusive": 190000,
+      "endExclusive": 200000,
+      "rooms": 10000,
+      "levels": [
+        9
+      ],
+      "changedMeshes": 10000,
+      "changedStructures": 10000,
+      "triangles": 62193440,
+      "beforeTriangles": 36913440,
+      "maximumTriangles": 6344,
+      "sha256": "727CBA2076C170CDDFA0FF17C4BA17FCE1C7AF29BB25726273169F3639107722",
+      "beforeSha256": "1B135BA71627E8C26B37EC8C8CC8A607C72593087CF3CC8351B6180AC48B6044",
+      "status": "core_verified_native_unrun"
+    },
+    {
+      "batch": 21,
+      "startInclusive": 200000,
+      "endExclusive": 200010,
+      "rooms": 10,
+      "levels": [
+        9
+      ],
+      "changedMeshes": 10,
+      "changedStructures": 10,
+      "triangles": 62960,
+      "beforeTriangles": 37680,
+      "maximumTriangles": 6344,
+      "sha256": "25ED01D00277DE0A028070D53DBD59698417FCE03D53E2C0E0B3562B60E92390",
+      "beforeSha256": "B0EA78B1820247B68A3F171D626CBD2491CB44C1F9F9994C0A4973FE9664E35D",
+      "status": "core_verified_native_unrun"
+    }
+  ],
+  "beforeTriangles": 713307288,
+  "afterTriangles": 951921000,
+  "sameRecipeIDs": true,
+  "nativeUnityExecuted": false,
+  "scope": "Existing ten R33 structural programmes; no new models or handcrafted room count"
+}
