@@ -37,8 +37,7 @@ namespace Poolrooms.Core
         public static ZoneLightStyle DefaultFor(int zone)
         {
             // Balanced, authored alternation across old and new families; IDs remain stable.
-            int family=zone<120?zone/6:20+(zone-120)/5;
-            int variant=zone<120?zone%6:(zone-120)%5;
+            var recipe=ZoneCatalog.Get(zone);int family=(int)recipe.Family,variant=recipe.Variant;
             return (ZoneLightStyle)((family*3+variant*7)%Count);
         }
         public static ZoneLightStyle Resolve(Room room,LayoutConfig c)

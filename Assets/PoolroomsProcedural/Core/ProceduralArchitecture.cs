@@ -233,6 +233,17 @@ namespace Poolrooms.Core
                     Reassign(m,Surface.Tile,Surface.Metal);break;
                 case LiminalModule.BallPit:BallPit(m,decoration,w,d,ref random,c,ballAllowance);break;
                 case LiminalModule.Slide:Slide(m,p,c);break;
+                case LiminalModule.PaddedStairs:
+                    Platform(m,decoration,p,uv,false);
+                    foreach(int side in new[]{-1,1})for(int block=0;block<3;block++)
+                        ZoneShapes.Box(m,side*(w*.5f-.38f),d*.5f-.55f+block*.1f,.4f,.38f,p.Rise,p.Rise+.3f+block*.18f,Surface.Slide,uv);
+                    break;
+                case LiminalModule.SlalomPosts:
+                    for(int post=0;post<4;post++)Shapes.Column(m,(post%2==0?-1:1)*Math.Min(.65f,w*.22f),(-.3f+post*.2f)*d,.18f,0,1.7f,n,Surface.Slide,uv);
+                    break;
+                case LiminalModule.HoopGallery:
+                    for(int hoop=0;hoop<3;hoop++)ZoneShapes.Portal(m,0,(hoop-1)*d*.3f,0,w-.1f,2.8f,0,Math.Max(1.35f,w-.65f),2.3f,.14f,1,n,uv);
+                    break;
             }
             V3 offset=new V3(p.X,0,p.Z);float yaw=p.QuarterTurns*Shapes.Pi*.5f;
             m.TranslateRotate(offset,yaw);decoration.TranslateRotate(offset,yaw);o.Structure.Append(m);o.Decoration.Append(decoration);

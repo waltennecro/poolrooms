@@ -1,5 +1,7 @@
 # Poolrooms
 
+R31 amplía un **50 % la variedad de salas y zonas por bioma**, con nuevas plantas de casas y tamaños de centros comerciales integrados al caminar. [Cambios, cifras y límites](Assets/PoolroomsProcedural/Documentation/VARIEDAD_BIOMAS_R31.md). No hace falta recrear la demo; importa únicamente `Assets/PoolroomsProcedural` con Play detenido. Las pruebas nativas en Unity siguen pendientes.
+
 ## Código recuperado: v39
 
 Este repositorio conserva el paquete **Poolrooms v39 — Áreas infantiles multinivel** recuperado de una copia local el 16 de octubre de 2026. Incluye los 326 archivos originales: código C#, shaders, texturas, sonidos, recursos y pruebas de Play Mode.

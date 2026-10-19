@@ -22,7 +22,7 @@ namespace Poolrooms.Core
     }
     public sealed class RainHousePlan
     {
-        public const int CatalogCount=2500;
+        public const int BaseCatalogCount=2500,CatalogCount=3750;
         public readonly int Recipe,Programme,Footprint,Roof,Rhythm,Detail;
         public readonly float Clear;
         public readonly RainLodge[] Houses;
@@ -54,10 +54,10 @@ namespace Poolrooms.Core
             int m=1+2*(int)(h%1250);while(m%5==0)m+=2;
             return (int)(((xx*50+zz)*m+(h>>10))%2500);
         }
-        public static void Describe(Room r,LayoutConfig c){DescribeRecipe(r,c,RecipeAt(c.Seed,r.X,r.Z));}
+        public static void Describe(Room r,LayoutConfig c){DescribeRecipe(r,c,(c.ExpandedVariety?BiomeVariety.RecipeAt(c.Seed,r.X,r.Z,75,50,0x310240u):RecipeAt(c.Seed,r.X,r.Z)));}
         public static void DescribeRecipe(Room r,LayoutConfig c,int recipe)
         {
-            if(recipe<0||recipe>=2500)throw new ArgumentOutOfRangeException(nameof(recipe));
+            if(recipe<0||recipe>=RainHousePlan.CatalogCount)throw new ArgumentOutOfRangeException(nameof(recipe));
             float clear=RainHouseArchitecture.MaxOpening(c)*.5f+.8f,space=c.CellSize*.5f-clear-.65f;
             int footprint=recipe/5%5,detail=recipe/625;var houses=new RainLodge[4];var props=new List<QuietPropPlan>();
             for(int i=0;i<4;i++)

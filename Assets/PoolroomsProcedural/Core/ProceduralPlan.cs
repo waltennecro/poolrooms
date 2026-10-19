@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Poolrooms.Core
 {
-    public enum LiminalModule { Pool, Columns, Arch, Screen, Bench, Platform, PlayFrame, Tunnel, BallPit, Slide, Shelf, RefrigeratedCase, Checkout, ProduceIsland, StockRack, CartBay, ServiceCounter }
+    public enum LiminalModule { Pool, Columns, Arch, Screen, Bench, Platform, PlayFrame, Tunnel, BallPit, Slide, Shelf, RefrigeratedCase, Checkout, ProduceIsland, StockRack, CartBay, ServiceCounter, PaddedStairs, SlalomPosts, HoopGallery }
 
     public readonly struct PlannedModule
     {
@@ -82,7 +82,7 @@ namespace Poolrooms.Core
                     int steps=(int)Math.Round(a.Rise/.21f);
                     if(steps<1||Math.Min(a.Width,a.Depth)-steps*.6f<1.2f||a.Radius>Math.Min(a.Width,a.Depth)*.5f)return false;
                 }
-                if(a.Kind==LiminalModule.Platform||a.Kind==LiminalModule.Slide||a.Kind==LiminalModule.PlayFrame)
+                if(a.Kind==LiminalModule.Platform||a.Kind==LiminalModule.Slide||a.Kind==LiminalModule.PlayFrame||a.Kind==LiminalModule.PaddedStairs)
                 {if(a.LocalDepth<4||a.LocalWidth<3.4f||a.Rise>1.8f||a.Rise/(a.LocalDepth-2)> .5f||room.Height-a.Rise<2.2f)return false;}
                 if(a.Kind==LiminalModule.Tunnel&&a.LocalWidth<3)return false;
             }
@@ -102,11 +102,13 @@ namespace Poolrooms.Core
     {
         private static readonly LiminalModule[] poolChoices={LiminalModule.Pool,LiminalModule.Pool,LiminalModule.Columns,LiminalModule.Arch,
             LiminalModule.Screen,LiminalModule.Bench,LiminalModule.Platform};
+        private static readonly LiminalModule[] expandedPlayChoices={LiminalModule.PlayFrame,LiminalModule.Tunnel,LiminalModule.BallPit,LiminalModule.Slide,LiminalModule.Platform,LiminalModule.Bench,LiminalModule.PaddedStairs,LiminalModule.SlalomPosts,LiminalModule.HoopGallery};
         private static readonly LiminalModule[] playChoices={LiminalModule.PlayFrame,LiminalModule.Tunnel,LiminalModule.BallPit,LiminalModule.Slide,LiminalModule.Platform,LiminalModule.Bench};
         public static void Describe(Room room,LayoutConfig c)
         {
             DescribeBase(room,c);
             if(c.AutonomousGeneration&&room.Plan!=null)AutonomousPlanner.Decorate(room,c);
+            RoomPrograms.Describe(room,c);
         }
         private static void DescribeBase(Room room,LayoutConfig c)
         {
@@ -172,10 +174,10 @@ namespace Poolrooms.Core
                 }
                 else
                 {
-                    kind=first?LiminalModule.PlayFrame:playChoices[random.Range(playChoices.Length)];
+                    kind=first?LiminalModule.PlayFrame:(c.ExpandedVariety?expandedPlayChoices:playChoices)[random.Range(c.ExpandedVariety?expandedPlayChoices.Length:playChoices.Length)];
                 }
                 int turns=random.Range(4);float lw=(turns&1)==0?width:depth,ld=(turns&1)==0?depth:width;
-                if((kind==LiminalModule.Platform||kind==LiminalModule.PlayFrame||kind==LiminalModule.Slide)&&(lw<3.4f||ld<4))kind=LiminalModule.Tunnel;
+                if((kind==LiminalModule.Platform||kind==LiminalModule.PlayFrame||kind==LiminalModule.PaddedStairs||kind==LiminalModule.Slide)&&(lw<3.4f||ld<4))kind=LiminalModule.Tunnel;
                 if(kind==LiminalModule.Slide&&(lw<4.4f||ld<5))kind=LiminalModule.PlayFrame;
                 if(kind==LiminalModule.Tunnel&&lw<3)kind=LiminalModule.Bench;
                 float rise=0,radius=0;
@@ -186,7 +188,7 @@ namespace Poolrooms.Core
                     radius=random.Range(0,Math.Min(width,depth)*.48f);
                     pools.Add(new WaterRegion{CenterX=x,CenterZ=z,Width=width,Depth=depth,Radius=radius,Bottom=-rise,Level=c.WaterLevel});
                 }
-                if(kind==LiminalModule.Platform||kind==LiminalModule.PlayFrame||kind==LiminalModule.Slide)
+                if(kind==LiminalModule.Platform||kind==LiminalModule.PlayFrame||kind==LiminalModule.PaddedStairs||kind==LiminalModule.Slide)
                     rise=(3+random.Range(Math.Max(1,Math.Min(6,(int)((ld-2)*.4f/.2f))-2)))*.2f;
                 modules.Add(new PlannedModule(kind,x,z,width,depth,rise,radius,turns,random.Next()));
             }

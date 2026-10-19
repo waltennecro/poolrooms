@@ -48,10 +48,10 @@ namespace Poolrooms.Core
         public int SectorCount { get { return Bays+2; } }
         private MallPlan(int seed,int x,int z,int floors,int bays,float depth,MallShop[] shops,bool enhanced,bool refined,bool autonomous)
         {Enhanced=enhanced;Refined=enhanced&&refined;Autonomous=Enhanced&&Refined&&autonomous;Seed=seed;AddressX=x;AddressZ=z;Floors=floors;Bays=bays;ShopHalf=bays*BayWidth*.5f;Width=ShopHalf*2+56;Depth=depth;Shops=shops;Design=Refined?new MallSpatialDesign(this):null;}
-        public static MallPlan Create(int seed,int x,int z,bool enhanced=false,bool refined=false,bool autonomous=false)
+        public static MallPlan Create(int seed,int x,int z,bool enhanced=false,bool refined=false,bool autonomous=false,bool expanded=false)
         {
             var random=new StableRandom(LiminalRegions.Hash(seed,x,z,0xCA110u));
-            int floors=2+random.Range(5),bays=8+random.Range(5);float depth=random.Range(2)==0?96:112;
+            int floors=2+random.Range(5),bays=8+random.Range(5);float depth=SelectDepth(ref random,seed,x,z,expanded);
             var shops=new List<MallShop>();
             var kinds=new List<MallShopKind>();
             foreach(MallShopKind k in Enum.GetValues(typeof(MallShopKind)))if(k!=MallShopKind.Hypermarket&&k!=MallShopKind.Restrooms)kinds.Add(k);
@@ -72,6 +72,11 @@ namespace Poolrooms.Core
                 shops.Add(new MallShop(shops.Count,floor,side,bay+1+(span-1)/2,kind,-bays*BayWidth*.5f+(bay+span*.5f)*BayWidth,span*BayWidth,depth*.5f-ShopFront-.4f,random.Next(),enhanced&&refined,enhanced&&refined&&autonomous));bay+=span;
             }
             return new MallPlan(seed,x,z,floors,bays,depth,shops.ToArray(),enhanced,refined,autonomous);
+        }
+        public static float SelectDepth(ref StableRandom random,int seed,int x,int z,bool expanded)
+        {
+            float legacy=random.Range(2)==0?96:112;
+            return expanded&&LiminalRegions.Hash(seed,x,z,0x310CA1u)%3==2?128:legacy;
         }
         private static void Shuffle(List<MallShopKind> kinds,ref StableRandom random)
         {for(int i=kinds.Count-1;i>0;i--){int j=random.Range(i+1);var tmp=kinds[i];kinds[i]=kinds[j];kinds[j]=tmp;}}

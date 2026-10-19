@@ -13,6 +13,7 @@
     <Compile Include="CameraAvatarChecks.cs" />
     <Compile Include="HumanoidChecks.cs" />
     <Compile Include="GenerationAuditChecks.cs" />
+    <Compile Include="VarietyExpansionChecks.cs" />
     <Reference Include="Microsoft.CodeAnalysis" HintPath="$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.dll" />
     <Reference Include="Microsoft.CodeAnalysis.CSharp" HintPath="$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll" />
   </ItemGroup>

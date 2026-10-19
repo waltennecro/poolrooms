@@ -12,24 +12,25 @@ namespace Poolrooms.Core
     public static class SolarCatalog
     {
         // Each axis changes built geometry. Lighting, colour and seed are NOT counted as recipes.
-        public const int Count=768;
+        public const int BaseCount=768,Count=1152;
         public static readonly string[] PoolNames={"Laguna amplia","Dos piscinas hermanas","Carril de natación","Bahía lateral","Terrazas de agua","Estanque redondeado",
             "Canales paralelos","Cuatro baños","Piscina de esquina","Lámina larga","Pozas compactas","Laguna profunda",
             "Piscina de descanso","Baños escalonados","Canal desplazado","Patio acuático","Orillas generosas","Piscina estrecha",
             "Ensenadas dobles","Tres estanques","Carril profundo","Pozas desplazadas","Piscina con descansos","Lago interior"};
         public static readonly string[] StructureNames={"Columnas redondas","Arcadas sucesivas","Muros calados","Pilares cuadrados","Bóvedas","Pórticos dobles","Techo casetonado","Bancos y terrazas"};
-        public static readonly string[] SpaceNames={"Sala transversal","Galería longitudinal","Patio con recodos","Salón de doble altura"};
+        public static readonly string[] SpaceNames={"Sala transversal","Galería longitudinal","Patio con recodos","Salón de doble altura","Salón ancho de arcos","Galería alta achaflanada"};
         public static SolarRecipe Get(int id){if(id<0||id>=Count)throw new ArgumentOutOfRangeException(nameof(id));return new SolarRecipe(id);}
         public static int At(LayoutConfig c,int x,int z)
         {
             // Four interleaved coordinate banks keep immediate neighbours from using an identical
             // recipe. There is no sequence of rooms and no distance stage. Within a bank: independent seed hash.
             int bank=(x&1)|((z&1)<<1);
-            int raw=bank*192+(int)(LiminalRegions.Hash(c.Seed,x,z,0x1901u)%192);
+            int count=c.ExpandedVariety?Count:BaseCount,perBank=count/4;
+            int raw=bank*perBank+(int)(LiminalRegions.Hash(c.Seed,x,z,0x1901u)%(uint)perBank);
             // A bijection mixes all four spatial variants into every bank. Coordinate parity
             // therefore avoids an identical neighbour without imposing a checkerboard of room shapes.
-            int offset=(int)(LiminalRegions.Hash(c.Seed,0,0,0x1902u)%Count);
-            return (raw*149+offset)%Count;
+            int offset=(int)(LiminalRegions.Hash(c.Seed,0,0,0x1902u)%(uint)count);
+            return (raw*149+offset)%count;
         }
     }
     public enum PoolClimate { Sunlit,DiffuseDaylight,Enclosed,Dim,Sunset }

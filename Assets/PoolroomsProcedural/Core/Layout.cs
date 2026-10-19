@@ -45,6 +45,7 @@ namespace Poolrooms.Core
     [Serializable]
     public sealed class LayoutConfig
     {
+        public bool ExpandedVariety;
         public bool IndependentBiomeMaterials,MallDistricts;
         public bool DiscoveryCoverage;
         public bool CommonPoolrooms;
@@ -161,6 +162,7 @@ namespace Poolrooms.Core
     {
         public int Id, X, Z, Exits;
         public int ZoneId = -1;
+        public int ExpansionProgram;
         public LiminalEnvironment Environment;
         public ProceduralPlan Plan;
         public bool MallGateway,TerrainGateway;

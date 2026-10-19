@@ -11,7 +11,7 @@ namespace Poolrooms.Core
         {
             X=x;Z=z;
             var random=new StableRandom(LiminalRegions.Hash(c.Seed,x,z,0xCA110u));
-            Floors=2+random.Range(5);Bays=8+random.Range(5);Depth=random.Range(2)==0?96:112;
+            Floors=2+random.Range(5);Bays=8+random.Range(5);Depth=MallPlan.SelectDepth(ref random,c.Seed,x,z,c.ExpandedVariety);
             Width=Bays*MallPlan.BayWidth+56;
             RadiusX=(int)Math.Ceiling(Width*.5f/c.CellSize);
             RadiusZ=(int)Math.Ceiling(Depth*.5f/c.CellSize);

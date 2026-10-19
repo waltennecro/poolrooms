@@ -31,14 +31,14 @@ namespace Poolrooms.Core
         {Bays=bays;Variant=variant;Galleries=galleries??new PlanRect[0];AccessRoutes=accessRoutes??new WalkingRoute[0];}
         public bool Valid(ProceduralPlan plan,Room room,LayoutConfig c)
         {
-            if(!InteriorPlanner.IsInterior(plan.Environment)||plan.Environment!=room.Environment||Variant<0||Variant>2||Bays==null||(c.AutonomousGeneration?(Bays.Length<4||Bays.Length>InteriorSubdivision.MaximumBays):Bays.Length!=4)||
+            if(!InteriorPlanner.IsInterior(plan.Environment)||plan.Environment!=room.Environment||Variant<0||Variant>4||Bays==null||(c.AutonomousGeneration?(Bays.Length<4||Bays.Length>InteriorSubdivision.MaximumBays):Bays.Length!=4)||
                 plan.Pools.Length!=0||plan.Modules.Length!=0||plan.Store!=null||plan.Circulation!=null||
                 plan.ClearHalfWidth<c.DoorWidth*.5f+.7f||room.Height<c.DoorHeight+.5f||room.Width>c.CellSize-6||room.Depth>c.CellSize-6)return false;
             for(int i=0;i<Bays.Length;i++)
             {
                 InteriorBay b=Bays[i];
                 if(!Finite(b.X)||!Finite(b.Z)||!Finite(b.Width)||!Finite(b.Depth)||b.LocalWidth<5.2f||b.LocalDepth<5.2f||
-                    b.QuarterTurns<0||b.QuarterTurns>3||b.Variant<0||b.Variant>2||
+                    b.QuarterTurns<0||b.QuarterTurns>3||b.Variant<0||b.Variant>4||
                     Math.Abs(b.X)+b.Width*.5f>room.Width*.5f-.6f||Math.Abs(b.Z)+b.Depth*.5f>room.Depth*.5f-.6f||
                     Math.Abs(b.X)-b.Width*.5f<plan.ClearHalfWidth-.001f||Math.Abs(b.Z)-b.Depth*.5f<plan.ClearHalfWidth-.001f)return false;
                 V3 front=b.World(0,0,-b.LocalDepth*.5f);
@@ -95,13 +95,14 @@ namespace Poolrooms.Core
             float max=Math.Min(44,c.CellSize-(c.AutonomousGeneration?6.2f:8)),min=Math.Min(c.AutonomousGeneration?22:26,max);
             room.Width=random.Range(min,max);room.Depth=random.Range(min,max);room.Height=random.Range(c.DoorHeight+.65f,c.DoorHeight+1.4f);
             float clear=c.DoorWidth*.5f+.9f,margin=.65f;
-            var bays=new List<InteriorBay>();var galleries=new List<PlanRect>();var routes=new List<WalkingRoute>();int variant=random.Range(3);
+            var bays=new List<InteriorBay>();var galleries=new List<PlanRect>();var routes=new List<WalkingRoute>();int variant=random.Range(c.ExpandedVariety?5:3);
             for(int sx=-1;sx<=1;sx+=2)for(int sz=-1;sz<=1;sz+=2)
             {
                 float w=room.Width*.5f-clear-margin,d=room.Depth*.5f-clear-margin;
                 // Door orientation varies independently, joining the horizontal or vertical gallery.
                 int turns=random.Range(2)==0?(sz>0?0:2):(sx>0?1:3);
-                var bay=new InteriorBay(sx*(clear+w*.5f),sz*(clear+d*.5f),w,d,turns,random.Range(3),random.Next());
+                int bayVariant=random.Range(3);if(variant>=3)bayVariant=variant;
+                var bay=new InteriorBay(sx*(clear+w*.5f),sz*(clear+d*.5f),w,d,turns,bayVariant,random.Next());
                 if(c.AutonomousGeneration)InteriorSubdivision.Add(bay,ref random,bays,galleries,routes);
                 else bays.Add(bay);
             }

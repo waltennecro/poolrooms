@@ -59,7 +59,7 @@ namespace Poolrooms.Core
         {Frames=frames;Slide=slide;BridgeStart=a;BridgeEnd=b;EnclosedBridge=tube;Props=props;BallPit=pit;RoofStyle=roof;Lighting=lighting;Clear=clear;}
         public bool Valid(Room room,LayoutConfig c)
         {
-            if(room.Environment!=LiminalEnvironment.SoftPlay||Frames==null||Frames.Length<2||Frames.Length>3||Props==null||Props.Length>8||room.Width!=c.CellSize||room.Depth!=c.CellSize)return false;
+            if(room.Environment!=LiminalEnvironment.SoftPlay||Frames==null||Frames.Length<2||Frames.Length>3||Props==null||Props.Length>8||RoofStyle<0||RoofStyle>4||room.Width!=c.CellSize||room.Depth!=c.CellSize)return false;
             for(int i=0;i<Frames.Length;i++)
             {
                 var f=Frames[i];
@@ -99,7 +99,7 @@ namespace Poolrooms.Core
             float px=-c.CellSize*.5f+4.5f,pz=c.CellSize*.5f-4.5f;
             var pit=new PlanRect(px-2.5f,pz-2.5f,px+2.5f,pz+2.5f);
             for(int i=0;i<8;i++)props.Add(new PlayPropPlan(new V3(px+(i%4-1.5f)*.7f,i%3==0?.22f:i%3==1?.19f:.23f,pz+(i/4-.5f)*1.1f),i%3,random.Range(3)));
-            var plan=new SoftPlayPlan(frames.ToArray(),slide,a,b,random.Range(3)!=0,props.ToArray(),pit,random.Range(3),random.Range(3),clear);
+            var plan=new SoftPlayPlan(frames.ToArray(),slide,a,b,random.Range(3)!=0,props.ToArray(),pit,random.Range(c.ExpandedVariety?5:3),random.Range(3),clear);
             room.Plan=new ProceduralPlan(room.Environment,new PlannedModule[0],new WaterRegion[0],clear,0,0,softPlay:plan);
             if(!plan.Valid(room,c))throw new ArgumentException("Soft-play hall cannot fit its protected circulation.");
         }

@@ -6,6 +6,10 @@ namespace Poolrooms
     [CreateAssetMenu(menuName="Poolrooms/Generation Profile",fileName="PoolroomsProfile")]
     public sealed class PoolroomsProfile : ScriptableObject
     {
+        [Header("Variedad arquitectónica / R31")]
+        [InspectorName("Ampliar variedad de biomas")]
+        [Tooltip("Recetas arquitectónicas ampliadas y nuevas familias. Exploración unificada lo activa automáticamente. No aumenta el radio de carga.")]
+        public bool expandedVariety=true;
         [Header("Casas de lluvia · expansión 4 de 10")]
         public bool enableRainHouses=true;
         [Range(0,1)] public float rainHouseShare=.1f;
@@ -71,7 +75,7 @@ namespace Poolrooms
         [Header("Generador liminal / diseños nuevos")]
         [Tooltip("Authored conserva recetas. Poolrooms/IndoorPlay/Mixed mantienen los ambientes anteriores. Supermarkets construye tiendas completas; MixedWithRetail combina los tres ambientes sin orden fijo. Expanded añade oficinas, hoteles, salas de espera y comedores.")]
         public LiminalGeneration liminalGeneration=LiminalGeneration.Authored;
-        [Tooltip("CrossV12 conserva v12; Varied añade recodos y patios. SolarAtlas construye 768 recetas nuevas de Poolrooms, luz solar regional, contornos curvos y salas unidas directamente; conserva las demás ambientaciones.")]
+        [Tooltip("CrossV12 conserva v12; Varied añade recodos y patios. SolarAtlas construye hasta 1152 recetas nuevas de Poolrooms, luz solar regional, contornos curvos y salas unidas directamente; conserva las demás ambientaciones.")]
         public ProceduralGrammar proceduralGrammar=ProceduralGrammar.CrossV12;
         [Header("Poolrooms solares / atlas v19")]
         [Tooltip("Proporción del atlas anterior, cuando Mezclar arquitectura original y solar está desactivado. Con la mezcla activa usa Proporción de Poolrooms solares.")]
@@ -115,15 +119,15 @@ namespace Poolrooms
         [Range(3,16)] public float corridorLightSpacing=7;
         [Header("Architecture weights: Colonnade / Arcade / Lagoon / Rotunda / Meander / Waterpark / Atrium")]
         public float[] roomWeights={3,2,2,1.5f,2,.8f,1};
-        [Header("170 zonas / arquitectura ampliada")]
+        [Header("255 zonas / arquitectura ampliada")]
         [Tooltip("Random: selección independiente por coordenadas, sin ciclo. Catalog: muestra todas las recetas antes de repetir. Mixed: conserva una sala clásica por cada ocho. Single: prueba una zona. Legacy: las siete familias originales.")]
         public ZoneMode zoneMode=ZoneMode.Random;
         [Header("Atmósfera por zona")]
         [Tooltip("Composed: luz aleatoria por coordenada y transiciones locales. ZoneDefaults: ambiente propio de cada receta. Seeded: varía con semilla. Uniform: un ambiente. Classic: luz de v5.")]
         public LightingDistribution lighting=LightingDistribution.ZoneDefaults;
         public ZoneLightStyle uniformLighting=ZoneLightStyle.SoftDaylight;
-        [Tooltip("Índice 0–169 (PR-001 a PR-170). Solo se usa en Single. También puedes elegir por nombre en Tools > Poolrooms > Catálogo de 170 zonas.")]
-        [Range(0,169)] public int singleZone;
+        [Tooltip("Índice 0–254 (PR-001 a PR-255). Solo se usa en Single. También puedes elegir por nombre en Tools > Poolrooms > Catálogo de 255 zonas.")]
+        [Range(0,ZoneCatalog.Count-1)] public int singleZone;
         [Tooltip("-1: todas. 0–29: una familia del catálogo. No afecta al modo Single ni a las salas clásicas.")]
         [Range(-1,29)] public int zoneFamilyFilter=-1;
         [Range(12,96)] public int curveSegments=32;
@@ -147,7 +151,7 @@ namespace Poolrooms
                 DoorWidth=doorWidth,DoorHeight=doorHeight,WallThickness=wallThickness,WaterLevel=waterLevel,
                 CurveSegments=curveSegments,TextureWorldSize=textureWorldSize,Weights=roomWeights==null?null:(float[])roomWeights.Clone(),
                 Composition=composition,Lighting=lighting,UniformLighting=uniformLighting,Zones=zoneMode,SingleZone=singleZone,ZoneFamilyFilter=zoneFamilyFilter};
-            c.Validate();return c;
+            c.ExpandedVariety=expandedVariety;c.Validate();return c;
         }
         public Material MaterialFor(int surface)
         {

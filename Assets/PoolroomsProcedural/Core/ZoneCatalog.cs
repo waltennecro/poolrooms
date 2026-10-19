@@ -18,7 +18,7 @@ namespace Poolrooms.Core
 
     public sealed class ZoneRecipe
     {
-        public readonly int Index, Variant;
+        public readonly int Index, Variant,BaseIndex,ExpansionStyle;
         public readonly ZoneFamily Family;
         public readonly string Name, Description;
         public readonly PoolPlan Pools;
@@ -27,15 +27,24 @@ namespace Poolrooms.Core
         public float Floor { get { return Pools == PoolPlan.Shallow ? -.26f : 0; } }
         internal ZoneRecipe(int index, string name, string description, PoolPlan pools, float height)
         {
-            Index=index; Family=index<120?(ZoneFamily)(index/6):(ZoneFamily)(20+(index-120)/5); Variant=index<120?index%6:(index-120)%5;
+            Index=BaseIndex=index; Family=index<120?(ZoneFamily)(index/6):(ZoneFamily)(20+(index-120)/5); Variant=index<120?index%6:(index-120)%5;
             Name=name; Description=description; Pools=pools; Height=height;
         }
+        internal ZoneRecipe(int index,ZoneRecipe original,int style)
+        {Index=index;BaseIndex=original.Index;Variant=original.Variant;Family=original.Family;ExpansionStyle=style;Pools=original.Pools;Height=original.Height+.45f;Name=original.Name+(style==1?" · arcos segmentales":" · galería escalonada");Description=original.Description+" Nueva cubierta construida, conservando sus accesos y vasos.";}
     }
 
     public static class ZoneCatalog
     {
-        public const int Count=170, FamilyCount=30, VariantsPerFamily=6;
-        private static readonly ZoneRecipe[] recipes=Create();
+        public const int BaseCount=170,Count=255, FamilyCount=30, VariantsPerFamily=6;
+        private static readonly ZoneRecipe[] recipes=CreateExpanded();
+        private static ZoneRecipe[] CreateExpanded()
+        {
+            var result=Create();int next=BaseCount;
+            for(int family=0;family<FamilyCount;family++)for(int v=0;v<(family<25?3:2);v++)
+            {int start=family<20?family*6:120+(family-20)*5;result[next]=new ZoneRecipe(next,result[start+v],1+(v+family)%2);next++;}
+            return result;
+        }
         public static ZoneRecipe Get(int index)
         {
             if(index<0||index>=Count)throw new ArgumentOutOfRangeException(nameof(index));
@@ -170,9 +179,10 @@ namespace Poolrooms.Core
         public static int RandomAt(LayoutConfig c,int x,int z)
         {
             uint hash=StableRandom.Hash(c.Seed,x,z,0xA1E47u);
-            if(c.ZoneFamilyFilter<0)return (int)(hash%Count);
+            if(c.ZoneFamilyFilter<0)return (int)(hash%(uint)(c.ExpandedVariety?Count:BaseCount));
             int family=c.ZoneFamilyFilter,start=family<20?family*6:120+(family-20)*5;
-            return start+(int)(hash%(uint)FamilySize(family));
+            int original=FamilySize(family),extra=c.ExpandedVariety?(family<25?3:2):0,pick=(int)(hash%(uint)(original+extra));
+            return pick<original?start+pick:BaseCount+(family<25?family*3:75+(family-25)*2)+pick-original;
         }
 
         // Shuffled bags guarantee every enabled recipe occurs before any recipe repeats.
@@ -185,7 +195,7 @@ namespace Poolrooms.Core
             {for(int i=0;i<roomCount;i++)result[i]=RandomAt(c,i%c.Columns,i/c.Columns);return result;}
             if(c.Zones==ZoneMode.Single){for(int i=0;i<roomCount;i++)result[i]=c.SingleZone;return result;}
             var bag=new List<int>();
-            for(int i=0;i<Count;i++)if(c.ZoneFamilyFilter<0||(int)Get(i).Family==c.ZoneFamilyFilter)bag.Add(i);
+            for(int i=0;i<(c.ExpandedVariety?Count:BaseCount);i++)if(c.ZoneFamilyFilter<0||(int)Get(i).Family==c.ZoneFamilyFilter)bag.Add(i);
             var random=new StableRandom(StableRandom.Hash(c.Seed,120,20,0xCA7A10u));
             int cursor=bag.Count;
             for(int room=0;room<roomCount;room++)

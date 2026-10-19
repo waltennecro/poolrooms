@@ -155,7 +155,19 @@ namespace Poolrooms.Core
                 var bed=new PlanRect(-bw*.5f,z-1.2f,bw*.5f,z+1.2f);
                 result.Add(new GeneratedAssembly(AssemblyKind.Bed,bed,0,random.Next()));blocked.Add(bed);
             }
-            result.AddRange(AssemblyPacking.Fill(bounds,blocked,Kinds(environment),random.Next(),3+random.Range(6)));
+            var kinds=Kinds(environment);
+            if(bay.Variant>=3)
+            {
+                bool quiet=bay.Variant==3;
+                switch(environment)
+                {
+                    case LiminalEnvironment.Office:kinds=quiet?new[]{AssemblyKind.Bookcase,AssemblyKind.Desk,AssemblyKind.FilingCabinet}:new[]{AssemblyKind.Table,AssemblyKind.PrinterStation,AssemblyKind.NoticeStand};break;
+                    case LiminalEnvironment.Hotel:kinds=quiet?new[]{AssemblyKind.Bookcase,AssemblyKind.Vanity,AssemblyKind.LuggageBench}:new[]{AssemblyKind.Desk,AssemblyKind.SeatGroup,AssemblyKind.Cabinet};break;
+                    case LiminalEnvironment.WaitingHall:kinds=quiet?new[]{AssemblyKind.Bookcase,AssemblyKind.SeatGroup,AssemblyKind.DrinkingStation}:new[]{AssemblyKind.NoticeStand,AssemblyKind.VendingMachine,AssemblyKind.LuggageBench};break;
+                    case LiminalEnvironment.DiningHall:kinds=quiet?new[]{AssemblyKind.Sideboard,AssemblyKind.SeatGroup,AssemblyKind.Table}:new[]{AssemblyKind.Table,AssemblyKind.EquipmentCart,AssemblyKind.DrinkingStation};break;
+                }
+            }
+            result.AddRange(AssemblyPacking.Fill(bounds,blocked,kinds,random.Next(),3+random.Range(6)));
             return result.ToArray();
         }
     }

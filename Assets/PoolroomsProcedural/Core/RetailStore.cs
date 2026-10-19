@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Poolrooms.Core
 {
-    public enum RetailVariant { QuietMarket, LongAisles, Wholesale }
+    public enum RetailVariant { QuietMarket, LongAisles, Wholesale, CornerMarket, DepartmentArcade }
 
     public sealed class RetailStore
     {
@@ -55,13 +55,15 @@ namespace Poolrooms.Core
             var random=new StableRandom(room.DetailSeed);
             float max=Math.Min(44,c.CellSize-8),min=Math.Min(24,max-2);
             room.Width=random.Range(min,max);room.Depth=random.Range(min,max);
-            RetailVariant variant=(RetailVariant)random.Range(3);int turn=random.Range(2);
+            RetailVariant variant=(RetailVariant)random.Range(c.ExpandedVariety?5:3);int turn=random.Range(2);
             room.Height=variant==RetailVariant.Wholesale?random.Range(7.2f,8.4f):random.Range(Math.Max(5.6f,c.DoorHeight+.7f),6.4f);
             float width=turn==0?room.Width:room.Depth,depth=turn==0?room.Depth:room.Width,hx=width*.5f,hz=depth*.5f;
             float stock=hz-random.Range(3.4f,Math.Min(5,hz*.38f)),front=-hz+4.2f,back=stock-1.35f;
             float density=variant==RetailVariant.QuietMarket?random.Range(.05f,.25f):variant==RetailVariant.LongAisles?random.Range(.5f,.9f):random.Range(.3f,.65f);
             int budget=128;
             float pitch=variant==RetailVariant.QuietMarket?5.4f:variant==RetailVariant.Wholesale?4:3.5f,start=variant==RetailVariant.QuietMarket?2.7f:variant==RetailVariant.Wholesale?2.4f:2;
+            if(variant==RetailVariant.CornerMarket){pitch=4.7f;start=2.5f;density=.35f;}
+            else if(variant==RetailVariant.DepartmentArcade){pitch=4.3f;start=2.2f;density=.7f;}
             var shelfXs=new List<float>();for(float x=start;x<hx-2.3f;x+=pitch){shelfXs.Add(-x);shelfXs.Add(x);}
             if(shelfXs.Count==0){shelfXs.Add(-2);shelfXs.Add(2);}
             var aisles=new List<float>{0};

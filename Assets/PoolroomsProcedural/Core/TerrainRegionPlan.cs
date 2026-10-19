@@ -15,8 +15,8 @@ namespace Poolrooms.Core
         public const float FloorHeight=3.2f;
         public void SetArchitecture(int id)
         {var b=TerrainHouseBlueprint.Get(id);generatedBlueprint=null;ArchitectureId=id;Width=b.Width;Depth=b.Depth;Floors=b.Floors;}
-        public void GenerateArchitecture()
-        {var b=TerrainHouseBlueprint.Generate(Seed,CellX,CellZ);generatedBlueprint=b;ArchitectureId=b.Id;Width=b.Width;Depth=b.Depth;Floors=b.Floors;}
+        public void GenerateArchitecture(bool expanded=false)
+        {var b=TerrainHouseBlueprint.Generate(Seed,CellX,CellZ,expanded);generatedBlueprint=b;ArchitectureId=b.Id;Width=b.Width;Depth=b.Depth;Floors=b.Floors;}
         public bool Contains(float x,float y,float z)
         {return Blueprint!=null?Blueprint.Contains(x-X,y-Base,z-Z):Math.Abs(x-X)<Width*.5f-.2f&&Math.Abs(z-Z)<Depth*.5f-.2f&&y>=Base-.2f&&y<Base+Floors*FloorHeight;}
     }
@@ -49,7 +49,7 @@ namespace Poolrooms.Core
         public IEnumerable<TerrainHousePlan> Houses { get { return houses.Values; } }
         public static long Key(int x,int z){return ContinuousTopology.CellKey(x,z);}
         public static int Cell(float value){return (int)Math.Floor((value+TileSize*.5f)/TileSize);}
-        private TerrainRegionPlan(int seed,int x,int z,float halfWidth=0,float halfDepth=0,bool variedHouses=true)
+        private TerrainRegionPlan(int seed,int x,int z,float halfWidth=0,float halfDepth=0,bool variedHouses=true,bool expanded=false)
         {
             WorldSeed=seed;AddressX=x;AddressZ=z;Seed=unchecked((int)StableRandom.Hash(seed,x,z,0x940024u));
             var random=new StableRandom(unchecked((uint)Seed));
@@ -72,7 +72,7 @@ namespace Poolrooms.Core
                 if(RoadDistance(px,pz)<19||Connected&&BoundaryDistance(px,pz)<192)continue;
                 var h=new TerrainHousePlan{CellX=cx,CellZ=cz,X=px,Z=pz,Width=10+r.Range(3),Depth=12+r.Range(3),
                     Floors=r.Range(0f,1f)<.7f?2:1,Variant=r.Range(6),Seed=unchecked((int)StableRandom.Hash(Seed,cx,cz,0x9400Bu))};
-                if(variedHouses)h.GenerateArchitecture();
+                if(variedHouses)h.GenerateArchitecture(expanded);
                 if(variedHouses&&cx==0&&cz==0){h.X=30;h.Z=30;}
                 TerrainHousePlan first;
                 if(variedHouses&&(cx!=0||cz!=0)&&houses.TryGetValue(Key(0,0),out first))
@@ -99,8 +99,8 @@ namespace Poolrooms.Core
                 {long key=Key(ix,iz);List<TerrainPath> list;if(!paths.TryGetValue(key,out list)){list=new List<TerrainPath>();paths.Add(key,list);}list.Add(line);}
             }
         }
-        public static TerrainRegionPlan Create(int seed,int x,int z,bool variedHouses=true){return new TerrainRegionPlan(seed,x,z,0,0,variedHouses);}
-        public static TerrainRegionPlan CreateConnected(int seed,ConnectedTerrainSite site){return new TerrainRegionPlan(seed,site.X,site.Z,site.HalfWidth,site.HalfDepth);}
+        public static TerrainRegionPlan Create(int seed,int x,int z,bool variedHouses=true,bool expanded=false){return new TerrainRegionPlan(seed,x,z,0,0,variedHouses,expanded);}
+        public static TerrainRegionPlan CreateConnected(int seed,ConnectedTerrainSite site,bool expanded=false){return new TerrainRegionPlan(seed,site.X,site.Z,site.HalfWidth,site.HalfDepth,true,expanded);}
         public bool Contains(float x,float z){return Math.Abs(x)<=HalfWidth&&Math.Abs(z)<=HalfDepth;}
         public bool IntersectsTile(int x,int z){return !Connected||Math.Abs(x*TileSize)-HalfTile<HalfWidth&&Math.Abs(z*TileSize)-HalfTile<HalfDepth;}
         public float BoundaryDistance(float x,float z){return Math.Min(HalfWidth-Math.Abs(x),HalfDepth-Math.Abs(z));}

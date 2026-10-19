@@ -6,7 +6,7 @@ namespace Poolrooms.Core
     public enum GardenHall { PalmCourt, ReadingGarden, TeaGallery, FernHall, DryGarden }
     public sealed class OrangeriePlan
     {
-        public const int CatalogCount=2500;
+        public const int BaseCatalogCount=2500,CatalogCount=3750;
         public readonly int Recipe,Roof,Bay,Colonnade,Canopy;
         public readonly GardenHall Hall;
         public readonly uint Seed;
@@ -45,10 +45,10 @@ namespace Poolrooms.Core
             int gx=ContinuousTopology.FloorDivide(x,50),gz=ContinuousTopology.FloorDivide(z,50);
             uint h=LiminalRegions.Hash(seed,gx,gz,0x190A01u);
             int multiplier=1+2*(int)(h%1250);while(multiplier%5==0)multiplier+=2;
-            return (int)(((xx+zz*50)*multiplier+(h>>12))%OrangeriePlan.CatalogCount);
+            return (int)(((xx+zz*50)*multiplier+(h>>12))%OrangeriePlan.BaseCatalogCount);
         }
         public static void Describe(Room room,LayoutConfig c)
-        {DescribeRecipe(room,c,RecipeAt(c.Seed,room.X,room.Z));}
+        {DescribeRecipe(room,c,(c.ExpandedVariety?BiomeVariety.RecipeAt(c.Seed,room.X,room.Z,75,50,0x310190u):RecipeAt(c.Seed,room.X,room.Z)));}
         public static void DescribeRecipe(Room room,LayoutConfig c,int recipe)
         {
             if(recipe<0||recipe>=OrangeriePlan.CatalogCount)throw new ArgumentOutOfRangeException(nameof(recipe));

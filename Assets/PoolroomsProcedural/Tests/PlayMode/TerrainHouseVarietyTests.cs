@@ -35,6 +35,16 @@ namespace Poolrooms.Tests
         [TestCase(5)]
         [TestCase(319)]
         [TestCase(799)]
+        [TestCase(839)]
+        [TestCase(879)]
+        [TestCase(919)]
+        [TestCase(959)]
+        [TestCase(999)]
+        [TestCase(1039)]
+        [TestCase(1079)]
+        [TestCase(1119)]
+        [TestCase(1159)]
+        [TestCase(1199)]
         public void PhysXSupportsCellarsUpperFlightsAndAttics(int id)
         {
             var root=new GameObject("v35 house collision check");

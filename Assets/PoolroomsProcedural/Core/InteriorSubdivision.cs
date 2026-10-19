@@ -49,7 +49,8 @@ namespace Poolrooms.Core
                 float roomDepth=random.Range(MinimumRoom,depth);
                 V3 p=root.World((lo+hi)*.5f,0,front+roomDepth*.5f);
                 int turns=root.QuarterTurns;
-                var bay=new InteriorBay(p.X,p.Z,(turns&1)==0?hi-lo:roomDepth,(turns&1)==0?roomDepth:hi-lo,turns,random.Range(3),random.Next());
+                int variant=random.Range(3);if(root.Variant>=3)variant=root.Variant;
+                var bay=new InteriorBay(p.X,p.Z,(turns&1)==0?hi-lo:roomDepth,(turns&1)==0?roomDepth:hi-lo,turns,variant,random.Next());
                 bays.Add(bay);
                 var points=new List<V2>{new V2(0,0)};
                 V3 entry=root.World(rear?spine:(lo+hi)*.5f,0,-root.LocalDepth*.5f);

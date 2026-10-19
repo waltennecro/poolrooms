@@ -75,6 +75,8 @@ namespace Poolrooms.Core
             r.Width=random.Range(min,max);r.Depth=random.Range(min,max);
             if(design.SpatialVariant==0)r.Width=Math.Max(r.Width,max*.94f);
             if(design.SpatialVariant==1)r.Depth=Math.Max(r.Depth,max*.94f);
+            if(design.SpatialVariant==4){r.Width=max;r.Depth=Math.Max(r.Depth,max*.82f);}
+            if(design.SpatialVariant==5){r.Depth=max;r.Width=Math.Max(r.Width,max*.82f);}
             var edges=new SolarConnectionKind[4];
             for(int d=0;d<4;d++)
             {
@@ -83,6 +85,7 @@ namespace Poolrooms.Core
                 if(d%2==0)r.Depth=c.CellSize;else r.Width=c.CellSize;
             }
             r.Height=design.SpatialVariant==3?random.Range(10,14.5f):random.Range(Math.Max(6.3f,c.DoorHeight+1),9.8f);
+            if(design.SpatialVariant>=4)r.Height=random.Range(design.SpatialVariant==4?8.8f:11,design.SpatialVariant==4?11.5f:14.8f);
             PoolClimateDescription climate=SolarClimateRegions.At(c,r.X,r.Z);
             for(int attempt=0;attempt<10;attempt++)
             {
@@ -102,7 +105,7 @@ namespace Poolrooms.Core
         }
         private static PlanCirculation Circulation(Room r,LayoutConfig c,SolarRecipe design,ref StableRandom rng,int attempt)
         {
-            var p=PlanCirculation.Create(r,c,ref rng,attempt>=3?3:attempt,design.SpatialVariant==1?2:design.SpatialVariant==2?3:1);
+            var p=PlanCirculation.Create(r,c,ref rng,attempt>=3?3:attempt,design.SpatialVariant==1||design.SpatialVariant==4?2:design.SpatialVariant==2||design.SpatialVariant==5?3:1);
             // Make broad shared room openings safe over their complete mouth, not just the old 4 m portal.
             var reserved=new List<PlanRect>(p.Reserved);
             for(int d=0;d<4;d++)if(r.HasExit(d))
@@ -158,7 +161,7 @@ namespace Poolrooms.Core
             }
             // A bounded fallback uses a straighter circulation; it never silently creates a dry empty room.
             var apertures=Apertures(r,climate,circulation,design,ref rng,c.AutonomousGeneration);
-            var solar=new SolarRoomPlan(design.Id,climate,details.ToArray(),apertures.ToArray(),edges,outlineRadius,design.SpatialVariant==3);
+            var solar=new SolarRoomPlan(design.Id,climate,details.ToArray(),apertures.ToArray(),edges,outlineRadius,design.SpatialVariant==3||design.SpatialVariant==5);
             return new ProceduralPlan(LiminalEnvironment.Poolrooms,new PlannedModule[0],pools.ToArray(),c.DoorWidth*.5f+.8f,design.Structure,0,false,circulation,null,null,solar);
         }
         private static void AddDetail(List<SolarDetail> result,PlanRect q,int structure,ref StableRandom rng,bool furniture)

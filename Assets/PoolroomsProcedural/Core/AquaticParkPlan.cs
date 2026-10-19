@@ -48,7 +48,7 @@ namespace Poolrooms.Core
     }
     public sealed class AquaticParkPlan
     {
-        public const int CatalogCount=5600;
+        public const int BaseCatalogCount=5600,CatalogCount=8400;
         public readonly int Recipe,Hall,PoolShape,Roof,HeightClass,Orientation;
         public readonly AquaticSlideStyle Style;
         public readonly AquaticSlideFamily Family;
@@ -104,7 +104,7 @@ namespace Poolrooms.Core
             int multiplier=1+2*(int)(h%2800);while(multiplier%5==0||multiplier%7==0)multiplier+=2;
             return (int)(((xx*70+zz)*multiplier+(h>>10))%5600);
         }
-        public static void Describe(Room r,LayoutConfig c){DescribeRecipe(r,c,RecipeAt(c.Seed,r.X,r.Z));}
+        public static void Describe(Room r,LayoutConfig c){DescribeRecipe(r,c,(c.ExpandedVariety?BiomeVariety.RecipeAt(c.Seed,r.X,r.Z,120,70,0x310220u):RecipeAt(c.Seed,r.X,r.Z)));}
         public static void DescribeRecipe(Room r,LayoutConfig c,int recipe,int familyOverride=-1,int orientationOverride=-1)
         {
             if(recipe<0||recipe>=AquaticParkPlan.CatalogCount)throw new ArgumentOutOfRangeException(nameof(recipe));

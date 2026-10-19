@@ -458,3 +458,32 @@ Descarga pública: 462787545 bytes, CRC válido; coinciden por SHA-256 los
 1070 archivos versionados. Evidencia:
 `Verification/ci_generation_audit_R30.json`. Los cambios de física/carga revisados
 necesitan sus tres pruebas nuevas en Unity, aún no ejecutadas.
+
+## R31 · Un 50 % más de variedad por bioma
+
+Se amplían los ocho catálogos finitos de 14.888 a 22.332 recetas/envolventes (+50 %):
+Poolrooms 170→255, solares 768→1.152, parque acuático 5.600→8.400, Orangerie/baños/
+casas de lluvia 2.500→3.750 cada uno, casas Nivel94 800→1.200 y envolventes de
+centros comerciales 50→75. Las cifras describen recetas de construcción, no modelos
+descargados, salas simultáneas ni un aumento de extensión territorial.
+
+Biblioteca/Patio/Costa pasan de seis a nueve programas; conservatorio/tránsito de
+ocho a doce; fachadas City11 y módulos del infantil original de seis a nueve.
+Interiores, supermercados y cubiertas infantiles de tres a cinco (+66,7 %, redondeo).
+Se construyen nuevas cubiertas, plantas conectadas de casas, fachadas y equipamientos;
+las selecciones de muebles respetan rutas y reutilizan los recursos con licencia.
+La profundidad comercial de 128 m participa tanto en el edificio como en su reserva.
+
+Exploración unificada activa estas variantes sin recrear la demo. Los IDs antiguos,
+la linterna, la distancia y los límites de carga se conservan. Los mundos de prueba
+pueden usar ExpandedVariety=false. No se añaden nuevos niveles en esta etapa.
+Detalle: `Assets/PoolroomsProcedural/Documentation/VARIEDAD_BIOMAS_R31.md`.
+Doce casos de física nativa añadidos, aún sin ejecutar; también pendientes Unity/HDRP,
+aspecto y FPS. El aumento de geometría tiene coste y necesita medición en Unity.
+
+Validación local R31: 188 geometrías protegidas, 245 scripts × cinco configuraciones,
+1.810.347.597 aserciones acumulativas del núcleo; 42.904 planes de variedad y 800
+selecciones adicionales de exploración, 606 muestras de malla y 1.818 sondeos de
+espacio libre en 60 salas con las nuevas alturas acuáticas. La auditoría ampliada
+resuelve 121.068 planes y 2.083.044 colocaciones; 50.400 planes acuáticos a seis
+escalas y 82 mapas PBR verificados. Estos números no son pruebas nativas Unity.

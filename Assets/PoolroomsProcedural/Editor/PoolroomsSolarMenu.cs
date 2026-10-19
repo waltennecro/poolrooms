@@ -18,12 +18,12 @@ namespace Poolrooms.Editor
             var copy=Object.Instantiate(world.profile);copy.name=world.profile.name+" - Atlas solar v19";
             AssetDatabase.CreateAsset(copy,AssetDatabase.GenerateUniqueAssetPath(folder+"/PoolroomsSolarAtlas.asset"));
             Undo.RegisterCreatedObjectUndo(copy,"Perfil solar v19");Undo.RecordObject(world,"Activar atlas solar");world.profile=copy;
-            copy.proceduralGrammar=ProceduralGrammar.SolarAtlas;copy.continuousWorld=true;
+            copy.expandedVariety=true;copy.proceduralGrammar=ProceduralGrammar.SolarAtlas;copy.continuousWorld=true;
             if(copy.liminalGeneration==LiminalGeneration.Authored)copy.liminalGeneration=LiminalGeneration.Poolrooms;
             copy.composition=SpatialComposition.Exploration;copy.lighting=LightingDistribution.ZoneDefaults;
             copy.Snapshot();world.generateOnStart=true;world.streaming=true;world.ClearPreview();
             EditorUtility.SetDirty(copy);EditorUtility.SetDirty(world);AssetDatabase.SaveAssets();EditorSceneManager.MarkSceneDirty(world.gameObject.scene);Selection.activeGameObject=world.gameObject;
-            Debug.Log("Atlas de 768 diseños estructurales activado. Conserva las otras ambientaciones, presupuestos y el perfil anterior. La linterna no cambia. Guarda y pulsa Play.",world);
+            Debug.Log("Atlas de 1152 diseños estructurales activado. Conserva las otras ambientaciones, presupuestos y el perfil anterior. La linterna no cambia. Guarda y pulsa Play.",world);
         }
         [MenuItem("Tools/Poolrooms/Atlas solar v19/Visitar región soleada (Play)")]
         public static void VisitSun(){Visit(true);}

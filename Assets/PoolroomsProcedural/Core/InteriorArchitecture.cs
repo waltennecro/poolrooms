@@ -15,7 +15,7 @@ namespace Poolrooms.Core
             foreach(InteriorBay bay in room.Plan.Interior.Bays)
             {
                 var solid=new MeshData();var detail=new MeshData();float uv=c.TextureWorldSize;
-                if(room.Environment==LiminalEnvironment.Hotel||room.Environment==LiminalEnvironment.Office&&bay.Variant==1||
+                if(room.Environment==LiminalEnvironment.Hotel||room.Environment==LiminalEnvironment.Office&&(bay.Variant==1||bay.Variant==3)||
                     c.AutonomousGeneration&&room.Plan.Interior.Galleries.Length>0&&bay.Variant==1)
                     Partition(solid,detail,bay,room.Height,uv,room.Environment==LiminalEnvironment.Hotel?"HAB "+(100+(bay.Seed%800)):
                         room.Environment==LiminalEnvironment.Office?"OFICINA":room.Environment==LiminalEnvironment.WaitingHall?"SALA":"COMEDOR");

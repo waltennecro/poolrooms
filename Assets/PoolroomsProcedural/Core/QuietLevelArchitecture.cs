@@ -163,7 +163,7 @@ namespace Poolrooms.Core
         }
         static void Courtyard(RoomGeometry o,Room r,LayoutConfig c)
         {
-            float half=r.Width*.5f,inner=r.Width*.25f,wing=half-inner;
+            float half=r.Width*.5f,inner=r.Width*(r.Plan.Quiet.Variant>=6?.22f+(r.Plan.Quiet.Variant-6)*.025f:.25f),wing=half-inner;
             // Perimeter galleries and separate apartments around an open-air court.
             for(int level=0;level<r.Plan.Quiet.Floors;level++)
             {
@@ -241,7 +241,19 @@ namespace Poolrooms.Core
             if(!r.Plan.Quiet.Pavilion)return;
             float px=-r.Width*.3f,pz=-r.Depth*.3f;
             foreach(int sx in new[]{-1,1})foreach(int sz in new[]{-1,1})Shapes.Column(o.Structure,px+sx*2,pz+sz*2,.12f,0,3.1f,10,Surface.Accent,1.2f);
-            Box(o.Structure,px,pz,4.6f,4.6f,3.1f,3.3f,Surface.Plaster);
+            if(r.Plan.Quiet.Variant>=6)
+            {
+                int roof=r.Plan.Quiet.Variant-6;
+                if(roof==0)for(int rib=0;rib<7;rib++)Box(o.Structure,px-2.1f+rib*.7f,pz,.16f,4.6f,3.1f,3.34f,Surface.Accent);
+                else if(roof==1)
+                {
+                    foreach(int side in new[]{-1,1})ZoneShapes.Beam(o.Structure,new V3(px+side*2.3f,3.1f,pz-2.3f),new V3(px,4.1f,pz-2.3f),.08f,Surface.Accent,1.2f,6);
+                    foreach(int side in new[]{-1,1})ZoneShapes.Beam(o.Structure,new V3(px+side*2.3f,3.1f,pz+2.3f),new V3(px,4.1f,pz+2.3f),.08f,Surface.Accent,1.2f,6);
+                    Box(o.Structure,px,pz,.15f,4.6f,4.02f,4.16f,Surface.Accent);
+                }
+                else for(int tier=0;tier<3;tier++)Box(o.Structure,px,pz,4.6f-tier*.8f,4.6f-tier*.8f,3.1f+tier*.22f,3.3f+tier*.22f,Surface.Plaster);
+            }
+            else Box(o.Structure,px,pz,4.6f,4.6f,3.1f,3.3f,Surface.Plaster);
             var seat=new SourceFurniturePlacement(8400,5,new V3(px-1.3f,.02f,pz+.3f),90);o.SourceSeats.Add(seat);
             Box(o.Structure,px+.7f,pz+.75f,1.5f,3,.74f,.88f,Surface.Accent);
             foreach(int x in new[]{-1,1})foreach(int z in new[]{-1,1})Box(o.Structure,px+.7f+x*.55f,pz+.75f+z*1.2f,.09f,.09f,0,.74f,Surface.Accent);

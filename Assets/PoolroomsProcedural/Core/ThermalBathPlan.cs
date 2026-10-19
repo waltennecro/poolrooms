@@ -6,7 +6,7 @@ namespace Poolrooms.Core
     public enum BathHall { ThermalCourt, MineralGallery, TeaLounge, WarmCloister, SkylightBath }
     public sealed class ThermalBathPlan
     {
-        public const int CatalogCount=2500;
+        public const int BaseCatalogCount=2500,CatalogCount=3750;
         public readonly int Recipe,Shape,Roof,Rhythm,DepthClass;
         public readonly BathHall Hall;
         public readonly uint Seed;
@@ -45,11 +45,11 @@ namespace Poolrooms.Core
         }
         public static bool WetCourt(BathHall hall,int index)
         {return hall==BathHall.ThermalCourt||hall==BathHall.MineralGallery&&(index==0||index==3)||hall==BathHall.TeaLounge&&index==0||hall==BathHall.WarmCloister&&(index==1||index==2)||hall==BathHall.SkylightBath&&index!=3;}
-        public static void Describe(Room r,LayoutConfig c){DescribeRecipe(r,c,RecipeAt(c.Seed,r.X,r.Z));}
+        public static void Describe(Room r,LayoutConfig c){DescribeRecipe(r,c,(c.ExpandedVariety?BiomeVariety.RecipeAt(c.Seed,r.X,r.Z,75,50,0x310210u):RecipeAt(c.Seed,r.X,r.Z)));}
         public static void DescribeRecipe(Room r,LayoutConfig c,int recipe)
         {
-            if(recipe<0||recipe>=2500)throw new ArgumentOutOfRangeException(nameof(recipe));
-            var hall=(BathHall)(recipe%5);int shape=recipe/5%5,depth=recipe/625;
+            if(recipe<0||recipe>=ThermalBathPlan.CatalogCount)throw new ArgumentOutOfRangeException(nameof(recipe));
+            var hall=(BathHall)(recipe%5);int shape=recipe/5%5,depth=recipe/625%4;
             float half=c.CellSize*.5f,clear=ThermalBathArchitecture.MaxOpening(c)*.5f+.9f,center=(clear+half-2.2f)*.5f;
             float span=Math.Min(8.4f,(half-2.2f-clear-1.2f)*.86f);
             float w=Math.Max(4.3f,span*(shape==1?.9f:shape==3?1:.95f)),d=Math.Max(4.3f,span*(shape==1?1:shape==3?.9f:.96f));

@@ -22,6 +22,8 @@ jobs:
           dotnet --info
       - name: Compile core, compare geometry, check CSharp syntax
         run: dotnet run --project Verification/Poolrooms.Checks.csproj
+      - name: Check expanded biome recipes, house footprints and mall reservations
+        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --variety-expansion
       - name: Check full aquatic catalogue at extreme room scales
         run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --aquatic-plans
       - name: Audit generated data, source lookups and room streaming selection

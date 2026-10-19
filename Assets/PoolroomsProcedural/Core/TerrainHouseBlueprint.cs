@@ -6,7 +6,7 @@ namespace Poolrooms.Core
     // own address seed and grown footprint; an ID alone no longer identifies those plants.
     public sealed class TerrainHouseBlueprint
     {
-        public const int FamilyCount=20, ProfilesPerFamily=40, Count=FamilyCount*ProfilesPerFamily;
+        public const int BaseFamilyCount=20, FamilyCount=30, ProfilesPerFamily=40, Count=FamilyCount*ProfilesPerFamily;
         public const float Module=7;
         private static readonly string[] Shapes={
             "111/111/111", "111/110/110", "111/011/011", "111/010/111",
@@ -14,11 +14,16 @@ namespace Poolrooms.Core
             "110/011/110", "011/110/011", "1111/0110/0110", "1111/1001/1111",
             "0110/1111/0110", "0110/0111/1100/1100", "0110/1110/0011/0011",
             "1110/0100/0111/0010", "0111/0101/1101/1111", "1100/1111/0011/0011",
-            "0110/1111/1001/1111", "0111/1101/0111/1100"};
+            "0110/1111/1001/1111", "0111/1101/0111/1100",
+            "0110/1111/1101/0111", "1111/0111/1110/0110", "0111/1101/1111/0010",
+            "1101/1111/0110/0111", "0110/1111/0101/0111", "1111/0101/1101/0111",
+            "0111/1110/1011/1111", "1110/0111/1101/1111", "0110/1100/1111/0101", "1111/1010/1111/0011"};
         private static readonly string[] Names={"Compacta", "Ala izquierda", "Ala derecha", "Casa puente",
             "Patio interior", "Galería oeste", "Galería este", "Casa cruz", "Zigzag oeste", "Zigzag este",
             "Frente ancho", "Claustro", "Pabellón", "Alas escalonadas", "Casa desfasada",
-            "Pasillo ramificado", "Patios dobles", "Casa extendida", "Casa laberinto", "Casa desmedida"};
+            "Pasillo ramificado", "Patios dobles", "Casa extendida", "Casa laberinto", "Casa desmedida",
+            "Doble patio asimétrico", "Galería en cascada", "Patio biselado", "Alas entrelazadas", "Claustro desplazado",
+            "Frente con vacío", "Pasajes cruzados", "Anillos escalonados", "Ala con mirador", "Galería de dos patios"};
         public readonly int Id,Family,Floors,Basements,Layout,Columns,Rows,RoomCount,FarX,FarZ;
         public readonly bool Attic;
         public readonly bool Generated;
@@ -41,6 +46,11 @@ namespace Poolrooms.Core
         private TerrainHouseBlueprint(int id,uint seed):this(id)
         {
             Generated=true;PlanSeed=seed;var random=new StableRandom(seed);
+            if(Family>=BaseFamilyCount)
+            {
+                // Keep the new connected topology, with address-specific room merges and portal widths.
+                roofRise=random.Range(2.3f,3.3f);return;
+            }
             Columns=3+random.Range(2);Rows=3+random.Range(2);
             var cells=new bool[Columns*Rows];cells[1]=true;
             int target=6+random.Range(Math.Min(12,cells.Length)-5),count=1;
@@ -66,8 +76,8 @@ namespace Poolrooms.Core
             }
             RoomCount=count;roofRise=random.Range(2.3f,3.3f);
         }
-        public static TerrainHouseBlueprint Generate(int seed,int x,int z)
-        {return new TerrainHouseBlueprint(Select(seed,x,z),StableRandom.Hash(seed,x,z,0x9437Au));}
+        public static TerrainHouseBlueprint Generate(int seed,int x,int z,bool expanded=false)
+        {return new TerrainHouseBlueprint(Select(seed,x,z,expanded),StableRandom.Hash(seed,x,z,0x9437Au));}
         // Every shared edge retains a passage. Independent per-floor choices merge rooms
         // into halls or use wider portals without moving the protected stair landing.
         public bool Merge(int level,int x,int z,int side)
@@ -84,9 +94,9 @@ namespace Poolrooms.Core
         {var all=new TerrainHouseBlueprint[Count];for(int i=0;i<all.Length;i++)all[i]=new TerrainHouseBlueprint(i);return all;}
         public static TerrainHouseBlueprint Get(int id)
         {if(id<0||id>=Count)throw new ArgumentOutOfRangeException(nameof(id));return All[id];}
-        public static int Select(int seed,int x,int z)
+        public static int Select(int seed,int x,int z,bool expanded=false)
         {
-            var random=new StableRandom(StableRandom.Hash(seed,x,z,0x9435Au));int family=random.Range(FamilyCount),roll=random.Range(100);
+            var random=new StableRandom(StableRandom.Hash(seed,x,z,0x9435Au));int family=random.Range(expanded?FamilyCount:BaseFamilyCount),roll=random.Range(100);
             int floors=roll<40?0:roll<70?1:roll<85?2:roll<95?3:4;
             return family*ProfilesPerFamily+floors+(random.Range(100)<30?5:0)+(random.Range(100)<45?10:0)+random.Range(2)*20;
         }

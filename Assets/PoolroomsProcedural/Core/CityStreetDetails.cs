@@ -10,7 +10,7 @@ namespace Poolrooms.Core
         {ZoneShapes.Box(m,x,z,w,d,low,high,surface,1.2f);}
         public static int District(LayoutConfig c,int x,int z)
         {return (int)(LiminalRegions.Hash(c.Seed,ContinuousTopology.FloorDivide(x,6),ContinuousTopology.FloorDivide(z,6),0x1311D1u)%4);}
-        public static int Typology(CityBuildingPlan b){return (int)((b.Seed>>12)%6);}
+        public static int Typology(CityBuildingPlan b){return b.FacadeTypology>=0?b.FacadeTypology:(int)((b.Seed>>12)%6);}
         public static void Append(RoomGeometry o,Room r,LayoutConfig c)
         {
             var paving=new MeshData{Theme=SurfaceTheme.CityFacade,EmissionTint=o.Decoration.EmissionTint,EmissionStrength=.4f};var paint=new MeshData{Theme=SurfaceTheme.Airfield};
@@ -58,6 +58,32 @@ namespace Poolrooms.Core
                 {
                     Box(solid,w*.22f,d*.12f,w*.3f,d*.24f,h+.18f,h+1.5f,Surface.Plaster);
                     Box(detail,w*.22f,d*.12f,w*.34f,d*.28f,h+1.5f,h+1.65f,Surface.Metal);
+                }
+            }
+            if(type==6)
+            {
+                // Two narrow rooftop monitor roofs, entirely inside the building footprint.
+                foreach(int side in new[]{-1,1})
+                {
+                    float x=side*w*.24f;
+                    Box(solid,x,0,w*.2f,d*.6f,h+.1f,h+.85f,Surface.Plaster);
+                    Box(detail,x,0,w*.24f,d*.66f,h+.85f,h+1,Surface.Metal);
+                }
+            }
+            if(type==7)
+            {
+                // Continuous brise-soleil above each floor's windows, clear of the entrance.
+                for(int level=0;level<b.Floors;level++)for(int rib=0;rib<3;rib++)
+                    Box(detail,0,-d*.5f-.15f-rib*.09f,w*.88f,.08f,level*3.2f+2.65f,level*3.2f+2.72f,Surface.Metal);
+            }
+            if(type==8)
+            {
+                // A stepped roof garden parapet, without an inaccessible extra storey.
+                for(int tier=0;tier<3;tier++)foreach(int side in new[]{-1,1})
+                {
+                    float inset=.28f+tier*.25f,y=h+.1f+tier*.18f;
+                    Box(solid,side*(w*.5f-inset),0,.15f,d-inset*2,y,y+.15f,Surface.Plaster);
+                    Box(solid,0,side*(d*.5f-inset),w-inset*2,.15f,y,y+.15f,Surface.Plaster);
                 }
             }
             if(type==2)

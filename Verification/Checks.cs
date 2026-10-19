@@ -48,6 +48,7 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--variety-expansion")){VarietyExpansion();return 0;}
         if(args.Contains("--generation-audit")){GenerationAudit();IntegrationSourceContracts();return 0;}
         if(args.Contains("--humanoid")){HumanoidSkins();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} humanoid assertions; native Unity unrun.");return 0;}
         if(args.Contains("--camera-avatar")){CameraAndAvatars();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} camera/avatar assertions; native Unity unrun.");return 0;}
@@ -273,7 +274,7 @@ static partial class Checks
     static void AquaticPlansAcrossScales()
     {
         int count=0;
-        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int recipe=0;recipe<5600;recipe++)
+        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int recipe=0;recipe<AquaticParkPlan.CatalogCount;recipe++)
         {
             var cfg=new LayoutConfig{CellSize=size,DoorWidth=door,Continuous=true,Procedural=LiminalGeneration.AquaticPark};var room=new Room{Exits=15};
             AquaticParkPlanner.DescribeRecipe(room,cfg,recipe);Check(room.Plan.Valid(room,cfg),"Aquatic plan fails at supported scale");
@@ -388,10 +389,10 @@ static partial class Checks
         }
         return true;
     }
-    static void AquaticRideClearance()
+    static void AquaticRideClearance(int[] heights=null)
     {
-        int samples=0;
-        foreach(int size in new[]{28,36,60})foreach(int height in new[]{0,3})for(int style=0;style<10;style++)
+        int samples=0;heights=heights??new[]{0,3};
+        foreach(int size in new[]{28,36,60})foreach(int height in heights)for(int style=0;style<10;style++)
         {
             var cfg=new LayoutConfig{CellSize=size,DoorWidth=6,Continuous=true,Procedural=LiminalGeneration.AquaticPark,CurveSegments=16};var room=new Room{Exits=15};
             AquaticParkPlanner.DescribeRecipe(room,cfg,height*1400+style*7,style);var g=AquaticParkArchitecture.Build(room,cfg);
@@ -402,7 +403,7 @@ static partial class Checks
                 Check(SphereClear(g.Structure,point+V3.Up*.86f,.16f)&&SphereClear(g.CollisionOnly,point+V3.Up*.86f,.16f),$"Ride camera intersects park at {size}/{height}/{style}/{i}");samples++;
             }
         }
-        Console.WriteLine($"Aquatic ride clearance: {samples} seated-body / camera sphere samples against actual triangles in 60 extreme-size/style rooms; not PhysX.");
+        Console.WriteLine($"Aquatic ride clearance: {samples} seated-body / camera sphere samples against actual triangles in {heights.Length*30} extreme-size/style rooms; not PhysX.");
     }
     static void ThermalBathGeneration()
     {

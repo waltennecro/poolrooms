@@ -41,6 +41,26 @@ namespace Poolrooms.Tests
             }
             finally{Object.DestroyImmediate(actor);Object.DestroyImmediate(root);}
         }
+        [TestCase(3)]
+        [TestCase(4)]
+        public void ExpandedRoofLeavesGroundDoorApproachesClear(int style)
+        {
+            var c=new LayoutConfig{Procedural=LiminalGeneration.SoftPlay,Continuous=true,CellSize=36,CurveSegments=12,ExpandedVariety=true};Room room=null;
+            for(int seed=0;seed<128;seed++){c.Seed=seed;room=Hall(c);if(room.Plan.SoftPlay.RoofStyle==style)break;}
+            Assert.That(room.Plan.SoftPlay.RoofStyle,Is.EqualTo(style));RoomPrograms.Describe(room,c);
+            var root=new GameObject("Expanded roof physics");root.transform.position=new Vector3(10000,1000,10000);
+            try
+            {
+                Colliders(root,room,c);
+                foreach(int side in new[]{0,1,2,3})
+                {
+                    var bottom=root.transform.position+Vector3.up*.4f;
+                    var direction=new Vector3(Directions.DX[side],0,Directions.DZ[side]);
+                    Assert.That(Physics.CapsuleCast(bottom,bottom+Vector3.up*1.1f,.3f,direction,room.Width*.5f-1),Is.False,"Expanded roof blocks the ordinary player's doorway approach.");
+                }
+            }
+            finally{Object.DestroyImmediate(root);}
+        }
         [Test]
         public void HollowTubeAndWideGroundRoutesPassNativeCapsuleSweeps()
         {

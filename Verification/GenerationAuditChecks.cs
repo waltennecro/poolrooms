@@ -46,10 +46,10 @@ static partial class Checks
         }
         foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})
         {
-            var c=new LayoutConfig{CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2.1f,Continuous=true,CurveSegments=12};
-            for(int recipe=0;recipe<5600;recipe++)
+            var c=new LayoutConfig{CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2.1f,Continuous=true,ExpandedVariety=true,CurveSegments=12};
+            for(int recipe=0;recipe<AquaticParkPlan.CatalogCount;recipe++)
             {var room=new Room{Exits=15};AquaticParkPlanner.DescribeRecipe(room,c,recipe);Plan(room,c);planned++;}
-            for(int recipe=0;recipe<2500;recipe++)
+            for(int recipe=0;recipe<OrangeriePlan.CatalogCount;recipe++)
             {
                 foreach(var generation in new[]{LiminalGeneration.Orangerie,LiminalGeneration.ThermalBaths,LiminalGeneration.RainHouses})
                 {
@@ -67,7 +67,7 @@ static partial class Checks
         {
             var config=new LayoutConfig{Seed=seed,CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2.1f,WallThickness=size==28?.6f:.15f,
                 WaterLevel=size==28?-.18f:-.03f,TextureWorldSize=size==60?.1f:10,CurveSegments=size==60?96:12,
-                Continuous=true,Procedural=mode,Grammar=ProceduralGrammar.SolarAtlas,AutonomousGeneration=true};
+                Continuous=true,ExpandedVariety=true,Procedural=mode,Grammar=ProceduralGrammar.SolarAtlas,AutonomousGeneration=true};
             if(mode==LiminalGeneration.Expanded)WalkableExploration.Configure(config);
             var layout=new Layout(config);
             for(int sample=0;sample<8;sample++)
@@ -132,7 +132,7 @@ static partial class Checks
                 cases++;
             }
         }
-        var legacy=new Layout(new LayoutConfig{Continuous=true,CurveSegments=12});var lazy=new Layout(new LayoutConfig{Continuous=true,CurveSegments=12});var empty=new Dictionary<long,bool>();
+        var legacy=new Layout(new LayoutConfig{Continuous=true,ExpandedVariety=true,CurveSegments=12});var lazy=new Layout(new LayoutConfig{Continuous=true,ExpandedVariety=true,CurveSegments=12});var empty=new Dictionary<long,bool>();
         Legacy(legacy,empty,0,0,12,true,Array.Empty<RoomCell>());RoomStreamingSearch.Next(lazy,empty,0,0,true,12,Array.Empty<RoomCell>());
         Check(legacy.CachedRoomCount==625&&lazy.CachedRoomCount==1,"Wide-view regression must demonstrate 625 eager plans versus the one selected plan");
         var finite=new Layout(new LayoutConfig{Columns=4,Rows=3});var all=new Dictionary<long,bool>();
@@ -140,7 +140,7 @@ static partial class Checks
         Check(RoomStreamingSearch.Next(finite,all,0,0,false,0,Array.Empty<RoomCell>())==null,"Fully loaded finite map should settle");
         all.Remove(ContinuousTopology.CellKey(3,2));Check(RoomStreamingSearch.Next(finite,all,0,0,false,0,null)==finite.At(3,2),"Nonstreaming finite maps must still reach distant rooms");
         // Previously the int loop wrapped at MaxValue and could never terminate.
-        var edge=new Layout(new LayoutConfig{Continuous=true,CurveSegments=12});
+        var edge=new Layout(new LayoutConfig{Continuous=true,ExpandedVariety=true,CurveSegments=12});
         Check(RoomStreamingSearch.Next(edge,empty,int.MaxValue-1,int.MinValue+1,true,2,null)!=null,"Clipped coordinate window failed");
         foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})foreach(int seed in new[]{0,31,481516})
         {

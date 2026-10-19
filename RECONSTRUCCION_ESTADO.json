@@ -713,6 +713,120 @@
         "evidence": "Verification/ci_generation_audit_R30.json"
       },
       "sourceRevision": "4c03ecb082067ea525dc53fb9048f2caf7c58d21"
+    },
+    {
+      "id": "R31",
+      "feature": "Increase biome room variety by 50 percent, with new physical room programs, Level94 house footprints and commercial envelopes in ordinary exploration",
+      "status": "implemented_native_validation_pending",
+      "details": {
+        "interpretedAsVarietyNotTerritorialArea": true,
+        "finiteCatalogues": [
+          {
+            "catalogue": "AuthoredPoolrooms",
+            "before": 170,
+            "after": 255,
+            "percentIncrease": 50
+          },
+          {
+            "catalogue": "SolarPoolrooms",
+            "before": 768,
+            "after": 1152,
+            "percentIncrease": 50
+          },
+          {
+            "catalogue": "AquaticPark",
+            "before": 5600,
+            "after": 8400,
+            "percentIncrease": 50
+          },
+          {
+            "catalogue": "Orangerie",
+            "before": 2500,
+            "after": 3750,
+            "percentIncrease": 50
+          },
+          {
+            "catalogue": "ThermalBaths",
+            "before": 2500,
+            "after": 3750,
+            "percentIncrease": 50
+          },
+          {
+            "catalogue": "RainHouses",
+            "before": 2500,
+            "after": 3750,
+            "percentIncrease": 50
+          },
+          {
+            "catalogue": "Terrain94HouseBlueprints",
+            "before": 800,
+            "after": 1200,
+            "percentIncrease": 50
+          },
+          {
+            "catalogue": "MallEnvelopes",
+            "before": 50,
+            "after": 75,
+            "percentIncrease": 50
+          }
+        ],
+        "finiteCatalogueTotalBefore": 14888,
+        "finiteCatalogueTotalAfter": 22332,
+        "otherPrograms": {
+          "quietLevels": [
+            6,
+            9
+          ],
+          "civicLevels": [
+            8,
+            12
+          ],
+          "cityFacadeTypologies": [
+            6,
+            9
+          ],
+          "originalIndoorPlayModuleChoices": [
+            6,
+            9
+          ],
+          "softPlayRoofPrograms": [
+            3,
+            5
+          ],
+          "interiorPrograms": [
+            3,
+            5
+          ],
+          "retailPrograms": [
+            3,
+            5
+          ]
+        },
+        "rounding": "Three-element programs round up to five, at least fifty percent. These are structural/furnishing programs, not finite complete room counts.",
+        "newDownloadedModels": 0,
+        "newHouseFamilies": 10,
+        "nativeRegressionCasesAddedButUnrun": 12,
+        "renderDistanceReduced": false,
+        "loadingRadiusIncreased": false,
+        "flashlightSourcesChanged": false,
+        "nativeUnityExecuted": false,
+        "documentation": "Assets/PoolroomsProcedural/Documentation/VARIEDAD_BIOMAS_R31.md",
+        "cumulativeCoreAssertionsPassed": 1810347597,
+        "varietyAssertionsPassed": 37886935,
+        "varietyForcedAndProgramPlans": 42904,
+        "additionalActualSelectorPlans": 800,
+        "varietyMeshSamples": 606,
+        "newAquaticHeightClearanceSamples": 1818,
+        "newAquaticHeightClearanceRooms": 60,
+        "expandedAuditPlans": 121068,
+        "expandedAuditPropPlacements": 2083044,
+        "auditFullRoomAndConnectorMeshes": 396,
+        "aquaticScalePlans": 50400,
+        "protectedGeometryFingerprints": 188,
+        "syntaxScripts": 245,
+        "syntaxConfigurations": 5,
+        "pbrMapsVerified": 82
+      }
     }
   ],
   "latestCoreChecks": {
@@ -860,7 +974,7 @@
       "globalAdditionalZonesTarget": 10000
     }
   ],
-  "nextIndependentWork": "R30 broad data audit, lazy room selection and streaming safety fixes implemented and backed up. Native Unity/HDRP compilation, PlayMode, actual streamed traversal/object physics, shadows, appearance and FPS remain pending. Six relaxing levels and separate 10000-zone global expansion remain unimplemented.",
+  "nextIndependentWork": "R31 increases variety in every implemented biome and the two physical regional systems, retaining previous fixes. Native Unity/HDRP compilation, new house stair/roof/attraction collision tests, actual streamed traversal, visuals and FPS remain pending. Six additional relaxing levels and the separate 10000-zone global expansion remain unimplemented; this change is not a claim of their completion.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,

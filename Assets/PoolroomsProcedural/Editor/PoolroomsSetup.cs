@@ -16,7 +16,7 @@ namespace Poolrooms.Editor
         [MenuItem("Tools/Poolrooms/Crear demo")]
         public static void CreateDemo()
         {CreateDemo(false);}
-        [MenuItem("Tools/Poolrooms/Crear demo de 170 zonas")]
+        [MenuItem("Tools/Poolrooms/Crear demo de 255 zonas")]
         public static void CreateCatalogDemo()
         {CreateDemo(true);}
         private static void CreateDemo(bool catalogue)
@@ -31,7 +31,7 @@ namespace Poolrooms.Editor
             profile.liminalGeneration=catalogue?LiminalGeneration.Authored:LiminalGeneration.Expanded;
             profile.proceduralGrammar=catalogue?ProceduralGrammar.CrossV12:ProceduralGrammar.SolarAtlas;
             profile.composition=SpatialComposition.Exploration;profile.lighting=LightingDistribution.Composed;
-            if(catalogue){profile.columns=17;profile.rows=10;profile.distribution=LayoutStyle.Network;}
+            if(catalogue){profile.columns=17;profile.rows=15;profile.distribution=LayoutStyle.Network;}
             AssetDatabase.CreateAsset(profile,folder+"/PoolroomsProfile.asset");
             CreateMaterials(profile,folder);
             var go=new GameObject("Poolrooms World");var world=go.AddComponent<PoolroomsWorld>();world.profile=profile;world.unifiedExploration=!catalogue;
@@ -57,7 +57,7 @@ namespace Poolrooms.Editor
             EditorSceneManager.SaveScene(scene,folder+"/PoolroomsDemo.unity");Selection.activeGameObject=go;
             SceneView.lastActiveSceneView?.LookAt(new Vector3(0,2,0),Quaternion.Euler(20,30,0),25);
             Debug.Log("Poolrooms creado. Abre "+folder+"/PoolroomsDemo.unity y pulsa Play. "+
-                (catalogue?"170 zonas distintas; el streaming carga solo las cercanas. ":"Mundo liminal continuo: diseños nuevos de Poolrooms y juegos infantiles, cargados por proximidad. ")+"Catálogo: Tools > Poolrooms > Catálogo de 170 zonas.");
+                (catalogue?"255 zonas distintas; el streaming carga solo las cercanas. ":"Mundo liminal continuo: diseños nuevos de Poolrooms y juegos infantiles, cargados por proximidad. ")+"Catálogo: Tools > Poolrooms > Catálogo de 255 zonas.");
         }
         private static bool IsHDRP(){var p=GraphicsSettings.currentRenderPipeline;return p!=null&&p.GetType().Name.Contains("HDRenderPipeline");}
         private static void CreateMaterials(PoolroomsProfile p,string folder)
