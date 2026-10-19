@@ -56,9 +56,46 @@ namespace Poolrooms
             if(!ExtendedRoomView||chunk==null||chunk.connectedMall||chunk.GetComponent<PoolroomsTerrainChunk>()!=null)return true;
             Vector2Int focus=Focus();return Math.Max(Math.Abs((long)chunk.cellX-focus.x),Math.Abs((long)chunk.cellZ-focus.y))<=2;
         }
+        public string StreamingFailure {get;private set;}="";
+        public string StreamingStatus {get{return !string.IsNullOrEmpty(StreamingFailure)?"Error de generación: "+StreamingFailure:layout==null?"Generador sin inicializar":viewer==null?"Falta el jugador de seguimiento":ViewerReady?"Zona preparada":"Generando suelo y conexiones";}}
         private Coroutine worker;
+        private IEnumerator SupervisedStream()
+        {
+            StreamingFailure="";var stream=Stream();
+            while(true)
+            {
+                bool next=false;Exception failure=null;
+                try{next=stream.MoveNext();}catch(Exception error){failure=error;}
+                if(failure!=null){StreamingFailure=failure.GetBaseException().Message;Debug.LogException(failure,this);worker=null;yield break;}
+                if(!next){worker=null;yield break;}yield return stream.Current;
+            }
+        }
+        [ContextMenu("Reanudar generación en la posición actual")]
+        public void ResumeStreaming()
+        {if(!Application.isPlaying||!isActiveAndEnabled)return;if(layout==null&&!Initialize())return;if(generatedRoot==null)ClearGeometry();if(worker!=null)StopCoroutine(worker);worker=StartCoroutine(SupervisedStream());}
+        private void ResolveViewer()
+        {
+            var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;
+            if(actor!=null&&(actor.world==null||actor.world==this)){actor.world=this;viewer=actor.transform;return;}
+            PoolroomsExplorer candidate=null;int matches=0;
+            foreach(var explorer in UnityEngine.Object.FindObjectsByType<PoolroomsExplorer>(FindObjectsSortMode.None))
+            if(explorer.world==this||explorer.world==null){candidate=explorer;matches++;}
+            if(matches==1){candidate.world=this;viewer=candidate.transform;}
+        }
+
         private readonly GeometryBuildJob buildJob=new GeometryBuildJob();
         private int generation;
+        private readonly List<Vector2Int> connectionAnchors=new List<Vector2Int>();
+        private int anchorHash,idleAnchorHash;
+        private void RefreshStreamAnchors()
+        {
+            connectionAnchors.Clear();if(connectedMalls!=null)connectedMalls.AppendStreamAnchors(connectionAnchors);
+            if(terrain!=null&&terrain.IsConnected)for(int d=0;d<4;d++)connectionAnchors.Add(new Vector2Int(terrain.ConnectedSite.GateX(d),terrain.ConnectedSite.GateZ(d)));
+            unchecked{anchorHash=17;foreach(var p in connectionAnchors)anchorHash=(anchorHash*31+p.x)*31+p.y;}
+        }
+        private bool NearConnection(int x,int z)
+        {foreach(var p in connectionAnchors)if(Math.Abs((long)x-p.x)<=1&&Math.Abs((long)z-p.y)<=1)return true;return false;}
+
         private float nextLightUpdate;
         private PoolroomsTerrainSystem terrain;
         public PoolroomsTerrainSystem Terrain { get { return terrain; } }
@@ -122,15 +159,17 @@ namespace Poolrooms
                     loaded[ContinuousTopology.CellKey(room.X,room.Z)]=chunk;lamps.AddRange(chunk.GetComponentsInChildren<PoolroomsLuminaire>(true));EnsureChunkColliders(chunk);AttachRoomExtras(room,chunk.transform);ChunkCreated?.Invoke(chunk);}
                 RefreshConnections();LimitLights();Physics.SyncTransforms();GeometryChanged?.Invoke();
             }
-            worker=StartCoroutine(Stream());
+            worker=StartCoroutine(SupervisedStream());
         }
         private bool Initialize()
         {
+            ResolveViewer();
+            if(Application.isPlaying&&GetComponent<PoolroomsDirectionalLighting>()==null)gameObject.AddComponent<PoolroomsDirectionalLighting>();
             if(profile==null){Debug.LogError("Poolrooms: assign a Profile, or use Tools > Poolrooms > Create demo.",this);return false;}
             if((transform.lossyScale-Vector3.one).sqrMagnitude>.0001f||Quaternion.Angle(transform.rotation,Quaternion.identity)>.01f)
             {Debug.LogError("Poolrooms: world rotation must be 0 and scale 1. Translation is supported.",this);return false;}
-            if(Application.isPlaying&&unifiedExploration&&profile.zoneMode!=ZoneMode.Catalog&&profile.zoneMode!=ZoneMode.Single)PrepareExplorationProfile();
-            try{var config=profile.Snapshot();if(unifiedExploration&&profile.zoneMode!=ZoneMode.Catalog&&profile.zoneMode!=ZoneMode.Single)WalkableExploration.Configure(config);if(!unifiedExploration){config.ConnectedMalls=false;config.ConnectedTerrain=false;config.CommonPoolrooms=false;}layout=new Layout(config);}
+            if(Application.isPlaying&&unifiedExploration)PrepareExplorationProfile();
+            try{var config=profile.Snapshot();if(unifiedExploration)WalkableExploration.Configure(config);if(!unifiedExploration){config.ConnectedMalls=false;config.ConnectedTerrain=false;config.CommonPoolrooms=false;}layout=new Layout(config);}
             catch(Exception e){Debug.LogError("Poolrooms: "+e.Message,this);return false;}
             if(ConnectedMallTopology.Enabled(layout.Config))
             {connectedMalls=GetComponent<PoolroomsConnectedMalls>();if(connectedMalls==null)connectedMalls=gameObject.AddComponent<PoolroomsConnectedMalls>();connectedMalls.enabled=true;}
@@ -152,6 +191,7 @@ namespace Poolrooms
                 sourceProfile=profile;runtimeProfile=Instantiate(profile);runtimeProfile.name=profile.name+" / exploración conectada";
                 runtimeProfile.hideFlags=HideFlags.DontSave;profile=runtimeProfile;
             }
+            profile.zoneMode=ZoneMode.Random;profile.zoneFamilyFilter=-1;
             profile.continuousWorld=true;profile.liminalGeneration=LiminalGeneration.Expanded;
             profile.proceduralGrammar=ProceduralGrammar.SolarAtlas;profile.autonomousGeneration=true;
             profile.composition=SpatialComposition.Exploration;profile.independentBiomeMaterials=true;
@@ -161,7 +201,7 @@ namespace Poolrooms
         private void OnDisable(){if(terrain!=null)terrain.Exit();if(malls!=null)malls.Exit();if(connectedMalls!=null)connectedMalls.Clear();generation++;if(worker!=null)StopCoroutine(worker);worker=null;}
         private void OnEnable()
         {
-            if(Application.isPlaying&&layout!=null&&worker==null)worker=StartCoroutine(Stream());
+            if(Application.isPlaying&&layout!=null&&worker==null)worker=StartCoroutine(SupervisedStream());
         }
         private void OnDestroy(){generation++;if(runtimeProfile!=null){profile=sourceProfile;Destroy(runtimeProfile);runtimeProfile=null;}}
         public void Rebuild()
@@ -170,7 +210,7 @@ namespace Poolrooms
             if(worker!=null)StopCoroutine(worker);
             ClearGeometry();
             if(viewer!=null){var explorer=viewer.GetComponentInParent<PoolroomsExplorer>();if(explorer!=null)explorer.ResetToSpawn();}
-            if(Application.isPlaying)worker=StartCoroutine(Stream());
+            if(Application.isPlaying)worker=StartCoroutine(SupervisedStream());
         }
         private void ClearGeometry()
         {
@@ -226,7 +266,7 @@ namespace Poolrooms
                     layout.TrimNeighbourhood(focus.x,focus.y,UnloadRadius+2);
                     cacheFocusX=focus.x;cacheFocusZ=focus.y;cacheRadius=UnloadRadius;
                 }
-                UnloadDistant(focus);
+                RefreshStreamAnchors();UnloadDistant(focus);
                 Room next=FindNext(focus);
                 if(next==null){yield return null;continue;}
                 RoomGeometry data=null;
@@ -243,13 +283,13 @@ namespace Poolrooms
                 if(failure!=null)
                 {
                     // Report once and stop streaming, but leave the worker restartable (Rebuild or re-enabling the component).
-                    Debug.LogException(failure,this);worker=null;yield break;
+                    StreamingFailure=failure.GetBaseException().Message;Debug.LogException(failure,this);worker=null;yield break;
                 }
 #endif
                 if(epoch!=generation)yield break;
                 // The player may have moved/teleported while the CPU mesh was being built.
                 if(OutsideRooms){yield return null;continue;}
-                if(LocalRoomStreaming&&Distance(next,Focus())>LoadRadius){yield return null;continue;}
+                if(LocalRoomStreaming&&Distance(next,Focus())>LoadRadius&&!NearConnection(next.X,next.Z)){yield return null;continue;}
                 Attach(next,data);RefreshConnectionsNear(next.X,next.Z);LimitLights();Physics.SyncTransforms();GeometryChanged?.Invoke();
                 yield return null; // At most one room upload/collider cook per frame.
             }
@@ -302,7 +342,7 @@ namespace Poolrooms
             // A settled window has no new work until the focus, radius, epoch or loaded set
             // changes. Avoid hundreds of topology/cache queries every idle frame at wide views.
             if(idleSearchGeneration==generation&&idleSearchX==focus.x&&idleSearchZ==focus.y&&
-                idleSearchRadius==radius&&idleSearchLocal==local&&idleSearchCount==loaded.Count)return null;
+                idleSearchRadius==radius&&idleSearchLocal==local&&idleSearchCount==loaded.Count&&idleAnchorHash==anchorHash)return null;
             WorkSearchCount++;
             int x0=layout.Config.Continuous?focus.x-radius:local?Math.Max(0,focus.x-radius):0,x1=layout.Config.Continuous?focus.x+radius:local?Math.Min(layout.Config.Columns-1,focus.x+radius):layout.Config.Columns-1;
             int z0=layout.Config.Continuous?focus.y-radius:local?Math.Max(0,focus.y-radius):0,z1=layout.Config.Continuous?focus.y+radius:local?Math.Min(layout.Config.Rows-1,focus.y+radius):layout.Config.Rows-1;
@@ -314,15 +354,23 @@ namespace Poolrooms
                 int score=(r.X-focus.x)*(r.X-focus.x)+(r.Z-focus.y)*(r.Z-focus.y);
                 if(score<best){best=score;result=r;}
             }
+            if(result==null)foreach(var anchor in connectionAnchors)
+            for(int az=anchor.y-1;az<=anchor.y+1;az++)for(int ax=anchor.x-1;ax<=anchor.x+1;ax++)
+            {
+                if(ConnectedTerrainTopology.Reserved(layout.Config,ax,az)||loaded.ContainsKey(ContinuousTopology.CellKey(ax,az)))continue;
+                var candidate=layout.At(ax,az);if(candidate==null)continue;
+                int score=(ax-anchor.x)*(ax-anchor.x)+(az-anchor.y)*(az-anchor.y);
+                if(score<best){best=score;result=candidate;}
+            }
             if(result==null)
-            {idleSearchGeneration=generation;idleSearchX=focus.x;idleSearchZ=focus.y;idleSearchRadius=radius;idleSearchLocal=local;idleSearchCount=loaded.Count;}
+            {idleAnchorHash=anchorHash;idleSearchGeneration=generation;idleSearchX=focus.x;idleSearchZ=focus.y;idleSearchRadius=radius;idleSearchLocal=local;idleSearchCount=loaded.Count;}
             return result;
         }
         private void UnloadDistant(Vector2Int focus)
         {
             if(!LocalRoomStreaming)return;
             List<long> remove=removeScratch;remove.Clear();int radius=UnloadRadius;
-            foreach(var pair in loaded)if(Math.Max(Math.Abs((long)pair.Value.cellX-focus.x),Math.Abs((long)pair.Value.cellZ-focus.y))>radius)remove.Add(pair.Key);
+            foreach(var pair in loaded)if(Math.Max(Math.Abs((long)pair.Value.cellX-focus.x),Math.Abs((long)pair.Value.cellZ-focus.y))>radius&&!NearConnection(pair.Value.cellX,pair.Value.cellZ))remove.Add(pair.Key);
             if(remove.Count==0)return;
             foreach(long id in remove){PoolroomsChunk chunk=loaded[id];loaded.Remove(id);chunk.gameObject.SetActive(false);Dispose(chunk.gameObject);}
             remove.Clear();
@@ -334,47 +382,52 @@ namespace Poolrooms
             string address=layout.Config.Continuous?r.X+", "+r.Z:r.Id.ToString();
             var go=new GameObject("Room "+address+" - "+r.DisplayName);go.transform.SetParent(generatedRoot,false);
             go.transform.position=RoomWorldPosition(r);
-            var chunk=go.AddComponent<PoolroomsChunk>();chunk.roomId=r.Id;chunk.cellX=r.X;chunk.cellZ=r.Z;
-            chunk.waterRegions=data.Regions.ToArray();
-            chunk.preparedTransitions=data.PreparedTransitions.ToArray();
-            var sourceProps=new List<PoolroomsChunk.SourceProp>();foreach(var p in data.SourceProps)sourceProps.Add(new PoolroomsChunk.SourceProp(p));foreach(var p in data.SourceSeats)sourceProps.Add(new PoolroomsChunk.SourceProp(p));chunk.sourceProps=sourceProps.ToArray();
-            MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
-            if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
-            MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
-            PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,profile,chunk,this);
-            MeshFactory.Create("Glazing",data.Glass,go.transform,profile,chunk,false);
-            for(int i=0;i<data.VisualMeshes.Count;i++)
+            try
             {
-                var visual=data.VisualMeshes[i];Material[] overrides=null;
-                if(visual.Theme==SurfaceTheme.FlumeFlow)
-                {overrides=new Material[6];overrides[(int)Surface.Slide]=Application.isPlaying?PoolroomsFlumeFlow.For(this).Resolve(visual.FlowProfile):PoolroomsBiomeMaterialFactory.Resolve(SurfaceTheme.FlumeFlow,(int)Surface.Slide,profile,chunk);}
-                MeshFactory.Create(visual.Theme==SurfaceTheme.FlumeFlow?"Flowing flume water":"Biome finish "+i,visual,go.transform,profile,chunk,false,materialOverrides:overrides);
-            }
-            var water=MeshFactory.Create("Water footprint",data.Water,go.transform,profile,chunk,false,true);
-            chunk.water=water!=null?water.GetComponent<MeshRenderer>():null;
-            float t=layout.Config.WallThickness;
-            for(int d=0;d<4;d++)if(r.HasExit(d))
-            {
-                // Full solid cap seals a doorway until BOTH neighbouring chunks exist.
-                float half=SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
-                var airfield=r.Plan!=null&&r.Plan.City!=null?r.Plan.City.Airfield:null;
-                if(airfield!=null&&Math.Abs(airfield.Column+Directions.DX[d])<=1&&Math.Abs(airfield.Row+Directions.DZ[d])<=3)half=layout.Config.CellSize*.5f;
-                var cap=new MeshData{Theme=profile.mallDistricts&&r.Environment==LiminalEnvironment.Supermarket?SurfaceTheme.Mall:BiomeSurfaces.ForEnvironment(r.Environment),RetailPalette=r.Environment==LiminalEnvironment.Supermarket?1:0,PlayPalette=r.Environment==LiminalEnvironment.IndoorPlay?1:0,PaletteVariant=r.Plan!=null?r.Plan.Palette:0};
-                cap.Box(new V3(-half,r.Floor,-t*.5f),new V3(half,SolarConnections.DoorHeight(r,d,layout.Config),t*.5f),r.Environment==LiminalEnvironment.Poolrooms?Surface.Tile:Surface.Plaster,layout.Config.TextureWorldSize);
-                cap.TranslateRotate(new V3(Directions.DX[d]*r.Width*.5f,0,Directions.DZ[d]*r.Depth*.5f),d*Shapes.Pi*.5f);
-                chunk.caps[d]=MeshFactory.Create("Streaming gate "+d,cap,go.transform,profile,chunk,BuildColliders);
-                if(d<2&&data.Connectors[d]!=null)
+                var chunk=go.AddComponent<PoolroomsChunk>();chunk.roomId=r.Id;chunk.cellX=r.X;chunk.cellZ=r.Z;
+                chunk.waterRegions=data.Regions.ToArray();
+                chunk.preparedTransitions=data.PreparedTransitions.ToArray();
+                var sourceProps=new List<PoolroomsChunk.SourceProp>();foreach(var p in data.SourceProps)sourceProps.Add(new PoolroomsChunk.SourceProp(p));foreach(var p in data.SourceSeats)sourceProps.Add(new PoolroomsChunk.SourceProp(p));chunk.sourceProps=sourceProps.ToArray();
+                MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
+                if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
+                MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
+                PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,profile,chunk,this);
+                MeshFactory.Create("Glazing",data.Glass,go.transform,profile,chunk,false);
+                for(int i=0;i<data.VisualMeshes.Count;i++)
                 {
-                    CorridorGeometry corridor=data.Connectors[d];
-                    chunk.links[d]=MeshFactory.Create("Connector "+d+" - "+(corridor.SolarConnection==SolarConnectionKind.Existing?corridor.Style.ToString():corridor.SolarConnection.ToString()),corridor.Structure,go.transform,profile,chunk,BuildColliders);
-                    foreach(Fixture f in corridor.Fixtures)AddFixture(f,chunk.links[d].transform);
-                    chunk.links[d].SetActive(false);
+                    var visual=data.VisualMeshes[i];Material[] overrides=null;
+                    if(visual.Theme==SurfaceTheme.FlumeFlow)
+                    {overrides=new Material[6];overrides[(int)Surface.Slide]=Application.isPlaying?PoolroomsFlumeFlow.For(this).Resolve(visual.FlowProfile):PoolroomsBiomeMaterialFactory.Resolve(SurfaceTheme.FlumeFlow,(int)Surface.Slide,profile,chunk);}
+                    MeshFactory.Create(visual.Theme==SurfaceTheme.FlumeFlow?"Flowing flume water":"Biome finish "+i,visual,go.transform,profile,chunk,false,materialOverrides:overrides);
                 }
+                var water=MeshFactory.Create("Water footprint",data.Water,go.transform,profile,chunk,false,true);
+                chunk.water=water!=null?water.GetComponent<MeshRenderer>():null;
+                float t=layout.Config.WallThickness;
+                for(int d=0;d<4;d++)if(r.HasExit(d))
+                {
+                    // Full solid cap seals a doorway until BOTH neighbouring chunks exist.
+                    float half=SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
+                    var airfield=r.Plan!=null&&r.Plan.City!=null?r.Plan.City.Airfield:null;
+                    if(airfield!=null&&Math.Abs(airfield.Column+Directions.DX[d])<=1&&Math.Abs(airfield.Row+Directions.DZ[d])<=3)half=layout.Config.CellSize*.5f;
+                    var cap=new MeshData{Theme=profile.mallDistricts&&r.Environment==LiminalEnvironment.Supermarket?SurfaceTheme.Mall:BiomeSurfaces.ForEnvironment(r.Environment),RetailPalette=r.Environment==LiminalEnvironment.Supermarket?1:0,PlayPalette=r.Environment==LiminalEnvironment.IndoorPlay?1:0,PaletteVariant=r.Plan!=null?r.Plan.Palette:0};
+                    cap.Box(new V3(-half,r.Floor,-t*.5f),new V3(half,SolarConnections.DoorHeight(r,d,layout.Config),t*.5f),r.Environment==LiminalEnvironment.Poolrooms?Surface.Tile:Surface.Plaster,layout.Config.TextureWorldSize);
+                    cap.TranslateRotate(new V3(Directions.DX[d]*r.Width*.5f,0,Directions.DZ[d]*r.Depth*.5f),d*Shapes.Pi*.5f);
+                    chunk.caps[d]=MeshFactory.Create("Streaming gate "+d,cap,go.transform,profile,chunk,BuildColliders);
+                    if(d<2&&data.Connectors[d]!=null)
+                    {
+                        CorridorGeometry corridor=data.Connectors[d];
+                        chunk.links[d]=MeshFactory.Create("Connector "+d+" - "+(corridor.SolarConnection==SolarConnectionKind.Existing?corridor.Style.ToString():corridor.SolarConnection.ToString()),corridor.Structure,go.transform,profile,chunk,BuildColliders);
+                        foreach(Fixture f in corridor.Fixtures)AddFixture(f,chunk.links[d].transform);
+                        chunk.links[d].SetActive(false);
+                    }
+                }
+                foreach(Fixture f in data.Fixtures)AddFixture(f,go.transform);
+                AttachRoomExtras(r,go.transform);
+                loaded.Add(ContinuousTopology.CellKey(r.X,r.Z),chunk);ChunkCreated?.Invoke(chunk);
             }
-            foreach(Fixture f in data.Fixtures)AddFixture(f,go.transform);
-            AttachRoomExtras(r,go.transform);
-            loaded.Add(ContinuousTopology.CellKey(r.X,r.Z),chunk);ChunkCreated?.Invoke(chunk);
+            catch{loaded.Remove(ContinuousTopology.CellKey(r.X,r.Z));go.SetActive(false);Dispose(go);throw;}
         }
+
         private void AttachRoomExtras(Room r,Transform parent)
         {
             if(r.Plan!=null&&r.Plan.City!=null)PoolroomsCityBuildings.Attach(r.Plan.City,parent,layout.Config);

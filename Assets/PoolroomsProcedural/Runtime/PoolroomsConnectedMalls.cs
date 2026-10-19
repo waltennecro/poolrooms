@@ -121,6 +121,11 @@ namespace Poolrooms
             int end=side<0?0:d.Plan.Bays+1;
             return d.Sectors.ContainsKey(end)&&d.Sectors.ContainsKey(end+(side<0?1:-1));
         }
+        public void AppendStreamAnchors(List<Vector2Int> anchors)
+        {
+            foreach(var d in districts.Values)if(d.Root!=null&&d.Root.gameObject.activeInHierarchy)
+            {anchors.Add(new Vector2Int(d.Site.X-d.Site.RadiusX-1,d.Site.Z));anchors.Add(new Vector2Int(d.Site.X+d.Site.RadiusX+1,d.Site.Z));}
+        }
         public bool VisitNearest()
         {
             if(world==null||world.viewer==null||world.CurrentLayout==null||!ConnectedMallTopology.Enabled(world.CurrentLayout.Config))return false;

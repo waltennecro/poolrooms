@@ -643,6 +643,38 @@
         "publicBackupBytes": 462763192
       },
       "sourceRevision": "89447c8b7777391bda60b9b6219ec8e07111094f"
+    },
+    {
+      "id": "R29",
+      "feature": "Fix confirmed invalid aquatic catalogue IDs that stop world uploads; directional shadow ownership and streaming of physical gateways",
+      "status": "implemented_native_validation_pending",
+      "details": {
+        "confirmedUserStack": "MallItemCatalog.Get(id) -> PoolroomsWorld.AttachRoomExtras -> Attach",
+        "invalidIdsBeforeFix": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263
+        ],
+        "validCatalogueRange": [
+          0,
+          255
+        ],
+        "reproducedBeforeFix": true,
+        "aquaticPlansAndRuntimeItemModelsChecked": 33600,
+        "protectedGeometryFingerprints": 188,
+        "nativeRegressionTestsAddedButUnrun": 4,
+        "nativeUnityExecuted": false,
+        "flashlightSourcesChanged": false,
+        "renderDistanceReduced": false,
+        "worldConnectionAnchors": true,
+        "profileAssetPreserved": true,
+        "documentation": "Assets/PoolroomsProcedural/Documentation/GENERACION_Y_SOMBRAS_R29.md"
+      }
     }
   ],
   "latestCoreChecks": {

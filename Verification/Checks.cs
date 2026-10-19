@@ -275,9 +275,19 @@ static partial class Checks
         foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})for(int recipe=0;recipe<5600;recipe++)
         {
             var cfg=new LayoutConfig{CellSize=size,DoorWidth=door,Continuous=true,Procedural=LiminalGeneration.AquaticPark};var room=new Room{Exits=15};
-            AquaticParkPlanner.DescribeRecipe(room,cfg,recipe);Check(room.Plan.Valid(room,cfg),"Aquatic plan fails at supported scale");count++;
+            AquaticParkPlanner.DescribeRecipe(room,cfg,recipe);Check(room.Plan.Valid(room,cfg),"Aquatic plan fails at supported scale");
+            foreach(var prop in room.Plan.Aquatic.Props)if(prop.CatalogId>=0)
+            {
+                var item=MallItemCatalog.Get(prop.CatalogId);Check(item.Shape==MallItemShape.Towel||item.Shape==MallItemShape.Soap,"Aquatic deck prop must be a towel or soap");
+                Check(MallItemCatalog.Model(prop.CatalogId).TriangleCount>0,"Aquatic runtime item has no model");
+            }
+            count++;
         }
-        Console.WriteLine($"PASS: {count} aquatic plans across supported extreme scales; planning, not Unity physics.");
+        var guardConfig=new LayoutConfig{CellSize=36,Continuous=true,Procedural=LiminalGeneration.AquaticPark};var guardRoom=new Room{Exits=15};AquaticParkPlanner.DescribeRecipe(guardRoom,guardConfig,0);
+        var original=guardRoom.Plan.Aquatic.Props[1];guardRoom.Plan.Aquatic.Props[1]=new QuietPropPlan(original.Bottom,MallItemCatalog.Count);
+        Check(!guardRoom.Plan.Aquatic.Valid(guardRoom,guardConfig),"Aquatic plan validation accepted the exact invalid item ID that stopped runtime generation");
+        bool throws=false;try{MallItemCatalog.Get(MallItemCatalog.Count);}catch(ArgumentOutOfRangeException){throws=true;}Check(throws,"Invalid catalogue IDs must not be clamped or silently replaced");
+        Console.WriteLine($"PASS: {count} aquatic plans across supported extreme scales, runtime catalogue lookup/model creation and invalid-ID validation; native Unity unrun.");
     }
     static void AquaticParkGeneration()
     {

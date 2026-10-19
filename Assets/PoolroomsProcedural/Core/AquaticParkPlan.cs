@@ -83,6 +83,7 @@ namespace Poolrooms.Core
         public bool Valid(Room r,LayoutConfig c)
         {
             if(Recipe<0||Recipe>=CatalogCount||r.Environment!=LiminalEnvironment.AquaticPark||r.Width!=c.CellSize||r.Depth!=c.CellSize||r.Height!=Height||Pools.Length<2||Props.Length!=12||Slides.Length!=(Style==AquaticSlideStyle.TwinRacer?2:1))return false;
+            foreach(var prop in Props)if(prop.CatalogId>=MallItemCatalog.Count||prop.CatalogId<0&&string.IsNullOrEmpty(prop.Source))return false;
             foreach(var pool in Pools)if(pool.Level!=c.WaterLevel||pool.Bottom>=pool.Level||Math.Min(pool.Width,pool.Depth)<4||Math.Abs(pool.CenterX)+pool.Width*.5f>Half-.8f||Math.Abs(pool.CenterZ)+pool.Depth*.5f>Half-.8f)return false;
             foreach(var slide in Slides)
             {
@@ -162,7 +163,7 @@ namespace Poolrooms.Core
             {
                 float px=-half+.6f,pz=(i<2?-1:1)*(clear+1.5f)+(i%2)*1.3f*(i<2?-1:1);
                 props.Add(new QuietPropPlan(new V3(px,.02f,pz),-1,"B_CafeChair",90));
-                props.Add(new QuietPropPlan(new V3(-half+1.0f,.02f,(i<2?-1:1)*(half-1.05f)+(i%2)*.65f*(i<2?1:-1)),(31+i%2)*8+(recipe+i)%8));
+                props.Add(new QuietPropPlan(new V3(-half+1.0f,.02f,(i<2?-1:1)*(half-1.05f)+(i%2)*.65f*(i<2?1:-1)),((int)(i%2==0?MallItemShape.Towel:MallItemShape.Soap))*8+(recipe+i)%8));
                 props.Add(new QuietPropPlan(new V3(half-.5f,.02f,half-2.2f-i*.6f),-1,"WaterBottle"));
             }
             int orientation=orientationOverride>=0?orientationOverride&3:(int)(LiminalRegions.Hash(c.Seed,r.X,r.Z,0x230F01u)%4);

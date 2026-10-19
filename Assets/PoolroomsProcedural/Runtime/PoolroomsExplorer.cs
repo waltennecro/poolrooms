@@ -85,6 +85,7 @@ namespace Poolrooms
         private void Start()
         {
             ConfigureBody();
+            if(GetComponent<PoolroomsTravelLoading>()==null)gameObject.AddComponent<PoolroomsTravelLoading>();
             aquatic=GetComponent<PoolroomsAquaticTraversal>();if(aquatic==null)aquatic=gameObject.AddComponent<PoolroomsAquaticTraversal>();
             slide=GetComponent<PoolroomsSlide>();if(slide==null)slide=gameObject.AddComponent<PoolroomsSlide>();
             ambientAudio=GetComponent<PoolroomsAmbientAudio>();

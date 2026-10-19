@@ -112,7 +112,7 @@ namespace Poolrooms
             // Directional sunlight needs occlusion in the shared world. At zero shadow quality,
             // the terrain sky provides ambient daylight instead of light passing through room roofs.
             int shadows=world.shadowLightBudgetOverride>=0?world.shadowLightBudgetOverride:world.profile.maxShadowLights;
-            if(Sun!=null)Sun.enabled=!connectedSuspended&&shadows>0;
+            if(Sun!=null)Sun.enabled=inside&&!connectedSuspended&&shadows>0;
             if(inside==ownsConnectedDaylight)return;
             var master=Explorer!=null?Explorer.GetComponent<PoolroomsMasterView>():null;master?.ReleaseCameraDistance();
             if(inside)

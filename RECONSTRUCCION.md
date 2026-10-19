@@ -405,3 +405,21 @@ bytes. Respaldo público descargado: 462763192 bytes, CRC válido y
 preserva además offsets de cadera/columna de Humanoid importados. Evidencia:
 `Verification/ci_humanoid_skins_R28.json`. Unity, importadores, RT, deformación
 y FPS siguen sin ejecutar.
+
+## R29 · Generación detenida por un artículo inexistente
+
+La traza del usuario confirmó `MallItemCatalog.Get(id)` durante AttachRoomExtras.
+Dos objetos por receta del parque acuático usaban IDs 256–263 fuera del catálogo
+0–255 y detenían la corrutina de generación del mundo completo. Se corrige la
+selección a toallas/jabón (30/31), se añade validación de los artículos en el plan
+y una regresión que falló antes y pasa con los 33.600 planes y sus modelos.
+Las pruebas anteriores comprobaban geometría y no esa instanciación diferida.
+
+El sol del terreno se restringe a su región; un árbitro de luces mantiene una sola
+fuente direccional con sombras y restaura el sol de plantilla. El streamer precarga
+las salas vecinas de los accesos comerciales y de terreno, aun cuando el foco esté
+dentro de sus celdas reservadas. Se respetan explícitamente Exploración unificada
+y las copias temporales del perfil; las escenas de catálogo optan por desactivarla.
+Los fallos de carga ahora se registran y limpian la sala parcial. No se reduce
+calidad/distancia ni se modifica la linterna. Documentación: GENERACION_Y_SOMBRAS_R29.md.
+Cuatro regresiones PlayMode añadidas, sin ejecutar por falta del Editor Unity.
