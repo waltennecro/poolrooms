@@ -1060,7 +1060,7 @@
     {
       "id": "R34",
       "feature": "Refine ten existing level generators and compare 200010 unchanged recipe IDs in 21 batches",
-      "status": "implemented_core_verified_ci_pending_native_unrun",
+      "status": "implemented_core_ci_public_backup_verified_native_unrun",
       "details": {
         "stage": "R34",
         "baselineRevision": "0a43903830cf694377118229a23dbeeed9a6346b",
@@ -1138,7 +1138,7 @@
           "before-library.log": "e463cf99688d446537cef245bd84d4799978d681563b0302210b76af5d4f1e4a"
         },
         "batchEvidence": "Verification/refinement_R34_batches.json",
-        "ciStatus": "pending",
+        "ciStatus": "success",
         "limitations": [
           "Geometry comparisons and mathematical checks are not native Unity tests or a visual/FPS certificate.",
           "The sample contains existing generated recipes, not 200010 newly handcrafted rooms or structural families.",
@@ -1164,8 +1164,311 @@
           "id": 39338840648,
           "status": "cancelled",
           "reason": "Stopped after additional real interior-geometry defects were reproduced; final code requires a new CI run."
+        },
+        "ci": {
+          "run": 39340633032,
+          "url": "https://github.com/waltennecro/poolrooms/actions/runs/39340633032",
+          "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+          "status": "success",
+          "job": 118360993812,
+          "verificationMethod": "Public HTML summary, every job step success and artifact rows; GitHub API authentication expired (401).",
+          "nativeUnityExecuted": false,
+          "artifacts": [
+            {
+              "id": 12228811988,
+              "name": "Poolrooms-Reconstruccion-Assets",
+              "displaySize": "299 MB",
+              "digest": "sha256:965fa788b571f88d59f08218b790d8845264769c2e8c8ea1404dc1e86f45b52b",
+              "exactBytesUnavailable": true
+            },
+            {
+              "id": 12229715421,
+              "name": "R34-Batch-Evidence",
+              "displaySize": "6.44 KB",
+              "digest": "sha256:1ed14cfded799db20ca967a6a394fc8d833da30e3840fe089d02ecd2795f2fd1",
+              "exactBytesUnavailable": true
+            }
+          ],
+          "htmlEvidenceSha256": {
+            "summary": "4972378b4bc3ce17f2cf1226371f2b2bb8856ccab42454b5a4f03524d1209933",
+            "job": "c349b6aeb6ce543ac13a83e5ba395dab1992a0740c53a89860af5d885ce25423"
+          },
+          "stepResults": [
+            {
+              "name": "Set up job",
+              "number": "1",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:17:27Z",
+              "completed-at": "2026-10-19T23:17:28Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "number": "2",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:17:28Z",
+              "completed-at": "2026-10-19T23:17:50Z"
+            },
+            {
+              "name": "Run actions/setup-dotnet@v4",
+              "number": "3",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:17:50Z",
+              "completed-at": "2026-10-19T23:18:01Z"
+            },
+            {
+              "name": "Verify pinned SDK resolution",
+              "number": "4",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:18:01Z",
+              "completed-at": "2026-10-19T23:18:03Z"
+            },
+            {
+              "name": "Compile core, compare geometry, check CSharp syntax",
+              "number": "5",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:18:03Z",
+              "completed-at": "2026-10-19T23:19:18Z"
+            },
+            {
+              "name": "Check all new restful recipe banks and architectural axes",
+              "number": "6",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:19:18Z",
+              "completed-at": "2026-10-19T23:19:29Z"
+            },
+            {
+              "name": "Check refined detail, clearance and material geometry",
+              "number": "7",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:19:29Z",
+              "completed-at": "2026-10-19T23:19:30Z"
+            },
+            {
+              "name": "Compare all 200010 architectures in 21 batches against immutable R33",
+              "number": "8",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:19:30Z",
+              "completed-at": "2026-10-19T23:25:45Z"
+            },
+            {
+              "name": "Check actual-world object placement counts",
+              "number": "9",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:25:45Z",
+              "completed-at": "2026-10-19T23:25:46Z"
+            },
+            {
+              "name": "Check newly licensed restful source objects",
+              "number": "10",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:25:46Z",
+              "completed-at": "2026-10-19T23:25:46Z"
+            },
+            {
+              "name": "Check larger biome areas, populated Level94 and accessible mall expansion",
+              "number": "11",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:25:46Z",
+              "completed-at": "2026-10-19T23:25:51Z"
+            },
+            {
+              "name": "Check expanded biome recipes, house footprints and mall reservations",
+              "number": "12",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:25:51Z",
+              "completed-at": "2026-10-19T23:26:00Z"
+            },
+            {
+              "name": "Check full aquatic catalogue at extreme room scales",
+              "number": "13",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:00Z",
+              "completed-at": "2026-10-19T23:26:01Z"
+            },
+            {
+              "name": "Audit generated data, source lookups and room streaming selection",
+              "number": "14",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:01Z",
+              "completed-at": "2026-10-19T23:26:06Z"
+            },
+            {
+              "name": "Check source texture hashes",
+              "number": "15",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:06Z",
+              "completed-at": "2026-10-19T23:26:06Z"
+            },
+            {
+              "name": "Check original rain texture and audio resources",
+              "number": "16",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:06Z",
+              "completed-at": "2026-10-19T23:26:06Z"
+            },
+            {
+              "name": "Check licensed City11 source assets and LODs",
+              "number": "17",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:06Z",
+              "completed-at": "2026-10-19T23:26:09Z"
+            },
+            {
+              "name": "Check licensed aircraft sources and native resource hashes",
+              "number": "18",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:09Z",
+              "completed-at": "2026-10-19T23:26:09Z"
+            },
+            {
+              "name": "Check licensed helicopter source, pivots and LODs",
+              "number": "19",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:09Z",
+              "completed-at": "2026-10-19T23:26:09Z"
+            },
+            {
+              "name": "Check attributed furniture, UV maps and placement dimensions",
+              "number": "20",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:09Z",
+              "completed-at": "2026-10-19T23:26:10Z"
+            },
+            {
+              "name": "Check additional licensed urban sources and wheel assemblies",
+              "number": "21",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:10Z",
+              "completed-at": "2026-10-19T23:26:14Z"
+            },
+            {
+              "name": "Check attributed Bistro components, PBR maps and metric dimensions",
+              "number": "22",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:14Z",
+              "completed-at": "2026-10-19T23:26:14Z"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "number": "23",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:14Z",
+              "completed-at": "2026-10-19T23:26:14Z"
+            },
+            {
+              "name": "Install pinned offline art verification tools",
+              "number": "24",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:14Z",
+              "completed-at": "2026-10-19T23:26:17Z"
+            },
+            {
+              "name": "Check licensed garden source, alpha cutout and static-only adaptation",
+              "number": "25",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:17Z",
+              "completed-at": "2026-10-19T23:26:17Z"
+            },
+            {
+              "name": "Check licensed thermal lamp, wicker maps and source attribution",
+              "number": "26",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:17Z",
+              "completed-at": "2026-10-19T23:26:18Z"
+            },
+            {
+              "name": "Check building subtraction areas, UVs, licences and all LOD access volumes",
+              "number": "27",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:18Z",
+              "completed-at": "2026-10-19T23:26:19Z"
+            },
+            {
+              "name": "Check UV baking transforms, colour sampling and normals",
+              "number": "28",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:19Z",
+              "completed-at": "2026-10-19T23:26:19Z"
+            },
+            {
+              "name": "Check native runner rejects missing, stale, failed or empty results",
+              "number": "29",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:19Z",
+              "completed-at": "2026-10-19T23:26:23Z"
+            },
+            {
+              "name": "Create verified complete Assets package",
+              "number": "30",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:23Z",
+              "completed-at": "2026-10-19T23:26:35Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "number": "31",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:35Z",
+              "completed-at": "2026-10-19T23:26:42Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "number": "32",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:42Z",
+              "completed-at": "2026-10-19T23:26:43Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "number": "62",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:43Z",
+              "completed-at": "2026-10-19T23:26:43Z"
+            },
+            {
+              "name": "Post Run actions/setup-dotnet@v4",
+              "number": "63",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:43Z",
+              "completed-at": "2026-10-19T23:26:43Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "number": "64",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:43Z",
+              "completed-at": "2026-10-19T23:26:44Z"
+            },
+            {
+              "name": "Complete job",
+              "number": "65",
+              "conclusion": "success",
+              "started-at": "2026-10-19T23:26:44Z",
+              "completed-at": "2026-10-19T23:26:44Z"
+            }
+          ]
+        },
+        "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+        "package": {
+          "zip": "/workspace/output/Poolrooms_R34_Refinado_Revision_Final_Assets.zip",
+          "files": 923,
+          "bytes": 314294407,
+          "sha256": "3cb085fcbcb1fcd308d33e1c4acd60d6659c772eb96d011dbdf7df807f203481",
+          "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+          "workingTreeChanged": false
+        },
+        "publication": {
+          "allTrackedFilesMatched": 1157,
+          "url": "https://codeload.github.com/waltennecro/poolrooms/zip/7429aecdd397c7ad2b9099006a456036ba8d6995",
+          "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+          "bytes": 492836992,
+          "sha256": "d90eeee0460394866eaf5d24e0faa8acdd86e6c476c1e2735f77f37091473030",
+          "assetFilesMatched": 923,
+          "crcValid": true,
+          "githubActionsArtifactDownload": false
         }
-      }
+      },
+      "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995"
     }
   ],
   "latestCoreChecks": {
@@ -1320,7 +1623,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "R34 refines the ten R33 generators; 200010 unchanged recipe IDs are compared in 21 batches. Finish CI/public backup reporting, then run native Unity/HDRP compilation, PlayMode walking and source interaction, visuals and FPS. R33 literal structural-family/source-model targets and the separate old-biome expansion remain explicitly unfinished.",
+  "nextIndependentWork": "R34 is backed up and all 200010 existing architectures are structurally refined and compared in 21 batches; current core CI, resource audits, ZIP and public download passed. Run native Unity/HDRP API compilation, new bridge walking and material migration, interaction, visuals and FPS. R33 literal structural-family/source-model targets and separate old-biome expansion remain explicitly unfinished.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1455,12 +1758,12 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "allTrackedFilesMatched": 1150,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/634f967ae2329ae48e981035e153a1d474a272b3",
-    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
-    "bytes": 492809130,
-    "sha256": "38cd132b92aa9b6a6f03dc018f24ed02a02593bb45554315d4657c6a95ae32c7",
-    "assetFilesMatched": 921,
+    "allTrackedFilesMatched": 1157,
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/7429aecdd397c7ad2b9099006a456036ba8d6995",
+    "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+    "bytes": 492836992,
+    "sha256": "d90eeee0460394866eaf5d24e0faa8acdd86e6c476c1e2735f77f37091473030",
+    "assetFilesMatched": 923,
     "crcValid": true,
     "githubActionsArtifactDownload": false
   },
@@ -1517,11 +1820,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "zip": "/workspace/output/Poolrooms_R33_Detalle_Final_Assets.zip",
-    "files": 921,
-    "bytes": 314288391,
-    "sha256": "f671bf2d7edff9781ff084d260cac92a17d5172f3517c76dccdc828159b6e07a",
-    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
+    "zip": "/workspace/output/Poolrooms_R34_Refinado_Revision_Final_Assets.zip",
+    "files": 923,
+    "bytes": 314294407,
+    "sha256": "3cb085fcbcb1fcd308d33e1c4acd60d6659c772eb96d011dbdf7df807f203481",
+    "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -1934,6 +2237,289 @@
     "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
     "cumulativeCoreAssertions": 1833854219
   },
-  "r34RefinementEvidence": "Verification/refinement_R34_local.json",
-  "r34RefinementInventory": "REFINADO_R34_ESTADO.json"
+  "r34RefinementEvidence": "Verification/refinement_R34_ci.json",
+  "r34RefinementInventory": "REFINADO_R34_ESTADO.json",
+  "r34RefinementCi": {
+    "run": 39340633032,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39340633032",
+    "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+    "status": "success",
+    "job": 118360993812,
+    "verificationMethod": "Public HTML summary, every job step success and artifact rows; GitHub API authentication expired (401).",
+    "nativeUnityExecuted": false,
+    "artifacts": [
+      {
+        "id": 12228811988,
+        "name": "Poolrooms-Reconstruccion-Assets",
+        "displaySize": "299 MB",
+        "digest": "sha256:965fa788b571f88d59f08218b790d8845264769c2e8c8ea1404dc1e86f45b52b",
+        "exactBytesUnavailable": true
+      },
+      {
+        "id": 12229715421,
+        "name": "R34-Batch-Evidence",
+        "displaySize": "6.44 KB",
+        "digest": "sha256:1ed14cfded799db20ca967a6a394fc8d833da30e3840fe089d02ecd2795f2fd1",
+        "exactBytesUnavailable": true
+      }
+    ],
+    "htmlEvidenceSha256": {
+      "summary": "4972378b4bc3ce17f2cf1226371f2b2bb8856ccab42454b5a4f03524d1209933",
+      "job": "c349b6aeb6ce543ac13a83e5ba395dab1992a0740c53a89860af5d885ce25423"
+    },
+    "stepResults": [
+      {
+        "name": "Set up job",
+        "number": "1",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:17:27Z",
+        "completed-at": "2026-10-19T23:17:28Z"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "number": "2",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:17:28Z",
+        "completed-at": "2026-10-19T23:17:50Z"
+      },
+      {
+        "name": "Run actions/setup-dotnet@v4",
+        "number": "3",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:17:50Z",
+        "completed-at": "2026-10-19T23:18:01Z"
+      },
+      {
+        "name": "Verify pinned SDK resolution",
+        "number": "4",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:18:01Z",
+        "completed-at": "2026-10-19T23:18:03Z"
+      },
+      {
+        "name": "Compile core, compare geometry, check CSharp syntax",
+        "number": "5",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:18:03Z",
+        "completed-at": "2026-10-19T23:19:18Z"
+      },
+      {
+        "name": "Check all new restful recipe banks and architectural axes",
+        "number": "6",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:19:18Z",
+        "completed-at": "2026-10-19T23:19:29Z"
+      },
+      {
+        "name": "Check refined detail, clearance and material geometry",
+        "number": "7",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:19:29Z",
+        "completed-at": "2026-10-19T23:19:30Z"
+      },
+      {
+        "name": "Compare all 200010 architectures in 21 batches against immutable R33",
+        "number": "8",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:19:30Z",
+        "completed-at": "2026-10-19T23:25:45Z"
+      },
+      {
+        "name": "Check actual-world object placement counts",
+        "number": "9",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:25:45Z",
+        "completed-at": "2026-10-19T23:25:46Z"
+      },
+      {
+        "name": "Check newly licensed restful source objects",
+        "number": "10",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:25:46Z",
+        "completed-at": "2026-10-19T23:25:46Z"
+      },
+      {
+        "name": "Check larger biome areas, populated Level94 and accessible mall expansion",
+        "number": "11",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:25:46Z",
+        "completed-at": "2026-10-19T23:25:51Z"
+      },
+      {
+        "name": "Check expanded biome recipes, house footprints and mall reservations",
+        "number": "12",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:25:51Z",
+        "completed-at": "2026-10-19T23:26:00Z"
+      },
+      {
+        "name": "Check full aquatic catalogue at extreme room scales",
+        "number": "13",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:00Z",
+        "completed-at": "2026-10-19T23:26:01Z"
+      },
+      {
+        "name": "Audit generated data, source lookups and room streaming selection",
+        "number": "14",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:01Z",
+        "completed-at": "2026-10-19T23:26:06Z"
+      },
+      {
+        "name": "Check source texture hashes",
+        "number": "15",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:06Z",
+        "completed-at": "2026-10-19T23:26:06Z"
+      },
+      {
+        "name": "Check original rain texture and audio resources",
+        "number": "16",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:06Z",
+        "completed-at": "2026-10-19T23:26:06Z"
+      },
+      {
+        "name": "Check licensed City11 source assets and LODs",
+        "number": "17",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:06Z",
+        "completed-at": "2026-10-19T23:26:09Z"
+      },
+      {
+        "name": "Check licensed aircraft sources and native resource hashes",
+        "number": "18",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:09Z",
+        "completed-at": "2026-10-19T23:26:09Z"
+      },
+      {
+        "name": "Check licensed helicopter source, pivots and LODs",
+        "number": "19",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:09Z",
+        "completed-at": "2026-10-19T23:26:09Z"
+      },
+      {
+        "name": "Check attributed furniture, UV maps and placement dimensions",
+        "number": "20",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:09Z",
+        "completed-at": "2026-10-19T23:26:10Z"
+      },
+      {
+        "name": "Check additional licensed urban sources and wheel assemblies",
+        "number": "21",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:10Z",
+        "completed-at": "2026-10-19T23:26:14Z"
+      },
+      {
+        "name": "Check attributed Bistro components, PBR maps and metric dimensions",
+        "number": "22",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:14Z",
+        "completed-at": "2026-10-19T23:26:14Z"
+      },
+      {
+        "name": "Run actions/setup-python@v5",
+        "number": "23",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:14Z",
+        "completed-at": "2026-10-19T23:26:14Z"
+      },
+      {
+        "name": "Install pinned offline art verification tools",
+        "number": "24",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:14Z",
+        "completed-at": "2026-10-19T23:26:17Z"
+      },
+      {
+        "name": "Check licensed garden source, alpha cutout and static-only adaptation",
+        "number": "25",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:17Z",
+        "completed-at": "2026-10-19T23:26:17Z"
+      },
+      {
+        "name": "Check licensed thermal lamp, wicker maps and source attribution",
+        "number": "26",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:17Z",
+        "completed-at": "2026-10-19T23:26:18Z"
+      },
+      {
+        "name": "Check building subtraction areas, UVs, licences and all LOD access volumes",
+        "number": "27",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:18Z",
+        "completed-at": "2026-10-19T23:26:19Z"
+      },
+      {
+        "name": "Check UV baking transforms, colour sampling and normals",
+        "number": "28",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:19Z",
+        "completed-at": "2026-10-19T23:26:19Z"
+      },
+      {
+        "name": "Check native runner rejects missing, stale, failed or empty results",
+        "number": "29",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:19Z",
+        "completed-at": "2026-10-19T23:26:23Z"
+      },
+      {
+        "name": "Create verified complete Assets package",
+        "number": "30",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:23Z",
+        "completed-at": "2026-10-19T23:26:35Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@v4",
+        "number": "31",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:35Z",
+        "completed-at": "2026-10-19T23:26:42Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@v4",
+        "number": "32",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:42Z",
+        "completed-at": "2026-10-19T23:26:43Z"
+      },
+      {
+        "name": "Post Run actions/setup-python@v5",
+        "number": "62",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:43Z",
+        "completed-at": "2026-10-19T23:26:43Z"
+      },
+      {
+        "name": "Post Run actions/setup-dotnet@v4",
+        "number": "63",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:43Z",
+        "completed-at": "2026-10-19T23:26:43Z"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "number": "64",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:43Z",
+        "completed-at": "2026-10-19T23:26:44Z"
+      },
+      {
+        "name": "Complete job",
+        "number": "65",
+        "conclusion": "success",
+        "started-at": "2026-10-19T23:26:44Z",
+        "completed-at": "2026-10-19T23:26:44Z"
+      }
+    ]
+  }
 }

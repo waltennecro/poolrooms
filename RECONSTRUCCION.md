@@ -618,3 +618,12 @@ adelantó el atril, se retranquearon los estantes y se añadió comprobación ge
 de ambas condiciones a las 240 muestras. Los 21 lotes, planes completos y
 regresiones se repitieron sobre esta corrección; el primer CI fue cancelado para
 verificar el código final en una ejecución nueva. Unity sigue sin ejecutarse.
+
+R34 final: código `7429aecdd397c7ad2b9099006a456036ba8d6995`, [CI 39340633032](https://github.com/waltennecro/poolrooms/actions/runs/39340633032)
+correcta, incluida la comparación reproducida de los 21 lotes contra el núcleo
+inmutable de R33, auditorías, paquete y ambos artefactos no vacíos. ZIP de Assets
+con 923 archivos y 314294407 bytes; descarga pública real de
+492836992 bytes, CRC válido y 1157 archivos versionados
+coincidentes por SHA-256. Evidencia: Verification/refinement_R34_ci.json.
+La compilación y pruebas nativas de Unity siguen sin ejecutar; no se certifican
+apariencia, avisos HDRP, PhysX o FPS.
