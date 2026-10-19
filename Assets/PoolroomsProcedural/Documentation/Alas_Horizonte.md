@@ -31,12 +31,17 @@ del administrador. Se mantienen salto doble, dash, deslizamiento y linterna.
 Equipa o quita las alas, selecciona familia/diseño y velocidad, ajusta tamaño,
 altura del anclaje, separación de la espalda, plegado y sombras. Los cambios se
 guardan en `Poolrooms.Player.Wings`; cambiar de skin no destruye las alas.
+Con un rig animado el anclaje sigue el pecho y su inclinación después de la
+animación; con un OBJ estático o sin skin usa el cuerpo del jugador.
 
 144 variantes de geometría, distribuidas en 12 familias de 12: ángel, serafín,
 cuervo, demonio, dragón, mariposa, libélula, robot, neón, luz, cristal y mecánico.
 Cambian envergadura, disposición, plumas, lóbulos, capas o paneles. La comprobación
-exige 144 fingerprints geométricos distintos, sin contar colores. Se construye
-solo el diseño equipado: dos mallas de alas y un arnés. El máximo comprobado es
+exige 144 fingerprints geométricos distintos, sin contar colores.
+Las plumas se apoyan en el larguero, las membranas son continuas y las familias
+de insecto tienen lóbulos superiores e inferiores. Sus normales siguen la forma
+volumétrica para mantener coherentes los reflejos. Se construye solo el diseño
+equipado: dos mallas de alas y un arnés. El máximo comprobado es
 7.744 triángulos por ala, más 12 del arnés, sin luces ni sondas adicionales.
 
 Las mallas usan materiales Lit, sombras, normales, UV y reflejos disponibles en

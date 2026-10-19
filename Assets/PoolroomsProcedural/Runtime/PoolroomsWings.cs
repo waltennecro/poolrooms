@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 namespace Poolrooms
 {
-    [DisallowMultipleComponent,RequireComponent(typeof(PoolroomsExplorer),typeof(CharacterController))]
+    [DefaultExecutionOrder(50),DisallowMultipleComponent,RequireComponent(typeof(PoolroomsExplorer),typeof(CharacterController))]
     public sealed class PoolroomsWings : MonoBehaviour
     {
         private const string PreferenceKey="Poolrooms.Player.Wings";
@@ -18,6 +18,7 @@ namespace Poolrooms
         private PoolroomsExplorer explorer;
         private CharacterController body;
         private PoolroomsGameSettings settings;
+        private PoolroomsAvatar avatar;
         private GameObject visualRoot;
         private readonly Transform[] wings=new Transform[2];
         private readonly List<MeshRenderer> renderers=new List<MeshRenderer>();
@@ -86,6 +87,7 @@ namespace Poolrooms
         private void LateUpdate()
         {
             if(visualRoot==null)return;
+            ApplyAttachment();
             bool moving=explorer!=null&&!explorer.IsPaused&&!explorer.InputCaptured&&(explorer.world==null||explorer.world.ViewerReady)&&Cursor.lockState==CursorLockMode.Locked;
             float dt=moving?ExplorerLocomotion.FrameTime(Time.deltaTime):0;
             if(dt>0)
@@ -124,7 +126,19 @@ namespace Poolrooms
         private void ApplyAttachment()
         {
             if(visualRoot==null)return;
-            visualRoot.transform.localPosition=new Vector3(0,(body!=null?body.height:1.8f)*Preferences.attachmentHeight,-Preferences.backOffset);
+            float height=body!=null?body.height:1.8f;
+            if(avatar==null)avatar=GetComponent<PoolroomsAvatar>();
+            if(avatar!=null&&avatar.TryBackFrame(out var position,out var up))
+            {
+                // Use chest/neck positions rather than imported bone axes, which differ between rigs.
+                Quaternion rotation=Quaternion.FromToRotation(transform.up,up)*transform.rotation;
+                visualRoot.transform.SetPositionAndRotation(position+up*((Preferences.attachmentHeight-.74f)*height)-(rotation*Vector3.forward)*Preferences.backOffset,rotation);
+            }
+            else
+            {
+                visualRoot.transform.localPosition=new Vector3(0,height*Preferences.attachmentHeight,-Preferences.backOffset);
+                visualRoot.transform.localRotation=Quaternion.identity;
+            }
             visualRoot.transform.localScale=Vector3.one*Preferences.size;
         }
         private Material[] CreateMaterials()
@@ -137,6 +151,7 @@ namespace Poolrooms
                 if(slot!=0&&slot!=1&&slot!=3&&slot!=4)continue;
                 var material=new Material(shader){name="Wing finish / "+slot,enableInstancing=true};owned.Add(material);result[slot]=material;
                 V3 rgb=WingCatalog.Color(Preferences.design,slot==3);Color tint=new Color(rgb.X,rgb.Y,rgb.Z);
+                if(slot==1&&family==5)tint=new Color(.92f,.64f,.29f);
                 foreach(string p in new[]{"_BaseColor","_Color"})if(material.HasProperty(p))material.SetColor(p,tint);
                 foreach(string p in new[]{"_Smoothness","_Glossiness"})if(material.HasProperty(p))material.SetFloat(p,family==7||family==10||slot==3?.72f:.36f);
                 if(material.HasProperty("_Metallic"))material.SetFloat("_Metallic",family==7||family==11||slot==3?.72f:0);

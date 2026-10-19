@@ -34,6 +34,8 @@ namespace Poolrooms
         private float saveAt,lastMetal,lastSmooth;
         public float Yaw {get{return targetYaw;}}
         public string AnimationState {get{return humanoid!=null?humanoid.Motion.State:"Sin animación";}}
+        public bool TryBackFrame(out Vector3 position,out Vector3 up)
+        {position=transform.position;up=transform.up;return humanoid!=null&&humanoid.TryBackFrame(out position,out up);}
         private void Awake()
         {
             explorer=GetComponent<PoolroomsExplorer>();body=GetComponent<CharacterController>();settings=GetComponent<PoolroomsGameSettings>();

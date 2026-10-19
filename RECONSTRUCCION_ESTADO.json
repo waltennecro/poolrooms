@@ -1478,7 +1478,7 @@
     }
   ],
   "latestCoreChecks": {
-    "assertions": 1846931153,
+    "assertions": 1847091627,
     "protectedSoftPlayGeometries": 108,
     "unchangedOtherBiomeSamples": 80,
     "syntaxScripts": 258,
@@ -1590,7 +1590,8 @@
     "wingFamilies": 12,
     "wingFlightSpeeds": 4,
     "wingExternalIcons": 12,
-    "wingNewExternal3DModels": 0
+    "wingNewExternal3DModels": 0,
+    "wingFinalCoreAndContractsAssertions": 4682948
   },
   "pending": [
     {
@@ -2534,14 +2535,16 @@
     ]
   },
   "r34MetadataSync": {
-    "status": "metadata_push_blocked_authentication_expired",
-    "codeFullyBackedUp": true,
-    "backedCodeRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
-    "pendingMetadataCommit": "ee5f52e8c00e5fcd3c2ba89cb2cce1716f0a9038",
-    "githubApiStatus": 401,
-    "gitPushError": "could not read Username for https://github.com: No such device or address",
+    "status": "synced_without_history_rewrite",
+    "syncedInRevision": "4e19356cb47ab7f188d8c487b435f23fc6b7a5f0",
+    "previousMetadataCommits": [
+      "ee5f52e8c00e5fcd3c2ba89cb2cce1716f0a9038",
+      "f52344c"
+    ],
+    "gitPushVerified": true,
+    "githubApiVerified": true,
     "publicCiVerifiedSuccess": 39340633032,
-    "requiredAction": "Restore the Codex GitHub connection, then push the existing local metadata commits without rewriting history. All game code and the tested Assets package are already backed up."
+    "historicalBlocker": "Previous authentication expiry resolved; no token requested in chat."
   },
   "wingFlightEvidence": {
     "release": "Horizonte · Alas",
@@ -2571,16 +2574,21 @@
       "addedReflectionProbes": 0,
       "maximumCapsuleMoveStepMetres": 0.18,
       "staticObjMode": "opt_in_no_rig_fitting",
-      "defaultAnimatedObjImportPreserved": true
+      "defaultAnimatedObjImportPreserved": true,
+      "featherRootAttachmentChecked": true,
+      "continuousMembranesChecked": true,
+      "insectUpperAndLowerLobesChecked": true,
+      "animatedChestAttachment": true,
+      "staticSkinBodyAttachmentFallback": true
     },
     "checks": {
       "strictCoreBuildErrors": 0,
       "strictCoreBuildWarnings": 0,
-      "fullCoreAssertions": 1846931153,
+      "fullCoreAssertions": 1847091627,
       "protectedGeometryFingerprints": 188,
       "syntaxScripts": 258,
       "syntaxConfigurations": 5,
-      "wingCoreAndIntegrationAssertions": 4522439,
+      "wingCoreAndIntegrationAssertions": 4682948,
       "humanoidCoreAndIntegrationAssertions": 2912652,
       "flightFpsCases": [
         10,
@@ -2593,13 +2601,21 @@
       "licensedIconSourcesAndHashes": "passed",
       "existingPbrMapsVerified": 83,
       "creditsGardenBathAudits": "passed",
-      "nativeRunnerContracts": "passed"
+      "nativeRunnerContracts": "passed",
+      "fullSuiteSourceSnapshot": "Core final; final chest attachment APIs also checked by the subsequent wing/source contracts run. Unity APIs unrun."
     },
     "nativeTestsAdded": 3,
     "nativeUnityExecuted": false,
     "nativePreflight": {
       "nativeExecuted": false,
-      "status": "blocked_unity_editor_missing"
+      "status": "blocked_unity_editor_missing",
+      "unity": "/opt/unity/Editor/Unity",
+      "project": "/workspace/poolrooms",
+      "fullSuite": true,
+      "headless": false,
+      "visualAndFpsCertified": false,
+      "startedUtc": "2026-10-19T23:49:16Z",
+      "reason": "Provide the installed Unity 6.3 Editor executable; no native test was run"
     },
     "sourceHashes": {
       "Assets/PoolroomsProcedural/Runtime/PoolroomsFlashlight.cs": "56f6d2c1d8b76c6cd110c4129de2d3473c522555a8e70d07b83f631c1abbd279",
@@ -2607,8 +2623,9 @@
       "Verification/Baselines/v39_geometry.json": "90ce790d9e172630462111fbe98fd31fce9aa19ed76009d8d17ef855c1b893c2"
     },
     "logHashes": {
-      "alas_full_checks.log": "8c10f2eb87400763610f39164017bd3ef7d4919292f35a4f6eeecea33136ed00",
-      "alas_humanoid_checks.log": "15cd0eec65f9f5eabca54cbaff70126417b09c870b2f9d815f78354ebb0f2889"
+      "alas_full_final.log": "f959a5face274b886bcd3e7f33b9c5a066f34c84e86f331f7c62730b32abfb33",
+      "alas_strict_final.log": "d2b2800405d034ef701ebb01d8a1b5eade5ba29ded9e552860cce7e10fe786f0",
+      "alas_wings_final.log": "d6a13a64724110178d078d5f6cbd2c4c8d3ffaa7dd9e95ff242fc28d78790ba4"
     },
     "pending": [
       "Unity 6.3/HDRP API compilation",
@@ -2616,7 +2633,18 @@
       "Visual inspection of folding, camera visibility and shadows/reflections",
       "Real FPS and memory profiling on target hardware"
     ],
-    "ci": "pending_push",
-    "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md"
+    "ci": {
+      "firstRun": 39343998681,
+      "conclusion": "cancelled_by_us_for_mesh_refinement",
+      "finalRun": "pending_push"
+    },
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md",
+    "geometryReview": {
+      "type": "offline projection of actual generated meshes, not Unity rendering",
+      "oldRevision": "4e19356cb47ab7f188d8c487b435f23fc6b7a5f0",
+      "oldCoreRegression": "Expected failure: Feather roots float below the supporting spar: 0",
+      "finalGeometryAndVisibilityProbes": "passed",
+      "unchangedMaximumTrianglesPerWing": 7744
+    }
   }
 }

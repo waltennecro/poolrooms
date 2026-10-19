@@ -32,6 +32,7 @@ namespace Poolrooms.Tests
                 Assert.That(avatar.Loading,Is.False,"OBJ parser did not complete.");
                 StringAssert.Contains("OBJ estático",avatar.Status);
                 Assert.That(actor.GetComponentInChildren<PoolroomsHumanoidSkin>(),Is.Null);
+                Assert.That(avatar.TryBackFrame(out var back,out var up),Is.False,"Static skins must use the body attachment fallback.");
                 var mesh=actor.GetComponentInChildren<MeshFilter>();Assert.That(mesh,Is.Not.Null);
                 Assert.That(mesh.sharedMesh.triangles.Length,Is.EqualTo(36));
                 Assert.That(PlayerPrefs.GetString(selection),Is.EqualTo("file:"+path));

@@ -44,6 +44,18 @@ static partial class Checks
             }
             string hash=Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(text.ToString())));
             Check(fingerprints.Add(hash),"Duplicate wing geometry: "+id);
+            int family=id/12,variant=id%12;float span=1.05f+.075f*variant;
+            if(family==3||family==4)
+                foreach(float across in new[]{.7f,.8f,.9f})Check(WingCoversXY(mesh,Surface.Tile,span*across,0),"Membrane has a visible gap below its spar: "+id);
+            if(family==5||family==6)
+                foreach(float height in new[]{-.22f,.22f})Check(WingCoversXY(mesh,family==6?Surface.Accent:Surface.Tile,span*.4f,height),"Upper/lower insect wing lobe missing: "+id);
+            if(family<=2||family==8||family==9)
+            {
+                float crest=.18f+.12f*(variant%4);if(family==2){span*=1.12f;crest*=.42f;}
+                int feathers=9+variant;float t=((feathers-1)/2)/(float)(feathers-1),x=.06f+span*.92f*t;
+                float y=x<=span*.43f?(crest+.2f)*x/(span*.43f):(crest+.2f)+((crest-.12f)-(crest+.2f))*(x-span*.43f)/(span*.57f);
+                Check(WingCoversXY(mesh,family==8||family==9?Surface.Glow:Surface.Tile,x+.015f,y-.05f),"Feather roots float below the supporting spar: "+id);
+            }
             triangles+=mesh.TriangleCount;maxTriangles=Math.Max(maxTriangles,mesh.TriangleCount);
         }
         var flight=new WingFlight();
@@ -78,5 +90,17 @@ static partial class Checks
         // Older persisted skin preferences still enable the shared rig; static mode is opt-in.
         Check(!new SkinPreferences().objStatic&&new SkinPreferences().animate,"Old skins lost automatic animation");
         Console.WriteLine($"PASS: {names.Count} named wings, {fingerprints.Count} distinct geometry fingerprints, {triangles} right-wing triangles traversed; max {maxTriangles} per wing; four flight speeds at six FPS rates, hover, pause, corrupt input, stalls and bounded collision steps. Native Unity collision/rendering tests remain separate.");
+    }
+    static bool WingCoversXY(MeshData mesh,Surface surface,float x,float y)
+    {
+        var indices=mesh.Indices[(int)surface];
+        for(int i=0;i<indices.Count;i+=3)
+        {
+            var a=mesh.Positions[indices[i]];var b=mesh.Positions[indices[i+1]];var c=mesh.Positions[indices[i+2]];
+            float denominator=(b.Y-c.Y)*(a.X-c.X)+(c.X-b.X)*(a.Y-c.Y);if(Math.Abs(denominator)<1e-9f)continue;
+            float u=((b.Y-c.Y)*(x-c.X)+(c.X-b.X)*(y-c.Y))/denominator,v=((c.Y-a.Y)*(x-c.X)+(a.X-c.X)*(y-c.Y))/denominator;
+            if(u>=-.00001f&&v>=-.00001f&&u+v<=1.00001f)return true;
+        }
+        return false;
     }
 }

@@ -89,6 +89,13 @@ namespace Poolrooms
             CacheRest();Report="Rig automático "+Rig.Pose+" · "+total+" vértices · revisar articulaciones";Motion.Step(Rig,new HumanoidMotion{Grounded=true},.001f);
         }
         void CacheRest(){for(int i=0;i<bones.Length;i++)if(bones[i]!=null)restRotations[i]=Quaternion.Inverse(transform.rotation)*bones[i].rotation;}
+        public bool TryBackFrame(out Vector3 position,out Vector3 up)
+        {
+            var chest=bones[2]!=null?bones[2]:bones[1];var neck=bones[3]!=null?bones[3]:bones[4];
+            position=transform.position;up=transform.up;if(chest==null)return false;
+            position=chest.position;if(neck!=null&&(neck.position-position).sqrMagnitude>.000001f)up=(neck.position-position).normalized;
+            if(Vector3.Dot(up,transform.up)<0)up=-up;return true;
+        }
         public void Tick(PoolroomsExplorer explorer,SkinPreferences settings)
         {
             if(Rig==null||explorer==null||explorer.IsPaused||!explorer.IsReady||Time.deltaTime<=0)return;

@@ -648,8 +648,20 @@ OBJ sigue disponible con su adaptación y materiales. Se añade un modo estátic
 optativo que evita ajustar huesos; no requiere rediseñar el importador existente.
 
 Compilación estricta del núcleo sin errores ni avisos; suite completa con
-1.846.931.153 aserciones del núcleo y contratos, 188 huellas preservadas y
+1.847.091.627 aserciones del núcleo y contratos, 188 huellas preservadas y
 258 scripts en cinco configuraciones sintácticas. Auditorías de fuentes y
 créditos correctas. Tres pruebas nativas añadidas, aún sin ejecutar por faltar
 Unity Editor. No se certifican APIs Unity, PhysX, aspecto, shaders, RT ni FPS.
 Evidencia persistente: Verification/wings_horizonte.json.
+
+Horizonte, revisión geométrica: una proyección de las mallas reales detectó
+plumas separadas del soporte y membranas fragmentadas. El código inicial
+reproduce el fallo «Feather roots float below the supporting spar: 0» ante la
+nueva comprobación. La corrección une las raíces al larguero, cierra membranas,
+diferencia los lóbulos de mariposa/libélula y calcula normales del volumen
+afilado. Las alas siguen el pecho animado y vuelven al anclaje corporal para
+OBJ estático. Se repitió la suite del núcleo y los contratos de código sobre
+la corrección. El primer CI fue cancelado para validar una revisión nueva.
+
+La sincronización pendiente de notas R34 quedó resuelta al publicar 4e19356;
+se preservaron los commits locales anteriores sin forzar el historial.
