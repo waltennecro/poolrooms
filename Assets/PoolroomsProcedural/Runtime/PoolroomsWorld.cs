@@ -85,16 +85,16 @@ namespace Poolrooms
 
         private readonly GeometryBuildJob buildJob=new GeometryBuildJob();
         private int generation;
-        private readonly List<Vector2Int> connectionAnchors=new List<Vector2Int>();
+        private readonly List<RoomCell> connectionAnchors=new List<RoomCell>();
         private int anchorHash,idleAnchorHash;
         private void RefreshStreamAnchors()
         {
             connectionAnchors.Clear();if(connectedMalls!=null)connectedMalls.AppendStreamAnchors(connectionAnchors);
-            if(terrain!=null&&terrain.IsConnected)for(int d=0;d<4;d++)connectionAnchors.Add(new Vector2Int(terrain.ConnectedSite.GateX(d),terrain.ConnectedSite.GateZ(d)));
-            unchecked{anchorHash=17;foreach(var p in connectionAnchors)anchorHash=(anchorHash*31+p.x)*31+p.y;}
+            if(terrain!=null&&terrain.IsConnected)for(int d=0;d<4;d++)connectionAnchors.Add(new RoomCell(terrain.ConnectedSite.GateX(d),terrain.ConnectedSite.GateZ(d)));
+            unchecked{anchorHash=17;foreach(var p in connectionAnchors)anchorHash=(anchorHash*31+p.X)*31+p.Z;}
         }
         private bool NearConnection(int x,int z)
-        {foreach(var p in connectionAnchors)if(Math.Abs((long)x-p.x)<=1&&Math.Abs((long)z-p.y)<=1)return true;return false;}
+        {foreach(var p in connectionAnchors)if(Math.Abs((long)x-p.X)<=1&&Math.Abs((long)z-p.Z)<=1)return true;return false;}
 
         private float nextLightUpdate;
         private PoolroomsTerrainSystem terrain;
@@ -336,7 +336,6 @@ namespace Poolrooms
         }
         private Room FindNext(Vector2Int focus)
         {
-            Room result=null;int best=int.MaxValue;
             // While streaming only the square around the viewer can qualify, so skip the rest of a large map.
             bool local=LocalRoomStreaming;int radius=local?LoadRadius:int.MaxValue;
             // A settled window has no new work until the focus, radius, epoch or loaded set
@@ -344,24 +343,7 @@ namespace Poolrooms
             if(idleSearchGeneration==generation&&idleSearchX==focus.x&&idleSearchZ==focus.y&&
                 idleSearchRadius==radius&&idleSearchLocal==local&&idleSearchCount==loaded.Count&&idleAnchorHash==anchorHash)return null;
             WorkSearchCount++;
-            int x0=layout.Config.Continuous?focus.x-radius:local?Math.Max(0,focus.x-radius):0,x1=layout.Config.Continuous?focus.x+radius:local?Math.Min(layout.Config.Columns-1,focus.x+radius):layout.Config.Columns-1;
-            int z0=layout.Config.Continuous?focus.y-radius:local?Math.Max(0,focus.y-radius):0,z1=layout.Config.Continuous?focus.y+radius:local?Math.Min(layout.Config.Rows-1,focus.y+radius):layout.Config.Rows-1;
-            for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++)
-            {
-                if(ConnectedTerrainTopology.Reserved(layout.Config,x,z))continue;
-                Room r=layout.At(x,z);
-                if(r==null||loaded.ContainsKey(ContinuousTopology.CellKey(r.X,r.Z)))continue;
-                int score=(r.X-focus.x)*(r.X-focus.x)+(r.Z-focus.y)*(r.Z-focus.y);
-                if(score<best){best=score;result=r;}
-            }
-            if(result==null)foreach(var anchor in connectionAnchors)
-            for(int az=anchor.y-1;az<=anchor.y+1;az++)for(int ax=anchor.x-1;ax<=anchor.x+1;ax++)
-            {
-                if(ConnectedTerrainTopology.Reserved(layout.Config,ax,az)||loaded.ContainsKey(ContinuousTopology.CellKey(ax,az)))continue;
-                var candidate=layout.At(ax,az);if(candidate==null)continue;
-                int score=(ax-anchor.x)*(ax-anchor.x)+(az-anchor.y)*(az-anchor.y);
-                if(score<best){best=score;result=candidate;}
-            }
+            Room result=RoomStreamingSearch.Next(layout,loaded,focus.x,focus.y,local,local?radius:0,connectionAnchors);
             if(result==null)
             {idleAnchorHash=anchorHash;idleSearchGeneration=generation;idleSearchX=focus.x;idleSearchZ=focus.y;idleSearchRadius=radius;idleSearchLocal=local;idleSearchCount=loaded.Count;}
             return result;
@@ -741,10 +723,13 @@ namespace Poolrooms
         public bool IsPilotingAircraft {get{return viewer!=null&&viewer.GetComponentInParent<PoolroomsExplorer>() is PoolroomsExplorer actor&&actor.Vehicle is PoolroomsFlyingVehicle;}}
         public bool IsPositionStreamed(Vector3 point)
         {
-            if(layout==null)return false;
-            if(terrain!=null&&terrain.IsInside||InsideMall)return ViewerReady;
+            if(layout==null||!float.IsFinite(point.x)||!float.IsFinite(point.y)||!float.IsFinite(point.z))return false;
+            if(terrain!=null&&terrain.IsInside&&!terrain.IsConnected)return terrain.IsPositionReady(point);
+            if(malls!=null&&malls.IsInside)return malls.IsPositionReady(point);
+            if(terrain!=null&&terrain.IsConnected&&terrain.ContainsPosition(point))return terrain.IsPositionReady(point);
+            if(connectedMalls!=null&&connectedMalls.TryPositionReady(point,out bool mallReady))return mallReady;
             Vector3 local=point-transform.position;int x=origin.CellX(local.x,layout.Config.CellSize),z=origin.CellZ(local.z,layout.Config.CellSize);
-            return ConnectedTerrainTopology.Reserved(layout.Config,x,z)?ViewerReady:IsRoomLoaded(x,z);
+            return !ConnectedTerrainTopology.Reserved(layout.Config,x,z)&&IsRoomLoaded(x,z);
         }
         public bool VisitAirfield()
         {

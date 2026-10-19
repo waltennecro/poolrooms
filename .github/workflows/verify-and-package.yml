@@ -24,6 +24,8 @@ jobs:
         run: dotnet run --project Verification/Poolrooms.Checks.csproj
       - name: Check full aquatic catalogue at extreme room scales
         run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --aquatic-plans
+      - name: Audit generated data, source lookups and room streaming selection
+        run: dotnet run --no-build --project Verification/Poolrooms.Checks.csproj -- --generation-audit
       - name: Check source texture hashes
         run: python tools/verify_play_textures.py
       - name: Check original rain texture and audio resources

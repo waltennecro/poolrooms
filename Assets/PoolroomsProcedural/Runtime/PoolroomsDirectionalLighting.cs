@@ -10,7 +10,7 @@ namespace Poolrooms
         struct Original {public LightShadows Shadows;public bool Enabled;}
         readonly Dictionary<Light,Original> originals=new Dictionary<Light,Original>();
         readonly List<Light> retired=new List<Light>();
-        Light[] lights=System.Array.Empty<Light>();
+        readonly List<Light> lights=new List<Light>();
         PoolroomsWorld world;float refreshAt;bool refresh=true;
         void OnEnable(){world=GetComponent<PoolroomsWorld>();world.GeometryChanged+=Invalidate;refresh=true;}
         void Invalidate(){refresh=true;}
@@ -20,7 +20,8 @@ namespace Poolrooms
             if(refresh||Time.unscaledTime>=refreshAt)
             {
                 retired.Clear();foreach(var pair in originals)if(pair.Key==null)retired.Add(pair.Key);foreach(var dead in retired)originals.Remove(dead);retired.Clear();
-                lights=Object.FindObjectsByType<Light>(FindObjectsSortMode.None);refresh=false;refreshAt=Time.unscaledTime+.25f;
+                lights.Clear();foreach(var source in Object.FindObjectsByType<Light>(FindObjectsSortMode.None))if(source.type==LightType.Directional)lights.Add(source);
+                refresh=false;refreshAt=Time.unscaledTime+.25f;
             }
             Light winner=null;int score=-1;
             bool shadows=world.profile!=null&&(world.shadowLightBudgetOverride>=0?world.shadowLightBudgetOverride:world.profile.maxShadowLights)>0;
@@ -45,7 +46,7 @@ namespace Poolrooms
         {
             if(world!=null)world.GeometryChanged-=Invalidate;
             foreach(var pair in originals)if(pair.Key!=null){pair.Key.shadows=pair.Value.Shadows;if(pair.Key.GetComponentInParent<PoolroomsWorld>()!=world)pair.Key.enabled=pair.Value.Enabled;}
-            originals.Clear();lights=System.Array.Empty<Light>();
+            originals.Clear();lights.Clear();
         }
     }
 }

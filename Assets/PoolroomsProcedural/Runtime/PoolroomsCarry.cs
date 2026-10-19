@@ -118,5 +118,14 @@ namespace Poolrooms
             held.transform.localRotation=Quaternion.Slerp(held.transform.localRotation,heldRotation,1-Mathf.Exp(-Time.deltaTime*15));
         }
         private void ShiftLoose(Vector3 shift){if(exteriorLooseRoot!=null)exteriorLooseRoot.position+=shift;}
+        private void FixedUpdate()
+        {
+            var world=explorer!=null?explorer.world:null;if(world==null)return;
+            foreach(var item in loose)if(item!=null&&item!=held&&item.gameObject.activeInHierarchy)
+            {
+                Vector3 ahead=item.transform.position+Vector3.ClampMagnitude(item.StreamingVelocity*.2f,world.profile!=null?world.profile.cellSize*.4f:8);
+                item.SetStreamingSupport(world.isActiveAndEnabled&&world.IsPositionStreamed(item.transform.position)&&world.IsPositionStreamed(ahead));
+            }
+        }
     }
 }

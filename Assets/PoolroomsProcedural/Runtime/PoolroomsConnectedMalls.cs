@@ -102,18 +102,20 @@ namespace Poolrooms
         public Transform ActiveRoot { get { var d=world!=null&&world.viewer!=null?AtPosition(world.viewer.position,false):null;return d!=null?d.Root:null; } }
         public bool ViewerReady
         {
-            get
-            {
-                var d=world!=null&&world.viewer!=null?AtPosition(world.viewer.position,true):null;
-                if(d==null||d.Shell==null||d.Bridges.Count!=2)return false;
-                Vector3 p=d.Root.InverseTransformPoint(world.viewer.position);
-                int floor=d.Plan.FloorAt(p.y),sector=d.Plan.SectorAt(p.x);
-                // Both neighbouring bay/floor collisions must exist before a walker can cross a seam.
-                for(int f=Math.Max(0,floor-1);f<=Math.Min(d.Plan.Floors-1,floor+1);f++)
-                for(int s=Math.Max(0,sector-1);s<=Math.Min(d.Plan.SectorCount-1,sector+1);s++)
-                    if(!d.Sectors.ContainsKey(f*32+s))return false;
-                return true;
-            }
+            get{return world!=null&&world.viewer!=null&&TryPositionReady(world.viewer.position,out bool ready)&&ready;}
+        }
+        public bool TryPositionReady(Vector3 position,out bool ready)
+        {
+            ready=false;var d=world!=null?AtPosition(position,true):null;if(d==null)return false;
+            if(d.Shell==null||d.Bridges.Count!=2)return true;
+            Vector3 p=d.Root.InverseTransformPoint(position);
+            if(!ConnectedMallArchitecture.ContainsSupportFootprint(d.Site,world.CurrentLayout.Config,p.x,p.z))return true;
+            int floor=d.Plan.FloorAt(p.y),sector=d.Plan.SectorAt(p.x);
+            // Check the requested bay/floor, which may differ from the viewer's loaded bay.
+            for(int f=Math.Max(0,floor-1);f<=Math.Min(d.Plan.Floors-1,floor+1);f++)
+            for(int s=Math.Max(0,sector-1);s<=Math.Min(d.Plan.SectorCount-1,sector+1);s++)
+                if(!d.Sectors.ContainsKey(f*32+s))return true;
+            ready=true;return true;
         }
         public bool GatewayReady(ConnectedMallSite site,int side)
         {
@@ -121,10 +123,10 @@ namespace Poolrooms
             int end=side<0?0:d.Plan.Bays+1;
             return d.Sectors.ContainsKey(end)&&d.Sectors.ContainsKey(end+(side<0?1:-1));
         }
-        public void AppendStreamAnchors(List<Vector2Int> anchors)
+        public void AppendStreamAnchors(List<RoomCell> anchors)
         {
             foreach(var d in districts.Values)if(d.Root!=null&&d.Root.gameObject.activeInHierarchy)
-            {anchors.Add(new Vector2Int(d.Site.X-d.Site.RadiusX-1,d.Site.Z));anchors.Add(new Vector2Int(d.Site.X+d.Site.RadiusX+1,d.Site.Z));}
+            {anchors.Add(new RoomCell(d.Site.X-d.Site.RadiusX-1,d.Site.Z));anchors.Add(new RoomCell(d.Site.X+d.Site.RadiusX+1,d.Site.Z));}
         }
         public bool VisitNearest()
         {

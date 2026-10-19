@@ -433,3 +433,19 @@ Descarga pública independiente: 462774512 bytes, CRC válido y los
 1065 archivos versionados coinciden por SHA-256.
 Evidencia: `Verification/ci_generation_R29.json`. Cuatro pruebas PlayMode nuevas
 aún sin ejecutar; tampoco compilación Unity/HDRP, sombras visuales, física ni FPS.
+
+## R30 · Auditoría ampliada antes de pruebas del usuario
+
+La auditoría ejecutada resuelve 81.768 planes, 396 mallas completas de sala/conexión
+y 1.395.345 colocaciones a través de catálogos y recursos reales. No aparecen
+nuevas excepciones de datos. La búsqueda anterior reproducía 625 planes para elegir
+una sala con radio 12; la nueva conserva la elección preparando uno. Incluye 384
+comparaciones de orden, mapas finitos, accesos y extremos de coordenadas.
+
+Se corrigen también consultas que usaban la posición del jugador en lugar del punto
+solicitado, reservas comerciales vacías tratadas como soporte y simulación de objetos
+sin zona cargada. Estos cambios de ejecución necesitan validación nativa: tres
+pruebas PlayMode añadidas, todas las anteriores conservadas. El árbitro de sombras
+filtra su lista por frame a luces direccionales. Linterna y distancia sin cambios.
+Documento: `Assets/PoolroomsProcedural/Documentation/AUDITORIA_GENERACION_R30.md`.
+Unity/HDRP, física, gráficos y FPS siguen sin ejecutar en la nube.

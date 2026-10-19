@@ -683,6 +683,28 @@
         "evidence": "Verification/ci_generation_R29.json"
       },
       "sourceRevision": "93e15b733fdb9acc140ad0fcd8c4789574353645"
+    },
+    {
+      "id": "R30",
+      "feature": "Audit all generation data consumers; lazy room selection, requested-position readiness and dropped-object streaming safety",
+      "status": "implemented_native_validation_pending",
+      "details": {
+        "generationPlansAudited": 81768,
+        "fullRoomAndConnectorMeshesAudited": 396,
+        "propPlacementsResolved": 1395345,
+        "roomLoadingOrderComparisons": 384,
+        "radius12EagerPlansBefore": 625,
+        "radius12SelectedPlansAfter": 1,
+        "sourceReferencesChecked": 12,
+        "catalogueItemsEncountered": 33,
+        "nativeRegressionTestsAddedButUnrun": 3,
+        "oldNativeTestsPreserved": true,
+        "nativeUnityExecuted": false,
+        "protectedGeometryFingerprints": 188,
+        "flashlightSourcesChanged": false,
+        "renderDistanceReduced": false,
+        "documentation": "Assets/PoolroomsProcedural/Documentation/AUDITORIA_GENERACION_R30.md"
+      }
     }
   ],
   "latestCoreChecks": {

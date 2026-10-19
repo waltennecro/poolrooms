@@ -13,6 +13,9 @@ namespace Poolrooms
         private float mass=.08f;
         private PickupSurface surface=PickupSurface.Packaging;
         private PhysicsMaterial contactMaterial;
+        private bool streamingFrozen,wasSleeping;
+        private Vector3 streamingVelocity,streamingAngularVelocity;
+        internal Vector3 StreamingVelocity {get{return streamingFrozen?streamingVelocity:body!=null?body.linearVelocity:Vector3.zero;}}
         public int CatalogId { get; private set; }=-1;
         public float CarryRadius { get; private set; }=.27f;
         public static PoolroomsPickup CreateSourceSeat(string key,SourceFurniturePlacement seat,Transform parent,float offsetY=0)
@@ -80,7 +83,8 @@ namespace Poolrooms
         public void Attach(Transform grip)
         {
             if(shape==null)shape=GetComponent<Collider>();shape.enabled=false;
-            if(body!=null){body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;body.isKinematic=true;body.detectCollisions=false;}
+            streamingFrozen=false;
+            if(body!=null){if(!body.isKinematic){body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;}body.collisionDetectionMode=CollisionDetectionMode.Discrete;body.isKinematic=true;body.detectCollisions=false;}
             transform.SetParent(grip,true);transform.localPosition=new Vector3(.28f,-.28f,.7f);transform.localRotation=Quaternion.Euler(5,-12,-8);
         }
         public void Release(Transform parent,Vector3 position)
@@ -98,9 +102,24 @@ namespace Poolrooms
             }
             if(body==null)body=gameObject.AddComponent<Rigidbody>();body.mass=GamePreferences.Clamp(mass,.02f,80,.08f);body.linearDamping=tuning.AirDamping;body.angularDamping=tuning.AngularDamping;
             body.interpolation=RigidbodyInterpolation.Interpolate;body.solverIterations=8;body.solverVelocityIterations=2;body.maxDepenetrationVelocity=3;body.maxAngularVelocity=25;
-            body.detectCollisions=true;body.isKinematic=false;body.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;
+            streamingFrozen=false;body.detectCollisions=true;body.isKinematic=false;body.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;
             var velocity=PickupPhysics.ReleaseVelocity(new V3(playerVelocity.x,playerVelocity.y,playerVelocity.z));
             body.linearVelocity=new Vector3(velocity.X,velocity.Y,velocity.Z);body.angularVelocity=Vector3.zero;body.WakeUp();
+        }
+        internal void SetStreamingSupport(bool supported)
+        {
+            if(body==null)return;
+            if(!supported&&!streamingFrozen&&!body.isKinematic)
+            {
+                wasSleeping=body.IsSleeping();streamingVelocity=body.linearVelocity;streamingAngularVelocity=body.angularVelocity;
+                body.linearVelocity=body.angularVelocity=Vector3.zero;body.collisionDetectionMode=CollisionDetectionMode.Discrete;body.isKinematic=true;streamingFrozen=true;
+            }
+            else if(supported&&streamingFrozen)
+            {
+                body.isKinematic=false;body.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;
+                body.linearVelocity=streamingVelocity;body.angularVelocity=streamingAngularVelocity;streamingFrozen=false;
+                if(wasSleeping)body.Sleep();else body.WakeUp();
+            }
         }
         private void OnDestroy(){if(contactMaterial!=null){if(Application.isPlaying)Destroy(contactMaterial);else DestroyImmediate(contactMaterial);}}
     }

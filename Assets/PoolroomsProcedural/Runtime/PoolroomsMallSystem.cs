@@ -32,17 +32,18 @@ namespace Poolrooms
         public Vector3 Spawn { get { return interior!=null?interior.TransformPoint(ToUnity(plan.Spawn)):world.transform.position+Vector3.up*.1f; } }
         public bool ViewerReady
         {
-            get
-            {
-                if(!IsInside||!shellReady||interior==null||world.viewer==null)return false;
-                Vector3 p=interior.InverseTransformPoint(world.viewer.position);
-                int floor=plan.FloorAt(p.y),sector=plan.SectorAt(p.x);
-                // Match the connected mall's safety neighbourhood before entering a bay or stairs.
-                for(int f=Math.Max(0,floor-1);f<=Math.Min(plan.Floors-1,floor+1);f++)
-                for(int s=Math.Max(0,sector-1);s<=Math.Min(plan.SectorCount-1,sector+1);s++)
-                    if(!loaded.ContainsKey(Key(f,s)))return false;
-                return true;
-            }
+            get{return world!=null&&world.viewer!=null&&IsPositionReady(world.viewer.position);}
+        }
+        public bool IsPositionReady(Vector3 position)
+        {
+            if(!IsInside||!shellReady||interior==null)return false;
+            Vector3 p=interior.InverseTransformPoint(position);
+            if(Math.Abs(p.x)>plan.Width*.5f+.3f||Math.Abs(p.z)>plan.Depth*.5f+.3f)return false;
+            int floor=plan.FloorAt(p.y),sector=plan.SectorAt(p.x);
+            for(int f=Math.Max(0,floor-1);f<=Math.Min(plan.Floors-1,floor+1);f++)
+            for(int s=Math.Max(0,sector-1);s<=Math.Min(plan.SectorCount-1,sector+1);s++)
+                if(!loaded.ContainsKey(Key(f,s)))return false;
+            return true;
         }
         private void Awake(){world=GetComponent<PoolroomsWorld>();}
         private void OnEnable(){if(IsInside&&worker==null)worker=StartCoroutine(Stream(epoch));}

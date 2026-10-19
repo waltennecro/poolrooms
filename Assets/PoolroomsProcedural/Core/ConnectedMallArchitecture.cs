@@ -5,6 +5,17 @@ namespace Poolrooms.Core
     public static class ConnectedMallArchitecture
     {
         public const float DoorZ=18;
+        public static bool ContainsSupportFootprint(ConnectedMallSite site,LayoutConfig c,float x,float z)
+        {
+            if(float.IsNaN(x)||float.IsInfinity(x)||float.IsNaN(z)||float.IsInfinity(z))return false;
+            float ax=Math.Abs(x);
+            if(ax<=site.Width*.5f+.25f&&Math.Abs(z)<=site.Depth*.5f+.25f)return true;
+            float start=(site.RadiusX+1)*c.CellSize-Math.Min(22,c.CellSize-6)*.5f-.25f,end=site.Width*.5f-.25f;
+            if(ax<end||ax>start)return false;
+            float u=(start-ax)/(start-end),t=Math.Max(0,Math.Min(1,(u-.15f)/.7f));
+            float centerZ=DoorZ*t*t*(3-2*t);
+            return Math.Abs(z-centerZ)<=c.DoorWidth*.5f;
+        }
         // In mall-local coordinates, ends overlap both supporting floors by 0.25 metres.
         public static V3 Point(ConnectedMallSite site,Room gateway,LayoutConfig c,float u)
         {

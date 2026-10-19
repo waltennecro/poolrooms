@@ -48,6 +48,7 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--generation-audit")){GenerationAudit();IntegrationSourceContracts();return 0;}
         if(args.Contains("--humanoid")){HumanoidSkins();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} humanoid assertions; native Unity unrun.");return 0;}
         if(args.Contains("--camera-avatar")){CameraAndAvatars();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} camera/avatar assertions; native Unity unrun.");return 0;}
         if(args.Contains("--water-optics")){WaterOptics();IntegrationSourceContracts();Console.WriteLine($"PASS: {assertions} water optics and integration contract assertions; native Unity unrun.");return 0;}

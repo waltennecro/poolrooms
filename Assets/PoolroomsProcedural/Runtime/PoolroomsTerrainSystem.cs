@@ -57,19 +57,20 @@ namespace Poolrooms
         private void OnDisable(){if(RegionRoot!=null)Exit();}
         public bool ViewerReady
         {
-            get
-            {
-                if(!IsInside||!bootstrapped||RegionRoot==null||world.viewer==null)return false;
-                Vector3 actual=RegionRoot.InverseTransformPoint(world.viewer.position);
-                if(IsConnected&&!Plan.Contains(actual.x,actual.z))return false; // A TP may precede the world's next context update.
-                Vector3 p=IsConnected?StreamPosition():actual;int cx=TerrainRegionPlan.Cell(p.x),cz=TerrainRegionPlan.Cell(p.z);
-                Tile t;if(!loaded.TryGetValue(TerrainRegionPlan.Key(cx,cz),out t)||!t.Detailed)return false;
-                // Freeze before crossing an unloaded collision edge; no invisible barrier object.
-                int sx=p.x-cx*TerrainRegionPlan.TileSize>TerrainRegionPlan.HalfTile-12?1:p.x-cx*TerrainRegionPlan.TileSize<-TerrainRegionPlan.HalfTile+12?-1:0,sz=p.z-cz*TerrainRegionPlan.TileSize>TerrainRegionPlan.HalfTile-12?1:p.z-cz*TerrainRegionPlan.TileSize<-TerrainRegionPlan.HalfTile+12?-1:0;
-                for(int z=Math.Min(0,sz);z<=Math.Max(0,sz);z++)for(int x=Math.Min(0,sx);x<=Math.Max(0,sx);x++)
-                    if(Plan.IntersectsTile(cx+x,cz+z)&&(!loaded.TryGetValue(TerrainRegionPlan.Key(cx+x,cz+z),out t)||!t.Detailed))return false;
-                return true;
-            }
+            get{return IsInside&&bootstrapped&&world.viewer!=null&&IsPositionReady(world.viewer.position);}
+        }
+        public bool ContainsPosition(Vector3 position)
+        {if(RegionRoot==null||Plan==null||!RegionRoot.gameObject.activeInHierarchy)return false;Vector3 p=RegionRoot.InverseTransformPoint(position);return Plan.Contains(p.x,p.z);}
+        public bool IsPositionReady(Vector3 position)
+        {
+            if(RegionRoot==null||Plan==null||!RegionRoot.gameObject.activeInHierarchy||!IsInside&&!IsConnected)return false;
+            Vector3 p=RegionRoot.InverseTransformPoint(position);if(Plan.Connected&&!Plan.Contains(p.x,p.z))return false;
+            int cx=TerrainRegionPlan.Cell(p.x),cz=TerrainRegionPlan.Cell(p.z);
+            Tile t;if(!loaded.TryGetValue(TerrainRegionPlan.Key(cx,cz),out t)||!t.Detailed)return false;
+            int sx=p.x-cx*TerrainRegionPlan.TileSize>TerrainRegionPlan.HalfTile-12?1:p.x-cx*TerrainRegionPlan.TileSize<-TerrainRegionPlan.HalfTile+12?-1:0,sz=p.z-cz*TerrainRegionPlan.TileSize>TerrainRegionPlan.HalfTile-12?1:p.z-cz*TerrainRegionPlan.TileSize<-TerrainRegionPlan.HalfTile+12?-1:0;
+            for(int z=Math.Min(0,sz);z<=Math.Max(0,sz);z++)for(int x=Math.Min(0,sx);x<=Math.Max(0,sx);x++)
+                if(Plan.IntersectsTile(cx+x,cz+z)&&(!loaded.TryGetValue(TerrainRegionPlan.Key(cx+x,cz+z),out t)||!t.Detailed))return false;
+            return true;
         }
         private void EnsureMaterials()
         {
@@ -165,12 +166,6 @@ namespace Poolrooms
             if(!IsInside||RegionRoot==null||world.viewer==null)return;
             Vector3 p=RegionRoot.InverseTransformPoint(world.viewer.position);var house=Plan.HouseAt(p.x,p.y,p.z);
             InsideHouse=house!=null&&house.Contains(p.x,p.y,p.z);
-            if(LooseRoot!=null)foreach(Transform t in LooseRoot)
-            {
-                var body=t.GetComponent<Rigidbody>();if(body==null)continue;Vector3 local=RegionRoot.InverseTransformPoint(t.position);Tile tile;
-                bool supported=loaded.TryGetValue(TerrainRegionPlan.Key(TerrainRegionPlan.Cell(local.x),TerrainRegionPlan.Cell(local.z)),out tile)&&tile.Detailed;
-                if(body.isKinematic==supported){if(supported){body.isKinematic=false;body.linearVelocity=Vector3.zero;}else{body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;body.isKinematic=true;}}
-            }
         }
         private int CompleteRadius(int cx,int cz,int requested)
         {

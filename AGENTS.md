@@ -13,6 +13,7 @@ Keep standalone verification in `Verification` and packaging scripts in `tools`,
 - `dotnet run --project Verification/Poolrooms.Checks.csproj`: compile the actual core, check geometry fingerprints and C# 9 syntax. Requires SDK 8.0.408, pinned by `global.json`.
 - `python tools/verify_city_sources.py`, `python tools/verify_aircraft_sources.py`, `python tools/verify_helicopter_sources.py`, `python tools/verify_interior_sources.py`, `python tools/verify_urban_sources.py`, `python tools/verify_bistro_sources.py`, `python tools/verify_building_sources.py`, `python tools/verify_garden_sources.py` and `python tools/verify_bath_sources.py`: audit model provenance, licenses, geometry and resource hashes.
 - `dotnet run --project Verification/Poolrooms.Checks.csproj -- --aquatic-plans`: scan all 5,600 waterpark plans at six supported scales.
+- `dotnet run --project Verification/Poolrooms.Checks.csproj -- --generation-audit`: audit room plans, prop/source lookups, full mesh samples and lazy streaming selection.
 - `python tools/verify_play_textures.py`: check shipped finish textures and hashes using Python 3.
 - `python tools/package_assets.py --stage reconstruccion --output /tmp/Poolrooms_Assets.zip`: create a complete package with per-file hashes and source revision.
 - `python tools/verify_recovery.py`: compare against untouched v39; expected to report intentional reconstruction changes on current main.
