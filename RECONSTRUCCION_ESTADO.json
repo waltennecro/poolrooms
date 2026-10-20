@@ -3175,6 +3175,12 @@
     "newCaptures": 0,
     "gpuBudgetUnchanged": true,
     "nativeUnityExecuted": false,
-    "targetedAssertions": 97095
+    "targetedAssertions": 97115,
+    "fullCoreAssertions": 1848203400,
+    "protectedGeometry": 188,
+    "nativeMaterialTestsAdded": 2,
+    "nativeMaterialTestsRun": false,
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Agua_cristalina.md",
+    "evidence": "Verification/crystal_water_delivery.json"
   }
 }

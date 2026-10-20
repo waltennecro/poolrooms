@@ -1,0 +1,3 @@
+PASS: water optical budgets, bounded captures and clear-water transmission (core math).
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.
+PASS: 97115 water optics and integration contract assertions; native Unity unrun.

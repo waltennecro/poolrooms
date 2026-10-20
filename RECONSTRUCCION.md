@@ -793,3 +793,8 @@ apariencias sin cambiar IDs; Custom conserva sus valores manuales. El material
 ligero reduce opacidad y elimina mapas/emisión heredados que ocultaban el fondo.
 Compilación estricta del núcleo sin errores/avisos y 97.095 aserciones de óptica
 y contratos de integración aprobadas. Unity y revisión visual siguen pendientes.
+
+Cierre de la óptica: 97.115 aserciones de óptica/contratos de integración,
+regresión completa del núcleo con 1.848.203.400 aserciones y las 188 geometrías
+protegidas aprobadas. Se añaden dos pruebas nativas de materiales aún sin ejecutar.
+Detalles, límites y referencias oficiales en `Verification/crystal_water_delivery.json`.

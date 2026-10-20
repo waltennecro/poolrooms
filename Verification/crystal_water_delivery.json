@@ -1,0 +1,50 @@
+{
+  "stage": "Agua cristalina",
+  "baseRevision": "348a801af90e46fea06bdc0706601b3029f548e7",
+  "coreBuild": {
+    "warnings": 0,
+    "errors": 0,
+    "log": "Verification/crystal_water_build.txt"
+  },
+  "opticsAndIntegration": {
+    "assertions": 97115,
+    "log": "Verification/crystal_water_optics.txt",
+    "nativeUnityCompilation": false
+  },
+  "fullCoreRegression": {
+    "assertions": 1848203400,
+    "protectedGeometry": 188,
+    "log": "Verification/crystal_water_full.txt",
+    "nativeUnityExecuted": false
+  },
+  "nativeTestsAdded": 2,
+  "nativeTestsRun": false,
+  "sourceReading": {
+    "purpose": "Validate extinction convention and HDRP material property names against official sources; not native compilation. Source code not bundled.",
+    "files": {
+      "surface": {
+        "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Water/WaterSurface/WaterSurface.cs",
+        "sha256": "75c9c058f73e0d2cd80399b3d5b7e71460d955b85438387073f36eaca8ee42c5",
+        "bytes": 37577
+      },
+      "waterutilities": {
+        "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Water/Shaders/WaterUtilities.hlsl",
+        "sha256": "23589b0a43acf4ef6e11278ffeba0db0f1423d1c91765011b824febe5c17af1a",
+        "bytes": 10831
+      },
+      "litshader": {
+        "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/Lit.shader",
+        "sha256": "710ab77b1296db77665fd5c0cf6486b15f750446f84987f18282c1b4792f83dc",
+        "bytes": 81936
+      },
+      "litapi": {
+        "url": "https://raw.githubusercontent.com/Unity-Technologies/Graphics/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitAPI.cs",
+        "sha256": "a57bbc956215c9c64fea54377c1d00b1332be3723632a995f7b79d6550c335ba",
+        "bytes": 8521
+      }
+    }
+  },
+  "graphicsCost": "Existing ripples, caustics, tessellation and probe budgets unchanged. No new textures or captures.",
+  "manualAppearancePreserved": true,
+  "delivery": "pending final commit and packaging"
+}

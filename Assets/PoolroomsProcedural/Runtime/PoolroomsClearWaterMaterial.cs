@@ -12,7 +12,10 @@ namespace Poolrooms
         {
             const int key=32768;Material result;
             if(owner.paletteMaterials.TryGetValue(key,out result))return result;
-            var shader=profile.waterPreview!=null?profile.waterPreview.shader:Shader.Find("HDRP/Lit")??Shader.Find("Universal Render Pipeline/Lit")??Shader.Find("Standard");
+            var pipeline=GraphicsSettings.currentRenderPipeline;
+            string pipelineName=pipeline!=null?pipeline.GetType().Name:"";
+            string shaderName=pipelineName.Contains("HDRenderPipeline")?"HDRP/Lit":pipelineName.Contains("Universal")?"Universal Render Pipeline/Lit":"Standard";
+            var shader=profile.waterPreview!=null?profile.waterPreview.shader:Shader.Find(shaderName)??Shader.Find("Standard");
             if(shader==null)return null;
             result=profile.waterPreview!=null?new Material(profile.waterPreview):new Material(shader);
             result.name="Crystal clear water / Lit fallback";result.enableInstancing=true;
