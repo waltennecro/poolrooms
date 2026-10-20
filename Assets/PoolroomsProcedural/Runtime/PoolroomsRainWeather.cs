@@ -17,6 +17,7 @@ namespace Poolrooms
         private PoolroomsExplorer explorer;
         private PoolroomsGameSettings settings;
         private PoolroomsAmbientAudio mixer;
+        private PoolroomsSoundscape soundscape;
         private Transform boundViewer;
         private Vector3 previousPosition;
         private float accumulator;
@@ -68,7 +69,9 @@ namespace Poolrooms
             float volume=active?(sheltered?.11f:.24f):0;
             if(mixer!=null)volume*=Mathf.Clamp01(mixer.masterVolume)*Mathf.Clamp01(mixer.environmentVolume);
             else if(settings!=null)volume*=settings.Preferences.masterVolume*settings.Preferences.environmentVolume;
-            audioSource.volume=Mathf.Lerp(audioSource.volume,volume,1-Mathf.Exp(-Time.deltaTime*3));
+            if(soundscape==null&&explorer!=null)soundscape=explorer.GetComponent<PoolroomsSoundscape>();
+            if(soundscape!=null)volume*=soundscape.AmbienceGain;
+            audioSource.volume=settings!=null&&settings.EffectiveMasterVolume<=0?0:Mathf.Lerp(audioSource.volume,volume,1-Mathf.Exp(-Time.deltaTime*3));
             lowpass.cutoffFrequency=Mathf.Lerp(lowpass.cutoffFrequency,sheltered?2600:14000,1-Mathf.Exp(-Time.deltaTime*3));
             if((boundViewer.position-previousPosition).sqrMagnitude>400)rain.Clear();previousPosition=boundViewer.position;
             if(!active){accumulator=0;return;}

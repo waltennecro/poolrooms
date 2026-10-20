@@ -434,7 +434,64 @@ namespace Poolrooms
             Toggle("Ambiente 3D","Circulación de piscinas y ventilación situadas en el espacio.",Prefs.spatialAmbience,v=>Prefs.spatialAmbience=v,SettingsChange.Audio);
             Toggle("Oclusión del sonido","Las paredes atenúan el ambiente con transiciones suaves.",Prefs.soundOcclusion,v=>Prefs.soundOcclusion=v,SettingsChange.Audio);
             Toggle("Silenciar en segundo plano","Cuando cambias a otra aplicación.",Prefs.muteUnfocused,v=>Prefs.muteUnfocused=v,SettingsChange.Audio);
+            Choice("Atmósfera","Tranquilo es el estilo inicial. Inquietante añade pasos lejanos y resonancias: sin voces, susurros ni sobresaltos.",new List<string>{"Tranquila","Inquietante"},(int)Prefs.soundscape.mode,v=>{Prefs.soundscape.mode=(SoundscapeMode)v;Changed(SettingsChange.Audio);});
+            Slider("Detalle ambiental","Capas suaves de aire, jardín y resonancia del espacio.",0,1,Prefs.soundscape.detail,v=>Prefs.soundscape.detail=v,SettingsChange.Audio,percent:true);
+            Slider("Intensidad inquietante","Controla el fondo y los sucesos lejanos del modo inquietante.",0,1,Prefs.soundscape.tension,v=>Prefs.soundscape.tension=v,SettingsChange.Audio,percent:true);
+            Slider("Rango dinámico","Bajo suaviza la diferencia entre contactos y ambiente.",0,1,Prefs.soundscape.dynamicRange,v=>Prefs.soundscape.dynamicRange=v,SettingsChange.Audio,percent:true);
+            Toggle("Pasos lejanos","Solo en el modo inquietante, separados por pausas largas.",Prefs.soundscape.distantSteps,v=>Prefs.soundscape.distantSteps=v,SettingsChange.Audio);
+            Toggle("Sonidos de movimiento","Dash, ropa al saltar, aterrizajes y aire al volar.",Prefs.soundscape.movementSounds,v=>Prefs.soundscape.movementSounds=v,SettingsChange.Audio);
+            Toggle("Objetos con sonido","Contactos suaves al tomar y soltar objetos; intensidad según su caída.",Prefs.soundscape.objectSounds,v=>Prefs.soundscape.objectSounds=v,SettingsChange.Audio);
+            Toggle("Dar espacio a la música","Atenúa suavemente el ambiente mientras suenan tus canciones.",Prefs.soundscape.duckWithMusic,v=>Prefs.soundscape.duckWithMusic=v,SettingsChange.Audio);
+            DrawLocalMusic();
         }
+        private void DrawLocalMusic()
+        {
+            var player=GetComponent<PoolroomsMusicPlayer>();if(player==null)return;
+            Note("Tu música · MP3, OGG, WAV y AIFF. Coloca las canciones en Music junto al ejecutable y pulsa Actualizar. Puedes usar subcarpetas; los archivos permanecen en tu PC.");
+            Row("Carpeta de canciones","",out var folderControl);
+            var folder=Label(player.Folder,"pr-muted",folderControl);folder.style.whiteSpace=WhiteSpace.Normal;
+            folder.schedule.Execute(()=>folder.text=player.Folder).Every(1000);
+            Row("Biblioteca local","La música continúa en el menú; pausa y detén desde estos controles.",out var library);
+            ActionButton("Abrir carpeta",player.OpenFolder,"pr-secondary",library);
+            var refresh=ActionButton("Actualizar lista",player.Refresh,"pr-secondary",library);
+            Row("Canción","Selecciona una pista para reproducirla.",out var selection);
+            var names=new List<string>{"Sin canciones"};var tracks=new DropdownField(names,0);selection.Add(tracks);tracks.AddToClassList("pr-dropdown");
+            tracks.RegisterValueChangedCallback(e=>{int index=names.IndexOf(e.newValue);if(index>=0&&index<player.Tracks.Count)player.Play(index);});
+            bool wasScanning=true;int count=-1;
+            tracks.schedule.Execute(()=>
+            {
+                refresh.SetEnabled(!player.Scanning);
+                if((wasScanning&&!player.Scanning)||count!=player.Tracks.Count)
+                {
+                    count=player.Tracks.Count;names.Clear();
+                    for(int i=0;i<count;i++)names.Add((i+1)+" · "+System.IO.Path.GetFileName(player.Tracks[i]));
+                    if(names.Count==0)names.Add("Sin canciones");tracks.choices=names;tracks.SetEnabled(count>0);
+                }
+                int selected=player.Selected;if(selected>=0&&selected<names.Count)tracks.SetValueWithoutNotify(names[selected]);
+                wasScanning=player.Scanning;
+            }).Every(300);
+            Row("Reproducción","",out var playback);
+            ActionButton("Anterior",player.Previous,"pr-secondary",playback);
+            var play=ActionButton("Reproducir / Pausar",player.PlayPause,"pr-primary",playback);
+            ActionButton("Siguiente",player.Next,"pr-secondary",playback);ActionButton("Detener",player.Stop,"pr-secondary",playback);
+            play.schedule.Execute(()=>play.text=player.Paused?"Reanudar":player.Playing?"Pausar":"Reproducir").Every(300);
+            Row("Ahora suena","",out var now);var status=Label("","pr-muted",now);status.style.whiteSpace=WhiteSpace.Normal;
+            status.schedule.Execute(()=>status.text=player.Title+" · "+MusicTime(player.Position)+" / "+MusicTime(player.Duration)+"\n"+player.Status).Every(300);
+            Row("Posición","Busca un momento de la canción.",out var position);
+            var seek=new Slider(0,1);position.Add(seek);seek.AddToClassList("pr-slider");bool seeking=false;
+            seek.RegisterCallback<PointerDownEvent>(e=>seeking=true,TrickleDown.TrickleDown);
+            seek.RegisterCallback<PointerUpEvent>(e=>seeking=false,TrickleDown.TrickleDown);
+            seek.RegisterCallback<PointerCaptureOutEvent>(e=>seeking=false);
+            seek.RegisterValueChangedCallback(e=>player.Seek(e.newValue));
+            seek.schedule.Execute(()=>{seek.SetEnabled(player.Duration>0&&!player.Loading);if(!seeking)seek.SetValueWithoutNotify(player.Duration>0?player.Position/player.Duration:0);}).Every(500);
+            Slider("Volumen de música","Se combina con Volumen general.",0,1,Prefs.music.volume,v=>Prefs.music.volume=v,SettingsChange.Audio,percent:true);
+            Slider("Fundido entre canciones","Transición suave; se acorta para pistas muy breves.",0,5,Prefs.music.crossfade,v=>Prefs.music.crossfade=v,SettingsChange.Audio," s");
+            Toggle("Reproducción automática","Al abrir el juego, empieza por la última pista seleccionada.",Prefs.music.autoPlay,v=>Prefs.music.autoPlay=v,SettingsChange.Audio);
+            Toggle("Orden aleatorio","Recorre la biblioteca sin repetir canciones durante una vuelta.",Prefs.music.shuffle,v=>{Prefs.music.shuffle=v;player.ResetOrder();},SettingsChange.Audio);
+            Choice("Repetir","Al terminar una pista o la lista.",new List<string>{"Desactivado","Toda la lista","Una canción"},(int)Prefs.music.repeat,v=>{Prefs.music.repeat=(MusicRepeat)v;Changed(SettingsChange.Audio);});
+        }
+        private static string MusicTime(float time)
+        {int seconds=Mathf.Max(0,Mathf.FloorToInt(time));return (seconds/60)+":"+(seconds%60).ToString("00");}
         private void DrawControls()
         {
             Note("Alas: G activa o detiene el vuelo normal · H cambia entre lento, medio, rápido y muy rápido · Espacio sube · Ctrl baja. Diseños y ajustes en Skins → Alas.");

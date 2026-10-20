@@ -71,6 +71,10 @@ jobs:
           python-version: '3.11'
       - name: Install pinned offline art verification tools
         run: python -m pip install -r Verification/requirements-art-tools.txt
+      - name: Check immersive sound, local library and shipped PCM
+        run: |
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --immersive-audio
+          python tools/verify_immersive_audio.py
       - name: Check licensed garden source, alpha cutout and static-only adaptation
         run: python tools/verify_garden_sources.py
       - name: Check licensed thermal lamp, wicker maps and source attribution

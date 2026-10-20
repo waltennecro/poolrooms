@@ -48,6 +48,14 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--immersive-audio"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Immersive sound checks require the current Core.");
+#else
+            ImmersiveSoundAndMusic();IntegrationSourceContracts();return 0;
+#endif
+        }
         if(args.Contains("--wings"))
         {
 #if POOLROOMS_HISTORICAL_CORE
@@ -120,7 +128,7 @@ static partial class Checks
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
 #if !POOLROOMS_HISTORICAL_CORE
-        WingsAndNormalFlight();
+        WingsAndNormalFlight();ImmersiveSoundAndMusic();
 #endif
         IntegrationSourceContracts();
         ForgivingJumpTiming();

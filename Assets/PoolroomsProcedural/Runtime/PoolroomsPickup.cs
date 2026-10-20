@@ -10,6 +10,8 @@ namespace Poolrooms
         public string SpawnKey { get; private set; }
         private Collider shape;
         private Rigidbody body;
+        private PoolroomsSoundscape soundscape;
+        private float nextAudioImpact;
         private float mass=.08f;
         private PickupSurface surface=PickupSurface.Packaging;
         private PhysicsMaterial contactMaterial;
@@ -80,6 +82,8 @@ namespace Poolrooms
         }
         public void Attach(Transform grip)
         {
+            soundscape=grip.GetComponentInParent<PoolroomsSoundscape>();
+            if(soundscape!=null)soundscape.Handling(transform.position,surface!=PickupSurface.Rigid);
             if(shape==null)shape=GetComponent<Collider>();shape.enabled=false;
             streamingFrozen=false;
             if(body!=null){if(!body.isKinematic){body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;}body.collisionDetectionMode=CollisionDetectionMode.Discrete;body.isKinematic=true;body.detectCollisions=false;}
@@ -118,6 +122,14 @@ namespace Poolrooms
                 body.linearVelocity=streamingVelocity;body.angularVelocity=streamingAngularVelocity;streamingFrozen=false;
                 if(wasSleeping)body.Sleep();else body.WakeUp();
             }
+        }
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(soundscape==null||body==null||body.isKinematic||streamingFrozen||Time.time<nextAudioImpact||collision.contactCount==0)return;
+            var other=collision.collider.GetComponentInParent<PoolroomsPickup>();
+            if(other!=null&&other.soundscape!=null&&GetInstanceID()>other.GetInstanceID())return;
+            nextAudioImpact=Time.time+.16f;
+            soundscape.Impact(collision.GetContact(0).point,collision.relativeVelocity.magnitude,mass,surface);
         }
         private void OnDestroy(){if(contactMaterial!=null){if(Application.isPlaying)Destroy(contactMaterial);else DestroyImmediate(contactMaterial);}}
     }

@@ -695,3 +695,24 @@ de Assets es idéntica a 32e755c; se conserva linterna y geometría protegida.
 Detalle de entrega: ALAS_HORIZONTE_ESTADO.json y Verification/wings_horizonte_ci.json.
 Siguen pendientes Unity Editor, APIs HDRP, tres pruebas PlayMode nuevas, apariencia
 y rendimiento real. No se certifican estos aspectos por el resultado del núcleo.
+
+## Resonancia · sonido inmersivo y música local
+
+Implementación nueva sobre Horizonte, sin presentarla como recuperación exacta.
+Se añaden modo tranquilo predeterminado e inquietante opcional sin voces,
+susurros ni sustos; capas ambientales, contactos por superficies, movimiento,
+caídas de objetos y mezcla con atenuación musical. Pool fijo de 19 voces incluyendo
+la lluvia existente y dos de música; no hay emisores por objeto. Se conservan
+linterna, IDs, alas y la arquitectura de generación.
+
+Biblioteca local en Music junto al juego, MP3/OGG/WAV/AIFF, selección, búsqueda,
+pausa, anterior/siguiente, aleatorio, repetición, fundido y reproducción automática
+opcional. Escaneo limitado y separado del hilo principal; archivos dañados no
+eliminan la canción anterior. No se suben canciones ni se incluyen en el ZIP.
+48 clips PCM (23 reemplazos + 25 nuevos), dos grabaciones fuente CC0 de Kenney,
+resto síntesis no vocal original. Licencias, fuentes y auditoría de hashes incluidas.
+Detalles: `Documentation/Sonido_y_musica_local.md` dentro del paquete.
+
+Comprobaciones del núcleo y recursos aprobadas; el cierre de evidencia se añadirá
+tras empaquetado y CI. Unity Editor, decodificadores de plataformas, escucha y
+rendimiento real siguen pendientes; dos pruebas PlayMode nuevas aún sin ejecutar.

@@ -98,6 +98,8 @@ namespace Poolrooms
             flashlight=GetComponent<PoolroomsFlashlight>();if(flashlight==null)flashlight=gameObject.AddComponent<PoolroomsFlashlight>();
             carry=GetComponent<PoolroomsCarry>();if(carry==null)carry=gameObject.AddComponent<PoolroomsCarry>();
             if(GetComponent<PoolroomsGameSettings>()==null)gameObject.AddComponent<PoolroomsGameSettings>();
+            if(GetComponent<PoolroomsMusicPlayer>()==null)gameObject.AddComponent<PoolroomsMusicPlayer>();
+            if(GetComponent<PoolroomsSoundscape>()==null)gameObject.AddComponent<PoolroomsSoundscape>();
             Wings=GetComponent<PoolroomsWings>();if(Wings==null)Wings=gameObject.AddComponent<PoolroomsWings>();
             pauseMenu=GetComponent<PoolroomsPauseMenu>();
             if(pauseMenu==null)pauseMenu=gameObject.AddComponent<PoolroomsPauseMenu>();

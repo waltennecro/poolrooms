@@ -1,0 +1,28 @@
+{
+  "stage": "Resonancia",
+  "features": [
+    "Peaceful default and optional non-vocal, non-jumpscare uneasy soundscape",
+    "Material footsteps, smooth beds, spatial contacts and bounded object impacts",
+    "Local MP3 OGG WAV AIFF playlist, async folder scan, two-source crossfades, seek and queue controls"
+  ],
+  "validation": {
+    "coreBuild": "passed, SDK 8.0.408, zero warnings/errors",
+    "audioCore": "passed 295653 cumulative assertions before syntax checks",
+    "fullCore": "passed 1847388095 assertions, 188 protected fingerprints, 263 scripts x five symbol configurations",
+    "pcmAndLicenses": "passed 48 PCM files, 10 loops, 2 downloaded CC0 source recordings",
+    "nativeUnity": "unrun",
+    "listening": "unrun",
+    "ci": "pending",
+    "package": "pending"
+  },
+  "memory": {
+    "decodedClipBytes": 33180480,
+    "sourceBudgetIncludingRainAndMusic": 19
+  },
+  "nativeTestsAdded": 2,
+  "limits": [
+    "No native Unity/HDRP API compilation or PlayMode execution available in cloud",
+    "No MP3 OGG AIFF platform decoder verification or listening/FPS claim",
+    "Third-party source hash checks are not listening tests"
+  ]
+}

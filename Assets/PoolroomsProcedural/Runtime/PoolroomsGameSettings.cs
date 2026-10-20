@@ -21,6 +21,7 @@ namespace Poolrooms
         public const string PreferencesKey="Poolrooms.Settings.v18";
         public GamePreferences Preferences {get;private set;}=new GamePreferences();
         public DisplayPreview Display {get;}=new DisplayPreview();
+        public float EffectiveMasterVolume {get{return !focused&&Preferences.muteUnfocused?0:Preferences.masterVolume;}}
         public event Action Changed;
         public event Action DisplayChanged;
         private PoolroomsExplorer explorer;
@@ -123,7 +124,7 @@ namespace Poolrooms
         private void ApplyAudio()
         {
             var audio=GetComponent<PoolroomsAmbientAudio>();if(audio==null)return;
-            audio.masterVolume=!focused&&Preferences.muteUnfocused?0:Preferences.masterVolume;audio.environmentVolume=Preferences.environmentVolume;
+            audio.masterVolume=EffectiveMasterVolume;audio.environmentVolume=Preferences.environmentVolume;
             audio.footstepVolume=Preferences.footstepVolume;audio.waterVolume=Preferences.waterVolume;audio.occasionalDrips=Preferences.drips;audio.roomReverb=Preferences.reverb;audio.spatialAmbience=Preferences.spatialAmbience;audio.soundOcclusion=Preferences.soundOcclusion;
         }
         private void Update()

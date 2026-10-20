@@ -35,6 +35,8 @@ namespace Poolrooms.Core
         public float masterVolume=.85f,environmentVolume=.8f,footstepVolume=.65f,waterVolume=.75f;
         public int spatialAudioVersion=1;
         public bool drips=true,reverb=true,muteUnfocused=true,spatialAmbience=true,soundOcclusion=true;
+        public SoundscapePreferences soundscape=new SoundscapePreferences();
+        public MusicPreferences music=new MusicPreferences();
         public float sensitivity=.09f,walkSpeed=3.2f,sprintSpeed=5.5f,fieldOfView=70,uiScale=1;
         public int slideVersion=1;
         public bool allowSlide=true;
@@ -42,6 +44,8 @@ namespace Poolrooms.Core
         public bool invertY,toggleSprint,reduceMotion,reducedFlashes,highContrast,opaqueMenu,pauseOnFocusLoss=true;
         public void Sanitize()
         {
+            if(soundscape==null)soundscape=new SoundscapePreferences();soundscape.Sanitize();
+            if(music==null)music=new MusicPreferences();music.Sanitize();
             if(dressingVersion<1)dressingDensity=2;dressingVersion=1;dressingDensity=Math.Max(0,Math.Min(2,dressingDensity));
             if(renderingVersion<1){rendering=new MasterViewOptions();terrainGrass=TerrainGrassQuality.Economy;}renderingVersion=1;
             if(rendering==null)rendering=new MasterViewOptions();rendering.Sanitize();
@@ -86,6 +90,7 @@ namespace Poolrooms.Core
                     waterAppearance=defaults.waterAppearance;break;
                 case SettingsCategory.Camera:camera=new CameraPreferences();perspective=CameraPerspective.FirstPerson;fieldOfView=defaults.fieldOfView;break;
                 case SettingsCategory.Audio:
+                    soundscape=new SoundscapePreferences();music=new MusicPreferences();
                     masterVolume=defaults.masterVolume;environmentVolume=defaults.environmentVolume;footstepVolume=defaults.footstepVolume;
                     waterVolume=defaults.waterVolume;drips=reverb=muteUnfocused=spatialAmbience=soundOcclusion=true;break;
                 case SettingsCategory.Controls:sensitivity=defaults.sensitivity;walkSpeed=defaults.walkSpeed;sprintSpeed=defaults.sprintSpeed;allowSlide=defaults.allowSlide;slideSpeed=defaults.slideSpeed;invertY=toggleSprint=false;break;

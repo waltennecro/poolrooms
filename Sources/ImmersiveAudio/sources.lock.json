@@ -1,0 +1,22 @@
+{
+  "walking.ogg": {
+    "url": "https://raw.githubusercontent.com/KenneyNL/Starter-Kit-3D-Platformer/3fa8a04b1c01ab23db43123d4ce814a34c3fc7f0/sounds/walking.ogg",
+    "bytes": 10929,
+    "sha256": "e4043660b7bc15bd1ec208c4193838da5a2618bde6f35e3d76654557268aa221"
+  },
+  "land.ogg": {
+    "url": "https://raw.githubusercontent.com/KenneyNL/Starter-Kit-3D-Platformer/3fa8a04b1c01ab23db43123d4ce814a34c3fc7f0/sounds/land.ogg",
+    "bytes": 5885,
+    "sha256": "145a1c17125dc4d344ac135bc5073e35ea12e19700ca30ee6e1e477010b4dca0"
+  },
+  "LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KenneyNL/Starter-Kit-3D-Platformer/3fa8a04b1c01ab23db43123d4ce814a34c3fc7f0/LICENSE.md",
+    "bytes": 1062,
+    "sha256": "f755bf8f21002f8d5baedaf75564141d363971f3f7bc8c4062956b0b15a6f04f"
+  },
+  "README.md": {
+    "url": "https://raw.githubusercontent.com/KenneyNL/Starter-Kit-3D-Platformer/3fa8a04b1c01ab23db43123d4ce814a34c3fc7f0/README.md",
+    "bytes": 1688,
+    "sha256": "d8f51d172d58e62d289105a5a1561e02e54cccc4c6d1215472169bc50ff2f91f"
+  }
+}

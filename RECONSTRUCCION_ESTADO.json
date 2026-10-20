@@ -1477,6 +1477,19 @@
       "evidence": "Verification/wings_horizonte.json",
       "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
       "ci": 39345741322
+    },
+    {
+      "id": "Resonancia",
+      "feature": "Immersive peaceful/uneasy sound and bounded local music player",
+      "status": "implemented_native_validation_pending",
+      "shippedAudioClips": 48,
+      "downloadedRecordings": 2,
+      "newAudioClips": 25,
+      "replacedAudioClips": 23,
+      "fixedSourceBudgetWithRainAndMusic": 19,
+      "nativePlayModeTestsAdded": 2,
+      "documentation": "Assets/PoolroomsProcedural/Documentation/Sonido_y_musica_local.md",
+      "validation": "Core and media checks passed; full regression and CI pending; Unity/listening unrun"
     }
   ],
   "latestCoreChecks": {
