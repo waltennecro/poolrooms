@@ -1,0 +1,2 @@
+PASS: immersive sound and local music; 295653 cumulative core assertions. Native decoding, spatial mix and listening unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.
