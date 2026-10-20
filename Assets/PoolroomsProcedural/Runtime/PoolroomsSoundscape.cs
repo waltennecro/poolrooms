@@ -56,7 +56,7 @@ namespace Poolrooms
             if(pause!=paused){paused=pause;foreach(var s in beds)if(paused)s.Pause();else s.UnPause();foreach(var s in events)if(paused)s.Pause();else s.UnPause();}
             if(paused)return;
             float dt=Time.deltaTime;var world=explorer.world;
-            bool ready=explorer.isActiveAndEnabled&&explorer.IsReady&&world!=null&&world.ViewerReady;
+            bool ready=explorer.isActiveAndEnabled&&explorer.IsReady&&world!=null&&world.isActiveAndEnabled&&world.ViewerReady;
             if(Options.mode!=previousMode){remainingSteps=0;director.Reset();previousMode=Options.mode;}
             float targetFear=ready&&Options.mode==SoundscapeMode.Uneasy?Options.tension:0;
             fear=ImmersiveAudio.Approach(fear,targetFear,dt,.4f);

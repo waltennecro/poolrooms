@@ -29,7 +29,7 @@ namespace Poolrooms.Tests
         [UnityTest]
         public IEnumerator MusicDecodesUnicodePathsCancelsLoadsAndKeepsLastSongOnMissingFile()
         {
-            GameObject actor=null;PoolroomsGameSettings settings=null;string path=null;
+            GameObject actor=null;PoolroomsGameSettings settings=null;string path=null,missing=null;
             string key=PoolroomsGameSettings.PreferencesKey;bool had=PlayerPrefs.HasKey(key);string saved=PlayerPrefs.GetString(key,"");
             bool hadLast=PlayerPrefs.HasKey("Poolrooms.Music.LastFile");string last=PlayerPrefs.GetString("Poolrooms.Music.LastFile","");
             float scale=Time.timeScale;bool paused=AudioListener.pause;
@@ -43,9 +43,11 @@ namespace Poolrooms.Tests
                 float deadline=Time.realtimeSinceStartup+10;
                 while(player.Scanning&&Time.realtimeSinceStartup<deadline)yield return null;
                 Assert.That(player.Scanning,Is.False);Assert.That(Directory.Exists(player.Folder),Is.True);
+                missing=Path.Combine(player.Folder,"Prueba ausente "+Guid.NewGuid().ToString("N")+".wav");WriteWave(missing);
                 path=Path.Combine(player.Folder,"Prueba música # "+Guid.NewGuid().ToString("N")+".wav");WriteWave(path);
-                player.Refresh();deadline=Time.realtimeSinceStartup+10;
+                int revision=player.LibraryRevision;player.Refresh();deadline=Time.realtimeSinceStartup+10;
                 while(player.Scanning&&Time.realtimeSinceStartup<deadline)yield return null;
+                Assert.That(player.LibraryRevision,Is.GreaterThan(revision));
                 int index=player.Tracks.ToList().IndexOf(path);Assert.That(index,Is.GreaterThanOrEqualTo(0));
                 settings.Preferences.music.crossfade=0;settings.Preferences.music.repeat=MusicRepeat.One;
                 Time.timeScale=0;AudioListener.pause=true;player.Play(index);player.Stop();
@@ -59,8 +61,9 @@ namespace Poolrooms.Tests
                 settings.Preferences.masterVolume=.85f;settings.Change(SettingsChange.Audio);
                 player.PlayPause();Assert.That(player.Paused,Is.True);player.Seek(.4f);Assert.That(player.Position,Is.InRange(1.4f,1.8f));
                 player.PlayPause();Assert.That(player.Paused,Is.False);
-                File.Delete(path);
-                player.Play(index);yield return null;
+                int missingIndex=player.Tracks.ToList().IndexOf(missing);Assert.That(missingIndex,Is.GreaterThanOrEqualTo(0));
+                File.Delete(missing);
+                player.Play(missingIndex);yield return null;
                 Assert.That(player.Status,Does.Contain("No se pudo reproducir"));Assert.That(player.Duration,Is.GreaterThan(0),"Bad input discarded the playing clip.");
                 player.Stop();Assert.That(player.Loading,Is.False);Assert.That(player.Duration,Is.EqualTo(0));
                 Assert.That(voices.All(x=>x.clip==null),Is.True,"Stop retained decoded clips.");
@@ -68,6 +71,7 @@ namespace Poolrooms.Tests
             finally
             {
                 if(actor!=null)Object.DestroyImmediate(actor);if(path!=null&&File.Exists(path))File.Delete(path);
+                if(missing!=null&&File.Exists(missing))File.Delete(missing);
                 if(had)PlayerPrefs.SetString(key,saved);else PlayerPrefs.DeleteKey(key);
                 if(hadLast)PlayerPrefs.SetString("Poolrooms.Music.LastFile",last);else PlayerPrefs.DeleteKey("Poolrooms.Music.LastFile");
                 PlayerPrefs.Save();Time.timeScale=scale;AudioListener.pause=paused;

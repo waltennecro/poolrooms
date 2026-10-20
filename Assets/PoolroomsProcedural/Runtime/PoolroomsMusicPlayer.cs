@@ -26,6 +26,7 @@ namespace Poolrooms
         public string Folder {get;private set;}="";
         public string Status {get;private set;}="Preparando biblioteca…";
         public bool Scanning {get;private set;}
+        public int LibraryRevision {get;private set;}
         public bool Loading {get;private set;}
         public bool Paused {get;private set;}
         public bool Playing {get{return root!=null&&sources[active]!=null&&sources[active].clip!=null&&!Paused;}}
@@ -64,7 +65,7 @@ namespace Poolrooms
             while(!task.IsCompleted)yield return null;
             Scanning=false;
             if(task.IsFaulted){Status="No se pudo leer la biblioteca: "+task.Exception.GetBaseException().Message;yield break;}
-            var scan=task.Result;CancelLoad();queue.Replace(scan.Files,currentPath.Length>0?currentPath:PlayerPrefs.GetString("Poolrooms.Music.LastFile",""));
+            var scan=task.Result;CancelLoad();LibraryRevision++;queue.Replace(scan.Files,currentPath.Length>0?currentPath:PlayerPrefs.GetString("Poolrooms.Music.LastFile",""));
             Status=scan.Files.Count+" canciones"+(scan.Skipped>0?" · "+scan.Skipped+" omitidas":"")+(scan.Truncated?" · se alcanzó el límite de biblioteca":"");
             if(autoStart&&Preferences.autoPlay&&scan.Files.Count>0)Play(queue.Selected>=0?queue.Selected:0);autoStart=false;
         }

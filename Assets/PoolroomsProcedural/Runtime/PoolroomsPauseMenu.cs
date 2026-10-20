@@ -457,18 +457,17 @@ namespace Poolrooms
             Row("Canción","Selecciona una pista para reproducirla.",out var selection);
             var names=new List<string>{"Sin canciones"};var tracks=new DropdownField(names,0);selection.Add(tracks);tracks.AddToClassList("pr-dropdown");
             tracks.RegisterValueChangedCallback(e=>{int index=names.IndexOf(e.newValue);if(index>=0&&index<player.Tracks.Count)player.Play(index);});
-            bool wasScanning=true;int count=-1;
+            int libraryRevision=-1;
             tracks.schedule.Execute(()=>
             {
                 refresh.SetEnabled(!player.Scanning);
-                if((wasScanning&&!player.Scanning)||count!=player.Tracks.Count)
+                if(libraryRevision!=player.LibraryRevision)
                 {
-                    count=player.Tracks.Count;names.Clear();
+                    libraryRevision=player.LibraryRevision;int count=player.Tracks.Count;names.Clear();
                     for(int i=0;i<count;i++)names.Add((i+1)+" · "+System.IO.Path.GetFileName(player.Tracks[i]));
                     if(names.Count==0)names.Add("Sin canciones");tracks.choices=names;tracks.SetEnabled(count>0);
                 }
                 int selected=player.Selected;if(selected>=0&&selected<names.Count)tracks.SetValueWithoutNotify(names[selected]);
-                wasScanning=player.Scanning;
             }).Every(300);
             Row("Reproducción","",out var playback);
             ActionButton("Anterior",player.Previous,"pr-secondary",playback);
