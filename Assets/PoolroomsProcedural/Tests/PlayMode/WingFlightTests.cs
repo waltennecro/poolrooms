@@ -27,9 +27,9 @@ namespace Poolrooms.Tests
                 Physics.SyncTransforms();
                 Assert.That(wings.ToggleFlight(),Is.True);
                 for(int i=0;i<30;i++)wings.TickFlight(Vector3.forward,.1f);
-                Assert.That(body.bounds.max.z,Is.LessThan(wall.GetComponent<Collider>().bounds.min.z+.06f),"Very fast flight crossed a thin wall.");
+                Assert.That(body.bounds.max.z,Is.LessThan(wall.GetComponent<Collider>().bounds.min.z+body.skinWidth+.02f),"Very fast flight crossed a thin wall beyond the configured contact margin.");
                 for(int i=0;i<30;i++)wings.TickFlight(Vector3.up,.1f);
-                Assert.That(body.bounds.max.y,Is.LessThan(ceiling.GetComponent<Collider>().bounds.min.y+.06f),"Wing flight crossed a ceiling.");
+                Assert.That(body.bounds.max.y,Is.LessThan(ceiling.GetComponent<Collider>().bounds.min.y+body.skinWidth+.02f),"Wing flight crossed a ceiling beyond the configured contact margin.");
                 Vector3 before=actor.transform.position;
                 explorer.SetPaused(true);for(int i=0;i<10;i++)wings.TickFlight(Vector3.forward,.1f);
                 Assert.That(actor.transform.position,Is.EqualTo(before));Assert.That(wings.Flying,Is.True,"Pausing must preserve hover mode.");
