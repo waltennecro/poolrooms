@@ -3,12 +3,12 @@
   "baseRevision": "2879cbf213328822d1c7777673be763a0e7661b6",
   "baselineAudit": {
     "passed": true,
-    "log": "Verification/encuentro_baseline.log",
+    "log": "Verification/encuentro_baseline.txt",
     "nativeUnity": false
   },
   "focusedAudit": {
     "passed": true,
-    "log": "Verification/encuentro_target.log",
+    "log": "Verification/encuentro_target.txt",
     "actualRoomPlans": 215,
     "furnishedNooks": 80,
     "wallSupportedNotices": 206,
@@ -68,7 +68,18 @@
     }
   },
   "finalFullAudit": {
-    "status": "running"
+    "status": "passed",
+    "strictCoreBuild": {
+      "errors": 0,
+      "warnings": 0,
+      "sdk": "8.0.408"
+    },
+    "log": "Verification/encuentro_final.txt",
+    "coreAssertions": 1848196873,
+    "protectedGeometryFingerprints": 188,
+    "parsedScripts": 278,
+    "symbolConfigurations": 5,
+    "unityNativeExecuted": false
   },
   "nativeUnity": {
     "editorAvailable": false,
@@ -80,7 +91,19 @@
   },
   "persistence": "Inventory, journal, routes, care and game state intentionally session-only. Existing PNG photos/settings/music locations remain.",
   "backup": {
-    "status": "pending_commit"
+    "status": "code_backed_up",
+    "revision": "2e88a09dd2020c2c61e26b289d0558e00c2d8bb5",
+    "ciInitial": {
+      "runId": 39383502982,
+      "status": "in_progress",
+      "observedStep": "Compare all 200010 architectures in 21 batches against immutable R33"
+    }
   },
-  "claims": "Core assertions are not native Unity tests. Zero new downloaded 3D models or mocap; eleven CC BY 3.0 external icons. Existing licensed furniture reused."
+  "claims": "Core assertions are not native Unity tests. Zero new downloaded 3D models or mocap; eleven CC BY 3.0 external icons. Existing licensed furniture reused.",
+  "additionalAudits": {
+    "biomeExtent": "Verification/encuentro_extents.txt",
+    "generation": "Verification/encuentro_generation.txt",
+    "historicalCoreCompatibility": "Verification/encuentro_historical.txt",
+    "passed": true
+  }
 }

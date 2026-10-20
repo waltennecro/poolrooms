@@ -3132,6 +3132,22 @@
     },
     "sessionOnly": true,
     "unityExecuted": false,
-    "verification": "Verification/encuentro_delivery.json"
+    "verification": "Verification/encuentro_delivery.json",
+    "localChecks": {
+      "strictCoreBuild": "passed_zero_errors_zero_warnings",
+      "completeCoreAssertions": 1848196873,
+      "geometryFingerprints": 188,
+      "currentSyntaxScripts": 278,
+      "configurations": 5,
+      "targetPlans": 215,
+      "targetNooks": 80,
+      "targetNotices": 206,
+      "targetPassages": 153,
+      "routeChecks": 27,
+      "resourceAudits": "passed",
+      "generationAudit": "passed",
+      "biomeExtents": "passed",
+      "historicalCoreCompile": "passed"
+    }
   }
 }

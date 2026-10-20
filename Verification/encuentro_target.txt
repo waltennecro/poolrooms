@@ -1,0 +1,2 @@
+Encounter: 215 actual room plans, 80 furnished nooks, 206 wall-supported notices and 153 natural transitions (153 meshes) checked; 250-slot arbitrary precision inventory and 100 solved pairing games. Native Unity unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

@@ -767,3 +767,11 @@ No se ha ejecutado Unity: cuatro pruebas PlayMode nuevas y revisión nativa pend
 
 El CI final de Resonancia 39360910225 ya terminó correctamente; esto no certifica
 la compilación nativa de Unity ni el sonido/renderizado de Encuentro.
+
+Cierre local de Encuentro: compilación estricta sin errores ni advertencias,
+1.848.196.873 aserciones del núcleo, 188 huellas de geometría protegidas y análisis
+sintáctico de 278 scripts en cinco configuraciones aprobados. También pasaron las
+auditorías explícitas de generación y extensión de biomas, compilación del núcleo
+histórico y rechazos esperados, y nueve verificadores de recursos/licencias.
+El muestreo nuevo revisa 215 salas, 80 rincones amueblados, 206 notas apoyadas
+en paredes, 153 transiciones distintas y 27 rutas a pie. No son tests nativos.

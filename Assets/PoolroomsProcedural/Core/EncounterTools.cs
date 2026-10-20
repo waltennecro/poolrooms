@@ -25,6 +25,7 @@ namespace Poolrooms.Core
                 }
                 ZoneShapes.Beam(m,new V3(.07f,.05f,0),new V3(.225f,.21f,0),.018f,Surface.Metal,.4f,12);
                 ZoneShapes.Beam(m,new V3(.225f,.21f,0),new V3(.235f,.23f,0),.038f,Surface.Metal,.4f,16);
+                ZoneShapes.Beam(m,new V3(-.04f,.3f,0),new V3(-.06f,.19f,0),.012f,Surface.Accent,.4f,10);
                 for(int i=0;i<12;i++)
                 {float a=Shapes.Pi*(.5f+i/12f),b=Shapes.Pi*(.5f+(i+1)/12f);ZoneShapes.Beam(m,new V3(-.04f+(float)Math.Cos(a)*.12f,.16f+(float)Math.Sin(a)*.14f,0),new V3(-.04f+(float)Math.Cos(b)*.12f,.16f+(float)Math.Sin(b)*.14f,0),.012f,Surface.Accent,.4f,10);}
             }

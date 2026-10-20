@@ -59,7 +59,7 @@ namespace Poolrooms.Tests
         public IEnumerator FixtureUseRespectsWallOcclusionAndPickupKeyStillMovesIt()
         {
             // Isolate the ray from generated walls without rebuilding the test world.
-            explorer.Teleport(Vector3.up*100);var point=explorer.Aim.position+explorer.Aim.forward*1.5f;
+            explorer.Teleport(Vector3.up*100);yield return null;var point=explorer.Aim.position+explorer.Aim.forward*1.5f;
             var item=PoolroomsPickup.CreateCatalog("test:read",0,point,root.transform,profile);
             var use=item.gameObject.AddComponent<PoolroomsInteractable>();use.activity=RoomActivity.Notice;use.key="test:notice";use.title="La próxima visita";use.note="Dejamos una taza para ti.";
             obstacle=new GameObject("Solid wall before notice");obstacle.transform.position=explorer.Aim.position+explorer.Aim.forward*.7f;obstacle.AddComponent<BoxCollider>().size=new Vector3(3,3,.1f);Physics.SyncTransforms();
