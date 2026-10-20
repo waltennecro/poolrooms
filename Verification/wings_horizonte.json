@@ -1,7 +1,7 @@
 {
   "release": "Horizonte · Alas",
   "basedOn": "R34 final; no historical files relabelled as exact recovery",
-  "status": "implemented_core_checked_native_unrun",
+  "status": "implemented_core_ci_public_backup_verified_native_unrun",
   "utc": "2026-10-19T23:50:00.590381+00:00",
   "features": {
     "normalFlightWithoutMaster": true,
@@ -90,10 +90,16 @@
     "Real FPS and memory profiling on target hardware"
   ],
   "ci": {
-    "firstRun": 39343998681,
-    "conclusion": "cancelled_by_us_for_mesh_refinement",
-    "finalRun": "pending_push_after_compatibility_fix",
-    "failedHistoricalCompatibilityRun": 39345076315
+    "cancelledIntermediateRuns": [
+      39343998681,
+      39344909987
+    ],
+    "failedHistoricalCompatibilityRun": 39345076315,
+    "finalRun": 39345741322,
+    "finalConclusion": "success",
+    "successfulSteps": 38,
+    "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+    "evidence": "Verification/wings_horizonte_ci.json"
   },
   "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md",
   "geometryReview": {
@@ -113,6 +119,27 @@
     "oldBevelRegressionReproduced": true,
     "historicalWingCheckExplicitlyRejected": true,
     "currentWingAndSourceAssertions": 4682948,
-    "nativeUnityExecuted": false
+    "nativeUnityExecuted": false,
+    "verifiedByFinalCi": 39345741322
+  },
+  "delivery": {
+    "localAssets": {
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_Assets.zip",
+      "files": 946,
+      "bytes": 314402192,
+      "sha256": "79fbea73dc596bcfd7bc2b65800709d2c6729e149227cc6b91deaccfdc7079b8",
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "workingTreeChanged": false
+    },
+    "publicSource": {
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_GitHub.zip",
+      "bytes": 492996717,
+      "sha256": "4b008b776e6af2133aed7bae37edaa2ff7a7e83c8e613735e9541160fcc1c4ff",
+      "crc": "passed",
+      "trackedFilesMatched": 1201,
+      "assetsFilesMatched": 946
+    }
   }
 }

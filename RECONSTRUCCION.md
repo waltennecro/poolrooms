@@ -676,3 +676,22 @@ no se modifican. La compilación histórica vuelve a pasar sin avisos, sigue
 reproduciendo el fallo geométrico esperado y no puede informar alas verificadas.
 Las pruebas actuales de alas y contratos también pasan. CI completo pendiente
 de una ejecución nueva; no se presenta la ejecución fallida como aprobada.
+
+Horizonte · Alas, cierre: código `8a0213701344fe8f8ab7defe2bd6e752446ac20a`,
+[CI 39345741322](https://github.com/waltennecro/poolrooms/actions/runs/39345741322)
+correcto en sus 38 pasos. Se regeneró la comparación de las 200.010 salas en
+21 lotes y se mantuvieron los hashes revisados. El verificador histórico sigue
+reproduciendo el fallo esperado y rechaza alas; el actual comprueba sus 144
+geometrías y cuatro velocidades. Auditorías de licencias, recursos, paquete y
+subidas completadas. Ambos artefactos tienen tamaño no nulo según la API; su
+descarga desde Azure está bloqueada con Forbidden en este entorno y no se
+presenta como descargada. La descarga pública de codeload sí se realizó y
+verificó: 492.996.717 bytes, CRC correcto, 1.201 archivos versionados coincidentes
+por SHA-256, incluidos los 946 de Assets. ZIP local de Assets: 314.402.192 bytes,
+CRC y hashes de sus 946 archivos correctos.
+
+El código de juego no cambió durante la corrección del verificador. La revisión
+de Assets es idéntica a 32e755c; se conserva linterna y geometría protegida.
+Detalle de entrega: ALAS_HORIZONTE_ESTADO.json y Verification/wings_horizonte_ci.json.
+Siguen pendientes Unity Editor, APIs HDRP, tres pruebas PlayMode nuevas, apariencia
+y rendimiento real. No se certifican estos aspectos por el resultado del núcleo.

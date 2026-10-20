@@ -1473,8 +1473,10 @@
     {
       "id": "HORIZONTE_ALAS",
       "feature": "Normal player wing flight, 144 geometry variants, wardrobe controls and opt-in static OBJ import",
-      "status": "implemented_core_checked_native_unrun",
-      "evidence": "Verification/wings_horizonte.json"
+      "status": "implemented_core_ci_public_backup_verified_native_unrun",
+      "evidence": "Verification/wings_horizonte.json",
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "ci": 39345741322
     }
   ],
   "latestCoreChecks": {
@@ -1635,7 +1637,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "Push historical verifier fix; monitor a new full CI and package. Assets are unchanged from 32e755c. Do not report failed run 39345076315 as success.",
+  "nextIndependentWork": "Horizonte-Alas is backed up and CI 39345741322 passed all 38 steps. Native Unity/HDRP compilation, three new PlayMode tests, actual wing/OBJ appearance, PhysX and target-hardware FPS remain. Earlier literal source-model/family targets remain explicitly unfinished.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1770,14 +1772,14 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "allTrackedFilesMatched": 1157,
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/7429aecdd397c7ad2b9099006a456036ba8d6995",
-    "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
-    "bytes": 492836992,
-    "sha256": "d90eeee0460394866eaf5d24e0faa8acdd86e6c476c1e2735f77f37091473030",
-    "assetFilesMatched": 923,
-    "crcValid": true,
-    "githubActionsArtifactDownload": false
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+    "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_GitHub.zip",
+    "bytes": 492996717,
+    "sha256": "4b008b776e6af2133aed7bae37edaa2ff7a7e83c8e613735e9541160fcc1c4ff",
+    "crc": "passed",
+    "trackedFilesMatched": 1201,
+    "assetsFilesMatched": 946
   },
   "aircraftCi": {
     "sourceRevision": "492fe0e6f111f39a1c336fd376b0db35381aad0b",
@@ -1832,11 +1834,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_Assets.zip",
+    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_Assets.zip",
     "files": 946,
     "bytes": 314402192,
-    "sha256": "8f93f60c223b735fabbdc9271b883c9455b92333c032179cf07901bedd8c8559",
-    "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "sha256": "79fbea73dc596bcfd7bc2b65800709d2c6729e149227cc6b91deaccfdc7079b8",
+    "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -2549,7 +2551,7 @@
   "wingFlightEvidence": {
     "release": "Horizonte · Alas",
     "basedOn": "R34 final; no historical files relabelled as exact recovery",
-    "status": "implemented_core_checked_native_unrun",
+    "status": "implemented_core_ci_public_backup_verified_native_unrun",
     "utc": "2026-10-19T23:50:00.590381+00:00",
     "features": {
       "normalFlightWithoutMaster": true,
@@ -2638,10 +2640,16 @@
       "Real FPS and memory profiling on target hardware"
     ],
     "ci": {
-      "firstRun": 39343998681,
-      "conclusion": "cancelled_by_us_for_mesh_refinement",
-      "finalRun": "pending_push_after_compatibility_fix",
-      "failedHistoricalCompatibilityRun": 39345076315
+      "cancelledIntermediateRuns": [
+        39343998681,
+        39344909987
+      ],
+      "failedHistoricalCompatibilityRun": 39345076315,
+      "finalRun": 39345741322,
+      "finalConclusion": "success",
+      "successfulSteps": 38,
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "evidence": "Verification/wings_horizonte_ci.json"
     },
     "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md",
     "geometryReview": {
@@ -2661,33 +2669,54 @@
       "oldBevelRegressionReproduced": true,
       "historicalWingCheckExplicitlyRejected": true,
       "currentWingAndSourceAssertions": 4682948,
-      "nativeUnityExecuted": false
+      "nativeUnityExecuted": false,
+      "verifiedByFinalCi": 39345741322
+    },
+    "delivery": {
+      "localAssets": {
+        "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_Assets.zip",
+        "files": 946,
+        "bytes": 314402192,
+        "sha256": "79fbea73dc596bcfd7bc2b65800709d2c6729e149227cc6b91deaccfdc7079b8",
+        "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+        "workingTreeChanged": false
+      },
+      "publicSource": {
+        "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+        "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+        "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_GitHub.zip",
+        "bytes": 492996717,
+        "sha256": "4b008b776e6af2133aed7bae37edaa2ff7a7e83c8e613735e9541160fcc1c4ff",
+        "crc": "passed",
+        "trackedFilesMatched": 1201,
+        "assetsFilesMatched": 946
+      }
     }
   },
   "wingFlightDelivery": {
     "release": "Horizonte · Alas",
-    "sourceCodeRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
-    "implementationStatus": "complete_core_checks_passed_native_unrun",
-    "finalCiRun": 39345076315,
-    "finalCiUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39345076315",
-    "finalCiStatus": "historical_verifier_failure_reproduced_and_fixed_locally",
+    "sourceCodeRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+    "implementationStatus": "complete_core_ci_public_backup_verified_native_unrun",
+    "finalCiRun": 39345741322,
+    "finalCiUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39345741322",
+    "finalCiStatus": "success",
     "localAssetsPackage": {
-      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_Assets.zip",
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_Assets.zip",
       "files": 946,
       "bytes": 314402192,
-      "sha256": "8f93f60c223b735fabbdc9271b883c9455b92333c032179cf07901bedd8c8559",
-      "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+      "sha256": "79fbea73dc596bcfd7bc2b65800709d2c6729e149227cc6b91deaccfdc7079b8",
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
       "workingTreeChanged": false
     },
-    "publicSourceZip": "https://codeload.github.com/waltennecro/poolrooms/zip/32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "publicSourceZip": "https://codeload.github.com/waltennecro/poolrooms/zip/8a0213701344fe8f8ab7defe2bd6e752446ac20a",
     "publicDownloadAudit": {
-      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/32e755c51fb1f59e6856a58ad2c53a848866b4ee",
-      "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
-      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_GitHub.zip",
-      "bytes": 492993196,
-      "sha256": "2b635707f7f1e13576bc012fbd4cea9c105a220ca0c86a092f03cadf6c773d00",
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_GitHub.zip",
+      "bytes": 492996717,
+      "sha256": "4b008b776e6af2133aed7bae37edaa2ff7a7e83c8e613735e9541160fcc1c4ff",
       "crc": "passed",
-      "trackedFilesMatched": 1200,
+      "trackedFilesMatched": 1201,
       "assetsFilesMatched": 946
     },
     "nativeUnityExecuted": false,
@@ -2697,7 +2726,7 @@
     "externalIcons": 12,
     "newExternalWingModels": 0,
     "evidence": "Verification/wings_horizonte.json",
-    "nextAction": "Push historical verifier fix; monitor a new full CI and package. Assets are unchanged from 32e755c. Do not report failed run 39345076315 as success.",
+    "nextAction": "Import Assets/PoolroomsProcedural into the existing Unity 6.3/HDRP project and run native PlayMode, wing collision/photo/animation/OBJ, appearance and target-hardware FPS checks. No more backup or core-CI work is pending for this release.",
     "ciCompatibilityFix": {
       "run": 39345076315,
       "failedStep": "Compare all 200010 architectures in 21 batches against immutable R33",
@@ -2708,7 +2737,349 @@
       "oldBevelRegressionReproduced": true,
       "historicalWingCheckExplicitlyRejected": true,
       "currentWingAndSourceAssertions": 4682948,
-      "nativeUnityExecuted": false
-    }
+      "nativeUnityExecuted": false,
+      "verifiedByFinalCi": 39345741322
+    },
+    "gameAssetsRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "finalCiSuccessfulSteps": 38,
+    "artifacts": [
+      {
+        "id": 12231478251,
+        "name": "R34-Batch-Evidence",
+        "size_in_bytes": 6595,
+        "expired": false,
+        "digest": "sha256:72a7710861008d11b07159438c35751f81aa5ac03ceaad619f3b2540499aeeab"
+      },
+      {
+        "id": 12231274049,
+        "name": "Poolrooms-Reconstruccion-Assets",
+        "size_in_bytes": 313189457,
+        "expired": false,
+        "digest": "sha256:326baab67e2f38d196f90a6b99f37263b8c501ee6a9323e9b2d39469d63a4fb0"
+      }
+    ],
+    "ciEvidence": "Verification/wings_horizonte_ci.json"
+  },
+  "wingFlightCi": {
+    "run": 39345741322,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39345741322",
+    "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+    "conclusion": "success",
+    "successfulSteps": 38,
+    "job": 118377766394,
+    "startedUtc": "2026-10-20T00:07:27Z",
+    "completedUtc": "2026-10-20T00:23:48Z",
+    "nativeUnityExecuted": false,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:07:28Z",
+        "completed_at": "2026-10-20T00:07:29Z"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:07:29Z",
+        "completed_at": "2026-10-20T00:07:50Z"
+      },
+      {
+        "name": "Run actions/setup-dotnet@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:07:50Z",
+        "completed_at": "2026-10-20T00:08:00Z"
+      },
+      {
+        "name": "Verify pinned SDK resolution",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:08:00Z",
+        "completed_at": "2026-10-20T00:08:01Z"
+      },
+      {
+        "name": "Compile core, compare geometry, check CSharp syntax",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:08:01Z",
+        "completed_at": "2026-10-20T00:10:08Z"
+      },
+      {
+        "name": "Check all new restful recipe banks and architectural axes",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:10:08Z",
+        "completed_at": "2026-10-20T00:10:29Z"
+      },
+      {
+        "name": "Check refined detail, clearance and material geometry",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:10:29Z",
+        "completed_at": "2026-10-20T00:10:30Z"
+      },
+      {
+        "name": "Compare all 200010 architectures in 21 batches against immutable R33",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:10:30Z",
+        "completed_at": "2026-10-20T00:22:14Z"
+      },
+      {
+        "name": "Check actual-world object placement counts",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:14Z",
+        "completed_at": "2026-10-20T00:22:15Z"
+      },
+      {
+        "name": "Check newly licensed restful source objects",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:15Z",
+        "completed_at": "2026-10-20T00:22:16Z"
+      },
+      {
+        "name": "Check normal wing flight and original geometry catalogue",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:16Z",
+        "completed_at": "2026-10-20T00:22:21Z"
+      },
+      {
+        "name": "Check licensed wing selector icons and source attribution",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:21Z",
+        "completed_at": "2026-10-20T00:22:21Z"
+      },
+      {
+        "name": "Check larger biome areas, populated Level94 and accessible mall expansion",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:21Z",
+        "completed_at": "2026-10-20T00:22:28Z"
+      },
+      {
+        "name": "Check expanded biome recipes, house footprints and mall reservations",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:28Z",
+        "completed_at": "2026-10-20T00:22:44Z"
+      },
+      {
+        "name": "Check full aquatic catalogue at extreme room scales",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:44Z",
+        "completed_at": "2026-10-20T00:22:46Z"
+      },
+      {
+        "name": "Audit generated data, source lookups and room streaming selection",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:46Z",
+        "completed_at": "2026-10-20T00:22:53Z"
+      },
+      {
+        "name": "Check source texture hashes",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:53Z",
+        "completed_at": "2026-10-20T00:22:54Z"
+      },
+      {
+        "name": "Check original rain texture and audio resources",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:54Z",
+        "completed_at": "2026-10-20T00:22:54Z"
+      },
+      {
+        "name": "Check licensed City11 source assets and LODs",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:54Z",
+        "completed_at": "2026-10-20T00:22:57Z"
+      },
+      {
+        "name": "Check licensed aircraft sources and native resource hashes",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:57Z",
+        "completed_at": "2026-10-20T00:22:58Z"
+      },
+      {
+        "name": "Check licensed helicopter source, pivots and LODs",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:58Z",
+        "completed_at": "2026-10-20T00:22:58Z"
+      },
+      {
+        "name": "Check attributed furniture, UV maps and placement dimensions",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:58Z",
+        "completed_at": "2026-10-20T00:22:59Z"
+      },
+      {
+        "name": "Check additional licensed urban sources and wheel assemblies",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:22:59Z",
+        "completed_at": "2026-10-20T00:23:04Z"
+      },
+      {
+        "name": "Check attributed Bistro components, PBR maps and metric dimensions",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:04Z",
+        "completed_at": "2026-10-20T00:23:05Z"
+      },
+      {
+        "name": "Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:05Z",
+        "completed_at": "2026-10-20T00:23:05Z"
+      },
+      {
+        "name": "Install pinned offline art verification tools",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:05Z",
+        "completed_at": "2026-10-20T00:23:10Z"
+      },
+      {
+        "name": "Check licensed garden source, alpha cutout and static-only adaptation",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:10Z",
+        "completed_at": "2026-10-20T00:23:10Z"
+      },
+      {
+        "name": "Check licensed thermal lamp, wicker maps and source attribution",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:10Z",
+        "completed_at": "2026-10-20T00:23:11Z"
+      },
+      {
+        "name": "Check building subtraction areas, UVs, licences and all LOD access volumes",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:11Z",
+        "completed_at": "2026-10-20T00:23:13Z"
+      },
+      {
+        "name": "Check UV baking transforms, colour sampling and normals",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:13Z",
+        "completed_at": "2026-10-20T00:23:13Z"
+      },
+      {
+        "name": "Check native runner rejects missing, stale, failed or empty results",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:13Z",
+        "completed_at": "2026-10-20T00:23:19Z"
+      },
+      {
+        "name": "Create verified complete Assets package",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:19Z",
+        "completed_at": "2026-10-20T00:23:36Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:36Z",
+        "completed_at": "2026-10-20T00:23:46Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:46Z",
+        "completed_at": "2026-10-20T00:23:47Z"
+      },
+      {
+        "name": "Post Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:47Z",
+        "completed_at": "2026-10-20T00:23:47Z"
+      },
+      {
+        "name": "Post Run actions/setup-dotnet@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:47Z",
+        "completed_at": "2026-10-20T00:23:47Z"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:47Z",
+        "completed_at": "2026-10-20T00:23:47Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-20T00:23:47Z",
+        "completed_at": "2026-10-20T00:23:47Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 12231478251,
+        "name": "R34-Batch-Evidence",
+        "size_in_bytes": 6595,
+        "expired": false,
+        "digest": "sha256:72a7710861008d11b07159438c35751f81aa5ac03ceaad619f3b2540499aeeab"
+      },
+      {
+        "id": 12231274049,
+        "name": "Poolrooms-Reconstruccion-Assets",
+        "size_in_bytes": 313189457,
+        "expired": false,
+        "digest": "sha256:326baab67e2f38d196f90a6b99f37263b8c501ee6a9323e9b2d39469d63a4fb0"
+      }
+    ],
+    "artifactDownloads": {
+      "verified": false,
+      "reason": "GitHub artifact Azure Blob host returns Forbidden in this environment; artifact metadata and successful upload steps verified. Signed URLs are not retained."
+    },
+    "directPublicSourceDownload": {
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_GitHub.zip",
+      "bytes": 492996717,
+      "sha256": "4b008b776e6af2133aed7bae37edaa2ff7a7e83c8e613735e9541160fcc1c4ff",
+      "crc": "passed",
+      "trackedFilesMatched": 1201,
+      "assetsFilesMatched": 946
+    },
+    "localVerifiedAssetsPackage": {
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_Assets.zip",
+      "files": 946,
+      "bytes": 314402192,
+      "sha256": "79fbea73dc596bcfd7bc2b65800709d2c6729e149227cc6b91deaccfdc7079b8",
+      "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+      "workingTreeChanged": false
+    },
+    "coverage": "Current core compilation, current wing checks, historical R33 bevel regression and explicit wing rejection, all 21 regenerated room batches, licence/resource audits, package and nonempty artifacts. No native Unity compilation, rendering or physics.",
+    "githubPlatformNotices": [
+      "Node20 action runtimes are forced to Node24 by GitHub; this is a CI platform notice, not a C# compiler diagnostic.",
+      "ubuntu-latest runner-image migration notice."
+    ]
   }
 }
