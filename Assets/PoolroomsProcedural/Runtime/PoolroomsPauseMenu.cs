@@ -86,7 +86,7 @@ namespace Poolrooms
         }
         public void Pause()
         {
-            explorer?.Views?.ExitPhoto();
+            explorer?.Inventory?.CloseInterface();explorer?.Views?.ExitPhoto();
             if(paused||!isActiveAndEnabled||explorer==null||!explorer.isActiveAndEnabled)return;
             var master=explorer.MasterMode;if(master!=null)master.CloseInterface();
             previousTimeScale=Time.timeScale;previousAudioPause=AudioListener.pause;previousCursorLock=Cursor.lockState;previousCursorVisible=Cursor.visible;
@@ -493,6 +493,7 @@ namespace Poolrooms
         {int seconds=Mathf.Max(0,Mathf.FloorToInt(time));return (seconds/60)+":"+(seconds%60).ToString("00");}
         private void DrawControls()
         {
+            Note("Inventario: Tab abre/cierra cinco páginas de 50 espacios. 5 muestra/oculta la barra rápida; 1–4 y 6–9 seleccionan su acceso y X lo usa. Z guarda el objeto sostenido; T toma o mueve muebles y E usa su función. Las cantidades por pila no tienen límite fijo. Esta sesión todavía no se guarda.");
             Note("Alas: G activa o detiene el vuelo normal · H cambia entre lento, medio, rápido y muy rápido · Espacio sube · Ctrl baja. Diseños y ajustes en Skins → Alas.");
             Note("Cámara: F5 recorre 8 perspectivas. F6 abre/cierra el modo foto; F8 oculta su panel y F9 guarda un PNG sin interfaz. En foto: WASD mover, E/Q subir/bajar, botón derecho mirar, Shift acelerar, Z/C inclinar y rueda ajustar encuadre.");
             Note("Objetos: E toma o interactúa; Q suelta. Mantén R y mueve el ratón para examinar el objeto sostenido sin girar la cámara.");

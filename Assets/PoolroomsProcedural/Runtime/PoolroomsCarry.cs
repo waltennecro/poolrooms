@@ -36,34 +36,43 @@ namespace Poolrooms
             while(takenOrder.Count>32768)taken.Remove(takenOrder.Dequeue());
         }
         private Transform Eyes { get { return explorer.Aim; } }
-        public void Interact()
+        public void Interact(bool pickupOnly=false)
         {
             if(explorer.IsPaused||explorer.InputCaptured||!isActiveAndEnabled)return;
             Transform eyes=Eyes;int count=Physics.RaycastNonAlloc(eyes.position,eyes.forward,hits,CarryModel.Reach,~0,QueryTriggerInteraction.Collide);
             if(count==hits.Length)return; // A truncated query may omit a nearer wall.
-            float solid=float.PositiveInfinity,candidate=float.PositiveInfinity;PoolroomsPickup pickup=null;PoolroomsMallPortal portal=null;PoolroomsTerrainPortal terrainPortal=null;PoolroomsVehicle vehicle=null;
+            float solid=float.PositiveInfinity,candidate=float.PositiveInfinity;PoolroomsPickup pickup=null;PoolroomsMallPortal portal=null;PoolroomsTerrainPortal terrainPortal=null;PoolroomsVehicle vehicle=null;PoolroomsInteractable fixture=null;
             for(int i=0;i<count;i++)
             {
                 var hit=hits[i];if(hit.collider==null||hit.collider.transform.IsChildOf(transform))continue;
                 var item=hit.collider.GetComponentInParent<PoolroomsPickup>();var door=hit.collider.GetComponentInParent<PoolroomsMallPortal>();var landscape=hit.collider.GetComponentInParent<PoolroomsTerrainPortal>();
-                var car=hit.collider.GetComponentInParent<PoolroomsVehicle>();
+                var car=hit.collider.GetComponentInParent<PoolroomsVehicle>();var use=hit.collider.GetComponentInParent<PoolroomsInteractable>();
                 if(!hit.collider.isTrigger)solid=Mathf.Min(solid,hit.distance);
-                if((item!=null||door!=null||landscape!=null||car!=null)&&hit.distance<candidate){candidate=hit.distance;pickup=item;portal=door;terrainPortal=landscape;vehicle=car;}
+                if((item!=null||door!=null||landscape!=null||car!=null||use!=null)&&hit.distance<candidate){candidate=hit.distance;pickup=item;portal=door;terrainPortal=landscape;vehicle=car;fixture=use;}
             }
             var world=explorer.world;
             PoolroomsMallDisplay display;int slot;float displayDistance;
             if(held==null&&world!=null&&world.FindMallDisplay(eyes.position,eyes.forward,CarryModel.Reach,out display,out slot,out displayDistance)&&displayDistance<candidate&&displayDistance<=solid+.005f)
             {display.Take(slot);return;}
             if(candidate>solid+.02f)return;
+            if(pickupOnly){if(pickup!=null&&CarryModel.CanGrab(held!=null,explorer.InputCaptured,explorer.IsPaused,candidate))Grab(pickup);return;}
             if(vehicle!=null){vehicle.Enter(explorer);return;}
             if(terrainPortal!=null){terrainPortal.Use();return;}
             if(portal!=null){portal.Use();return;}
+            if(!pickupOnly&&fixture!=null){fixture.Use(explorer);return;}
             if(pickup!=null&&CarryModel.CanGrab(held!=null,explorer.InputCaptured,explorer.IsPaused,candidate))Grab(pickup);
         }
-        public bool Grab(PoolroomsPickup item)
+        public bool Grab(PoolroomsPickup item){return Grab(item,false);}
+        internal bool GrabFromInventory(PoolroomsPickup item){return Grab(item,true);}
+        private bool Grab(PoolroomsPickup item,bool fromInventory)
         {
-            if(item==null||held!=null||explorer.IsPaused||explorer.InputCaptured)return false;
-            heldRotation=Quaternion.Euler(5,-12,-8);held=item;MarkTaken(item.SpawnKey);item.Attach(Eyes);return true;
+            if(item==null||held!=null||explorer.IsPaused||explorer.InputCaptured&&!fromInventory||explorer.Seating!=null&&explorer.Seating.IsSeated)return false;
+            explorer.Inventory?.Animate(HumanoidGesture.Reach,.75f);heldRotation=Quaternion.Euler(5,-12,-8);held=item;MarkTaken(item.SpawnKey);item.Attach(Eyes);return true;
+        }
+        internal bool TryStoreHeld(ExplorationInventory inventory)
+        {
+            if(held==null||explorer.IsPaused||string.IsNullOrEmpty(held.InventoryKey)||!inventory.Add(held.InventoryKey,System.Numerics.BigInteger.One))return false;
+            var item=held;held=null;loose.Remove(item);Destroy(item.gameObject);return true;
         }
         public bool Drop()
         {

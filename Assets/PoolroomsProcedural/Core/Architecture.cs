@@ -38,6 +38,7 @@ namespace Poolrooms.Core
     {
         public readonly MeshData Structure=new MeshData(),Water=new MeshData(),Decoration=new MeshData(),Glass=new MeshData(),CollisionOnly=new MeshData();
         public DressingGeometry Dressing;
+        public RoomLifePlan Life;
         public readonly List<Fixture> Fixtures=new List<Fixture>();
         // Optional batched visuals never enter the support/collision meshes.
         public readonly List<MeshData> VisualMeshes=new List<MeshData>();
@@ -75,6 +76,7 @@ namespace Poolrooms.Core
             if(r.Plan!=null&&r.Plan.Aquatic!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.AquaticPark;}
             if(r.Plan!=null&&r.Plan.Baths!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.ThermalStone;}
             RegionalSourcePlanner.Append(output,r,cfg);
+            if(cfg.EncounterExploration)output.Life=RoomLifePlanner.Build(r,output,cfg);
             return output;
         }
         private static RoomGeometry BuildBase(Room r,LayoutConfig cfg)

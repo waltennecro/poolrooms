@@ -1,0 +1,86 @@
+{
+  "stage": "Encuentro",
+  "baseRevision": "2879cbf213328822d1c7777673be763a0e7661b6",
+  "baselineAudit": {
+    "passed": true,
+    "log": "Verification/encuentro_baseline.log",
+    "nativeUnity": false
+  },
+  "focusedAudit": {
+    "passed": true,
+    "log": "Verification/encuentro_target.log",
+    "actualRoomPlans": 215,
+    "furnishedNooks": 80,
+    "wallSupportedNotices": 206,
+    "naturalTransitions": 153,
+    "distinctTransitionMeshHashes": 153,
+    "configurations": 9,
+    "routeTypes": 3,
+    "routesChecked": 27,
+    "inventorySlots": 250,
+    "pairingGamesSolved": 100
+  },
+  "mediaAudits": {
+    "verify_encounter_resources.py": {
+      "exitCode": 0,
+      "output": "PASS: 11 attributed transparent icons, 5 original PBR sets (15 maps), 8 original PCM notes; source and generated hashes, licences and no inventory disk-save calls. Native rendering/audio unrun.",
+      "error": ""
+    },
+    "verify_immersive_audio.py": {
+      "exitCode": 0,
+      "output": "{\"result\": \"PASS\", \"downloaded_recordings\": 2, \"shipped_clips\": 48, \"loops\": 10, \"pcm_peak_max\": 0.649994, \"decoded_float_memory_bytes\": 33180480, \"unity_playback\": \"unrun\", \"listening_review\": \"unrun\"}",
+      "error": ""
+    },
+    "verify_play_textures.py": {
+      "exitCode": 0,
+      "output": "Verified 83 PBR maps: SHA-256, 1024px, PNG CRC and decompression.",
+      "error": ""
+    },
+    "verify_wing_sources.py": {
+      "exitCode": 0,
+      "output": "PASS: 12 external CC BY 3.0 Lorc icons, 14 source locks and 16 shipped file hashes; selector usage and credits. 0 downloaded wing models; 144 original geometry variants tested separately.",
+      "error": ""
+    },
+    "verify_interior_sources.py": {
+      "exitCode": 0,
+      "output": "Verified two CC-BY furniture source files: one new sofa geometry family and one variant of the existing oval chair; 4196/9984 triangles, 13 baked PNG maps, licences and Core dimensions. Native Unity validation pending.",
+      "error": ""
+    },
+    "verify_bistro_sources.py": {
+      "exitCode": 0,
+      "output": "Verified three CC-BY Bistro component adaptations, 16 bounded PNGs, original metric up-axis, material/source hashes and two LODs per model. No downloaded complete buildings or native Unity certification.",
+      "error": ""
+    },
+    "verify_garden_sources.py": {
+      "exitCode": 0,
+      "output": "{\"distinctNewModels\": 1, \"triangles\": [37251, 29772, 19629], \"licensedMaps\": 6, \"sourceAndDerivativeHashes\": \"passed\", \"insectsLightsAndAnimationImported\": false, \"diffuseTransmissionReproduced\": false, \"nativeUnityExecuted\": false}",
+      "error": ""
+    },
+    "verify_bath_sources.py": {
+      "exitCode": 0,
+      "output": "{\"newAuthoredModels\": 1, \"licensedMaterialSets\": 1, \"lampTriangles\": [6000, 3952, 2012], \"sourcePbrImages\": 9, \"wickerMaps\": 3, \"hashesLicencesAndDimensions\": \"passed\", \"nativeUnityExecuted\": false}",
+      "error": ""
+    },
+    "verify_restful_sources.py": {
+      "exitCode": 0,
+      "output": "PASS: 3 distinct newly downloaded source models, 6 LOD derivatives, 41 hashed resources, 94170 total LOD/source triangles; CC0 and CC BY 4.0 provenance, original downloads, OBJ bounds references and normals verified. Native Unity unrun.",
+      "error": ""
+    }
+  },
+  "finalFullAudit": {
+    "status": "running"
+  },
+  "nativeUnity": {
+    "editorAvailable": false,
+    "apiCompilation": "unrun",
+    "newPlayModeTests": 4,
+    "playModeExecution": "unrun",
+    "visualAndSoundReview": "unrun",
+    "fps": "unmeasured"
+  },
+  "persistence": "Inventory, journal, routes, care and game state intentionally session-only. Existing PNG photos/settings/music locations remain.",
+  "backup": {
+    "status": "pending_commit"
+  },
+  "claims": "Core assertions are not native Unity tests. Zero new downloaded 3D models or mocap; eleven CC BY 3.0 external icons. Existing licensed furniture reused."
+}

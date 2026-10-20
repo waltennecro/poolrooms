@@ -7,6 +7,12 @@ namespace Poolrooms.Core
     {
         public readonly MeshData Structure = new MeshData();
         public readonly List<Fixture> Fixtures = new List<Fixture>();
+        public bool Natural;
+        public NaturalPassage Passage;
+        public readonly List<MeshData> Finishes=new List<MeshData>();
+        public readonly MeshData TransitionGlass=new MeshData{Theme=SurfaceTheme.Glass};
+        public V3 ShutterPosition;
+        public float ShutterYaw;
         public CorridorStyle Style;
         public SolarConnectionKind SolarConnection;
     }
@@ -101,6 +107,7 @@ namespace Poolrooms.Core
 
         public static CorridorGeometry Build(Room from, Room to, int direction, LayoutConfig c)
         {
+            if(NaturalTransitions.Applies(from,to,c)){var natural=NaturalTransitions.Build(from,to,direction,c);if(natural!=null)return natural;}
             if(from!=null&&to!=null&&(from.Plan!=null&&(from.Plan.Restful!=null||from.Plan.Rain!=null||from.Plan.Quiet!=null||from.Plan.Garden!=null||from.Plan.Baths!=null||from.Plan.Aquatic!=null)||to.Plan!=null&&(to.Plan.Restful!=null||to.Plan.Rain!=null||to.Plan.Quiet!=null||to.Plan.Garden!=null||to.Plan.Baths!=null||to.Plan.Aquatic!=null))&&
                 c.CellSize-(direction==0?from.Depth+to.Depth:from.Width+to.Width)*.5f<=.01f)
                 return QuietLevelArchitecture.Join(from.Plan!=null&&(from.Plan.Restful!=null||from.Plan.Rain!=null||from.Plan.Quiet!=null||from.Plan.Garden!=null||from.Plan.Baths!=null||from.Plan.Aquatic!=null)?from:to,direction,c);

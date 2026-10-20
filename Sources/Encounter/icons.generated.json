@@ -1,0 +1,46 @@
+{
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/bag.png": {
+    "bytes": 2005,
+    "sha256": "fd353095c459391388d7f4d3a6dbc093f3f22e4c76e72ca172b906f6965f5b0b"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/compass.png": {
+    "bytes": 3444,
+    "sha256": "8066eea57b4cef19edd052ec8dd46559e18e46e3b57625a19a87fe8cfb29c6fb"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/plant.png": {
+    "bytes": 2492,
+    "sha256": "8c61b815d33146ff17b6e0a2b930ce91d1aba7a5262b4a1f2f71b2b2dfbb8346"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/cup.png": {
+    "bytes": 1762,
+    "sha256": "ff8431cec8abe79f72c287d100d2f9084c50c649c74b8b412f3a8791c039c9b9"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/journal.png": {
+    "bytes": 3958,
+    "sha256": "4629353074727a633aae5025c2b082b31149141ebe919d82228276e049d28492"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/camera.png": {
+    "bytes": 2409,
+    "sha256": "2a7444925ba3af23466c7cc24b7ea76c1e81538efe3cdafcf484a73d83ab469f"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/music.png": {
+    "bytes": 2817,
+    "sha256": "67dd04d10359886c1c0a4ade0ff9ef929dce32386e224a70d5513bf41b0c3f2b"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/book.png": {
+    "bytes": 3526,
+    "sha256": "8b3311765a8cde5093931979c702df339d9b72f4d2ce4cf931ea672b8e2baeba"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/game.png": {
+    "bytes": 1966,
+    "sha256": "5b6ed567cc42206a297d5fb32895c7dd8d123ec91d198bba32600bd35d39f5ab"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/food.png": {
+    "bytes": 2558,
+    "sha256": "e28723140bc0d7eb8ae0f9dda20c828477f3625c8f08614d42ba017c646f260c"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterIcons/furniture.png": {
+    "bytes": 1117,
+    "sha256": "12e23c208484590a91eb73e7cab4854a3fe00a08d84ce74e997a3f8a560cfa96"
+  }
+}

@@ -10,6 +10,7 @@ namespace Poolrooms.Core
         {
             X=x;Z=z;var rng=new StableRandom(StableRandom.Hash(c.Seed,x,z,0x940024u));
             int originalX=(int)Math.Ceiling((12+rng.Range(9))*64/c.CellSize),originalZ=(int)Math.Ceiling((12+rng.Range(9))*64/c.CellSize);
+            if(c.EncounterExploration){originalX=6+rng.Range(4);originalZ=6+rng.Range(4);}
             int rx,rz;BiomeExtent.Radii(c,originalX,originalZ,out rx,out rz);RadiusX=rx;RadiusZ=rz;
             HalfWidth=(RadiusX+.5f)*c.CellSize;HalfDepth=(RadiusZ+.5f)*c.CellSize;
         }
@@ -37,7 +38,9 @@ namespace Poolrooms.Core
             long x=(long)bx*BlockSize+(bx==0&&bz==0?0:(int)(h%9)-4);
             long z=(long)bz*BlockSize+(bx==0&&bz==0?-(int)Math.Ceiling(2048/c.CellSize)-12:(int)((h>>4)%9)-4);
             if(x<int.MinValue+96L||x>int.MaxValue-96L||z<int.MinValue+96L||z>int.MaxValue-96L)return false;
-            site=new ConnectedTerrainSite(c,(int)x,(int)z);return true;
+            site=new ConnectedTerrainSite(c,(int)x,(int)z);
+            if(c.EncounterExploration&&bx==0&&bz==0)site=new ConnectedTerrainSite(c,0,-18);
+            return true;
         }
         public static bool At(LayoutConfig c,int x,int z,out ConnectedTerrainSite site){return Find(c,x,z,0,out site);}
         public static bool Gateway(LayoutConfig c,int x,int z,out ConnectedTerrainSite site)

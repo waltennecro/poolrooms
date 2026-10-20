@@ -24,6 +24,7 @@ namespace Poolrooms
         [HideInInspector] public bool meshesAreAssets;
         [HideInInspector] public bool connectedMall;
         [HideInInspector] public SourceProp[] sourceProps=new SourceProp[0];
+        [NonSerialized] public RoomLifePlan lifePlan;
         [NonSerialized] public PreparedTransition[] preparedTransitions=new PreparedTransition[0];
         [NonSerialized] public readonly Dictionary<int,Material> paletteMaterials=new Dictionary<int,Material>();
         private void OnDestroy()

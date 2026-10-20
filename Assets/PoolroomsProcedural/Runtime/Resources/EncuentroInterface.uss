@@ -1,0 +1,34 @@
+.en-root { position: absolute; left: 0; right: 0; top: 0; bottom: 0; color: rgb(235, 233, 224); -unity-font-style: normal; font-size: 16px; }
+.en-backdrop { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(12, 18, 22, .84); align-items: center; justify-content: center; }
+.en-card { width: 1200px; max-width: 96%; max-height: 94%; background-color: rgb(29, 38, 42); border-radius: 18px; padding: 25px; border-width: 1px; border-color: rgb(75, 90, 91); }
+.en-header { flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.en-title { font-size: 29px; -unity-font-style: bold; color: rgb(244, 239, 220); }
+.en-tabs { flex-direction: row; flex-wrap: wrap; margin-bottom: 12px; }
+.en-inventory { flex-direction: row; }
+.en-grid { width: 800px; flex-direction: row; flex-wrap: wrap; align-content: flex-start; }
+.en-slot { width: 75px; height: 89px; margin: 2px; border-radius: 9px; background-color: rgb(38, 49, 53); border-color: rgb(65, 80, 83); border-width: 1px; padding: 3px; color: rgb(239, 238, 227); }
+.en-slot:hover, .en-button:hover, .en-quiet:hover, .en-game-card:hover { background-color: rgb(61, 77, 78); border-color: rgb(168, 184, 163); }
+.en-icon { width: 31px; height: 31px; align-self: center; -unity-background-image-tint-color: rgb(215, 222, 197); }
+.en-slot-name { font-size: 10px; white-space: normal; -unity-text-align: middle-center; max-height: 28px; }
+.en-count { font-size: 12px; -unity-text-align: middle-right; color: rgb(194, 206, 181); }
+.en-slot-number { color: rgb(99, 117, 121); -unity-text-align: middle-center; }
+.en-selected { border-color: rgb(187, 199, 161); background-color: rgb(67, 82, 74); border-width: 2px; }
+.en-sidebar { flex-grow: 1; padding-left: 22px; min-width: 270px; }
+.en-detail { white-space: normal; font-size: 17px; min-height: 180px; margin-bottom: 14px; }
+.en-button, .en-quiet, .en-bind { min-height: 36px; padding: 7px 13px; margin: 3px; border-radius: 8px; background-color: rgb(66, 84, 76); border-width: 1px; border-color: rgb(103, 122, 106); color: rgb(246, 241, 224); }
+.en-quiet { background-color: rgb(37, 48, 52); }
+.en-bind { min-width: 31px; padding: 4px; }
+.en-caption { color: rgb(183, 197, 183); margin-top: 12px; margin-bottom: 5px; }
+.en-note { white-space: normal; color: rgb(165, 184, 184); font-size: 14px; margin: 12px 4px; }
+.en-hotbar { position: absolute; bottom: 24px; align-self: center; flex-direction: row; background-color: rgba(20, 29, 32, .93); border-radius: 14px; padding: 8px; }
+.en-hotbar-slot { width: 115px; height: 82px; white-space: normal; font-size: 12px; color: rgb(236, 236, 221); margin: 3px; border-radius: 7px; background-color: rgb(36, 48, 51); border-width: 1px; border-color: rgb(74, 91, 91); }
+.en-toast { position: absolute; top: 38px; align-self: center; max-width: 1000px; white-space: normal; color: rgb(221, 231, 212); font-size: 16px; -unity-text-align: middle-center; }
+.en-prompt { position: absolute; bottom: 126px; align-self: center; white-space: normal; color: rgb(241, 241, 224); font-size: 14px; }
+.en-reading { white-space: normal; font-size: 21px; padding: 30px; color: rgb(240, 233, 212); }
+.en-subtitle { font-size: 23px; margin-bottom: 14px; }
+.en-invitation { padding: 11px; margin: 4px; font-size: 18px; background-color: rgb(39, 52, 52); border-radius: 6px; }
+.en-game-grid { width: 640px; flex-direction: row; flex-wrap: wrap; align-self: center; }
+.en-game-card { width: 145px; height: 84px; margin: 5px; background-color: rgb(49, 68, 64); color: rgb(233, 231, 209); border-radius: 9px; font-size: 19px; }
+.en-piano { flex-direction: row; align-self: center; margin: 30px; }
+.en-piano-key { width: 86px; height: 240px; margin: 2px; background-color: rgb(232, 226, 207); color: rgb(42, 51, 53); border-radius: 6px; -unity-text-align: lower-center; padding-bottom: 18px; font-size: 19px; }
+.en-piano-key:active { background-color: rgb(162, 185, 165); }

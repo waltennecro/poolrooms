@@ -1,0 +1,94 @@
+{
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterOak_Albedo.png": {
+    "bytes": 298015,
+    "sha256": "9d6f1998b362335a22339eed9a0d7ba4d9134d11c286720382e851b61db1b440"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterOak_Normal.png": {
+    "bytes": 356358,
+    "sha256": "970bf9af624b382523bc8b92948d126fdad63ce1bc3620619ded336cce0eb70a"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterOak_Mask.png": {
+    "bytes": 283586,
+    "sha256": "41b0318b344966efaab9b00169f928fb06981bd8c2be519a6177167b077ffb3c"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterBrass_Albedo.png": {
+    "bytes": 193977,
+    "sha256": "cb301abaa4eb1bf2c7d9e9be45dca49bb022455b7756b27961e0a6a004dad5c9"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterBrass_Normal.png": {
+    "bytes": 138056,
+    "sha256": "caf046edfa121b3ff1b0daa94904bac9a0068041a18463abf10da93b17c3cc31"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterBrass_Mask.png": {
+    "bytes": 200877,
+    "sha256": "3a6861c1a896204abcf56830562de227d4c617626ec31bf5425b36cf9eaa2c89"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterCeramic_Albedo.png": {
+    "bytes": 250508,
+    "sha256": "0dbb43806e708b2a52ff806105727918f801bec370f82f34d9efe8c47880d391"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterCeramic_Normal.png": {
+    "bytes": 141697,
+    "sha256": "087d61d85b136790be407ba8fafae843445a7443a66ca654a46190e8996774cd"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterCeramic_Mask.png": {
+    "bytes": 199522,
+    "sha256": "fa0aca1f05088980e2f0759fa693a1a6e88b92b91dd4693fcbbdba26d4a90d2b"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterPaper_Albedo.png": {
+    "bytes": 232446,
+    "sha256": "9d6fe8bead568cfd384b0d81180414ce775853c833e3d159c678f5e0e219149b"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterPaper_Normal.png": {
+    "bytes": 242817,
+    "sha256": "0fbc5812debd3f4363d0e23e1f95afdc1497f4d95d3e76d996903921b7104682"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterPaper_Mask.png": {
+    "bytes": 194701,
+    "sha256": "0790e7f019ce2aff156d8775ff6da3cbf6fd40377bf807810dbed7a0d29522cf"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterLinen_Albedo.png": {
+    "bytes": 260144,
+    "sha256": "ef5dbe40ab0e25666675a7ed010e082afc75d7ea860b107140ad28ae5a9c0735"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterLinen_Normal.png": {
+    "bytes": 358000,
+    "sha256": "c33a0e136b8ab4c738857971b6991d6c9f6d46ad3e0bb05dc2e04a151cf47fe1"
+  },
+  "Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures/EncounterLinen_Mask.png": {
+    "bytes": 247325,
+    "sha256": "f1c99c801137ab46f8e0f53a143f80c55f044c11c216e492211e05e67771601f"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note0.wav": {
+    "bytes": 67244,
+    "sha256": "f66bab42b0561aabe6e049cc28e6ccb4019cb800895a58dad5aa24d22bbb8475"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note1.wav": {
+    "bytes": 67244,
+    "sha256": "0fa843cf716d1c012f037d76eaa562d72e5116b768c20117d8e7b090da1fdeaf"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note2.wav": {
+    "bytes": 67244,
+    "sha256": "6d235164e4a297cc4aefb700ff507de6d881e945aba0458c1defcc64e1aa7f11"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note3.wav": {
+    "bytes": 67244,
+    "sha256": "674629e43f84d298ed75bfba1844396246f9c936fc9692ea7e89cf4c4de7fdda"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note4.wav": {
+    "bytes": 67244,
+    "sha256": "df1d4db55590cd40227ac82246d99baadb188723667d7d1a467df0cd8b3ec731"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note5.wav": {
+    "bytes": 67244,
+    "sha256": "c30a506fd09d53494bbe2deaad17bb51bdf4cf802e17b6a847558722b9bf7a55"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note6.wav": {
+    "bytes": 67244,
+    "sha256": "3a712fa729706a9e35c1c832a6e06a55933e0ad0f949cb861e23b03ea8a090a5"
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/EncounterAudio/Note7.wav": {
+    "bytes": 67244,
+    "sha256": "686dabd6dce652c0b6c5e11bda455f157fc77c8506f3347ff3acc88154bcda50"
+  }
+}

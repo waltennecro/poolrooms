@@ -1,0 +1,7 @@
+Encuentro · inventory icons and original room-life content
+11 icons by Lorc and Delapouite / game-icons.net, CC BY 3.0.
+https://game-icons.net/ · https://creativecommons.org/licenses/by/3.0/
+Source revision: 82d948812bfe3f269ef8f731dcdb07b08160edc4
+Adaptation: black background removed; transparent 96px PNG rasterization; see Sources/Encounter/icons.lock.json for each author and original URL.
+No downloaded 3D models or motion-capture clips are counted as new for this stage. The new room-life placements reuse existing licensed furniture. Its original notices remain in City11, Bistro, GardenSources, BathSources, Interiors and RestfulSources.
+Original procedural joinery, stories, interaction poses, piano-note synthesis and Encounter PBR textures: this project, CC0-1.0. No brands or characters.

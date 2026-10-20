@@ -2,10 +2,13 @@ using System;
 
 namespace Poolrooms.Core
 {
+    public enum HumanoidGesture { None,Reach,Carry,Read,Drink,Eat,Water,Adjust,PlayKeys,Place,Clean,Photograph,OpenDoor }
     public struct HumanoidMotion
     {
         public V3 Velocity;
-        public bool Grounded,Sprint,Dash,Slide,Swimming,Seated,Flying;
+        public bool Grounded,Sprint,Dash,Slide,Swimming,Seated,Flying,Carrying;
+        public HumanoidGesture Gesture;
+        public float GestureProgress;
         public float LookPitch,LeftGround,RightGround;
     }
     // One shared target-pose generator for fitted meshes and existing Humanoid rigs.
@@ -73,6 +76,26 @@ namespace Poolrooms.Core
                 if(!input.Grounded&&!input.Seated)hand.Y+=.07f*h*air;
                 hand+=(Joints[arm+1]+new V3(sign*.12f*h,(float)Math.Cos(time*2.5f+side*Math.PI)*.09f*h,.16f*h+(float)Math.Sin(time*2.5f+side*Math.PI)*.10f*h)-hand)*swimPose;
                 hand+=(Joints[arm+1]+new V3(sign*.10f*h,-armLength*.80f,-.08f*h)-hand)*flyPose;
+                if(input.Carrying&&!input.Swimming&&!input.Seated)
+                    hand=Joints[arm+1]+new V3(sign*.06f*h,-.15f*h,.24f*h);
+                if(input.Gesture!=HumanoidGesture.None&&!input.Dash&&!input.Slide)
+                {
+                    float progress=GamePreferences.Clamp(input.GestureProgress,0,1,0);
+                    float action=(float)Math.Sin(Math.PI*progress);action*=action;
+                    V3 target=Joints[arm+1]+new V3(sign*.035f*h,-.1f*h,.26f*h);
+                    switch(input.Gesture)
+                    {
+                        case HumanoidGesture.Read:target=Joints[arm+1]+new V3(sign*.045f*h,-.12f*h,.21f*h);break;
+                        case HumanoidGesture.Drink:case HumanoidGesture.Eat:if(side==1)target=Joints[4]+new V3(.035f*h,-.075f*h,.045f*h);break;
+                        case HumanoidGesture.Water:target=Joints[arm+1]+new V3(sign*.045f*h,-.16f*h,.33f*h);break;
+                        case HumanoidGesture.Clean:target=Joints[arm+1]+new V3(sign*.08f*h+(float)Math.Sin(progress*Math.PI*6)*.09f*h,-.1f*h,.25f*h);break;
+                        case HumanoidGesture.PlayKeys:target=Joints[arm+1]+new V3(sign*.09f*h,-.2f*h,.29f*h+(float)Math.Sin(progress*Math.PI*8+side)*.012f*h);break;
+                        case HumanoidGesture.Photograph:target=Joints[4]+new V3(sign*.06f*h,-.035f*h,.09f*h);break;
+                        case HumanoidGesture.OpenDoor:case HumanoidGesture.Adjust:target=Joints[arm+1]+new V3(sign*.08f*h,-.06f*h,.28f*h);break;
+                        case HumanoidGesture.Place:target=Joints[arm+1]+new V3(sign*.04f*h,-.32f*h,.21f*h);break;
+                    }
+                    hand+=(target-hand)*action;
+                }
                 V3 emoteHand=hand;
                 switch(Emote)
                 {

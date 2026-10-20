@@ -100,12 +100,15 @@ namespace Poolrooms
         {
             if(Rig==null||explorer==null||explorer.IsPaused||!explorer.IsReady||Time.deltaTime<=0)return;
             if(!settings.animate||settings.previewBindPose){RestoreBind();return;}
-            if(Time.time>=nextGround&&explorer.ViewGrounded)
+            var controller=explorer.GetComponent<CharacterController>();
+            bool grounded=explorer.ViewGrounded||explorer.InputCaptured&&controller!=null&&controller.enabled&&controller.isGrounded;
+            if(Time.time>=nextGround&&grounded)
             {nextGround=Time.time+.05f;leftGround=Ground(Rig.Rest[15],explorer);rightGround=Ground(Rig.Rest[19],explorer);}
-            if(!explorer.ViewGrounded)leftGround=rightGround=0;
+            if(!grounded)leftGround=rightGround=0;
             bool swimming=explorer.world!=null&&explorer.world.TryGetWater(explorer.transform.position,out float level)&&explorer.transform.position.y<level-.75f;
-            Motion.Step(Rig,new HumanoidMotion{Velocity=ToCore(explorer.ViewVelocity),Grounded=explorer.ViewGrounded,Sprint=explorer.ViewSprinting,Slide=explorer.IsSliding,Dash=explorer.IsDashing,
-                Swimming=swimming,Seated=explorer.Vehicle!=null||explorer.IsAquaticRiding,Flying=explorer.IsFlying,LookPitch=explorer.ViewPitch,LeftGround=leftGround,RightGround=rightGround},Time.deltaTime,settings.intensity,settings.animationSpeed);
+            var inventory=explorer.Inventory;var carried=explorer.GetComponent<PoolroomsCarry>();
+            Motion.Step(Rig,new HumanoidMotion{Carrying=carried!=null&&carried.Held!=null,Gesture=inventory!=null?inventory.Gesture:HumanoidGesture.None,GestureProgress=inventory!=null?inventory.GestureProgress:0,Velocity=ToCore(explorer.ViewVelocity),Grounded=grounded,Sprint=explorer.ViewSprinting,Slide=explorer.IsSliding,Dash=explorer.IsDashing,
+                Swimming=swimming,Seated=explorer.Vehicle!=null||explorer.IsAquaticRiding||explorer.Seating!=null&&explorer.Seating.IsSeated,Flying=explorer.IsFlying,LookPitch=explorer.ViewPitch,LeftGround=leftGround,RightGround=rightGround},Time.deltaTime,settings.intensity,settings.animationSpeed);
             ApplyPose();
         }
         float Ground(V3 foot,PoolroomsExplorer explorer)

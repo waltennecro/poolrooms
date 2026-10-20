@@ -8,6 +8,8 @@ namespace Poolrooms
     public sealed class PoolroomsPickup : MonoBehaviour
     {
         public string SpawnKey { get; private set; }
+        public string InventoryKey {get;private set;}
+        public void AssignInventoryKey(string key){if(ExplorationItems.Resolve(key)!=null)InventoryKey=key;}
         private Collider shape;
         private Rigidbody body;
         private PoolroomsSoundscape soundscape;
@@ -20,6 +22,15 @@ namespace Poolrooms
         internal Vector3 StreamingVelocity {get{return streamingFrozen?streamingVelocity:body!=null?body.linearVelocity:Vector3.zero;}}
         public int CatalogId { get; private set; }=-1;
         public float CarryRadius { get; private set; }=.27f;
+        public static PoolroomsPickup CreateTool(string key,int id,Vector3 position,PoolroomsProfile profile)
+        {
+            if(!EncounterTools.Available(id))return null;
+            var go=new GameObject(ExplorationItems.Tool(id).Name);go.transform.position=position;
+            var owner=go.AddComponent<PoolroomsChunk>();var visual=MeshFactory.Create("Detailed travel tool",EncounterTools.Build(id),go.transform,profile,owner,false);
+            visual.GetComponent<MeshRenderer>().rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
+            var size=EncounterTools.Size(id);var shape=go.AddComponent<BoxCollider>();shape.size=new Vector3(size.X,size.Y,size.Z);shape.center=Vector3.up*size.Y*.5f+(id==2?Vector3.right*.045f:Vector3.zero);
+            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.InventoryKey="tool:"+id;item.shape=shape;item.mass=id==2?.5f:.05f;item.CarryRadius=size.magnitude*.5f+.015f;item.surface=PickupSurface.Rigid;return item;
+        }
         public static PoolroomsPickup CreateSourceSeat(string key,SourceFurniturePlacement seat,Transform parent,float offsetY=0)
         {
             var p=seat.Bottom;var item=CreateSource(key,SourceFurniture.Id(seat.Source),new Vector3(p.X,p.Y+offsetY,p.Z),parent,SourceFurniture.Longest(seat.Source));
@@ -41,7 +52,8 @@ namespace Poolrooms
             var go=City11Sources.Create(source,parent,bottom,longest,out var size,low?1:0);if(go==null)return null;
             go.transform.localPosition=bottom+Vector3.up*(size.y*.5f);
             var collider=go.AddComponent<BoxCollider>();collider.size=size;
-            var item=go.AddComponent<PoolroomsPickup>();item.shape=collider;item.SpawnKey=key;item.surface=PickupSurface.Rigid;
+            var item=go.AddComponent<PoolroomsPickup>();item.shape=collider;item.SpawnKey=key;item.InventoryKey="source:"+source;item.surface=PickupSurface.Rigid;
+            PoolroomsInteractable.BindSource(item,source);
             item.mass=source=="WaterBottle"?.45f:source=="I_GlamVelvetSofa"||source=="U_SheenWoodLeatherSofa"?24:source=="SheenChair"||source=="I_ChairDamaskPurplegold"?6.5f:source=="U_AntiqueCamera"?9:source=="B_CafeTable"?12:source=="B_CafeChair"?4:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
         }
         public static PoolroomsPickup Create(string key,Vector3 position,Transform parent,PoolroomsProfile profile)
@@ -52,7 +64,7 @@ namespace Poolrooms
             var packaging=MallGlyphs.SnackBag();packaging.EmissionStrength=0;packaging.EmissionTint=new V3(.95f,.9f,.76f);
             MeshFactory.Create("Snack packaging",packaging,go.transform,profile,owner,false);
             foreach(var renderer in go.GetComponentsInChildren<MeshRenderer>())renderer.rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
-            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;
+            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.InventoryKey="catalog:192";
             var collider=go.AddComponent<BoxCollider>();collider.size=new Vector3(.33f,.4f,.16f);item.shape=collider;
             return item;
         }
@@ -61,7 +73,7 @@ namespace Poolrooms
             var definition=MallItemCatalog.Get(catalogId);
             var go=new GameObject(definition.Name+" · E tomar / Q soltar");go.transform.SetParent(parent,false);go.transform.localPosition=position;
             PoolroomsPickupVisualCache.Create(catalogId,go.transform,profile);
-            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.CatalogId=catalogId;item.mass=definition.Mass;item.CarryRadius=definition.Radius;
+            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.CatalogId=catalogId;item.InventoryKey="catalog:"+catalogId;item.mass=definition.Mass;item.CarryRadius=definition.Radius;
             item.surface=PickupSurface.Rigid;
             var collider=go.AddComponent<BoxCollider>();collider.size=new Vector3(definition.Size.X,definition.Size.Y,definition.Size.Z);item.shape=collider;
             return item;
@@ -73,7 +85,7 @@ namespace Poolrooms
             var owner=go.AddComponent<PoolroomsChunk>();owner.waterRegions=new WaterRegion[0];
             MeshFactory.Create("Juguete",SoftPlayArchitecture.Prop(kind,colour),go.transform,profile,owner,false);
             foreach(var renderer in go.GetComponentsInChildren<MeshRenderer>())renderer.rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
-            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.mass=.08f;item.CarryRadius=.235f;
+            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.InventoryKey="play:"+kind+":"+colour;item.mass=.08f;item.CarryRadius=.235f;
             item.surface=kind==0?PickupSurface.SoftBall:kind==1?PickupSurface.Foam:PickupSurface.Rubber;
             if(kind==0){var collider=go.AddComponent<SphereCollider>();collider.radius=.22f;item.shape=collider;}
             else {var collider=go.AddComponent<BoxCollider>();collider.size=kind==1?Vector3.one*.38f:new Vector3(.46f,.46f,.12f);item.shape=collider;}

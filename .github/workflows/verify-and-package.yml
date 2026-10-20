@@ -75,6 +75,10 @@ jobs:
         run: |
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --immersive-audio
           python tools/verify_immersive_audio.py
+      - name: Check walkable encounters, inventory transactions and licensed resources
+        run: |
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --encounter
+          python tools/verify_encounter_resources.py
       - name: Check licensed garden source, alpha cutout and static-only adaptation
         run: python tools/verify_garden_sources.py
       - name: Check licensed thermal lamp, wicker maps and source attribution

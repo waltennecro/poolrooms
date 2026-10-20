@@ -225,6 +225,7 @@ namespace Poolrooms
             MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,owner,world.BuildColliders);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,owner,false);
             PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,world.profile,owner,world,-y);
+            if(world.CurrentLayout.Config.EncounterExploration)PoolroomsRoomLife.AttachNotice(world,go.transform,owner,data.Dressing,"mall-note:"+d.Plan.Seed+":"+d.Site.X+":"+d.Site.Z+":"+name,d.Plan.Seed,d.Site.X,d.Site.Z,-y);
             MeshFactory.Create("Windows and skylight glazing",data.Glass,go.transform,world.profile,owner,world.BuildColliders);
             world.RegisterExternalChunk(owner,data.Fixtures);return owner;
         }

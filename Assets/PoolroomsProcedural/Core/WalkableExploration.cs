@@ -9,6 +9,7 @@ namespace Poolrooms.Core
         public const int RegionBlock=8;
         public static void Configure(LayoutConfig c)
         {
+            c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
             c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;c.EnableRestfulLevels=true;c.ObjectAbundance=3;
             c.Continuous=true;c.Procedural=LiminalGeneration.Expanded;c.DiscoveryCoverage=true;
             c.EnableRainHouses=c.EnableAquaticPark=c.EnableThermalBaths=c.EnableOrangerie=true;

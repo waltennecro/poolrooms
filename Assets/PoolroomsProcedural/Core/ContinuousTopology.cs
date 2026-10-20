@@ -59,6 +59,15 @@ namespace Poolrooms.Core
             if(localX==0&&Gate(tx-1,tz,localZ,1))exits|=1<<3;
             if(localZ==size-1&&Gate(tx,tz,localX,0))exits|=1;
             if(localZ==0&&Gate(tx,tz-1,localX,0))exits|=1<<2;
+            if(config.EncounterExploration)
+            {
+                var current=LiminalRegions.At(config,x,z);
+                for(int d=0;d<4;d++)
+                {
+                    long nx=(long)x+Directions.DX[d],nz=(long)z+Directions.DZ[d];
+                    if(nx>=int.MinValue&&nx<=int.MaxValue&&nz>=int.MinValue&&nz<=int.MaxValue&&LiminalRegions.At(config,(int)nx,(int)nz)!=current)exits|=1<<d;
+                }
+            }
             return exits;
         }
 

@@ -737,3 +737,33 @@ sigue en curso al registrar esta entrega; no se informa como aprobado.
 No se ha ejecutado Unity, los dos tests PlayMode nuevos, decodificación MP3/OGG/AIFF
 en Windows, escucha ni medición del mezclador/FPS. Evidencia y enlaces exactos:
 `Verification/resonancia_delivery.json` y `SONIDO_RESONANCIA_ESTADO.json`.
+
+
+## Encuentro · exploración, interacción y recuerdos
+
+Se integra automáticamente al mundo unificado: regiones más cercanas y conexiones
+arquitectónicas entre ambientes, seis estilos de transición y orientaciones a pie
+por el grafo real. El primer nivel 94 queda más cerca y sus distritos son compactos.
+Inventario de 5 × 50 espacios, cantidades BigInteger sin tope fijo, barra inicialmente
+oculta con 5 y controles separados para usar muebles (E), moverlos (T), guardarlos
+(Z) y usar equipo (X). El inventario/cuaderno no se persisten por petición del usuario.
+
+Rincones con soporte real, mobiliario con licencia existente, lectura, asientos,
+plantas, limpieza, lámparas, armarios, piano, parejas, señales de tiza y fotografías.
+144 combinaciones de recuerdos cálidos y siete invitaciones opcionales sin NPC.
+Tres muebles y tres herramientas originales; cinco nuevos juegos PBR y ocho notas
+originales; once iconos externos CC BY 3.0. Cero modelos 3D descargados nuevos;
+no se cuentan colores o repeticiones como modelos distintos. Linterna y distancia
+de renderizado conservadas. Más detalles y controles en
+`Documentation/Encuentro_exploracion_e_inventario.md` dentro del paquete.
+
+Auditoría inicial: compilación estricta 0 avisos/errores, regresión del núcleo y
+188 geometrías protegidas aprobadas. La auditoría de esta implementación corrigió
+identificadores de pilas equivalentes, soporte de objetos de mesa, límites físicos
+de herramientas, normales de perfiles, clasificación del nivel 94 en el cuaderno,
+reapertura de partidas y restauración de colisiones de asientos. Las comprobaciones
+finales y entrega se registran en `Verification/encuentro_delivery.json`.
+No se ha ejecutado Unity: cuatro pruebas PlayMode nuevas y revisión nativa pendientes.
+
+El CI final de Resonancia 39360910225 ya terminó correctamente; esto no certifica
+la compilación nativa de Unity ni el sonido/renderizado de Encuentro.

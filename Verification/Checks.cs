@@ -48,6 +48,14 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--encounter"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Encounter checks require the current Core.");
+#else
+            EncounterWorld();IntegrationSourceContracts();return 0;
+#endif
+        }
         if(args.Contains("--immersive-audio"))
         {
 #if POOLROOMS_HISTORICAL_CORE
@@ -128,7 +136,7 @@ static partial class Checks
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
 #if !POOLROOMS_HISTORICAL_CORE
-        WingsAndNormalFlight();ImmersiveSoundAndMusic();
+        WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();
 #endif
         IntegrationSourceContracts();
         ForgivingJumpTiming();

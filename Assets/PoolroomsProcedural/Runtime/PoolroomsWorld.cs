@@ -367,7 +367,7 @@ namespace Poolrooms
             try
             {
                 var chunk=go.AddComponent<PoolroomsChunk>();chunk.roomId=r.Id;chunk.cellX=r.X;chunk.cellZ=r.Z;
-                chunk.waterRegions=data.Regions.ToArray();
+                chunk.lifePlan=data.Life;chunk.waterRegions=data.Regions.ToArray();
                 chunk.preparedTransitions=data.PreparedTransitions.ToArray();
                 var sourceProps=new List<PoolroomsChunk.SourceProp>();foreach(var p in data.SourceProps)sourceProps.Add(new PoolroomsChunk.SourceProp(p));foreach(var p in data.SourceSeats)sourceProps.Add(new PoolroomsChunk.SourceProp(p));chunk.sourceProps=sourceProps.ToArray();
                 MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
@@ -399,6 +399,16 @@ namespace Poolrooms
                     {
                         CorridorGeometry corridor=data.Connectors[d];
                         chunk.links[d]=MeshFactory.Create("Connector "+d+" - "+(corridor.SolarConnection==SolarConnectionKind.Existing?corridor.Style.ToString():corridor.SolarConnection.ToString()),corridor.Structure,go.transform,profile,chunk,BuildColliders);
+                        if(corridor.Natural)
+                        {
+                            chunk.links[d].GetComponent<MeshRenderer>().enabled=false;
+                            for(int part=0;part<corridor.Finishes.Count;part++)MeshFactory.Create("Transition material "+part,corridor.Finishes[part],chunk.links[d].transform,profile,chunk,false);
+                            if(corridor.TransitionGlass.TriangleCount>0)
+                            {
+                                MeshFactory.Create("Garden roof glazing",corridor.TransitionGlass,chunk.links[d].transform,profile,chunk,false);
+                                if(Application.isPlaying)PoolroomsRoomLife.AttachShutter(this,r,d,corridor,chunk.links[d].transform,chunk);
+                            }
+                        }
                         foreach(Fixture f in corridor.Fixtures)AddFixture(f,chunk.links[d].transform);
                         chunk.links[d].SetActive(false);
                     }
@@ -414,6 +424,7 @@ namespace Poolrooms
         {
             if(r.Plan!=null&&r.Plan.City!=null)PoolroomsCityBuildings.Attach(r.Plan.City,parent,layout.Config);
             var sources=parent.GetComponent<PoolroomsChunk>();
+            if(Application.isPlaying&&layout.Config.EncounterExploration&&sources!=null)PoolroomsRoomLife.Attach(this,r,parent,sources.lifePlan);
             if(Application.isPlaying&&sources!=null&&sources.sourceProps!=null)
             {
                 var actor=viewer!=null?viewer.GetComponentInParent<PoolroomsExplorer>():null;var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
@@ -500,6 +511,11 @@ namespace Poolrooms
         // Lighting-only changes do not rebuild connections or synchronize all physics transforms.
         public void RequestLightingRefresh(){nextLightUpdate=0;LightsChanged?.Invoke();}
         public void ExternalGeometryChanged(){if(layout!=null)RefreshConnections();nextLightUpdate=0;Physics.SyncTransforms();GeometryChanged?.Invoke();}
+        public PoolroomsLuminaire AddInteractiveLamp(Transform parent,Vector3 position)
+        {
+            int index=lamps.Count;AddFixture(new Fixture{Position=new V3(position.x,position.y,position.z),Power=450,Width=.18f,Depth=.18f,Temperature=3300,Range=4.5f},parent);
+            nextLightUpdate=0;LightsChanged?.Invoke();return lamps.Count>index?lamps[index]:null;
+        }
         private void AddFixture(Fixture f,Transform parent)
         {
             if(f.Power<=0)return; // Switched-off sources must not consume the light/shadow budget.
@@ -572,6 +588,7 @@ namespace Poolrooms
             ranked.Clear();
             foreach(var lamp in lamps)if(lamp.source!=null)
             {
+                if(!lamp.userEnabled){lamp.source.enabled=false;continue;}
                 Vector3 offset=lamp.transform.position-p;float distance=offset.sqrMagnitude;
                 if(lamp.fullRange<=0)lamp.fullRange=lamp.source.range; // Older baked metadata.
                 bool eligible=lamp.gameObject.activeInHierarchy&&!(PoolroomSunActive&&lamp.poolroomSunlight)&&(!lamp.mallLocal||MallLighting.FloorEligible(-offset.y,lamp.floorOffset));

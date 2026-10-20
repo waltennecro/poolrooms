@@ -14,7 +14,8 @@ namespace Poolrooms
         private readonly AudioLowPassFilter[] eventFilters=new AudioLowPassFilter[4];
         private readonly bool[] eerie=new bool[4];
         private readonly float[] eventGain=new float[4],eventFade={1,1,1,1};
-        private readonly AudioClip[] steps=new AudioClip[3];
+        private readonly AudioClip[] steps=new AudioClip[3],notes=new AudioClip[8];
+        private readonly float[] eventStarted=new float[4];
         private AudioClip creak,pipe,air,dash,cloth,land,handling,softImpact,hardImpact;
         private readonly AtmosphereDirector director=new AtmosphereDirector();
         private readonly RaycastHit[] hits=new RaycastHit[12];
@@ -39,6 +40,7 @@ namespace Poolrooms
                 events[i]=Create("Spatial detail voice "+i,true);eventFilters[i]=events[i].gameObject.AddComponent<AudioLowPassFilter>();eventFilters[i].cutoffFrequency=18000;
             }
             for(int i=0;i<3;i++)steps[i]=Load("RemoteStep"+i);
+            for(int i=0;i<notes.Length;i++)notes[i]=Resources.Load<AudioClip>("EncounterAudio/Note"+i);
             creak=Load("DistantCreak");pipe=Load("PipeResonance");air=Load("AirMovement");dash=Load("DashAir");cloth=Load("ClothMovement");land=Load("LandContact");handling=Load("ObjectHandling");softImpact=Load("SoftImpact");hardImpact=Load("HardImpact");
             explorer.Relocated+=Relocated;explorer.OriginShifted+=Shift;
         }
@@ -113,14 +115,14 @@ namespace Poolrooms
             if(cue==AtmosphereCue.RemoteSteps){stepPosition=candidate;remainingSteps=random.Range(2,5);nextStep=1.2f;return;}
             Detail(cue==AtmosphereCue.WoodCreak?creak:cue==AtmosphereCue.PipeResonance?pipe:air,candidate,.15f*Options.tension*Options.detail,225,true);
         }
-        private void Detail(AudioClip clip,Vector3 position,float gain,int priority,bool unsettling=false,bool atPlayer=false)
+        private void Detail(AudioClip clip,Vector3 position,float gain,int priority,bool unsettling=false,bool atPlayer=false,bool allowEqual=false)
         {
             if(clip==null||root==null||explorer.IsPaused||settings.EffectiveMasterVolume<=0)return;
             if(unsettling&&Options.mode!=SoundscapeMode.Uneasy)return;
             int chosen=-1;
-            for(int i=0;i<4;i++)if(!events[i].isPlaying){chosen=i;break;}else if(events[i].priority>priority&&(chosen<0||events[i].priority>events[chosen].priority))chosen=i;
+            for(int i=0;i<4;i++)if(!events[i].isPlaying){chosen=i;break;}else if((events[i].priority>priority||allowEqual&&events[i].priority==priority)&&(chosen<0||events[i].priority>events[chosen].priority||events[i].priority==events[chosen].priority&&eventStarted[i]<eventStarted[chosen]))chosen=i;
             if(chosen<0)return;
-            var source=events[chosen];source.Stop();source.transform.position=position;source.clip=clip;source.priority=priority;source.pitch=random.Range(.96f,1.04f);eerie[chosen]=unsettling;
+            var source=events[chosen];eventStarted[chosen]=Time.time;source.Stop();source.transform.position=position;source.clip=clip;source.priority=priority;source.pitch=random.Range(.96f,1.04f);eerie[chosen]=unsettling;
             source.spatialBlend=atPlayer?0:settings.Preferences.spatialAmbience?1:0;
             bool blocked=false;
             if(!atPlayer&&settings.Preferences.soundOcclusion)
@@ -135,6 +137,8 @@ namespace Poolrooms
             source.volume=eventGain[chosen]*settings.EffectiveMasterVolume*(unsettling?settings.Preferences.environmentVolume*duck:settings.Preferences.footstepVolume);
             source.Play();
         }
+        public void PlayInteractiveNote(int note,Vector3 position)
+        {if(settings!=null&&note>=0&&note<notes.Length)Detail(notes[note],position,.22f,145,false,false,true);}
         public void Handling(Vector3 position,bool soft)
         {if(settings!=null&&Options.objectSounds)Detail(soft?handling:cloth,position,.055f,170);}
         public void Impact(Vector3 position,float speed,float mass,PickupSurface surface)

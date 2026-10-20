@@ -90,6 +90,8 @@ namespace Poolrooms
         {
             if(body==null)body=GetComponent<CharacterController>();
             bool fly=session.Flying,noclip=session.Noclip,success=true;
+            if(explorer!=null&&explorer.Seating!=null&&explorer.Seating.IsSeated&&(fly||noclip)&&!explorer.Seating.TryStand())
+            {session.SetFlight(false);status="Hace falta espacio para levantarse antes de volar.";return false;}
             // Return control from a seated ride before recording the controller state for noclip.
             if(explorer!=null&&explorer.IsAquaticRiding&&(wasFlying!=fly||wasNoclip!=noclip))
                 explorer.GetComponent<PoolroomsAquaticTraversal>()?.Cancel(true);

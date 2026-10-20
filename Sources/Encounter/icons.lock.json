@@ -1,0 +1,79 @@
+{
+  "bag.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/knapsack.svg",
+    "sha256": "d5f3f1b087b23f8a1082674b9ac19f1530b936802f8f1bb2982d5f7e03547396",
+    "bytes": 994,
+    "author": "Lorc",
+    "license": "CC-BY-3.0"
+  },
+  "compass.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/compass.svg",
+    "sha256": "beb88d002e3f2e3759a41c626ff67f52b9d92d70605a24e8e8d3ea9915208f20",
+    "bytes": 1528,
+    "author": "Lorc",
+    "license": "CC-BY-3.0"
+  },
+  "plant.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/watering-can.svg",
+    "sha256": "003a2f17eeadc2ec6c60816c671e0b3eb78d875fc2dcba16e37d5f9ccbfae724",
+    "bytes": 1183,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  },
+  "cup.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/coffee-cup.svg",
+    "sha256": "21ad04a959f54d6289801a8c5d31d3db9be074bbdf78739453aacdbefb7db686",
+    "bytes": 1130,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  },
+  "journal.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/notebook.svg",
+    "sha256": "ffad5a277e3819342071b115da7e62f19f01b6939e8c32e224861c64df570815",
+    "bytes": 2478,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  },
+  "camera.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/photo-camera.svg",
+    "sha256": "4cf821cd44b9d071d22e1eab957a54acdc5959f4c5152eb6c84f6f2fc51524a1",
+    "bytes": 1175,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  },
+  "music.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/musical-notes.svg",
+    "sha256": "f3a1b1bc956d4348b55cb195eaebbaebf972a2fb053ef71d6de10ddadadc4799",
+    "bytes": 877,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  },
+  "book.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/book-cover.svg",
+    "sha256": "b7b0b9a4c636125fbad2421d6d2c940bc8bdbc315283a10b7f7d1ab5a9e990c2",
+    "bytes": 1951,
+    "author": "Lorc",
+    "license": "CC-BY-3.0"
+  },
+  "game.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/dice-six-faces-five.svg",
+    "sha256": "cdcf08531e565d9f27cd863186302834dedb189a12aa5339617eb8ac9bb84e37",
+    "bytes": 581,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  },
+  "food.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/cookie.svg",
+    "sha256": "d3b99c6f847aea420d44e84cd0c74463b79c5841897722c7aee916ce45832eaa",
+    "bytes": 1136,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  },
+  "furniture.svg": {
+    "url": "https://raw.githubusercontent.com/game-icons/icons/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/wooden-chair.svg",
+    "sha256": "16eb836e7dcbb57e45db7b2ddc6b0a96ab8d71d1cbb9bf943aab4ce3bcfdb9d8",
+    "bytes": 557,
+    "author": "Delapouite",
+    "license": "CC-BY-3.0"
+  }
+}

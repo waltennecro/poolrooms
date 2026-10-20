@@ -332,6 +332,7 @@ namespace Poolrooms
                     if(td)
                     {
                         PoolroomsArchitecturalDetail.Attach(houseData.Geometry.Dressing,home.transform,world.profile,owner,world);
+                        if(world.CurrentLayout!=null&&world.CurrentLayout.Config.EncounterExploration)PoolroomsRoomLife.AttachNotice(world,home.transform,owner,houseData.Geometry.Dressing,"home-note:"+house.Seed+":"+house.CellX+":"+house.CellZ,house.Seed,house.CellX,house.CellZ);
                         // Fixtures use house-local coordinates. Keep registration in the same owner space.
                         V3 offset=new V3(house.X-tx*TerrainRegionPlan.TileSize,house.Base,house.Z-tz*TerrainRegionPlan.TileSize);
                         foreach(var f in houseData.Geometry.Fixtures){var fixture=f;fixture.Position+=offset;data.Fixtures.Add(fixture);}

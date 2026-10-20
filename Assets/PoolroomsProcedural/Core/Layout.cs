@@ -52,6 +52,7 @@ namespace Poolrooms.Core
         public int ObjectAbundance=1;
         public bool IndependentBiomeMaterials,MallDistricts;
         public bool DiscoveryCoverage;
+        public bool EncounterExploration;
         public bool CommonPoolrooms;
         public float CommonSolarShare=.5f;
         public int CommonClimateRegionSize=3;
