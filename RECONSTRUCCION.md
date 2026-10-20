@@ -716,3 +716,24 @@ Detalles: `Documentation/Sonido_y_musica_local.md` dentro del paquete.
 Comprobaciones del núcleo y recursos aprobadas; el cierre de evidencia se añadirá
 tras empaquetado y CI. Unity Editor, decodificadores de plataformas, escucha y
 rendimiento real siguen pendientes; dos pruebas PlayMode nuevas aún sin ejecutar.
+
+
+Resonancia, entrega de código `0eddb5c384a7ae79f3d88adb94057c38696dae3c`:
+se corrigieron la actualización de nombres al sustituir canciones con el mismo
+recuento, los controles de volumen en contactos activos y el tiempo de pausa de
+los pasos remotos. El Core conserva el mismo árbol `1b5f4eb6` entre las tres
+revisiones de esta etapa. Compilación estricta sin avisos, regresión completa
+con las 188 geometrías protegidas, contratos sintácticos actuales y recursos
+aprobados. Los 48 PCM se regeneraron reproduciendo sus hashes.
+
+ZIP de Assets: 981 archivos, 325.402.227 bytes, CRC y SHA-256 correctos.
+Una descarga pública nueva del código final produjo 504.034.141 bytes;
+sus 1.247 archivos versionados, incluidos los 981 de Assets, coinciden por SHA-256.
+La reproducibilidad binaria del empaquetador se comprobó en b3780c7; el ZIP
+posterior verifica el contenido final y no incluye cambios sin guardar.
+
+El CI final [39360910225](https://github.com/waltennecro/poolrooms/actions/runs/39360910225)
+sigue en curso al registrar esta entrega; no se informa como aprobado.
+No se ha ejecutado Unity, los dos tests PlayMode nuevos, decodificación MP3/OGG/AIFF
+en Windows, escucha ni medición del mezclador/FPS. Evidencia y enlaces exactos:
+`Verification/resonancia_delivery.json` y `SONIDO_RESONANCIA_ESTADO.json`.

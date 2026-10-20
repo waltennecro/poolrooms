@@ -1489,7 +1489,10 @@
       "fixedSourceBudgetWithRainAndMusic": 19,
       "nativePlayModeTestsAdded": 2,
       "documentation": "Assets/PoolroomsProcedural/Documentation/Sonido_y_musica_local.md",
-      "validation": "Core and media checks passed; full regression and CI pending; Unity/listening unrun"
+      "validation": "Strict build, full unchanged Core, current source syntax, media, licenses, ZIP CRC/hashes and public source download passed. Final CI in progress; Unity, platform decoders, listening and FPS unrun.",
+      "commit": "0eddb5c384a7ae79f3d88adb94057c38696dae3c",
+      "packageFiles": 981,
+      "evidence": "Verification/resonancia_delivery.json"
     }
   ],
   "latestCoreChecks": {

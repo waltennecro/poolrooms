@@ -1,0 +1,41 @@
+{
+  "codeRevision": "0eddb5c384a7ae79f3d88adb94057c38696dae3c",
+  "package": {
+    "zip": "/workspace/output/Poolrooms_Resonancia_Completo_Assets.zip",
+    "files": 981,
+    "bytes": 325402227,
+    "sha256": "a5e9492a4d401b2e8341d7f10fc296c1207482d3c9e25c1088b679b2ac39f501",
+    "sourceRevision": "0eddb5c384a7ae79f3d88adb94057c38696dae3c",
+    "workingTreeChanged": false
+  },
+  "publicSourceDownload": {
+    "revision": "0eddb5c384a7ae79f3d88adb94057c38696dae3c",
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/0eddb5c384a7ae79f3d88adb94057c38696dae3c",
+    "zip": "/workspace/output/Poolrooms_Resonancia_Repositorio.zip",
+    "bytes": 504034141,
+    "sha256": "be1627253bda8419ec2202fbf924c1b7040b50b060a9e7f4682e927f41af9d0e",
+    "crc": "passed",
+    "trackedFilesVerified": 1247,
+    "assetFilesVerified": 981
+  },
+  "pcmRegeneration": "All 48 locked hashes reproduced; working tree remained clean",
+  "packageReproducibility": "Deterministic packager reproduced byte-identical b3780c7 package; current 0eddb5c package passed CRC and all file SHA-256 checks",
+  "coreTreeUnchangedAcrossSoundFixes": "1b5f4eb6a5c48f0b025569b12a24799c7be68465",
+  "localChecks": {
+    "strictBuild": "passed SDK 8.0.408, zero warnings/errors",
+    "fullCore": "1847388095 assertions, 188 protected geometry fingerprints; Core identical to final revision",
+    "latestSoundAndSyntax": "295653 cumulative sound/music core assertions; 263 scripts parsed with five configurations",
+    "media": "48 PCM hashes and amplitudes/seams passed; 2 source recordings and notices matched locks",
+    "rainAndWings": "passed, existing resources/attribution preserved"
+  },
+  "ci": {
+    "id": 39360910225,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39360910225",
+    "status": "in_progress",
+    "conclusion": null
+  },
+  "nativeUnity": "unrun",
+  "nativeAudioDecoding": "unrun",
+  "listeningAndProfiler": "unrun",
+  "nativeTestsAdded": 2
+}
