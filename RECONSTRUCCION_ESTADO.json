@@ -3159,5 +3159,22 @@
       "githubCiStatus": "in_progress",
       "githubCiRunId": 39383935148
     }
+  },
+  "crystalWater": {
+    "status": "implemented_core_checked_native_pending",
+    "baseRevision": "348a801af90e46fea06bdc0706601b3029f548e7",
+    "appearanceIdsPreserved": true,
+    "crystalPresetId": 4,
+    "customValuesPreserved": true,
+    "moreTransparentBiomes": [
+      "Pool",
+      "Coast",
+      "Thermal",
+      "Aquatic"
+    ],
+    "newCaptures": 0,
+    "gpuBudgetUnchanged": true,
+    "nativeUnityExecuted": false,
+    "targetedAssertions": 97095
   }
 }

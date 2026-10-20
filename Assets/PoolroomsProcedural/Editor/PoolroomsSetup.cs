@@ -77,7 +77,7 @@ namespace Poolrooms.Editor
             SetColor(p.glow,"_EmissiveColor",new Color(1,.94f,.77f)*12);SetColor(p.glow,"_EmissionColor",new Color(1,.94f,.77f)*4);
             p.glow.EnableKeyword("_EMISSION");ValidateHDRP(p.glow);EditorUtility.SetDirty(p.glow);
             p.slide=Make("Pastel Slides",new Color(.76f,.48f,.59f),.86f,0,null,1f);
-            p.waterPreview=Make("Water Preview (opaque fallback)",new Color(.09f,.48f,.44f),.98f,0,null,1f);
+            p.waterPreview=Make("Crystal water (Lit fallback)",new Color(.97f,.995f,.991f,.07f),.98f,0,null,1f);
 
             Material Make(string name,Color color,float smooth,float metallic,Texture2D[] maps,float normalScale)
             {

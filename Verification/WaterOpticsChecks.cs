@@ -59,6 +59,30 @@ static partial class Checks
             }
             previous=optics;
         }
+#if !POOLROOMS_HISTORICAL_CORE
+        Check((int)PoolWaterAppearance.ClearCeramic==0&&(int)PoolWaterAppearance.Custom==3&&(int)PoolWaterAppearance.CrystalClear==4,"Serialized water appearance IDs changed");
+        foreach(PoolWaterSetting setting in Enum.GetValues(typeof(PoolWaterSetting)))
+        foreach(PoolWaterAppearance appearance in Enum.GetValues(typeof(PoolWaterAppearance)))
+        {
+            if(appearance==PoolWaterAppearance.Custom)continue;
+            var look=PoolWaterModel.Look(appearance,setting);var last=new V3(1,1,1);
+            for(int i=0;i<=400;i++)
+            {
+                var transmission=PoolWaterModel.Transmission(look,i*.05f);
+                Check(transmission.X<=last.X&&transmission.Y<=last.Y&&transmission.Z<=last.Z,"Clear water gets brighter with depth");last=transmission;
+            }
+            var shallow=PoolWaterModel.Transmission(look,.5f);var twoMeters=PoolWaterModel.Transmission(look,2);
+            Check(shallow.X>.98f&&shallow.Y>.98f&&shallow.Z>.98f,"Shallow water hides its floor");
+            Check(twoMeters.X>.95f&&twoMeters.Y>.95f&&twoMeters.Z>.95f,"Default water still strongly tints a two-metre pool");
+            Check(look.Scattering.Length<.07f,"Milky scattering remains in the clear presets");
+        }
+        var legacy=new PoolWaterLook(new V3(.9f,.985f,.975f),new V3(.025f,.13f,.115f),7,.65f);
+        var upgraded=PoolWaterModel.Look(PoolWaterAppearance.ClearCeramic);var crystal=PoolWaterModel.Look(PoolWaterAppearance.CrystalClear);
+        Check(PoolWaterModel.Transmission(upgraded,5).X>PoolWaterModel.Transmission(legacy,5).X+.15f,"New clear water did not improve deep red transmission");
+        Check(PoolWaterModel.Transmission(crystal,5).X>PoolWaterModel.Transmission(upgraded,5).X,"Crystal option adds no clarity");
+        Check(crystal.RefractionDistance<upgraded.RefractionDistance&&PoolWaterModel.ClearFallbackOpacity<.1f&&PoolWaterModel.ClearNormalStrength<.15f,"Clear fallback remains opaque or heavily distorted");
+        var preferences=new GamePreferences{waterAppearance=PoolWaterAppearance.CrystalClear};preferences.Sanitize();Check(preferences.waterAppearance==PoolWaterAppearance.CrystalClear,"Settings reject the appended crystal preset");
+#endif
         Console.WriteLine("PASS: water optical budgets, bounded captures and clear-water transmission (core math).");
     }
 

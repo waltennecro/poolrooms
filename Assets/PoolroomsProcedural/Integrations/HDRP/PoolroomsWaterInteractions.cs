@@ -169,7 +169,7 @@ namespace Poolrooms.HDRP
             if(bounds.transform.position!=centre)bounds.transform.position=centre;
             if(bounds.size!=size)bounds.size=size;
             surface.volumeBounds=bounds;
-            surface.absorptionDistanceMultiplier=1.25f;surface.underWaterRefraction=!adapter.lowCost;
+            surface.absorptionDistanceMultiplier=adapter.appearance==PoolWaterAppearance.Custom?1.25f:1.6f;surface.underWaterRefraction=!adapter.lowCost;
         }
         private void RestoreBounds()
         {

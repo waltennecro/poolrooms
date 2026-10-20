@@ -142,29 +142,24 @@ namespace Poolrooms.HDRP
             }
             float level=world.CurrentLayout!=null?world.CurrentLayout.Config.WaterLevel:world.profile.waterLevel;
             water.transform.localPosition=new Vector3(0,level,0);
-            water.surfaceType=WaterSurfaceType.Pool;water.ripples=true;water.ripplesWindSpeed=rippleWindSpeed;
-            var look=PoolWaterModel.Look(appearance);var budget=PoolWaterModel.Budget(lowCost?PoolWaterDetail.Performance:waterDetail);
+            water.surfaceType=WaterSurfaceType.Pool;water.ripples=true;
+            var look=PoolWaterModel.Look(appearance,aquaticLook?PoolWaterSetting.Aquatic:thermalLook?PoolWaterSetting.Thermal:coastalLook?PoolWaterSetting.Coast:PoolWaterSetting.Pool);var budget=PoolWaterModel.Budget(lowCost?PoolWaterDetail.Performance:waterDetail);
             var optics=new PoolWaterOptics(lowCost?PoolWaterDetail.Performance:waterDetail);
             bool custom=appearance==PoolWaterAppearance.Custom;
+            water.ripplesWindSpeed=custom?rippleWindSpeed:rippleWindSpeed*.7f;
             water.refractionColor=custom?refraction:new Color(look.Refraction.X,look.Refraction.Y,look.Refraction.Z);
             water.scatteringColor=custom?scattering:new Color(look.Scattering.X,look.Scattering.Y,look.Scattering.Z);
             water.absorptionDistance=custom?Mathf.Max(.001f,absorptionDistance):look.Absorption;
-            if(coastalLook&&appearance==PoolWaterAppearance.ClearCeramic)
-            {water.refractionColor=new Color(.75f,.9f,.96f);water.scatteringColor=new Color(.035f,.15f,.22f);water.absorptionDistance=7;}
-            if(thermalLook&&appearance==PoolWaterAppearance.ClearCeramic)
-            {water.refractionColor=new Color(.79f,.92f,.89f);water.scatteringColor=new Color(.075f,.23f,.2f);water.absorptionDistance=4.2f;}
             water.maxRefractionDistance=custom?Mathf.Clamp(refractionDistance,0,3.5f):look.RefractionDistance;
-            if(aquaticLook&&appearance==PoolWaterAppearance.ClearCeramic)
-            {water.refractionColor=new Color(.94f,.995f,.985f);water.scatteringColor=new Color(.018f,.095f,.09f);water.absorptionDistance=11;water.maxRefractionDistance=1.2f;}
             if(refinedWaterOptics&&!custom)water.maxRefractionDistance*=optics.RefractionScale;
-            water.ambientScattering=.025f;water.heightScattering=.05f;water.displacementScattering=.12f;
-            water.directLightTipScattering=.18f;water.directLightBodyScattering=.22f;
+            water.ambientScattering=custom?.025f:.008f;water.heightScattering=custom?.05f:.018f;water.displacementScattering=custom?.12f:.035f;
+            water.directLightTipScattering=custom?.18f:.08f;water.directLightBodyScattering=custom?.22f:.07f;
             water.timeMultiplier=waterTimeScale;
             water.startSmoothness=Mathf.Clamp01(waterSmoothness);
             water.endSmoothness=Mathf.Min(water.startSmoothness,refinedWaterOptics?optics.FarSmoothness:.945f);
             water.smoothnessFadeStart=refinedWaterOptics?optics.FadeStart:12;
             water.smoothnessFadeDistance=refinedWaterOptics?optics.FadeDistance:35;
-            water.ripplesChaos=.35f;water.ripplesOrientationValue=25;
+            water.ripplesChaos=custom?.35f:.22f;water.ripplesOrientationValue=25;
             water.ripplesMotionMode=WaterPropertyOverrideMode.Custom;
             water.tessellation=budget.Tessellation>0;water.maxTessellationFactor=budget.Tessellation;
             water.tessellationFactorFadeStart=6;water.tessellationFactorFadeRange=24;

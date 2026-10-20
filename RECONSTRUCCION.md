@@ -782,3 +782,14 @@ Se descargó nuevamente el repositorio público: ZIP de 508.120.298 bytes,
 1.329 archivos versionados y los 1.035 de Assets coinciden por SHA-256.
 El CI 39383935148 continúa en curso al registrar esta evidencia; no se declara
 aprobado. Pruebas nativas de Unity, apariencia, audio y FPS siguen sin ejecutar.
+
+
+## Agua cristalina
+
+Mejora de las paletas claras de piscinas, costa, baños y parque acuático. Se reduce
+la dispersión verdosa y la distorsión del fondo, manteniendo Fresnel, profundidad,
+ondas y presupuestos existentes. Se añade «Cristalina» al final de la lista de
+apariencias sin cambiar IDs; Custom conserva sus valores manuales. El material
+ligero reduce opacidad y elimina mapas/emisión heredados que ocultaban el fondo.
+Compilación estricta del núcleo sin errores/avisos y 97.095 aserciones de óptica
+y contratos de integración aprobadas. Unity y revisión visual siguen pendientes.

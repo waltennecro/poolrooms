@@ -2,7 +2,8 @@ using System;
 
 namespace Poolrooms.Core
 {
-    public enum PoolWaterAppearance { ClearCeramic, SoftTurquoise, BluePorcelain, Custom }
+    public enum PoolWaterAppearance { ClearCeramic, SoftTurquoise, BluePorcelain, Custom, CrystalClear }
+    public enum PoolWaterSetting { Pool,Coast,Thermal,Aquatic }
     public enum PoolWaterDetail { Performance, High, Cinematic }
     // Optical quality is independent of mesh/streaming distance and never changes physical water contacts.
     public readonly struct PoolWaterOptics
@@ -15,7 +16,7 @@ namespace Poolrooms.Core
             FarSmoothness=low?.94f:cinematic?.965f:.955f;
             FadeStart=low?25:cinematic?60:40;
             FadeDistance=low?70:cinematic?160:120;
-            RefractionScale=.6f;
+            RefractionScale=.42f;
             ProbeResolution=low?128:cinematic?512:256;
         }
     }
@@ -61,11 +62,25 @@ namespace Poolrooms.Core
         {
             switch(appearance)
             {
-                case PoolWaterAppearance.SoftTurquoise:return new PoolWaterLook(new V3(.79f,.97f,.94f),new V3(.025f,.18f,.16f),5.5f,.8f);
-                case PoolWaterAppearance.BluePorcelain:return new PoolWaterLook(new V3(.78f,.93f,.99f),new V3(.02f,.095f,.18f),5,.7f);
-                default:return new PoolWaterLook(new V3(.9f,.985f,.975f),new V3(.025f,.13f,.115f),7,.65f);
+                case PoolWaterAppearance.SoftTurquoise:return new PoolWaterLook(new V3(.94f,.987f,.98f),new V3(.008f,.045f,.038f),10,.55f);
+                case PoolWaterAppearance.BluePorcelain:return new PoolWaterLook(new V3(.935f,.975f,.994f),new V3(.006f,.027f,.055f),11,.5f);
+                case PoolWaterAppearance.CrystalClear:return new PoolWaterLook(new V3(.985f,.998f,.996f),new V3(.003f,.014f,.012f),18,.32f);
+                default:return new PoolWaterLook(new V3(.97f,.995f,.991f),new V3(.006f,.03f,.025f),12,.45f);
             }
         }
+        // Pool settings stay clear in every biome. Custom values are applied by the adapter unchanged.
+        public static PoolWaterLook Look(PoolWaterAppearance appearance,PoolWaterSetting setting)
+        {
+            if(appearance!=PoolWaterAppearance.ClearCeramic)return Look(appearance);
+            switch(setting)
+            {
+                case PoolWaterSetting.Coast:return new PoolWaterLook(new V3(.95f,.985f,.995f),new V3(.006f,.025f,.04f),12,.5f);
+                case PoolWaterSetting.Thermal:return new PoolWaterLook(new V3(.96f,.99f,.98f),new V3(.008f,.035f,.028f),12,.45f);
+                case PoolWaterSetting.Aquatic:return new PoolWaterLook(new V3(.98f,.997f,.994f),new V3(.004f,.022f,.018f),16,.45f);
+                default:return Look(appearance);
+            }
+        }
+        public const float ClearFallbackOpacity=.07f,ClearNormalStrength=.105f;
         public static WaterBudget Budget(PoolWaterDetail detail)
         {
             switch(detail)
