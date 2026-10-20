@@ -83,7 +83,8 @@ namespace Poolrooms
             if(root==null||index<0||index>=queue.Tracks.Count)return;
             CancelLoad();endingBlocked=false;Paused=false;
             foreach(var source in sources)source.UnPause();
-            loading=StartCoroutine(LoadTrack(queue.Tracks[index],index,remember,generation));
+            var started=StartCoroutine(LoadTrack(queue.Tracks[index],index,remember,generation));
+            loading=Loading?started:null;
         }
         private static AudioType TypeFor(string file)
         {

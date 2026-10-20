@@ -36,6 +36,7 @@ namespace Poolrooms
         private PoolroomsSoundscape soundscape;
         private PoolroomsGameSettings settings;
         private readonly float[] voiceGain=new float[4];
+        private readonly int[] voiceBus=new int[4];
         private readonly AudioClip[] soft=new AudioClip[3],grass=new AudioClip[3],wood=new AudioClip[3];
         private PoolroomsExplorer subscribed;
         private Layout cachedLayout;
@@ -106,7 +107,7 @@ namespace Poolrooms
             if(explorer==null)return;
             if(soundscape==null)soundscape=GetComponent<PoolroomsSoundscape>();
             if(settings==null)settings=GetComponent<PoolroomsGameSettings>();
-            for(int i=0;i<voices.Length;i++)if(voices[i]!=null)voices[i].volume=voiceGain[i]*Unit(masterVolume);
+            for(int i=0;i<voices.Length;i++)if(voices[i]!=null)voices[i].volume=voiceGain[i]*Unit(masterVolume)*BusGain(voiceBus[i]);
             bool paused=explorer.IsPaused||Time.deltaTime<=0||AudioListener.pause;
             SetOwnedPause(paused);if(paused){previousPosition=transform.position;return;}
             float dt=Time.deltaTime,k=1-Mathf.Exp(-dt*2.5f);
@@ -161,10 +162,10 @@ namespace Poolrooms
                 bool padded=cachedRoom!=null&&(cachedRoom.Environment==LiminalEnvironment.IndoorPlay||cachedRoom.Environment==LiminalEnvironment.SoftPlay||cachedRoom.Environment==LiminalEnvironment.Office||cachedRoom.Environment==LiminalEnvironment.Hotel);
                 int category=swimming?3:feetWet||wetFeet>0?2:IsMetalGround()?1:outside?7:inHouse?8:padded?6:0;
                 var clips=category==3?wade:category==2?wetTile:category==1?metal:category==7?grass:category==8?wood:category==6?soft:tile;
-                float gain=category==3?Unit(waterVolume):Unit(footstepVolume);
+                float gain=1;
                 if(category==0&&cachedRoom!=null&&(cachedRoom.Environment==LiminalEnvironment.IndoorPlay||cachedRoom.Environment==LiminalEnvironment.SoftPlay))gain*=.55f;
                 if(world.Terrain!=null&&world.Terrain.IsInside)gain*=world.Terrain.InsideHouse?.6f:.35f;
-                Play(Variation(clips,category),position+Vector3.up*.08f,gain*.5f,140);
+                Play(Variation(clips,category),position+Vector3.up*.08f,gain*.5f,140,category==3?1:0);
             }
             dripIn-=dt;
             if(dripIn<=0){dripIn=random.Range(7,18);if(occasionalDrips&&!underwater)TryDrip();}
@@ -256,10 +257,11 @@ namespace Poolrooms
             if(index==lastVariants[category])index=(index+1)%clips.Length;
             lastVariants[category]=index;return clips[index];
         }
-        private void Play(AudioClip clip,Vector3 position,float volume,int importance)
+        private float BusGain(int bus){return bus==0?Unit(footstepVolume):bus==1?Unit(waterVolume):Unit(environmentVolume)*Unit(waterVolume)*(soundscape!=null?soundscape.AmbienceGain:1);}
+        private void Play(AudioClip clip,Vector3 position,float volume,int importance,int bus=0)
         {
             float baseGain=ImmersiveAudio.Transient(volume,settings!=null?settings.Preferences.soundscape.dynamicRange:.55f);
-            volume=baseGain*Unit(masterVolume);if(clip==null||volume<=.0001f)return;
+            volume=baseGain*Unit(masterVolume)*BusGain(bus);if(clip==null||volume<=.0001f)return;
             AudioSource chosen=null;
             foreach(var voice in voices)
             {
@@ -267,7 +269,7 @@ namespace Poolrooms
                 if(chosen==null||voice.priority>chosen.priority)chosen=voice;
             }
             if(chosen==null||(chosen.isPlaying&&chosen.priority<importance))return;
-            for(int i=0;i<voices.Length;i++)if(voices[i]==chosen)voiceGain[i]=baseGain;
+            for(int i=0;i<voices.Length;i++)if(voices[i]==chosen){voiceGain[i]=baseGain;voiceBus[i]=bus;}
             chosen.Stop();chosen.transform.position=position;chosen.clip=clip;chosen.volume=volume;chosen.spatialBlend=spatialAmbience?.85f:0;
             chosen.pitch=random.Range(.95f,1.045f);chosen.priority=importance;chosen.Play();
         }
@@ -276,7 +278,7 @@ namespace Poolrooms
             if(audioRoot==null||ownedPause||!isActiveAndEnabled||splashCooldown>0||explorer==null||!explorer.IsReady||explorer.IsPaused)return;
             splashCooldown=.18f;
             Play(strength>.22f?Variation(splashes,5):Variation(wade,3),position,
-                AmbientAudioModel.SplashVolume(strength)*Unit(waterVolume),110);
+                AmbientAudioModel.SplashVolume(strength),110,1);
         }
         private void TryDrip()
         {
@@ -289,7 +291,7 @@ namespace Poolrooms
             Vector3 delta=point-ears;float distance=delta.magnitude;if(distance<.1f)return;
             int count=Physics.RaycastNonAlloc(ears,delta/distance,hits,distance-.07f,surfaceMask,QueryTriggerInteraction.Ignore);
             for(int i=0;i<count;i++)if(hits[i].collider!=null&&!hits[i].collider.transform.IsChildOf(transform))return;
-            Play(Variation(drips,4),point,.2f*Unit(environmentVolume)*Unit(waterVolume),220);
+            Play(Variation(drips,4),point,.2f,220,2);
         }
         private bool IsMetalGround()
         {

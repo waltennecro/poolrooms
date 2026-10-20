@@ -81,9 +81,10 @@ namespace Poolrooms
             if(!ready){positioned=false;remainingSteps=0;director.Reset();return;}
             var cue=director.Step(dt,Options.mode,Options.tension,Options.distantSteps);
             if(cue!=AtmosphereCue.None&&Options.detail>0)Distant(cue);
-            if(remainingSteps>0&&Time.time>=nextStep)
+            if(remainingSteps>0)nextStep-=dt;
+            if(remainingSteps>0&&nextStep<=0)
             {
-                nextStep=Time.time+random.Range(.65f,.95f);remainingSteps--;
+                nextStep=random.Range(.65f,.95f);remainingSteps--;
                 if(Vector3.Distance(stepPosition,explorer.Aim.position)>=8)Detail(steps[random.Range(3)],stepPosition,.21f*Options.tension*Options.detail,220,true);
                 stepPosition+=explorer.transform.right*random.Range(-.3f,.3f)-explorer.transform.forward*.45f;
             }
@@ -109,7 +110,7 @@ namespace Poolrooms
             float best=float.MaxValue;bool found=false;
             for(int i=0;i<count;i++)if(hits[i].collider!=null&&!hits[i].collider.transform.IsChildOf(transform)&&hits[i].normal.y>.6f&&hits[i].distance<best){best=hits[i].distance;candidate=hits[i].point+Vector3.up*.08f;found=true;}
             if(!found||Vector3.Distance(candidate,ears)<8)return;
-            if(cue==AtmosphereCue.RemoteSteps){stepPosition=candidate;remainingSteps=random.Range(2,5);nextStep=Time.time+1.2f;return;}
+            if(cue==AtmosphereCue.RemoteSteps){stepPosition=candidate;remainingSteps=random.Range(2,5);nextStep=1.2f;return;}
             Detail(cue==AtmosphereCue.WoodCreak?creak:cue==AtmosphereCue.PipeResonance?pipe:air,candidate,.15f*Options.tension*Options.detail,225,true);
         }
         private void Detail(AudioClip clip,Vector3 position,float gain,int priority,bool unsettling=false,bool atPlayer=false)
