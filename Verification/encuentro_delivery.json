@@ -91,19 +91,40 @@
   },
   "persistence": "Inventory, journal, routes, care and game state intentionally session-only. Existing PNG photos/settings/music locations remain.",
   "backup": {
-    "status": "code_backed_up",
-    "revision": "2e88a09dd2020c2c61e26b289d0558e00c2d8bb5",
-    "ciInitial": {
-      "runId": 39383502982,
-      "status": "in_progress",
-      "observedStep": "Compare all 200010 architectures in 21 batches against immutable R33"
+    "status": "code_backed_up_and_new_public_download_verified",
+    "revision": "19caf55f628f210a8179193259de8cda97b602c5",
+    "localAssetsPackage": {
+      "zip": "/workspace/output/Poolrooms_Encuentro_Completo_Assets.zip",
+      "files": 1035,
+      "bytes": 329441001,
+      "sha256": "335be15b9b92baa4f4cfc77752c56a6f1d1b015933595f58f708109767c41eb9",
+      "sourceRevision": "19caf55f628f210a8179193259de8cda97b602c5",
+      "workingTreeChanged": false
+    },
+    "publicSourceDownload": {
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/19caf55f628f210a8179193259de8cda97b602c5",
+      "revision": "19caf55f628f210a8179193259de8cda97b602c5",
+      "path": "/workspace/output/Poolrooms_Encuentro_Repositorio.zip",
+      "bytes": 508120298,
+      "sha256": "abc372ec8ce4db16f67d6e0f169271f09a54edd976e7cbd9c7d41eabc385d24d",
+      "crc": "passed",
+      "trackedFilesMatched": 1329,
+      "assetsFilesMatched": 1035
     }
   },
-  "claims": "Core assertions are not native Unity tests. Zero new downloaded 3D models or mocap; eleven CC BY 3.0 external icons. Existing licensed furniture reused.",
+  "claims": "Core assertions are not native Unity tests. Zero new downloaded 3D models or mocap; eleven CC BY 3.0 external icons. Existing licensed furniture reused. The current GitHub Actions run is still pending; no successful result claimed.",
   "additionalAudits": {
     "biomeExtent": "Verification/encuentro_extents.txt",
     "generation": "Verification/encuentro_generation.txt",
     "historicalCoreCompatibility": "Verification/encuentro_historical.txt",
     "passed": true
+  },
+  "ci": {
+    "runId": 39383935148,
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39383935148",
+    "status": "in_progress",
+    "conclusion": null,
+    "revision": "19caf55f628f210a8179193259de8cda97b602c5",
+    "nativeUnity": false
   }
 }

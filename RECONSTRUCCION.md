@@ -775,3 +775,10 @@ auditorías explícitas de generación y extensión de biomas, compilación del 
 histórico y rechazos esperados, y nueve verificadores de recursos/licencias.
 El muestreo nuevo revisa 215 salas, 80 rincones amueblados, 206 notas apoyadas
 en paredes, 153 transiciones distintas y 27 rutas a pie. No son tests nativos.
+
+Entrega de código de Encuentro: `19caf55f628f210a8179193259de8cda97b602c5`.
+ZIP de Assets completo: 1.035 archivos, 329.441.001 bytes, CRC y hashes correctos.
+Se descargó nuevamente el repositorio público: ZIP de 508.120.298 bytes,
+1.329 archivos versionados y los 1.035 de Assets coinciden por SHA-256.
+El CI 39383935148 continúa en curso al registrar esta evidencia; no se declara
+aprobado. Pruebas nativas de Unity, apariencia, audio y FPS siguen sin ejecutar.

@@ -3148,6 +3148,16 @@
       "generationAudit": "passed",
       "biomeExtents": "passed",
       "historicalCoreCompile": "passed"
+    },
+    "delivery": {
+      "revision": "19caf55f628f210a8179193259de8cda97b602c5",
+      "assetsFiles": 1035,
+      "assetsZipBytes": 329441001,
+      "newPublicSourceBytes": 508120298,
+      "publicDownloadFilesMatched": 1329,
+      "nativeUnity": false,
+      "githubCiStatus": "in_progress",
+      "githubCiRunId": 39383935148
     }
   }
 }
