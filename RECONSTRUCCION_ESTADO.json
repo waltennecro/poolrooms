@@ -1635,7 +1635,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "Back up Horizonte-Alas and the existing R34 metadata commits without rewriting history; then validate the imported package in Unity/HDRP (PlayMode, API compilation, wing visibility/collisions, static OBJ, visuals and FPS). Literal historical family/model targets remain unfinished.",
+  "nextIndependentWork": "Push historical verifier fix; monitor a new full CI and package. Assets are unchanged from 32e755c. Do not report failed run 39345076315 as success.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1832,11 +1832,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "zip": "/workspace/output/Poolrooms_R34_Refinado_Revision_Final_Assets.zip",
-    "files": 923,
-    "bytes": 314294407,
-    "sha256": "3cb085fcbcb1fcd308d33e1c4acd60d6659c772eb96d011dbdf7df807f203481",
-    "sourceRevision": "7429aecdd397c7ad2b9099006a456036ba8d6995",
+    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_Assets.zip",
+    "files": 946,
+    "bytes": 314402192,
+    "sha256": "8f93f60c223b735fabbdc9271b883c9455b92333c032179cf07901bedd8c8559",
+    "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -2625,7 +2625,11 @@
     "logHashes": {
       "alas_full_final.log": "f959a5face274b886bcd3e7f33b9c5a066f34c84e86f331f7c62730b32abfb33",
       "alas_strict_final.log": "d2b2800405d034ef701ebb01d8a1b5eade5ba29ded9e552860cce7e10fe786f0",
-      "alas_wings_final.log": "d6a13a64724110178d078d5f6cbd2c4c8d3ffaa7dd9e95ff242fc28d78790ba4"
+      "alas_wings_final.log": "d6a13a64724110178d078d5f6cbd2c4c8d3ffaa7dd9e95ff242fc28d78790ba4",
+      "alas_historical_repro.log": "1806fe66a9dc9e8a4e39c59d925eaa00c172cac16815200f2b46051235e6e07b",
+      "alas_historical_fixed.log": "f85c20a87bc6dd0605abc24b4a1bc61fe90b00c736b2cf55e589b1cf7dbb3f0e",
+      "alas_ci_fix_build.log": "34953c55849cea3b80308a087c156491a566fa5cd5b81e00d7058bec051d5228",
+      "alas_ci_fix_wings.log": "d6a13a64724110178d078d5f6cbd2c4c8d3ffaa7dd9e95ff242fc28d78790ba4"
     },
     "pending": [
       "Unity 6.3/HDRP API compilation",
@@ -2636,7 +2640,8 @@
     "ci": {
       "firstRun": 39343998681,
       "conclusion": "cancelled_by_us_for_mesh_refinement",
-      "finalRun": "pending_push"
+      "finalRun": "pending_push_after_compatibility_fix",
+      "failedHistoricalCompatibilityRun": 39345076315
     },
     "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md",
     "geometryReview": {
@@ -2645,6 +2650,65 @@
       "oldCoreRegression": "Expected failure: Feather roots float below the supporting spar: 0",
       "finalGeometryAndVisibilityProbes": "passed",
       "unchangedMaximumTrianglesPerWing": 7744
+    },
+    "ciCompatibilityFix": {
+      "run": 39345076315,
+      "failedStep": "Compare all 200010 architectures in 21 batches against immutable R33",
+      "reproducedError": "CS0246: WingPreferences/WingFlight/WingSpeed/WingCatalog absent from immutable R33 Core",
+      "fix": "Scope the new wing verifier out of the historical-only project; reject --wings explicitly in that historical build. Current core always keeps wing checks. Do not change archived Core or reviewed room evidence.",
+      "historicalBuildWarnings": 0,
+      "historicalBuildErrors": 0,
+      "oldBevelRegressionReproduced": true,
+      "historicalWingCheckExplicitlyRejected": true,
+      "currentWingAndSourceAssertions": 4682948,
+      "nativeUnityExecuted": false
+    }
+  },
+  "wingFlightDelivery": {
+    "release": "Horizonte · Alas",
+    "sourceCodeRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "implementationStatus": "complete_core_checks_passed_native_unrun",
+    "finalCiRun": 39345076315,
+    "finalCiUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39345076315",
+    "finalCiStatus": "historical_verifier_failure_reproduced_and_fixed_locally",
+    "localAssetsPackage": {
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_Assets.zip",
+      "files": 946,
+      "bytes": 314402192,
+      "sha256": "8f93f60c223b735fabbdc9271b883c9455b92333c032179cf07901bedd8c8559",
+      "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+      "workingTreeChanged": false
+    },
+    "publicSourceZip": "https://codeload.github.com/waltennecro/poolrooms/zip/32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "publicDownloadAudit": {
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+      "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+      "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_GitHub.zip",
+      "bytes": 492993196,
+      "sha256": "2b635707f7f1e13576bc012fbd4cea9c105a220ca0c86a092f03cadf6c773d00",
+      "crc": "passed",
+      "trackedFilesMatched": 1200,
+      "assetsFilesMatched": 946
+    },
+    "nativeUnityExecuted": false,
+    "newNativeTests": 3,
+    "geometryVariants": 144,
+    "geometryFamilies": 12,
+    "externalIcons": 12,
+    "newExternalWingModels": 0,
+    "evidence": "Verification/wings_horizonte.json",
+    "nextAction": "Push historical verifier fix; monitor a new full CI and package. Assets are unchanged from 32e755c. Do not report failed run 39345076315 as success.",
+    "ciCompatibilityFix": {
+      "run": 39345076315,
+      "failedStep": "Compare all 200010 architectures in 21 batches against immutable R33",
+      "reproducedError": "CS0246: WingPreferences/WingFlight/WingSpeed/WingCatalog absent from immutable R33 Core",
+      "fix": "Scope the new wing verifier out of the historical-only project; reject --wings explicitly in that historical build. Current core always keeps wing checks. Do not change archived Core or reviewed room evidence.",
+      "historicalBuildWarnings": 0,
+      "historicalBuildErrors": 0,
+      "oldBevelRegressionReproduced": true,
+      "historicalWingCheckExplicitlyRejected": true,
+      "currentWingAndSourceAssertions": 4682948,
+      "nativeUnityExecuted": false
     }
   }
 }

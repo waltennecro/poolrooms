@@ -77,7 +77,11 @@
   "logHashes": {
     "alas_full_final.log": "f959a5face274b886bcd3e7f33b9c5a066f34c84e86f331f7c62730b32abfb33",
     "alas_strict_final.log": "d2b2800405d034ef701ebb01d8a1b5eade5ba29ded9e552860cce7e10fe786f0",
-    "alas_wings_final.log": "d6a13a64724110178d078d5f6cbd2c4c8d3ffaa7dd9e95ff242fc28d78790ba4"
+    "alas_wings_final.log": "d6a13a64724110178d078d5f6cbd2c4c8d3ffaa7dd9e95ff242fc28d78790ba4",
+    "alas_historical_repro.log": "1806fe66a9dc9e8a4e39c59d925eaa00c172cac16815200f2b46051235e6e07b",
+    "alas_historical_fixed.log": "f85c20a87bc6dd0605abc24b4a1bc61fe90b00c736b2cf55e589b1cf7dbb3f0e",
+    "alas_ci_fix_build.log": "34953c55849cea3b80308a087c156491a566fa5cd5b81e00d7058bec051d5228",
+    "alas_ci_fix_wings.log": "d6a13a64724110178d078d5f6cbd2c4c8d3ffaa7dd9e95ff242fc28d78790ba4"
   },
   "pending": [
     "Unity 6.3/HDRP API compilation",
@@ -88,7 +92,8 @@
   "ci": {
     "firstRun": 39343998681,
     "conclusion": "cancelled_by_us_for_mesh_refinement",
-    "finalRun": "pending_push"
+    "finalRun": "pending_push_after_compatibility_fix",
+    "failedHistoricalCompatibilityRun": 39345076315
   },
   "documentation": "Assets/PoolroomsProcedural/Documentation/Alas_Horizonte.md",
   "geometryReview": {
@@ -97,5 +102,17 @@
     "oldCoreRegression": "Expected failure: Feather roots float below the supporting spar: 0",
     "finalGeometryAndVisibilityProbes": "passed",
     "unchangedMaximumTrianglesPerWing": 7744
+  },
+  "ciCompatibilityFix": {
+    "run": 39345076315,
+    "failedStep": "Compare all 200010 architectures in 21 batches against immutable R33",
+    "reproducedError": "CS0246: WingPreferences/WingFlight/WingSpeed/WingCatalog absent from immutable R33 Core",
+    "fix": "Scope the new wing verifier out of the historical-only project; reject --wings explicitly in that historical build. Current core always keeps wing checks. Do not change archived Core or reviewed room evidence.",
+    "historicalBuildWarnings": 0,
+    "historicalBuildErrors": 0,
+    "oldBevelRegressionReproduced": true,
+    "historicalWingCheckExplicitlyRejected": true,
+    "currentWingAndSourceAssertions": 4682948,
+    "nativeUnityExecuted": false
   }
 }

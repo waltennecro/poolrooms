@@ -1,0 +1,47 @@
+{
+  "release": "Horizonte · Alas",
+  "sourceCodeRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+  "implementationStatus": "complete_core_checks_passed_native_unrun",
+  "finalCiRun": 39345076315,
+  "finalCiUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39345076315",
+  "finalCiStatus": "historical_verifier_failure_reproduced_and_fixed_locally",
+  "localAssetsPackage": {
+    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_Assets.zip",
+    "files": 946,
+    "bytes": 314402192,
+    "sha256": "8f93f60c223b735fabbdc9271b883c9455b92333c032179cf07901bedd8c8559",
+    "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "workingTreeChanged": false
+  },
+  "publicSourceZip": "https://codeload.github.com/waltennecro/poolrooms/zip/32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+  "publicDownloadAudit": {
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "sourceRevision": "32e755c51fb1f59e6856a58ad2c53a848866b4ee",
+    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Entrega_GitHub.zip",
+    "bytes": 492993196,
+    "sha256": "2b635707f7f1e13576bc012fbd4cea9c105a220ca0c86a092f03cadf6c773d00",
+    "crc": "passed",
+    "trackedFilesMatched": 1200,
+    "assetsFilesMatched": 946
+  },
+  "nativeUnityExecuted": false,
+  "newNativeTests": 3,
+  "geometryVariants": 144,
+  "geometryFamilies": 12,
+  "externalIcons": 12,
+  "newExternalWingModels": 0,
+  "evidence": "Verification/wings_horizonte.json",
+  "nextAction": "Push historical verifier fix; monitor a new full CI and package. Assets are unchanged from 32e755c. Do not report failed run 39345076315 as success.",
+  "ciCompatibilityFix": {
+    "run": 39345076315,
+    "failedStep": "Compare all 200010 architectures in 21 batches against immutable R33",
+    "reproducedError": "CS0246: WingPreferences/WingFlight/WingSpeed/WingCatalog absent from immutable R33 Core",
+    "fix": "Scope the new wing verifier out of the historical-only project; reject --wings explicitly in that historical build. Current core always keeps wing checks. Do not change archived Core or reviewed room evidence.",
+    "historicalBuildWarnings": 0,
+    "historicalBuildErrors": 0,
+    "oldBevelRegressionReproduced": true,
+    "historicalWingCheckExplicitlyRejected": true,
+    "currentWingAndSourceAssertions": 4682948,
+    "nativeUnityExecuted": false
+  }
+}

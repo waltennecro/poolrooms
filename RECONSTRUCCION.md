@@ -665,3 +665,14 @@ la corrección. El primer CI fue cancelado para validar una revisión nueva.
 
 La sincronización pendiente de notas R34 quedó resuelta al publicar 4e19356;
 se preservaron los commits locales anteriores sin forzar el historial.
+
+Horizonte, compatibilidad del verificador histórico: el CI 39345076315 detectó
+que copiar las pruebas actuales de alas al núcleo R33 inmutable producía CS0246
+porque ese núcleo todavía no tenía esas clases. Se reprodujo localmente.
+El proyecto histórico ahora declara explícitamente su alcance y rechaza
+--wings con error; el proyecto actual conserva y ejecuta todas las pruebas de
+alas. El Core archivado, las comparaciones de salas y sus 21 hashes revisados
+no se modifican. La compilación histórica vuelve a pasar sin avisos, sigue
+reproduciendo el fallo geométrico esperado y no puede informar alas verificadas.
+Las pruebas actuales de alas y contratos también pasan. CI completo pendiente
+de una ejecución nueva; no se presenta la ejecución fallida como aprobada.

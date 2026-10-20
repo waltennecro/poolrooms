@@ -43,12 +43,21 @@ def prepare_baseline(output, dotnet):
         shutil.copy2(source, verification / source.name)
     shutil.copy2(ROOT / "Verification/Poolrooms.Checks.csproj", verification)
     csproj = str(verification / "Poolrooms.Checks.csproj")
-    run(dotnet, "build", csproj, "--configuration", "Release", "-warnaserror", cwd=project)
+    # The historical core intentionally predates player wings. Keep all room
+    # checks identical, but do not compile WingChecks against nonexistent APIs.
+    # Current-core builds never set this property and still execute wing tests.
+    historical_property = "-p:PoolroomsHistoricalCore=true"
+    run(dotnet, "build", csproj, "--configuration", "Release", "-warnaserror", historical_property, cwd=project)
     regression = subprocess.run([dotnet, "run", "--no-build", "--configuration", "Release", "--project", csproj,
-                                 "--", "--restful-refinement"], cwd=project, text=True, capture_output=True)
+                                 historical_property, "--", "--restful-refinement"], cwd=project, text=True, capture_output=True)
     (output / "before-regression.log").write_text(regression.stdout + regression.stderr)
     if regression.returncode == 0 or "Table edge has no physical sloped bevel" not in regression.stderr:
         raise SystemExit("Old implementation did not reproduce the expected geometric failure")
+    wings = subprocess.run([dotnet, "run", "--no-build", "--configuration", "Release", "--project", csproj,
+                            historical_property, "--", "--wings"], cwd=project, text=True, capture_output=True)
+    (output / "historical-wing-rejection.log").write_text(wings.stdout + wings.stderr)
+    if wings.returncode == 0 or "historical room comparison cannot validate wings" not in wings.stderr:
+        raise SystemExit("Historical core must reject wing validation, never report a false pass")
     return csproj
 
 
@@ -66,7 +75,7 @@ def main():
     if args.baseline_dir is None:
         baseline_project = prepare_baseline(output, args.dotnet)
         run(args.dotnet, "run", "--no-build", "--configuration", "Release", "--project", baseline_project,
-            "--", "--restful-batches", str(before))
+            "-p:PoolroomsHistoricalCore=true", "--", "--restful-batches", str(before))
     after = args.refined_dir.resolve() if args.refined_dir else output / "after"
     if args.refined_dir is None:
         run(args.dotnet, "run", "--no-build", "--configuration", "Release", "--project", "Verification/Poolrooms.Checks.csproj",
