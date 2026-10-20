@@ -3181,6 +3181,16 @@
     "nativeMaterialTestsAdded": 2,
     "nativeMaterialTestsRun": false,
     "documentation": "Assets/PoolroomsProcedural/Documentation/Agua_cristalina.md",
-    "evidence": "Verification/crystal_water_delivery.json"
+    "evidence": "Verification/crystal_water_delivery.json",
+    "delivery": {
+      "revision": "628a3ec9bf25ff8d341d60858cb286d0e543a42c",
+      "assetsFiles": 1037,
+      "assetsZipBytes": 329444542,
+      "publicSourceZipBytes": 508131391,
+      "newPublicDownloadFilesMatched": 1335,
+      "ciRunId": 39455673680,
+      "ciStatus": "in_progress",
+      "unityExecuted": false
+    }
   }
 }

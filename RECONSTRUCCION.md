@@ -798,3 +798,10 @@ Cierre de la óptica: 97.115 aserciones de óptica/contratos de integración,
 regresión completa del núcleo con 1.848.203.400 aserciones y las 188 geometrías
 protegidas aprobadas. Se añaden dos pruebas nativas de materiales aún sin ejecutar.
 Detalles, límites y referencias oficiales en `Verification/crystal_water_delivery.json`.
+
+Entrega de Agua cristalina: `628a3ec9bf25ff8d341d60858cb286d0e543a42c`.
+Paquete completo de Assets: 1.037 archivos, 329.444.542 bytes, CRC y SHA-256
+verificados. Una descarga pública nueva del código produjo 508.131.391 bytes;
+los 1.335 archivos versionados coinciden por SHA-256, incluidos todos los Assets.
+El CI 39455673680 sigue en ejecución. Los CI de Encuentro 39383935148 y
+39383502982 ya terminaron correctamente. No se ha ejecutado Unity.

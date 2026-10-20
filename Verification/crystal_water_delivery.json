@@ -46,5 +46,32 @@
   },
   "graphicsCost": "Existing ripples, caustics, tessellation and probe budgets unchanged. No new textures or captures.",
   "manualAppearancePreserved": true,
-  "delivery": "pending final commit and packaging"
+  "delivery": {
+    "revision": "628a3ec9bf25ff8d341d60858cb286d0e543a42c",
+    "assetsPackage": {
+      "zip": "/workspace/output/Poolrooms_Agua_Cristalina_Completo_Assets.zip",
+      "files": 1037,
+      "bytes": 329444542,
+      "sha256": "29176e5be98b6b0394e89692948f46eafa9f35566e4a477e5fdaf3a63ee07b77",
+      "sourceRevision": "628a3ec9bf25ff8d341d60858cb286d0e543a42c",
+      "workingTreeChanged": false
+    },
+    "publicSourceDownload": {
+      "revision": "628a3ec9bf25ff8d341d60858cb286d0e543a42c",
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/628a3ec9bf25ff8d341d60858cb286d0e543a42c",
+      "path": "/workspace/output/Poolrooms_Agua_Cristalina_Repositorio.zip",
+      "bytes": 508131391,
+      "sha256": "905bed741e53ca74b6d6443c8f70fa53133be382f699c38f46618710f0205faa",
+      "crc": "passed",
+      "trackedFilesMatched": 1335,
+      "assetsFilesMatched": 1037
+    },
+    "githubCi": {
+      "runId": 39455673680,
+      "status": "in_progress",
+      "conclusion": null
+    },
+    "historicalCoreCompatibility": "passed, expected historical geometry/wing rejections preserved",
+    "otherResources": "PBR textures, encounter resources and immersive audio audits passed"
+  }
 }
