@@ -1,0 +1,3 @@
+Scenery real-room sample: 95 furnished rooms, 798 additional instances; empty/complex rooms may conservatively reject additions.
+PASS: scenery 696 open-room biome/seed plans, 1392 clusters, 7172 instances, 41 distinct authored arrangements, 12 stories; native Unity/physics/FPS unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

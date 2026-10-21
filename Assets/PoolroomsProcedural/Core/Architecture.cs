@@ -78,7 +78,11 @@ namespace Poolrooms.Core
             if(r.Plan!=null&&r.Plan.Aquatic!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.AquaticPark;}
             if(r.Plan!=null&&r.Plan.Baths!=null){output.Dressing.First.Theme=output.Dressing.Second.Theme=SurfaceTheme.ThermalStone;}
             RegionalSourcePlanner.Append(output,r,cfg);
-            if(cfg.EncounterExploration)output.Life=RoomLifePlanner.Build(r,output,cfg);
+            if(cfg.EncounterExploration)
+            {
+                output.Life=RoomLifePlanner.Build(r,output,cfg);
+                output.Life.Scenery=SceneryPlanner.Build(r,output,cfg);
+            }
             return output;
         }
         private static RoomGeometry BuildBase(Room r,LayoutConfig cfg)

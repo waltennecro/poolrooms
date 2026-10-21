@@ -15,6 +15,7 @@ namespace Poolrooms.Core
     public sealed class RoomLifePlan
     {
         public RoomVignette Vignette;
+        public SceneryPlan Scenery;
         public DressingAnchor? Notice;
         public readonly List<LifePlacement> Furniture=new List<LifePlacement>();
         public List<StationPlacement> Stations=new List<StationPlacement>();
@@ -87,9 +88,9 @@ namespace Poolrooms.Core
                         if(Math.Abs(p.Bottom.X-prop.Bottom.X)<half.X+Math.Max(size.X,size.Z)*.5f&&Math.Abs(p.Bottom.Z-prop.Bottom.Z)<half.Z+Math.Max(size.X,size.Z)*.5f&&prop.Bottom.Y<p.Bottom.Y+SourceFurniture.Dimensions(p.Source).Y&&prop.Bottom.Y+size.Y>p.Bottom.Y)return false;
                     }
                     else if(prop.Source!=null)
-                    {for(int index=0;index<14;index++)if(SourceFurniture.Id(index)==prop.Source&&Overlap(p,new SourceFurniturePlacement(0,index,prop.Bottom,prop.Yaw)))return false;}
+                    {for(int index=0;index<SourceFurniture.Count;index++)if(SourceFurniture.Id(index)==prop.Source&&Overlap(p,new SourceFurniturePlacement(0,index,prop.Bottom,prop.Yaw)))return false;}
                 }
-                foreach(int dx in new[]{-1,0,1})foreach(int dz in new[]{-1,0,1})if(!RegionalSourcePlanner.Supported(geometry.Structure,new V3(p.Bottom.X+dx*half.X,p.Bottom.Y-.006f,p.Bottom.Z+dz*half.Z)))return false;
+                for(int dx=-1;dx<=1;dx++)for(int dz=-1;dz<=1;dz++)if(!RegionalSourcePlanner.Supported(geometry.Structure,new V3(p.Bottom.X+dx*half.X,p.Bottom.Y-.006f,p.Bottom.Z+dz*half.Z)))return false;
                 return true;
             }
         }

@@ -38,6 +38,8 @@ Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --w
 
 Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --frontend` and `python tools/verify_frontend_art.py` for independent-menu flow and original background audits. Keep gameplay uninstantiated in the dedicated entry scene until Play is selected; returning to title must preserve the open session.
 
+Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --scenery` for the appended furnishing layer. Preserve recipe/anchor/piece pickup keys, both protected crossing axes and source-model dimensions; optional budget exhaustion must not stop structural streaming.
+
 ## Coding Style & Naming Conventions
 
 Use four-space indentation, PascalCase types/methods, and camelCase fields. Follow nearby compact C# formatting. Keep Core free of Unity references and generation deterministic. Append serialized enum values; preserve existing IDs. Keep the flashlight unchanged unless specifically requested. Prefer suitable high-quality external assets with verified licences, provenance, attribution and bounded placement/LOD costs.

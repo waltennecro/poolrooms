@@ -28,6 +28,8 @@ jobs:
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --mall-retail
       - name: Check twelve workshops, constructive solutions, state meshes and bounded session memory
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --workshops
+      - name: Check procedural furnishing, real-room integration, support, clearance and bounded work
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --scenery
       - name: Check independent frontend lifecycle, cancellation, seed selection and transitions
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --frontend
       - name: Check large procedural regions, broad halls and bounded walking routes

@@ -48,6 +48,14 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--scenery"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Scenery checks require current Core.");
+#else
+            SceneryWorld();IntegrationSourceContracts();return 0;
+#endif
+        }
         if(args.Contains("--frontend"))
         {
 #if POOLROOMS_HISTORICAL_CORE
@@ -200,7 +208,7 @@ static partial class Checks
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
 #if !POOLROOMS_HISTORICAL_CORE
-        JourneyLevels();MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();WorkshopWorld();FrontendContract();
+        JourneyLevels();MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();WorkshopWorld();FrontendContract();SceneryWorld();
 #endif
         IntegrationSourceContracts();
         ForgivingJumpTiming();

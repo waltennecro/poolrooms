@@ -52,6 +52,7 @@ namespace Poolrooms
                 var interaction=go.AddComponent<PoolroomsInteractable>();interaction.world=world;interaction.activity=RoomActivity.Notice;interaction.key=prefix+"notice";interaction.title=plan.Vignette.Title;interaction.note=plan.Vignette.Note;
             }
             PoolroomsStation.Attach(world,root.transform,owner,plan.Stations,prefix);
+            PoolroomsScenery.Attach(world,room,parent,plan.Scenery);
             foreach(var p in plan.Furniture)
             {
                 string key=prefix+p.Slot;if(carry!=null&&carry.WasTaken(key))continue;

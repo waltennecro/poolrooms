@@ -36,9 +36,12 @@ namespace Poolrooms.Core
         // This runs on the pure geometry worker, never as a per-frame physics scan.
         public static bool Clear(MeshData mesh,SourceFurniturePlacement p,float margin=.04f)
         {
+            if(mesh==null||!ScenerySafety.Finite(margin)||margin<0||
+                !ScenerySafety.TryBounds(p.Source,p.Bottom,p.Yaw,out var bounds))return false;
             var half=HalfExtents(p.Source,p.Yaw,margin);var center=p.Bottom+V3.Up*half.Y;
             foreach(var indices in mesh.Indices)for(int i=0;i<indices.Count;i+=3)
             {
+                if(i+2>=indices.Count||!ScenerySafety.Triangle(mesh,indices[i],indices[i+1],indices[i+2]))return false;
                 var a=mesh.Positions[indices[i]];var b=mesh.Positions[indices[i+1]];var c=mesh.Positions[indices[i+2]];
                 if(Math.Max(a.X,Math.Max(b.X,c.X))<center.X-half.X||Math.Min(a.X,Math.Min(b.X,c.X))>center.X+half.X||
                    Math.Max(a.Y,Math.Max(b.Y,c.Y))<center.Y-half.Y||Math.Min(a.Y,Math.Min(b.Y,c.Y))>center.Y+half.Y||
