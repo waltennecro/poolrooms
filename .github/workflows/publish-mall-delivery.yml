@@ -7,6 +7,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     env:
       SOURCE_REVISION: 48010e21991f2ef848f2dac64d7910cc268400ee
       VERIFIED_RUN: '39558036573'
@@ -16,6 +17,7 @@ jobs:
       - name: Require successful full verification of the exact source commit
         shell: bash
         run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
           gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/verified-run.json
           python - <<'PY'
           import json,os
