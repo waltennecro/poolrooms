@@ -1,7 +1,7 @@
 {
   "baseRevision": "6117a21c53862e6ad498c3e20ed401c6b49de114",
   "request": "Expand existing levels and add twenty substantial walkable procedural levels; usable content under Assets, up to a 6 GB budget without filler.",
-  "status": "implemented_local_core_and_resources_checked",
+  "status": "published_core_verified_native_unrun",
   "scope": {
     "newCatalogueLevels": 20,
     "preserveSerializedIds": true,
@@ -11,7 +11,7 @@
     "budgetIsNotPaddingTarget": true
   },
   "checks": {
-    "core": "Full local core suite passed before final furniture-obstacle refinement; final focused Journey and immersion suites passed after refinement. Final full GitHub run pending.",
+    "core": "Full GitHub verification of delivered source passed; local focused Journey, immersion and historical comparison passed.",
     "resources": "All new file hashes, geometry/LODs, runtime map bindings, source notices and gloss channels passed.",
     "Unity": "unavailable",
     "visualsPhysicsFPS": "unrun",
@@ -28,12 +28,22 @@
       "detail": "Immutable R33 CorridorGeometry predates Natural; current-source checks passed. Historical-only guard added; baseline now builds with zero errors/warnings and reproduces its expected pre-refinement failure."
     },
     "historicalCompatibility": "passed_local_rebuild_and_expected_regression",
-    "fullGithubFinal": "pending"
+    "fullGithubFinal": {
+      "conclusion": "success",
+      "databaseId": 39633700771,
+      "headSha": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
+      "status": "completed",
+      "url": "https://github.com/waltennecro/poolrooms/actions/runs/39633700771"
+    },
+    "historicalComparison": "200010 rooms, 21 batches; report identical to reviewed R34 regression record"
   },
   "pending": [
-    "Final full GitHub verification of exact delivered commit",
-    "Public complete Assets package and checksums",
-    "Native Unity/HDRP compilation, shaders, appearance, PhysX, import tests and FPS"
+    "Unity/HDRP API compilation",
+    "Shader compilation",
+    "Appearance",
+    "PhysX",
+    "FPS",
+    "PlayMode tests"
   ],
   "newCatalogueLevels": 20,
   "totalCatalogueBiomes": 58,
@@ -48,5 +58,64 @@
   "newRuntimeResourceBytes": 385547721,
   "assetsBytes": 1295917482,
   "paddingBytes": 0,
-  "licensedReferenceThumbnails": 43
+  "licensedReferenceThumbnails": 43,
+  "assetsFiles": 1582,
+  "delivery": {
+    "sourceRevision": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
+    "fullCoreRun": {
+      "conclusion": "success",
+      "databaseId": 39633700771,
+      "headSha": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
+      "status": "completed",
+      "url": "https://github.com/waltennecro/poolrooms/actions/runs/39633700771"
+    },
+    "publicationRun": {
+      "conclusion": "success",
+      "databaseId": 39633839222,
+      "headSha": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
+      "status": "completed",
+      "url": "https://github.com/waltennecro/poolrooms/actions/runs/39633839222"
+    },
+    "releaseUrl": "https://github.com/waltennecro/poolrooms/releases/tag/veinte-destinos",
+    "downloadUrl": "https://github.com/waltennecro/poolrooms/releases/download/veinte-destinos/Poolrooms_Veinte_Destinos_Assets.zip",
+    "hostedBytes": 1037034618,
+    "sha256": "b80ba8b5b7d4762d016824fc41923f742bd041fdcabd8d29739d3c8f296c4d1e",
+    "assetsFiles": 1582,
+    "assetsBytes": 1295917482,
+    "assetsBudgetBytes": 6000000000,
+    "paddingBytes": 0,
+    "localPackageEveryFileCRCAndSHA256": true,
+    "hostedDigestMatchesLocal": true,
+    "publicDownloadProbe": {
+      "url": "https://github.com/waltennecro/poolrooms/releases/download/veinte-destinos/Poolrooms_Veinte_Destinos_Assets.zip",
+      "status": 206,
+      "bytesRead": 64,
+      "contentRange": "bytes 0-63/1037034618",
+      "contentLength": "64",
+      "zipSignature": "504b0304"
+    },
+    "partialDownloadIsNotFullSecondDownload": true,
+    "historicalComparisonRooms": 200010,
+    "historicalComparisonBatches": 21,
+    "historicalReportMatchesReviewedReport": true,
+    "newCatalogueLevels": 20,
+    "totalCatalogueBiomes": 58,
+    "otherConnectedEnvironments": [
+      "Complete mall",
+      "Level94"
+    ],
+    "newSourceModels": 8,
+    "lodDerivatives": 16,
+    "surfaceDefinitions": 43,
+    "newPngMaps": 170,
+    "nativeUnityExecuted": false,
+    "nativePending": [
+      "Unity/HDRP API compilation",
+      "Shader compilation",
+      "Appearance",
+      "PhysX",
+      "FPS",
+      "PlayMode tests"
+    ]
+  }
 }

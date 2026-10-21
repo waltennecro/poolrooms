@@ -1,0 +1,58 @@
+{
+  "sourceRevision": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
+  "fullCoreRun": {
+    "conclusion": "success",
+    "databaseId": 39633700771,
+    "headSha": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
+    "status": "completed",
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39633700771"
+  },
+  "publicationRun": {
+    "conclusion": "success",
+    "databaseId": 39633839222,
+    "headSha": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
+    "status": "completed",
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39633839222"
+  },
+  "releaseUrl": "https://github.com/waltennecro/poolrooms/releases/tag/veinte-destinos",
+  "downloadUrl": "https://github.com/waltennecro/poolrooms/releases/download/veinte-destinos/Poolrooms_Veinte_Destinos_Assets.zip",
+  "hostedBytes": 1037034618,
+  "sha256": "b80ba8b5b7d4762d016824fc41923f742bd041fdcabd8d29739d3c8f296c4d1e",
+  "assetsFiles": 1582,
+  "assetsBytes": 1295917482,
+  "assetsBudgetBytes": 6000000000,
+  "paddingBytes": 0,
+  "localPackageEveryFileCRCAndSHA256": true,
+  "hostedDigestMatchesLocal": true,
+  "publicDownloadProbe": {
+    "url": "https://github.com/waltennecro/poolrooms/releases/download/veinte-destinos/Poolrooms_Veinte_Destinos_Assets.zip",
+    "status": 206,
+    "bytesRead": 64,
+    "contentRange": "bytes 0-63/1037034618",
+    "contentLength": "64",
+    "zipSignature": "504b0304"
+  },
+  "partialDownloadIsNotFullSecondDownload": true,
+  "historicalComparisonRooms": 200010,
+  "historicalComparisonBatches": 21,
+  "historicalReportMatchesReviewedReport": true,
+  "newCatalogueLevels": 20,
+  "totalCatalogueBiomes": 58,
+  "otherConnectedEnvironments": [
+    "Complete mall",
+    "Level94"
+  ],
+  "newSourceModels": 8,
+  "lodDerivatives": 16,
+  "surfaceDefinitions": 43,
+  "newPngMaps": 170,
+  "nativeUnityExecuted": false,
+  "nativePending": [
+    "Unity/HDRP API compilation",
+    "Shader compilation",
+    "Appearance",
+    "PhysX",
+    "FPS",
+    "PlayMode tests"
+  ]
+}
