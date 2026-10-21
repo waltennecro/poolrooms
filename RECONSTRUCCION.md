@@ -871,3 +871,9 @@ Se corrigió también que la búsqueda de un modo especial dedicado se confundie
 con un bioma tranquilo desactivado. El CI anterior de Sala viva 39530026448 ya
 finalizó correctamente. Dos pruebas nativas nuevas; Unity, HDRP, aspecto, sonido
 y FPS sin ejecutar. Evidencia en `Verification/special_regions_delivery.json`.
+
+Respaldo funcional: `db65e160d00a07add367e36be53b156cfe873e0e`. ZIP acumulativo de Assets:
+1,080 archivos, 330,379,789 bytes, CRC y SHA-256 verificados.
+Descarga pública nueva: 509,099,076 bytes, los 1,395 archivos
+versionados y 1,080 Assets coinciden por SHA-256 con el código publicado.
+CI 39537031131 en ejecución al registrar la entrega; no se declara aprobado.

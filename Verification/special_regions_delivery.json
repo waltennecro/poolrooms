@@ -88,5 +88,32 @@
     "environments": 38,
     "matchedRegionPairs": 47935,
     "result": "PASS"
+  },
+  "delivery": {
+    "assetsPackage": {
+      "zip": "/workspace/output/Poolrooms_Diez_Regiones_Especiales_Completo_Assets.zip",
+      "files": 1080,
+      "bytes": 330379789,
+      "sha256": "1f590ff66dbd52b6dc588ea4a0c1d21004418270f71f63981efbf1715fb8f802",
+      "sourceRevision": "db65e160d00a07add367e36be53b156cfe873e0e",
+      "workingTreeChanged": false
+    },
+    "freshPublicDownload": {
+      "result": "PASS",
+      "sourceRevision": "db65e160d00a07add367e36be53b156cfe873e0e",
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/db65e160d00a07add367e36be53b156cfe873e0e",
+      "bytes": 509099076,
+      "sha256": "cce72c32084d5eaa81619d1d6d1ac5739563e3108896675d72bf1ea7826ba88b",
+      "matchedTrackedFiles": 1395,
+      "matchedAssetFiles": 1080,
+      "crc": "PASS"
+    },
+    "githubActions": {
+      "conclusion": null,
+      "head_sha": "db65e160d00a07add367e36be53b156cfe873e0e",
+      "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39537031131",
+      "id": 39537031131,
+      "status": "in_progress"
+    }
   }
 }

@@ -3282,6 +3282,17 @@
       "licensedSourceInstances": 168088,
       "distinctReusedSourceModels": 10,
       "simultaneouslyLoaded": false
+    },
+    "delivery": {
+      "sourceRevision": "db65e160d00a07add367e36be53b156cfe873e0e",
+      "assetsFiles": 1080,
+      "assetsZipBytes": 330379789,
+      "assetsZipSha256": "1f590ff66dbd52b6dc588ea4a0c1d21004418270f71f63981efbf1715fb8f802",
+      "publicZipBytes": 509099076,
+      "freshPublicTrackedFilesMatched": 1395,
+      "ciRunId": 39537031131,
+      "ciStatus": "in_progress",
+      "unityExecuted": false
     }
   }
 }
