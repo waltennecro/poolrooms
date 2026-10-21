@@ -1,0 +1,73 @@
+name: Publish verified mall delivery
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_REVISION: 48010e21991f2ef848f2dac64d7910cc268400ee
+      VERIFIED_RUN: '39558036573'
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require successful full verification of the exact source commit
+        shell: bash
+        run: |
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/verified-run.json
+          python - <<'PY'
+          import json,os
+          run=json.load(open('/tmp/verified-run.json'))
+          assert run['head_sha']==os.environ['SOURCE_REVISION']
+          assert run['status']=='completed' and run['conclusion']=='success', 'Full source verification must pass before publishing.'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: 48010e21991f2ef848f2dac64d7910cc268400ee
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Package every tracked authoring file and verify all hashes and CRCs
+        shell: bash
+        run: python tools/package_authoring.py --output "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Autoria_Completa.zip" > /tmp/authoring.json
+      - name: Package complete Assets and verify all hashes and CRCs
+        shell: bash
+        run: python tools/package_assets.py --stage centro-comercial-renovado --output "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Completo_Assets.zip" > /tmp/assets.json
+      - name: Generate truthful release notes, source record and archive checksums
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          full=json.load(open('/tmp/authoring.json'));assets=json.load(open('/tmp/assets.json'));root=pathlib.Path(os.environ['RUNNER_TEMP'])
+          assert full['sourceRevision']==assets['sourceRevision']==os.environ['SOURCE_REVISION'] and not assets['workingTreeChanged']
+          assert full['bytes']>1_400_000_000 and full['paddingBytes']==0
+          (root/'Poolrooms_Centro_Comercial_Renovado_SHA256.txt').write_text(''.join(x['sha256']+'  '+pathlib.Path(x['zip']).name+'\n' for x in [full,assets]))
+          (root/'Poolrooms_Centro_Comercial_Renovado_Entrega.json').write_text(json.dumps({'sourceRevision':os.environ['SOURCE_REVISION'],'successfulCoreRun':os.environ['VERIFIED_RUN'],'fullAuthoring':full,'assets':assets,'nativeUnityExecuted':False},indent=2)+'\n')
+          body='''Centro comercial renovado: interiores por categoría, seis diseños de techo, mobiliario según superficie, luz solar regional y luminarias por planta. Conserva entradas a pie, 2–6 plantas reales y distancia de renderizado.
+
+          14 modelos fuente adicionales CC0/CC BY, 28 LODs, 20 acabados, 161 mapas y 40 referencias/planos. Parte del catálogo paramétrico sigue presente; repeticiones y LODs no son modelos nuevos.
+
+          **Autoria_Completa.zip**: archivos reales sin recompresión, fuentes, licencias, herramientas, referencias y comprobaciones para trabajo offline. {fullbytes} bytes; sin relleno. Su tamaño no equivale al consumo de memoria ni a una descarga optimizada.
+
+          **Completo_Assets.zip**: paquete comprimido para Unity, {assetbytes} bytes. Importa `PoolroomsProcedural` dentro de `Assets`; deja `Sources`, `Verification` y `tools` fuera de Assets.
+
+          Ambos ZIP tienen CRC y SHA-256 por archivo comprobados. Incluye SHA256.txt y un registro de entrega.
+
+          La verificación completa del núcleo terminó correctamente: cero avisos/errores de núcleo, 188 geometrías protegidas y sintaxis C#9. APIs Unity/HDRP, shaders, aspecto, PhysX y FPS **no ejecutados**. Tres pruebas PlayMode nuevas pendientes. El refrigerador es una exposición estática; no se promete animación de puerta ni apariencia AAA verificada.
+
+          [Referencias y planos](https://github.com/waltennecro/poolrooms/tree/{sha}/Documentation/References/Mall) · [Guía](https://github.com/waltennecro/poolrooms/blob/{sha}/Assets/PoolroomsProcedural/Documentation/Centro_comercial_renovado.md)
+          '''.format(fullbytes=format(full['bytes'],','),assetbytes=format(assets['bytes'],','),sha=os.environ['SOURCE_REVISION'])
+          import textwrap
+          (root/'mall-release.md').write_text(textwrap.dedent(body))
+          print(json.dumps({'authoringBytes':full['bytes'],'assetsBytes':assets['bytes'],'sourceRevision':os.environ['SOURCE_REVISION']}))
+          PY
+      - name: Publish the two verified complete archives on GitHub
+        shell: bash
+        run: |
+          if gh release view centro-comercial-renovado >/dev/null 2>&1; then
+            gh release upload centro-comercial-renovado "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Autoria_Completa.zip" "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Completo_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_SHA256.txt" "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Entrega.json" --clobber
+            gh release edit centro-comercial-renovado --draft=false --notes-file "${RUNNER_TEMP}/mall-release.md"
+          else
+            gh release create centro-comercial-renovado --target "${SOURCE_REVISION}" --title "Centro comercial renovado" --notes-file "${RUNNER_TEMP}/mall-release.md" "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Autoria_Completa.zip" "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Completo_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_SHA256.txt" "${RUNNER_TEMP}/Poolrooms_Centro_Comercial_Renovado_Entrega.json"
+          fi
