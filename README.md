@@ -1,6 +1,6 @@
 # Poolrooms: mundo liminal procedural
 
-Actualización más reciente: [Talleres compartidos](https://github.com/waltennecro/poolrooms/releases/tag/talleres-compartidos). Doce actividades nuevas en los 58 biomas, estados visibles, sonidos espaciales existentes, pistas, deshacer y cuaderno. **2.056 líneas netas de C# del juego**, además de pruebas. [Guía](Assets/PoolroomsProcedural/Documentation/Talleres_Compartidos.md) · [Paquete completo](https://github.com/waltennecro/poolrooms/releases/download/talleres-compartidos/Poolrooms_Talleres_Compartidos_Assets.zip) · [Evidencia](Verification/workshop_delivery.json). Compilación estricta y CI completo superados; Unity/HDRP, controles, aspecto, audio y FPS pendientes.
+Actualización más reciente: [Menú principal independiente](https://github.com/waltennecro/poolrooms/releases/tag/menu-independiente). El mundo comienza después de elegir recorrido: destinos, semilla, ajustes, continuación de sesión y seis fondos originales con transiciones. [Guía de instalación y escena de inicio](Assets/PoolroomsProcedural/Documentation/Menu_Independiente.md) · [Paquete completo de Assets — 1,05 GB](https://github.com/waltennecro/poolrooms/releases/download/menu-independiente/Poolrooms_Menu_Independiente_Assets.zip) · [Evidencia](Verification/frontend_delivery.json). CI completo y paquete verificado; Unity/HDRP, controles, aspecto, audio y FPS pendientes. Incluye los talleres y todo el contenido anterior.
 
 ## Refinado R34 por lotes
 

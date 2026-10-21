@@ -1,0 +1,34 @@
+{
+  "sourceRevision": "c69887fd63923900a8b59f9ba8993b0676cc72a0",
+  "fullCoreRun": {
+    "id": 39658403947,
+    "head_sha": "c69887fd63923900a8b59f9ba8993b0676cc72a0",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39658403947"
+  },
+  "publicationRun": {
+    "id": 39658768478,
+    "head_sha": "c69887fd63923900a8b59f9ba8993b0676cc72a0",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39658768478"
+  },
+  "releaseUrl": "https://github.com/waltennecro/poolrooms/releases/tag/menu-independiente",
+  "downloadUrl": "https://github.com/waltennecro/poolrooms/releases/download/menu-independiente/Poolrooms_Menu_Independiente_Assets.zip",
+  "packageFiles": 1610,
+  "assetsBytes": 1310967942,
+  "zipBytes": 1051750483,
+  "sha256": "b5311f879d5095a644bf9ac926d42dd646b2f4b8e2ea648cc34deed0c3b5f019",
+  "hostedDigestAndSizeMatchLocal": true,
+  "publicPrefixProbe": {
+    "httpStatus": 206,
+    "prefixBytes": 64,
+    "zipHeaderValid": true,
+    "contentRange": "bytes 0-63/1051750483",
+    "fullDownload": false
+  },
+  "originalBackgrounds": 6,
+  "nativeUnityExecuted": false,
+  "fullCloudChecksAreNotNativeUnityTests": true
+}
