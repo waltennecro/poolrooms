@@ -967,3 +967,11 @@ Forbidden en uploads.github.com; el flujo `publish-mall-delivery.yml` publicará
 los archivos desde GitHub después del éxito del CI completo 39558036573.
 El paquete de autoría no tiene relleno y su tamaño no equivale al consumo de RAM
 ni a una descarga comprimida optimizada. APIs Unity, aspecto y FPS pendientes.
+
+Entrega publicada: https://github.com/waltennecro/poolrooms/releases/tag/centro-comercial-renovado .
+CI completo 39558036573 y publicación 39559344067 terminaron correctamente. Los
+dos ZIP alojados conservan exactamente los tamaños y SHA-256 de las copias locales
+verificadas. Ambos enlaces públicos respondieron HTTP 206 con cabecera ZIP válida
+y los tamaños totales esperados (se verificó el prefijo sin descargar otra copia).
+No se confunde esa prueba parcial HTTP con la verificación completa por archivos
+de la descarga codeload, ni con pruebas nativas Unity, que siguen pendientes.
