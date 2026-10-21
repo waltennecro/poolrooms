@@ -3443,12 +3443,12 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "revision": "c69887fd63923900a8b59f9ba8993b0676cc72a0",
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/menu-independiente",
-    "download": "https://github.com/waltennecro/poolrooms/releases/download/menu-independiente/Poolrooms_Menu_Independiente_Assets.zip",
-    "assetsBytes": 1310967942,
-    "zipBytes": 1051750483,
-    "sha256": "b5311f879d5095a644bf9ac926d42dd646b2f4b8e2ea648cc34deed0c3b5f019",
+    "revision": "cb2a67d633fe0efd8279f711d5b42a55d00138cc",
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/rincones-procedurales",
+    "download": "https://github.com/waltennecro/poolrooms/releases/download/rincones-procedurales/Poolrooms_Rincones_Procedurales_Assets.zip",
+    "assetsBytes": 1311085046,
+    "zipBytes": 1051780269,
+    "sha256": "cc3107977684396c052e1417f54b0083b9faa82b5463dfdcc01889ffe07ddf1e",
     "hostedDigestAndSizeMatchLocal": true,
     "publicRangeProbeStatus": 206
   },
@@ -3476,10 +3476,14 @@
   },
   "proceduralScenery": {
     "stateFile": "GENERACION_RINCONES_ESTADO.json",
-    "status": "implemented_local_verified_ci_pending_native_unrun",
+    "status": "published_full_core_verified_native_unrun",
     "authoredCompositions": 48,
     "stories": 12,
     "newExternalModels": 0,
-    "nativeUnityExecuted": false
+    "nativeUnityExecuted": false,
+    "sourceRevision": "cb2a67d633fe0efd8279f711d5b42a55d00138cc",
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/rincones-procedurales",
+    "successfulFullRun": "https://github.com/waltennecro/poolrooms/actions/runs/39681693203",
+    "deliveryEvidence": "Verification/scenery_delivery.json"
   }
 }

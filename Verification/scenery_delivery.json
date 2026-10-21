@@ -1,0 +1,37 @@
+{
+  "sourceRevision": "cb2a67d633fe0efd8279f711d5b42a55d00138cc",
+  "fullCoreRun": {
+    "id": 39681693203,
+    "head_sha": "cb2a67d633fe0efd8279f711d5b42a55d00138cc",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39681693203"
+  },
+  "publicationRun": {
+    "id": 39681733161,
+    "head_sha": "cb2a67d633fe0efd8279f711d5b42a55d00138cc",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39681733161"
+  },
+  "releaseUrl": "https://github.com/waltennecro/poolrooms/releases/tag/rincones-procedurales",
+  "downloadUrl": "https://github.com/waltennecro/poolrooms/releases/download/rincones-procedurales/Poolrooms_Rincones_Procedurales_Assets.zip",
+  "packageFiles": 1624,
+  "assetsBytes": 1311085046,
+  "zipBytes": 1051780269,
+  "sha256": "cc3107977684396c052e1417f54b0083b9faa82b5463dfdcc01889ffe07ddf1e",
+  "hostedDigestAndSizeMatchLocal": true,
+  "publicPrefixProbe": {
+    "httpStatus": 206,
+    "prefixBytes": 64,
+    "zipHeaderValid": true,
+    "contentRange": "bytes 0-63/1051780269",
+    "fullDownload": false
+  },
+  "nativeUnityExecuted": false,
+  "fullCloudChecksAreNotNativeUnityTests": true,
+  "localFullCoreAssertions": 1914677276,
+  "protectedGeometryFingerprints": 188,
+  "newAuthoredCompositions": 48,
+  "newExternalModels": 0
+}
