@@ -1602,7 +1602,7 @@
     "walkableDistrictBridgeCases": 10,
     "walkableCandidateRegions": 504,
     "walkableRegionBlocks": 9,
-    "sourceRevision": "634f967ae2329ae48e981035e153a1d474a272b3",
+    "sourceRevision": "48010e21991f2ef848f2dac64d7910cc268400ee",
     "waterOpticsTargetedAssertions": 87354,
     "lightUnitReducedBindingChecks": 6,
     "cameraAvatarFinalAssertions": 17899,
@@ -1804,14 +1804,15 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestPublicBackupDownload": {
-    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/8a0213701344fe8f8ab7defe2bd6e752446ac20a",
-    "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
-    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_GitHub.zip",
-    "bytes": 492996717,
-    "sha256": "4b008b776e6af2133aed7bae37edaa2ff7a7e83c8e613735e9541160fcc1c4ff",
-    "crc": "passed",
-    "trackedFilesMatched": 1201,
-    "assetsFilesMatched": 946
+    "result": "PASS",
+    "revision": "48010e21991f2ef848f2dac64d7910cc268400ee",
+    "url": "https://codeload.github.com/waltennecro/poolrooms/zip/48010e21991f2ef848f2dac64d7910cc268400ee",
+    "bytes": 1115176253,
+    "sha256": "0c80a37fbfcedd603ac814e4543ee571f595a001b73058cc49649d84cae8a3b4",
+    "matchedTrackedFiles": 1865,
+    "matchedAssetFiles": 1353,
+    "everyFileSha256AndCrc": true,
+    "archiveStoredOnDisk": false
   },
   "aircraftCi": {
     "sourceRevision": "492fe0e6f111f39a1c336fd376b0db35381aad0b",
@@ -1866,11 +1867,11 @@
     "authenticatedArtifactDownloadTested": false
   },
   "latestLocalAssetsPackage": {
-    "zip": "/workspace/output/Poolrooms_Horizonte_Alas_Completo_Assets.zip",
-    "files": 946,
-    "bytes": 314402192,
-    "sha256": "79fbea73dc596bcfd7bc2b65800709d2c6729e149227cc6b91deaccfdc7079b8",
-    "sourceRevision": "8a0213701344fe8f8ab7defe2bd6e752446ac20a",
+    "zip": "/workspace/output/Poolrooms_Centro_Comercial_Renovado_Completo_Assets.zip",
+    "files": 1353,
+    "bytes": 659405975,
+    "sha256": "284a6b1135665234de116a401c622ca35594eb98656ab1d17d4c57d53cae969e",
+    "sourceRevision": "48010e21991f2ef848f2dac64d7910cc268400ee",
     "workingTreeChanged": false
   },
   "regionalFurnitureCi": {
@@ -3434,7 +3435,43 @@
     "resourceAudit": "tools/verify_mall_resources.py",
     "evidence": "Verification/mall_retail_delivery.json",
     "delivery": {
-      "status": "packaging_and_remote_backup_pending"
-    }
+      "status": "code_and_public_archive_verified_release_upload_waiting_for_full_ci",
+      "sourceRevision": "48010e21991f2ef848f2dac64d7910cc268400ee",
+      "authoring": {
+        "zip": "/workspace/output/Poolrooms_Centro_Comercial_Renovado_Autoria_Completa.zip",
+        "sourceRevision": "48010e21991f2ef848f2dac64d7910cc268400ee",
+        "files": 1865,
+        "bytes": 1599246313,
+        "sha256": "c61f2b67cbc09cc4a87e45127eddd83a62285df01605b212964ef3f067ba2cc3",
+        "everyFileSha256AndCRCVerified": true,
+        "paddingBytes": 0,
+        "nativeUnityValidated": false
+      },
+      "assets": {
+        "zip": "/workspace/output/Poolrooms_Centro_Comercial_Renovado_Completo_Assets.zip",
+        "files": 1353,
+        "bytes": 659405975,
+        "sha256": "284a6b1135665234de116a401c622ca35594eb98656ab1d17d4c57d53cae969e",
+        "sourceRevision": "48010e21991f2ef848f2dac64d7910cc268400ee",
+        "workingTreeChanged": false
+      },
+      "freshPublicDownload": {
+        "result": "PASS",
+        "revision": "48010e21991f2ef848f2dac64d7910cc268400ee",
+        "url": "https://codeload.github.com/waltennecro/poolrooms/zip/48010e21991f2ef848f2dac64d7910cc268400ee",
+        "bytes": 1115176253,
+        "sha256": "0c80a37fbfcedd603ac814e4543ee571f595a001b73058cc49649d84cae8a3b4",
+        "matchedTrackedFiles": 1865,
+        "matchedAssetFiles": 1353,
+        "everyFileSha256AndCrc": true,
+        "archiveStoredOnDisk": false
+      },
+      "coreCiRunId": 39558036573,
+      "coreCiStatus": "in_progress",
+      "releasePublicationWorkflow": ".github/workflows/publish-mall-delivery.yml",
+      "directLocalReleaseUpload": "Forbidden from uploads.github.com; using verified GitHub runner publication instead",
+      "nativeUnityExecuted": false
+    },
+    "sourceRevision": "48010e21991f2ef848f2dac64d7910cc268400ee"
   }
 }

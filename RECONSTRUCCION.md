@@ -956,3 +956,14 @@ no se importa: su exposición es estática. El CI anterior 39540890186 terminó
 correctamente; este avance guarda evidencias en `Verification/mall_retail_*`.
 
 Guía: `Assets/PoolroomsProcedural/Documentation/Centro_comercial_renovado.md`.
+
+Respaldo funcional: `48010e21991f2ef848f2dac64d7910cc268400ee`.
+Paquete de autoría real sin recompresión: 1.599.246.313 bytes y 1.865 archivos
+versionados, más inventario generado; CRC y hashes individuales verificados.
+Assets comprimidos: 659.405.975 bytes y 1.353 archivos, también verificados.
+Descarga pública nueva de GitHub: 1.115.176.253 bytes; sus 1.865 archivos coinciden
+por SHA-256/CRC, sin almacenar otra copia. La subida local a Releases recibió
+Forbidden en uploads.github.com; el flujo `publish-mall-delivery.yml` publicará
+los archivos desde GitHub después del éxito del CI completo 39558036573.
+El paquete de autoría no tiene relleno y su tamaño no equivale al consumo de RAM
+ni a una descarga comprimida optimizada. APIs Unity, aspecto y FPS pendientes.
