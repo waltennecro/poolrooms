@@ -16,7 +16,7 @@ static partial class Checks
             var counts=new int[RestfulLevelPlanner.EnvironmentCount];var signature=new List<int>();
             for(int x=0;x<8;x++)for(int z=0;z<8;z++)
             {bool covered=WalkableExploration.Region(defaults,bx*8+x,bz*8+z,out var e);signature.Add(covered?(int)e:-1);if(covered){counts[(int)e]++;assigned++;}}
-            Check(counts.Take(28).All(n=>n==2)&&counts.Skip(28).Sum()==8,"Missing original discovery region or special slot");signatures.Add(string.Join(",",signature));
+            Check(counts.All(n=>n>=1)&&counts.Sum()==64,"Expanded block misses a destination before allocating duplicates");signatures.Add(string.Join(",",signature));
         }
         Check(signatures.Count==9,"Biome order repeats between region blocks");
         var custom=new LayoutConfig{Procedural=LiminalGeneration.Expanded};Check(!WalkableExploration.Region(custom,4,5,out _),"Custom generation unexpectedly migrated");
@@ -103,7 +103,7 @@ static partial class Checks
         for(float distance=start;distance<=end;distance+=.2f)
         {
             var point=new V3(Directions.DX[side]*distance,2,Directions.DZ[side]*distance);
-            if(path.Length>.01f&&distance>path.Start&&distance<path.End)
+            if(!link.Natural&&path.Length>.01f&&distance>path.Start&&distance<path.End)
             {path.Sample((distance-path.Start)/path.Length,out var center,out _,out _);point=side==0?new V3(center.X,2,center.Z):new V3(center.Z,2,-center.X);}
             float floor=Support(combined,point);
             Check(floor>=-.32f&&floor<=.35f,"Walking route has an unsupported or raised floor: "+a.Environment+" / "+b.Environment+" at "+distance);

@@ -975,3 +975,14 @@ verificadas. Ambos enlaces públicos respondieron HTTP 206 con cabecera ZIP vál
 y los tamaños totales esperados (se verificó el prefijo sin descargar otra copia).
 No se confunde esa prueba parcial HTTP con la verificación completa por archivos
 de la descarga codeload, ni con pruebas nativas Unity, que siguen pendientes.
+
+
+## Veinte destinos / ampliación de ambientes
+
+Se integran veinte programas nuevos (IDs de entorno 38–57) a generación directa, descubrimiento, arquitectura, agua, sonido, materiales, inventario y pasajes caminables. Los 38 IDs anteriores y todos sus temas serializados conservan sus valores. Activar el banco cambia la distribución regional para alojar 58 destinos; desactivarlo conserva la política anterior. Centro comercial y Nivel 94 mantienen sus accesos y reservas.
+
+Las veinte galerías previas reciben tratamientos de techo/pilastras y ocho objetos de sobremesa adicionales con slots anexados. Otros interiores cerrados reciben carpintería de techo; los exteriores no reciben cubiertas flotantes. No cambia el radio de renderizado ni el límite global de luces. Ocho nuevos modelos fuente CC BY 4.0 con dieciséis LODs, 43 definiciones PBR y 170 mapas; originales de descarga en caché externa, recursos jugables en Assets. Presupuesto máximo 6 GB: no se genera código repetido, mapas duplicados ni relleno para alcanzarlo. Peso real y evidencia en MEGA_EXPANSION_ESTADO.json.
+
+Comprobaciones específicas: 480 salas construidas, 32.640 pickups planificados, 1.625 estaciones accesibles, 576 volúmenes de agua, 310 rutas testigo y 539 pares de frontera de biomas en cinco semillas. Son casos de núcleo, no objetos simultáneos ni pruebas nativas de Unity. Se corrige el verificador de rutas para seguir la transición recta efectivamente construida; se evita una doble cuantización del brillo en el nuevo radiador; las estaciones consideran ahora las dimensiones de los 36 muebles fuente conocidos.
+
+Guía: Assets/PoolroomsProcedural/Documentation/Expansion_Veinte_Destinos.md. Importadores y auditoría reproducibles en tools/import_journey_*.py y tools/verify_journey_resources.py. Compilación Unity/HDRP, shaders, aspecto, PhysX y FPS pendientes.

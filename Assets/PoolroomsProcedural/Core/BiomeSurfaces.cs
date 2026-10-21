@@ -1,7 +1,7 @@
 namespace Poolrooms.Core
 {
     // Six existing mesh slots are retained; a theme selects a wholly separate PBR library.
-    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral, SlideGlass, FlumeFlow, RainLodge, RainRoof, RainInterior, SunsetLibrary, CloudTerminal, TeaPavilion, CeramicGalleria, WinterGarden, CanalGallery, MusicStudio, LanternCourt, LinenLaundry, MineralSanctuary, EncounterFurniture, SolarObservatory, CoveredMarket, TextileAtelier, PostalArcade, IndoorMarina, ClockGallery, PaperWorkshop, ChessPavilion, RadioSalon, MirrorArcade, SpecialMirror, MallGallery, MallFashion, MallShoes, MallElectronics, MallBooks, MallSports, MallHome, MallToys, MallPharmacy, MallCafe, MallFoodCourt, MallArcade, MallCinema, MallAccessories, MallRestrooms, MallHypermarket }
+    public enum SurfaceTheme { Automatic, Poolrooms, IndoorPlay, Supermarket, Mall, Office, Hotel, WaitingHall, DiningHall, Glass, Merchandise, SoftPlay, SoftPlayFinish, SoftPlayNet, SoftPlayFloor, CityStreet, CityFacade, ArchiveWood, CourtyardStone, CoastSand, Airfield, Conservatory, TransitGallery, Orangerie, OrangerieFoliage, ThermalStone, ThermalWicker, AquaticPark, AquaticCoral, SlideGlass, FlumeFlow, RainLodge, RainRoof, RainInterior, SunsetLibrary, CloudTerminal, TeaPavilion, CeramicGalleria, WinterGarden, CanalGallery, MusicStudio, LanternCourt, LinenLaundry, MineralSanctuary, EncounterFurniture, SolarObservatory, CoveredMarket, TextileAtelier, PostalArcade, IndoorMarina, ClockGallery, PaperWorkshop, ChessPavilion, RadioSalon, MirrorArcade, SpecialMirror, MallGallery, MallFashion, MallShoes, MallElectronics, MallBooks, MallSports, MallHome, MallToys, MallPharmacy, MallCafe, MallFoodCourt, MallArcade, MallCinema, MallAccessories, MallRestrooms, MallHypermarket, AquariumGalleries, BambooRetreat, DesertCaravanserai, CrystalMuseum, CloudBaths, SunkenLibrary, RailwayWintergarden, CeramicVillage, LunarGreenhouse, AmberRestaurant, MapmakersArchive, SculptureCourts, PaperLanternTown, WatermillHalls, IndoorBoardwalk, VelvetTheatre, HangingOrchards, RainyBookshops, MosaicCistern, AeronauticalGallery }
     public static class BiomeSurfaces
     {
         public static SurfaceTheme ForEnvironment(LiminalEnvironment environment)
@@ -41,6 +41,7 @@ namespace Poolrooms.Core
         }
         public static string TextureSet(SurfaceTheme theme,Surface slot)
         {
+            if(JourneyLevelPlanner.IsTheme(theme))return JourneyLevelPlanner.TextureSet(theme,slot);
             if(SpecialRegionPlanner.IsTheme(theme))return SpecialRegionPlanner.TextureSet(theme,slot);
             if(theme==SurfaceTheme.SpecialMirror)return null;
             if(theme==SurfaceTheme.EncounterFurniture)return slot==Surface.Glow?null:slot==Surface.Accent?"EncounterOak":slot==Surface.Metal?"EncounterBrass":slot==Surface.Plaster?"EncounterCeramic":slot==Surface.Slide?"EncounterPaper":"EncounterLinen";

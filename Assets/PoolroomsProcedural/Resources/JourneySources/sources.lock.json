@@ -1,0 +1,122 @@
+{
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+    "bytes": 4819438,
+    "sha256": "c0972d6cd032c1aecb1ad609291a60d124975cd405097212c29de806851de2bb"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.bin": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.bin",
+    "bytes": 95660264,
+    "sha256": "5fb11a1d61aeb2537197aa97833ff950638c9d42451ee4fafbc9550f03918faa"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/metal_clean_01/metal_clean_01_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/metal_clean_01/metal_clean_01_diff.dds",
+    "bytes": 5592580,
+    "sha256": "3182af9da7da0a0e3ce97a7f448f9f00b723a0a93f31778ced4f8f162809ee95"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/metal_clean_01/metal_clean_01_spec.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/metal_clean_01/metal_clean_01_spec.dds",
+    "bytes": 5592580,
+    "sha256": "d4da9d95ebedebfb2fed56bc1d1509d1e9c90411bc431cfe1b34f21306ace2a7"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/metal_clean_01/metal_clean_01_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/metal_clean_01/metal_clean_01_ddna.dds",
+    "bytes": 5592580,
+    "sha256": "2271832455f0c032b1a8f63ec6cfd9cf6c9cf1ba1e64dd35ae9b07af4fd8fc68"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/wood_planks_01/wood_planks_01_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/wood_planks_01/wood_planks_01_diff.dds",
+    "bytes": 5592580,
+    "sha256": "bfa6301575225f1f818553754a8024625026a938a1c53b3a40aaebab0e76dad3"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/wood_planks_01/wood_planks_01_spec.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/wood_planks_01/wood_planks_01_spec.dds",
+    "bytes": 5592580,
+    "sha256": "f8f7f91446398ad3ac6def56f3117fd9e6aec456b6f0cc26fe54b3f1863028ef"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/wood_planks_01/wood_planks_01_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/wood_planks_01/wood_planks_01_ddna.dds",
+    "bytes": 5592580,
+    "sha256": "8065d4069926423078dc1d062fa1c3c4facab6fe37e70b723f1915afdb9bffe2"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/plastic_01/plastic_01_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/plastic_01/plastic_01_diff.dds",
+    "bytes": 5592580,
+    "sha256": "4ca025a957b7aa211e648ac06d7aa1a3fe62d01e237623d7d2a04ed53d9a5bdc"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/plastic_01/plastic_01_spec.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/plastic_01/plastic_01_spec.dds",
+    "bytes": 5592580,
+    "sha256": "2c83604ee02b72245827965482c4c6a5aa1f1a8caf776820435af4951d25d498"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/plastic_01/plastic_01_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/plastic_01/plastic_01_ddna.dds",
+    "bytes": 5592580,
+    "sha256": "1f8e08d0c68c49baea38a399a23e199a784561efbbdf5e693c3b83324e1c0132"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_wickerbasket_01/paris_wickerbasket_01_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_wickerbasket_01/paris_wickerbasket_01_diff.dds",
+    "bytes": 1398276,
+    "sha256": "3a67a930794a96f8b5ef026d752be66fe75031e6f2d3c0d8dd44d3dba9fea1a7"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_wickerbasket_01/paris_wickerbasket_01_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_wickerbasket_01/paris_wickerbasket_01_ddna.dds",
+    "bytes": 1398276,
+    "sha256": "d7fa25a17c13c2837e038782d25feda45ac41bf3eec3a196177cb418aca8a10b"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/ceramic_01/ceramic_01_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/ceramic_01/ceramic_01_diff.dds",
+    "bytes": 5592580,
+    "sha256": "47c88b5e239806dd42817a7837b9f719188161759002d4a7ee5f2939f2c311a8"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_plates_01/paris_plates_details_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_plates_01/paris_plates_details_diff.dds",
+    "bytes": 174948,
+    "sha256": "3d15198cc1fcc6383bf63041b5e8f28b4c94be2db97f321c826c510e21443e67"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_plates_01/paris_plates_details_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_plates_01/paris_plates_details_ddna.dds",
+    "bytes": 174948,
+    "sha256": "a975e6a9579082d9afecea695b674ba02207861eeee64252f79be94bbd431155"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_napkinholder_01/paris_napkinholder_01_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_napkinholder_01/paris_napkinholder_01_diff.dds",
+    "bytes": 1398276,
+    "sha256": "9e09685ad82220582e9a8e3619b548b7a91179aa54ac4bce488720dbcac3cb6d"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_napkinholder_01/paris_napkinholder_01_spec.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_napkinholder_01/paris_napkinholder_01_spec.dds",
+    "bytes": 1398276,
+    "sha256": "f83835873b4f4d3ecb02d9042b935f941a870ef789e450567b8a3bb14919b94e"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_napkinholder_01/paris_napkinholder_01_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_napkinholder_01/paris_napkinholder_01_ddna.dds",
+    "bytes": 1398276,
+    "sha256": "3c3cca6545067e2cadbe7e8724f5f83480c7f4a26ff205cc69f4f7ae1a7c377b"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_radiator_01/paris_radiator_01_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_radiator_01/paris_radiator_01_diff.dds",
+    "bytes": 5592580,
+    "sha256": "1e415a5ec11434fd1b293cd8467f0ab0a8b1d0a8754a08d6f0c5470ec6e009f1"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_radiator_01/paris_radiator_01_spec.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_radiator_01/paris_radiator_01_spec.dds",
+    "bytes": 5592580,
+    "sha256": "23a414f974897d9c8b466cf54a31ba0b94b059d8046225d374cf72fe2b180379"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_radiator_01/paris_radiator_01_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/bistro/paris_radiator_01/paris_radiator_01_ddna.dds",
+    "bytes": 5592580,
+    "sha256": "a84eab059bd57e9fe30c724cb3e048838b15bc366a52baebc26f1922c98257f8"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_plantpot_01/paris_plantpot_01a_diff.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_plantpot_01/paris_plantpot_01a_diff.dds",
+    "bytes": 5592580,
+    "sha256": "8a4fe705d9c594544fb3e0626d49c23ee7dec80c18058076953c7dc5a3766ef5"
+  },
+  "raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_plantpot_01/paris_plantpot_01a_ddna.dds": {
+    "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_plantpot_01/paris_plantpot_01a_ddna.dds",
+    "bytes": 5592580,
+    "sha256": "4db32001786e756864a62ff1cb85698acf6d5af47df39c7599744d1486601674"
+  }
+}

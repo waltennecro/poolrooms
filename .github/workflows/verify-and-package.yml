@@ -77,6 +77,8 @@ jobs:
           python-version: '3.11'
       - name: Install pinned offline art verification tools
         run: python -m pip install -r Verification/requirements-art-tools.txt
+      - name: Check twenty new level resource banks, licences, metric bounds and PBR bindings
+        run: python tools/verify_journey_resources.py
       - name: Check licensed mall models, LODs, native PBR maps and reference attribution
         run: python tools/verify_mall_resources.py
       - name: Check immersive sound, local library and shipped PCM

@@ -34,7 +34,7 @@ namespace Poolrooms.Core
                     case LiminalEnvironment.LanternCourts:Lanterns(o,b,p);break;
                     case LiminalEnvironment.LinenLaundries:Laundry(o,b,p);break;
                     case LiminalEnvironment.MineralSanctuary:Sanctuary(o,b,p);break;
-                    default:SpecialBay(o,b,p);break;
+                    default:if(JourneyLevelPlanner.IsLevel(r.Environment))JourneyBay(o,b,p);else SpecialBay(o,b,p);break;
                 }
                 // Separate reachable furniture alcove, identical support heights in plan/runtime.
                 float z=sz*(half-1.25f);
@@ -46,6 +46,7 @@ namespace Poolrooms.Core
                 if(!LargeRegions.OpenEdge(c,r.X,r.Z,sx>0?1:3,r.Environment))
                     Box(o.Decoration,sx*(half-.12f),sz*(p.Clear+half)*.5f,.1f,half-p.Clear-.3f,.03f,.14f,Surface.Accent);
             }
+            if(c.ExpandedLevelDetails)ExpandedJoinery(o,r,c);
             ProceduralArchitecture.Prune(o.Structure);ProceduralArchitecture.Prune(o.Decoration);ProceduralArchitecture.Prune(o.Glass);return o;
         }
         static void Envelope(RoomGeometry o,Room r,LayoutConfig c)
@@ -82,7 +83,7 @@ namespace Poolrooms.Core
                 if((p.Roof&1)!=0)Box(o.Decoration,0,z+.16f,opening.Width,.12f,r.Height+.16f,r.Height+.24f+p.Roof*.035f,Surface.Accent);
             }
             foreach(int side in new[]{-1,1})Box(o.Decoration,side*(aperture+.05f),0,.12f,r.Depth-2.1f,r.Height-.25f,r.Height+.15f,Surface.Metal);
-            var tone=r.Environment==LiminalEnvironment.SunsetLibrary||r.Environment==LiminalEnvironment.TeaPavilions||SpecialRegionPlanner.WarmLight(r.Environment)?new V3(1,.73f,.46f):new V3(1,.95f,.88f);
+            var tone=r.Environment==LiminalEnvironment.SunsetLibrary||r.Environment==LiminalEnvironment.TeaPavilions||SpecialRegionPlanner.WarmLight(r.Environment)||JourneyLevelPlanner.WarmLight(r.Environment)?new V3(1,.73f,.46f):new V3(1,.95f,.88f);
             o.Decoration.EmissionTint=tone;o.Decoration.EmissionStrength=.18f;
             // Local aperture fallback shares the actual sun hue and illuminates below a
             // real opening. The existing single-sun arbiter owns directional shadows.

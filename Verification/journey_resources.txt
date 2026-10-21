@@ -1,0 +1,1 @@
+{"verified": true, "newSourceModels": 8, "lodDerivatives": 16, "surfaceDefinitions": 43, "shippedMaps": 170, "newRuntimeResourceBytes": 385547721, "allAssetsBytes": 1295917463, "budgetBytes": 6000000000, "paddingBytes": 0, "nativeUnityValidated": false}

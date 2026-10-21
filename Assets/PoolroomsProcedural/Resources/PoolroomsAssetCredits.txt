@@ -169,4 +169,20 @@ Changes: twenty selected authored finishes, DDS decoded to native-resolution PNG
 Full CC BY text and upstream MIT notice included. No endorsement implied. Reference thumbnails are surface references, not in-game captures.
 
 
+
+JourneyFinishes
+Journey surface bank: 43 authored materials derived from Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0.
+Source: https://developer.nvidia.com/orca/amazon-lumberyard-bistro
+Pinned derivative: https://github.com/zeux/niagara_bistro/tree/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e
+Adaptations: decode DDS to PNG; invert tangent normal green for Unity; retain specular workflow; bake source factors; pack HDRP mask. Native resolution capped at 4K, never upscaled. No original presentation lights or emissive signs are imported. Sources and hashes in sources.lock.json; map bindings in palette.json.
+
+
+
+JourneySources
+Eight selected objects from Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0.
+Source: https://developer.nvidia.com/orca/amazon-lumberyard-bistro
+Pinned derivative: https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf
+Changes: selected object extraction/rebasing, PBR exports up to native 4K, OBJ and two LOD derivatives. No original lights, animations or full-scene binary bundled. Source URLs and hashes: sources.lock.json.
+
+
 Calm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.

@@ -18,6 +18,7 @@
     <Compile Include="CameraAvatarChecks.cs" />
     <Compile Include="HumanoidChecks.cs" />
     <Compile Include="MallAtlas.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="JourneyLevelChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="MallRealismChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="LargeRegionChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="SpecialRegionChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />

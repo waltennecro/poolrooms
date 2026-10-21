@@ -1,0 +1,78 @@
+{
+  "id": "J_Radiator",
+  "resource": "JourneySources/Models/J_Radiator",
+  "minimum": [
+    -0.5611112713813782,
+    0.0,
+    -0.11578443646430969
+  ],
+  "maximum": [
+    0.5611112713813782,
+    0.7167485952377319,
+    0.11578443646430969
+  ],
+  "triangles": 6536,
+  "materials": [
+    {
+      "name": "J_Radiator_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_Radiator_m0_albedo",
+      "normal": "JourneySources/Textures/J_Radiator_m0_normal",
+      "mask": "JourneySources/Textures/J_Radiator_m0_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_Radiator_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "JourneySources/Models/J_Radiator_LOD1",
+      "triangles": 3460
+    },
+    {
+      "resource": "JourneySources/Models/J_Radiator_LOD2",
+      "triangles": 1605
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "421803385b504f5a391d0e05de87896990a499ca544cecf66af37b410c8abd5f",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+  "sourceRootNode": 3996,
+  "sourceRootName": "paris_radiator_4",
+  "sourceMaterialIndices": [
+    175
+  ],
+  "originalTriangles": 6536,
+  "sourceDimensionsMetres": [
+    1.1222226019811785,
+    0.7167486094230796,
+    0.23156887654277547
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "sourceNode": "paris_radiator_4",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "gameplayLongest": 0.85,
+  "nativeUnityValidated": false
+}

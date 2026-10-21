@@ -1,0 +1,735 @@
+{
+  "distinctSourceModels": 8,
+  "lodsCountAsModels": false,
+  "models": [
+    {
+      "id": "J_CoatRackA",
+      "resource": "JourneySources/Models/J_CoatRackA",
+      "minimum": [
+        -0.3106735348701477,
+        0.0,
+        -0.3106735348701477
+      ],
+      "maximum": [
+        0.3106735348701477,
+        2.011430263519287,
+        0.3106735348701477
+      ],
+      "triangles": 13118,
+      "materials": [
+        {
+          "name": "J_CoatRackA_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_CoatRackA_m0_albedo",
+          "normal": "JourneySources/Textures/J_CoatRackA_m0_normal",
+          "mask": "JourneySources/Textures/J_CoatRackA_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_CoatRackA_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_CoatRackA_LOD1",
+          "triangles": 5383
+        },
+        {
+          "resource": "JourneySources/Models/J_CoatRackA_LOD2",
+          "triangles": 2349
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "4ba1f6330e54e497b510a864e1b3caf7ec8059e68b42d514314fe53af8a3aa7b",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 1910,
+      "sourceRootName": "paris_coat_rack_01a1",
+      "sourceMaterialIndices": [
+        143
+      ],
+      "originalTriangles": 13118,
+      "sourceDimensionsMetres": [
+        0.6213470894617537,
+        2.0114303813694527,
+        0.6213470752334587
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "paris_coat_rack_01a1",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 1.7,
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "J_CoatRackB",
+      "resource": "JourneySources/Models/J_CoatRackB",
+      "minimum": [
+        -0.32843369245529175,
+        0.0,
+        -0.1021871566772461
+      ],
+      "maximum": [
+        0.32843369245529175,
+        0.4549771547317505,
+        0.1021871566772461
+      ],
+      "triangles": 8680,
+      "materials": [
+        {
+          "name": "J_CoatRackB_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_CoatRackB_m0_albedo",
+          "normal": "JourneySources/Textures/J_CoatRackB_m0_normal",
+          "mask": "JourneySources/Textures/J_CoatRackB_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_CoatRackB_m0_specular"
+        },
+        {
+          "name": "J_CoatRackB_m1",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_CoatRackB_m1_albedo",
+          "normal": "JourneySources/Textures/J_CoatRackB_m1_normal",
+          "mask": "JourneySources/Textures/J_CoatRackB_m1_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_CoatRackB_m1_specular"
+        },
+        {
+          "name": "J_CoatRackB_m2",
+          "colour": [
+            0.6938719749450684,
+            0.5394799709320068,
+            0.39675500988960266,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_CoatRackB_m2_albedo",
+          "normal": "JourneySources/Textures/J_CoatRackB_m2_normal",
+          "mask": "JourneySources/Textures/J_CoatRackB_m2_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_CoatRackB_m2_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_CoatRackB_LOD1",
+          "triangles": 2481
+        },
+        {
+          "resource": "JourneySources/Models/J_CoatRackB_LOD2",
+          "triangles": 1146
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "c83d48294a88a8bb3f17c451e876c4ca7b3c42b11111f6b3db27ba467e29bf8f",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 2495,
+      "sourceRootName": "paris_coat_rack_01b2",
+      "sourceMaterialIndices": [
+        164,
+        165,
+        166
+      ],
+      "originalTriangles": 8680,
+      "sourceDimensionsMetres": [
+        0.6568673600251835,
+        0.4549771501905928,
+        0.20437431294796893
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "paris_coat_rack_01b2",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 0.42,
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "J_Basket",
+      "resource": "JourneySources/Models/J_Basket",
+      "minimum": [
+        -0.10895105451345444,
+        0.0,
+        -0.090451180934906
+      ],
+      "maximum": [
+        0.10895105451345444,
+        0.09036803245544434,
+        0.090451180934906
+      ],
+      "triangles": 1995,
+      "materials": [
+        {
+          "name": "J_Basket_m0",
+          "colour": [
+            0.9559739828109741,
+            0.9559739828109741,
+            0.9559739828109741,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_Basket_m0_albedo",
+          "normal": "JourneySources/Textures/J_Basket_m0_normal",
+          "mask": "JourneySources/Textures/J_Basket_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_Basket_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_Basket_LOD1",
+          "triangles": 1800
+        },
+        {
+          "resource": "JourneySources/Models/J_Basket_LOD2",
+          "triangles": 1514
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "085a7b4a93db88f46fee7a842a1147a193d8abb45a29796bd6f7c16613796fd4",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 4202,
+      "sourceRootName": "paris_wickerbasket_01a1",
+      "sourceMaterialIndices": [
+        177
+      ],
+      "originalTriangles": 1995,
+      "sourceDimensionsMetres": [
+        0.21790210572925162,
+        0.0903680302780876,
+        0.180902365929545
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "paris_wickerbasket_01a1",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 0.36,
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "J_PlateA",
+      "resource": "JourneySources/Models/J_PlateA",
+      "minimum": [
+        -0.14483585953712463,
+        0.0,
+        -0.14489515125751495
+      ],
+      "maximum": [
+        0.14483585953712463,
+        0.019185587763786316,
+        0.14489515125751495
+      ],
+      "triangles": 1050,
+      "materials": [
+        {
+          "name": "J_PlateA_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_PlateA_m0_albedo",
+          "normal": "JourneySources/Textures/J_PlateA_m0_normal",
+          "mask": "JourneySources/Textures/J_PlateA_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_PlateA_m0_specular"
+        },
+        {
+          "name": "J_PlateA_m1",
+          "colour": [
+            0.3915730118751526,
+            0.8227859735488892,
+            0.5149180293083191,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_PlateA_m1_albedo",
+          "normal": "JourneySources/Textures/J_PlateA_m1_normal",
+          "mask": "JourneySources/Textures/J_PlateA_m1_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_PlateA_m1_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_PlateA_LOD1",
+          "triangles": 648
+        },
+        {
+          "resource": "JourneySources/Models/J_PlateA_LOD2",
+          "triangles": 538
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "3ce77f308df5e60785fc6ac6df814aebbb32a42c6915027c7844fb81ce9c70f4",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 1936,
+      "sourceRootName": "paris_plate_01a46",
+      "sourceMaterialIndices": [
+        150,
+        151
+      ],
+      "originalTriangles": 1050,
+      "sourceDimensionsMetres": [
+        0.2896717252697947,
+        0.019185587636309398,
+        0.28979031149799894
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "paris_plate_01a46",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 0.25,
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "J_PlateB",
+      "resource": "JourneySources/Models/J_PlateB",
+      "minimum": [
+        -0.12723998725414276,
+        0.0,
+        -0.12700538337230682
+      ],
+      "maximum": [
+        0.12723998725414276,
+        0.029248051345348358,
+        0.12700538337230682
+      ],
+      "triangles": 1512,
+      "materials": [
+        {
+          "name": "J_PlateB_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_PlateB_m0_albedo",
+          "normal": "JourneySources/Textures/J_PlateB_m0_normal",
+          "mask": "JourneySources/Textures/J_PlateB_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_PlateB_m0_specular"
+        },
+        {
+          "name": "J_PlateB_m1",
+          "colour": [
+            0.3915730118751526,
+            0.8227859735488892,
+            0.5149180293083191,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_PlateB_m1_albedo",
+          "normal": "JourneySources/Textures/J_PlateB_m1_normal",
+          "mask": "JourneySources/Textures/J_PlateB_m1_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_PlateB_m1_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_PlateB_LOD1",
+          "triangles": 1180
+        },
+        {
+          "resource": "JourneySources/Models/J_PlateB_LOD2",
+          "triangles": 1022
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "1d92e96a9ea75b653bcb4141c76588179bfd38e319d2309c7212437f2b9432cf",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 1928,
+      "sourceRootName": "paris_plate_01b46",
+      "sourceMaterialIndices": [
+        150,
+        151
+      ],
+      "originalTriangles": 1512,
+      "sourceDimensionsMetres": [
+        0.2544799801688509,
+        0.029248051339608283,
+        0.2540107582883522
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "paris_plate_01b46",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 0.25,
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "J_NapkinPile",
+      "resource": "JourneySources/Models/J_NapkinPile",
+      "minimum": [
+        -0.13818593323230743,
+        0.0,
+        -0.07001835107803345
+      ],
+      "maximum": [
+        0.13818593323230743,
+        0.14623339474201202,
+        0.07001835107803345
+      ],
+      "triangles": 630,
+      "materials": [
+        {
+          "name": "J_NapkinPile_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_NapkinPile_m0_albedo",
+          "normal": "JourneySources/Textures/J_NapkinPile_m0_normal",
+          "mask": "JourneySources/Textures/J_NapkinPile_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_NapkinPile_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_NapkinPile_LOD1",
+          "triangles": 493
+        },
+        {
+          "resource": "JourneySources/Models/J_NapkinPile_LOD2",
+          "triangles": 411
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "8bc80efe7bb77056a6b9a86f121fe58e24f19347f62468e3aecc870da87c3f7b",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 4572,
+      "sourceRootName": "Napkin_Pile",
+      "sourceMaterialIndices": [
+        152
+      ],
+      "originalTriangles": 630,
+      "sourceDimensionsMetres": [
+        0.2763718525067329,
+        0.146233387583667,
+        0.1400367056003322
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "Napkin_Pile",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 0.25,
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "J_Radiator",
+      "resource": "JourneySources/Models/J_Radiator",
+      "minimum": [
+        -0.5611112713813782,
+        0.0,
+        -0.11578443646430969
+      ],
+      "maximum": [
+        0.5611112713813782,
+        0.7167485952377319,
+        0.11578443646430969
+      ],
+      "triangles": 6536,
+      "materials": [
+        {
+          "name": "J_Radiator_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_Radiator_m0_albedo",
+          "normal": "JourneySources/Textures/J_Radiator_m0_normal",
+          "mask": "JourneySources/Textures/J_Radiator_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_Radiator_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_Radiator_LOD1",
+          "triangles": 3460
+        },
+        {
+          "resource": "JourneySources/Models/J_Radiator_LOD2",
+          "triangles": 1605
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "421803385b504f5a391d0e05de87896990a499ca544cecf66af37b410c8abd5f",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 3996,
+      "sourceRootName": "paris_radiator_4",
+      "sourceMaterialIndices": [
+        175
+      ],
+      "originalTriangles": 6536,
+      "sourceDimensionsMetres": [
+        1.1222226019811785,
+        0.7167486094230796,
+        0.23156887654277547
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "paris_radiator_4",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 0.85,
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "J_PlantPot",
+      "resource": "JourneySources/Models/J_PlantPot",
+      "minimum": [
+        -0.3170817792415619,
+        0.0,
+        -0.31469112634658813
+      ],
+      "maximum": [
+        0.3170817792415619,
+        0.4675770699977875,
+        0.31469112634658813
+      ],
+      "triangles": 1230,
+      "materials": [
+        {
+          "name": "J_PlantPot_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "JourneySources/Textures/J_PlantPot_m0_albedo",
+          "normal": "JourneySources/Textures/J_PlantPot_m0_normal",
+          "mask": "JourneySources/Textures/J_PlantPot_m0_mask",
+          "workflow": "specular",
+          "specular": "JourneySources/Textures/J_PlantPot_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "JourneySources/Models/J_PlantPot_LOD1",
+          "triangles": 1180
+        },
+        {
+          "resource": "JourneySources/Models/J_PlantPot_LOD2",
+          "triangles": 1084
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "a55e4919b337ebcda09d5e57abec414a32f9e2a27dfdeb9f1106b21369f49139",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+      "sourceRootNode": 753,
+      "sourceRootName": "Paris_Plant_Pot_01",
+      "sourceMaterialIndices": [
+        113
+      ],
+      "originalTriangles": 1230,
+      "sourceDimensionsMetres": [
+        0.6341635473724736,
+        0.4675770698753453,
+        0.6293822391923465
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceNode": "Paris_Plant_Pot_01",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "gameplayLongest": 0.8,
+      "nativeUnityValidated": false
+    }
+  ],
+  "nativeUnityValidated": false
+}

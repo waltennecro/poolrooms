@@ -1,0 +1,4 @@
+Eight selected objects from Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0.
+Source: https://developer.nvidia.com/orca/amazon-lumberyard-bistro
+Pinned derivative: https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf
+Changes: selected object extraction/rebasing, PBR exports up to native 4K, OBJ and two LOD derivatives. No original lights, animations or full-scene binary bundled. Source URLs and hashes: sources.lock.json.

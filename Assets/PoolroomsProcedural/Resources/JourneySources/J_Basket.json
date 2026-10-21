@@ -1,0 +1,78 @@
+{
+  "id": "J_Basket",
+  "resource": "JourneySources/Models/J_Basket",
+  "minimum": [
+    -0.10895105451345444,
+    0.0,
+    -0.090451180934906
+  ],
+  "maximum": [
+    0.10895105451345444,
+    0.09036803245544434,
+    0.090451180934906
+  ],
+  "triangles": 1995,
+  "materials": [
+    {
+      "name": "J_Basket_m0",
+      "colour": [
+        0.9559739828109741,
+        0.9559739828109741,
+        0.9559739828109741,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_Basket_m0_albedo",
+      "normal": "JourneySources/Textures/J_Basket_m0_normal",
+      "mask": "JourneySources/Textures/J_Basket_m0_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_Basket_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "JourneySources/Models/J_Basket_LOD1",
+      "triangles": 1800
+    },
+    {
+      "resource": "JourneySources/Models/J_Basket_LOD2",
+      "triangles": 1514
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "085a7b4a93db88f46fee7a842a1147a193d8abb45a29796bd6f7c16613796fd4",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+  "sourceRootNode": 4202,
+  "sourceRootName": "paris_wickerbasket_01a1",
+  "sourceMaterialIndices": [
+    177
+  ],
+  "originalTriangles": 1995,
+  "sourceDimensionsMetres": [
+    0.21790210572925162,
+    0.0903680302780876,
+    0.180902365929545
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "sourceNode": "paris_wickerbasket_01a1",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "gameplayLongest": 0.36,
+  "nativeUnityValidated": false
+}

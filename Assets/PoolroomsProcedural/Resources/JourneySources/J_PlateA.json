@@ -1,0 +1,104 @@
+{
+  "id": "J_PlateA",
+  "resource": "JourneySources/Models/J_PlateA",
+  "minimum": [
+    -0.14483585953712463,
+    0.0,
+    -0.14489515125751495
+  ],
+  "maximum": [
+    0.14483585953712463,
+    0.019185587763786316,
+    0.14489515125751495
+  ],
+  "triangles": 1050,
+  "materials": [
+    {
+      "name": "J_PlateA_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_PlateA_m0_albedo",
+      "normal": "JourneySources/Textures/J_PlateA_m0_normal",
+      "mask": "JourneySources/Textures/J_PlateA_m0_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_PlateA_m0_specular"
+    },
+    {
+      "name": "J_PlateA_m1",
+      "colour": [
+        0.3915730118751526,
+        0.8227859735488892,
+        0.5149180293083191,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_PlateA_m1_albedo",
+      "normal": "JourneySources/Textures/J_PlateA_m1_normal",
+      "mask": "JourneySources/Textures/J_PlateA_m1_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_PlateA_m1_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "JourneySources/Models/J_PlateA_LOD1",
+      "triangles": 648
+    },
+    {
+      "resource": "JourneySources/Models/J_PlateA_LOD2",
+      "triangles": 538
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "3ce77f308df5e60785fc6ac6df814aebbb32a42c6915027c7844fb81ce9c70f4",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+  "sourceRootNode": 1936,
+  "sourceRootName": "paris_plate_01a46",
+  "sourceMaterialIndices": [
+    150,
+    151
+  ],
+  "originalTriangles": 1050,
+  "sourceDimensionsMetres": [
+    0.2896717252697947,
+    0.019185587636309398,
+    0.28979031149799894
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "sourceNode": "paris_plate_01a46",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "gameplayLongest": 0.25,
+  "nativeUnityValidated": false
+}

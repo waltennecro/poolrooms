@@ -1,0 +1,130 @@
+{
+  "id": "J_CoatRackB",
+  "resource": "JourneySources/Models/J_CoatRackB",
+  "minimum": [
+    -0.32843369245529175,
+    0.0,
+    -0.1021871566772461
+  ],
+  "maximum": [
+    0.32843369245529175,
+    0.4549771547317505,
+    0.1021871566772461
+  ],
+  "triangles": 8680,
+  "materials": [
+    {
+      "name": "J_CoatRackB_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_CoatRackB_m0_albedo",
+      "normal": "JourneySources/Textures/J_CoatRackB_m0_normal",
+      "mask": "JourneySources/Textures/J_CoatRackB_m0_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_CoatRackB_m0_specular"
+    },
+    {
+      "name": "J_CoatRackB_m1",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_CoatRackB_m1_albedo",
+      "normal": "JourneySources/Textures/J_CoatRackB_m1_normal",
+      "mask": "JourneySources/Textures/J_CoatRackB_m1_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_CoatRackB_m1_specular"
+    },
+    {
+      "name": "J_CoatRackB_m2",
+      "colour": [
+        0.6938719749450684,
+        0.5394799709320068,
+        0.39675500988960266,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_CoatRackB_m2_albedo",
+      "normal": "JourneySources/Textures/J_CoatRackB_m2_normal",
+      "mask": "JourneySources/Textures/J_CoatRackB_m2_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_CoatRackB_m2_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "JourneySources/Models/J_CoatRackB_LOD1",
+      "triangles": 2481
+    },
+    {
+      "resource": "JourneySources/Models/J_CoatRackB_LOD2",
+      "triangles": 1146
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "c83d48294a88a8bb3f17c451e876c4ca7b3c42b11111f6b3db27ba467e29bf8f",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+  "sourceRootNode": 2495,
+  "sourceRootName": "paris_coat_rack_01b2",
+  "sourceMaterialIndices": [
+    164,
+    165,
+    166
+  ],
+  "originalTriangles": 8680,
+  "sourceDimensionsMetres": [
+    0.6568673600251835,
+    0.4549771501905928,
+    0.20437431294796893
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "sourceNode": "paris_coat_rack_01b2",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "gameplayLongest": 0.42,
+  "nativeUnityValidated": false
+}

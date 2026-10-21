@@ -1,0 +1,45 @@
+{
+  "baseRevision": "6117a21c53862e6ad498c3e20ed401c6b49de114",
+  "request": "Expand existing levels and add twenty substantial walkable procedural levels; usable content under Assets, up to a 6 GB budget without filler.",
+  "status": "implemented_local_core_and_resources_checked",
+  "scope": {
+    "newCatalogueLevels": 20,
+    "preserveSerializedIds": true,
+    "existingLevelExpansion": "Additional architectural treatments and attributed finishes, preserving legacy mode and protected geometry fixtures.",
+    "media": "Native-resolution attributed surface sets, shared rather than duplicate recolours; existing licensed furniture reused where appropriate.",
+    "budgetBytes": 6000000000,
+    "budgetIsNotPaddingTarget": true
+  },
+  "checks": {
+    "core": "Full local core suite passed before final furniture-obstacle refinement; final focused Journey and immersion suites passed after refinement. Final full GitHub run pending.",
+    "resources": "All new file hashes, geometry/LODs, runtime map bindings, source notices and gloss channels passed.",
+    "Unity": "unavailable",
+    "visualsPhysicsFPS": "unrun",
+    "newBuiltRoomCases": 480,
+    "plannedPickupsInCases": 32640,
+    "reachableStationsInCases": 1625,
+    "waterVolumesInCases": 576,
+    "walkingGraphRoutes": 310,
+    "physicalBoundaryPairs": 539,
+    "protectedGeometryFingerprints": 188
+  },
+  "pending": [
+    "Final full GitHub verification of exact delivered commit",
+    "Public complete Assets package and checksums",
+    "Native Unity/HDRP compilation, shaders, appearance, PhysX, import tests and FPS"
+  ],
+  "newCatalogueLevels": 20,
+  "totalCatalogueBiomes": 58,
+  "separateConnectedEnvironments": [
+    "Complete mall",
+    "Level94"
+  ],
+  "newSourceModels": 8,
+  "lodDerivatives": 16,
+  "finishDefinitions": 43,
+  "newRuntimeMaps": 170,
+  "newRuntimeResourceBytes": 385547721,
+  "assetsBytes": 1295917463,
+  "paddingBytes": 0,
+  "licensedReferenceThumbnails": 43
+}

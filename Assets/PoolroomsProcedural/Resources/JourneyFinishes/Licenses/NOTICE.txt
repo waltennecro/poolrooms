@@ -1,0 +1,4 @@
+Journey surface bank: 43 authored materials derived from Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0.
+Source: https://developer.nvidia.com/orca/amazon-lumberyard-bistro
+Pinned derivative: https://github.com/zeux/niagara_bistro/tree/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e
+Adaptations: decode DDS to PNG; invert tangent normal green for Unity; retain specular workflow; bake source factors; pack HDRP mask. Native resolution capped at 4K, never upscaled. No original presentation lights or emissive signs are imported. Sources and hashes in sources.lock.json; map bindings in palette.json.

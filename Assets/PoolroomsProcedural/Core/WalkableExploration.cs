@@ -9,7 +9,7 @@ namespace Poolrooms.Core
         public const int RegionBlock=8;
         public static void Configure(LayoutConfig c)
         {
-            c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
+            c.EnableJourneyLevels=true;c.ExpandedLevelDetails=true;c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
             c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;c.EnableRestfulLevels=true;c.EnableSpecialRegions=true;c.ObjectAbundance=3;
             c.Continuous=true;c.Procedural=LiminalGeneration.Expanded;c.DiscoveryCoverage=true;
             c.EnableRainHouses=c.EnableAquaticPark=c.EnableThermalBaths=c.EnableOrangerie=true;
@@ -26,6 +26,7 @@ namespace Poolrooms.Core
         static float Positive(float value,float fallback){return value>0?value:fallback;}
         public static bool Enabled(LayoutConfig c,LiminalEnvironment e)
         {
+            if(JourneyLevelPlanner.IsLevel(e))return c.EnableJourneyLevels;
             if(SpecialRegionPlanner.IsLevel(e))return c.EnableSpecialRegions;
             if(RestfulLevelPlanner.IsLevel(e))return c.EnableRestfulLevels;
             switch(e)
@@ -60,6 +61,17 @@ namespace Poolrooms.Core
             for(int round=0;round<4;round++)
             {int next=left^(int)(LiminalRegions.Hash(unchecked((int)h),right,round,0x250A02u)&7);left=right;right=next;}
             int rank=(left<<3)|right,count=0;
+            if(c.EnableJourneyLevels)
+            {
+                // One slot per enabled destination before any duplicates. The legacy
+                // 8x8 policy is retained verbatim when this expansion is disabled.
+                for(int i=0;i<RestfulLevelPlanner.EnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i))count++;
+                if(count==0)return false;
+                int pickNew=rank%count;
+                for(int i=0;i<RestfulLevelPlanner.EnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i)&&pickNew--==0)
+                {environment=(LiminalEnvironment)i;return true;}
+                throw new InvalidOperationException("Invalid expanded discovery coverage.");
+            }count=0;
             for(int i=0;i<SpecialRegionPlanner.FirstEnvironment;i++)if(Enabled(c,(LiminalEnvironment)i))count++;
             // Preserve all 56 original biome assignments in a fully enabled block.
             // Eight former weighted slots host eight of ten special regions. A cyclic

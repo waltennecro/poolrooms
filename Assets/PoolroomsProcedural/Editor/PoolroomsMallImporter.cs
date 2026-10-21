@@ -7,7 +7,7 @@ namespace Poolrooms.Editor
     {
         void OnPreprocessTexture()
         {
-            if(!assetPath.Contains("/Resources/MallFinishes/Textures/")&&!assetPath.Contains("/Resources/MallSources/Textures/"))return;
+            if(!assetPath.Contains("/Resources/JourneySources/Textures/")&&!assetPath.Contains("/Resources/JourneyFinishes/Textures/")&&!assetPath.Contains("/Resources/MallFinishes/Textures/")&&!assetPath.Contains("/Resources/MallSources/Textures/"))return;
             var importer=(TextureImporter)assetImporter;
             bool normal=assetPath.EndsWith("_normal.png"),data=normal||assetPath.EndsWith("_mask.png");
             importer.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
@@ -17,7 +17,7 @@ namespace Poolrooms.Editor
         }
         void OnPreprocessModel()
         {
-            if(!assetPath.Contains("/Resources/MallSources/Models/"))return;
+            if(!assetPath.Contains("/Resources/JourneySources/Models/")&&!assetPath.Contains("/Resources/MallSources/Models/"))return;
             var importer=(ModelImporter)assetImporter;
             importer.globalScale=1;importer.useFileScale=false;importer.importCameras=false;importer.importLights=false;importer.importAnimation=false;
             importer.importNormals=ModelImporterNormals.Import;importer.importTangents=ModelImporterTangents.CalculateMikk;

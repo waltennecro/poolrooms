@@ -1,0 +1,374 @@
+{
+  "J_Basket.json": {
+    "bytes": 2231,
+    "sha256": "f5d2092f6dcd2c19043e6fe78cd0c89cd08edb6cb1bf7eb6e311e4f9b11c1cc0"
+  },
+  "J_CoatRackA.json": {
+    "bytes": 2206,
+    "sha256": "f05e47d28c9c9396d72e4c2eaea5ddbc0b75dafc68acf1af7c32056f17993d6c"
+  },
+  "J_CoatRackB.json": {
+    "bytes": 3513,
+    "sha256": "fbf476444ca1afab68b0d8eccc91694b786934a69984947e3be6875a87b0a4f9"
+  },
+  "J_NapkinPile.json": {
+    "bytes": 2197,
+    "sha256": "e7a61d386a380add45985b2e63a2da7e5e029f9802cc09eb82670757afd9e684"
+  },
+  "J_PlantPot.json": {
+    "bytes": 2193,
+    "sha256": "3db637bff935852e43780266236a5de9719a615869b9f0539460089ac51252c5"
+  },
+  "J_PlateA.json": {
+    "bytes": 2839,
+    "sha256": "d056eb970f2aed968b8352fdf77f426a8cd99d5fc3620498c3f2c31d282b0534"
+  },
+  "J_PlateB.json": {
+    "bytes": 2840,
+    "sha256": "1247d679d46ac862919ab7eb984308862ebdecdf3b9f539109fcb5ed736a2783"
+  },
+  "J_Radiator.json": {
+    "bytes": 2192,
+    "sha256": "de39083b893e94d5376cbb23352cd081ce65f88ba1ea008782755aaa8387ebed"
+  },
+  "Licenses/Bistro_CC_BY_4.txt": {
+    "bytes": 19242,
+    "sha256": "eb53f08e7a562c6f56d9ef93a260d1cbe26a726f959783dbf7e5091421e6a0d0"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 502,
+    "sha256": "8dc0f35ae3e62231af3369730b3267564490f6fdfdc4cb3c9a413ee99a652341"
+  },
+  "Licenses/upstream_MIT.txt": {
+    "bytes": 1073,
+    "sha256": "e3151c4e72486708e3f1273cb32943467b6f96cd66f3d2f0d89f99b404ef6db9"
+  },
+  "Models/J_Basket.mtl": {
+    "bytes": 79,
+    "sha256": "0015fc9ced261017aa068f1e59fcfdc768e35f92cafe7ccbca78068023dcb7a8"
+  },
+  "Models/J_Basket.obj": {
+    "bytes": 248357,
+    "sha256": "7e365429a5070c7db474481583280ed77412b205dc84e2fcebbe19380029e962"
+  },
+  "Models/J_Basket_LOD1.obj": {
+    "bytes": 177413,
+    "sha256": "74cf0b75b81f623f2b17644e3c5b6607527e86389d70ea52febf50e25afb0f62"
+  },
+  "Models/J_Basket_LOD2.obj": {
+    "bytes": 147247,
+    "sha256": "7b3defa86ae6659b5a74c24b05de99bdb345e306de21815eb8b1c837217a8712"
+  },
+  "Models/J_CoatRackA.mtl": {
+    "bytes": 37,
+    "sha256": "ae643c9f63ae0058116c3db2fa9387fb2b3163ae91135de7d858c6828c0076ce"
+  },
+  "Models/J_CoatRackA.obj": {
+    "bytes": 1505225,
+    "sha256": "9f53c1d6c4504cecbfef2b63e2dce0b81c299d803f6ce6c74c666d2fa407d383"
+  },
+  "Models/J_CoatRackA_LOD1.obj": {
+    "bytes": 700328,
+    "sha256": "96ab3c4a383ba3a518cbeddabd8176f5f7a748405625626cb66bf9e06f365e71"
+  },
+  "Models/J_CoatRackA_LOD2.obj": {
+    "bytes": 342878,
+    "sha256": "bd72b0fdcb6aa159442eb1149af83cae2b21361af41a12fa7729e100a62bd260"
+  },
+  "Models/J_CoatRackB.mtl": {
+    "bytes": 157,
+    "sha256": "e85fc47630b2573a1bbed154e81a7c7269ca0eaef90a89ef1cbcd270bac09ed7"
+  },
+  "Models/J_CoatRackB.obj": {
+    "bytes": 1035146,
+    "sha256": "6cd4f5804d27dcf30de2ac350d1048524693148a57e66f4c5de760fd7bfbc8b8"
+  },
+  "Models/J_CoatRackB_LOD1.obj": {
+    "bytes": 381412,
+    "sha256": "7169f3b85572f1bc8eb2115be4b953febc95646cdf0dfbf7467c5c9adc0f99bc"
+  },
+  "Models/J_CoatRackB_LOD2.obj": {
+    "bytes": 201219,
+    "sha256": "9fe53bdc953c4d7f8c05c6d75e360ead3b63f102e0d6b6cb26efa45dc76ec44c"
+  },
+  "Models/J_NapkinPile.mtl": {
+    "bytes": 38,
+    "sha256": "574ca56cfe884c5123bb17dba49477debaa6de481020dfacc884b2484579f708"
+  },
+  "Models/J_NapkinPile.obj": {
+    "bytes": 117273,
+    "sha256": "80dbc63278091c742ac01eb76a4f40940589cf9ed0969857e1be64b93a380bd0"
+  },
+  "Models/J_NapkinPile_LOD1.obj": {
+    "bytes": 92944,
+    "sha256": "e6123c73844087c5a4703c980d0ac0660f5280da4ac8cc16d23c26bfe2bdd101"
+  },
+  "Models/J_NapkinPile_LOD2.obj": {
+    "bytes": 82708,
+    "sha256": "7e587f311d4ed9e1d725c91643d9c0cdeb9d6ef98fe0da8899716ed9e572f9a9"
+  },
+  "Models/J_PlantPot.mtl": {
+    "bytes": 36,
+    "sha256": "b15ce9db35730e764731ce9591d40ff537a3181d9f8622f1c840f80ad9b0c7eb"
+  },
+  "Models/J_PlantPot.obj": {
+    "bytes": 140073,
+    "sha256": "0fd54e3b351387446c2054c458710bdf5966454fa2cb15276666cfc3893a6405"
+  },
+  "Models/J_PlantPot_LOD1.obj": {
+    "bytes": 135099,
+    "sha256": "0932129581a30a31db3dcf4d16995f50eb9bff69f23321e0a40573748783be73"
+  },
+  "Models/J_PlantPot_LOD2.obj": {
+    "bytes": 125619,
+    "sha256": "8fba2d1606aba8f9e3e52cf7b03778cd7f6266e55c408021d306ca2a7268567e"
+  },
+  "Models/J_PlateA.mtl": {
+    "bytes": 113,
+    "sha256": "a54987038e8f280014e2fa3e51f91abc89f66e80c3681a0a5beef547f9e46e32"
+  },
+  "Models/J_PlateA.obj": {
+    "bytes": 115745,
+    "sha256": "57e03f75de6e5b6734f1ce89479edb57d034b638c4dc4fed4136e2e86f91533a"
+  },
+  "Models/J_PlateA_LOD1.obj": {
+    "bytes": 78793,
+    "sha256": "185aceade3ce3fa6b743915b7e3ed3dfce6a62aaeb2942721a6f6be326482e9b"
+  },
+  "Models/J_PlateA_LOD2.obj": {
+    "bytes": 66544,
+    "sha256": "e97c0c4feeee3111afae8ce9967c26f6967436234ac23de51cb55c1899cf7d4d"
+  },
+  "Models/J_PlateB.mtl": {
+    "bytes": 113,
+    "sha256": "edcfb9e2e51b7b1e34075a9a45c9ab10885719b8ba9e4b4d98eb01be409e71f8"
+  },
+  "Models/J_PlateB.obj": {
+    "bytes": 165455,
+    "sha256": "88bd54a6c87f75728af12dc4150719ca94f880709a87b4bb740bf4dae56e9f7f"
+  },
+  "Models/J_PlateB_LOD1.obj": {
+    "bytes": 124463,
+    "sha256": "2700bba5a32683f5bca871c660476c2b0f0647df22fc21d756aa86986b381406"
+  },
+  "Models/J_PlateB_LOD2.obj": {
+    "bytes": 110660,
+    "sha256": "ec4db6fe2c0743ceb7e67b3d8185db22d572f3e7af3870eec0e1969f3790aa6a"
+  },
+  "Models/J_Radiator.mtl": {
+    "bytes": 36,
+    "sha256": "b77acc16a9a7d32876181ef3b394feaa4e68671f70dd108ce1aedbb3605ac204"
+  },
+  "Models/J_Radiator.obj": {
+    "bytes": 807242,
+    "sha256": "561c22aeabadc659fd28c903ef42e6142c4c46d36cb160c879f5e908e5a98985"
+  },
+  "Models/J_Radiator_LOD1.obj": {
+    "bytes": 460820,
+    "sha256": "74c38b8dd8445f6bb7f150523613bc150d3496bb71864fe8628c23d48649d1c0"
+  },
+  "Models/J_Radiator_LOD2.obj": {
+    "bytes": 234232,
+    "sha256": "ef0954393c0cae5b5a5d5bdf18a9ccc432c30215c93c81bec000af7d59c7c943"
+  },
+  "Textures/J_Basket_m0_albedo.png": {
+    "bytes": 1619197,
+    "sha256": "1389d5b05af8add13e741b05677691915c444b7feb0873ba53c3ab51575ce481"
+  },
+  "Textures/J_Basket_m0_mask.png": {
+    "bytes": 78,
+    "sha256": "6b2ec4a0c0a2bc36767c5dff422c34a6efb49b5b6ce7ec78ac253eab7f424ba7"
+  },
+  "Textures/J_Basket_m0_normal.png": {
+    "bytes": 1259555,
+    "sha256": "db036163289154c213c0ff99d454034932fece6c0e6f61776bc34452766e7d3d"
+  },
+  "Textures/J_Basket_m0_specular.png": {
+    "bytes": 78,
+    "sha256": "635bbe80f495c61bf8776f2ceb4ac1aeefec0d09708542593bbf38cac8b7d574"
+  },
+  "Textures/J_CoatRackA_m0_albedo.png": {
+    "bytes": 21238,
+    "sha256": "b283d31a91b37991c1c8c1b3ee4e48cc9addca17df7e4098a2a5ea3f9f7e818d"
+  },
+  "Textures/J_CoatRackA_m0_mask.png": {
+    "bytes": 21240,
+    "sha256": "7e8d766bdccc946a9a926268815e84198e38588bcd131379dc589c39ea611338"
+  },
+  "Textures/J_CoatRackA_m0_normal.png": {
+    "bytes": 2101543,
+    "sha256": "16db63e064983c06f7e2b66ce0cf7c806d39a69909a3aeeafdd966445e2d038e"
+  },
+  "Textures/J_CoatRackA_m0_specular.png": {
+    "bytes": 1759093,
+    "sha256": "76a615cf643f30498962756ab7a060841fc34d067749626c582c6ffeffaf6a7c"
+  },
+  "Textures/J_CoatRackB_m0_albedo.png": {
+    "bytes": 21238,
+    "sha256": "b283d31a91b37991c1c8c1b3ee4e48cc9addca17df7e4098a2a5ea3f9f7e818d"
+  },
+  "Textures/J_CoatRackB_m0_mask.png": {
+    "bytes": 21240,
+    "sha256": "75464bac21136b2502a6999556e8efee9acd699a17704dee55cb6ed8b1e4ceb1"
+  },
+  "Textures/J_CoatRackB_m0_normal.png": {
+    "bytes": 2101543,
+    "sha256": "16db63e064983c06f7e2b66ce0cf7c806d39a69909a3aeeafdd966445e2d038e"
+  },
+  "Textures/J_CoatRackB_m0_specular.png": {
+    "bytes": 1612547,
+    "sha256": "56821acc8ab3226715bee27d8e32b484d378e67c5382861b3340b72de190aa2e"
+  },
+  "Textures/J_CoatRackB_m1_albedo.png": {
+    "bytes": 3527941,
+    "sha256": "d5404d8953958e30e24ef622b677f21a48769091e15f7518cd2299ef287a8582"
+  },
+  "Textures/J_CoatRackB_m1_mask.png": {
+    "bytes": 156580,
+    "sha256": "1924281410a5b6071792f80b2f95a8213fa25ef7c5aceaf5a66d5f421ef21d50"
+  },
+  "Textures/J_CoatRackB_m1_normal.png": {
+    "bytes": 4914446,
+    "sha256": "406b9583450f968dfb20b6683e269c21f592670ee869d9f9f6d1b09676f9c05f"
+  },
+  "Textures/J_CoatRackB_m1_specular.png": {
+    "bytes": 2017141,
+    "sha256": "4890bd64ba8e979efbd445e6985df83fc2e7d085480dfd86bbde6b5a8bb636c1"
+  },
+  "Textures/J_CoatRackB_m2_albedo.png": {
+    "bytes": 804068,
+    "sha256": "edd1ccba8539137f0ac2f8cc69e563b2e64d69af3f6e07c251b8c614eeab56ac"
+  },
+  "Textures/J_CoatRackB_m2_mask.png": {
+    "bytes": 21240,
+    "sha256": "578d88033708111478fa8626e21e8bd3acad9b791d0c2f6a31650ed566e50c09"
+  },
+  "Textures/J_CoatRackB_m2_normal.png": {
+    "bytes": 3128871,
+    "sha256": "79600ca7a76b7d92dbedd5504788cde9f70b23d0a65eb051a6f021022b31a288"
+  },
+  "Textures/J_CoatRackB_m2_specular.png": {
+    "bytes": 21240,
+    "sha256": "e46792cb8b3891a665a30b482bb0c1ab4ec685b3d2ba1a2891fe469d32a83aa9"
+  },
+  "Textures/J_NapkinPile_m0_albedo.png": {
+    "bytes": 764693,
+    "sha256": "f28285ed549aa75c6e0e5463aaf3a8d4289ffa64430f8ad757ff7557fbaa1d24"
+  },
+  "Textures/J_NapkinPile_m0_mask.png": {
+    "bytes": 6490,
+    "sha256": "e0e2fca99ae2c0976bf3fa9c42d4a354c191286bb442afefb55ba1e4a158b5f5"
+  },
+  "Textures/J_NapkinPile_m0_normal.png": {
+    "bytes": 1017455,
+    "sha256": "6454d274652c923c3a69b3aa2f6ca9e13b645294961bd863141e615b75c41cce"
+  },
+  "Textures/J_NapkinPile_m0_specular.png": {
+    "bytes": 9363,
+    "sha256": "87d08066d773ad668e4b75332f5e037ec07e8f35761baea526b54d9db226546d"
+  },
+  "Textures/J_PlantPot_m0_albedo.png": {
+    "bytes": 6251616,
+    "sha256": "55ca15fd52c02dd939f275effc4b2d0c23ec09446bbcdc4c2d0007a5eb522320"
+  },
+  "Textures/J_PlantPot_m0_mask.png": {
+    "bytes": 78,
+    "sha256": "a13b491751ac3e9a750032b76bc7629d98d0cef33d68be9e78d58b016d000b97"
+  },
+  "Textures/J_PlantPot_m0_normal.png": {
+    "bytes": 5846060,
+    "sha256": "24c3ebcf03b14b642e0e0544fdd2ffac0c772b434f7c121559ce3fc2afa5605c"
+  },
+  "Textures/J_PlantPot_m0_specular.png": {
+    "bytes": 78,
+    "sha256": "c1d29bc6d8a253658a30621911a94b12ae50f9e12885d77c4e24740633fab0d8"
+  },
+  "Textures/J_PlateA_m0_albedo.png": {
+    "bytes": 21241,
+    "sha256": "0172d4f1b2f337c7c7681ab7c01b26a2c13ea4dff1da3c5f19085e67841dacd5"
+  },
+  "Textures/J_PlateA_m0_mask.png": {
+    "bytes": 78,
+    "sha256": "11c4e983312148bda91c5391e04496ef9abaf30c30b2e77fefb0cb970b2da432"
+  },
+  "Textures/J_PlateA_m0_normal.png": {
+    "bytes": 78,
+    "sha256": "a3ed26035f228d09a945a3da22bc3e8dc11422da1e1683bac7894e069b9dd571"
+  },
+  "Textures/J_PlateA_m0_specular.png": {
+    "bytes": 78,
+    "sha256": "373447ed6647f2af9a363c6b04b3b9c7f3f9a5aaaa9b8fd6f98e360d2a4675fd"
+  },
+  "Textures/J_PlateA_m1_albedo.png": {
+    "bytes": 60241,
+    "sha256": "be843f39973566332ffcdaf91126140abc0ab50713070b066864289db7c88be5"
+  },
+  "Textures/J_PlateA_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/J_PlateA_m1_normal.png": {
+    "bytes": 39266,
+    "sha256": "11b184c03acb97508946c6569daeed87b95069b5d7bd64f57c635f2863aac37d"
+  },
+  "Textures/J_PlateA_m1_specular.png": {
+    "bytes": 78,
+    "sha256": "f93dbeba02f75e0b86d807048342c7e7dd1be8839ebced90cdd77a39b6ad4df4"
+  },
+  "Textures/J_PlateB_m0_albedo.png": {
+    "bytes": 21241,
+    "sha256": "0172d4f1b2f337c7c7681ab7c01b26a2c13ea4dff1da3c5f19085e67841dacd5"
+  },
+  "Textures/J_PlateB_m0_mask.png": {
+    "bytes": 78,
+    "sha256": "11c4e983312148bda91c5391e04496ef9abaf30c30b2e77fefb0cb970b2da432"
+  },
+  "Textures/J_PlateB_m0_normal.png": {
+    "bytes": 78,
+    "sha256": "a3ed26035f228d09a945a3da22bc3e8dc11422da1e1683bac7894e069b9dd571"
+  },
+  "Textures/J_PlateB_m0_specular.png": {
+    "bytes": 78,
+    "sha256": "373447ed6647f2af9a363c6b04b3b9c7f3f9a5aaaa9b8fd6f98e360d2a4675fd"
+  },
+  "Textures/J_PlateB_m1_albedo.png": {
+    "bytes": 60241,
+    "sha256": "be843f39973566332ffcdaf91126140abc0ab50713070b066864289db7c88be5"
+  },
+  "Textures/J_PlateB_m1_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/J_PlateB_m1_normal.png": {
+    "bytes": 39266,
+    "sha256": "11b184c03acb97508946c6569daeed87b95069b5d7bd64f57c635f2863aac37d"
+  },
+  "Textures/J_PlateB_m1_specular.png": {
+    "bytes": 78,
+    "sha256": "f93dbeba02f75e0b86d807048342c7e7dd1be8839ebced90cdd77a39b6ad4df4"
+  },
+  "Textures/J_Radiator_m0_albedo.png": {
+    "bytes": 4442010,
+    "sha256": "1804b1feb1cfbd84497f603574d8b51c8af6de8d39934139c75ee2f72cbc6202"
+  },
+  "Textures/J_Radiator_m0_mask.png": {
+    "bytes": 37933,
+    "sha256": "be45d2538462baa43398f0f3c8aeb0492da9e03ab74c2c2ea5eb0ddade899ae1"
+  },
+  "Textures/J_Radiator_m0_normal.png": {
+    "bytes": 3789044,
+    "sha256": "05584ea652ce5691a04413890b5d63c3f5dbadf357f0c94625bd0ce86385a37a"
+  },
+  "Textures/J_Radiator_m0_specular.png": {
+    "bytes": 1024599,
+    "sha256": "a9d009fddba85b0f97861fb78596844617704e00707ce84961bbcef5b6ebaba2"
+  },
+  "catalog.json": {
+    "bytes": 23244,
+    "sha256": "5f6cbf91232ed6b9e0effb3ba405b2a03796e6d734b854396583b113c1c862f2"
+  },
+  "sources.lock.json": {
+    "bytes": 10360,
+    "sha256": "c9163b0c9d6702db2f81cca3b345181fcef7035bf32279744b3916210dbba27b"
+  }
+}

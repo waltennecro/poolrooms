@@ -32,7 +32,7 @@ namespace Poolrooms.Core
         public static float Transient(float gain,float dynamicRange)
         {gain=GamePreferences.Clamp(gain,0,1,0);float compressed=gain/(1+gain*.8f);return compressed+(gain-compressed)*GamePreferences.Clamp(dynamicRange,0,1,.55f);}
         public static float Outdoor(Room room,bool terrainOutside)
-        {return terrainOutside?1:room!=null&&(room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.Conservatory||room.Environment==LiminalEnvironment.Coast48||room.Environment==LiminalEnvironment.WinterGarden||room.Environment==LiminalEnvironment.LanternCourts)? .65f:0;}
+        {return terrainOutside?1:room!=null&&(room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.Conservatory||room.Environment==LiminalEnvironment.Coast48||room.Environment==LiminalEnvironment.WinterGarden||room.Environment==LiminalEnvironment.LanternCourts||room.Environment==LiminalEnvironment.BambooRetreat||room.Environment==LiminalEnvironment.HangingOrchards||room.Environment==LiminalEnvironment.LunarGreenhouse)? .65f:0;}
     }
     // Long rests and distance, never a stinger, vocal, close event or frame-based chance.
     public sealed class AtmosphereDirector

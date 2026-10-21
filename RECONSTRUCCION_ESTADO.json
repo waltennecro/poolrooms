@@ -3533,5 +3533,19 @@
       ]
     },
     "sourceRevision": "48010e21991f2ef848f2dac64d7910cc268400ee"
+  },
+  "twentyDestinations": {
+    "stateFile": "MEGA_EXPANSION_ESTADO.json",
+    "status": "implemented_local_core_and_resources_checked",
+    "newCatalogueLevels": 20,
+    "totalCatalogueBiomes": 58,
+    "newSourceModels": 8,
+    "lodDerivatives": 16,
+    "finishDefinitions": 43,
+    "newRuntimeMaps": 170,
+    "actualAssetsBytes": 1295917463,
+    "budgetBytes": 6000000000,
+    "budgetNotPaddingTarget": true,
+    "nativeUnityExecuted": false
   }
 }

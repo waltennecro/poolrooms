@@ -159,7 +159,7 @@ namespace Poolrooms
             if(root!=null&&Time.unscaledTime>toastUntil)toastLabel.text="";
         }
         public static string EnvironmentName(LiminalEnvironment e)
-        {if(SpecialRegionPlanner.IsLevel(e))return SpecialRegionPlanner.Name(e);switch(e){case LiminalEnvironment.Poolrooms:return "Galerías de agua";case LiminalEnvironment.Supermarket:return "Galerías comerciales";case LiminalEnvironment.RainHouses:return "Casas entre colinas";case LiminalEnvironment.SoftPlay:return "Juegos de varios pisos";case LiminalEnvironment.City11:return "Ciudad de la tarde";case LiminalEnvironment.Orangerie:return "Invernaderos";case LiminalEnvironment.AquaticPark:return "Parque acuático";case LiminalEnvironment.SunsetLibrary:return "Biblioteca del atardecer";default:return e.ToString();}}
+        {if(JourneyLevelPlanner.IsLevel(e))return JourneyLevelPlanner.Name(e);if(SpecialRegionPlanner.IsLevel(e))return SpecialRegionPlanner.Name(e);switch(e){case LiminalEnvironment.Poolrooms:return "Galerías de agua";case LiminalEnvironment.Supermarket:return "Galerías comerciales";case LiminalEnvironment.RainHouses:return "Casas entre colinas";case LiminalEnvironment.SoftPlay:return "Juegos de varios pisos";case LiminalEnvironment.City11:return "Ciudad de la tarde";case LiminalEnvironment.Orangerie:return "Invernaderos";case LiminalEnvironment.AquaticPark:return "Parque acuático";case LiminalEnvironment.SunsetLibrary:return "Biblioteca del atardecer";default:return e.ToString();}}
         private void OnDisable(){CloseInterface();StopAllCoroutines();findingRoute=false;photographing=false;if(presentation!=null)Destroy(presentation);presentation=null;DisposeUI();}
         private void OnDestroy(){DisposeMarkers();}
     }

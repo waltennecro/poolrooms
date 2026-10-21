@@ -1,0 +1,78 @@
+{
+  "id": "J_NapkinPile",
+  "resource": "JourneySources/Models/J_NapkinPile",
+  "minimum": [
+    -0.13818593323230743,
+    0.0,
+    -0.07001835107803345
+  ],
+  "maximum": [
+    0.13818593323230743,
+    0.14623339474201202,
+    0.07001835107803345
+  ],
+  "triangles": 630,
+  "materials": [
+    {
+      "name": "J_NapkinPile_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "JourneySources/Textures/J_NapkinPile_m0_albedo",
+      "normal": "JourneySources/Textures/J_NapkinPile_m0_normal",
+      "mask": "JourneySources/Textures/J_NapkinPile_m0_mask",
+      "workflow": "specular",
+      "specular": "JourneySources/Textures/J_NapkinPile_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "JourneySources/Models/J_NapkinPile_LOD1",
+      "triangles": 493
+    },
+    {
+      "resource": "JourneySources/Models/J_NapkinPile_LOD2",
+      "triangles": 411
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "8bc80efe7bb77056a6b9a86f121fe58e24f19347f62468e3aecc870da87c3f7b",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Selected original object; metric rebasing, native PBR maps capped at 4K, preserved specular/gloss workflow, two LODs. No scene dump.",
+  "sourceRootNode": 4572,
+  "sourceRootName": "Napkin_Pile",
+  "sourceMaterialIndices": [
+    152
+  ],
+  "originalTriangles": 630,
+  "sourceDimensionsMetres": [
+    0.2763718525067329,
+    0.146233387583667,
+    0.1400367056003322
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "sourceNode": "Napkin_Pile",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "gameplayLongest": 0.25,
+  "nativeUnityValidated": false
+}

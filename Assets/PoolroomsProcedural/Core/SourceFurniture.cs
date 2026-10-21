@@ -15,15 +15,16 @@ namespace Poolrooms.Core
     // the actual resource JSON, so placement uses the same scale as native loading.
     public static class SourceFurniture
     {
-        public const int Count=28;
+        public const int Count=36;
+        private static readonly float[] journeyLengths={1.7f,0.42f,0.36f,0.25f,0.25f,0.25f,0.85f,0.8f};
         private static readonly float[] mallLengths={2.1f,.75f,.30f,.65f,.65f,.09f,.16f,.32f,1f,1.3f,.45f,.95f,.28f,1.25f};
         public static string Id(int source)
         {
-            switch(source){case 0:return "WaterBottle";case 1:return "BoomBox";case 2:return "SheenChair";case 3:return "I_GlamVelvetSofa";case 4:return "I_ChairDamaskPurplegold";case 5:return "U_SheenWoodLeatherSofa";case 6:return "U_AntiqueCamera";case 7:return "B_CafeTable";case 8:return "B_CafeChair";case 9:return "G_PottedPlant";case 10:return "T_ArtNouveauLamp";case 11:return "R_Teacup";case 12:return "R_FlowerVase";case 13:return "R_BarnLamp";case 14:return "M_Refrigerator";case 15:return "M_Pouf";case 16:return "M_Shoe";case 17:return "M_StainedLamp";case 18:return "M_DeskLamp";case 19:return "M_Mandarin";case 20:return "M_Avocado";case 21:return "M_OliveDish";case 22:return "M_IndoorChair";case 23:return "M_IndoorTable";case 24:return "M_CashRegister";case 25:return "M_Stool";case 26:return "M_Napkins";case 27:return "M_MenuSign";default:throw new ArgumentOutOfRangeException(nameof(source));}
+            switch(source){case 0:return "WaterBottle";case 1:return "BoomBox";case 2:return "SheenChair";case 3:return "I_GlamVelvetSofa";case 4:return "I_ChairDamaskPurplegold";case 5:return "U_SheenWoodLeatherSofa";case 6:return "U_AntiqueCamera";case 7:return "B_CafeTable";case 8:return "B_CafeChair";case 9:return "G_PottedPlant";case 10:return "T_ArtNouveauLamp";case 11:return "R_Teacup";case 12:return "R_FlowerVase";case 13:return "R_BarnLamp";case 14:return "M_Refrigerator";case 15:return "M_Pouf";case 16:return "M_Shoe";case 17:return "M_StainedLamp";case 18:return "M_DeskLamp";case 19:return "M_Mandarin";case 20:return "M_Avocado";case 21:return "M_OliveDish";case 22:return "M_IndoorChair";case 23:return "M_IndoorTable";case 24:return "M_CashRegister";case 25:return "M_Stool";case 26:return "M_Napkins";case 27:return "M_MenuSign";case 28:return "J_CoatRackA";case 29:return "J_CoatRackB";case 30:return "J_Basket";case 31:return "J_PlateA";case 32:return "J_PlateB";case 33:return "J_NapkinPile";case 34:return "J_Radiator";case 35:return "J_PlantPot";default:throw new ArgumentOutOfRangeException(nameof(source));}
         }
         public static bool IsSeat(int source){return source>=2&&source<=5||source==8||source==15||source==22||source==25;}
         public static int Index(string source){for(int i=0;i<Count;i++)if(Id(i)==source)return i;throw new ArgumentException("Unknown placed source: "+source);}
-        public static float Longest(int source){if(source>=14&&source<Count)return mallLengths[source-14];if(source>=Count||source<0)throw new ArgumentOutOfRangeException(nameof(source));return source==11?.19f:source==12?.42f:source==13?.65f:source==10?.55f:source==9?1.15f:source==0?.28f:source==1?.4f:source==3||source==5?2:source==6?1.5f:source==7?.9f:1;}
+        public static float Longest(int source){if(source>=28&&source<Count)return journeyLengths[source-28];if(source>=14&&source<28)return mallLengths[source-14];if(source>=Count||source<0)throw new ArgumentOutOfRangeException(nameof(source));return source==11?.19f:source==12?.42f:source==13?.65f:source==10?.55f:source==9?1.15f:source==0?.28f:source==1?.4f:source==3||source==5?2:source==6?1.5f:source==7?.9f:1;}
         public static float Longest(string source)
         {if(source=="Lantern")return 1.3f;return Longest(Index(source));}
         public static V3 HalfExtents(int source,float yaw,float margin=0)
@@ -78,6 +79,14 @@ namespace Poolrooms.Core
                 case 25:return new V3(0.390566826f,0.950000000f,0.374196594f);
                 case 26:return new V3(0.280000000f,0.153677761f,0.086385908f);
                 case 27:return new V3(0.763994234f,1.250000000f,0.124002989f);
+                case 28:return new V3(0.525143744f,1.700000000f,0.525143744f);
+                case 29:return new V3(0.420000000f,0.290911696f,0.130676623f);
+                case 30:return new V3(0.360000000f,0.149298654f,0.298872051f);
+                case 31:return new V3(0.249897699f,0.016551268f,0.250000000f);
+                case 32:return new V3(0.250000000f,0.028733156f,0.249539052f);
+                case 33:return new V3(0.250000000f,0.132279559f,0.126674165f);
+                case 34:return new V3(0.850000000f,0.542883682f,0.175396175f);
+                case 35:return new V3(0.800000000f,0.589850443f,0.793968363f);
                 default:throw new ArgumentOutOfRangeException(nameof(source));
             }
         }

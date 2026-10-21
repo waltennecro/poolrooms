@@ -1,0 +1,346 @@
+[
+  {
+    "file": "Surface_00.jpg",
+    "sourceMaterial": 5,
+    "source": "JourneyFinishes/Textures/f488c923f149f088_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_01.jpg",
+    "sourceMaterial": 6,
+    "source": "JourneyFinishes/Textures/ac361ef0563e2933_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_02.jpg",
+    "sourceMaterial": 16,
+    "source": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_03.jpg",
+    "sourceMaterial": 23,
+    "source": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_04.jpg",
+    "sourceMaterial": 24,
+    "source": "MallFinishes/Textures/392d25a96b00f4b8_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_05.jpg",
+    "sourceMaterial": 32,
+    "source": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_06.jpg",
+    "sourceMaterial": 34,
+    "source": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_07.jpg",
+    "sourceMaterial": 39,
+    "source": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_08.jpg",
+    "sourceMaterial": 59,
+    "source": "JourneyFinishes/Textures/44653d738be87f76_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_09.jpg",
+    "sourceMaterial": 61,
+    "source": "JourneyFinishes/Textures/946d4199da1b5bdf_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_10.jpg",
+    "sourceMaterial": 62,
+    "source": "JourneyFinishes/Textures/8a713c866d5cf773_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_11.jpg",
+    "sourceMaterial": 65,
+    "source": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_12.jpg",
+    "sourceMaterial": 66,
+    "source": "MallFinishes/Textures/8393ede25ea82aa5_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_13.jpg",
+    "sourceMaterial": 67,
+    "source": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_14.jpg",
+    "sourceMaterial": 80,
+    "source": "MallFinishes/Textures/c6567194ec83739d_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_15.jpg",
+    "sourceMaterial": 122,
+    "source": "JourneyFinishes/Textures/7215096ad04da7a3_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_16.jpg",
+    "sourceMaterial": 194,
+    "source": "JourneyFinishes/Textures/3e472b2ec5dda850_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_17.jpg",
+    "sourceMaterial": 195,
+    "source": "JourneyFinishes/Textures/d3b7ea18d1d82b16_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_18.jpg",
+    "sourceMaterial": 196,
+    "source": "JourneyFinishes/Textures/ca4c9633f9852085_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_19.jpg",
+    "sourceMaterial": 203,
+    "source": "JourneyFinishes/Textures/660ae131f6b4b44d_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_20.jpg",
+    "sourceMaterial": 9,
+    "source": "JourneyFinishes/Textures/f406c0064ae0a164_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_21.jpg",
+    "sourceMaterial": 12,
+    "source": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_22.jpg",
+    "sourceMaterial": 30,
+    "source": "MallFinishes/Textures/392d25a96b00f4b8_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_23.jpg",
+    "sourceMaterial": 36,
+    "source": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_24.jpg",
+    "sourceMaterial": 38,
+    "source": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_25.jpg",
+    "sourceMaterial": 56,
+    "source": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_26.jpg",
+    "sourceMaterial": 57,
+    "source": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_27.jpg",
+    "sourceMaterial": 58,
+    "source": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_28.jpg",
+    "sourceMaterial": 74,
+    "source": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_29.jpg",
+    "sourceMaterial": 81,
+    "source": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_30.jpg",
+    "sourceMaterial": 84,
+    "source": "MallFinishes/Textures/7bd848cce99758a9_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_31.jpg",
+    "sourceMaterial": 85,
+    "source": "JourneyFinishes/Textures/34bfb5d7da574b2f_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_32.jpg",
+    "sourceMaterial": 86,
+    "source": "JourneyFinishes/Textures/946d4199da1b5bdf_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_33.jpg",
+    "sourceMaterial": 87,
+    "source": "JourneyFinishes/Textures/f488c923f149f088_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_34.jpg",
+    "sourceMaterial": 193,
+    "source": "JourneyFinishes/Textures/d57831fbcdfacfd3_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_35.jpg",
+    "sourceMaterial": 197,
+    "source": "JourneyFinishes/Textures/693a5cb1c4ff929f_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_36.jpg",
+    "sourceMaterial": 198,
+    "source": "JourneyFinishes/Textures/98f08e1e4fe23020_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_37.jpg",
+    "sourceMaterial": 200,
+    "source": "JourneyFinishes/Textures/a1363053c20182bb_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_38.jpg",
+    "sourceMaterial": 204,
+    "source": "JourneyFinishes/Textures/8a713c866d5cf773_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_39.jpg",
+    "sourceMaterial": 205,
+    "source": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_40.jpg",
+    "sourceMaterial": 46,
+    "source": "MallFinishes/Textures/8393ede25ea82aa5_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_41.jpg",
+    "sourceMaterial": 73,
+    "source": "MallFinishes/Textures/fd453ce1ce3f7fde_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Surface_42.jpg",
+    "sourceMaterial": 246,
+    "source": "JourneyFinishes/Textures/ab2532f04db1ee9f_albedo",
+    "licence": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "type": "Source surface reference; not an in-game screenshot."
+  }
+]

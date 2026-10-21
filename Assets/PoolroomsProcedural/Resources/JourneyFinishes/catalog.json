@@ -1,0 +1,1002 @@
+{
+  "finishes": 43,
+  "source": "Amazon Lumberyard Bistro",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "sourceDocumentSha256": "c0972d6cd032c1aecb1ad609291a60d124975cd405097212c29de806851de2bb",
+  "licence": "CC-BY-4.0",
+  "sourceModelsAdded": 0,
+  "maxTextureResolution": 4096,
+  "upscaled": false,
+  "nativeUnityValidated": false,
+  "materials": [
+    {
+      "name": "JourneyFinish_00",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 5,
+      "sourceName": "LMBR_000000a_Concrete",
+      "roughness": 0.0,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/f488c923f149f088_albedo",
+      "normal": "JourneyFinishes/Textures/8a4450316103c6b8_normal",
+      "specular": "JourneyFinishes/Textures/Finish_00_specular",
+      "mask": "JourneyFinishes/Textures/Finish_00_mask"
+    },
+    {
+      "name": "JourneyFinish_01",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 6,
+      "sourceName": "LMBR_0000010_concrete",
+      "roughness": 0.49000000953674316,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/ac361ef0563e2933_albedo",
+      "normal": "JourneyFinishes/Textures/55b6b1844710c1c4_normal",
+      "specular": "JourneyFinishes/Textures/Finish_01_specular",
+      "mask": "JourneyFinishes/Textures/Finish_01_mask"
+    },
+    {
+      "name": "JourneyFinish_02",
+      "workflow": "specular",
+      "colour": [
+        0.5209959745407104,
+        0.5209959745407104,
+        0.5209959745407104,
+        1.0
+      ],
+      "sourceMaterial": 16,
+      "sourceName": "LMBR_000001f_concrete_smooth_02",
+      "roughness": 0.5999999940395355,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+      "normal": "JourneyFinishes/Textures/3c94e62bc54a71ee_normal",
+      "specular": "JourneyFinishes/Textures/Finish_02_specular",
+      "mask": "JourneyFinishes/Textures/Finish_02_mask"
+    },
+    {
+      "name": "JourneyFinish_03",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 23,
+      "sourceName": "LMBR_0000044_Concrete_Smooth",
+      "roughness": 0.0,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+      "normal": "MallFinishes/Textures/a2cd2bee035d13fd_normal",
+      "specular": "JourneyFinishes/Textures/Finish_03_specular",
+      "mask": "JourneyFinishes/Textures/Finish_03_mask"
+    },
+    {
+      "name": "JourneyFinish_04",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 24,
+      "sourceName": "LMBR_0000045_Concrete_Striped",
+      "roughness": 0.9607839994132519,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/392d25a96b00f4b8_albedo",
+      "normal": "MallFinishes/Textures/6d69146022847797_normal",
+      "specular": "JourneyFinishes/Textures/Finish_04_specular",
+      "mask": "JourneyFinishes/Textures/Finish_04_mask"
+    },
+    {
+      "name": "JourneyFinish_05",
+      "workflow": "specular",
+      "colour": [
+        0.4564110040664673,
+        0.4564110040664673,
+        0.4564110040664673,
+        1.0
+      ],
+      "sourceMaterial": 32,
+      "sourceName": "LMBR_000004a_Concrete_Smooth_03",
+      "roughness": 0.3999999761581421,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+      "normal": "MallFinishes/Textures/3808aad4a8f867d4_normal",
+      "specular": "JourneyFinishes/Textures/Finish_05_specular",
+      "mask": "JourneyFinishes/Textures/Finish_05_mask"
+    },
+    {
+      "name": "JourneyFinish_06",
+      "workflow": "specular",
+      "colour": [
+        0.6444799900054932,
+        0.6444799900054932,
+        0.6724429726600647,
+        1.0
+      ],
+      "sourceMaterial": 34,
+      "sourceName": "LMBR_0000049_Concrete_Plaster",
+      "roughness": 0.3999999761581421,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+      "normal": "JourneyFinishes/Textures/3c94e62bc54a71ee_normal",
+      "specular": "JourneyFinishes/Textures/Finish_06_specular",
+      "mask": "JourneyFinishes/Textures/Finish_06_mask"
+    },
+    {
+      "name": "JourneyFinish_07",
+      "workflow": "specular",
+      "colour": [
+        0.5209959745407104,
+        0.5209959745407104,
+        0.5209959745407104,
+        1.0
+      ],
+      "sourceMaterial": 39,
+      "sourceName": "LMBR_000005e_Concrete_02",
+      "roughness": 0.3999999761581421,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+      "normal": "JourneyFinishes/Textures/3c94e62bc54a71ee_normal",
+      "specular": "JourneyFinishes/Textures/Finish_07_specular",
+      "mask": "JourneyFinishes/Textures/Finish_07_mask"
+    },
+    {
+      "name": "JourneyFinish_08",
+      "workflow": "specular",
+      "colour": [
+        0.7529420256614685,
+        0.7529420256614685,
+        0.7529420256614685,
+        1.0
+      ],
+      "sourceMaterial": 59,
+      "sourceName": "LMBR_000006d_concrete_a",
+      "roughness": 0.6,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/44653d738be87f76_albedo",
+      "normal": "JourneyFinishes/Textures/92de9e237117327d_normal",
+      "specular": "JourneyFinishes/Textures/Finish_08_specular",
+      "mask": "JourneyFinishes/Textures/Finish_08_mask"
+    },
+    {
+      "name": "JourneyFinish_09",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 61,
+      "sourceName": "LMBR_0000024_brick_large_beige_01",
+      "roughness": 0.49000000953674316,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/946d4199da1b5bdf_albedo",
+      "normal": "JourneyFinishes/Textures/4bb894ef4991b654_normal",
+      "specular": "JourneyFinishes/Textures/Finish_09_specular",
+      "mask": "JourneyFinishes/Textures/Finish_09_mask"
+    },
+    {
+      "name": "JourneyFinish_10",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 62,
+      "sourceName": "LMBR_0000022_brick_small_red_01",
+      "roughness": 0.38999998569488525,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/8a713c866d5cf773_albedo",
+      "normal": "JourneyFinishes/Textures/54558536918cfe4f_normal",
+      "specular": "JourneyFinishes/Textures/Finish_10_specular",
+      "mask": "JourneyFinishes/Textures/Finish_10_mask"
+    },
+    {
+      "name": "JourneyFinish_11",
+      "workflow": "specular",
+      "colour": [
+        0.6444799900054932,
+        0.6444799900054932,
+        0.6724429726600647,
+        1.0
+      ],
+      "sourceMaterial": 65,
+      "sourceName": "LMBR_0000014_concrete_plaster_grey_01",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+      "normal": "JourneyFinishes/Textures/3c94e62bc54a71ee_normal",
+      "specular": "JourneyFinishes/Textures/Finish_11_specular",
+      "mask": "JourneyFinishes/Textures/Finish_11_mask"
+    },
+    {
+      "name": "JourneyFinish_12",
+      "workflow": "specular",
+      "colour": [
+        0.24620099365711212,
+        0.24620099365711212,
+        0.24620099365711212,
+        1.0
+      ],
+      "sourceMaterial": 66,
+      "sourceName": "LMBR_000001d_wood_brown_01",
+      "roughness": 0.19607800245285034,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/8393ede25ea82aa5_albedo",
+      "normal": "MallFinishes/Textures/a784580832fb2a7d_normal",
+      "specular": "JourneyFinishes/Textures/Finish_12_specular",
+      "mask": "JourneyFinishes/Textures/Finish_12_mask"
+    },
+    {
+      "name": "JourneyFinish_13",
+      "workflow": "specular",
+      "colour": [
+        0.7681509852409363,
+        0.7379109859466553,
+        0.7011020183563232,
+        1.0
+      ],
+      "sourceMaterial": 67,
+      "sourceName": "LMBR_0000026_wood_painted_grey_01",
+      "roughness": 0.17000001668930054,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_13_specular",
+      "mask": "JourneyFinishes/Textures/Finish_13_mask"
+    },
+    {
+      "name": "JourneyFinish_14",
+      "workflow": "specular",
+      "colour": [
+        0.44520100951194763,
+        0.44520100951194763,
+        0.44520100951194763,
+        1.0
+      ],
+      "sourceMaterial": 80,
+      "sourceName": "LMBR_000003f_concrete_white",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/c6567194ec83739d_albedo",
+      "normal": "MallFinishes/Textures/3699c9ec967b4770_normal",
+      "specular": "JourneyFinishes/Textures/Finish_14_specular",
+      "mask": "JourneyFinishes/Textures/Finish_14_mask"
+    },
+    {
+      "name": "JourneyFinish_15",
+      "workflow": "specular",
+      "colour": [
+        0.6104959845542908,
+        0.6938719749450684,
+        0.7083759903907776,
+        1.0
+      ],
+      "sourceMaterial": 122,
+      "sourceName": "LMBR_0000028_brick_small_red_02",
+      "roughness": 0.34200000762939453,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/7215096ad04da7a3_albedo",
+      "normal": "JourneyFinishes/Textures/0ac1f757323ca35c_normal",
+      "specular": "JourneyFinishes/Textures/Finish_15_specular",
+      "mask": "JourneyFinishes/Textures/Finish_15_mask"
+    },
+    {
+      "name": "JourneyFinish_16",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 194,
+      "sourceName": "LMBR_000016c_Cobblestone_Small_01",
+      "roughness": 0.7999999970197678,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/3e472b2ec5dda850_albedo",
+      "normal": "JourneyFinishes/Textures/7b9d7eee619bd79d_normal",
+      "specular": "JourneyFinishes/Textures/Finish_16_specular",
+      "mask": "JourneyFinishes/Textures/Finish_16_mask"
+    },
+    {
+      "name": "JourneyFinish_17",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 195,
+      "sourceName": "LMBR_000016b_Cobblestone_Big_01",
+      "roughness": 0.7999999970197678,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/d3b7ea18d1d82b16_albedo",
+      "normal": "JourneyFinishes/Textures/d9999818ba72603a_normal",
+      "specular": "JourneyFinishes/Textures/Finish_17_specular",
+      "mask": "JourneyFinishes/Textures/Finish_17_mask"
+    },
+    {
+      "name": "JourneyFinish_18",
+      "workflow": "specular",
+      "colour": [
+        0.4564110040664673,
+        0.4564110040664673,
+        0.4564110040664673,
+        1.0
+      ],
+      "sourceMaterial": 196,
+      "sourceName": "LMBR_0000161_Pavement_Brick_01",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/ca4c9633f9852085_albedo",
+      "normal": "JourneyFinishes/Textures/73548ea2d6aeb6fb_normal",
+      "specular": "JourneyFinishes/Textures/Finish_18_specular",
+      "mask": "JourneyFinishes/Textures/Finish_18_mask"
+    },
+    {
+      "name": "JourneyFinish_19",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 203,
+      "sourceName": "LMBR_0000160_Pavement_Cobblestone_01",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/660ae131f6b4b44d_albedo",
+      "normal": "JourneyFinishes/Textures/39ca79907c2ec291_normal",
+      "specular": "JourneyFinishes/Textures/Finish_19_specular",
+      "mask": "JourneyFinishes/Textures/Finish_19_mask"
+    },
+    {
+      "name": "JourneyFinish_20",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 9,
+      "sourceName": "LMBR_0000011_blue_wood",
+      "roughness": 0.1899999976158142,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/f406c0064ae0a164_albedo",
+      "normal": "JourneyFinishes/Textures/2f763d5fbdf79ef4_normal",
+      "specular": "JourneyFinishes/Textures/Finish_20_specular",
+      "mask": "JourneyFinishes/Textures/Finish_20_mask"
+    },
+    {
+      "name": "JourneyFinish_21",
+      "workflow": "specular",
+      "colour": [
+        0.05286100134253502,
+        0.13843199610710144,
+        0.05286100134253502,
+        1.0
+      ],
+      "sourceMaterial": 12,
+      "sourceName": "LMBR_000001a_wood_painted_green_01",
+      "roughness": 0.27300000190734863,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_21_specular",
+      "mask": "JourneyFinishes/Textures/Finish_21_mask"
+    },
+    {
+      "name": "JourneyFinish_22",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 30,
+      "sourceName": "LMBR_000004c_Concrete_Grooved_02",
+      "roughness": 0.3999999761581421,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/392d25a96b00f4b8_albedo",
+      "normal": "MallFinishes/Textures/6d69146022847797_normal",
+      "specular": "JourneyFinishes/Textures/Finish_22_specular",
+      "mask": "JourneyFinishes/Textures/Finish_22_mask"
+    },
+    {
+      "name": "JourneyFinish_23",
+      "workflow": "specular",
+      "colour": [
+        0.05286100134253502,
+        0.13843199610710144,
+        0.05286100134253502,
+        1.0
+      ],
+      "sourceMaterial": 36,
+      "sourceName": "LMBR_0000055_Wood_Painted_Flat_Grey_01",
+      "roughness": 0.25300002098083496,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_23_specular",
+      "mask": "JourneyFinishes/Textures/Finish_23_mask"
+    },
+    {
+      "name": "JourneyFinish_24",
+      "workflow": "specular",
+      "colour": [
+        0.024157999083399773,
+        0.057805001735687256,
+        0.024157999083399773,
+        1.0
+      ],
+      "sourceMaterial": 38,
+      "sourceName": "LMBR_000004e_Wood_painted_02",
+      "roughness": 0.15294098854064941,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_24_specular",
+      "mask": "JourneyFinishes/Textures/Finish_24_mask"
+    },
+    {
+      "name": "JourneyFinish_25",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 56,
+      "sourceName": "LMBR_0000066_wood_painted_02",
+      "roughness": 0.4588239789009094,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_25_specular",
+      "mask": "JourneyFinishes/Textures/Finish_25_mask"
+    },
+    {
+      "name": "JourneyFinish_26",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 57,
+      "sourceName": "LMBR_0000071_wood_painted_03",
+      "roughness": 0.25999999046325684,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_26_specular",
+      "mask": "JourneyFinishes/Textures/Finish_26_mask"
+    },
+    {
+      "name": "JourneyFinish_27",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 58,
+      "sourceName": "LMBR_0000072_Painted_wood",
+      "roughness": 0.25,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_27_specular",
+      "mask": "JourneyFinishes/Textures/Finish_27_mask"
+    },
+    {
+      "name": "JourneyFinish_28",
+      "workflow": "specular",
+      "colour": [
+        0.31854701042175293,
+        0.5149180293083191,
+        0.5972020030021667,
+        1.0
+      ],
+      "sourceMaterial": 74,
+      "sourceName": "LMBR_000002a_wood_painted_cian_01",
+      "roughness": 0.1499999761581421,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_28_specular",
+      "mask": "JourneyFinishes/Textures/Finish_28_mask"
+    },
+    {
+      "name": "JourneyFinish_29",
+      "workflow": "specular",
+      "colour": [
+        0.13286800682544708,
+        0.0009110000100918114,
+        0.0009110000100918114,
+        1.0
+      ],
+      "sourceMaterial": 81,
+      "sourceName": "LMBR_000002d_wood_painted_red_01",
+      "roughness": 0.17299997806549072,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "JourneyFinishes/Textures/Finish_29_specular",
+      "mask": "JourneyFinishes/Textures/Finish_29_mask"
+    },
+    {
+      "name": "JourneyFinish_30",
+      "workflow": "specular",
+      "colour": [
+        0.6514059901237488,
+        0.6375970244407654,
+        0.577580988407135,
+        1.0
+      ],
+      "sourceMaterial": 84,
+      "sourceName": "LMBR_000003c_Concrete_smooth_blend_03",
+      "roughness": 0.38999998569488525,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/7bd848cce99758a9_albedo",
+      "normal": "MallFinishes/Textures/63ff60b3d9667c96_normal",
+      "specular": "JourneyFinishes/Textures/Finish_30_specular",
+      "mask": "JourneyFinishes/Textures/Finish_30_mask"
+    },
+    {
+      "name": "JourneyFinish_31",
+      "workflow": "specular",
+      "colour": [
+        0.20863699913024902,
+        0.9734449982643127,
+        0.8631569743156433,
+        1.0
+      ],
+      "sourceMaterial": 85,
+      "sourceName": "LMBR_000003d_Wood_painted_green_blend",
+      "roughness": 0.5529409945011139,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/34bfb5d7da574b2f_albedo",
+      "normal": "JourneyFinishes/Textures/bead176aba8ed95c_normal",
+      "specular": "JourneyFinishes/Textures/Finish_31_specular",
+      "mask": "JourneyFinishes/Textures/Finish_31_mask"
+    },
+    {
+      "name": "JourneyFinish_32",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 86,
+      "sourceName": "LMBR_000003b_Brick_Large_blend_02",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/946d4199da1b5bdf_albedo",
+      "normal": "JourneyFinishes/Textures/4bb894ef4991b654_normal",
+      "specular": "JourneyFinishes/Textures/Finish_32_specular",
+      "mask": "JourneyFinishes/Textures/Finish_32_mask"
+    },
+    {
+      "name": "JourneyFinish_33",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 87,
+      "sourceName": "LMBR_000003a_Brick_Large_blend_01",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/f488c923f149f088_albedo",
+      "normal": "JourneyFinishes/Textures/8a4450316103c6b8_normal",
+      "specular": "JourneyFinishes/Textures/Finish_33_specular",
+      "mask": "JourneyFinishes/Textures/Finish_33_mask"
+    },
+    {
+      "name": "JourneyFinish_34",
+      "workflow": "specular",
+      "colour": [
+        0.8713669776916504,
+        0.8713669776916504,
+        0.8713669776916504,
+        1.0
+      ],
+      "sourceMaterial": 193,
+      "sourceName": "LMBR_0000162_Paris_Curbstones_01",
+      "roughness": 0.7999999970197678,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/d57831fbcdfacfd3_albedo",
+      "normal": "JourneyFinishes/Textures/2daa5eba2bf9551c_normal",
+      "specular": "JourneyFinishes/Textures/Finish_34_specular",
+      "mask": "JourneyFinishes/Textures/Finish_34_mask"
+    },
+    {
+      "name": "JourneyFinish_35",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 197,
+      "sourceName": "LMBR_000016d_Pavement_Cobblestone_03",
+      "roughness": 0.1980000138282776,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/693a5cb1c4ff929f_albedo",
+      "normal": "JourneyFinishes/Textures/ebfdd289ca277cd6_normal",
+      "specular": "JourneyFinishes/Textures/Finish_35_specular",
+      "mask": "JourneyFinishes/Textures/Finish_35_mask"
+    },
+    {
+      "name": "JourneyFinish_36",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 198,
+      "sourceName": "LMBR_0000165_Ground_Wet_01",
+      "roughness": 0.2200000286102295,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/98f08e1e4fe23020_albedo",
+      "normal": "JourneyFinishes/Textures/b0cffb7aea26456d_normal",
+      "specular": "JourneyFinishes/Textures/Finish_36_specular",
+      "mask": "JourneyFinishes/Textures/Finish_36_mask"
+    },
+    {
+      "name": "JourneyFinish_37",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 200,
+      "sourceName": "LMBR_0000163_Cobblestone_02_Wet",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/a1363053c20182bb_albedo",
+      "normal": "JourneyFinishes/Textures/96adbf7d19f120e6_normal",
+      "specular": "JourneyFinishes/Textures/Finish_37_specular",
+      "mask": "JourneyFinishes/Textures/Finish_37_mask"
+    },
+    {
+      "name": "JourneyFinish_38",
+      "workflow": "specular",
+      "colour": [
+        0.7230550050735474,
+        0.7230550050735474,
+        0.7230550050735474,
+        1.0
+      ],
+      "sourceMaterial": 204,
+      "sourceName": "LMBR_000016e_bricks_red_small",
+      "roughness": 0.6660000085830688,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/8a713c866d5cf773_albedo",
+      "normal": "JourneyFinishes/Textures/54558536918cfe4f_normal",
+      "specular": "JourneyFinishes/Textures/Finish_38_specular",
+      "mask": "JourneyFinishes/Textures/Finish_38_mask"
+    },
+    {
+      "name": "JourneyFinish_39",
+      "workflow": "specular",
+      "colour": [
+        0.5209959745407104,
+        0.5209959745407104,
+        0.5209959745407104,
+        1.0
+      ],
+      "sourceMaterial": 205,
+      "sourceName": "LMBR_000016f_concrete",
+      "roughness": 0.5,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+      "normal": "JourneyFinishes/Textures/3c94e62bc54a71ee_normal",
+      "specular": "JourneyFinishes/Textures/Finish_39_specular",
+      "mask": "JourneyFinishes/Textures/Finish_39_mask"
+    },
+    {
+      "name": "JourneyFinish_40",
+      "workflow": "specular",
+      "colour": [
+        0.24620099365711212,
+        0.24620099365711212,
+        0.24620099365711212,
+        1.0
+      ],
+      "sourceMaterial": 46,
+      "sourceName": "LMBR_0000058_Wood_Polished_01",
+      "roughness": 0.19607800245285034,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/8393ede25ea82aa5_albedo",
+      "normal": "MallFinishes/Textures/a784580832fb2a7d_normal",
+      "specular": "JourneyFinishes/Textures/Finish_40_specular",
+      "mask": "JourneyFinishes/Textures/Finish_40_mask"
+    },
+    {
+      "name": "JourneyFinish_41",
+      "workflow": "specular",
+      "colour": [
+        0.3324519991874695,
+        0.3324519991874695,
+        0.31854701042175293,
+        1.0
+      ],
+      "sourceMaterial": 73,
+      "sourceName": "LMBR_0000021_metal_clean_01",
+      "roughness": 0.2862740159034729,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/fd453ce1ce3f7fde_albedo",
+      "normal": "MallFinishes/Textures/e1865da936cde611_normal",
+      "specular": "JourneyFinishes/Textures/Finish_41_specular",
+      "mask": "JourneyFinishes/Textures/Finish_41_mask"
+    },
+    {
+      "name": "JourneyFinish_42",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceMaterial": 246,
+      "sourceName": "LMBR_00001b7_Paris_courtain_01a",
+      "roughness": 0.23529398441314697,
+      "normalScale": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "JourneyFinishes/Textures/ab2532f04db1ee9f_albedo",
+      "normal": "JourneyFinishes/Textures/447851805940fb53_normal",
+      "specular": "JourneyFinishes/Textures/Finish_42_specular",
+      "mask": "JourneyFinishes/Textures/Finish_42_mask"
+    }
+  ]
+}

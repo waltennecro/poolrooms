@@ -9,10 +9,10 @@ static partial class Checks
     {
         int samples=0,activities=0,vertices=0;var identities=new HashSet<string>();var names=new HashSet<string>();
         Check((int)LiminalEnvironment.MineralSanctuary==27&&(int)SurfaceTheme.EncounterFurniture==44,"Old serialized IDs changed");
-        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==38,"Special environments missing from catalogue");
+        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==RestfulLevelPlanner.EnvironmentCount,"Special environments missing from catalogue");
         foreach(int seed in new[]{0,31,-94,481516})
         {
-            var config=new LayoutConfig{Seed=seed};WalkableExploration.Configure(config);
+            var config=new LayoutConfig{Seed=seed};WalkableExploration.Configure(config);config.EnableJourneyLevels=false;
             for(int bx=-2;bx<=2;bx++)for(int bz=-2;bz<=2;bz++)
             {
                 var coverage=new HashSet<LiminalEnvironment>();

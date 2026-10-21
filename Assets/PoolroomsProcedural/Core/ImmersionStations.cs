@@ -24,6 +24,7 @@ namespace Poolrooms.Core
         private static readonly StationKind[] quietBank={StationKind.Books,StationKind.Tea,StationKind.Sketch,StationKind.MusicBox,StationKind.SlidingPuzzle,StationKind.Mosaic,StationKind.Parcels,StationKind.Chimes};
         public static StationKind Choose(LiminalEnvironment environment,uint hash)
         {
+            if(JourneyLevelPlanner.IsLevel(environment))return JourneyLevelPlanner.Activity(environment,hash);
             if(SpecialRegionPlanner.IsLevel(environment))return SpecialRegionPlanner.Activity(environment,hash);
             StationKind[] bank;
             switch(environment)
@@ -55,7 +56,7 @@ namespace Poolrooms.Core
                     if(prop.CatalogId>=0)size=MallItemCatalog.Get(prop.CatalogId).Size;
                     else
                     {
-                        int source=-1;for(int i=0;i<14;i++)if(SourceFurniture.Id(i)==prop.Source)source=i;
+                        int source=-1;for(int i=0;i<SourceFurniture.Count;i++)if(SourceFurniture.Id(i)==prop.Source)source=i;
                         size=source>=0?SourceFurniture.Dimensions(source):new V3(1.3f,1.3f,1.3f);
                     }
                     var at=a.Center+a.Normal*.2f;float half=Math.Max(size.X,size.Z)*.5f;

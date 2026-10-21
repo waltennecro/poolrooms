@@ -1,0 +1,76 @@
+name: Publish verified twenty-destination delivery
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact verified source commit
+        required: true
+      verification_run:
+        description: Successful full core and packaging run for that commit
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require full verification of this exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/verified-run.json
+          python - <<'PY'
+          import json,os,re
+          run=json.load(open('/tmp/verified-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert run['head_sha']==os.environ['SOURCE_REVISION']
+          assert run['status']=='completed' and run['conclusion']=='success'
+          assert run['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Package only complete playable Assets and audit every byte
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage veinte-destinos --output "${RUNNER_TEMP}/Poolrooms_Veinte_Destinos_Assets.zip" > /tmp/assets.json
+          python - <<'PY'
+          import json,os,pathlib
+          a=json.load(open('/tmp/assets.json'));r=pathlib.Path(os.environ['RUNNER_TEMP'])
+          assert a['sourceRevision']==os.environ['SOURCE_REVISION'] and not a['workingTreeChanged']
+          size=sum(p.stat().st_size for p in pathlib.Path('Assets').rglob('*') if p.is_file())
+          assert 0<size<=6_000_000_000
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'successfulFullRun':os.environ['VERIFIED_RUN'],
+            'assetsUncompressedBytes':size,'assetsBudgetBytes':6_000_000_000,'paddingBytes':0,
+            'package':a,'nativeUnityExecuted':False}
+          (r/'Poolrooms_Veinte_Destinos_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (r/'Poolrooms_Veinte_Destinos_SHA256.txt').write_text(a['sha256']+'  '+pathlib.Path(a['zip']).name+'\n')
+          body=f'''Veinte destinos procedurales nuevos, conectados caminando al mundo. 58 biomas de catálogo más centro comercial completo y Nivel 94. Ampliación de galerías anteriores, carpintería, objetos, estaciones interactivas e historias de cada lugar.
+
+          Ocho modelos fuente nuevos CC BY 4.0, dieciséis LODs derivados, 43 definiciones de superficies hasta 4K y 170 mapas nuevos. Se reutiliza mobiliario existente; variantes, instancias y LODs no son nuevos modelos descargados.
+
+          Paquete completo para Unity: **{a['bytes']:,} bytes comprimidos**. Assets reales: **{size:,} bytes sin comprimir**. Presupuesto máximo: 6 GB; sin relleno para alcanzarlo, fuentes originales fuera del paquete jugable. Importa `PoolroomsProcedural` dentro de `Assets`.
+
+          CRC y SHA-256 de cada archivo comprobados. El run completo del núcleo, sintaxis, geometrías protegidas, licencias, recursos y empaquetado ha pasado para el commit exacto `{os.environ['SOURCE_REVISION']}`.
+
+          Unity/HDRP, shaders, apariencia, PhysX y FPS no ejecutados en el entorno de trabajo. Incluye pruebas PlayMode para materiales y escalas reales, pendientes de ejecutar en Unity. No es una compilación ejecutable de Windows.
+
+          [Guía y lista de destinos](https://github.com/{os.environ['GH_REPO']}/blob/{os.environ['SOURCE_REVISION']}/Assets/PoolroomsProcedural/Documentation/Expansion_Veinte_Destinos.md) · [Referencias de superficies](https://github.com/{os.environ['GH_REPO']}/tree/{os.environ['SOURCE_REVISION']}/Documentation/References/Journey)
+          '''
+          (r/'journey-release.md').write_text('\n'.join(line.strip() for line in body.splitlines()))
+          print(json.dumps(record))
+          PY
+      - name: Publish immutable verified delivery
+        shell: bash
+        run: |
+          gh release create veinte-destinos --target "${SOURCE_REVISION}" --title "Veinte destinos: expansión del mundo" --notes-file "${RUNNER_TEMP}/journey-release.md" "${RUNNER_TEMP}/Poolrooms_Veinte_Destinos_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Veinte_Destinos_SHA256.txt" "${RUNNER_TEMP}/Poolrooms_Veinte_Destinos_Entrega.json"

@@ -48,6 +48,14 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--journey-levels"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Journey checks require current Core.");
+#else
+            JourneyLevels();WalkableNetwork();IntegrationSourceContracts();return 0;
+#endif
+        }
         if(args.Contains("--mall-atlas"))
         {
 #if POOLROOMS_HISTORICAL_CORE
@@ -176,7 +184,7 @@ static partial class Checks
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
 #if !POOLROOMS_HISTORICAL_CORE
-        MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();
+        JourneyLevels();MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();
 #endif
         IntegrationSourceContracts();
         ForgivingJumpTiming();

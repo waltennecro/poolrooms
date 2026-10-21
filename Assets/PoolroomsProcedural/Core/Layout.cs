@@ -49,6 +49,8 @@ namespace Poolrooms.Core
         public bool ExpandedBiomeAreas;
         public bool EnableRestfulLevels;
         public bool EnableSpecialRegions;
+        public bool EnableJourneyLevels;
+        public bool ExpandedLevelDetails;
         public bool LargeProceduralRegions;
         public int LargeRegionScale=8;
         // 1 preserves old placement budgets. 3 is +200%, never an unbounded multiplier.

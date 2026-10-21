@@ -1,0 +1,8 @@
+PASS: twenty Journey programmes; 480 built rooms at three sizes/two door widths; 32640 planned pickups; 1625 reachable stations; 576 water volumes; 10923984 sampled vertices. 58-biome discovery and old-gallery opt-in detail checked. Core only; Unity/appearance/PhysX/FPS unrun.
+Walking graph seed 0, cell 36: 58 environments + mall + Level94 and both Poolrooms climates reached; 2664 explored cells; longest witness 41 room edges. Not a distance promise or PhysX test.
+Walking graph seed 31, cell 36: 58 environments + mall + Level94 and both Poolrooms climates reached; 2640 explored cells; longest witness 39 room edges. Not a distance promise or PhysX test.
+Walking graph seed 481516, cell 36: 58 environments + mall + Level94 and both Poolrooms climates reached; 1559 explored cells; longest witness 32 room edges. Not a distance promise or PhysX test.
+Walking graph seed 87, cell 28: 58 environments + mall + Level94 and both Poolrooms climates reached; 3435 explored cells; longest witness 47 room edges. Not a distance promise or PhysX test.
+Walking graph seed 1234, cell 60: 58 environments + mall + Level94 and both Poolrooms climates reached; 2525 explored cells; longest witness 38 room edges. Not a distance promise or PhysX test.
+Walkable discovery: 576 mandatory candidate regions across 9 independently shuffled blocks; 310 graph witness routes, 539 physical biome boundary pairs and 10 mall/meadow bridge cases. No administrator state or teleport used; native Unity pending.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.
