@@ -36,7 +36,7 @@ def matrix(n):
  x,y,z,w=n.get('rotation',[0,0,0,1]);m=np.eye(4)
  m[:3,:3]=np.array([[1-2*(y*y+z*z),2*(x*y-z*w),2*(x*z+y*w)],[2*(x*y+z*w),1-2*(x*x+z*z),2*(y*z-x*w)],[2*(x*z-y*w),2*(y*z+x*w),1-2*(x*x+y*y)]])@np.diag(n.get('scale',[1,1,1]));m[:3,3]=n.get('translation',[0,0,0]);return m
 
-def extract(doc,binary,node_name,cache,geometry_transform=None):
+def extract(doc,binary,node_name,cache,geometry_transform=None,max_texture_size=1024):
  matches=[i for i,n in enumerate(doc['nodes']) if n.get('name')==node_name];assert len(matches)==1
  root=matches[0];parents={c:i for i,n in enumerate(doc['nodes']) for c in n.get('children',[])}
  def world(i):return (world(parents[i]) if i in parents else np.eye(4))@matrix(doc['nodes'][i])
@@ -78,7 +78,7 @@ def extract(doc,binary,node_name,cache,geometry_transform=None):
  def image_for(info):
   t=doc['textures'][info['index']];assert not info.get('extensions') and not info.get('texCoord',0)
   uri=doc['images'][t.get('extensions',{}).get('MSFT_texture_dds',{}).get('source',t['source'])]['uri'];raw=acquire(BASE+uri,cache)
-  im=Image.open(BytesIO(raw)).convert('RGBA');im.thumbnail((1024,1024),Image.Resampling.LANCZOS);return im
+  im=Image.open(BytesIO(raw)).convert('RGBA');im.thumbnail((max_texture_size,max_texture_size),Image.Resampling.LANCZOS);return im
  def texture(image):
   stream=BytesIO();image.save(stream,format='PNG');view=append(stream.getvalue());index=len(out['textures']);out['images'].append({'bufferView':view,'mimeType':'image/png'});out['textures'].append({'source':index});return {'index':index}
  for i in used:

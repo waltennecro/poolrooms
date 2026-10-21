@@ -1,0 +1,149 @@
+{
+  "id": "M_OliveDish",
+  "resource": "MallSources/Models/M_OliveDish",
+  "minimum": [
+    -0.2296565476965171,
+    -2.5810759325395338e-05,
+    -0.22965660758206072
+  ],
+  "maximum": [
+    0.22965661415832633,
+    0.2854535445582001,
+    0.2296566392191422
+  ],
+  "triangles": 24448,
+  "materials": [
+    {
+      "name": "M_OliveDish_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        0.13
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.07,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_transmission",
+        "KHR_materials_volume"
+      ],
+      "transparent": true,
+      "doubleSided": false,
+      "mask": "MallSources/Textures/M_OliveDish_m0_mask"
+    },
+    {
+      "name": "M_OliveDish_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_OliveDish_m1_albedo",
+      "normal": "MallSources/Textures/M_OliveDish_m1_normal",
+      "mask": "MallSources/Textures/M_OliveDish_m1_mask"
+    },
+    {
+      "name": "M_OliveDish_m2",
+      "colour": [
+        1,
+        1,
+        1,
+        0.13
+      ],
+      "normalScale": 2,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_ior",
+        "KHR_materials_transmission",
+        "KHR_materials_volume"
+      ],
+      "transparent": true,
+      "doubleSided": false,
+      "normal": "MallSources/Textures/M_OliveDish_m2_normal",
+      "mask": "MallSources/Textures/M_OliveDish_m2_mask"
+    },
+    {
+      "name": "M_OliveDish_m3",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "alphaClip": true,
+      "alphaCutoff": 0.5,
+      "albedo": "MallSources/Textures/M_OliveDish_m3_albedo",
+      "normal": "MallSources/Textures/M_OliveDish_m3_normal",
+      "mask": "MallSources/Textures/M_OliveDish_m3_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_OliveDish_LOD1",
+      "triangles": 17552
+    },
+    {
+      "resource": "MallSources/Models/M_OliveDish_LOD2",
+      "triangles": 8525
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "1540b4a36b790a907f4824cfe848ba481b3da3cc8070172b7b3ba178f78a7ed1",
+  "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+  "presentationClothRemoved": false,
+  "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+  "sourceNodeNames": [
+    "glassDish",
+    "olives",
+    "glassCover",
+    "goldLeaf"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceName": "IridescentDishWithOlives",
+  "authors": [
+    "Eric Chadwick"
+  ],
+  "owners": [
+    "Wayfair, LLC"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescentDishWithOlives/",
+  "nativeUnityValidated": false,
+  "removedExtensions": [
+    "KHR_materials_iridescence"
+  ]
+}

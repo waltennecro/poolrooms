@@ -1,0 +1,128 @@
+{
+  "id": "M_CashRegister",
+  "resource": "MallSources/Models/M_CashRegister",
+  "minimum": [
+    -0.3103063404560089,
+    0.0,
+    -0.2405950278043747
+  ],
+  "maximum": [
+    0.3103063404560089,
+    0.5777291059494019,
+    0.2405950278043747
+  ],
+  "triangles": 10309,
+  "materials": [
+    {
+      "name": "M_CashRegister_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_CashRegister_m0_albedo",
+      "normal": "MallSources/Textures/M_CashRegister_m0_normal",
+      "mask": "MallSources/Textures/M_CashRegister_m0_mask",
+      "workflow": "specular",
+      "specular": "MallSources/Textures/M_CashRegister_m0_specular"
+    },
+    {
+      "name": "M_CashRegister_m1",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_CashRegister_m1_albedo",
+      "normal": "MallSources/Textures/M_CashRegister_m1_normal",
+      "mask": "MallSources/Textures/M_CashRegister_m1_mask",
+      "workflow": "specular",
+      "specular": "MallSources/Textures/M_CashRegister_m1_specular"
+    },
+    {
+      "name": "M_CashRegister_m2",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0.0,
+      "roughness": 0.0,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "MallSources/Textures/M_CashRegister_m2_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_CashRegister_LOD1",
+      "triangles": 3894
+    },
+    {
+      "resource": "MallSources/Models/M_CashRegister_LOD2",
+      "triangles": 1218
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "73f74b53783fc62a187bbefad55a606853b58b8c99c9bd7ca1505a01eb5f37a2",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+  "sourceRootNode": 2341,
+  "sourceRootName": "paris_cashregister_01a1",
+  "sourceMaterialIndices": [
+    161,
+    162,
+    163
+  ],
+  "originalTriangles": 10309,
+  "sourceDimensionsMetres": [
+    0.6206126547276591,
+    0.5777291005220051,
+    0.48119005852241337
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "owners": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "sourceName": "CashRegister",
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "nativeUnityValidated": false
+}

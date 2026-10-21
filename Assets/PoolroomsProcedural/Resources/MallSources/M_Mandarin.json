@@ -1,0 +1,73 @@
+{
+  "id": "M_Mandarin",
+  "resource": "MallSources/Models/M_Mandarin",
+  "minimum": [
+    -0.008429992944002151,
+    -0.00806628814895524,
+    -0.0025138535384378693
+  ],
+  "maximum": [
+    0.0073140156455338,
+    0.00928982883255979,
+    0.009426507784402106
+  ],
+  "triangles": 40836,
+  "materials": [
+    {
+      "name": "M_Mandarin_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 0.5,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_diffuse_transmission"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_Mandarin_m0_albedo",
+      "normal": "MallSources/Textures/M_Mandarin_m0_normal",
+      "mask": "MallSources/Textures/M_Mandarin_m0_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_Mandarin_LOD1",
+      "triangles": 26935
+    },
+    {
+      "resource": "MallSources/Models/M_Mandarin_LOD2",
+      "triangles": 8231
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "60373e48dd9216b020590a16fd0c7d3005dc489646b60f0abb129e90132d422f",
+  "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+  "presentationClothRemoved": false,
+  "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+  "sourceNodeNames": [
+    "MandarinOrange"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceName": "MandarinOrange",
+  "authors": [
+    "zamdreamer",
+    "Eric Chadwick"
+  ],
+  "owners": [
+    "zamdreamer",
+    "Wayfair"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/",
+  "nativeUnityValidated": false,
+  "removedExtensions": []
+}

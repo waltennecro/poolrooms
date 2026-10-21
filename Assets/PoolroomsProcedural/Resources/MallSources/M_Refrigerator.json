@@ -1,0 +1,295 @@
+{
+  "id": "M_Refrigerator",
+  "resource": "MallSources/Models/M_Refrigerator",
+  "minimum": [
+    -0.46007776260375977,
+    -5.960464477539063e-08,
+    -0.4603222906589508
+  ],
+  "maximum": [
+    0.3943006992340088,
+    2.1840403079986572,
+    0.4838635995984078
+  ],
+  "triangles": 208679,
+  "materials": [
+    {
+      "name": "M_Refrigerator_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_Refrigerator_m0_albedo",
+      "mask": "MallSources/Textures/M_Refrigerator_m0_mask"
+    },
+    {
+      "name": "M_Refrigerator_m1",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.75,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_Refrigerator_m1_albedo",
+      "mask": "MallSources/Textures/M_Refrigerator_m1_mask"
+    },
+    {
+      "name": "M_Refrigerator_m2",
+      "colour": [
+        1,
+        1,
+        1,
+        0.13
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.75,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_clearcoat",
+        "KHR_materials_transmission"
+      ],
+      "transparent": true,
+      "doubleSided": true,
+      "mask": "MallSources/Textures/M_Refrigerator_m2_mask"
+    },
+    {
+      "name": "M_Refrigerator_m3",
+      "colour": [
+        0.01568627543747425,
+        0.0313725508749485,
+        0.01568627543747425,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.5,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "MallSources/Textures/M_Refrigerator_m3_normal",
+      "mask": "MallSources/Textures/M_Refrigerator_m3_mask"
+    },
+    {
+      "name": "M_Refrigerator_m4",
+      "colour": [
+        0.8666666746139526,
+        0.6705882549285889,
+        0.4156862795352936,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.4,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "MallSources/Textures/M_Refrigerator_m4_normal",
+      "mask": "MallSources/Textures/M_Refrigerator_m4_mask"
+    },
+    {
+      "name": "M_Refrigerator_m5",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_Refrigerator_m5_albedo",
+      "normal": "MallSources/Textures/M_Refrigerator_m5_normal",
+      "mask": "MallSources/Textures/M_Refrigerator_m5_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_Refrigerator_LOD1",
+      "triangles": 21726
+    },
+    {
+      "resource": "MallSources/Models/M_Refrigerator_LOD2",
+      "triangles": 6271
+    }
+  ],
+  "uvBake": [
+    {
+      "material": 0,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1884812,
+      "resolution": 2048,
+      "uniqueCharts": 226
+    },
+    {
+      "material": 0,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1884812,
+      "resolution": 2048,
+      "uniqueCharts": 226
+    },
+    {
+      "material": 0,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 1884812,
+      "resolution": 2048,
+      "uniqueCharts": 226
+    },
+    {
+      "material": 1,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2064506,
+      "resolution": 2048,
+      "uniqueCharts": 263
+    },
+    {
+      "material": 1,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2064506,
+      "resolution": 2048,
+      "uniqueCharts": 263
+    },
+    {
+      "material": 1,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 2064506,
+      "resolution": 2048,
+      "uniqueCharts": 263
+    },
+    {
+      "material": 2,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 4129024,
+      "resolution": 2048,
+      "uniqueCharts": 1
+    },
+    {
+      "material": 3,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3018416,
+      "resolution": 2048,
+      "uniqueCharts": 152
+    },
+    {
+      "material": 3,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3018416,
+      "resolution": 2048,
+      "uniqueCharts": 152
+    },
+    {
+      "material": 4,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3008840,
+      "resolution": 2048,
+      "uniqueCharts": 152
+    },
+    {
+      "material": 5,
+      "texture": "baseColorTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3142144,
+      "resolution": 2048,
+      "uniqueCharts": 76
+    },
+    {
+      "material": 5,
+      "texture": "metallicRoughnessTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3142144,
+      "resolution": 2048,
+      "uniqueCharts": 76
+    },
+    {
+      "material": 5,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3142144,
+      "resolution": 2048,
+      "uniqueCharts": 76
+    }
+  ],
+  "sourceSha256": "ef8da8b144e650c277ac953e6d9e50ac1689ff1ee88c2c5bd9551ae8bccb6065",
+  "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+  "presentationClothRemoved": false,
+  "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+  "sourceNodeNames": [
+    "FridgeCase",
+    "FridgeDoor",
+    "FridgeDoorInner",
+    "FridgeGlass",
+    "FridgeInterior",
+    "ChampagneBottles",
+    "ChampagneBottles",
+    "ChampagneBottles"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceName": "CommercialRefrigerator",
+  "authors": [
+    "Eric Chadwick",
+    "Sean Thomas"
+  ],
+  "owners": [
+    "Darmstadt Graphics Group GmbH",
+    "Sean Thomas"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/CommercialRefrigerator/",
+  "nativeUnityValidated": false,
+  "removedExtensions": []
+}

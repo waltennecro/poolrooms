@@ -1,0 +1,12 @@
+Licensed mall source adaptation. Each model has upstream metadata, named authors, ownership and license text alongside this notice.
+Changes: static OBJ export, UV/PBR baking, two LOD derivatives; no original presentation lights or animations, unsupported optical effects approximate. No endorsement implied.
+CommercialRefrigerator: Eric Chadwick, Sean Thomas; CC-BY-4.0
+SpecularSilkPouf: Eric Chadwick; CC-BY-4.0
+MaterialsVariantsShoe: Shopify; CC-BY-4.0
+StainedGlassLamp: Eric Chadwick; CC-BY-4.0
+IridescenceLamp: Eric Chadwick; CC-BY-4.0
+MandarinOrange: zamdreamer, Eric Chadwick; CC-BY-4.0
+Avocado: Microsoft; CC0-1.0
+IridescentDishWithOlives: Eric Chadwick; CC-BY-4.0
+
+Additional Bistro components: interior chair, interior table, cash register, stool, napkin holder, menu board. Amazon.com, Inc. or its affiliates, CC BY 4.0. Changes: selected/rebased OBJ/PBR exports and two LODs each. See Bistro source licence and pinned catalog.

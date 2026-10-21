@@ -1,0 +1,295 @@
+{
+  "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+  "files": {
+    "CommercialRefrigerator_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/CommercialRefrigerator/metadata.json",
+      "bytes": 1399,
+      "sha256": "09c60e7c97284196e8ff2e78074b6f9a456f836bb0f916bbd3b51cee24931a57"
+    },
+    "CommercialRefrigerator_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/CommercialRefrigerator/LICENSE.md",
+      "bytes": 939,
+      "sha256": "79a3524e3822b613af53e7800eed7389653607228238fd54cf2018173bc97f97"
+    },
+    "CC-BY-4.0.txt": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/LICENSES/CC-BY-4.0.txt",
+      "bytes": 13034,
+      "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+    },
+    "CommercialRefrigerator.glb": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/CommercialRefrigerator/glTF-Binary/CommercialRefrigerator.glb",
+      "bytes": 10131180,
+      "sha256": "ef8da8b144e650c277ac953e6d9e50ac1689ff1ee88c2c5bd9551ae8bccb6065"
+    },
+    "CommercialRefrigerator_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/CommercialRefrigerator/screenshot/screenshot.jpg",
+      "bytes": 32062,
+      "sha256": "a2f1e7643dabb0ffb1f0df8c5af5d473dd7f0cd122820322f4696eac764291aa"
+    },
+    "SpecularSilkPouf_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/SpecularSilkPouf/metadata.json",
+      "bytes": 710,
+      "sha256": "39fd9482d19ac6892c982dc3cacff12a0e73cd6d46afa2bbd0fe689894a58750"
+    },
+    "SpecularSilkPouf_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/SpecularSilkPouf/LICENSE.md",
+      "bytes": 786,
+      "sha256": "8ac6f8b603941489e8effe67cdac4eb0181f24316f55de3f110616c1435445a5"
+    },
+    "SpecularSilkPouf.glb": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/SpecularSilkPouf/glTF-Binary/SpecularSilkPouf.glb",
+      "bytes": 4632512,
+      "sha256": "a028bc6a7ac8981044fba414c1de633ac775b53602ad386f8ece74aec81d1006"
+    },
+    "SpecularSilkPouf_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/SpecularSilkPouf/screenshot/screenshot.jpg",
+      "bytes": 3630,
+      "sha256": "7e6fb1a069be44770de90674bd2714cce1cff73df1e7fc87487c33c5b6854b97"
+    },
+    "MaterialsVariantsShoe_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MaterialsVariantsShoe/metadata.json",
+      "bytes": 763,
+      "sha256": "0c7a4ab9a764fe4b9a00bac0e8719304b3f180ae2e66f22b49ca3f28c0f2323b"
+    },
+    "MaterialsVariantsShoe_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MaterialsVariantsShoe/LICENSE.md",
+      "bytes": 791,
+      "sha256": "13838c77e995859dd2fafa5989e4bb06cc7afc3b6be4b666f645661d00b603c6"
+    },
+    "MaterialsVariantsShoe.glb": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MaterialsVariantsShoe/glTF-Binary/MaterialsVariantsShoe.glb",
+      "bytes": 7833592,
+      "sha256": "e1d7cb190382111e5a5b37b51e9a7f007f7eb2ab1b6185e0188e8d0a0d1265a7"
+    },
+    "MaterialsVariantsShoe_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MaterialsVariantsShoe/screenshot/screenshot.jpg",
+      "bytes": 22747,
+      "sha256": "2c4fd992489368bc018d2b6939d028ca9846f3e734ef746b04fc6271a23b66ab"
+    },
+    "StainedGlassLamp_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/metadata.json",
+      "bytes": 708,
+      "sha256": "d02486c4e0823b481fa39c2490ecf03a4123d26f2469b62ded544b4e71fe0d3a"
+    },
+    "StainedGlassLamp_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/LICENSE.md",
+      "bytes": 786,
+      "sha256": "c9163eb0dfd1a33fd154b44f910e3f57fb0a39ba0228479f7b95dc31975bce60"
+    },
+    "StainedGlassLamp/StainedGlassLamp.gltf": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp.gltf",
+      "bytes": 21726,
+      "sha256": "7d76c97bcc258d02be0a778570e2127766291d941067a3e534f342e749022b3f"
+    },
+    "StainedGlassLamp/StainedGlassLamp.bin": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp.bin",
+      "bytes": 1847592,
+      "sha256": "7873a6f30835589b3b6fc3b0d749b8fe80f1ea29f4f170fba6d8ac11083d9397"
+    },
+    "StainedGlassLamp/StainedGlassLamp_grill_normal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_grill_normal.jpg",
+      "bytes": 557846,
+      "sha256": "029b49b0b9b25570b7c53cdd3053aa8a2d584aa7a12df635790a7bc5d24b5e92"
+    },
+    "StainedGlassLamp/StainedGlassLamp_grill_occlusion-rough-metal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_grill_occlusion-rough-metal.jpg",
+      "bytes": 343499,
+      "sha256": "7b33e21967e7cebca807cef7fa245cf4eeb08a3b0f35e6b5975be9092942f54f"
+    },
+    "StainedGlassLamp/StainedGlassLamp_grill_emissive.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_grill_emissive.jpg",
+      "bytes": 64655,
+      "sha256": "297bc910d5a66ba1f2ed004ddf73a1d63a331d5c2fe7804cb56da69ae2078a89"
+    },
+    "StainedGlassLamp/StainedGlassLamp_grill_basecolor-alpha.png": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_grill_basecolor-alpha.png",
+      "bytes": 739775,
+      "sha256": "bff975cf6a7aa2eb1477609694bf0df89f75b0dd634a546d3ee4e9efe2f64c2d"
+    },
+    "StainedGlassLamp/StainedGlassLamp_steel_occlusion.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_steel_occlusion.jpg",
+      "bytes": 17417,
+      "sha256": "9601f3fa1e381ab67fca247e59426e0e4d0f72c29e4cda48e3c31b51f2d1ff9c"
+    },
+    "StainedGlassLamp/StainedGlassLamp_hardware_normal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_hardware_normal.jpg",
+      "bytes": 83575,
+      "sha256": "9f6dc2ca42d403977dda58f23aef56ad8601c08215eece7c9a0acbce2e662584"
+    },
+    "StainedGlassLamp/StainedGlassLamp_hardware_occlusion-rough-metal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_hardware_occlusion-rough-metal.jpg",
+      "bytes": 188930,
+      "sha256": "8429d658b83ddd390384f885ac0eaea26ed1e243db10f770963cf428fbc238cc"
+    },
+    "StainedGlassLamp/StainedGlassLamp_hardware_emissive.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_hardware_emissive.jpg",
+      "bytes": 139429,
+      "sha256": "1c618122d869972614ad82a20d5df1f6f1bd205c67f6ee51169b220b69148206"
+    },
+    "StainedGlassLamp/StainedGlassLamp_hardware_basecolor.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_hardware_basecolor.jpg",
+      "bytes": 40537,
+      "sha256": "0c8b0a6d45f03a93a197c84ca671d3f7b936250ed95798898c24196bcaa28086"
+    },
+    "StainedGlassLamp/StainedGlassLamp_base_normal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_base_normal.jpg",
+      "bytes": 184801,
+      "sha256": "d9d14f0b09b908990f179b7c5155a0594eaf1dad75141c2ae79bc8d6bbdf6a12"
+    },
+    "StainedGlassLamp/StainedGlassLamp_base_occlusion-rough-metal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_base_occlusion-rough-metal.jpg",
+      "bytes": 617164,
+      "sha256": "bad4de777c0bd21162059b93453976a619bb3d7c2876b6f3270750d52d76b43f"
+    },
+    "StainedGlassLamp/StainedGlassLamp_base_emissive.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_base_emissive.jpg",
+      "bytes": 404305,
+      "sha256": "7249ab8777b806d408ad0d4e86c8e36db57ce4dd84abf6ccc00bc542474d1946"
+    },
+    "StainedGlassLamp/StainedGlassLamp_base_basecolor.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_base_basecolor.jpg",
+      "bytes": 1258497,
+      "sha256": "b9fb2d4ea6e7961ec460468f6157cb0e48fe6830d47315eb234b0b1af8cf4856"
+    },
+    "StainedGlassLamp/StainedGlassLamp_bulbs_occlusion.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_bulbs_occlusion.jpg",
+      "bytes": 6395,
+      "sha256": "2f534e4ed36ffd0295bd3852d0f845c1b267a1036d06b9f0d68e55e5328a09d3"
+    },
+    "StainedGlassLamp/StainedGlassLamp_glass_normal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_glass_normal.jpg",
+      "bytes": 1155502,
+      "sha256": "cc8757f8879565dd1e69629c690a76dfe7698e375c3e983e317446b12fb12c35"
+    },
+    "StainedGlassLamp/StainedGlassLamp_glass_occlusion-rough-metal.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_glass_occlusion-rough-metal.jpg",
+      "bytes": 529608,
+      "sha256": "ce7ef3a350efe8047c4a5936ac84df4793552fee73c69dc5c41bfa5f81aac50a"
+    },
+    "StainedGlassLamp/StainedGlassLamp_glass_emissive.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_glass_emissive.jpg",
+      "bytes": 460240,
+      "sha256": "bf68e9750c7c673595c85a1dec6e614474acad0b56d77a71147e64aad0a06f94"
+    },
+    "StainedGlassLamp/StainedGlassLamp_glass_basecolor-alpha.png": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp_glass_basecolor-alpha.png",
+      "bytes": 2433976,
+      "sha256": "8b2ce87d7a7eda447f29595e2ccac3e27e097f845d8f8263ef09cd2574abc2a1"
+    },
+    "StainedGlassLamp_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/screenshot/screenshot.jpg",
+      "bytes": 107415,
+      "sha256": "7ae23fa50b3ce40b629da076717476e618d6a7588946edd108c1a6b1957e4296"
+    },
+    "IridescenceLamp_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescenceLamp/metadata.json",
+      "bytes": 702,
+      "sha256": "bb4dbc8370d49a0980bd836505d2f81f3923f4750ee446970b5b4d9a9ada7d76"
+    },
+    "IridescenceLamp_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescenceLamp/LICENSE.md",
+      "bytes": 784,
+      "sha256": "a3a70681541e9e4c65e35bf2709e6f00318f8c7b3a1d94c11e2cbc59dda6ceaf"
+    },
+    "IridescenceLamp.glb": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescenceLamp/glTF-Binary/IridescenceLamp.glb",
+      "bytes": 4083912,
+      "sha256": "17cfdc79ec9e38fadb28db159734c5f9592ca423977b546e5057e350ba29ff13"
+    },
+    "IridescenceLamp_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescenceLamp/screenshot/screenshot.jpg",
+      "bytes": 40704,
+      "sha256": "f87df476ac5c1ad43da09a4a224cd53974522da769a6df5a4f94b1268bb1773e"
+    },
+    "MandarinOrange_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/metadata.json",
+      "bytes": 1121,
+      "sha256": "0e4cc86876f714aaf90dd3d839ff8cf837668518ce1ddd224b07e4979ca1c104"
+    },
+    "MandarinOrange_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/LICENSE.md",
+      "bytes": 930,
+      "sha256": "5b4b3fa8c86794ca645db22eca4bc0a06702e102d403140ea3b7875b87500210"
+    },
+    "MandarinOrange/MandarinOrange.gltf": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/glTF/MandarinOrange.gltf",
+      "bytes": 3791,
+      "sha256": "148a260776eb8258f1d90c1623bad1bdca17b1bec42da597536ef09e816c2091"
+    },
+    "MandarinOrange/MandarinOrange.bin": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/glTF/MandarinOrange.bin",
+      "bytes": 1262448,
+      "sha256": "15bc58559ab4b60e6e1a94449940911e1c5ebc4c021004b7f4fac54323063cfd"
+    },
+    "MandarinOrange/MandarinOrange_Basecolor.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/glTF/MandarinOrange_Basecolor.jpg",
+      "bytes": 720749,
+      "sha256": "a652724500c853d1470cf2c37d97ea3741f2f1bd206322fe8e9a3b99f9cdaedd"
+    },
+    "MandarinOrange/MandarinOrange_DiffuseTransmission.png": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/glTF/MandarinOrange_DiffuseTransmission.png",
+      "bytes": 351726,
+      "sha256": "6ccaa5a695cf3916d66f7a13565fd0b4a672b2d99f11327b9e36451f5ca49842"
+    },
+    "MandarinOrange/MandarinOrange_Normal.png": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/glTF/MandarinOrange_Normal.png",
+      "bytes": 1680595,
+      "sha256": "45fe254d98974f3dadc161100b9175c7f8f3377ab3881a5b9835503e1f0a1dd5"
+    },
+    "MandarinOrange/MandarinOrange_OcclusionRough.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/glTF/MandarinOrange_OcclusionRough.jpg",
+      "bytes": 128983,
+      "sha256": "08a87a3a66198992988ea98adf69c0d6d787b0b863b5a0f56921178f03152c34"
+    },
+    "MandarinOrange_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/screenshot/screenshot.jpg",
+      "bytes": 18605,
+      "sha256": "dd665adb32c6bf5c140352f214d5397caa81cc3d95619ccdb3adb34bdde2558b"
+    },
+    "Avocado_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/Avocado/metadata.json",
+      "bytes": 629,
+      "sha256": "fe72b92d850c2a8ed94c78e77d8bf40c655a695d8e59e3b3a68f0acdcf2f065c"
+    },
+    "Avocado_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/Avocado/LICENSE.md",
+      "bytes": 769,
+      "sha256": "56357fc8277990d763480c4207551cd1f4d58451c6ea5f16d9fdb7d2fa7eb00c"
+    },
+    "CC0-1.0.txt": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/LICENSES/CC0-1.0.txt",
+      "bytes": 6533,
+      "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+    },
+    "Avocado.glb": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/Avocado/glTF-Binary/Avocado.glb",
+      "bytes": 8110040,
+      "sha256": "ccc9c3ce56423720b09399c2351537207cd5a65f859f9e6e2f30922762f3abd4"
+    },
+    "Avocado_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/Avocado/screenshot/screenshot.jpg",
+      "bytes": 3414,
+      "sha256": "e054be44df4b4f6ff99cf3467d78951b32557e6b6816a2a28af422db1abd98b4"
+    },
+    "IridescentDishWithOlives_metadata.json": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescentDishWithOlives/metadata.json",
+      "bytes": 736,
+      "sha256": "3a7b0d739066067e1f0fc16915603075def8b8e736625c9423fbf4fd82a295b3"
+    },
+    "IridescentDishWithOlives_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescentDishWithOlives/LICENSE.md",
+      "bytes": 795,
+      "sha256": "a0739f7331b5c3da696bc81a49f0382c6db236fdc7c474fd7502a130fba34657"
+    },
+    "IridescentDishWithOlives.glb": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescentDishWithOlives/glTF-Binary/IridescentDishWithOlives.glb",
+      "bytes": 5742828,
+      "sha256": "1540b4a36b790a907f4824cfe848ba481b3da3cc8070172b7b3ba178f78a7ed1"
+    },
+    "IridescentDishWithOlives_reference.jpg": {
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescentDishWithOlives/screenshot/screenshot.jpg",
+      "bytes": 78656,
+      "sha256": "2056f3d215727d2860f661a588a0f06e68140be839addf4e75215f9894600539"
+    }
+  }
+}

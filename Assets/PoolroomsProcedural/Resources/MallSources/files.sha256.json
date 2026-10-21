@@ -1,0 +1,710 @@
+{
+  "Licenses/Avocado_LICENSE.md": {
+    "bytes": 769,
+    "sha256": "56357fc8277990d763480c4207551cd1f4d58451c6ea5f16d9fdb7d2fa7eb00c"
+  },
+  "Licenses/Avocado_metadata.json": {
+    "bytes": 629,
+    "sha256": "fe72b92d850c2a8ed94c78e77d8bf40c655a695d8e59e3b3a68f0acdcf2f065c"
+  },
+  "Licenses/Bistro_Bistro_CC_BY_4.txt": {
+    "bytes": 19242,
+    "sha256": "eb53f08e7a562c6f56d9ef93a260d1cbe26a726f959783dbf7e5091421e6a0d0"
+  },
+  "Licenses/Bistro_NOTICE.txt": {
+    "bytes": 551,
+    "sha256": "9511288741b15b8b357fa9bd9786c0e9ea7d2c863e599b0502b754b69e690821"
+  },
+  "Licenses/Bistro_upstream_MIT.txt": {
+    "bytes": 1073,
+    "sha256": "e3151c4e72486708e3f1273cb32943467b6f96cd66f3d2f0d89f99b404ef6db9"
+  },
+  "Licenses/CC-BY-4.0.txt": {
+    "bytes": 13034,
+    "sha256": "c8041334a99cb48852b2139253cbde5f8ac87e27f124aed51223e0d5bf0080eb"
+  },
+  "Licenses/CC0-1.0.txt": {
+    "bytes": 6533,
+    "sha256": "a43fc2004d1e073f1107a1f6146664d08dae6cea93cb828742a4bec6da828e91"
+  },
+  "Licenses/CommercialRefrigerator_LICENSE.md": {
+    "bytes": 939,
+    "sha256": "79a3524e3822b613af53e7800eed7389653607228238fd54cf2018173bc97f97"
+  },
+  "Licenses/CommercialRefrigerator_metadata.json": {
+    "bytes": 1399,
+    "sha256": "09c60e7c97284196e8ff2e78074b6f9a456f836bb0f916bbd3b51cee24931a57"
+  },
+  "Licenses/IridescenceLamp_LICENSE.md": {
+    "bytes": 784,
+    "sha256": "a3a70681541e9e4c65e35bf2709e6f00318f8c7b3a1d94c11e2cbc59dda6ceaf"
+  },
+  "Licenses/IridescenceLamp_metadata.json": {
+    "bytes": 702,
+    "sha256": "bb4dbc8370d49a0980bd836505d2f81f3923f4750ee446970b5b4d9a9ada7d76"
+  },
+  "Licenses/IridescentDishWithOlives_LICENSE.md": {
+    "bytes": 795,
+    "sha256": "a0739f7331b5c3da696bc81a49f0382c6db236fdc7c474fd7502a130fba34657"
+  },
+  "Licenses/IridescentDishWithOlives_metadata.json": {
+    "bytes": 736,
+    "sha256": "3a7b0d739066067e1f0fc16915603075def8b8e736625c9423fbf4fd82a295b3"
+  },
+  "Licenses/MandarinOrange_LICENSE.md": {
+    "bytes": 930,
+    "sha256": "5b4b3fa8c86794ca645db22eca4bc0a06702e102d403140ea3b7875b87500210"
+  },
+  "Licenses/MandarinOrange_metadata.json": {
+    "bytes": 1121,
+    "sha256": "0e4cc86876f714aaf90dd3d839ff8cf837668518ce1ddd224b07e4979ca1c104"
+  },
+  "Licenses/MaterialsVariantsShoe_LICENSE.md": {
+    "bytes": 791,
+    "sha256": "13838c77e995859dd2fafa5989e4bb06cc7afc3b6be4b666f645661d00b603c6"
+  },
+  "Licenses/MaterialsVariantsShoe_metadata.json": {
+    "bytes": 763,
+    "sha256": "0c7a4ab9a764fe4b9a00bac0e8719304b3f180ae2e66f22b49ca3f28c0f2323b"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 938,
+    "sha256": "3abfdd4deddda7a45e3e16c37e256516e8f4ceb6ff94c85bd9004c74b62d5785"
+  },
+  "Licenses/SpecularSilkPouf_LICENSE.md": {
+    "bytes": 786,
+    "sha256": "8ac6f8b603941489e8effe67cdac4eb0181f24316f55de3f110616c1435445a5"
+  },
+  "Licenses/SpecularSilkPouf_metadata.json": {
+    "bytes": 710,
+    "sha256": "39fd9482d19ac6892c982dc3cacff12a0e73cd6d46afa2bbd0fe689894a58750"
+  },
+  "Licenses/StainedGlassLamp_LICENSE.md": {
+    "bytes": 786,
+    "sha256": "c9163eb0dfd1a33fd154b44f910e3f57fb0a39ba0228479f7b95dc31975bce60"
+  },
+  "Licenses/StainedGlassLamp_metadata.json": {
+    "bytes": 708,
+    "sha256": "d02486c4e0823b481fa39c2490ecf03a4123d26f2469b62ded544b4e71fe0d3a"
+  },
+  "M_Avocado.json": {
+    "bytes": 1805,
+    "sha256": "7fd143b8fb59ca503b61ed41e1357c5f71d50662c1fffb476d07850bd04671ce"
+  },
+  "M_CashRegister.json": {
+    "bytes": 3343,
+    "sha256": "17c50cf88ea1e2755289fcac89c14f5e565167a0a3b5cbb2a7bb3b9e98f1baad"
+  },
+  "M_DeskLamp.json": {
+    "bytes": 2829,
+    "sha256": "37c9d14d9a0e9ea07cd10cc471502ff354e12dae2c11cccc0e196a0e666af807"
+  },
+  "M_IndoorChair.json": {
+    "bytes": 2347,
+    "sha256": "c41a5052302b8025a0df3cc7253d23e9a5394095bc49d76e59879f82a12bad3e"
+  },
+  "M_IndoorTable.json": {
+    "bytes": 2349,
+    "sha256": "a1134d704aeee7645b02f71a19042e81789ad04e130b075cc89a86d9debdcefd"
+  },
+  "M_Mandarin.json": {
+    "bytes": 1934,
+    "sha256": "2128556116b5962b2f850c50eb5e5606d25c871e48761f56b0f8fa3023d689d8"
+  },
+  "M_MenuSign.json": {
+    "bytes": 2640,
+    "sha256": "c327f9bf7bc8e03bcd10dc06ce4d19fbc32c1f90c67163df88869cbe853cf97c"
+  },
+  "M_Napkins.json": {
+    "bytes": 2243,
+    "sha256": "2e7fdee4bd35a0488bf21a1914cc90a7402eaf1215e1f8b86c82f560b813d543"
+  },
+  "M_OliveDish.json": {
+    "bytes": 3517,
+    "sha256": "06b444ecde5ca4e60be8690a2c704847d298f170b17f9bb849b8e300ceedf80e"
+  },
+  "M_Pouf.json": {
+    "bytes": 2193,
+    "sha256": "12c8f55897d8db23b8c92d3367c764a705b73d7f3a7fbbf86b95b25f1b517018"
+  },
+  "M_Refrigerator.json": {
+    "bytes": 6772,
+    "sha256": "129763bffc84d43211195f8a6f3c2ec6676dccf4be2a8c483714e80c0fd9b8d1"
+  },
+  "M_Shoe.json": {
+    "bytes": 2531,
+    "sha256": "59500257b8fc94ccf55785238b50bb856b6f00d9a22b100b5848a4539c9e824b"
+  },
+  "M_StainedLamp.json": {
+    "bytes": 5166,
+    "sha256": "ca35bf9e163cf347e36b74aea2fb164d0a7ff3facecf606eaae747aeb7ae9182"
+  },
+  "M_Stool.json": {
+    "bytes": 2232,
+    "sha256": "1e863ce07d288cf9b2fb6e98d7e9524b458a3e5c19ec38500cb926f835a15f8b"
+  },
+  "Models/M_Avocado.mtl": {
+    "bytes": 29,
+    "sha256": "af4b406efde85cee79b8fd7fde117c32eac0eecce50202a9c8d0073421120d72"
+  },
+  "Models/M_Avocado.obj": {
+    "bytes": 66249,
+    "sha256": "9028ac6a312d53931bb2929220a07c67f37ce1f9a6ec20d7c42ceb2465cae9f8"
+  },
+  "Models/M_Avocado_LOD1.obj": {
+    "bytes": 65782,
+    "sha256": "d29c70612f3a09bbb01ff31da541d292548044820ed78f4b4a6b5afb9329e69b"
+  },
+  "Models/M_Avocado_LOD2.obj": {
+    "bytes": 60136,
+    "sha256": "daab02690b6c4ae121b9c32c3d46139b38b4deddafa34b54a566e77e897450e6"
+  },
+  "Models/M_CashRegister.mtl": {
+    "bytes": 120,
+    "sha256": "9a14c1a829893d6a6ed8e1110959450b86d72bd6bfa567ad5af34d13dfe0d1c0"
+  },
+  "Models/M_CashRegister.obj": {
+    "bytes": 1350440,
+    "sha256": "e0d0fefb32b200eead0db868e9c917f2742f4db37060d0990526558c9d0ede70"
+  },
+  "Models/M_CashRegister_LOD1.obj": {
+    "bytes": 622570,
+    "sha256": "e6e44d55cd9fbd74120b03116898e84b255bec029c1866e24c71bec613c7aca9"
+  },
+  "Models/M_CashRegister_LOD2.obj": {
+    "bytes": 235100,
+    "sha256": "ccfe1a200dc8101f14369635e60a6e4780aab80ae2c3170c4a0d2b72878ea9c5"
+  },
+  "Models/M_DeskLamp.mtl": {
+    "bytes": 90,
+    "sha256": "edb631ef32b83f2db563c545a5d3b7695b46a813837fd059c724af0e07dac753"
+  },
+  "Models/M_DeskLamp.obj": {
+    "bytes": 1944335,
+    "sha256": "8e92699d121d1d560fe0e4e1a006ac6397fa026af7ced3c8b667de787124306c"
+  },
+  "Models/M_DeskLamp_LOD1.obj": {
+    "bytes": 1165638,
+    "sha256": "87cf144de7d9c6a6dcbd8e177a551d4c57b9bad9cd3a270107de915a812843fb"
+  },
+  "Models/M_DeskLamp_LOD2.obj": {
+    "bytes": 529603,
+    "sha256": "9a67d5a2ff7f9c8af3e7a21d31ef1ede434a612cd0bf36c75f3ba53779188fb0"
+  },
+  "Models/M_IndoorChair.mtl": {
+    "bytes": 86,
+    "sha256": "3ecb30cbfacd73a57b717b8c4ff8d94929ed268333f54e9ccf990f1bc6aefece"
+  },
+  "Models/M_IndoorChair.obj": {
+    "bytes": 427441,
+    "sha256": "a9f046ac16aed120d87e8acd88b11e095aff62fd78ca02dbc53689b1bb169775"
+  },
+  "Models/M_IndoorChair_LOD1.obj": {
+    "bytes": 299230,
+    "sha256": "f1308dea92958b13f87d72124582ded0fe79bcc6782637db2df348f657d569e9"
+  },
+  "Models/M_IndoorChair_LOD2.obj": {
+    "bytes": 218704,
+    "sha256": "ba6e302ba35ea3739b23a830e311f4e8f22929eee90890fe663a52367c411796"
+  },
+  "Models/M_IndoorTable.mtl": {
+    "bytes": 86,
+    "sha256": "75b79d6e4d758200899508f11bd30306cc55733718f51c730773710da2af0907"
+  },
+  "Models/M_IndoorTable.obj": {
+    "bytes": 103755,
+    "sha256": "44504eb31d6e823953366d1a5ec318717391617be82f2017f8aa8efc5e43d340"
+  },
+  "Models/M_IndoorTable_LOD1.obj": {
+    "bytes": 64729,
+    "sha256": "087d5858271b270265bb9a14a350bf4eed9efc27bc5e922bafe4abe47d6089d9"
+  },
+  "Models/M_IndoorTable_LOD2.obj": {
+    "bytes": 37604,
+    "sha256": "e72a45016803e5180631e34ef8376b490b691250873f690ee32a5abb2ab26c77"
+  },
+  "Models/M_Mandarin.mtl": {
+    "bytes": 30,
+    "sha256": "77ff31da6e6ef1c4d312f0814a1b3e5fb2345d9f2f856fd9b844dc4f926c32db"
+  },
+  "Models/M_Mandarin.obj": {
+    "bytes": 4633687,
+    "sha256": "9653eda665f3fb9a9c8893a92613ad428558df279584ef64a8f8d01a12897e6b"
+  },
+  "Models/M_Mandarin_LOD1.obj": {
+    "bytes": 2997907,
+    "sha256": "1717dc90576f3feee5dce8ef0a4ad2a17d83b042f735858f05241322ed151343"
+  },
+  "Models/M_Mandarin_LOD2.obj": {
+    "bytes": 926794,
+    "sha256": "45b57ca7948c5e3faac5d44d55d67d4d41c9ca16348a36c445a05b123f8d0a7d"
+  },
+  "Models/M_MenuSign.mtl": {
+    "bytes": 66,
+    "sha256": "4e6d302a1edde179bd7faf594f1cc4935900dcbb24ea87576039f319b82c1b14"
+  },
+  "Models/M_MenuSign.obj": {
+    "bytes": 186175,
+    "sha256": "1ce743db6dbf025604cea8fe25c643b8bb2771975d54387c5d6f7168a44404b8"
+  },
+  "Models/M_MenuSign_LOD1.obj": {
+    "bytes": 68645,
+    "sha256": "7a09a934f1c1ccf98a2d0f0cdaeae9085cc0c2a7377e749f87d1d66771f39a42"
+  },
+  "Models/M_MenuSign_LOD2.obj": {
+    "bytes": 49143,
+    "sha256": "86556592b37a3501e7e7dac9a76935569b50c2403e68d6f4d09fdd3e1bf38a66"
+  },
+  "Models/M_Napkins.mtl": {
+    "bytes": 35,
+    "sha256": "46affb17da432ac1d6f2c1867f0a9d7cab76c52d75e7211843c78be1504383ba"
+  },
+  "Models/M_Napkins.obj": {
+    "bytes": 99299,
+    "sha256": "cd2b7c56cee5ead624d3b0a104bf02d3cc8b53394b8ffd50fb8eb9f0d57ee6bb"
+  },
+  "Models/M_Napkins_LOD1.obj": {
+    "bytes": 76881,
+    "sha256": "47838866f9439ba283105471da367546a535596753a7e5d7deff3c6d55a7ec11"
+  },
+  "Models/M_Napkins_LOD2.obj": {
+    "bytes": 48868,
+    "sha256": "65d4c76f20c9c2c63051875dc85d0a8854a19a7eae54c94266c51237c556f6bc"
+  },
+  "Models/M_OliveDish.mtl": {
+    "bytes": 124,
+    "sha256": "80b309dad458d8c3b8c20272cb0505803a68a9be4b449ba0005b2487d178cb9b"
+  },
+  "Models/M_OliveDish.obj": {
+    "bytes": 2703272,
+    "sha256": "ceb9e41be467e9917cedcff1c19e7693dae03d0482051314caf83ea06bc31b92"
+  },
+  "Models/M_OliveDish_LOD1.obj": {
+    "bytes": 1797684,
+    "sha256": "b25a8eb2cc3852e9e7c8d2f09f2d08cfdada69cd27167e1a5d79bf7e70ce46ec"
+  },
+  "Models/M_OliveDish_LOD2.obj": {
+    "bytes": 881820,
+    "sha256": "d988ff3ee1c0b4571928ca9d02ac870928e6a345e8941c6bef3e38d16d87c701"
+  },
+  "Models/M_Pouf.mtl": {
+    "bytes": 37,
+    "sha256": "59e57d1656c6ea1d7faea3cd4cf60b02bfdadd694a94abc857f4536298ebd21d"
+  },
+  "Models/M_Pouf.obj": {
+    "bytes": 29364654,
+    "sha256": "639071462c39d60475d11871c19db36c53999d5f7bb286a84e4fa9507643cafc"
+  },
+  "Models/M_Pouf_LOD1.obj": {
+    "bytes": 4165822,
+    "sha256": "34b59cc43c6e8de36da788ff887820ebee32d8ddcf2e6253c63828c42a9043a5"
+  },
+  "Models/M_Pouf_LOD2.obj": {
+    "bytes": 1085339,
+    "sha256": "77ca213c529be2b50632d620f42f0679a07538ed720db9f4cc3fc9685c1fa9cc"
+  },
+  "Models/M_Refrigerator.mtl": {
+    "bytes": 308,
+    "sha256": "fbf3285ebcdacf41115f11b690540c90428c950200b1ad214bbd6aba85ffab97"
+  },
+  "Models/M_Refrigerator.obj": {
+    "bytes": 74697970,
+    "sha256": "b2e790e31be3a589c95522feaca1457e754b28aca49c5a4455d2315352eb1c9d"
+  },
+  "Models/M_Refrigerator_LOD1.obj": {
+    "bytes": 2604064,
+    "sha256": "f60b69a93117dedf1b89935f56994b3a209c6d11d9c3df03eb376f37f1418b27"
+  },
+  "Models/M_Refrigerator_LOD2.obj": {
+    "bytes": 873201,
+    "sha256": "80791dae3d0893da9e7e188a29e8c0d5aad0d7825ae5bdb5a63ec6debd4569d0"
+  },
+  "Models/M_Shoe.mtl": {
+    "bytes": 26,
+    "sha256": "f1f5e17e2d16486ed22ad44fff675a1e3f547f7a95ae8cfbd6584c0e30dcfb05"
+  },
+  "Models/M_Shoe.obj": {
+    "bytes": 7989443,
+    "sha256": "c619bbf6dbbb6323bb407adc13c6fa5156be9bc7879ef5b2929efd0c948c0874"
+  },
+  "Models/M_Shoe_LOD1.obj": {
+    "bytes": 1034168,
+    "sha256": "a243ac83cf1a0e6a93dd88614ab59bf507cedfc5dc0199ca153d2b0a9e509bc1"
+  },
+  "Models/M_Shoe_LOD2.obj": {
+    "bytes": 495123,
+    "sha256": "54edea9a158c4659463f55e183f9cd9245f8dc69650a0410767ca74829bc7226"
+  },
+  "Models/M_StainedLamp.mtl": {
+    "bytes": 279,
+    "sha256": "cd34a7b8c792674a12725963191ddb576f6ee6628551ca60b1a048086a8e82ef"
+  },
+  "Models/M_StainedLamp.obj": {
+    "bytes": 6953912,
+    "sha256": "99474c776e34b8947257bac5ce3e4bd6b0749cee494b80ec465836a0a8d0c5ec"
+  },
+  "Models/M_StainedLamp_LOD1.obj": {
+    "bytes": 2737574,
+    "sha256": "3508ac2efbdc212653dfb392b80e6f8a56044e582c8b145d3a03073d7db48481"
+  },
+  "Models/M_StainedLamp_LOD2.obj": {
+    "bytes": 1897129,
+    "sha256": "cde60c48df03892764c6098631b13cde3114cfa01e64fd2a3c8dbbc9c6ee18de"
+  },
+  "Models/M_Stool.mtl": {
+    "bytes": 33,
+    "sha256": "3ad0fc342a6ea719e498635df66c90d7dbb921a88ab2283ad62dee121d93e9c4"
+  },
+  "Models/M_Stool.obj": {
+    "bytes": 884773,
+    "sha256": "5448ec1de9015d336400a08273e05239c739765c1460f4e6dcbe5a89c79c30a4"
+  },
+  "Models/M_Stool_LOD1.obj": {
+    "bytes": 292188,
+    "sha256": "89ea46027582e9a3f916ece637117cae4284b165b7926d006aaf37d37dd6096a"
+  },
+  "Models/M_Stool_LOD2.obj": {
+    "bytes": 140534,
+    "sha256": "b2dcf17d98e85fe41413f0454bce36df8ddce142033f8600bbbba7b59d40257d"
+  },
+  "Textures/M_Avocado_m0_albedo.png": {
+    "bytes": 3092512,
+    "sha256": "54c72e7330761c9c05e1f097013f4e7f60b0969590d49a4ae3f5bc7987f2f91e"
+  },
+  "Textures/M_Avocado_m0_mask.png": {
+    "bytes": 1207798,
+    "sha256": "4eac8d6d7314312b9efb4f4cf992a862280d46da60371c9b4c15f26e7ff971fa"
+  },
+  "Textures/M_Avocado_m0_normal.png": {
+    "bytes": 3576676,
+    "sha256": "f6dd1a6f83243629ef199c9d0dfe820ce792577572e8aef95f25ddc49b8c338f"
+  },
+  "Textures/M_CashRegister_m0_albedo.png": {
+    "bytes": 5854728,
+    "sha256": "d098ec34ca7224dd3395c42ce28beb3786c1cbfb11b4c6dcd11ca11214e31b25"
+  },
+  "Textures/M_CashRegister_m0_mask.png": {
+    "bytes": 96875,
+    "sha256": "b13107461e17ab59faa8488e79f5c0a4161e7105c0310444e7b174331ccdcfd1"
+  },
+  "Textures/M_CashRegister_m0_normal.png": {
+    "bytes": 4552362,
+    "sha256": "d97960c3d5714fe63776f6cb0d01175956d39d57a4ebfd67997d5f0ed08fcfa9"
+  },
+  "Textures/M_CashRegister_m0_specular.png": {
+    "bytes": 3223035,
+    "sha256": "54a3c22a5b0d0f043f4a4aa15c2dde19a7e2dfbbde06a0f3fc86794fb651d4ee"
+  },
+  "Textures/M_CashRegister_m1_albedo.png": {
+    "bytes": 372390,
+    "sha256": "0aaa3f446db3dc38cdac9c4a047b920e3c3795f6b6f5bcefe545abbdddd5b598"
+  },
+  "Textures/M_CashRegister_m1_mask.png": {
+    "bytes": 3756,
+    "sha256": "9fd8c9523c93403998cde72623c7af8836ca6cebd9524adad900ca850407fcef"
+  },
+  "Textures/M_CashRegister_m1_normal.png": {
+    "bytes": 104678,
+    "sha256": "1546d5c6c5e01f7464b17bdaf015e05dde141b1f22794ebc444886df02af5152"
+  },
+  "Textures/M_CashRegister_m1_specular.png": {
+    "bytes": 75119,
+    "sha256": "d84d57cfd42da31a8f154c0497b48d8719cb0da80b370ba4a28fa9efa4da4642"
+  },
+  "Textures/M_CashRegister_m2_mask.png": {
+    "bytes": 78,
+    "sha256": "3a90d5c96b3bca19178311d77146b15bc4fc1916cb838b8b59d000b81c06a5ba"
+  },
+  "Textures/M_DeskLamp_m0_albedo.png": {
+    "bytes": 1354325,
+    "sha256": "ce6880318d450026312a840a39b78900e11069dfc0fac3df63512b0339af27ee"
+  },
+  "Textures/M_DeskLamp_m0_mask.png": {
+    "bytes": 3187958,
+    "sha256": "559ec3a729591c2d027b65951f76f24fe90809098073667293bfe8c5230ac068"
+  },
+  "Textures/M_DeskLamp_m1_albedo.png": {
+    "bytes": 1354325,
+    "sha256": "ce6880318d450026312a840a39b78900e11069dfc0fac3df63512b0339af27ee"
+  },
+  "Textures/M_DeskLamp_m1_mask.png": {
+    "bytes": 3187958,
+    "sha256": "559ec3a729591c2d027b65951f76f24fe90809098073667293bfe8c5230ac068"
+  },
+  "Textures/M_DeskLamp_m2_albedo.png": {
+    "bytes": 1354325,
+    "sha256": "ce6880318d450026312a840a39b78900e11069dfc0fac3df63512b0339af27ee"
+  },
+  "Textures/M_DeskLamp_m2_mask.png": {
+    "bytes": 3187958,
+    "sha256": "559ec3a729591c2d027b65951f76f24fe90809098073667293bfe8c5230ac068"
+  },
+  "Textures/M_IndoorChair_m0_albedo.png": {
+    "bytes": 4891775,
+    "sha256": "4caad9099f697152217f651d70c01d5a9687a951bed0339385f0f3d23b669182"
+  },
+  "Textures/M_IndoorChair_m0_mask.png": {
+    "bytes": 78,
+    "sha256": "4aca96fe78e3dbf986bde6bc3b748793510335af724fe96aec7d30e5c1b3c88b"
+  },
+  "Textures/M_IndoorChair_m0_normal.png": {
+    "bytes": 1648552,
+    "sha256": "e0a7adead0dfb1ea5cd724f7f3061ff972efcaed1029fa2407c9d044132ce546"
+  },
+  "Textures/M_IndoorChair_m0_specular.png": {
+    "bytes": 78,
+    "sha256": "aed9ff632eebc5801ba1f8ef766e9b019e7c5860348532a43741b167f3ccad4c"
+  },
+  "Textures/M_IndoorTable_m0_albedo.png": {
+    "bytes": 4891775,
+    "sha256": "4caad9099f697152217f651d70c01d5a9687a951bed0339385f0f3d23b669182"
+  },
+  "Textures/M_IndoorTable_m0_mask.png": {
+    "bytes": 21240,
+    "sha256": "2f42bf9d7112c3a8d6b87225a8438545578cd177417594ef35235ea902cbe50f"
+  },
+  "Textures/M_IndoorTable_m0_normal.png": {
+    "bytes": 1648552,
+    "sha256": "e0a7adead0dfb1ea5cd724f7f3061ff972efcaed1029fa2407c9d044132ce546"
+  },
+  "Textures/M_IndoorTable_m0_specular.png": {
+    "bytes": 21240,
+    "sha256": "ef5a3316d9ed0546d85fa4c3a6eca74140ed44a62fc56ce9320ae70b29b77f63"
+  },
+  "Textures/M_Mandarin_m0_albedo.png": {
+    "bytes": 4586904,
+    "sha256": "c7f71695fac7a5d43cdac6de06b79752d55709e5a75c9ff43723c36ca03bbe96"
+  },
+  "Textures/M_Mandarin_m0_mask.png": {
+    "bytes": 444788,
+    "sha256": "38f2d5457404110609be081d7b0c4f2b0c2602f6a9cb30712872ad766e1327f7"
+  },
+  "Textures/M_Mandarin_m0_normal.png": {
+    "bytes": 1943013,
+    "sha256": "7860d1212e98fec77a1f5b00c539ee60bb1ed8c2e9d0d0dce57aab565f992686"
+  },
+  "Textures/M_MenuSign_m0_albedo.png": {
+    "bytes": 806692,
+    "sha256": "e2006aad2db4855dff71a98809a0ed9907095fdca215452229168afca40fb3eb"
+  },
+  "Textures/M_MenuSign_m0_mask.png": {
+    "bytes": 6500,
+    "sha256": "fe03690cf5297d70158566adcba3ba47b681273f1c786670ea9f50f74d0ef857"
+  },
+  "Textures/M_MenuSign_m0_normal.png": {
+    "bytes": 679513,
+    "sha256": "72cc5fd38bf167a4c90411c6ba0773959555e39198f849519f4ad480de5739e1"
+  },
+  "Textures/M_MenuSign_m0_specular.png": {
+    "bytes": 134508,
+    "sha256": "1936689cb834b8d92e0525ecf20aac7365fc0c8297cb00be27c0044da0d8fb73"
+  },
+  "Textures/M_MenuSign_m1_mask.png": {
+    "bytes": 77,
+    "sha256": "c974b32fb0c52f6637e5554cdd66bdad75276830289947f871439475a7b38e49"
+  },
+  "Textures/M_Napkins_m0_albedo.png": {
+    "bytes": 764693,
+    "sha256": "f28285ed549aa75c6e0e5463aaf3a8d4289ffa64430f8ad757ff7557fbaa1d24"
+  },
+  "Textures/M_Napkins_m0_mask.png": {
+    "bytes": 6490,
+    "sha256": "e625198a8fc10a40b90aa12365652026a13c86e93f2e9305f2ee637fa70af426"
+  },
+  "Textures/M_Napkins_m0_normal.png": {
+    "bytes": 1017455,
+    "sha256": "6454d274652c923c3a69b3aa2f6ca9e13b645294961bd863141e615b75c41cce"
+  },
+  "Textures/M_Napkins_m0_specular.png": {
+    "bytes": 8776,
+    "sha256": "075355e181f3ac2be4b92fc27f2bdb7633789abb2f5011e425837684e169c335"
+  },
+  "Textures/M_OliveDish_m0_mask.png": {
+    "bytes": 437821,
+    "sha256": "8296ee434f0b73511f1aa3a39633360449ddfe54b7c4f7b3043d1e37a3f2e047"
+  },
+  "Textures/M_OliveDish_m1_albedo.png": {
+    "bytes": 200028,
+    "sha256": "3122bf3e8158c13186142e9f468cf1611bade4951519150194d2195396cc58fc"
+  },
+  "Textures/M_OliveDish_m1_mask.png": {
+    "bytes": 365560,
+    "sha256": "45fbe0a87a1b1e5689390baaa14819854f75bc0318b2ee16f228a755bdd06bcf"
+  },
+  "Textures/M_OliveDish_m1_normal.png": {
+    "bytes": 254289,
+    "sha256": "35400420df26a31ad0c3d0729c7bfa8456f205c9f2ce0a366b3817adc33f89ef"
+  },
+  "Textures/M_OliveDish_m2_mask.png": {
+    "bytes": 10733,
+    "sha256": "aecc5d17d7f3a4ae6f9da2e2d94016e2c3c9eed709685ea1bac2ea0d348ef13b"
+  },
+  "Textures/M_OliveDish_m2_normal.png": {
+    "bytes": 405335,
+    "sha256": "d3376dd7777a10d55db32679181a5cf0581f3ff96e61e3a49f8f7adc6957bb83"
+  },
+  "Textures/M_OliveDish_m3_albedo.png": {
+    "bytes": 1165336,
+    "sha256": "1ad3d4932cc39126dbad33ebe24060897725bb8235f98cd8daf76fd1f7ba1758"
+  },
+  "Textures/M_OliveDish_m3_mask.png": {
+    "bytes": 464615,
+    "sha256": "f854a443373b02e70f52d273040a8c1272a08c11a118b3f99de832d0c5319fae"
+  },
+  "Textures/M_OliveDish_m3_normal.png": {
+    "bytes": 1864666,
+    "sha256": "b01a35b6c175b84f8e3aef7c121975ae87aa55fac5623852c949dcd96ff90cd9"
+  },
+  "Textures/M_Pouf_m0_mask.png": {
+    "bytes": 1297828,
+    "sha256": "6be8cd0ae221deefe54f4900c0c52fbf772f9c5a94eefd7d1d607df7c38c39e4"
+  },
+  "Textures/M_Pouf_m0_normal.png": {
+    "bytes": 2976599,
+    "sha256": "6205b5b12d20ec5f3f738dbf0efcdc1889267fd35546a7c7b1583ea117880d44"
+  },
+  "Textures/M_Refrigerator_m0_albedo.png": {
+    "bytes": 457476,
+    "sha256": "6620da65217c0e8dd2d2176f12d031d79fb451f007f164dad6c12fbbdb7db8b8"
+  },
+  "Textures/M_Refrigerator_m0_mask.png": {
+    "bytes": 1225170,
+    "sha256": "4258f4bd894b5f45a22e8c8d528870b13ede9fd9a0654b7798d52e6f7536654a"
+  },
+  "Textures/M_Refrigerator_m1_albedo.png": {
+    "bytes": 1262785,
+    "sha256": "602c737050351d10d044d8e9dd85f0f81cec0bd764d10137a4dee42d98417bf2"
+  },
+  "Textures/M_Refrigerator_m1_mask.png": {
+    "bytes": 1271419,
+    "sha256": "65a7e207772b137f4368861eb9145b51d3cae7f994b32c2100f09290d84ae2e5"
+  },
+  "Textures/M_Refrigerator_m2_mask.png": {
+    "bytes": 2231813,
+    "sha256": "fd5dc23de42e44848f117c2c38c8abf5f4392da9edcd8913c54e17dcc72b237c"
+  },
+  "Textures/M_Refrigerator_m3_mask.png": {
+    "bytes": 1032159,
+    "sha256": "962163476e5e1a22e24cb090712267ffdbbec1894b5db081f647d103e16376a8"
+  },
+  "Textures/M_Refrigerator_m3_normal.png": {
+    "bytes": 1399296,
+    "sha256": "0dc5325de509c45bf2b189232d109bf33edc1e3c5c1ec76ee0a19a8b1a3841c3"
+  },
+  "Textures/M_Refrigerator_m4_mask.png": {
+    "bytes": 79,
+    "sha256": "d9b47eddbefa66a33a4bb59d941ff0cccf4d9bea079d22fa71941cfc3fa386a0"
+  },
+  "Textures/M_Refrigerator_m4_normal.png": {
+    "bytes": 432688,
+    "sha256": "ed59943a431542ff6673d74b67ec5a92bc5ad5a7feb3d6679e94e96a6845b3e4"
+  },
+  "Textures/M_Refrigerator_m5_albedo.png": {
+    "bytes": 501283,
+    "sha256": "e211fe18a44531411c154518f3ab246e22b66bd382c67e9e9f24c278c55ac651"
+  },
+  "Textures/M_Refrigerator_m5_mask.png": {
+    "bytes": 372588,
+    "sha256": "f8c6ce360b0360c90402fc847d0fb2e65016f54ed351c94bfdc757d10a657233"
+  },
+  "Textures/M_Refrigerator_m5_normal.png": {
+    "bytes": 602495,
+    "sha256": "f482666664ae55f636a255589897490fe8882685e8fb72197bfeb29591e068bd"
+  },
+  "Textures/M_Shoe_m0_albedo.png": {
+    "bytes": 2208742,
+    "sha256": "2b50a91141c3fe42f4ef9c8b1a9aa705f22c37c7395e518086277c9704c21aa3"
+  },
+  "Textures/M_Shoe_m0_mask.png": {
+    "bytes": 2553030,
+    "sha256": "b8e31650c62b7790deefe2750a975364e02f160a53a8fcf13e96bdc82237390b"
+  },
+  "Textures/M_Shoe_m0_normal.png": {
+    "bytes": 3305599,
+    "sha256": "f1fbcb08022f718e94782486144817a9baded0d51a82b18e43ae89a226dedb2e"
+  },
+  "Textures/M_StainedLamp_m0_albedo.png": {
+    "bytes": 879564,
+    "sha256": "774b435774261ee73c3fbb22f8645df4a89bef24c01a0110063b6c732c1ee632"
+  },
+  "Textures/M_StainedLamp_m0_mask.png": {
+    "bytes": 758099,
+    "sha256": "64cd64b774db6ae0f53bd5c4de0946ea6e8c36703ae40d5dd29aa1bd4e84f755"
+  },
+  "Textures/M_StainedLamp_m0_normal.png": {
+    "bytes": 1298537,
+    "sha256": "7287b3c8bcb753fb096dbeea74c376bde61b21e0c067aaaf9634ed45d1fe0c09"
+  },
+  "Textures/M_StainedLamp_m1_mask.png": {
+    "bytes": 41831,
+    "sha256": "2e651c354f70c41c082aa67ba94ae326832031d54497ece2a8153b0fc69b65fb"
+  },
+  "Textures/M_StainedLamp_m2_mask.png": {
+    "bytes": 78,
+    "sha256": "3f0fad06aa7d73a7efa48f0d77069f87acf14e123d8d9225c45b626e1df38868"
+  },
+  "Textures/M_StainedLamp_m3_mask.png": {
+    "bytes": 78,
+    "sha256": "3f0fad06aa7d73a7efa48f0d77069f87acf14e123d8d9225c45b626e1df38868"
+  },
+  "Textures/M_StainedLamp_m4_albedo.png": {
+    "bytes": 88227,
+    "sha256": "64fb29438081fe1ae82294dcfc89172c29f946c030caeca69adf5b04e6b094c2"
+  },
+  "Textures/M_StainedLamp_m4_mask.png": {
+    "bytes": 325044,
+    "sha256": "c36db3e2a45af8dc6fe19948fc378e46ecdb1cbdbedcc84aef24d7d57a67a229"
+  },
+  "Textures/M_StainedLamp_m4_normal.png": {
+    "bytes": 197439,
+    "sha256": "1ecde90005f31e13d3c0137476f0ac139d6af18c5435485f5e0c816a3cdba6ff"
+  },
+  "Textures/M_StainedLamp_m5_albedo.png": {
+    "bytes": 2550504,
+    "sha256": "8d367fcf5bfc0f02bbe606398fda5822da7bb7c84a7451448e4f5875d57d5ef2"
+  },
+  "Textures/M_StainedLamp_m5_mask.png": {
+    "bytes": 1498052,
+    "sha256": "259bc10e98908aa6d924c6016fa99ae775088911656fc24a42f9bc40c644fa9c"
+  },
+  "Textures/M_StainedLamp_m5_normal.png": {
+    "bytes": 482273,
+    "sha256": "987c1b8ee081b5c1adfdb5868acc7908aeaa81ed47bc00ddc2591ac5d4f6c52b"
+  },
+  "Textures/M_StainedLamp_m6_albedo.png": {
+    "bytes": 2575858,
+    "sha256": "4fce47eaa92f70e8273d0cfae1632280be26a2e87f20e192b577b9f28b699338"
+  },
+  "Textures/M_StainedLamp_m6_mask.png": {
+    "bytes": 1019722,
+    "sha256": "87b57452b0163c404c54ae0ee7c8c2a8933eb293572a581a736ba787b467bd93"
+  },
+  "Textures/M_StainedLamp_m6_normal.png": {
+    "bytes": 2593953,
+    "sha256": "c6c40ce1e426eb2c62d3533c5af676adad897a710b751142cc686aec249e4787"
+  },
+  "Textures/M_StainedLamp_m7_mask.png": {
+    "bytes": 21280,
+    "sha256": "b2f346c7185247f397d4c6021464c4986fe8e2cc68ead88c167fd690aeb132f9"
+  },
+  "Textures/M_Stool_m0_albedo.png": {
+    "bytes": 2032526,
+    "sha256": "573d2ccc9e1064dc0dfb96d038e180d4104acdb5b252c174c6ccf3d92914fab8"
+  },
+  "Textures/M_Stool_m0_mask.png": {
+    "bytes": 11369,
+    "sha256": "60505145f45a394b0669c1093be7c15b1bd3abec1045f5b44e48778282f13659"
+  },
+  "Textures/M_Stool_m0_normal.png": {
+    "bytes": 1396659,
+    "sha256": "496914e472e2e04f885d64cbeb276d459b8e66516b5ff97c5b5967e382985458"
+  },
+  "Textures/M_Stool_m0_specular.png": {
+    "bytes": 117771,
+    "sha256": "8954609f505678078352ac235aa1fb10dc1e1aa2c8adcc441d527cd52dc61627"
+  },
+  "catalog.json": {
+    "bytes": 48753,
+    "sha256": "444e4543662781c5f8064fa3ba3ad3ca3983c5a70d0c5b1ed54625ff27c348bd"
+  }
+}

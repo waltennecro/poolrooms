@@ -1,0 +1,69 @@
+{
+  "id": "M_Avocado",
+  "resource": "MallSources/Models/M_Avocado",
+  "minimum": [
+    -0.021280910819768906,
+    -4.7738551074871793e-05,
+    -0.013809001073241234
+  ],
+  "maximum": [
+    0.021280910819768906,
+    0.0628480613231659,
+    0.01380900014191866
+  ],
+  "triangles": 682,
+  "materials": [
+    {
+      "name": "M_Avocado_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_Avocado_m0_albedo",
+      "normal": "MallSources/Textures/M_Avocado_m0_normal",
+      "mask": "MallSources/Textures/M_Avocado_m0_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_Avocado_LOD1",
+      "triangles": 677
+    },
+    {
+      "resource": "MallSources/Models/M_Avocado_LOD2",
+      "triangles": 615
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "ccc9c3ce56423720b09399c2351537207cd5a65f859f9e6e2f30922762f3abd4",
+  "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+  "presentationClothRemoved": false,
+  "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+  "sourceNodeNames": [
+    "Avocado"
+  ],
+  "modelLicense": "CC0-1.0",
+  "sourceName": "Avocado",
+  "authors": [
+    "Microsoft"
+  ],
+  "owners": [
+    "Public"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/Avocado/",
+  "nativeUnityValidated": false,
+  "removedExtensions": []
+}

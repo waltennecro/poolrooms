@@ -1,0 +1,1688 @@
+{
+  "distinctSourceModels": 14,
+  "lodsCountAsModels": false,
+  "models": [
+    {
+      "id": "M_Refrigerator",
+      "resource": "MallSources/Models/M_Refrigerator",
+      "minimum": [
+        -0.46007776260375977,
+        -5.960464477539063e-08,
+        -0.4603222906589508
+      ],
+      "maximum": [
+        0.3943006992340088,
+        2.1840403079986572,
+        0.4838635995984078
+      ],
+      "triangles": 208679,
+      "materials": [
+        {
+          "name": "M_Refrigerator_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Refrigerator_m0_albedo",
+          "mask": "MallSources/Textures/M_Refrigerator_m0_mask"
+        },
+        {
+          "name": "M_Refrigerator_m1",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 0.75,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Refrigerator_m1_albedo",
+          "mask": "MallSources/Textures/M_Refrigerator_m1_mask"
+        },
+        {
+          "name": "M_Refrigerator_m2",
+          "colour": [
+            1,
+            1,
+            1,
+            0.13
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.75,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_clearcoat",
+            "KHR_materials_transmission"
+          ],
+          "transparent": true,
+          "doubleSided": true,
+          "mask": "MallSources/Textures/M_Refrigerator_m2_mask"
+        },
+        {
+          "name": "M_Refrigerator_m3",
+          "colour": [
+            0.01568627543747425,
+            0.0313725508749485,
+            0.01568627543747425,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.5,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "normal": "MallSources/Textures/M_Refrigerator_m3_normal",
+          "mask": "MallSources/Textures/M_Refrigerator_m3_mask"
+        },
+        {
+          "name": "M_Refrigerator_m4",
+          "colour": [
+            0.8666666746139526,
+            0.6705882549285889,
+            0.4156862795352936,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 0.4,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "normal": "MallSources/Textures/M_Refrigerator_m4_normal",
+          "mask": "MallSources/Textures/M_Refrigerator_m4_mask"
+        },
+        {
+          "name": "M_Refrigerator_m5",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Refrigerator_m5_albedo",
+          "normal": "MallSources/Textures/M_Refrigerator_m5_normal",
+          "mask": "MallSources/Textures/M_Refrigerator_m5_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_Refrigerator_LOD1",
+          "triangles": 21726
+        },
+        {
+          "resource": "MallSources/Models/M_Refrigerator_LOD2",
+          "triangles": 6271
+        }
+      ],
+      "uvBake": [
+        {
+          "material": 0,
+          "texture": "baseColorTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1884812,
+          "resolution": 2048,
+          "uniqueCharts": 226
+        },
+        {
+          "material": 0,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1884812,
+          "resolution": 2048,
+          "uniqueCharts": 226
+        },
+        {
+          "material": 0,
+          "texture": "occlusionTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1884812,
+          "resolution": 2048,
+          "uniqueCharts": 226
+        },
+        {
+          "material": 1,
+          "texture": "baseColorTexture",
+          "sourceUV": 0,
+          "bakedPixels": 2064506,
+          "resolution": 2048,
+          "uniqueCharts": 263
+        },
+        {
+          "material": 1,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 2064506,
+          "resolution": 2048,
+          "uniqueCharts": 263
+        },
+        {
+          "material": 1,
+          "texture": "occlusionTexture",
+          "sourceUV": 0,
+          "bakedPixels": 2064506,
+          "resolution": 2048,
+          "uniqueCharts": 263
+        },
+        {
+          "material": 2,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 4129024,
+          "resolution": 2048,
+          "uniqueCharts": 1
+        },
+        {
+          "material": 3,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3018416,
+          "resolution": 2048,
+          "uniqueCharts": 152
+        },
+        {
+          "material": 3,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3018416,
+          "resolution": 2048,
+          "uniqueCharts": 152
+        },
+        {
+          "material": 4,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3008840,
+          "resolution": 2048,
+          "uniqueCharts": 152
+        },
+        {
+          "material": 5,
+          "texture": "baseColorTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3142144,
+          "resolution": 2048,
+          "uniqueCharts": 76
+        },
+        {
+          "material": 5,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3142144,
+          "resolution": 2048,
+          "uniqueCharts": 76
+        },
+        {
+          "material": 5,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3142144,
+          "resolution": 2048,
+          "uniqueCharts": 76
+        }
+      ],
+      "sourceSha256": "ef8da8b144e650c277ac953e6d9e50ac1689ff1ee88c2c5bd9551ae8bccb6065",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "FridgeCase",
+        "FridgeDoor",
+        "FridgeDoorInner",
+        "FridgeGlass",
+        "FridgeInterior",
+        "ChampagneBottles",
+        "ChampagneBottles",
+        "ChampagneBottles"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceName": "CommercialRefrigerator",
+      "authors": [
+        "Eric Chadwick",
+        "Sean Thomas"
+      ],
+      "owners": [
+        "Darmstadt Graphics Group GmbH",
+        "Sean Thomas"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/CommercialRefrigerator/",
+      "nativeUnityValidated": false,
+      "removedExtensions": []
+    },
+    {
+      "id": "M_Pouf",
+      "resource": "MallSources/Models/M_Pouf",
+      "minimum": [
+        -0.30496668071746824,
+        0.0,
+        -0.30502453813552854
+      ],
+      "maximum": [
+        0.30496668071746824,
+        0.1977766210079193,
+        0.30502453813552854
+      ],
+      "triangles": 81280,
+      "materials": [
+        {
+          "name": "M_Pouf_m0",
+          "colour": [
+            0.025,
+            0.03,
+            0.075,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.65,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_sheen",
+            "KHR_materials_specular"
+          ],
+          "transparent": false,
+          "doubleSided": false,
+          "normal": "MallSources/Textures/M_Pouf_m0_normal",
+          "mask": "MallSources/Textures/M_Pouf_m0_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_Pouf_LOD1",
+          "triangles": 41870
+        },
+        {
+          "resource": "MallSources/Models/M_Pouf_LOD2",
+          "triangles": 12317
+        }
+      ],
+      "uvBake": [
+        {
+          "material": 0,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3595841,
+          "resolution": 2048,
+          "uniqueCharts": 135
+        },
+        {
+          "material": 0,
+          "texture": "occlusionTexture",
+          "sourceUV": 0,
+          "bakedPixels": 3595841,
+          "resolution": 2048,
+          "uniqueCharts": 135
+        }
+      ],
+      "sourceSha256": "a028bc6a7ac8981044fba414c1de633ac775b53602ad386f8ece74aec81d1006",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "SpecularSilkPouf"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceName": "SpecularSilkPouf",
+      "authors": [
+        "Eric Chadwick"
+      ],
+      "owners": [
+        "Copyright 2023 Wayfair, LLC"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/SpecularSilkPouf/",
+      "nativeUnityValidated": false,
+      "removedExtensions": []
+    },
+    {
+      "id": "M_Shoe",
+      "resource": "MallSources/Models/M_Shoe",
+      "minimum": [
+        -0.1473290023,
+        -0.0006479932916700765,
+        -0.053048001191468776
+      ],
+      "maximum": [
+        0.1505499954549708,
+        0.1524530132916701,
+        0.06274999819146877
+      ],
+      "triangles": 22700,
+      "materials": [
+        {
+          "name": "M_Shoe_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Shoe_m0_albedo",
+          "normal": "MallSources/Textures/M_Shoe_m0_normal",
+          "mask": "MallSources/Textures/M_Shoe_m0_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_Shoe_LOD1",
+          "triangles": 9394
+        },
+        {
+          "resource": "MallSources/Models/M_Shoe_LOD2",
+          "triangles": 4358
+        }
+      ],
+      "uvBake": [
+        {
+          "material": 0,
+          "texture": "baseColorTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1660274,
+          "resolution": 2048,
+          "uniqueCharts": 84
+        },
+        {
+          "material": 0,
+          "texture": "metallicRoughnessTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1660274,
+          "resolution": 2048,
+          "uniqueCharts": 84
+        },
+        {
+          "material": 0,
+          "texture": "normalTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1660274,
+          "resolution": 2048,
+          "uniqueCharts": 84
+        },
+        {
+          "material": 0,
+          "texture": "occlusionTexture",
+          "sourceUV": 0,
+          "bakedPixels": 1660274,
+          "resolution": 2048,
+          "uniqueCharts": 84
+        }
+      ],
+      "sourceSha256": "e1d7cb190382111e5a5b37b51e9a7f007f7eb2ab1b6185e0188e8d0a0d1265a7",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "Shoe"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceName": "MaterialsVariantsShoe",
+      "authors": [
+        "Shopify"
+      ],
+      "owners": [
+        "Shopify"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MaterialsVariantsShoe/",
+      "nativeUnityValidated": false,
+      "removedExtensions": [
+        "KHR_materials_variants"
+      ]
+    },
+    {
+      "id": "M_StainedLamp",
+      "resource": "MallSources/Models/M_StainedLamp",
+      "minimum": [
+        -0.219966858625412,
+        -3.027915917996893e-09,
+        -0.21996663510799408
+      ],
+      "maximum": [
+        0.21996821463108063,
+        0.6888952255249023,
+        0.2199697345495224
+      ],
+      "triangles": 35132,
+      "materials": [
+        {
+          "name": "M_StainedLamp_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "alphaClip": true,
+          "alphaCutoff": 0.5,
+          "albedo": "MallSources/Textures/M_StainedLamp_m0_albedo",
+          "normal": "MallSources/Textures/M_StainedLamp_m0_normal",
+          "mask": "MallSources/Textures/M_StainedLamp_m0_mask"
+        },
+        {
+          "name": "M_StainedLamp_m1",
+          "colour": [
+            0.95,
+            0.95,
+            0.95,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 0.1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "MallSources/Textures/M_StainedLamp_m1_mask"
+        },
+        {
+          "name": "M_StainedLamp_m2",
+          "colour": [
+            1,
+            0.6,
+            0.2,
+            0.5
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.02,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": true,
+          "doubleSided": false,
+          "mask": "MallSources/Textures/M_StainedLamp_m2_mask"
+        },
+        {
+          "name": "M_StainedLamp_m3",
+          "colour": [
+            0.5,
+            0,
+            0,
+            0.75
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.02,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": true,
+          "doubleSided": false,
+          "mask": "MallSources/Textures/M_StainedLamp_m3_mask"
+        },
+        {
+          "name": "M_StainedLamp_m4",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_StainedLamp_m4_albedo",
+          "normal": "MallSources/Textures/M_StainedLamp_m4_normal",
+          "mask": "MallSources/Textures/M_StainedLamp_m4_mask"
+        },
+        {
+          "name": "M_StainedLamp_m5",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_StainedLamp_m5_albedo",
+          "normal": "MallSources/Textures/M_StainedLamp_m5_normal",
+          "mask": "MallSources/Textures/M_StainedLamp_m5_mask"
+        },
+        {
+          "name": "M_StainedLamp_m6",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "alphaClip": true,
+          "alphaCutoff": 0.5,
+          "albedo": "MallSources/Textures/M_StainedLamp_m6_albedo",
+          "normal": "MallSources/Textures/M_StainedLamp_m6_normal",
+          "mask": "MallSources/Textures/M_StainedLamp_m6_mask"
+        },
+        {
+          "name": "M_StainedLamp_m7",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "MallSources/Textures/M_StainedLamp_m7_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_StainedLamp_LOD1",
+          "triangles": 22631
+        },
+        {
+          "resource": "MallSources/Models/M_StainedLamp_LOD2",
+          "triangles": 17979
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "8d411291c0408cee9003a09023c192c8b7375efeb16a87cb73774ece90070115",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "grill",
+        "steel",
+        "amberbeads",
+        "redgems",
+        "hardware",
+        "base",
+        "bulbs",
+        "stainedglass"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceName": "StainedGlassLamp",
+      "authors": [
+        "Eric Chadwick"
+      ],
+      "owners": [
+        "Wayfair"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/",
+      "nativeUnityValidated": false,
+      "removedExtensions": []
+    },
+    {
+      "id": "M_DeskLamp",
+      "resource": "MallSources/Models/M_DeskLamp",
+      "minimum": [
+        -0.14865604043006897,
+        0.0,
+        -0.15093949437141418
+      ],
+      "maximum": [
+        0.14865604043006897,
+        0.47609758377075195,
+        0.15093949437141418
+      ],
+      "triangles": 18866,
+      "materials": [
+        {
+          "name": "M_DeskLamp_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_DeskLamp_m0_albedo",
+          "mask": "MallSources/Textures/M_DeskLamp_m0_mask"
+        },
+        {
+          "name": "M_DeskLamp_m1",
+          "colour": [
+            1,
+            1,
+            1,
+            0.13
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_ior",
+            "KHR_materials_transmission",
+            "KHR_materials_volume"
+          ],
+          "transparent": true,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_DeskLamp_m1_albedo",
+          "mask": "MallSources/Textures/M_DeskLamp_m1_mask"
+        },
+        {
+          "name": "M_DeskLamp_m2",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_DeskLamp_m2_albedo",
+          "mask": "MallSources/Textures/M_DeskLamp_m2_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_DeskLamp_LOD1",
+          "triangles": 11503
+        },
+        {
+          "resource": "MallSources/Models/M_DeskLamp_LOD2",
+          "triangles": 5179
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "17cfdc79ec9e38fadb28db159734c5f9592ca423977b546e5057e350ba29ff13",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "lamp",
+        "lamp_transmission",
+        "lamp_iridescence"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceName": "IridescenceLamp",
+      "authors": [
+        "Eric Chadwick"
+      ],
+      "owners": [
+        "Wayfair, LLC"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescenceLamp/",
+      "nativeUnityValidated": false,
+      "removedExtensions": [
+        "KHR_materials_iridescence"
+      ]
+    },
+    {
+      "id": "M_Mandarin",
+      "resource": "MallSources/Models/M_Mandarin",
+      "minimum": [
+        -0.008429992944002151,
+        -0.00806628814895524,
+        -0.0025138535384378693
+      ],
+      "maximum": [
+        0.0073140156455338,
+        0.00928982883255979,
+        0.009426507784402106
+      ],
+      "triangles": 40836,
+      "materials": [
+        {
+          "name": "M_Mandarin_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 0.5,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_diffuse_transmission"
+          ],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Mandarin_m0_albedo",
+          "normal": "MallSources/Textures/M_Mandarin_m0_normal",
+          "mask": "MallSources/Textures/M_Mandarin_m0_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_Mandarin_LOD1",
+          "triangles": 26935
+        },
+        {
+          "resource": "MallSources/Models/M_Mandarin_LOD2",
+          "triangles": 8231
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "60373e48dd9216b020590a16fd0c7d3005dc489646b60f0abb129e90132d422f",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "MandarinOrange"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceName": "MandarinOrange",
+      "authors": [
+        "zamdreamer",
+        "Eric Chadwick"
+      ],
+      "owners": [
+        "zamdreamer",
+        "Wayfair"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/",
+      "nativeUnityValidated": false,
+      "removedExtensions": []
+    },
+    {
+      "id": "M_Avocado",
+      "resource": "MallSources/Models/M_Avocado",
+      "minimum": [
+        -0.021280910819768906,
+        -4.7738551074871793e-05,
+        -0.013809001073241234
+      ],
+      "maximum": [
+        0.021280910819768906,
+        0.0628480613231659,
+        0.01380900014191866
+      ],
+      "triangles": 682,
+      "materials": [
+        {
+          "name": "M_Avocado_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Avocado_m0_albedo",
+          "normal": "MallSources/Textures/M_Avocado_m0_normal",
+          "mask": "MallSources/Textures/M_Avocado_m0_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_Avocado_LOD1",
+          "triangles": 677
+        },
+        {
+          "resource": "MallSources/Models/M_Avocado_LOD2",
+          "triangles": 615
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "ccc9c3ce56423720b09399c2351537207cd5a65f859f9e6e2f30922762f3abd4",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "Avocado"
+      ],
+      "modelLicense": "CC0-1.0",
+      "sourceName": "Avocado",
+      "authors": [
+        "Microsoft"
+      ],
+      "owners": [
+        "Public"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/Avocado/",
+      "nativeUnityValidated": false,
+      "removedExtensions": []
+    },
+    {
+      "id": "M_OliveDish",
+      "resource": "MallSources/Models/M_OliveDish",
+      "minimum": [
+        -0.2296565476965171,
+        -2.5810759325395338e-05,
+        -0.22965660758206072
+      ],
+      "maximum": [
+        0.22965661415832633,
+        0.2854535445582001,
+        0.2296566392191422
+      ],
+      "triangles": 24448,
+      "materials": [
+        {
+          "name": "M_OliveDish_m0",
+          "colour": [
+            1,
+            1,
+            1,
+            0.13
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 0.07,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_transmission",
+            "KHR_materials_volume"
+          ],
+          "transparent": true,
+          "doubleSided": false,
+          "mask": "MallSources/Textures/M_OliveDish_m0_mask"
+        },
+        {
+          "name": "M_OliveDish_m1",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_OliveDish_m1_albedo",
+          "normal": "MallSources/Textures/M_OliveDish_m1_normal",
+          "mask": "MallSources/Textures/M_OliveDish_m1_mask"
+        },
+        {
+          "name": "M_OliveDish_m2",
+          "colour": [
+            1,
+            1,
+            1,
+            0.13
+          ],
+          "normalScale": 2,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [
+            "KHR_materials_ior",
+            "KHR_materials_transmission",
+            "KHR_materials_volume"
+          ],
+          "transparent": true,
+          "doubleSided": false,
+          "normal": "MallSources/Textures/M_OliveDish_m2_normal",
+          "mask": "MallSources/Textures/M_OliveDish_m2_mask"
+        },
+        {
+          "name": "M_OliveDish_m3",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "alphaClip": true,
+          "alphaCutoff": 0.5,
+          "albedo": "MallSources/Textures/M_OliveDish_m3_albedo",
+          "normal": "MallSources/Textures/M_OliveDish_m3_normal",
+          "mask": "MallSources/Textures/M_OliveDish_m3_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_OliveDish_LOD1",
+          "triangles": 17552
+        },
+        {
+          "resource": "MallSources/Models/M_OliveDish_LOD2",
+          "triangles": 8525
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "1540b4a36b790a907f4824cfe848ba481b3da3cc8070172b7b3ba178f78a7ed1",
+      "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+      "presentationClothRemoved": false,
+      "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+      "sourceNodeNames": [
+        "glassDish",
+        "olives",
+        "glassCover",
+        "goldLeaf"
+      ],
+      "modelLicense": "CC-BY-4.0",
+      "sourceName": "IridescentDishWithOlives",
+      "authors": [
+        "Eric Chadwick"
+      ],
+      "owners": [
+        "Wayfair, LLC"
+      ],
+      "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescentDishWithOlives/",
+      "nativeUnityValidated": false,
+      "removedExtensions": [
+        "KHR_materials_iridescence"
+      ]
+    },
+    {
+      "id": "M_IndoorChair",
+      "resource": "MallSources/Models/M_IndoorChair",
+      "minimum": [
+        -0.3042144179344177,
+        0.0,
+        -0.30157968401908875
+      ],
+      "maximum": [
+        0.3042144179344177,
+        1.1603012084960938,
+        0.30157968401908875
+      ],
+      "triangles": 3578,
+      "materials": [
+        {
+          "name": "M_IndoorChair_m0",
+          "colour": [
+            0.20863699913024902,
+            0.18782100081443787,
+            0.1746470034122467,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_IndoorChair_m0_albedo",
+          "normal": "MallSources/Textures/M_IndoorChair_m0_normal",
+          "mask": "MallSources/Textures/M_IndoorChair_m0_mask",
+          "workflow": "specular",
+          "specular": "MallSources/Textures/M_IndoorChair_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_IndoorChair_LOD1",
+          "triangles": 2359
+        },
+        {
+          "resource": "MallSources/Models/M_IndoorChair_LOD2",
+          "triangles": 1652
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "dd12584bc1b41e2d2398b8ed21f096f1f1a209325719cf4c61a2be3d7a8e3d97",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+      "sourceRootNode": 2487,
+      "sourceRootName": "Paris_Bistro_Interior_Chair_01",
+      "sourceMaterialIndices": [
+        157
+      ],
+      "originalTriangles": 3578,
+      "sourceDimensionsMetres": [
+        0.6084288551476797,
+        1.1603011592337342,
+        0.6031593534773236
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "owners": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "sourceName": "IndoorChair",
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "M_IndoorTable",
+      "resource": "MallSources/Models/M_IndoorTable",
+      "minimum": [
+        -0.7296908497810364,
+        0.0,
+        -0.39504560828208923
+      ],
+      "maximum": [
+        0.7296908497810364,
+        0.8434152603149414,
+        0.39504560828208923
+      ],
+      "triangles": 732,
+      "materials": [
+        {
+          "name": "M_IndoorTable_m0",
+          "colour": [
+            0.20863699913024902,
+            0.18782100081443787,
+            0.1746470034122467,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_IndoorTable_m0_albedo",
+          "normal": "MallSources/Textures/M_IndoorTable_m0_normal",
+          "mask": "MallSources/Textures/M_IndoorTable_m0_mask",
+          "workflow": "specular",
+          "specular": "MallSources/Textures/M_IndoorTable_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_IndoorTable_LOD1",
+          "triangles": 386
+        },
+        {
+          "resource": "MallSources/Models/M_IndoorTable_LOD2",
+          "triangles": 167
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "b0e83d9be3bc62c922a1355506c111df7af6f521e635f1ebbb4ad0ccb3a3b161",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+      "sourceRootNode": 2475,
+      "sourceRootName": "Paris_Bistro_Interior_Table_Large_01",
+      "sourceMaterialIndices": [
+        156
+      ],
+      "originalTriangles": 732,
+      "sourceDimensionsMetres": [
+        1.4593817253632002,
+        0.8434152804436913,
+        0.7900912159577302
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "owners": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "sourceName": "IndoorTable",
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "M_CashRegister",
+      "resource": "MallSources/Models/M_CashRegister",
+      "minimum": [
+        -0.3103063404560089,
+        0.0,
+        -0.2405950278043747
+      ],
+      "maximum": [
+        0.3103063404560089,
+        0.5777291059494019,
+        0.2405950278043747
+      ],
+      "triangles": 10309,
+      "materials": [
+        {
+          "name": "M_CashRegister_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_CashRegister_m0_albedo",
+          "normal": "MallSources/Textures/M_CashRegister_m0_normal",
+          "mask": "MallSources/Textures/M_CashRegister_m0_mask",
+          "workflow": "specular",
+          "specular": "MallSources/Textures/M_CashRegister_m0_specular"
+        },
+        {
+          "name": "M_CashRegister_m1",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_CashRegister_m1_albedo",
+          "normal": "MallSources/Textures/M_CashRegister_m1_normal",
+          "mask": "MallSources/Textures/M_CashRegister_m1_mask",
+          "workflow": "specular",
+          "specular": "MallSources/Textures/M_CashRegister_m1_specular"
+        },
+        {
+          "name": "M_CashRegister_m2",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0.0,
+          "roughness": 0.0,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "MallSources/Textures/M_CashRegister_m2_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_CashRegister_LOD1",
+          "triangles": 3894
+        },
+        {
+          "resource": "MallSources/Models/M_CashRegister_LOD2",
+          "triangles": 1218
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "73f74b53783fc62a187bbefad55a606853b58b8c99c9bd7ca1505a01eb5f37a2",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+      "sourceRootNode": 2341,
+      "sourceRootName": "paris_cashregister_01a1",
+      "sourceMaterialIndices": [
+        161,
+        162,
+        163
+      ],
+      "originalTriangles": 10309,
+      "sourceDimensionsMetres": [
+        0.6206126547276591,
+        0.5777291005220051,
+        0.48119005852241337
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "owners": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "sourceName": "CashRegister",
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "M_Stool",
+      "resource": "MallSources/Models/M_Stool",
+      "minimum": [
+        -0.22500044107437134,
+        0.0,
+        -0.21556976437568665
+      ],
+      "maximum": [
+        0.22500044107437134,
+        1.0945651531219482,
+        0.21556976437568665
+      ],
+      "triangles": 8094,
+      "materials": [
+        {
+          "name": "M_Stool_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Stool_m0_albedo",
+          "normal": "MallSources/Textures/M_Stool_m0_normal",
+          "mask": "MallSources/Textures/M_Stool_m0_mask",
+          "workflow": "specular",
+          "specular": "MallSources/Textures/M_Stool_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_Stool_LOD1",
+          "triangles": 2370
+        },
+        {
+          "resource": "MallSources/Models/M_Stool_LOD2",
+          "triangles": 1048
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "451a67637e103d87b9a52a217da8f8760902b16c180eea62522b12158e3a034b",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+      "sourceRootNode": 2338,
+      "sourceRootName": "paris_barstool_01a1",
+      "sourceMaterialIndices": [
+        160
+      ],
+      "originalTriangles": 8094,
+      "sourceDimensionsMetres": [
+        0.4500008916620253,
+        1.0945651757412271,
+        0.43113954188463754
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "owners": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "sourceName": "Stool",
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "M_Napkins",
+      "resource": "MallSources/Models/M_Napkins",
+      "minimum": [
+        -0.15411730110645294,
+        0.0,
+        -0.04754843935370445
+      ],
+      "maximum": [
+        0.15411730110645294,
+        0.16917429864406586,
+        0.04754843935370445
+      ],
+      "triangles": 764,
+      "materials": [
+        {
+          "name": "M_Napkins_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_Napkins_m0_albedo",
+          "normal": "MallSources/Textures/M_Napkins_m0_normal",
+          "mask": "MallSources/Textures/M_Napkins_m0_mask",
+          "workflow": "specular",
+          "specular": "MallSources/Textures/M_Napkins_m0_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_Napkins_LOD1",
+          "triangles": 551
+        },
+        {
+          "resource": "MallSources/Models/M_Napkins_LOD2",
+          "triangles": 305
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "f4e2486bbbc181e78f2a6e6abf64733d316ec3ef6ec20f9256091c8fe1022f05",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+      "sourceRootNode": 308,
+      "sourceRootName": "NapkinHolder_01",
+      "sourceMaterialIndices": [
+        90
+      ],
+      "originalTriangles": 764,
+      "sourceDimensionsMetres": [
+        0.30823460573984596,
+        0.169174298170915,
+        0.09509687905640263
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "owners": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "sourceName": "Napkins",
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "nativeUnityValidated": false
+    },
+    {
+      "id": "M_MenuSign",
+      "resource": "MallSources/Models/M_MenuSign",
+      "minimum": [
+        -0.2041405290365219,
+        0.0,
+        -0.03313380479812622
+      ],
+      "maximum": [
+        0.2041405290365219,
+        0.6680041551589966,
+        0.03313380479812622
+      ],
+      "triangles": 1432,
+      "materials": [
+        {
+          "name": "M_MenuSign_m0",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "MallSources/Textures/M_MenuSign_m0_albedo",
+          "normal": "MallSources/Textures/M_MenuSign_m0_normal",
+          "mask": "MallSources/Textures/M_MenuSign_m0_mask",
+          "workflow": "specular",
+          "specular": "MallSources/Textures/M_MenuSign_m0_specular"
+        },
+        {
+          "name": "M_MenuSign_m1",
+          "colour": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normalScale": 1,
+          "metallic": 1,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "mask": "MallSources/Textures/M_MenuSign_m1_mask"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "MallSources/Models/M_MenuSign_LOD1",
+          "triangles": 427
+        },
+        {
+          "resource": "MallSources/Models/M_MenuSign_LOD2",
+          "triangles": 263
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "b2f7e9dbb8d8931cddf780aed02c411b1492761c3f88bbdf69a5d2e3a8a1902f",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+      "sourceRootNode": 556,
+      "sourceRootName": "MenuSign_Small_01",
+      "sourceMaterialIndices": [
+        97,
+        98
+      ],
+      "originalTriangles": 1432,
+      "sourceDimensionsMetres": [
+        0.4082810468680309,
+        0.6680041275968034,
+        0.06626761127874303
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "authors": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "owners": [
+        "Amazon.com, Inc. or its affiliates"
+      ],
+      "sourceName": "MenuSign",
+      "modelLicense": "CC-BY-4.0",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "nativeUnityValidated": false
+    }
+  ],
+  "nativeUnityValidated": false
+}

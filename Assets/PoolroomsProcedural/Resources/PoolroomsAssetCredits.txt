@@ -145,4 +145,28 @@ Existing furniture, maps and icons retain their previous licences and attributio
 User-created drawings and notes remain session-local and are not uploaded or distributed as licensed assets.
 
 
+
+MallSources
+Licensed mall source adaptation. Each model has upstream metadata, named authors, ownership and license text alongside this notice.
+Changes: static OBJ export, UV/PBR baking, two LOD derivatives; no original presentation lights or animations, unsupported optical effects approximate. No endorsement implied.
+CommercialRefrigerator: Eric Chadwick, Sean Thomas; CC-BY-4.0
+SpecularSilkPouf: Eric Chadwick; CC-BY-4.0
+MaterialsVariantsShoe: Shopify; CC-BY-4.0
+StainedGlassLamp: Eric Chadwick; CC-BY-4.0
+IridescenceLamp: Eric Chadwick; CC-BY-4.0
+MandarinOrange: zamdreamer, Eric Chadwick; CC-BY-4.0
+Avocado: Microsoft; CC0-1.0
+IridescentDishWithOlives: Eric Chadwick; CC-BY-4.0
+
+Additional Bistro components: interior chair, interior table, cash register, stool, napkin holder, menu board. Amazon.com, Inc. or its affiliates, CC BY 4.0. Changes: selected/rebased OBJ/PBR exports and two LODs each. See Bistro source licence and pinned catalog.
+
+
+
+MallFinishes
+Mall finishes derived from Amazon Lumberyard Bistro v5.2, Amazon.com, Inc. or its affiliates, CC BY 4.0.
+Original: https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Pinned derivative scene: https://github.com/zeux/niagara_bistro/tree/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e .
+Changes: twenty selected authored finishes, DDS decoded to native-resolution PNG; green normal channel converted for Unity; source specular RGB and gloss alpha preserved with original factors, shared source maps deduplicated. No upscaling; no new model count implied.
+Full CC BY text and upstream MIT notice included. No endorsement implied. Reference thumbnails are surface references, not in-game captures.
+
+
 Calm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.

@@ -1,0 +1,482 @@
+{
+  "materials": [
+    {
+      "name": "MallFinish_Plaster",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.0,
+      "normalScale": 1,
+      "sourceMaterial": 4,
+      "sourceName": "LMBR_000000b_Plaster",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+      "normal": "MallFinishes/Textures/a2cd2bee035d13fd_normal",
+      "specular": "MallFinishes/Textures/Plaster_specular",
+      "mask": "MallFinishes/Textures/Plaster_mask"
+    },
+    {
+      "name": "MallFinish_Stone",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.3399999737739563,
+      "normalScale": 1,
+      "sourceMaterial": 11,
+      "sourceName": "LMBR_0000015_concrete_smooth_03",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+      "normal": "MallFinishes/Textures/3808aad4a8f867d4_normal",
+      "specular": "MallFinishes/Textures/Stone_specular",
+      "mask": "MallFinishes/Textures/Stone_mask"
+    },
+    {
+      "name": "MallFinish_Limestone",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.18039202690124512,
+      "normalScale": 1,
+      "sourceMaterial": 25,
+      "sourceName": "LMBR_0000043_Concrete",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/7bd848cce99758a9_albedo",
+      "normal": "MallFinishes/Textures/63ff60b3d9667c96_normal",
+      "specular": "MallFinishes/Textures/Limestone_specular",
+      "mask": "MallFinishes/Textures/Limestone_mask"
+    },
+    {
+      "name": "MallFinish_FlutedStone",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.5,
+      "normalScale": 1,
+      "sourceMaterial": 21,
+      "sourceName": "LMBR_0000017_concrete_grooved_02",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/392d25a96b00f4b8_albedo",
+      "normal": "MallFinishes/Textures/6d69146022847797_normal",
+      "specular": "MallFinishes/Textures/FlutedStone_specular",
+      "mask": "MallFinishes/Textures/FlutedStone_mask"
+    },
+    {
+      "name": "MallFinish_WhiteBrick",
+      "workflow": "specular",
+      "colour": [
+        0.37626200914382935,
+        0.37626200914382935,
+        0.37626200914382935,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.2823529839515686,
+      "normalScale": 1,
+      "sourceMaterial": 22,
+      "sourceName": "LMBR_0000023_brick_large_white_01",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/797c5f5ed934658d_albedo",
+      "normal": "MallFinishes/Textures/51be97c9f088fbc0_normal",
+      "specular": "MallFinishes/Textures/WhiteBrick_specular",
+      "mask": "MallFinishes/Textures/WhiteBrick_mask"
+    },
+    {
+      "name": "MallFinish_WarmPlaster",
+      "workflow": "specular",
+      "colour": [
+        0.9046609997749329,
+        0.6866850256919861,
+        0.27049800753593445,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.5,
+      "normalScale": 1,
+      "sourceMaterial": 29,
+      "sourceName": "LMBR_000004b_Concrete_Yellow",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/c6567194ec83739d_albedo",
+      "normal": "MallFinishes/Textures/3699c9ec967b4770_normal",
+      "specular": "MallFinishes/Textures/WarmPlaster_specular",
+      "mask": "MallFinishes/Textures/WarmPlaster_mask"
+    },
+    {
+      "name": "MallFinish_Oak",
+      "workflow": "specular",
+      "colour": [
+        0.24620099365711212,
+        0.24620099365711212,
+        0.24620099365711212,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.19607800245285034,
+      "normalScale": 1,
+      "sourceMaterial": 46,
+      "sourceName": "LMBR_0000058_Wood_Polished_01",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/8393ede25ea82aa5_albedo",
+      "normal": "MallFinishes/Textures/a784580832fb2a7d_normal",
+      "specular": "MallFinishes/Textures/Oak_specular",
+      "mask": "MallFinishes/Textures/Oak_mask"
+    },
+    {
+      "name": "MallFinish_PolishedWood",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.19999998807907104,
+      "normalScale": 1,
+      "sourceMaterial": 237,
+      "sourceName": "LMBR_00001ae_Wood",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/36130ed0aaa49888_albedo",
+      "normal": "MallFinishes/Textures/a784580832fb2a7d_normal",
+      "specular": "MallFinishes/Textures/PolishedWood_specular",
+      "mask": "MallFinishes/Textures/PolishedWood_mask"
+    },
+    {
+      "name": "MallFinish_WoodPlanks",
+      "workflow": "specular",
+      "colour": [
+        0.527114987373352,
+        0.44520100951194763,
+        0.3915730118751526,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.49000000953674316,
+      "normalScale": 1,
+      "sourceMaterial": 238,
+      "sourceName": "LMBR_00001b3_Wooden_stuco",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/f77777c2b9cf2106_albedo",
+      "normal": "MallFinishes/Textures/b09ab25681cf37e6_normal",
+      "specular": "MallFinishes/Textures/WoodPlanks_specular",
+      "mask": "MallFinishes/Textures/WoodPlanks_mask"
+    },
+    {
+      "name": "MallFinish_PaintedWood",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.0,
+      "normalScale": 1,
+      "sourceMaterial": 240,
+      "sourceName": "LMBR_00001b5_Wood_painted_01",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+      "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+      "specular": "MallFinishes/Textures/PaintedWood_specular",
+      "mask": "MallFinishes/Textures/PaintedWood_mask"
+    },
+    {
+      "name": "MallFinish_BrushedMetal",
+      "workflow": "specular",
+      "colour": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.30000000000000004,
+      "normalScale": 1,
+      "sourceMaterial": 242,
+      "sourceName": "LMBR_00001ad_Brushed_Metal",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/c770582be1f354af_albedo",
+      "specular": "MallFinishes/Textures/BrushedMetal_specular",
+      "mask": "MallFinishes/Textures/BrushedMetal_mask"
+    },
+    {
+      "name": "MallFinish_Bronze",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.25,
+      "normalScale": 1,
+      "sourceMaterial": 79,
+      "sourceName": "LMBR_000002f_bronze_01",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/58c63dbe143b6041_albedo",
+      "normal": "MallFinishes/Textures/f662cf2ee49bd3ac_normal",
+      "specular": "MallFinishes/Textures/Bronze_specular",
+      "mask": "MallFinishes/Textures/Bronze_mask"
+    },
+    {
+      "name": "MallFinish_Chrome",
+      "workflow": "specular",
+      "colour": [
+        0.3324519991874695,
+        0.3324519991874695,
+        0.31854701042175293,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.2862740159034729,
+      "normalScale": 1,
+      "sourceMaterial": 73,
+      "sourceName": "LMBR_0000021_metal_clean_01",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/fd453ce1ce3f7fde_albedo",
+      "normal": "MallFinishes/Textures/e1865da936cde611_normal",
+      "specular": "MallFinishes/Textures/Chrome_specular",
+      "mask": "MallFinishes/Textures/Chrome_mask"
+    },
+    {
+      "name": "MallFinish_HexTile",
+      "workflow": "specular",
+      "colour": [
+        0.6169354915618896,
+        0.45419546961784363,
+        0.2288631647825241,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.30699998140335083,
+      "normalScale": 1,
+      "sourceMaterial": 244,
+      "sourceName": "LMBR_00001b0_Floor_Tile_Hexagonal",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/9d6815515026621a_albedo",
+      "normal": "MallFinishes/Textures/d1da861c45f1d915_normal",
+      "specular": "MallFinishes/Textures/HexTile_specular",
+      "mask": "MallFinishes/Textures/HexTile_mask"
+    },
+    {
+      "name": "MallFinish_Linen",
+      "workflow": "specular",
+      "colour": [
+        0.715694010257721,
+        0.8549929857254028,
+        0.8227859735488892,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.3999999761581421,
+      "normalScale": 1,
+      "sourceMaterial": 18,
+      "sourceName": "LMBR_000002b_awning_fabric_cian",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/056a000e3390aa0e_albedo",
+      "normal": "MallFinishes/Textures/f13cd225e29f5634_normal",
+      "specular": "MallFinishes/Textures/Linen_specular",
+      "mask": "MallFinishes/Textures/Linen_mask"
+    },
+    {
+      "name": "MallFinish_Curtain",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.6800000071525574,
+      "normalScale": 1,
+      "sourceMaterial": 247,
+      "sourceName": "LMBR_00001b6_Paris_courtain_01b",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/9b4d0840ed828ffa_albedo",
+      "normal": "MallFinishes/Textures/4356b3049d9cac0e_normal",
+      "specular": "MallFinishes/Textures/Curtain_specular",
+      "mask": "MallFinishes/Textures/Curtain_mask"
+    },
+    {
+      "name": "MallFinish_Plastic",
+      "workflow": "specular",
+      "colour": [
+        0.078186996281147,
+        0.07618500292301178,
+        0.07227200269699097,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.3960779905319214,
+      "normalScale": 1,
+      "sourceMaterial": 27,
+      "sourceName": "LMBR_0000063_Plastic_01",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/01a4f7993989c4c3_albedo",
+      "normal": "MallFinishes/Textures/8e18dde3335e195f_normal",
+      "specular": "MallFinishes/Textures/Plastic_specular",
+      "mask": "MallFinishes/Textures/Plastic_mask"
+    },
+    {
+      "name": "MallFinish_Books",
+      "workflow": "specular",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.30000001192092896,
+      "normalScale": 1,
+      "sourceMaterial": 83,
+      "sourceName": "LMBR_0000035_books_covers",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/412f112d93c7293b_albedo",
+      "specular": "MallFinishes/Textures/Books_specular",
+      "mask": "MallFinishes/Textures/Books_mask"
+    },
+    {
+      "name": "MallFinish_BarTrim",
+      "workflow": "specular",
+      "colour": [
+        0.83,
+        0.83,
+        0.83,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.36,
+      "normalScale": 1,
+      "sourceMaterial": 248,
+      "sourceName": "LMBR_00001b1_Paris_Bartrim_01",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/6f251579e05cbb0a_albedo",
+      "normal": "MallFinishes/Textures/38a5326d3a1e55eb_normal",
+      "specular": "MallFinishes/Textures/BarTrim_specular",
+      "mask": "MallFinishes/Textures/BarTrim_mask"
+    },
+    {
+      "name": "MallFinish_Metal",
+      "workflow": "specular",
+      "colour": [
+        9.999999974752427e-07,
+        9.999899930335232e-07,
+        9.999899930335232e-07,
+        1.0
+      ],
+      "metallic": 0,
+      "roughness": 0.3199999928474426,
+      "normalScale": 1,
+      "sourceMaterial": 26,
+      "sourceName": "LMBR_0000046_Metal",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "albedo": "MallFinishes/Textures/24a03bd0fd3c2b6c_albedo",
+      "normal": "MallFinishes/Textures/f46fdc5333d5d555_normal",
+      "specular": "MallFinishes/Textures/Metal_specular",
+      "mask": "MallFinishes/Textures/Metal_mask"
+    }
+  ]
+}

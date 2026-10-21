@@ -1,0 +1,80 @@
+{
+  "id": "M_Napkins",
+  "resource": "MallSources/Models/M_Napkins",
+  "minimum": [
+    -0.15411730110645294,
+    0.0,
+    -0.04754843935370445
+  ],
+  "maximum": [
+    0.15411730110645294,
+    0.16917429864406586,
+    0.04754843935370445
+  ],
+  "triangles": 764,
+  "materials": [
+    {
+      "name": "M_Napkins_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_Napkins_m0_albedo",
+      "normal": "MallSources/Textures/M_Napkins_m0_normal",
+      "mask": "MallSources/Textures/M_Napkins_m0_mask",
+      "workflow": "specular",
+      "specular": "MallSources/Textures/M_Napkins_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_Napkins_LOD1",
+      "triangles": 551
+    },
+    {
+      "resource": "MallSources/Models/M_Napkins_LOD2",
+      "triangles": 305
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "f4e2486bbbc181e78f2a6e6abf64733d316ec3ef6ec20f9256091c8fe1022f05",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+  "sourceRootNode": 308,
+  "sourceRootName": "NapkinHolder_01",
+  "sourceMaterialIndices": [
+    90
+  ],
+  "originalTriangles": 764,
+  "sourceDimensionsMetres": [
+    0.30823460573984596,
+    0.169174298170915,
+    0.09509687905640263
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "owners": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "sourceName": "Napkins",
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "nativeUnityValidated": false
+}

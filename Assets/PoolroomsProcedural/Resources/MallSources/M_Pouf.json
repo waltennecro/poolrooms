@@ -1,0 +1,88 @@
+{
+  "id": "M_Pouf",
+  "resource": "MallSources/Models/M_Pouf",
+  "minimum": [
+    -0.30496668071746824,
+    0.0,
+    -0.30502453813552854
+  ],
+  "maximum": [
+    0.30496668071746824,
+    0.1977766210079193,
+    0.30502453813552854
+  ],
+  "triangles": 81280,
+  "materials": [
+    {
+      "name": "M_Pouf_m0",
+      "colour": [
+        0.025,
+        0.03,
+        0.075,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.65,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [
+        "KHR_materials_sheen",
+        "KHR_materials_specular"
+      ],
+      "transparent": false,
+      "doubleSided": false,
+      "normal": "MallSources/Textures/M_Pouf_m0_normal",
+      "mask": "MallSources/Textures/M_Pouf_m0_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_Pouf_LOD1",
+      "triangles": 41870
+    },
+    {
+      "resource": "MallSources/Models/M_Pouf_LOD2",
+      "triangles": 12317
+    }
+  ],
+  "uvBake": [
+    {
+      "material": 0,
+      "texture": "normalTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3595841,
+      "resolution": 2048,
+      "uniqueCharts": 135
+    },
+    {
+      "material": 0,
+      "texture": "occlusionTexture",
+      "sourceUV": 0,
+      "bakedPixels": 3595841,
+      "resolution": 2048,
+      "uniqueCharts": 135
+    }
+  ],
+  "sourceSha256": "a028bc6a7ac8981044fba414c1de633ac775b53602ad386f8ece74aec81d1006",
+  "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+  "presentationClothRemoved": false,
+  "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+  "sourceNodeNames": [
+    "SpecularSilkPouf"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceName": "SpecularSilkPouf",
+  "authors": [
+    "Eric Chadwick"
+  ],
+  "owners": [
+    "Copyright 2023 Wayfair, LLC"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/SpecularSilkPouf/",
+  "nativeUnityValidated": false,
+  "removedExtensions": []
+}

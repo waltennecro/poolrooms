@@ -1,0 +1,80 @@
+{
+  "id": "M_IndoorTable",
+  "resource": "MallSources/Models/M_IndoorTable",
+  "minimum": [
+    -0.7296908497810364,
+    0.0,
+    -0.39504560828208923
+  ],
+  "maximum": [
+    0.7296908497810364,
+    0.8434152603149414,
+    0.39504560828208923
+  ],
+  "triangles": 732,
+  "materials": [
+    {
+      "name": "M_IndoorTable_m0",
+      "colour": [
+        0.20863699913024902,
+        0.18782100081443787,
+        0.1746470034122467,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_IndoorTable_m0_albedo",
+      "normal": "MallSources/Textures/M_IndoorTable_m0_normal",
+      "mask": "MallSources/Textures/M_IndoorTable_m0_mask",
+      "workflow": "specular",
+      "specular": "MallSources/Textures/M_IndoorTable_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_IndoorTable_LOD1",
+      "triangles": 386
+    },
+    {
+      "resource": "MallSources/Models/M_IndoorTable_LOD2",
+      "triangles": 167
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "b0e83d9be3bc62c922a1355506c111df7af6f521e635f1ebbb4ad0ccb3a3b161",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+  "sourceRootNode": 2475,
+  "sourceRootName": "Paris_Bistro_Interior_Table_Large_01",
+  "sourceMaterialIndices": [
+    156
+  ],
+  "originalTriangles": 732,
+  "sourceDimensionsMetres": [
+    1.4593817253632002,
+    0.8434152804436913,
+    0.7900912159577302
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "owners": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "sourceName": "IndoorTable",
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "nativeUnityValidated": false
+}

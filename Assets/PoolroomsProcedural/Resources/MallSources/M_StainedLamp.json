@@ -1,0 +1,233 @@
+{
+  "id": "M_StainedLamp",
+  "resource": "MallSources/Models/M_StainedLamp",
+  "minimum": [
+    -0.219966858625412,
+    -3.027915917996893e-09,
+    -0.21996663510799408
+  ],
+  "maximum": [
+    0.21996821463108063,
+    0.6888952255249023,
+    0.2199697345495224
+  ],
+  "triangles": 35132,
+  "materials": [
+    {
+      "name": "M_StainedLamp_m0",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "alphaClip": true,
+      "alphaCutoff": 0.5,
+      "albedo": "MallSources/Textures/M_StainedLamp_m0_albedo",
+      "normal": "MallSources/Textures/M_StainedLamp_m0_normal",
+      "mask": "MallSources/Textures/M_StainedLamp_m0_mask"
+    },
+    {
+      "name": "M_StainedLamp_m1",
+      "colour": [
+        0.95,
+        0.95,
+        0.95,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 0.1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "MallSources/Textures/M_StainedLamp_m1_mask"
+    },
+    {
+      "name": "M_StainedLamp_m2",
+      "colour": [
+        1,
+        0.6,
+        0.2,
+        0.5
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.02,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": true,
+      "doubleSided": false,
+      "mask": "MallSources/Textures/M_StainedLamp_m2_mask"
+    },
+    {
+      "name": "M_StainedLamp_m3",
+      "colour": [
+        0.5,
+        0,
+        0,
+        0.75
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0.02,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": true,
+      "doubleSided": false,
+      "mask": "MallSources/Textures/M_StainedLamp_m3_mask"
+    },
+    {
+      "name": "M_StainedLamp_m4",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_StainedLamp_m4_albedo",
+      "normal": "MallSources/Textures/M_StainedLamp_m4_normal",
+      "mask": "MallSources/Textures/M_StainedLamp_m4_mask"
+    },
+    {
+      "name": "M_StainedLamp_m5",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_StainedLamp_m5_albedo",
+      "normal": "MallSources/Textures/M_StainedLamp_m5_normal",
+      "mask": "MallSources/Textures/M_StainedLamp_m5_mask"
+    },
+    {
+      "name": "M_StainedLamp_m6",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 1,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "alphaClip": true,
+      "alphaCutoff": 0.5,
+      "albedo": "MallSources/Textures/M_StainedLamp_m6_albedo",
+      "normal": "MallSources/Textures/M_StainedLamp_m6_normal",
+      "mask": "MallSources/Textures/M_StainedLamp_m6_mask"
+    },
+    {
+      "name": "M_StainedLamp_m7",
+      "colour": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 0,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "mask": "MallSources/Textures/M_StainedLamp_m7_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_StainedLamp_LOD1",
+      "triangles": 22631
+    },
+    {
+      "resource": "MallSources/Models/M_StainedLamp_LOD2",
+      "triangles": 17979
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "8d411291c0408cee9003a09023c192c8b7375efeb16a87cb73774ece90070115",
+  "upstreamRevision": "15cd02d304e54cb42a4db4eefe719f76190f4b68",
+  "presentationClothRemoved": false,
+  "adaptation": "Static native OBJ, two LODs, source UV/PBR baking. Default material variant. Presentation lights, emission and animation not imported. Transmission/iridescence/sheen approximate; original source notices retained.",
+  "sourceNodeNames": [
+    "grill",
+    "steel",
+    "amberbeads",
+    "redgems",
+    "hardware",
+    "base",
+    "bulbs",
+    "stainedglass"
+  ],
+  "modelLicense": "CC-BY-4.0",
+  "sourceName": "StainedGlassLamp",
+  "authors": [
+    "Eric Chadwick"
+  ],
+  "owners": [
+    "Wayfair"
+  ],
+  "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/",
+  "nativeUnityValidated": false,
+  "removedExtensions": []
+}

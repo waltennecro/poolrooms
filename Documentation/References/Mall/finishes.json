@@ -1,0 +1,182 @@
+[
+  {
+    "file": "Plaster.jpg",
+    "finish": "Plaster",
+    "sourceMaterial": 4,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Stone.jpg",
+    "finish": "Stone",
+    "sourceMaterial": 11,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Limestone.jpg",
+    "finish": "Limestone",
+    "sourceMaterial": 25,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/7bd848cce99758a9_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "FlutedStone.jpg",
+    "finish": "FlutedStone",
+    "sourceMaterial": 21,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/392d25a96b00f4b8_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "WhiteBrick.jpg",
+    "finish": "WhiteBrick",
+    "sourceMaterial": 22,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/797c5f5ed934658d_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "WarmPlaster.jpg",
+    "finish": "WarmPlaster",
+    "sourceMaterial": 29,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/c6567194ec83739d_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Oak.jpg",
+    "finish": "Oak",
+    "sourceMaterial": 46,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/8393ede25ea82aa5_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "PolishedWood.jpg",
+    "finish": "PolishedWood",
+    "sourceMaterial": 237,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/36130ed0aaa49888_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "WoodPlanks.jpg",
+    "finish": "WoodPlanks",
+    "sourceMaterial": 238,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/f77777c2b9cf2106_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "PaintedWood.jpg",
+    "finish": "PaintedWood",
+    "sourceMaterial": 240,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/6398d7e9dcf18f1b_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "BrushedMetal.jpg",
+    "finish": "BrushedMetal",
+    "sourceMaterial": 242,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/c770582be1f354af_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Bronze.jpg",
+    "finish": "Bronze",
+    "sourceMaterial": 79,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/58c63dbe143b6041_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Chrome.jpg",
+    "finish": "Chrome",
+    "sourceMaterial": 73,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/fd453ce1ce3f7fde_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "HexTile.jpg",
+    "finish": "HexTile",
+    "sourceMaterial": 244,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/9d6815515026621a_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Linen.jpg",
+    "finish": "Linen",
+    "sourceMaterial": 18,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/056a000e3390aa0e_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Curtain.jpg",
+    "finish": "Curtain",
+    "sourceMaterial": 247,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/9b4d0840ed828ffa_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Plastic.jpg",
+    "finish": "Plastic",
+    "sourceMaterial": 27,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/01a4f7993989c4c3_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Books.jpg",
+    "finish": "Books",
+    "sourceMaterial": 83,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/412f112d93c7293b_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "BarTrim.jpg",
+    "finish": "BarTrim",
+    "sourceMaterial": 248,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/6f251579e05cbb0a_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  },
+  {
+    "file": "Metal.jpg",
+    "finish": "Metal",
+    "sourceMaterial": 26,
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "derivedFrom": "MallFinishes/Textures/24a03bd0fd3c2b6c_albedo",
+    "description": "Source surface reference; not an in-game screenshot."
+  }
+]

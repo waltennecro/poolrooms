@@ -1,0 +1,76 @@
+[
+  {
+    "file": "Model_Refrigerator.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/CommercialRefrigerator/screenshot/screenshot.jpg",
+    "license": "CC-BY-4.0",
+    "authors": [
+      "Eric Chadwick",
+      "Sean Thomas"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  },
+  {
+    "file": "Model_Pouf.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/SpecularSilkPouf/screenshot/screenshot.jpg",
+    "license": "CC-BY-4.0",
+    "authors": [
+      "Eric Chadwick"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  },
+  {
+    "file": "Model_Shoe.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MaterialsVariantsShoe/screenshot/screenshot.jpg",
+    "license": "CC-BY-4.0",
+    "authors": [
+      "Shopify"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  },
+  {
+    "file": "Model_StainedLamp.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/StainedGlassLamp/screenshot/screenshot.jpg",
+    "license": "CC-BY-4.0",
+    "authors": [
+      "Eric Chadwick"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  },
+  {
+    "file": "Model_DeskLamp.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescenceLamp/screenshot/screenshot.jpg",
+    "license": "CC-BY-4.0",
+    "authors": [
+      "Eric Chadwick"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  },
+  {
+    "file": "Model_Mandarin.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/MandarinOrange/screenshot/screenshot.jpg",
+    "license": "CC-BY-4.0",
+    "authors": [
+      "zamdreamer",
+      "Eric Chadwick"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  },
+  {
+    "file": "Model_Avocado.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/Avocado/screenshot/screenshot.jpg",
+    "license": "CC0-1.0",
+    "authors": [
+      "Microsoft"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  },
+  {
+    "file": "Model_OliveDish.jpg",
+    "sourceUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/15cd02d304e54cb42a4db4eefe719f76190f4b68/Models/IridescentDishWithOlives/screenshot/screenshot.jpg",
+    "license": "CC-BY-4.0",
+    "authors": [
+      "Eric Chadwick"
+    ],
+    "description": "Upstream reference image; not a screenshot from this game."
+  }
+]

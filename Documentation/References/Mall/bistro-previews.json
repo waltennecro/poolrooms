@@ -1,0 +1,44 @@
+[
+  {
+    "file": "Geometry_IndoorChair.png",
+    "model": "M_IndoorChair",
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "description": "Derived preview of licensed source geometry; no Unity shaders or ray tracing."
+  },
+  {
+    "file": "Geometry_IndoorTable.png",
+    "model": "M_IndoorTable",
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "description": "Derived preview of licensed source geometry; no Unity shaders or ray tracing."
+  },
+  {
+    "file": "Geometry_CashRegister.png",
+    "model": "M_CashRegister",
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "description": "Derived preview of licensed source geometry; no Unity shaders or ray tracing."
+  },
+  {
+    "file": "Geometry_Stool.png",
+    "model": "M_Stool",
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "description": "Derived preview of licensed source geometry; no Unity shaders or ray tracing."
+  },
+  {
+    "file": "Geometry_Napkins.png",
+    "model": "M_Napkins",
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "description": "Derived preview of licensed source geometry; no Unity shaders or ray tracing."
+  },
+  {
+    "file": "Geometry_MenuSign.png",
+    "model": "M_MenuSign",
+    "license": "CC-BY-4.0",
+    "author": "Amazon.com, Inc. or its affiliates",
+    "description": "Derived preview of licensed source geometry; no Unity shaders or ray tracing."
+  }
+]

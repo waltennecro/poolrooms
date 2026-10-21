@@ -1,0 +1,330 @@
+{
+  "Licenses/Bistro_CC_BY_4.txt": {
+    "bytes": 19242,
+    "sha256": "eb53f08e7a562c6f56d9ef93a260d1cbe26a726f959783dbf7e5091421e6a0d0"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 697,
+    "sha256": "ff7034d8959c07319b6ba016209c2e3b28e4f39c27bc957d80dae4e8025ae1b6"
+  },
+  "Licenses/upstream_MIT.txt": {
+    "bytes": 1073,
+    "sha256": "e3151c4e72486708e3f1273cb32943467b6f96cd66f3d2f0d89f99b404ef6db9"
+  },
+  "Textures/01a4f7993989c4c3_albedo.png": {
+    "bytes": 804068,
+    "sha256": "edd1ccba8539137f0ac2f8cc69e563b2e64d69af3f6e07c251b8c614eeab56ac"
+  },
+  "Textures/056a000e3390aa0e_albedo.png": {
+    "bytes": 15881901,
+    "sha256": "b43df68d99a95e6b61aacea0aa35bfd2c589f968a04ab8f74bd17f35bb5e5aa7"
+  },
+  "Textures/24a03bd0fd3c2b6c_albedo.png": {
+    "bytes": 21238,
+    "sha256": "b283d31a91b37991c1c8c1b3ee4e48cc9addca17df7e4098a2a5ea3f9f7e818d"
+  },
+  "Textures/36130ed0aaa49888_albedo.png": {
+    "bytes": 4891775,
+    "sha256": "4caad9099f697152217f651d70c01d5a9687a951bed0339385f0f3d23b669182"
+  },
+  "Textures/3699c9ec967b4770_normal.png": {
+    "bytes": 7359924,
+    "sha256": "9f245aa7fdd70ef565297dee09fbb3990d50105aad2c62a7b8445fc64cde7ebb"
+  },
+  "Textures/3808aad4a8f867d4_normal.png": {
+    "bytes": 5372163,
+    "sha256": "bf60028523ddae263977d48382902598d307315aff8fcc8c6a27d81c86d4b18a"
+  },
+  "Textures/38a5326d3a1e55eb_normal.png": {
+    "bytes": 2161518,
+    "sha256": "e1c3f84db48051ccfdf1d2b828ba97f367cf8d8ea438af1706f6853c26994232"
+  },
+  "Textures/392d25a96b00f4b8_albedo.png": {
+    "bytes": 6713630,
+    "sha256": "14879caa0a383043f3443d2b604a746a1964e227b70838645d04b855fbe9044d"
+  },
+  "Textures/412f112d93c7293b_albedo.png": {
+    "bytes": 5355322,
+    "sha256": "fe92181e4739d42009e2428f63b4f7ab1e5c0facfe75b9f451950b8c99fe4490"
+  },
+  "Textures/4356b3049d9cac0e_normal.png": {
+    "bytes": 12585139,
+    "sha256": "f7f4b8013ec72a079ab1120f3592df1d45b094fa6f13b16a4cfc72babd01c616"
+  },
+  "Textures/4f767e5ed7e88a68_albedo.png": {
+    "bytes": 8043088,
+    "sha256": "77cc122e5bcb0b5e875a1b30e5929ec9a3d7c870fb6d04e221b75e9a75e26204"
+  },
+  "Textures/51be97c9f088fbc0_normal.png": {
+    "bytes": 3232484,
+    "sha256": "db18d01d68d219a1bb1aa21ce205781dfea37c94a785f06e9337e155bfdeb58f"
+  },
+  "Textures/58c63dbe143b6041_albedo.png": {
+    "bytes": 21238,
+    "sha256": "b283d31a91b37991c1c8c1b3ee4e48cc9addca17df7e4098a2a5ea3f9f7e818d"
+  },
+  "Textures/6398d7e9dcf18f1b_albedo.png": {
+    "bytes": 2699248,
+    "sha256": "c84be6f59d964601b095d1c06b3758c53cf6fb7d6298c4ef1a89586bce050263"
+  },
+  "Textures/63ff60b3d9667c96_normal.png": {
+    "bytes": 3641359,
+    "sha256": "8e75ff35aa1318d1f658915407b18073d6f4da3fbd4f30e821d903a9df901c95"
+  },
+  "Textures/6d69146022847797_normal.png": {
+    "bytes": 7603645,
+    "sha256": "2617e847ae9b6aa576838176c06c85527aa83f3e945f43e979bf40d400e8fb33"
+  },
+  "Textures/6f251579e05cbb0a_albedo.png": {
+    "bytes": 3117226,
+    "sha256": "d208764de3482b29436b0b6089e892bc1f20a231f71c68c41394f4274b6ae083"
+  },
+  "Textures/797c5f5ed934658d_albedo.png": {
+    "bytes": 4088239,
+    "sha256": "5ad0cbf1a62c6d5eda491f896c07c35acf6d824071638d6a7e0317dfd3cd5c8f"
+  },
+  "Textures/7bd848cce99758a9_albedo.png": {
+    "bytes": 2949589,
+    "sha256": "c11c86fc938460b962e08b7ef8ea203c9f0b598e36b56f4db24b21b1ad3bae81"
+  },
+  "Textures/8393ede25ea82aa5_albedo.png": {
+    "bytes": 8528975,
+    "sha256": "ef8785e55aa5f11d85bc48d8101eb1fd9fa96c0d6ff285e286f8d2928d5ec3fb"
+  },
+  "Textures/8e18dde3335e195f_normal.png": {
+    "bytes": 3128871,
+    "sha256": "79600ca7a76b7d92dbedd5504788cde9f70b23d0a65eb051a6f021022b31a288"
+  },
+  "Textures/9b4d0840ed828ffa_albedo.png": {
+    "bytes": 19039675,
+    "sha256": "6549662f79a03c32f4450c5175920caab5e85d0cbce307b443a94f3edf6eb617"
+  },
+  "Textures/9d6815515026621a_albedo.png": {
+    "bytes": 6586472,
+    "sha256": "d09cebe0fcb1cec74ae1265b028eba3aae42b4e0d1105cc0c48ad5dfcee7d264"
+  },
+  "Textures/9ee6902aa46d948d_albedo.png": {
+    "bytes": 5825021,
+    "sha256": "ecd9839b11d7528b6ef5257ae8323324088f6eb422970e48e494ddbcb289078c"
+  },
+  "Textures/BarTrim_mask.png": {
+    "bytes": 21240,
+    "sha256": "845ae7eee4d3b5a37b68cae6aa1fcefcf3c44652b419399cfb01262e398c521f"
+  },
+  "Textures/BarTrim_specular.png": {
+    "bytes": 136386,
+    "sha256": "f05e4913b080e9a8d0f55b9492eef03cbdc39d7842764c57ccd11ca93d95d300"
+  },
+  "Textures/Books_mask.png": {
+    "bytes": 21240,
+    "sha256": "8564898d23648ad55a641595e074ff5391f184e830f7dd888aff75041afc6951"
+  },
+  "Textures/Books_specular.png": {
+    "bytes": 21240,
+    "sha256": "d8dce224191436258939830205de05036be07794d8514a9a1bf3fbf38ead9614"
+  },
+  "Textures/Bronze_mask.png": {
+    "bytes": 21240,
+    "sha256": "75f4922e6985b1b3c9f77e2eb4740003fe5e3bf088a621fa1904d344ffb6a93d"
+  },
+  "Textures/Bronze_specular.png": {
+    "bytes": 21243,
+    "sha256": "3afcb4869e07fe1658cdd8fd17e815fb25d3c8cec095628c570eb7f5e9f9c131"
+  },
+  "Textures/BrushedMetal_mask.png": {
+    "bytes": 37892,
+    "sha256": "f02349e4e444f423c67def233b19da40f134bb6b20b3ecec19caef27e9b0a8e1"
+  },
+  "Textures/BrushedMetal_specular.png": {
+    "bytes": 1336360,
+    "sha256": "347351a19c19e83bdbe1cf93fa18d6e40f69ad69f99c1d055d8031b0a3e04929"
+  },
+  "Textures/Chrome_mask.png": {
+    "bytes": 21240,
+    "sha256": "d95d6fa71cc6d88099adf6b81784cafabfbc15ef652d7da694840185e957f375"
+  },
+  "Textures/Chrome_specular.png": {
+    "bytes": 21242,
+    "sha256": "92a3ddcd7712199a409f988701ba362cf496b3c219c8ccd4145e2aed3483739d"
+  },
+  "Textures/Curtain_mask.png": {
+    "bytes": 226772,
+    "sha256": "89cde9a3fa56449d18941ac53987ea8261106f0e10943472a9be074f1bf1b7e1"
+  },
+  "Textures/Curtain_specular.png": {
+    "bytes": 11805316,
+    "sha256": "3eedaf4be9e7632dedb925486c2904d414ef86a2dbe587a322c89ee72cfce5e1"
+  },
+  "Textures/FlutedStone_mask.png": {
+    "bytes": 21238,
+    "sha256": "38e37b689ad90387852792a97dba9416a18a949c12069feeae459241785e2d99"
+  },
+  "Textures/FlutedStone_specular.png": {
+    "bytes": 21240,
+    "sha256": "d41ff62712efbef8f7a78adc0c28f2391d31ac544243592d987e401c456f2abd"
+  },
+  "Textures/HexTile_mask.png": {
+    "bytes": 21240,
+    "sha256": "7eafd30c098fd0d7adff9f622c445dfb7d479566536c646d4cd9a30b0bfc523f"
+  },
+  "Textures/HexTile_specular.png": {
+    "bytes": 21240,
+    "sha256": "12de1b8fd71f8a4b7917493ef484eb077399cf902a6fbd71d9d6eb59c0cb815b"
+  },
+  "Textures/Limestone_mask.png": {
+    "bytes": 21240,
+    "sha256": "dad82767bec01c1c42b2291a797e1c9d356fb57db04d1b11121e54b2ccc6984f"
+  },
+  "Textures/Limestone_specular.png": {
+    "bytes": 21476,
+    "sha256": "2d210d1c555149eba5a0acd5bafeafab1757c20c3fc7f2456a754d2e25595ad5"
+  },
+  "Textures/Linen_mask.png": {
+    "bytes": 105,
+    "sha256": "bcd694ad1e035bf8fe01b6dc1b4dfa2dd47300f02889dc3ae4a54bfd920c8c23"
+  },
+  "Textures/Linen_specular.png": {
+    "bytes": 107,
+    "sha256": "2f84f6be2066ceb874587a255688ef695d2074284b782f38d6a98b722033bfe7"
+  },
+  "Textures/Metal_mask.png": {
+    "bytes": 21240,
+    "sha256": "ee3e266381200da339ab340bcc89dcd216a740f2abb6bbe83f14dedb82405135"
+  },
+  "Textures/Metal_specular.png": {
+    "bytes": 221779,
+    "sha256": "934ac0ed9db0418c05f234e66af5ad8ab17380d1cd6d372382a9ce092865ff9b"
+  },
+  "Textures/Oak_mask.png": {
+    "bytes": 21240,
+    "sha256": "f61e57f3d25421b1f5edcdb6899b976630bcf197ef93f395052e7b95e4a244bc"
+  },
+  "Textures/Oak_specular.png": {
+    "bytes": 21241,
+    "sha256": "6dab83b8a3e3822ac2ca93d1ee0b773c2677096e107c1f400122683dba1324a9"
+  },
+  "Textures/PaintedWood_mask.png": {
+    "bytes": 21238,
+    "sha256": "1d9f89832f09a2b4467ed122d1d2b78ad1f6f319c29bb4fe34134523f263ebbd"
+  },
+  "Textures/PaintedWood_specular.png": {
+    "bytes": 1168422,
+    "sha256": "2593d68ee6efe7d06daa7c80486b9865afdd556b90f6a1a9c0bfc68c1591a20c"
+  },
+  "Textures/Plaster_mask.png": {
+    "bytes": 21238,
+    "sha256": "1d9f89832f09a2b4467ed122d1d2b78ad1f6f319c29bb4fe34134523f263ebbd"
+  },
+  "Textures/Plaster_specular.png": {
+    "bytes": 21436,
+    "sha256": "84be527d8bbdbc1a793cfd99c9baf3f8aa177082822400c256f3cfdef8d4c3a9"
+  },
+  "Textures/Plastic_mask.png": {
+    "bytes": 21240,
+    "sha256": "172073d2f0ba6a8a8bd1309ac0ff49ea3b4e2acae316cd1ebf97a3d90007bd76"
+  },
+  "Textures/Plastic_specular.png": {
+    "bytes": 21240,
+    "sha256": "b81dd5bb6df11112f3932056a72549389114a1573cd56f691f87f5396d4ff222"
+  },
+  "Textures/PolishedWood_mask.png": {
+    "bytes": 21240,
+    "sha256": "5988b59c01d457a63c511235d6db140c5e5c55aff773793c0becb59815bdbae0"
+  },
+  "Textures/PolishedWood_specular.png": {
+    "bytes": 21240,
+    "sha256": "708e1067522e3f93abf2b383a40e7adf0f205b1f07bc45b73f35ebcc2f41a153"
+  },
+  "Textures/Stone_mask.png": {
+    "bytes": 21240,
+    "sha256": "91e5c86fd311eb02d5e6476c7e6f0a26e0cd03c1ef8defc4bb96249192f87ef3"
+  },
+  "Textures/Stone_specular.png": {
+    "bytes": 21240,
+    "sha256": "7d9e2464e7a585aec10ceb03e1bfb5d89c343fbd6ac98e2af1d1ca50c616922f"
+  },
+  "Textures/WarmPlaster_mask.png": {
+    "bytes": 21238,
+    "sha256": "38e37b689ad90387852792a97dba9416a18a949c12069feeae459241785e2d99"
+  },
+  "Textures/WarmPlaster_specular.png": {
+    "bytes": 21240,
+    "sha256": "ef5b6ccfd19445344e767d3c5e8d5ae3360cf94f4f3a91381537aaa6eab0781d"
+  },
+  "Textures/WhiteBrick_mask.png": {
+    "bytes": 21240,
+    "sha256": "bb3369644a91f96fc4e474f6cceeadb6e412fb3471816843752fbb1212ecd4fb"
+  },
+  "Textures/WhiteBrick_specular.png": {
+    "bytes": 21240,
+    "sha256": "df493af40e1ba25f1fbf1ce1947b5ce53900b5c05371ba3f20fbed0c192d10e8"
+  },
+  "Textures/WoodPlanks_mask.png": {
+    "bytes": 21238,
+    "sha256": "ed52edb846f66fb50315f493f61499831a03044cfa575042b56f0300a81a41ef"
+  },
+  "Textures/WoodPlanks_specular.png": {
+    "bytes": 21240,
+    "sha256": "3d51bcbea7640beb8eaff87022284f459add9e3a4323ef20e29cd6e0f1baaf16"
+  },
+  "Textures/a2cd2bee035d13fd_normal.png": {
+    "bytes": 9674371,
+    "sha256": "5d73c022c1409a5b755769ea18a2099ea969f965da703fc73e7aafc0a50e561d"
+  },
+  "Textures/a784580832fb2a7d_normal.png": {
+    "bytes": 1648552,
+    "sha256": "e0a7adead0dfb1ea5cd724f7f3061ff972efcaed1029fa2407c9d044132ce546"
+  },
+  "Textures/b09ab25681cf37e6_normal.png": {
+    "bytes": 4914446,
+    "sha256": "406b9583450f968dfb20b6683e269c21f592670ee869d9f9f6d1b09676f9c05f"
+  },
+  "Textures/c6567194ec83739d_albedo.png": {
+    "bytes": 2312246,
+    "sha256": "9f337de869456cfffe32bcc9298304dc6f73eb8d69f312f3cc3ea1c106b56073"
+  },
+  "Textures/c770582be1f354af_albedo.png": {
+    "bytes": 797808,
+    "sha256": "16917ab0008768cdba03aa3794b4da1ccdbb09bf065b60523306909f04f9f481"
+  },
+  "Textures/d1da861c45f1d915_normal.png": {
+    "bytes": 463701,
+    "sha256": "3ad3b4e8e6ac9bc2603033a65d4e190b61e7a39cceda5968a5be1c588d202b9f"
+  },
+  "Textures/e1865da936cde611_normal.png": {
+    "bytes": 2144814,
+    "sha256": "3c04e196eb547f1f7f6731a0af5ce72f0cebac177328a6e145d3d3117be43dd0"
+  },
+  "Textures/e1d3b37a222bdded_normal.png": {
+    "bytes": 2821603,
+    "sha256": "6e9e4b434ce98eb7617268674af36988edc2d58fdff5c6a6ebd94e723eaafd69"
+  },
+  "Textures/f13cd225e29f5634_normal.png": {
+    "bytes": 3095834,
+    "sha256": "a257e3757f51f7897530eba0ed916a396c8749dacbb5aed5ecd67497b5fad009"
+  },
+  "Textures/f46fdc5333d5d555_normal.png": {
+    "bytes": 8363517,
+    "sha256": "24b2e466263c466a2896c294ec259e473f4054e2b28384040d411c5a101d41fa"
+  },
+  "Textures/f662cf2ee49bd3ac_normal.png": {
+    "bytes": 2101543,
+    "sha256": "16db63e064983c06f7e2b66ce0cf7c806d39a69909a3aeeafdd966445e2d038e"
+  },
+  "Textures/f77777c2b9cf2106_albedo.png": {
+    "bytes": 3527941,
+    "sha256": "d5404d8953958e30e24ef622b677f21a48769091e15f7518cd2299ef287a8582"
+  },
+  "Textures/fd453ce1ce3f7fde_albedo.png": {
+    "bytes": 2275475,
+    "sha256": "0d509ecb491f7c75e3889189e9e4e70e4319c32cacc0bf37e76f84d683048026"
+  },
+  "catalog.json": {
+    "bytes": 12897,
+    "sha256": "75960aa9901c079d6a0e2c6edd84b9dfecf757be8cb1b38a5c3771afc282d1c7"
+  },
+  "palette.json": {
+    "bytes": 12722,
+    "sha256": "07592f89fee511e204b11cae994f7c70bdefdb58fb55c8d3d448efa7c68b9d67"
+  }
+}

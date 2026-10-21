@@ -1,0 +1,80 @@
+{
+  "id": "M_Stool",
+  "resource": "MallSources/Models/M_Stool",
+  "minimum": [
+    -0.22500044107437134,
+    0.0,
+    -0.21556976437568665
+  ],
+  "maximum": [
+    0.22500044107437134,
+    1.0945651531219482,
+    0.21556976437568665
+  ],
+  "triangles": 8094,
+  "materials": [
+    {
+      "name": "M_Stool_m0",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_Stool_m0_albedo",
+      "normal": "MallSources/Textures/M_Stool_m0_normal",
+      "mask": "MallSources/Textures/M_Stool_m0_mask",
+      "workflow": "specular",
+      "specular": "MallSources/Textures/M_Stool_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_Stool_LOD1",
+      "triangles": 2370
+    },
+    {
+      "resource": "MallSources/Models/M_Stool_LOD2",
+      "triangles": 1048
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "451a67637e103d87b9a52a217da8f8760902b16c180eea62522b12158e3a034b",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+  "sourceRootNode": 2338,
+  "sourceRootName": "paris_barstool_01a1",
+  "sourceMaterialIndices": [
+    160
+  ],
+  "originalTriangles": 8094,
+  "sourceDimensionsMetres": [
+    0.4500008916620253,
+    1.0945651757412271,
+    0.43113954188463754
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "owners": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "sourceName": "Stool",
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "nativeUnityValidated": false
+}

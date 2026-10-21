@@ -1,0 +1,80 @@
+{
+  "id": "M_IndoorChair",
+  "resource": "MallSources/Models/M_IndoorChair",
+  "minimum": [
+    -0.3042144179344177,
+    0.0,
+    -0.30157968401908875
+  ],
+  "maximum": [
+    0.3042144179344177,
+    1.1603012084960938,
+    0.30157968401908875
+  ],
+  "triangles": 3578,
+  "materials": [
+    {
+      "name": "M_IndoorChair_m0",
+      "colour": [
+        0.20863699913024902,
+        0.18782100081443787,
+        0.1746470034122467,
+        1.0
+      ],
+      "normalScale": 1,
+      "metallic": 0,
+      "roughness": 1,
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "extensions": [],
+      "transparent": false,
+      "doubleSided": false,
+      "albedo": "MallSources/Textures/M_IndoorChair_m0_albedo",
+      "normal": "MallSources/Textures/M_IndoorChair_m0_normal",
+      "mask": "MallSources/Textures/M_IndoorChair_m0_mask",
+      "workflow": "specular",
+      "specular": "MallSources/Textures/M_IndoorChair_m0_specular"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "MallSources/Models/M_IndoorChair_LOD1",
+      "triangles": 2359
+    },
+    {
+      "resource": "MallSources/Models/M_IndoorChair_LOD2",
+      "triangles": 1652
+    }
+  ],
+  "uvBake": [],
+  "sourceSha256": "dd12584bc1b41e2d2398b8ed21f096f1f1a209325719cf4c61a2be3d7a8e3d97",
+  "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+  "presentationClothRemoved": false,
+  "adaptation": "Six selected original Bistro components; metric rebasing, native OBJ/two LODs, original source texture resolution up to 4096, authored specular/gloss workflow. Not six complete scene downloads.",
+  "sourceRootNode": 2487,
+  "sourceRootName": "Paris_Bistro_Interior_Chair_01",
+  "sourceMaterialIndices": [
+    157
+  ],
+  "originalTriangles": 3578,
+  "sourceDimensionsMetres": [
+    0.6084288551476797,
+    1.1603011592337342,
+    0.6031593534773236
+  ],
+  "normalBinding": "original glTF RGB, flipped green only for Unity",
+  "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+  "authors": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "owners": [
+    "Amazon.com, Inc. or its affiliates"
+  ],
+  "sourceName": "IndoorChair",
+  "modelLicense": "CC-BY-4.0",
+  "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+  "nativeUnityValidated": false
+}
