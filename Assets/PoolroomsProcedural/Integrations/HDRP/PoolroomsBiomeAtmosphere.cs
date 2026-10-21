@@ -53,7 +53,7 @@ namespace Poolrooms.HDRP
             bool archive=!aerial&&active&&room.Environment==LiminalEnvironment.Archive906;
             bool rainy=!aerial&&sunny&&room.Environment==LiminalEnvironment.RainHouses;
             bool aquatic=!aerial&&sunny&&room.Environment==LiminalEnvironment.AquaticPark;
-            bool sunset=!aerial&&sunny&&(room.Environment==LiminalEnvironment.SunsetLibrary||room.Environment==LiminalEnvironment.TeaPavilions||aquatic||room.Environment==LiminalEnvironment.Coast48);
+            bool sunset=!aerial&&sunny&&(room.Environment==LiminalEnvironment.SunsetLibrary||room.Environment==LiminalEnvironment.TeaPavilions||SpecialRegionPlanner.WarmLight(room.Environment)||aquatic||room.Environment==LiminalEnvironment.Coast48);
             if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny&&!rainy;
             if(sunny||archive)
             {

@@ -1,0 +1,42 @@
+Region field Poolrooms: 13588 -> 20379 room cells in matched complete regions (1.4998x). Reservations not deducted.
+Region field IndoorPlay: 13535 -> 20288 room cells in matched complete regions (1.4989x). Reservations not deducted.
+Region field Supermarket: 13443 -> 20201 room cells in matched complete regions (1.5027x). Reservations not deducted.
+Region field Office: 13476 -> 20186 room cells in matched complete regions (1.4979x). Reservations not deducted.
+Region field Hotel: 13631 -> 20381 room cells in matched complete regions (1.4952x). Reservations not deducted.
+Region field WaitingHall: 13489 -> 20230 room cells in matched complete regions (1.4997x). Reservations not deducted.
+Region field DiningHall: 13399 -> 20008 room cells in matched complete regions (1.4932x). Reservations not deducted.
+Region field SoftPlay: 13434 -> 20126 room cells in matched complete regions (1.4981x). Reservations not deducted.
+Region field City11: 13446 -> 20216 room cells in matched complete regions (1.5035x). Reservations not deducted.
+Region field Archive906: 13611 -> 20372 room cells in matched complete regions (1.4967x). Reservations not deducted.
+Region field Courtyard188: 13682 -> 20541 room cells in matched complete regions (1.5013x). Reservations not deducted.
+Region field Coast48: 13332 -> 20033 room cells in matched complete regions (1.5026x). Reservations not deducted.
+Region field Conservatory: 13399 -> 20169 room cells in matched complete regions (1.5053x). Reservations not deducted.
+Region field TransitGallery: 13312 -> 19949 room cells in matched complete regions (1.4986x). Reservations not deducted.
+Region field Orangerie: 13282 -> 20023 room cells in matched complete regions (1.5075x). Reservations not deducted.
+Region field ThermalBaths: 13428 -> 20199 room cells in matched complete regions (1.5042x). Reservations not deducted.
+Region field AquaticPark: 13461 -> 20240 room cells in matched complete regions (1.5036x). Reservations not deducted.
+Region field RainHouses: 13444 -> 20081 room cells in matched complete regions (1.4937x). Reservations not deducted.
+Region field SunsetLibrary: 13429 -> 20144 room cells in matched complete regions (1.5000x). Reservations not deducted.
+Region field CloudTerminal: 13448 -> 20191 room cells in matched complete regions (1.5014x). Reservations not deducted.
+Region field TeaPavilions: 13327 -> 20074 room cells in matched complete regions (1.5063x). Reservations not deducted.
+Region field CeramicGalleria: 13533 -> 20306 room cells in matched complete regions (1.5005x). Reservations not deducted.
+Region field WinterGarden: 13604 -> 20224 room cells in matched complete regions (1.4866x). Reservations not deducted.
+Region field CanalGalleries: 13238 -> 19886 room cells in matched complete regions (1.5022x). Reservations not deducted.
+Region field MusicStudios: 13504 -> 20339 room cells in matched complete regions (1.5061x). Reservations not deducted.
+Region field LanternCourts: 13470 -> 20228 room cells in matched complete regions (1.5017x). Reservations not deducted.
+Region field LinenLaundries: 13627 -> 20565 room cells in matched complete regions (1.5091x). Reservations not deducted.
+Region field MineralSanctuary: 13604 -> 20347 room cells in matched complete regions (1.4957x). Reservations not deducted.
+Region field SolarObservatory: 5378 -> 8091 room cells in matched complete regions (1.5045x). Reservations not deducted.
+Region field CoveredMarket: 5341 -> 7980 room cells in matched complete regions (1.4941x). Reservations not deducted.
+Region field TextileAtelier: 5362 -> 7955 room cells in matched complete regions (1.4836x). Reservations not deducted.
+Region field PostalArcade: 5393 -> 8113 room cells in matched complete regions (1.5044x). Reservations not deducted.
+Region field IndoorMarina: 5353 -> 8103 room cells in matched complete regions (1.5137x). Reservations not deducted.
+Region field ClockGallery: 5440 -> 8141 room cells in matched complete regions (1.4965x). Reservations not deducted.
+Region field PaperWorkshop: 5465 -> 8144 room cells in matched complete regions (1.4902x). Reservations not deducted.
+Region field ChessPavilion: 5492 -> 8231 room cells in matched complete regions (1.4987x). Reservations not deducted.
+Region field RadioSalon: 5306 -> 7945 room cells in matched complete regions (1.4974x). Reservations not deducted.
+Region field MirrorArcade: 5328 -> 8015 room cells in matched complete regions (1.5043x). Reservations not deducted.
+Solar field atlas: all five climates retain identity and approximately +50% area.
+Solar field common: all five climates retain identity and approximately +50% area.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.
+PASS: biome extents; 47935 matched complete region pairs across all 38 environments; 29358 -> 45024 accessible shops in paired mall plans; 6761 -> 10868 generated Level94 houses, 1536 in newly populated outer areas, 12 terrain cases; 156 mesh samples; 13428762 core assertions. Native Unity/PhysX/FPS unrun.

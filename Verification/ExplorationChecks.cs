@@ -16,7 +16,7 @@ static partial class Checks
             var counts=new int[RestfulLevelPlanner.EnvironmentCount];var signature=new List<int>();
             for(int x=0;x<8;x++)for(int z=0;z<8;z++)
             {bool covered=WalkableExploration.Region(defaults,bx*8+x,bz*8+z,out var e);signature.Add(covered?(int)e:-1);if(covered){counts[(int)e]++;assigned++;}}
-            Check(counts.All(n=>n==2),"Missing or duplicate mandatory candidate region");signatures.Add(string.Join(",",signature));
+            Check(counts.Take(28).All(n=>n==2)&&counts.Skip(28).Sum()==8,"Missing original discovery region or special slot");signatures.Add(string.Join(",",signature));
         }
         Check(signatures.Count==9,"Biome order repeats between region blocks");
         var custom=new LayoutConfig{Procedural=LiminalGeneration.Expanded};Check(!WalkableExploration.Region(custom,4,5,out _),"Custom generation unexpectedly migrated");
@@ -51,7 +51,7 @@ static partial class Checks
                 }
             }
             Check(targets.All(v=>v!=null),"Unreachable walking destination for seed "+c.Seed+": "+string.Join(",",Enumerable.Range(0,targets.Length).Where(i=>targets[i]==null)));
-            int maxRoute=targets.Max(v=>distances[v.Value]);Console.WriteLine($"Walking graph seed {c.Seed}, cell {c.CellSize}: 28 environments + mall + Level94 and both Poolrooms climates reached; {parents.Count} explored cells; longest witness {maxRoute} room edges. Not a distance promise or PhysX test.");
+            int maxRoute=targets.Max(v=>distances[v.Value]);Console.WriteLine($"Walking graph seed {c.Seed}, cell {c.CellSize}: {RestfulLevelPlanner.EnvironmentCount} environments + mall + Level94 and both Poolrooms climates reached; {parents.Count} explored cells; longest witness {maxRoute} room edges. Not a distance promise or PhysX test.");
             var layout=new Layout(c);var tested=new HashSet<string>();
             foreach(long? target in targets)
             {

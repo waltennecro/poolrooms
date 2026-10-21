@@ -118,6 +118,6 @@ static partial class Checks
             terrainSites++;
         }
         IntegrationSourceContracts();
-        Console.WriteLine($"PASS: biome extents; {regionPairs} matched complete region pairs across all 28 environments; {shopsBefore} -> {shopsAfter} accessible shops in paired mall plans; {oldHomes} -> {newHomes} generated Level94 houses, {outerHomes} in newly populated outer areas, {terrainSites} terrain cases; {meshSamples} mesh samples; {assertions} core assertions. Native Unity/PhysX/FPS unrun.");
+        Console.WriteLine($"PASS: biome extents; {regionPairs} matched complete region pairs across all {RestfulLevelPlanner.EnvironmentCount} environments; {shopsBefore} -> {shopsAfter} accessible shops in paired mall plans; {oldHomes} -> {newHomes} generated Level94 houses, {outerHomes} in newly populated outer areas, {terrainSites} terrain cases; {meshSamples} mesh samples; {assertions} core assertions. Native Unity/PhysX/FPS unrun.");
     }
 }

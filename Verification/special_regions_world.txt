@@ -1,0 +1,1 @@
+PASS: actual unified-world coordinate snapshot seed 481516, [-64,64]^2 excluding reserved terrain: 6920 new-level rooms, 417208 distinct pickup keys, 168088 planned licensed-source instances using 10 distinct source models. All 20 programmes present; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.

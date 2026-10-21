@@ -10,7 +10,7 @@ namespace Poolrooms.Core
         public static void Configure(LayoutConfig c)
         {
             c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
-            c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;c.EnableRestfulLevels=true;c.ObjectAbundance=3;
+            c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;c.EnableRestfulLevels=true;c.EnableSpecialRegions=true;c.ObjectAbundance=3;
             c.Continuous=true;c.Procedural=LiminalGeneration.Expanded;c.DiscoveryCoverage=true;
             c.EnableRainHouses=c.EnableAquaticPark=c.EnableThermalBaths=c.EnableOrangerie=true;
             c.EnableQuietLevels=c.EnableCivicLevels=c.EnableCity11=c.EnableSoftPlay=true;
@@ -26,6 +26,7 @@ namespace Poolrooms.Core
         static float Positive(float value,float fallback){return value>0?value:fallback;}
         public static bool Enabled(LayoutConfig c,LiminalEnvironment e)
         {
+            if(SpecialRegionPlanner.IsLevel(e))return c.EnableSpecialRegions;
             if(RestfulLevelPlanner.IsLevel(e))return c.EnableRestfulLevels;
             switch(e)
             {
@@ -43,8 +44,8 @@ namespace Poolrooms.Core
                 default:return e==LiminalEnvironment.Poolrooms;
             }
         }
-        // Two distinct candidate regions for each enabled environment in a shuffled
-        // 8x8 region block. Remaining regions retain the existing weighted selection.
+        // Two distinct candidate regions for each original environment in a shuffled
+        // 8x8 region block. Spare slots host the separately enabled special regions.
         // This is a spatial availability rule, never a required itinerary or level order.
         public static bool Region(LayoutConfig c,int x,int z,out LiminalEnvironment environment)
         {
@@ -59,9 +60,18 @@ namespace Poolrooms.Core
             for(int round=0;round<4;round++)
             {int next=left^(int)(LiminalRegions.Hash(unchecked((int)h),right,round,0x250A02u)&7);left=right;right=next;}
             int rank=(left<<3)|right,count=0;
-            for(int i=0;i<RestfulLevelPlanner.EnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i))count++;
-            if(rank>=2*count)return false;int pick=rank%count;
-            for(int i=0;i<RestfulLevelPlanner.EnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i)&&pick--==0){environment=(LiminalEnvironment)i;return true;}
+            for(int i=0;i<SpecialRegionPlanner.FirstEnvironment;i++)if(Enabled(c,(LiminalEnvironment)i))count++;
+            // Preserve all 56 original biome assignments in a fully enabled block.
+            // Eight former weighted slots host eight of ten special regions. A cyclic
+            // offset exposes the remaining two in the next horizontal block.
+            if(rank>=2*count)
+            {
+                if(!c.EnableSpecialRegions)return false;
+                long cycle=2L*bx+3L*bz;int offset=(int)((cycle%SpecialRegionPlanner.Count+SpecialRegionPlanner.Count)%SpecialRegionPlanner.Count);
+                environment=(LiminalEnvironment)(SpecialRegionPlanner.FirstEnvironment+(rank-2*count+offset)%SpecialRegionPlanner.Count);return true;
+            }
+            int pick=rank%count;
+            for(int i=0;i<SpecialRegionPlanner.FirstEnvironment;i++)if(Enabled(c,(LiminalEnvironment)i)&&pick--==0){environment=(LiminalEnvironment)i;return true;}
             throw new InvalidOperationException("Invalid discovery coverage.");
         }
     }

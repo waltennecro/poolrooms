@@ -28,7 +28,7 @@ namespace Poolrooms.Core
             "Cada visita cambia un poco este lugar. Hoy basta con sentarse, mirar la luz y descansar un momento.",
             "Hay una invitación para la próxima merienda: trae una historia, una canción o simplemente ganas de estar aquí."};
         public static RoomVignette At(int seed,int x,int z,LiminalEnvironment environment)
-        {uint h=LiminalRegions.Hash(seed,x,z,0xCAFE02u);int edition=(int)(h%144);RoomActivity[] activities={RoomActivity.Tea,RoomActivity.Plant,RoomActivity.Reading,RoomActivity.Window,RoomActivity.Game,RoomActivity.Rest,RoomActivity.Parcel,RoomActivity.Plant,RoomActivity.Parcel,RoomActivity.Window,RoomActivity.Rest,RoomActivity.Music};return new RoomVignette(Beginnings[edition%12],Notes[edition/12],activities[edition/12],edition);}
+        {if(SpecialRegionPlanner.IsLevel(environment))return SpecialRegionPlanner.Memory(environment);uint h=LiminalRegions.Hash(seed,x,z,0xCAFE02u);int edition=(int)(h%144);RoomActivity[] activities={RoomActivity.Tea,RoomActivity.Plant,RoomActivity.Reading,RoomActivity.Window,RoomActivity.Game,RoomActivity.Rest,RoomActivity.Parcel,RoomActivity.Plant,RoomActivity.Parcel,RoomActivity.Window,RoomActivity.Rest,RoomActivity.Music};return new RoomVignette(Beginnings[edition%12],Notes[edition/12],activities[edition/12],edition);}
     }
     public sealed class ExplorationJournal
     {

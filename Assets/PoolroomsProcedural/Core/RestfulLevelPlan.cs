@@ -43,16 +43,17 @@ namespace Poolrooms.Core
     }
     public static class RestfulLevelPlanner
     {
-        public const int LevelCount=10,EnvironmentCount=28;
-        public static bool IsLevel(LiminalEnvironment e){return (int)e>=(int)LiminalEnvironment.SunsetLibrary&&(int)e<= (int)LiminalEnvironment.MineralSanctuary;}
+        public const int LevelCount=10,EnvironmentCount=38;
+        public static bool IsLevel(LiminalEnvironment e){return SpecialRegionPlanner.IsLevel(e)||(int)e>=(int)LiminalEnvironment.SunsetLibrary&&(int)e<= (int)LiminalEnvironment.MineralSanctuary;}
         public static bool IsMode(LiminalGeneration m){return (int)m>=(int)LiminalGeneration.SunsetLibrary&&(int)m<=(int)LiminalGeneration.MineralSanctuary;}
         public static LiminalEnvironment ForMode(LiminalGeneration m)
         {if(!IsMode(m))throw new ArgumentOutOfRangeException(nameof(m));return (LiminalEnvironment)((int)LiminalEnvironment.SunsetLibrary+(int)m-(int)LiminalGeneration.SunsetLibrary);}
         public static bool IsTheme(SurfaceTheme t){return (int)t>=(int)SurfaceTheme.SunsetLibrary&&(int)t<=(int)SurfaceTheme.MineralSanctuary;}
         public static SurfaceTheme Theme(LiminalEnvironment e)
-        {if(!IsLevel(e))throw new ArgumentOutOfRangeException(nameof(e));return (SurfaceTheme)((int)SurfaceTheme.SunsetLibrary+(int)e-(int)LiminalEnvironment.SunsetLibrary);}
+        {if(SpecialRegionPlanner.IsLevel(e))return SpecialRegionPlanner.Theme(e);if(!IsLevel(e))throw new ArgumentOutOfRangeException(nameof(e));return (SurfaceTheme)((int)SurfaceTheme.SunsetLibrary+(int)e-(int)LiminalEnvironment.SunsetLibrary);}
         public static string Name(LiminalEnvironment e)
         {
+            if(SpecialRegionPlanner.IsLevel(e))return SpecialRegionPlanner.Name(e);
             switch(e)
             {
                 case LiminalEnvironment.SunsetLibrary:return "Biblioteca del atardecer";
@@ -105,13 +106,14 @@ namespace Poolrooms.Core
                     float px=tx-.63f+(n%3)*.42f,pz=tz-.38f+(n/3)*.38f;
                     props.Add(new QuietPropPlan(new V3(px,y+.006f,pz),shape*8+(recipe+i+n)%8));
                 }
-                if(r.Environment==LiminalEnvironment.CanalGalleries||r.Environment==LiminalEnvironment.MineralSanctuary)
+                if(r.Environment==LiminalEnvironment.CanalGalleries||r.Environment==LiminalEnvironment.MineralSanctuary||r.Environment==LiminalEnvironment.IndoorMarina)
                     pools.Add(new WaterRegion{CenterX=x,CenterZ=z,Width=span-.6f,Depth=reach-.6f,Bottom=-.72f,Level=c.WaterLevel,Radius=0});
             }
             // Append after all original slots: saved/taken pickup IDs retain their
             // meaning. Existing alpha-masked licensed foliage uses its own PBR maps.
             if(r.Environment==LiminalEnvironment.WinterGarden)
                 foreach(var bay in bays)props.Add(new QuietPropPlan(new V3(bay.X,.401f,bay.Z),-1,"G_PottedPlant",(recipe%4)*90));
+            if(SpecialRegionPlanner.IsLevel(r.Environment))SpecialRegionPlanner.Furnish(r.Environment,props);
             var plan=new RestfulLevelPlan(recipe,r.Environment,clear,bays,props.ToArray(),pools.ToArray());
             r.ZoneId=-1;r.Width=r.Depth=c.CellSize;r.Height=plan.Height;
             r.Plan=new ProceduralPlan(r.Environment,new PlannedModule[0],plan.Pools,clear,0,0,restful:plan);

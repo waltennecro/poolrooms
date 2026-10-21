@@ -840,3 +840,34 @@ sus 1.384 archivos versionados, incluidos todos los Assets, coinciden por SHA-25
 CI 39530026448 en ejecución al registrar esta evidencia; no se declara aprobado.
 Los CI de Agua cristalina 39455673680 y 39454870664 ya finalizaron correctamente.
 Unity, las tres pruebas nuevas, escucha y FPS de Sala viva siguen pendientes.
+
+
+## Diez regiones especiales — ampliación del mundo continuo
+
+Se añaden Observatorio solar, Mercado cubierto, Taller textil, Galería postal,
+Marina interior, Galería de relojes, Taller de papel, Pabellón de ajedrez, Salón de
+radio y Galería de espejos. Diez programas arquitectónicos originales, materiales
+PBR y mobiliario con licencias existentes, estaciones de Sala viva, notas propias
+y accesos caminables. Catálogo: 38 biomas + nivel 94 y centro comercial completo
+como destinos independientes = 40 ambientes. Ningún modelo externo nuevo.
+
+Los 56 candidatos originales por bloque completo se conservan; ocho huecos antes
+ponderados albergan los especiales, cubriendo sus diez tipos entre dos bloques
+horizontales vecinos. No se reduce la distancia de renderizado ni se añaden soles,
+cámaras de espejo o voces de sonido. Los espejos aprovechan SSR/RT y probes existentes;
+las barcas, relojes, ajedrez y otros detalles estructurales son decorativos y las
+actividades jugables se indican en la documentación. Sin persistencia añadida.
+
+Compilación estricta: cero avisos y errores. Regresión completa: 1.862.485.205
+aserciones del núcleo, 188 geometrías protegidas y sintaxis de 286 scripts en cinco
+configuraciones. 300 salas nuevas en tres escalas y dos anchuras, 1.103 colocaciones
+de actividades; 210 rutas testigo y 368 pares físicos entre biomas en cinco semillas.
+El muestreo de coordenadas contiene 6.920 salas de los veinte programas del reposo
+y especiales, 417.208 claves de objetos y 168.088 instancias de diez modelos con
+licencia existentes; no son objetos simultáneos ni modelos descargados nuevos.
+
+Las comprobaciones de extensión, modelos, mapas y audio reutilizados aprobaron.
+Se corrigió también que la búsqueda de un modo especial dedicado se confundiera
+con un bioma tranquilo desactivado. El CI anterior de Sala viva 39530026448 ya
+finalizó correctamente. Dos pruebas nativas nuevas; Unity, HDRP, aspecto, sonido
+y FPS sin ejecutar. Evidencia en `Verification/special_regions_delivery.json`.

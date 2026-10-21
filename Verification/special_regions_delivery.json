@@ -1,0 +1,92 @@
+{
+  "feature": "Ten special regions",
+  "baseRevision": "3e1f4cace28a22c383298c0457891c7f26e98a52",
+  "catalogueBiomes": 38,
+  "additionalExistingDestinations": [
+    "Level94",
+    "CompleteMall"
+  ],
+  "totalExplorableEnvironments": 40,
+  "strictBuild": {
+    "warnings": 0,
+    "errors": 0,
+    "sdk": "8.0.408"
+  },
+  "fullCoreRegression": {
+    "assertions": 1862485205,
+    "protectedFingerprints": 188,
+    "csharpSyntaxScripts": 286,
+    "symbolConfigurations": 5,
+    "nativeUnityTests": false
+  },
+  "focusedCases": {
+    "builtRooms": 300,
+    "scales": [
+      28,
+      36,
+      60
+    ],
+    "doorWidths": [
+      3,
+      6
+    ],
+    "activitiesPlaced": 1103,
+    "distinctProgrammes": 10,
+    "originalDiscoveryAssignmentsRetained": true
+  },
+  "walkingGraph": {
+    "seeds": [
+      0,
+      31,
+      481516,
+      87,
+      1234
+    ],
+    "witnessRoutes": 210,
+    "boundaryPairs": 368,
+    "mallAndMeadowBridges": 10,
+    "administratorOrTeleportUsed": false
+  },
+  "reuseAudits": [
+    "verify_city_sources.py",
+    "verify_interior_sources.py",
+    "verify_bistro_sources.py",
+    "verify_restful_sources.py",
+    "verify_encounter_resources.py",
+    "verify_immersion_audio.py"
+  ],
+  "resources": {
+    "newDownloadedModels": 0,
+    "newDownloadedTextures": 0,
+    "newDownloadedAudio": 0,
+    "additionalReflectionCameras": 0,
+    "additionalAudioSources": 0
+  },
+  "native": {
+    "unityInstalled": false,
+    "newPlayModeTests": 2,
+    "unityApiCompilation": "unrun",
+    "playMode": "unrun",
+    "shaderCompilation": "unrun",
+    "visuals": "unrun",
+    "listening": "unrun",
+    "fps": "unrun"
+  },
+  "limitations": [
+    "Architectural boats, telescopes, looms, clocks, radios and chessboards are decorative; playable station activities documented separately.",
+    "Reflections use existing SSR/RT/probes, not guaranteed planar mirrors.",
+    "Session-only interactions; save games remain deferred."
+  ],
+  "documentation": "Assets/PoolroomsProcedural/Documentation/Diez_regiones_especiales.md",
+  "generationAudit": {
+    "plans": 123948,
+    "fullMeshes": 756,
+    "propPlacements": 2189238,
+    "result": "PASS"
+  },
+  "biomeExtents": {
+    "environments": 38,
+    "matchedRegionPairs": 47935,
+    "result": "PASS"
+  }
+}

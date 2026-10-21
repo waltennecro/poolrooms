@@ -146,7 +146,7 @@ static partial class Checks
     static void RestfulWorldSnapshot()
     {
         var c=new LayoutConfig{Seed=481516,Zones=ZoneMode.Random,Grammar=ProceduralGrammar.SolarAtlas,AutonomousGeneration=true};WalkableExploration.Configure(c);
-        var layout=new Layout(c);int rooms=0,interactions=0,licensed=0;var kinds=new HashSet<string>();var levels=new int[10];var keys=new HashSet<string>();
+        var layout=new Layout(c);int rooms=0,interactions=0,licensed=0;var kinds=new HashSet<string>();var levels=new int[RestfulLevelPlanner.EnvironmentCount-18];var keys=new HashSet<string>();
         for(int x=-64;x<=64;x++)for(int z=-64;z<=64;z++)
         {
             if(ConnectedTerrainTopology.Reserved(c,x,z)||!RestfulLevelPlanner.IsLevel(LiminalRegions.At(c,x,z)))continue;
@@ -160,6 +160,6 @@ static partial class Checks
         }
         Check(levels.All(v=>v>0),"New level missing from actual unified world snapshot");
         Check(licensed>20000&&interactions>4000,"Object targets absent from the actual coordinate snapshot");
-        Console.WriteLine($"PASS: actual unified-world coordinate snapshot seed {c.Seed}, [-64,64]^2 excluding reserved terrain: {rooms} new-level rooms, {interactions} distinct pickup keys, {licensed} planned licensed-source instances using {kinds.Count} distinct source models. All ten new levels present; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.");
+        Console.WriteLine($"PASS: actual unified-world coordinate snapshot seed {c.Seed}, [-64,64]^2 excluding reserved terrain: {rooms} new-level rooms, {interactions} distinct pickup keys, {licensed} planned licensed-source instances using {kinds.Count} distinct source models. All {levels.Length} programmes present; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.");
     }
 }

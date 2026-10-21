@@ -1,0 +1,4 @@
+Room streaming search: 384 loading-order comparisons; a radius-12 choice describes 1 plan instead of 625; finite-map completion and integer-edge termination checked. Not a measured Unity FPS claim.
+Generation data audit: 117900 recipe/scale plans and 2062800 prop placements resolved through the actual catalogues.
+PASS: generation audit, 123948 plans, 756 full room/connector meshes, 2189238 prop placements, 57 catalogue items and 15 named source references. Native Unity loading/physics unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

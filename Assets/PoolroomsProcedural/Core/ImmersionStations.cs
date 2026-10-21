@@ -24,6 +24,7 @@ namespace Poolrooms.Core
         private static readonly StationKind[] quietBank={StationKind.Books,StationKind.Tea,StationKind.Sketch,StationKind.MusicBox,StationKind.SlidingPuzzle,StationKind.Mosaic,StationKind.Parcels,StationKind.Chimes};
         public static StationKind Choose(LiminalEnvironment environment,uint hash)
         {
+            if(SpecialRegionPlanner.IsLevel(environment))return SpecialRegionPlanner.Activity(environment,hash);
             StationKind[] bank;
             switch(environment)
             {

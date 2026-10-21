@@ -23,6 +23,7 @@ Keep standalone verification in `Verification` and packaging scripts in `tools`,
 - `python tools/refine_restful_batches.py --output /tmp/R34-review --expect-report Verification/refinement_R34_batches.json`: compare 200,010 unchanged recipe IDs in 21 batches against immutable R33; build current Release first. Requires the baseline Git object documented by the script.
 - `python tools/verify_restful_sources.py`: audit the three new licensed source models and six LOD derivatives.
 - `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --encounter` and `python tools/verify_encounter_resources.py`: audit routes, inventory, furniture support and attributed media; native tests remain separate.
+- `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --special-regions`: validate ten special programmes, preserved discovery assignments, furniture support and physical walking routes across all 38 catalogue biomes.
 - `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --immersion-stations` and `python tools/verify_immersion_audio.py`: check real-world activity placements, solvable puzzles and original foley hashes/licensing.
 - `python tools/verify_play_textures.py`: check shipped finish textures and hashes using Python 3.
 - `python tools/package_assets.py --stage reconstruccion --output /tmp/Poolrooms_Assets.zip`: create a complete package with per-file hashes and source revision.

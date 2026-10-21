@@ -113,6 +113,14 @@ namespace Poolrooms
                 SetFloat(m,"_NormalScale",film?.65f:.1f);SetFloat(m,"_BumpScale",film?.65f:.1f);
                 SetFloat(m,"_Smoothness",film?.96f:.94f);SetFloat(m,"_SmoothnessRemapMax",1);
             }
+            if(theme==SurfaceTheme.SpecialMirror)
+            {
+                // Existing SSR/ray-traced reflections and probe fallback; no mirror cameras.
+                SetColor(m,"_BaseColor",new Color(.94f,.94f,.94f));SetColor(m,"_Color",new Color(.94f,.94f,.94f));
+                SetFloat(m,"_Metallic",1);SetFloat(m,"_MetallicRemapMax",1);
+                foreach(string name in new[]{"_Smoothness","_Glossiness","_SmoothnessRemapMax"})SetFloat(m,name,.985f);
+                SetFloat(m,"_NormalScale",0);SetFloat(m,"_BumpScale",0);
+            }
             Validate(m);return m;
         }
         public static void Validate(Material material)

@@ -9,11 +9,11 @@ namespace Poolrooms.Core
         public static NaturalPassage Kind(LiminalEnvironment a,LiminalEnvironment b)
         {
             bool Has(LiminalEnvironment e){return a==e||b==e;}
-            if(Has(LiminalEnvironment.Supermarket)||Has(LiminalEnvironment.City11))return NaturalPassage.CommercialArcade;
+            if(Has(LiminalEnvironment.CoveredMarket)||Has(LiminalEnvironment.PostalArcade)||Has(LiminalEnvironment.Supermarket)||Has(LiminalEnvironment.City11))return NaturalPassage.CommercialArcade;
             if(Has(LiminalEnvironment.RainHouses))return NaturalPassage.ResidentialPorch;
             if(Has(LiminalEnvironment.Conservatory)||Has(LiminalEnvironment.Orangerie)||Has(LiminalEnvironment.WinterGarden)||Has(LiminalEnvironment.TeaPavilions))return NaturalPassage.GardenGallery;
             if(Has(LiminalEnvironment.Poolrooms)||Has(LiminalEnvironment.AquaticPark)||Has(LiminalEnvironment.ThermalBaths))return NaturalPassage.ChangingRoom;
-            if(Has(LiminalEnvironment.Archive906)||Has(LiminalEnvironment.SunsetLibrary)||Has(LiminalEnvironment.MusicStudios))return NaturalPassage.ReadingVestibule;
+            if(Has(LiminalEnvironment.PaperWorkshop)||Has(LiminalEnvironment.RadioSalon)||Has(LiminalEnvironment.SolarObservatory)||Has(LiminalEnvironment.Archive906)||Has(LiminalEnvironment.SunsetLibrary)||Has(LiminalEnvironment.MusicStudios))return NaturalPassage.ReadingVestibule;
             return NaturalPassage.ArcadedLanding;
         }
         public static bool Applies(Room a,Room b,LayoutConfig c)

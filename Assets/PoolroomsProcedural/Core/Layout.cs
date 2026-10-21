@@ -48,6 +48,7 @@ namespace Poolrooms.Core
         public bool ExpandedVariety;
         public bool ExpandedBiomeAreas;
         public bool EnableRestfulLevels;
+        public bool EnableSpecialRegions;
         // 1 preserves old placement budgets. 3 is +200%, never an unbounded multiplier.
         public int ObjectAbundance=1;
         public bool IndependentBiomeMaterials,MallDistricts;
