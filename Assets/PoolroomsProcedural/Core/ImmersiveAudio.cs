@@ -9,6 +9,7 @@ namespace Poolrooms.Core
     {
         public SoundscapeMode mode;
         public float detail=.65f,tension=.55f,dynamicRange=.55f;
+        public bool roomDetails=true;
         public bool distantSteps=true,movementSounds=true,objectSounds=true,duckWithMusic=true;
         public void Sanitize()
         {

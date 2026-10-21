@@ -5,7 +5,7 @@ namespace Poolrooms
 {
     public static class PoolroomsRoomLife
     {
-        public static void AttachNotice(PoolroomsWorld world,Transform parent,PoolroomsChunk owner,DressingGeometry dressing,string key,int seed,int x,int z,float offsetY=0)
+        public static void AttachNotice(PoolroomsWorld world,Transform parent,PoolroomsChunk owner,DressingGeometry dressing,string key,int seed,int x,int z,float offsetY=0,RoomGeometry geometry=null,LiminalEnvironment environment=LiminalEnvironment.RainHouses)
         {
             if(dressing==null)return;
             foreach(var anchor in dressing.Anchors)
@@ -15,7 +15,14 @@ namespace Poolrooms
                 node.transform.localPosition=new Vector3(anchor.Center.X,anchor.Center.Y+offsetY,anchor.Center.Z)+new Vector3(anchor.Normal.X,anchor.Normal.Y,anchor.Normal.Z)*.12f;
                 node.transform.localRotation=Quaternion.LookRotation(-new Vector3(anchor.Normal.X,anchor.Normal.Y,anchor.Normal.Z),Vector3.up);
                 var shape=node.AddComponent<BoxCollider>();shape.size=new Vector3(.72f,.54f,.05f);
-                var story=RoomMemories.At(seed,x,z,LiminalEnvironment.RainHouses);var interaction=node.AddComponent<PoolroomsInteractable>();interaction.world=world;interaction.key=key;interaction.activity=RoomActivity.Notice;interaction.title=story.Title;interaction.note="Dejamos este lugar preparado para la próxima visita. Hay tiempo para descansar, leer o escuchar una canción. Gracias por cuidar las cosas que encuentres.";return;
+                var story=RoomMemories.At(seed,x,z,LiminalEnvironment.RainHouses);var interaction=node.AddComponent<PoolroomsInteractable>();interaction.world=world;interaction.key=key;interaction.activity=RoomActivity.Notice;interaction.title=story.Title;interaction.note="Dejamos este lugar preparado para la próxima visita. Hay tiempo para descansar, leer o escuchar una canción. Gracias por cuidar las cosas que encuentres.";
+                if(geometry!=null&&world.CurrentLayout!=null)
+                {
+                    var room=new Room{X=x,Z=z,Floor=-offsetY,Environment=environment};var plan=new RoomLifePlan{Notice=anchor};
+                    var stations=ImmersionStations.Plan(room,geometry,plan,world.CurrentLayout.Config);
+                    PoolroomsStation.Attach(world,parent,owner,stations,key,offsetY);
+                }
+                return;
             }
         }
         public static void AttachShutter(PoolroomsWorld world,Room room,int direction,CorridorGeometry corridor,Transform parent,PoolroomsChunk owner)
@@ -44,6 +51,7 @@ namespace Poolrooms
                 var shape=go.AddComponent<BoxCollider>();shape.size=new Vector3(.72f,.54f,.05f);
                 var interaction=go.AddComponent<PoolroomsInteractable>();interaction.world=world;interaction.activity=RoomActivity.Notice;interaction.key=prefix+"notice";interaction.title=plan.Vignette.Title;interaction.note=plan.Vignette.Note;
             }
+            PoolroomsStation.Attach(world,root.transform,owner,plan.Stations,prefix);
             foreach(var p in plan.Furniture)
             {
                 string key=prefix+p.Slot;if(carry!=null&&carry.WasTaken(key))continue;

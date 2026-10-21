@@ -1,0 +1,58 @@
+{
+  "stage": "Sala viva",
+  "baseRevision": "be99ab9e5e8d43053afa8e13a20886a9a851e856",
+  "targetedChecks": {
+    "passed": true,
+    "actualRooms": 233,
+    "roomsWithActivities": 198,
+    "supportedStations": 586,
+    "activityKinds": 12,
+    "solvableDealsPerPuzzle": 1000,
+    "modelFinishCombinations": 36,
+    "log": "Verification/sala_viva_target.txt"
+  },
+  "strictCoreBuild": {
+    "warnings": 0,
+    "errors": 0,
+    "log": "Verification/sala_viva_build.txt"
+  },
+  "media": {
+    "result": "PASS",
+    "originalPcmClips": 32,
+    "distinctCues": 16,
+    "variantsPerCue": 2,
+    "downloadedRecordings": 0,
+    "peak": 0.459991455078125,
+    "extraAudioSources": 0,
+    "nativePlayback": "unrun"
+  },
+  "priorResources": {
+    "encounter": "passed",
+    "immersiveAudio": {
+      "result": "PASS",
+      "downloaded_recordings": 2,
+      "shipped_clips": 48,
+      "loops": 10,
+      "pcm_peak_max": 0.649994,
+      "decoded_float_memory_bytes": 33180480,
+      "unity_playback": "unrun",
+      "listening_review": "unrun"
+    }
+  },
+  "fullCoreRegression": "running final revision",
+  "nativeUnity": {
+    "executed": false,
+    "newPlayModeTests": 2,
+    "appearance": "unreviewed",
+    "audioListening": "unreviewed",
+    "fps": "unmeasured"
+  },
+  "persistence": "Session only; bounded game/drawing/note caches, no new save system.",
+  "downloadedAssets": {
+    "new3DModels": 0,
+    "newRecordings": 0,
+    "originalPcm": 32,
+    "licence": "CC0-1.0"
+  },
+  "delivery": "pending packaging"
+}

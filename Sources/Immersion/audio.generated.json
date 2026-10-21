@@ -1,0 +1,226 @@
+{
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Cup0.wav": {
+    "bytes": 31244,
+    "sha256": "9b8460c34a3830bbbaad4d18ea48d856ce65f46b4362e93a718399666814344b",
+    "seconds": 0.65,
+    "cue": "Cup",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Cup1.wav": {
+    "bytes": 31244,
+    "sha256": "5b10d7dc9fbfa446a14b605f2413bffc269af6c0259b49900b803bd97a320fa7",
+    "seconds": 0.65,
+    "cue": "Cup",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Pour0.wav": {
+    "bytes": 52844,
+    "sha256": "eca836e875290d570df057eb9a69e265cc9568cbb55bf5581e86f554c2b2274a",
+    "seconds": 1.1,
+    "cue": "Pour",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Pour1.wav": {
+    "bytes": 52844,
+    "sha256": "87496488a7627d20b565d165e0924f3e67ab89077790970ffa46ed493297ca39",
+    "seconds": 1.1,
+    "cue": "Pour",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Page0.wav": {
+    "bytes": 31244,
+    "sha256": "97ac71d66d65f415beb7f4c850cd6b0133ac25e0131aa8fe606a8f7db4d79c4f",
+    "seconds": 0.65,
+    "cue": "Page",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Page1.wav": {
+    "bytes": 31244,
+    "sha256": "c68c9a5eb43e727b48560a329ea18bdc4a9a6484dcc898554de811437918ceca",
+    "seconds": 0.65,
+    "cue": "Page",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Paper0.wav": {
+    "bytes": 31244,
+    "sha256": "ee63678340ba9a72e25272aa8d5d488ec68e098b278245f40216b3866e6a0d09",
+    "seconds": 0.65,
+    "cue": "Paper",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Paper1.wav": {
+    "bytes": 31244,
+    "sha256": "e4930fd277a95521e0c7247b49f3129c5c4f8c786604c5c95f44583328af926f",
+    "seconds": 0.65,
+    "cue": "Paper",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Pencil0.wav": {
+    "bytes": 31244,
+    "sha256": "174657e15ccf3114aac80777c5fab8aba62a87be54c754d284b2a658acc9703e",
+    "seconds": 0.65,
+    "cue": "Pencil",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Pencil1.wav": {
+    "bytes": 31244,
+    "sha256": "fc11e2b90c7625a19f24ca9d2346b244d9b1cb3ba52f755dfc55b6db8614bf61",
+    "seconds": 0.65,
+    "cue": "Pencil",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Chime0.wav": {
+    "bytes": 76844,
+    "sha256": "5530ba1a220174ce06d9fc8e9fb711292838b4c15d6eec9270ef7e5c7410ccd0",
+    "seconds": 1.6,
+    "cue": "Chime",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Chime1.wav": {
+    "bytes": 76844,
+    "sha256": "a56317b151820598cd8ffd94368c652dc476b14204243bf8e40911491c264afe",
+    "seconds": 1.6,
+    "cue": "Chime",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Music0.wav": {
+    "bytes": 76844,
+    "sha256": "645ae47b9fa38b1c6243a2d6359d24da5daf4f4143079ea083e3df14d9944c1f",
+    "seconds": 1.6,
+    "cue": "Music",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Music1.wav": {
+    "bytes": 76844,
+    "sha256": "e8e9a3b57c67aa02db5623ee2bde475a433608042902e375a9ca8046c5800ed3",
+    "seconds": 1.6,
+    "cue": "Music",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Latch0.wav": {
+    "bytes": 31244,
+    "sha256": "47e6a014df3877336ff12ee7c0a2f1a7250cfe2848658982ce6675b336016e31",
+    "seconds": 0.65,
+    "cue": "Latch",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Latch1.wav": {
+    "bytes": 31244,
+    "sha256": "ee511645c97e90dd99f6602438f360dda3fab7d4178c0f1ed484197a6dba45d8",
+    "seconds": 0.65,
+    "cue": "Latch",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Parcel0.wav": {
+    "bytes": 31244,
+    "sha256": "b404f5ad82ddaf5ae2045b0e0207d4a8c5048ac571948d224b10dc6bd7737f9c",
+    "seconds": 0.65,
+    "cue": "Parcel",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Parcel1.wav": {
+    "bytes": 31244,
+    "sha256": "c7867db179ef53f73f92f133015511b68c99dccbbbac890ce73ec3a5401d5576",
+    "seconds": 0.65,
+    "cue": "Parcel",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Tile0.wav": {
+    "bytes": 31244,
+    "sha256": "12c6035076462b29bb05b86577ee0f9b78deeebdec0d2328b91c022672986387",
+    "seconds": 0.65,
+    "cue": "Tile",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Tile1.wav": {
+    "bytes": 31244,
+    "sha256": "bc9137b519fda9423631f83071806dfa20ccc90da297b7ee839ec81d66ec1bf1",
+    "seconds": 0.65,
+    "cue": "Tile",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Switch0.wav": {
+    "bytes": 31244,
+    "sha256": "a31d1355f86083505f3b6511b79e84dad5acd88e85828fbe2ebbf6a958ece0d0",
+    "seconds": 0.65,
+    "cue": "Switch",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Switch1.wav": {
+    "bytes": 31244,
+    "sha256": "50745d3da91d2fcbce0bc251f29d1664a345eb8b634e040d12884d26c320777d",
+    "seconds": 0.65,
+    "cue": "Switch",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Fabric0.wav": {
+    "bytes": 31244,
+    "sha256": "1f2b29fe1401134531fa6aad74f73b24eb073c0c5bd025dbf38bf5f6c915b650",
+    "seconds": 0.65,
+    "cue": "Fabric",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Fabric1.wav": {
+    "bytes": 31244,
+    "sha256": "b5330661e87c8d2b5329b343e3dd23e1a22e8b496c248756c9e82c644a6f29ea",
+    "seconds": 0.65,
+    "cue": "Fabric",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/WaterDrop0.wav": {
+    "bytes": 31244,
+    "sha256": "55ba3e690c6cdd352a48fb7ee8debea5ccb6eb9e5078426464ac010b53bc4174",
+    "seconds": 0.65,
+    "cue": "WaterDrop",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/WaterDrop1.wav": {
+    "bytes": 31244,
+    "sha256": "fd716201bc340ab84626e13a3b8723b165fd09c94ccfdc09500e8a2ba6ec978b",
+    "seconds": 0.65,
+    "cue": "WaterDrop",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Leaves0.wav": {
+    "bytes": 31244,
+    "sha256": "5afad69fc4e3124c3ed11c58f4299828948415effe83b3930ee069c888259388",
+    "seconds": 0.65,
+    "cue": "Leaves",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Leaves1.wav": {
+    "bytes": 31244,
+    "sha256": "b13c9a5874b3b703a07d195c8ea00d4761ece0ab740b5d9ea6f1959e52f31381",
+    "seconds": 0.65,
+    "cue": "Leaves",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Duct0.wav": {
+    "bytes": 76844,
+    "sha256": "37db21baddd7179efa87292f822fdfd0e2f2ab6e13cba19fdb42f35763b58537",
+    "seconds": 1.6,
+    "cue": "Duct",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Duct1.wav": {
+    "bytes": 76844,
+    "sha256": "8d77a328bc65db53aad9537fc8111e78328438aedbccd18848938fcf535d6369",
+    "seconds": 1.6,
+    "cue": "Duct",
+    "variant": 1
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Ceramic0.wav": {
+    "bytes": 31244,
+    "sha256": "85c165468e74f3868b470503c6878492a016aafc5056a1ba1d7a614393fd7be1",
+    "seconds": 0.65,
+    "cue": "Ceramic",
+    "variant": 0
+  },
+  "Assets/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/Ceramic1.wav": {
+    "bytes": 31244,
+    "sha256": "6cf849f233f6099c06af0e8166cb8a9f3c0e6c255cd2a0c68681a1fd2d2a4155",
+    "seconds": 0.65,
+    "cue": "Ceramic",
+    "variant": 1
+  }
+}

@@ -33,7 +33,7 @@ namespace Poolrooms.Editor
     {
         private void OnPreprocessAudio()
         {
-            if(!assetPath.Contains("/PoolroomsProcedural/Runtime/Resources/PoolroomsAudio/")&&!assetPath.Contains("/PoolroomsProcedural/Runtime/Resources/EncounterAudio/"))return;
+            if(!assetPath.Contains("/PoolroomsProcedural/Runtime/Resources/PoolroomsAudio/")&&!assetPath.Contains("/PoolroomsProcedural/Runtime/Resources/EncounterAudio/")&&!assetPath.Contains("/PoolroomsProcedural/Runtime/Resources/ImmersionAudio/"))return;
             var importer=(AudioImporter)assetImporter;
             var settings=importer.defaultSampleSettings;
             settings.loadType=AudioClipLoadType.DecompressOnLoad;settings.compressionFormat=AudioCompressionFormat.PCM;

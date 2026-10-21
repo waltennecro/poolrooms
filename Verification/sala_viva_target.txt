@@ -1,0 +1,2 @@
+Immersion: 233 actual unified rooms, 198 rooms with activities, 586 supported stations and 12 activity types; 1000 solvable sliding and mosaic puzzles, 36 model/finish combinations checked. Native Unity unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

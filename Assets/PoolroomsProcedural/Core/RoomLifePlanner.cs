@@ -17,6 +17,7 @@ namespace Poolrooms.Core
         public RoomVignette Vignette;
         public DressingAnchor? Notice;
         public readonly List<LifePlacement> Furniture=new List<LifePlacement>();
+        public List<StationPlacement> Stations=new List<StationPlacement>();
     }
     public static class RoomLifePlanner
     {
@@ -61,10 +62,10 @@ namespace Poolrooms.Core
                 var space=new SourceFurniturePlacement(4,7,Point(0,-1.3f,floor+.006f),turn*90);
                 var bespoke=EncounterFurniture.Body(special);bespoke.TranslateRotate(space.Bottom,space.Yaw*Shapes.Pi/180);
                 if(Fits(space)&&BespokeClear(bespoke,geometry))plan.Furniture.Add(new LifePlacement(special,-1,4,space.Bottom,space.Yaw));
-                return plan;
+                plan.Stations=ImmersionStations.Plan(room,geometry,plan,c);return plan;
             }
             plan.Vignette=new RoomVignette(plan.Vignette.Title,"Dejamos una invitación para la próxima visita. Puedes descansar aquí; hay lugares preparados un poco más adelante.",RoomActivity.Notice,plan.Vignette.Edition);
-            return plan;
+            plan.Stations=ImmersionStations.Plan(room,geometry,plan,c);return plan;
             bool Fits(SourceFurniturePlacement p)
             {
                 var half=SourceFurniture.HalfExtents(p.Source,p.Yaw,.08f);

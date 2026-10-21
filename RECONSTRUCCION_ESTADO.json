@@ -3192,5 +3192,26 @@
       "ciStatus": "in_progress",
       "unityExecuted": false
     }
+  },
+  "salaViva": {
+    "status": "implemented_native_validation_pending",
+    "baseRevision": "be99ab9e5e8d43053afa8e13a20886a9a851e856",
+    "newActivityKinds": 12,
+    "maximumNewStationsPerRoom": 4,
+    "sample": {
+      "actualRooms": 233,
+      "roomsWithActivities": 198,
+      "supportedStations": 586
+    },
+    "newOriginalPcmClips": 32,
+    "newAudioCues": 16,
+    "newDownloadedRecordings": 0,
+    "newDownloaded3DModels": 0,
+    "extraAudioSources": 0,
+    "inventoryCapacityChanged": false,
+    "sessionOnly": true,
+    "nativeUnityExecuted": false,
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Sala_viva_inmersion.md",
+    "evidence": "Verification/sala_viva_delivery.json"
   }
 }

@@ -32,3 +32,10 @@
 .en-piano { flex-direction: row; align-self: center; margin: 30px; }
 .en-piano-key { width: 86px; height: 240px; margin: 2px; background-color: rgb(232, 226, 207); color: rgb(42, 51, 53); border-radius: 6px; -unity-text-align: lower-center; padding-bottom: 18px; font-size: 19px; }
 .en-piano-key:active { background-color: rgb(162, 185, 165); }
+.en-station-board { width: 440px; flex-direction: row; flex-wrap: wrap; align-self: center; }
+.en-mosaic-board { width: 330px; flex-direction: row; flex-wrap: wrap; align-self: center; }
+.en-station-tile { width: 100px; height: 75px; margin: 4px; background-color: rgb(65, 85, 75); color: rgb(240, 234, 210); border-radius: 9px; font-size: 26px; }
+.en-station-tile:hover { background-color: rgb(90, 112, 93); }
+.en-sketch-board { width: 400px; flex-direction: row; flex-wrap: wrap; align-self: center; }
+.en-sketch-cell { width: 48px; height: 36px; margin: 1px; padding: 0; border-width: 1px; border-color: rgb(59, 69, 65); }
+.en-station-note { min-height: 75px; max-height: 130px; margin: 12px; white-space: normal; }

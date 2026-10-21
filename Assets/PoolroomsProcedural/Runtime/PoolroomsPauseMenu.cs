@@ -435,6 +435,7 @@ namespace Poolrooms
             Toggle("Oclusión del sonido","Las paredes atenúan el ambiente con transiciones suaves.",Prefs.soundOcclusion,v=>Prefs.soundOcclusion=v,SettingsChange.Audio);
             Toggle("Silenciar en segundo plano","Cuando cambias a otra aplicación.",Prefs.muteUnfocused,v=>Prefs.muteUnfocused=v,SettingsChange.Audio);
             Choice("Atmósfera","Tranquilo es el estilo inicial. Inquietante añade pasos lejanos y resonancias: sin voces, susurros ni sobresaltos.",new List<string>{"Tranquila","Inquietante"},(int)Prefs.soundscape.mode,v=>{Prefs.soundscape.mode=(SoundscapeMode)v;Changed(SettingsChange.Audio);});
+            Toggle("Detalles sonoros de las salas","Agua, aire, jardín y pequeñas resonancias desde puntos reales del mundo.",Prefs.soundscape.roomDetails,v=>Prefs.soundscape.roomDetails=v,SettingsChange.Audio);
             Slider("Detalle ambiental","Capas suaves de aire, jardín y resonancia del espacio.",0,1,Prefs.soundscape.detail,v=>Prefs.soundscape.detail=v,SettingsChange.Audio,percent:true);
             Slider("Intensidad inquietante","Controla el fondo y los sucesos lejanos del modo inquietante.",0,1,Prefs.soundscape.tension,v=>Prefs.soundscape.tension=v,SettingsChange.Audio,percent:true);
             Slider("Rango dinámico","Bajo suaviza la diferencia entre contactos y ambiente.",0,1,Prefs.soundscape.dynamicRange,v=>Prefs.soundscape.dynamicRange=v,SettingsChange.Audio,percent:true);

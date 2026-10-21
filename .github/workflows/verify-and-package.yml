@@ -79,6 +79,8 @@ jobs:
         run: |
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --encounter
           python tools/verify_encounter_resources.py
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --immersion-stations
+          python tools/verify_immersion_audio.py
       - name: Check licensed garden source, alpha cutout and static-only adaptation
         run: python tools/verify_garden_sources.py
       - name: Check licensed thermal lamp, wicker maps and source attribution

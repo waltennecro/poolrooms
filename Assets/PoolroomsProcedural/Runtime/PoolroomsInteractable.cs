@@ -18,7 +18,7 @@ namespace Poolrooms
         private PoolroomsLuminaire lamp;
         private readonly MaterialPropertyBlock properties=new MaterialPropertyBlock();
         private Renderer[] renderers;
-        public string ActionLabel {get{return activity==RoomActivity.Notice?"leer y ver caminos":activity==RoomActivity.Rest?"sentarse":activity==RoomActivity.Plant?"cuidar la planta":activity==RoomActivity.Music?"tocar / escuchar música":activity==RoomActivity.Game?"jugar a parejas":activity==RoomActivity.Lamp?"encender / apagar lámpara":activity==RoomActivity.Drawer?(open?"mirar el interior":"abrir mueble"):activity==RoomActivity.Window?"abrir / cerrar contraventana":"leer";}}
+        public string ActionLabel {get{var station=GetComponent<PoolroomsStation>();if(station!=null)return station.Label;return activity==RoomActivity.Notice?"leer y ver caminos":activity==RoomActivity.Rest?"sentarse":activity==RoomActivity.Plant?"cuidar la planta":activity==RoomActivity.Music?"tocar / escuchar música":activity==RoomActivity.Game?"jugar a parejas":activity==RoomActivity.Lamp?"encender / apagar lámpara":activity==RoomActivity.Drawer?(open?"mirar el interior":"abrir mueble"):activity==RoomActivity.Window?"abrir / cerrar contraventana":"leer";}}
         public static void BindSource(PoolroomsPickup pickup,string source)
         {
             RoomActivity kind;
@@ -49,17 +49,18 @@ namespace Poolrooms
         public bool Use(PoolroomsExplorer actor)
         {
             if(actor==null||actor.IsPaused||actor.InputCaptured||!actor.IsReady)return false;
+            var station=GetComponent<PoolroomsStation>();if(station!=null)return station.Use(actor);
             var inventory=PoolroomsInventory.For(actor);if(world==null)world=actor.world;Initialize(inventory);
             switch(activity)
             {
                 case RoomActivity.Notice:case RoomActivity.Reading:
-                    inventory.Journal.Read(key);inventory.Animate(HumanoidGesture.Read,2.4f);inventory.ShowText(title,note+Directions(actor));return true;
+                    actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Page,transform.position);inventory.Journal.Read(key);inventory.Animate(HumanoidGesture.Read,2.4f);inventory.ShowText(title,note+Directions(actor));return true;
                 case RoomActivity.Rest:
-                    if(actor.Seating!=null&&actor.Seating.Sit(this)){inventory.Journal.Record(RoomActivity.Rest,key);return true;}return false;
+                    if(actor.Seating!=null&&actor.Seating.Sit(this)){actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Fabric,transform.position);inventory.Journal.Record(RoomActivity.Rest,key);return true;}return false;
                 case RoomActivity.Plant:
                     return ApplyItem(actor,ItemUse.Water);
                 case RoomActivity.Lamp:
-                    if(lamp==null)return false;lamp.userEnabled=!lamp.userEnabled;inventory.SetState("lamp:"+key,lamp.userEnabled);world.RequestLightingRefresh();ApplyLampVisual();
+                    if(lamp==null)return false;actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Switch,transform.position);lamp.userEnabled=!lamp.userEnabled;inventory.SetState("lamp:"+key,lamp.userEnabled);world.RequestLightingRefresh();ApplyLampVisual();
                     inventory.Animate(HumanoidGesture.Adjust);inventory.Toast(lamp.userEnabled?"Lámpara encendida.":"Lámpara apagada.");return true;
                 case RoomActivity.Music:
                     if(movingPart!=null){inventory.OpenPiano(key,transform.position,GetComponent<PoolroomsPianoKeys>());return true;}
@@ -67,10 +68,10 @@ namespace Poolrooms
                     player.PlayPause();inventory.Animate(HumanoidGesture.Adjust);inventory.Journal.Record(RoomActivity.Music,key);return true;
                 case RoomActivity.Game:inventory.OpenGame(key,LiminalRegions.Hash(1,unchecked((int)StableKey(key)),0,0xCAFEu),transform.position);return true;
                 case RoomActivity.Drawer:
-                    if(!open){open=true;inventory.SetState("open:"+key,true);inventory.Animate(HumanoidGesture.OpenDoor);return true;}
+                    if(!open){actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Latch,transform.position);open=true;inventory.SetState("open:"+key,true);inventory.Animate(HumanoidGesture.OpenDoor);return true;}
                     inventory.ShowContainer(this);return true;
                 case RoomActivity.Window:
-                    open=!open;inventory.SetState("open:"+key,open);inventory.Animate(HumanoidGesture.Adjust);return true;
+                    actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Latch,transform.position);open=!open;inventory.SetState("open:"+key,open);inventory.Animate(HumanoidGesture.Adjust);return true;
                 default:return false;
             }
         }
@@ -89,12 +90,12 @@ namespace Poolrooms
             if(use==ItemUse.Water&&activity==RoomActivity.Plant)
             {
                 if(inventory.State("watered:"+key)){inventory.Toast("La planta ya tiene agua suficiente.");return false;}
-                inventory.SetState("watered:"+key,true);inventory.Journal.Record(RoomActivity.Plant,key);inventory.Animate(HumanoidGesture.Water,2);
+                actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Pour,transform.position);inventory.SetState("watered:"+key,true);inventory.Journal.Record(RoomActivity.Plant,key);inventory.Animate(HumanoidGesture.Water,2);
                 ApplyPlantVisual();inventory.Toast("Planta cuidada. Alguien agradecerá encontrarla así.");return true;
             }
             if(use==ItemUse.Clean&&activity!=RoomActivity.Notice)
             {
-                inventory.SetState("clean:"+key,true);inventory.Animate(HumanoidGesture.Clean,2.2f);
+                actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Fabric,transform.position);inventory.SetState("clean:"+key,true);inventory.Animate(HumanoidGesture.Clean,2.2f);
                 // Mild physical roughness change through a property block, preserving all source maps/materials.
                 foreach(var renderer in renderers)if(renderer!=null){renderer.GetPropertyBlock(properties);properties.SetFloat("_Smoothness",.36f);properties.SetFloat("_Glossiness",.36f);renderer.SetPropertyBlock(properties);}
                 inventory.Toast("Rincón limpio y listo para otra visita.");return true;

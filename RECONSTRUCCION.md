@@ -805,3 +805,23 @@ verificados. Una descarga pública nueva del código produjo 508.131.391 bytes;
 los 1.335 archivos versionados coinciden por SHA-256, incluidos todos los Assets.
 El CI 39455673680 sigue en ejecución. Los CI de Encuentro 39383935148 y
 39383502982 ya terminaron correctamente. No se ha ejecutado Unity.
+
+
+## Sala viva · inmersión y actividades
+
+Doce tipos de puntos de actividad se añaden automáticamente sobre paredes
+comprobadas, hasta cuatro por sala. Incluyen té y agua, libros, postales y notas,
+dibujos visibles en el mundo, campanillas, caja musical, luz, paquetes y dos
+rompecabezas nuevos. Se integran también en casas detalladas del nivel 94 y
+sectores compatibles de centros comerciales. Se reutiliza una taza de porcelana
+con licencia existente; no se añaden modelos 3D ni grabaciones descargados.
+
+32 efectos originales CC0, 16 sonidos con dos variaciones, usan las cuatro voces
+de detalle existentes. Ambiente tranquilo inicial, oclusión/distancia/reverberación
+y control de detalles nuevos en Sonido. Agua cristalina, linterna y distancia de
+renderizado conservadas. Cuaderno, regalos, dibujos y juegos siguen siendo locales
+a la sesión; la persistencia de partida queda aplazada.
+
+Muestreo real: 233 salas, 198 con actividades y 586 puntos apoyados; 12 tipos
+presentes. Se comprueban mil mezclas resolubles de cada rompecabezas. No son
+586 zonas nuevas ni modelos distintos. Dos pruebas nativas nuevas aún sin ejecutar.
