@@ -37,4 +37,4 @@ La geometría y los efectos son originales CC0. No se descargaron modelos ni gra
 
 ## Validación
 
-El núcleo verifica las huellas geométricas anteriores, la colocación de puntos en salas reales, límites, modelos y resolubilidad de mil mezclas de cada juego nuevo. El verificador de recursos audita PCM, niveles, extremos silenciosos, hashes y licencia. Dos pruebas PlayMode nuevas comprueban registro/descarga de emisores y carga de los clips. **Unity no está instalado en el entorno:** esas pruebas nativas, la escucha, la apariencia y los FPS permanecen pendientes en el proyecto real.
+El núcleo verifica las huellas geométricas anteriores, la colocación de puntos en salas reales, límites, modelos y resolubilidad de mil mezclas de cada juego nuevo. El verificador de recursos audita PCM, niveles, extremos silenciosos, hashes y licencia. Tres pruebas PlayMode nuevas comprueban registro/descarga de emisores, carga de los clips y migración de preferencias antiguas. **Unity no está instalado en el entorno:** esas pruebas nativas, la escucha, la apariencia y los FPS permanecen pendientes en el proyecto real.

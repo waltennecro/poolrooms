@@ -3212,6 +3212,12 @@
     "sessionOnly": true,
     "nativeUnityExecuted": false,
     "documentation": "Assets/PoolroomsProcedural/Documentation/Sala_viva_inmersion.md",
-    "evidence": "Verification/sala_viva_delivery.json"
+    "evidence": "Verification/sala_viva_delivery.json",
+    "fullCoreAssertions": 1848304592,
+    "protectedGeometryFingerprints": 188,
+    "newNativeTests": 3,
+    "strictCoreBuildWarnings": 0,
+    "strictCoreBuildErrors": 0,
+    "oldSettingsMigration": "implemented_native_unrun"
   }
 }

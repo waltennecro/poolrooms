@@ -39,10 +39,17 @@
       "listening_review": "unrun"
     }
   },
-  "fullCoreRegression": "running final revision",
+  "fullCoreRegression": {
+    "passed": true,
+    "assertions": 1848304592,
+    "protectedGeometryFingerprints": 188,
+    "syntaxSymbolConfigurations": 5,
+    "log": "Verification/sala_viva_full.txt",
+    "nativeUnityExecuted": false
+  },
   "nativeUnity": {
     "executed": false,
-    "newPlayModeTests": 2,
+    "newPlayModeTests": 3,
     "appearance": "unreviewed",
     "audioListening": "unreviewed",
     "fps": "unmeasured"
@@ -54,5 +61,7 @@
     "originalPcm": 32,
     "licence": "CC0-1.0"
   },
-  "delivery": "pending packaging"
+  "delivery": "pending packaging",
+  "historicalCoreCompatibility": "passed",
+  "settingsMigration": "Missing roomDetails enabled for old preferences; explicit user opt-out preserved; native migration test added, unrun."
 }

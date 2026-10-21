@@ -107,7 +107,8 @@ namespace Poolrooms
                 var station=node.AddComponent<PoolroomsStation>();station.world=world;station.kind=p.Kind;station.variant=p.Variant;station.key=prefix+":station:"+p.Slot;
                 if(p.Kind==StationKind.Tea||p.Kind==StationKind.Water)
                 {
-                    var cup=City11Sources.Create("R_Teacup",node.transform,Vector3.zero,.11f,out var size);
+                    var settings=world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsGameSettings>():null;bool low=settings!=null&&settings.Preferences.graphicsQuality==0;
+                    var cup=City11Sources.Create("R_Teacup",node.transform,Vector3.zero,.11f,out var size,low?1:0);
                     if(cup!=null)cup.transform.localPosition=new Vector3(.01f,-.13f+size.y*.5f,.1f);
                 }
                 var use=node.AddComponent<PoolroomsInteractable>();use.key=station.key;use.world=world;

@@ -1,0 +1,10 @@
+  Determining projects to restore...
+  Restored /tmp/sala-viva-history/baseline-project/Verification/Poolrooms.Checks.csproj (in 70 ms).
+  Poolrooms.Checks -> /tmp/sala-viva-history/baseline-project/Verification/bin/Release/net8.0/Poolrooms.Checks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.93
+PASS historical comparison still compiles and preserves expected rejection checks.

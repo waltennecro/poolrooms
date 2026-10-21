@@ -26,6 +26,28 @@ namespace Poolrooms.Tests
             finally{if(a!=null)Object.DestroyImmediate(a);if(b!=null)Object.DestroyImmediate(b);}
         }
         [Test]
+        public void OldPreferencesEnableNewRoomDetailsWhileExplicitOptOutStaysOff()
+        {
+            string key=PoolroomsGameSettings.PreferencesKey;bool had=PlayerPrefs.HasKey(key);string old=PlayerPrefs.GetString(key,"");GameObject actor=null;
+            int rate=Application.targetFrameRate,sync=QualitySettings.vSyncCount;
+            try
+            {
+                foreach(bool missing in new[]{true,false})
+                {
+                    var preferences=new GamePreferences();preferences.soundscape.roomDetails=false;
+                    string json=JsonUtility.ToJson(preferences);
+                    if(missing)json=json.Replace("\"roomDetails\":false,","");
+                    PlayerPrefs.SetString(key,json);actor=new GameObject("Sound preference migration");actor.SetActive(false);actor.AddComponent<PoolroomsExplorer>().enabled=false;
+                    var settings=actor.AddComponent<PoolroomsGameSettings>();settings.Initialize();
+                    Assert.That(settings.Preferences.soundscape.roomDetails,Is.EqualTo(missing));Object.DestroyImmediate(actor);actor=null;
+                }
+            }
+            finally
+            {
+                if(actor!=null)Object.DestroyImmediate(actor);if(had)PlayerPrefs.SetString(key,old);else PlayerPrefs.DeleteKey(key);PlayerPrefs.Save();Application.targetFrameRate=rate;QualitySettings.vSyncCount=sync;
+            }
+        }
+        [Test]
         public void OriginalFoleyLoadsAsBoundedMonoPcm()
         {
             var clips=Resources.LoadAll<AudioClip>("ImmersionAudio");Assert.That(clips.Length,Is.EqualTo(32));

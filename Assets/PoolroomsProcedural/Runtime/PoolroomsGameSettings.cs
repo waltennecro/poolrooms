@@ -59,7 +59,16 @@ namespace Poolrooms
             bool saved=PlayerPrefs.HasKey(PreferencesKey);
             try
             {
-                if(saved){var loaded=JsonUtility.FromJson<GamePreferences>(PlayerPrefs.GetString(PreferencesKey));if(loaded!=null&&loaded.version==18)Preferences=loaded;}
+                if(saved)
+                {
+                    string json=PlayerPrefs.GetString(PreferencesKey);var loaded=JsonUtility.FromJson<GamePreferences>(json);
+                    if(loaded!=null&&loaded.version==18)
+                    {
+                        // Existing v18 saves predate this opt-out. Preserve an explicit false, enable missing fields.
+                        if(loaded.soundscape!=null&&!json.Contains("\"roomDetails\""))loaded.soundscape.roomDetails=true;
+                        Preferences=loaded;
+                    }
+                }
                 else if(PlayerPrefs.HasKey(legacyCameraKey))
                 {var legacy=JsonUtility.FromJson<CameraPreferences>(PlayerPrefs.GetString(legacyCameraKey));if(legacy!=null)Preferences.camera=legacy;}
             }

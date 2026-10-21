@@ -824,4 +824,11 @@ a la sesión; la persistencia de partida queda aplazada.
 
 Muestreo real: 233 salas, 198 con actividades y 586 puntos apoyados; 12 tipos
 presentes. Se comprueban mil mezclas resolubles de cada rompecabezas. No son
-586 zonas nuevas ni modelos distintos. Dos pruebas nativas nuevas aún sin ejecutar.
+586 zonas nuevas ni modelos distintos. Tres pruebas nativas nuevas aún sin ejecutar.
+
+Sala viva: compilación estricta sin errores/avisos, 1.848.304.592 aserciones del
+núcleo y las 188 geometrías protegidas aprobadas. Los efectos nuevos y recursos
+anteriores conservan hashes/licencias correctos. El verificador actual también
+compila con el núcleo histórico y conserva sus rechazos esperados. Se añadió
+migración para activar los detalles nuevos en ajustes antiguos, respetando
+una desactivación explícita. Las tres pruebas nativas siguen sin ejecutar.
