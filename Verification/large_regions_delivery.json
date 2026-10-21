@@ -73,5 +73,33 @@
     "Native Unity, shader compilation, visual appearance, physics, audio and FPS unrun."
   ],
   "meshlessHallLinks": "handled_without_null_renderer",
-  "unloadedHallCaps": "full_width_and_height"
+  "unloadedHallCaps": "full_width_and_height",
+  "delivery": {
+    "assetsPackage": {
+      "zip": "/workspace/output/Poolrooms_Regiones_Extensas_Completo_Assets.zip",
+      "files": 1085,
+      "bytes": 330391348,
+      "sha256": "6293d39737dcaa98e9cf566eb0b75ac80382962f48f0eec41ac35aa8129081b1",
+      "sourceRevision": "b33bfb050d0002f44c9a6a6414d63f7a7a1f6ee6",
+      "workingTreeChanged": false
+    },
+    "freshPublicDownload": {
+      "result": "PASS",
+      "revision": "b33bfb050d0002f44c9a6a6414d63f7a7a1f6ee6",
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/b33bfb050d0002f44c9a6a6414d63f7a7a1f6ee6",
+      "bytes": 509124854,
+      "sha256": "13f271159c925ed3d6a123a72e3be8856ce8f900638e0d363ef594776debe2ee",
+      "matchedTrackedFiles": 1406,
+      "matchedAssetFiles": 1085,
+      "everyFileSha256AndCrc": true,
+      "archiveStoredOnDisk": false
+    },
+    "githubActions": {
+      "conclusion": null,
+      "head_sha": "b33bfb050d0002f44c9a6a6414d63f7a7a1f6ee6",
+      "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39540890186",
+      "id": 39540890186,
+      "status": "in_progress"
+    }
+  }
 }

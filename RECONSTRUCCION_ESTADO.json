@@ -3365,6 +3365,18 @@
     "documentation": "Assets/PoolroomsProcedural/Documentation/Regiones_extensas.md",
     "evidence": "Verification/large_regions_delivery.json",
     "meshlessHallLinks": "handled_without_null_renderer",
-    "unloadedHallCaps": "full_width_and_height"
+    "unloadedHallCaps": "full_width_and_height",
+    "delivery": {
+      "sourceRevision": "b33bfb050d0002f44c9a6a6414d63f7a7a1f6ee6",
+      "assetsFiles": 1085,
+      "assetsZipBytes": 330391348,
+      "assetsZipSha256": "6293d39737dcaa98e9cf566eb0b75ac80382962f48f0eec41ac35aa8129081b1",
+      "publicZipBytes": 509124854,
+      "freshPublicTrackedFilesMatched": 1406,
+      "allPublicFilesSha256AndCrc": true,
+      "ciRunId": 39540890186,
+      "ciStatus": "in_progress",
+      "unityExecuted": false
+    }
   }
 }

@@ -911,3 +911,11 @@ sellado de límites de streaming; expectativa de tamaño comercial anterior actu
 Unity, PhysX, shaders, imágenes, escucha y FPS siguen pendientes.
 
 El CI de las diez regiones especiales 39537031131 finalizó correctamente.
+
+Respaldo funcional de regiones extensas: `b33bfb050d0002f44c9a6a6414d63f7a7a1f6ee6`.
+ZIP acumulativo: 1,085 Assets, 330,391,348 bytes, CRC/SHA-256
+verificados. Descarga pública nueva: 509,124,854 bytes; los 1,406
+archivos versionados, incluidos 1,085 Assets, coinciden por SHA-256
+individual y CRC. El verificador de descarga trabaja por streaming y no necesita
+almacenar otro ZIP. CI 39540890186 en ejecución al registrar la entrega; las
+cuatro pruebas nuevas, Unity, PhysX, shaders, imágenes y FPS siguen pendientes.
