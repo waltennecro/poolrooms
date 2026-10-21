@@ -1,0 +1,3 @@
+Workshops: 3072 seeded games solved before/after arbitrary input; 72 state meshes, 36 distinct body/mount combinations; 58 biome banks include all twelve games; bounded LRU/undo verified. Native Unity UI/audio/rendering unrun.
+Immersion: 233 actual unified rooms, 206 rooms with activities, 601 supported stations and 24 activity types; 1000 solvable sliding and mosaic puzzles, 72 model/finish combinations checked. Native Unity unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

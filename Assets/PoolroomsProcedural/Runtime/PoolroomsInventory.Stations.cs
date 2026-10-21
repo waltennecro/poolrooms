@@ -14,11 +14,13 @@ namespace Poolrooms
         private static void TrimStationCache<T>(Dictionary<string,T> cache,int capacity)
         {if(cache.Count<capacity)return;string first=null;foreach(var key in cache.Keys){first=key;break;}if(first!=null)cache.Remove(first);}
         public void RestoreStation(PoolroomsStation station)
-        {if(station.kind==StationKind.Sketch&&sketches.TryGetValue(station.key,out var pixels))station.Paint(pixels);station.RestoreLight(this);}
+        {if(station.kind==StationKind.Sketch&&sketches.TryGetValue(station.key,out var pixels))station.Paint(pixels);station.RestoreLight(this);RestoreWorkshop(station);}
         private static uint StationSeed(string key){uint hash=2166136261;foreach(char c in key??"")hash=unchecked((hash^c)*16777619);return hash;}
         public void OpenStation(PoolroomsStation station)
         {
-            if(station==null||!station.Available(explorer))return;BeginInterface(ImmersionStations.Name(station.kind));
+            if(station==null||!station.Available(explorer))return;
+            if(WorkshopCatalog.IsWorkshop(station.kind)){OpenWorkshop(station);return;}
+            BeginInterface(ImmersionStations.Name(station.kind));
             Text("Un rincón preparado para quien pase por aquí. Sin prisa, puntos obligatorios ni personajes.","en-note",content);
             switch(station.kind)
             {

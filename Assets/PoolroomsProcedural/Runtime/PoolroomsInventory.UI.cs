@@ -41,6 +41,8 @@ namespace Poolrooms
         {var button=new Button(action){text=title};button.AddToClassList(css);parent.Add(button);return button;}
         private void BeginInterface(string title)
         {
+            workshopLease++;
+            workshopPlayback++;
             EnsureUI();if(!InterfaceOpen){previousLock=Cursor.lockState;previousCursor=Cursor.visible;}
             InterfaceOpen=true;Cursor.lockState=CursorLockMode.None;Cursor.visible=true;explorer.Wings?.Suspend();
             modal.style.display=DisplayStyle.Flex;titleLabel.text=title;content.Clear();grid=sidebar=null;
@@ -48,6 +50,8 @@ namespace Poolrooms
         }
         public void CloseInterface()
         {
+            workshopLease++;
+            workshopPlayback++;
             if(!InterfaceOpen)return;InterfaceOpen=false;if(modal!=null)modal.style.display=DisplayStyle.None;
             Cursor.lockState=previousLock;Cursor.visible=previousCursor;grid=sidebar=null;moveFrom=-1;RefreshHotbar();
         }
@@ -56,6 +60,7 @@ namespace Poolrooms
             BeginInterface("Tus cosas");var navigation=Element("en-tabs",content);
             for(int i=0;i<ExplorationInventory.Pages;i++){int at=i;var tab=Button("Página "+(i+1),()=>{page=at;selected=-1;OpenInventory();},navigation);tab.EnableInClassList("en-selected",i==page);}
             Button("Cuaderno",OpenJournal,navigation,"en-quiet");
+            Button("Talleres",OpenWorkshopJournal,navigation,"en-quiet");
             var layout=Element("en-inventory",content);grid=Element("en-grid",layout);sidebar=Element("en-sidebar",layout);
             for(int i=0;i<cells.Length;i++){int at=page*ExplorationInventory.SlotsPerPage+i;cells[i]=Button("",()=>Select(at),grid,"en-slot");}
             detailLabel=Text("Selecciona un objeto.","en-detail",sidebar);

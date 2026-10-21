@@ -113,6 +113,8 @@ namespace Poolrooms
                 }
                 var use=node.AddComponent<PoolroomsInteractable>();use.key=station.key;use.world=world;
                 var actor=world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsExplorer>():null;actor?.GetComponent<PoolroomsInventory>()?.RestoreStation(station);
+                if(WorkshopCatalog.IsWorkshop(p.Kind)&&node.GetComponent<PoolroomsWorkshopDisplay>()==null)
+                    PoolroomsWorkshopDisplay.Show(station,WorkshopCatalog.Create(p.Kind,WorkshopSessions.Seed(station.key,world.profile.seed,p.Kind)));
                 var accent=new GameObject("Moving accent");accent.transform.SetParent(node.transform,false);
                 var data=new MeshData{Theme=SurfaceTheme.EncounterFurniture};ZoneShapes.Beam(data,new V3(-.035f,.13f,.11f),new V3(.035f,.13f,.11f),.008f,Surface.Metal,.3f,8);
                 var handle=MeshFactory.Create("Handle",data,accent.transform,world.profile,owner,false);handle.GetComponent<MeshRenderer>().rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;

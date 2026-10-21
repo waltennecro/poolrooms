@@ -988,3 +988,12 @@ Comprobaciones específicas: 480 salas construidas, 32.640 pickups planificados,
 Guía: Assets/PoolroomsProcedural/Documentation/Expansion_Veinte_Destinos.md. Importadores y auditoría reproducibles en tools/import_journey_*.py y tools/verify_journey_resources.py. Compilación Unity/HDRP, shaders, aspecto, PhysX y FPS pendientes.
 
 Entrega publicada y verificada: https://github.com/waltennecro/poolrooms/releases/tag/veinte-destinos. Fuente exacta ec0d77018470d9bb115238ab4597a18ca52b0da1; run completo https://github.com/waltennecro/poolrooms/actions/runs/39633700771 y publicación https://github.com/waltennecro/poolrooms/actions/runs/39633839222 terminados correctamente. ZIP de 1037034618 bytes, SHA-256 b80ba8b5b7d4762d016824fc41923f742bd041fdcabd8d29739d3c8f296c4d1e; digest y tamaño alojados coinciden con el paquete local auditado. GET público parcial HTTP 206 confirma cabecera ZIP y longitud total, no una segunda descarga completa. Los 1.582 archivos de Assets suman 1295917482 bytes. Presupuesto máximo 6 GB; no se alcanzó ni rellenó artificialmente. La comparación local de 200.010 salas / 21 lotes reproduce exactamente el registro revisado R34. Solo quedan comprobaciones nativas Unity/HDRP, shaders, aspecto, PhysX y FPS.
+
+
+## Talleres compartidos
+
+Doce actividades nuevas integradas en las estaciones del mundo, con selección contextual para los 58 biomas. Se mantienen las doce estaciones anteriores y el máximo total de cuatro por sala; no se añaden otros biomas ni se reduce el renderizado. Modelos originales con tres montajes, estados visibles, referencias, pistas resolubles, deshacer, reinicio, sonidos espaciales existentes y cuaderno en el inventario.
+
+Se conserva un máximo de 128 tableros usados, con 32 estados de deshacer cada uno. Los visuales utilizan referencias débiles y una malla reutilizada; no retienen tableros expulsados ni crean luces, sondas, texturas o colisión adicional. El estado sigue siendo de sesión, sin persistencia nueva.
+
+Comprobación local: 3.072 tableros resueltos antes y después de acciones arbitrarias, 72 estados geométricos, 36 combinaciones de cuerpo/montaje, disponibilidad en 58 bancos y 601 estaciones sobre 233 salas construidas. Compilación estricta del núcleo y comprobación completa de 188 huellas anteriores superadas. Las pruebas no equivalen a ejecutar Unity. Guía: Assets/PoolroomsProcedural/Documentation/Talleres_Compartidos.md. Inventario: TALLERES_COMPARTIDOS_ESTADO.json. CI/publicación de esta etapa pendientes; APIs Unity/HDRP, controles, apariencia, audio y FPS pendientes.

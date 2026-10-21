@@ -48,6 +48,14 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--workshops"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Workshops require current Core.");
+#else
+            WorkshopWorld();ImmersionStationWorld();IntegrationSourceContracts();return 0;
+#endif
+        }
         if(args.Contains("--journey-levels"))
         {
 #if POOLROOMS_HISTORICAL_CORE
@@ -184,7 +192,7 @@ static partial class Checks
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
 #if !POOLROOMS_HISTORICAL_CORE
-        JourneyLevels();MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();
+        JourneyLevels();MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();WorkshopWorld();
 #endif
         IntegrationSourceContracts();
         ForgivingJumpTiming();

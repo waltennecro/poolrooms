@@ -42,7 +42,7 @@ static partial class Checks
                 }
             }
         }
-        Check(withStations>rooms/2&&stations>rooms&&kinds.Count==12,"New activities are too rare or missing from unified exploration");
-        Console.WriteLine($"Immersion: {rooms} actual unified rooms, {withStations} rooms with activities, {stations} supported stations and {kinds.Count} activity types; 1000 solvable sliding and mosaic puzzles, 36 model/finish combinations checked. Native Unity unrun.");
+        Check(withStations>rooms/2&&stations>rooms&&kinds.Count==WorkshopCatalog.StationCount,"New activities are too rare or missing from unified exploration");
+        Console.WriteLine($"Immersion: {rooms} actual unified rooms, {withStations} rooms with activities, {stations} supported stations and {kinds.Count} activity types; 1000 solvable sliding and mosaic puzzles, {WorkshopCatalog.StationCount*3} model/finish combinations checked. Native Unity unrun.");
     }
 }

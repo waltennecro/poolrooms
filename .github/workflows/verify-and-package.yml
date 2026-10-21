@@ -26,6 +26,8 @@ jobs:
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj
       - name: Check detailed mall geometry, licensed placement and floor-local lighting
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --mall-retail
+      - name: Check twelve workshops, constructive solutions, state meshes and bounded session memory
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --workshops
       - name: Check large procedural regions, broad halls and bounded walking routes
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --large-regions
       - name: Check ten special regions, preserved discovery slots and walking graph

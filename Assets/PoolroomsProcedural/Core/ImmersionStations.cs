@@ -2,7 +2,12 @@ using System;
 using System.Collections.Generic;
 namespace Poolrooms.Core
 {
-    public enum StationKind { Tea,Water,Books,Postcards,Sketch,Chimes,MusicBox,Light,Parcels,SlidingPuzzle,Mosaic,RestBell }
+    public enum StationKind
+    {
+        Tea,Water,Books,Postcards,Sketch,Chimes,MusicBox,Light,Parcels,SlidingPuzzle,Mosaic,RestBell,
+        LanternCircuit,WaterChannels,Weaving,Herbarium,Sundial,ParcelBalance,
+        StarChart,BellSequence,TideLocks,Bookbinding,WindRose,SeedNursery
+    }
     public enum StationSound { Cup,Pour,Page,Paper,Pencil,Chime,Music,Latch,Parcel,Tile,Switch,Fabric,WaterDrop,Leaves,Duct,Ceramic }
     public readonly struct StationPlacement
     {
@@ -15,15 +20,16 @@ namespace Poolrooms.Core
     {
         public const int MaximumPerRoom=4;
         private static readonly string[] names={"La pausa del té","Fuente de agua fresca","Intercambio de libros","Postales del camino","Pizarra de colores","Campanillas del jardín","Caja de música","Luz de bienvenida","Paquetes para viajeros","Rompecabezas deslizante","Mosaico de la tarde","Campana del descanso"};
-        public static string Name(StationKind kind){return names[(int)kind];}
+        public static string Name(StationKind kind){return WorkshopCatalog.IsWorkshop(kind)?WorkshopCatalog.Name(kind):names[(int)kind];}
         private static readonly StationSound[] sounds={StationSound.Cup,StationSound.Pour,StationSound.Page,StationSound.Paper,StationSound.Pencil,StationSound.Chime,StationSound.Music,StationSound.Switch,StationSound.Parcel,StationSound.Tile,StationSound.Ceramic,StationSound.Chime};
-        public static StationSound Sound(StationKind kind){return sounds[(int)kind];}
+        public static StationSound Sound(StationKind kind){return WorkshopCatalog.IsWorkshop(kind)?WorkshopCatalog.Sound(kind):sounds[(int)kind];}
         private static readonly StationKind[] waterBank={StationKind.Water,StationKind.Mosaic,StationKind.RestBell,StationKind.Postcards,StationKind.Light,StationKind.SlidingPuzzle};
         private static readonly StationKind[] gardenBank={StationKind.Tea,StationKind.Chimes,StationKind.Sketch,StationKind.Books,StationKind.Postcards,StationKind.Mosaic};
         private static readonly StationKind[] commercialBank={StationKind.Parcels,StationKind.Water,StationKind.Postcards,StationKind.MusicBox,StationKind.Light,StationKind.SlidingPuzzle};
         private static readonly StationKind[] quietBank={StationKind.Books,StationKind.Tea,StationKind.Sketch,StationKind.MusicBox,StationKind.SlidingPuzzle,StationKind.Mosaic,StationKind.Parcels,StationKind.Chimes};
         public static StationKind Choose(LiminalEnvironment environment,uint hash)
         {
+            if(hash%3==0)return WorkshopCatalog.Choose(environment,hash/3);
             if(JourneyLevelPlanner.IsLevel(environment))return JourneyLevelPlanner.Activity(environment,hash);
             if(SpecialRegionPlanner.IsLevel(environment))return SpecialRegionPlanner.Activity(environment,hash);
             StationKind[] bank;
@@ -65,7 +71,7 @@ namespace Poolrooms.Core
                 if(blocked)continue;
                 uint h=LiminalRegions.Hash(config.Seed,room.X,room.Z,0x150AC0u+(uint)index);var kind=Choose(room.Environment,h);
                 // Prefer distinct activities in the same room.
-                for(int attempt=0;attempt<12;attempt++){bool repeat=false;foreach(var prior in result)if(prior.Kind==kind)repeat=true;if(!repeat)break;kind=(StationKind)(((int)kind+1)%12);}
+                for(int attempt=0;attempt<WorkshopCatalog.StationCount;attempt++){bool repeat=false;foreach(var prior in result)if(prior.Kind==kind)repeat=true;if(!repeat)break;kind=(StationKind)(((int)kind+1)%WorkshopCatalog.StationCount);}
                 result.Add(new StationPlacement(a,kind,index,(int)((h>>8)%3)));
             }
             return result;
@@ -74,6 +80,7 @@ namespace Poolrooms.Core
         {var half=SourceFurniture.HalfExtents(p.Source,p.Yaw,.12f);var at=anchor.Center+anchor.Normal*.2f;return Math.Abs(at.X-p.Bottom.X)<half.X+.3f&&Math.Abs(at.Z-p.Bottom.Z)<half.Z+.3f&&at.Y+.22f>p.Bottom.Y&&at.Y-.22f<p.Bottom.Y+SourceFurniture.Dimensions(p.Source).Y;}
         public static MeshData Model(StationKind kind,int variant)
         {
+            if(WorkshopCatalog.IsWorkshop(kind))return WorkshopModels.Build(kind,variant);
             var m=new MeshData{Theme=SurfaceTheme.EncounterFurniture,EmissionStrength=0};
             void B(float x,float y,float z,float w,float h,float d,Surface surface=Surface.Accent){m.Box(new V3(x-w*.5f,y-h*.5f,z-d*.5f),new V3(x+w*.5f,y+h*.5f,z+d*.5f),surface,.4f);}
             B(0,0,.018f,.54f,.4f,.035f);foreach(int sign in new[]{-1,1}){B(sign*.252f,0,.047f,.026f,.39f,.035f,Surface.Metal);B(0,sign*.185f,.047f,.49f,.025f,.035f,Surface.Metal);}

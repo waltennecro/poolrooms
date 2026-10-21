@@ -34,6 +34,8 @@ Keep standalone verification in `Verification` and packaging scripts in `tools`,
 
 Use an external Unity HDRP project to import the package, create the demo through Tools → Poolrooms, and run PlayMode tests. Cloud core checks do not validate Unity APIs, shaders, PhysX, appearance, or FPS.
 
+Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --workshops` for constructive puzzle solutions, bounded caches, state geometry and biome distribution. Workshop IDs append after the original twelve; keep legacy station IDs stable.
+
 ## Coding Style & Naming Conventions
 
 Use four-space indentation, PascalCase types/methods, and camelCase fields. Follow nearby compact C# formatting. Keep Core free of Unity references and generation deterministic. Append serialized enum values; preserve existing IDs. Keep the flashlight unchanged unless specifically requested. Prefer suitable high-quality external assets with verified licences, provenance, attribution and bounded placement/LOD costs.
