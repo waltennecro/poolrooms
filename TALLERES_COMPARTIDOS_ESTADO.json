@@ -3,9 +3,9 @@
   "request": "Improve the existing world with at least 2000 meaningful new CSharp game-code lines.",
   "status": "implemented_local_core_verified_ci_pending_native_unrun",
   "gameCodeDiff": {
-    "addedLines": 2008,
+    "addedLines": 2062,
     "removedLines": 6,
-    "netLines": 2002,
+    "netLines": 2056,
     "excludesTestsVerificationDocsWorkflows": true,
     "physicalLinesIncludingNormalWhitespace": true
   },
@@ -43,11 +43,17 @@
     "Replaced repeated cylinder rings with bounded extruded annuli.",
     "Prevented visible models from retaining evicted boards by using a weak reference.",
     "Cancelled scheduled phrases on interface replacement, closure, edits and new playback.",
-    "Removed contradictory static pointers and pipe paths from changing boards."
+    "Removed contradictory static pointers and pipe paths from changing boards.",
+    "Use shared woven PBR maps and cached cloth colours matching the menu palette, rather than metallic hardware materials for threads."
   ],
   "guide": "Assets/PoolroomsProcedural/Documentation/Talleres_Compartidos.md",
   "remaining": [
     "Run full GitHub workflow and publish an exact-source cumulative Assets package.",
     "Native Unity/HDRP compilation, controls, UI, playback, shaders, appearance and FPS."
-  ]
+  ],
+  "supersededRuns": {
+    "verification": 39645397480,
+    "publication": 39645470719,
+    "reason": "Cancelled before publication to include cloth-material refinement; not a completed verification result."
+  }
 }

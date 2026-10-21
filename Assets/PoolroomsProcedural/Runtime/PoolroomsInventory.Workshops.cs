@@ -14,11 +14,6 @@ namespace Poolrooms
         private static readonly string[] workshopColours = { "Arena", "Musgo", "Azul", "Terracota" };
         private static readonly string[] workshopDirections = { "Norte", "Este", "Sur", "Oeste" };
         private static readonly string[] workshopNotes = { "DO", "RE", "MI", "FA", "SOL", "LA", "SI", "DO alto" };
-        private static readonly Color[] workshopTints =
-        {
-            new Color(.79f,.68f,.43f), new Color(.35f,.57f,.43f),
-            new Color(.35f,.53f,.7f), new Color(.73f,.43f,.34f)
-        };
 
         private int WorkshopWorldSeed(PoolroomsStation station)
         {
@@ -266,7 +261,7 @@ namespace Poolrooms
                     int cell = row * 4 + col;
                     var button = Button((cell + 1) + ": " + workshopColours[board.Value(cell)],
                         () => apply(new WorkshopMove(cell)), line);
-                    button.style.borderBottomColor = workshopTints[board.Value(cell)];
+                    button.style.borderBottomColor = PoolroomsWorkshopMaterials.Tint(board.Value(cell));
                     button.style.borderBottomWidth = 4;
                 }
             }

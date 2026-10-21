@@ -9,6 +9,34 @@ namespace Poolrooms.Tests
 {
     public sealed class WorkshopDisplayTests
     {
+        [Test]
+        public void WovenColoursReuseTheirPbrMapsAndMatchTheInterfacePalette()
+        {
+            var node = new GameObject("Workshop cloth material check");
+            var profile = ScriptableObject.CreateInstance<PoolroomsProfile>();
+            try
+            {
+                var owner = node.AddComponent<PoolroomsChunk>();
+                var source = PoolroomsBiomeMaterialFactory.Resolve(SurfaceTheme.EncounterFurniture,
+                    (int)Surface.Tile, profile, owner);
+                var slots = new[] { Surface.Plaster, Surface.Slide, Surface.Metal, Surface.Accent };
+                for (int i = 0; i < slots.Length; i++)
+                {
+                    var material = PoolroomsWorkshopMaterials.Resolve(StationKind.Weaving, (int)slots[i], profile, owner);
+                    Assert.That(PoolroomsWorkshopMaterials.Resolve(StationKind.Bookbinding, (int)slots[i], profile, owner), Is.SameAs(material));
+                    foreach (string property in new[] { "_NormalMap", "_MaskMap", "_BaseColorMap", "_BumpMap", "_MainTex" })
+                        if (source.HasProperty(property)) Assert.That(material.GetTexture(property), Is.SameAs(source.GetTexture(property)));
+                    string colourProperty = material.HasProperty("_BaseColor") ? "_BaseColor" : "_Color";
+                    Assert.That(material.GetColor(colourProperty), Is.EqualTo(PoolroomsWorkshopMaterials.Tint(i)));
+                }
+            }
+            finally
+            {
+                Object.DestroyImmediate(node);
+                Object.DestroyImmediate(profile);
+            }
+        }
+
         [UnityTest]
         public IEnumerator EditingAWorkshopReusesOneMeshWithoutAddingLightsOrFloorColliders()
         {

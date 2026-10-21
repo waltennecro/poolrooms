@@ -45,7 +45,7 @@ namespace Poolrooms
             var renderer = node.AddComponent<MeshRenderer>();
             var materials = new Material[6];
             for (int i = 0; i < materials.Length; i++)
-                materials[i] = PoolroomsBiomeMaterialFactory.Resolve(SurfaceTheme.EncounterFurniture, i, station.world.profile, chunk);
+                materials[i] = PoolroomsWorkshopMaterials.Resolve(station.kind, i, station.world.profile, chunk);
             renderer.sharedMaterials = materials;
             renderer.shadowCastingMode = ShadowCastingMode.On;
             renderer.receiveShadows = true;

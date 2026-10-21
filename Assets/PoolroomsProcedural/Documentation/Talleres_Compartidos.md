@@ -27,7 +27,7 @@ Acércate y pulsa **E**. Cada tablero incluye instrucciones, referencia visible,
 
 Cada taller tiene una nota de preparación para una próxima visita, sin personajes añadidos. Los modelos originales incluyen marcos, tornillos, canales, campanas, aros y herramientas. Las piezas muestran cambios de estado en el mundo, además del menú: agujas, conexiones, indicadores de agua y marcas de progreso. Los sonidos reutilizan el banco espacial existente y sus notas originales; no se añaden grabaciones descargadas ni licencias nuevas.
 
-Los doce modelos tienen tres estilos de montaje. Son **doce actividades y 36 combinaciones de cuerpo/montaje**, no 36 modelos externos distintos. Las superficies usan los materiales PBR compartidos del mobiliario existente. El brillo de los faroles es un indicador del tablero, no una nueva luz por pieza ni una modificación del sol del bioma. Los depósitos son un juego mecánico: no cambian el agua de las piscinas.
+Los doce modelos tienen tres estilos de montaje. Son **doce actividades y 36 combinaciones de cuerpo/montaje**, no 36 modelos externos distintos. Las superficies usan los materiales PBR compartidos del mobiliario existente. Los hilos y páginas reutilizan las texturas de tejido, con cuatro tintes guardados por chunk que comparten la misma paleta del menú; no usan el latón de los mecanismos para representar hilo azul. El brillo de los faroles es un indicador del tablero, no una nueva luz por pieza ni una modificación del sol del bioma. Los depósitos son un juego mecánico: no cambian el agua de las piscinas.
 
 ## Memoria y coste
 
