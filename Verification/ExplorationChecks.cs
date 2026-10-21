@@ -97,13 +97,19 @@ static partial class Checks
         var ag=Architecture.Build(a,c);var bg=Architecture.Build(b,c);var link=Corridors.Build(a,b,side,c);Validate(link.Structure);
         var combined=new MeshData();combined.Append(ag.Structure);combined.Append(ag.CollisionOnly);combined.Append(link.Structure);
         var other=new MeshData();other.Append(bg.Structure);other.Append(bg.CollisionOnly);other.TranslateRotate(new V3(Directions.DX[side]*c.CellSize,0,Directions.DZ[side]*c.CellSize),0);combined.Append(other);
+        // Immutable R33 predates NaturalTransitions; current builds still test
+        // the actual connector kind. Historical builds retain their generic path.
+        bool natural=false;
+#if !POOLROOMS_HISTORICAL_CORE
+        natural=link.Natural;
+#endif
         float start=(side==0?a.Depth:a.Width)*.5f-.7f,end=c.CellSize-(side==0?b.Depth:b.Width)*.5f+.7f;var path=Corridors.Describe(a,b,side,c);
         // Test the real doorway approaches and curved connector, not a straight line
         // across the centre of authored pools/columns, which the player can walk around.
         for(float distance=start;distance<=end;distance+=.2f)
         {
             var point=new V3(Directions.DX[side]*distance,2,Directions.DZ[side]*distance);
-            if(!link.Natural&&path.Length>.01f&&distance>path.Start&&distance<path.End)
+            if(!natural&&path.Length>.01f&&distance>path.Start&&distance<path.End)
             {path.Sample((distance-path.Start)/path.Length,out var center,out _,out _);point=side==0?new V3(center.X,2,center.Z):new V3(center.Z,2,-center.X);}
             float floor=Support(combined,point);
             Check(floor>=-.32f&&floor<=.35f,"Walking route has an unsupported or raised floor: "+a.Environment+" / "+b.Environment+" at "+distance);

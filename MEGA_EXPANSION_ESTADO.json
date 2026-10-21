@@ -21,7 +21,14 @@
     "waterVolumesInCases": 576,
     "walkingGraphRoutes": 310,
     "physicalBoundaryPairs": 539,
-    "protectedGeometryFingerprints": 188
+    "protectedGeometryFingerprints": 188,
+    "initialFullGithubRun": {
+      "id": 39632519743,
+      "result": "failed_historical_verifier_compile",
+      "detail": "Immutable R33 CorridorGeometry predates Natural; current-source checks passed. Historical-only guard added; baseline now builds with zero errors/warnings and reproduces its expected pre-refinement failure."
+    },
+    "historicalCompatibility": "passed_local_rebuild_and_expected_regression",
+    "fullGithubFinal": "pending"
   },
   "pending": [
     "Final full GitHub verification of exact delivered commit",
@@ -39,7 +46,7 @@
   "finishDefinitions": 43,
   "newRuntimeMaps": 170,
   "newRuntimeResourceBytes": 385547721,
-  "assetsBytes": 1295917463,
+  "assetsBytes": 1295917482,
   "paddingBytes": 0,
   "licensedReferenceThumbnails": 43
 }
