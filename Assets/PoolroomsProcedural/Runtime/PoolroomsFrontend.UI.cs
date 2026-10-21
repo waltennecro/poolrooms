@@ -107,15 +107,16 @@ namespace Poolrooms
 
         private void DrawHome()
         {
-            MenuButton("CONTINUAR",ContinueJourney,pageBody,"Retoma la sesión abierta en tu posición actual.",Flow.CanResume);
-            MenuButton("NUEVO RECORRIDO",()=>DrawPage(FrontendPage.Journey),pageBody,"Selecciona semilla, tipo de recorrido y punto de partida.");
-            MenuButton("ELEGIR DESTINO",()=>DrawPage(FrontendPage.Atlas),pageBody,"Explora los 58 biomas y los dos grandes destinos conectados.");
-            MenuButton("AJUSTES",()=>DrawPage(FrontendPage.Options),pageBody,"Pantalla, gráficos, sonido y controles.");
-            MenuButton("TU EXPERIENCIA",()=>DrawPage(FrontendPage.Appearance),pageBody,"Calma, atmósfera, cámara y comodidad.");
-            MenuButton("CRÉDITOS",()=>DrawPage(FrontendPage.Credits),pageBody,"Consulta las fuentes y licencias incluidas.");
-            MenuButton("SALIR",ConfirmQuit,pageBody,"Cerrar el juego.");
-            if(!string.IsNullOrEmpty(Flow.Error))Text(Flow.Error,"fe-error",pageBody);
-            Text(Flow.CanResume?"Continuar retoma esta sesión. La partida todavía no se guarda al cerrar.":"Elige dónde comienza tu recorrido.","fe-note",pageBody);
+            var home=Scroll(pageBody);
+            MenuButton("CONTINUAR",ContinueJourney,home,"Retoma la sesión abierta en tu posición actual.",Flow.CanResume);
+            MenuButton("NUEVO RECORRIDO",()=>DrawPage(FrontendPage.Journey),home,"Selecciona semilla, tipo de recorrido y punto de partida.");
+            MenuButton("ELEGIR DESTINO",()=>DrawPage(FrontendPage.Atlas),home,"Explora los 58 biomas y los dos grandes destinos conectados.");
+            MenuButton("AJUSTES",()=>DrawPage(FrontendPage.Options),home,"Pantalla, gráficos, sonido y controles.");
+            MenuButton("TU EXPERIENCIA",()=>DrawPage(FrontendPage.Appearance),home,"Calma, atmósfera, cámara y comodidad.");
+            MenuButton("CRÉDITOS",()=>DrawPage(FrontendPage.Credits),home,"Consulta las fuentes y licencias incluidas.");
+            MenuButton("SALIR",ConfirmQuit,home,"Cerrar el juego.");
+            if(!string.IsNullOrEmpty(Flow.Error))Text(Flow.Error,"fe-error",home);
+            Text(Flow.CanResume?"Continuar retoma esta sesión. La partida todavía no se guarda al cerrar.":"Elige dónde comienza tu recorrido.","fe-note",home);
         }
 
         private void DrawJourney()
