@@ -61,7 +61,34 @@
     "originalPcm": 32,
     "licence": "CC0-1.0"
   },
-  "delivery": "pending packaging",
+  "delivery": {
+    "sourceRevision": "2736398b116b31bd4c0e9b3a5ac1581bfadbfc8d",
+    "assetsPackage": {
+      "zip": "/workspace/output/Poolrooms_Sala_Viva_Completo_Assets.zip",
+      "files": 1076,
+      "bytes": 330368617,
+      "sha256": "8f1849fe346f7a4ca830539bbc7b680862a610c1a69e73e55e6c3b9afaacba3e",
+      "sourceRevision": "2736398b116b31bd4c0e9b3a5ac1581bfadbfc8d",
+      "workingTreeChanged": false
+    },
+    "freshPublicDownload": {
+      "url": "https://codeload.github.com/waltennecro/poolrooms/zip/2736398b116b31bd4c0e9b3a5ac1581bfadbfc8d",
+      "sourceRevision": "2736398b116b31bd4c0e9b3a5ac1581bfadbfc8d",
+      "bytes": 509075014,
+      "sha256": "31675d8c699574b29e7bb4c1247c1f5f5378e98cecb17aef4af4b24048f36971",
+      "crc": "passed",
+      "trackedFilesMatched": 1384,
+      "assetsFilesMatched": 1076,
+      "temporaryDownloadRemovedAfterValidation": true
+    },
+    "ci": {
+      "id": 39530026448,
+      "url": "https://github.com/waltennecro/poolrooms/actions/runs/39530026448",
+      "revision": "2736398b116b31bd4c0e9b3a5ac1581bfadbfc8d",
+      "status": "in_progress",
+      "conclusion": null
+    }
+  },
   "historicalCoreCompatibility": "passed",
   "settingsMigration": "Missing roomDetails enabled for old preferences; explicit user opt-out preserved; native migration test added, unrun."
 }

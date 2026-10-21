@@ -3218,6 +3218,16 @@
     "newNativeTests": 3,
     "strictCoreBuildWarnings": 0,
     "strictCoreBuildErrors": 0,
-    "oldSettingsMigration": "implemented_native_unrun"
+    "oldSettingsMigration": "implemented_native_unrun",
+    "delivery": {
+      "sourceRevision": "2736398b116b31bd4c0e9b3a5ac1581bfadbfc8d",
+      "assetsFiles": 1076,
+      "assetsZipBytes": 330368617,
+      "publicZipBytes": 509075014,
+      "freshPublicTrackedFilesMatched": 1384,
+      "ciRunId": 39530026448,
+      "ciStatus": "in_progress",
+      "unityExecuted": false
+    }
   }
 }

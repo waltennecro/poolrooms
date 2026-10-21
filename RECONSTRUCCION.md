@@ -832,3 +832,11 @@ anteriores conservan hashes/licencias correctos. El verificador actual también
 compila con el núcleo histórico y conserva sus rechazos esperados. Se añadió
 migración para activar los detalles nuevos en ajustes antiguos, respetando
 una desactivación explícita. Las tres pruebas nativas siguen sin ejecutar.
+
+Entrega de código de Sala viva: `2736398b116b31bd4c0e9b3a5ac1581bfadbfc8d`.
+Paquete acumulativo de Assets: 1.076 archivos, 330.368.617 bytes, CRC y SHA-256
+verificados. Una descarga nueva del repositorio público produjo 509.075.014 bytes;
+sus 1.384 archivos versionados, incluidos todos los Assets, coinciden por SHA-256.
+CI 39530026448 en ejecución al registrar esta evidencia; no se declara aprobado.
+Los CI de Agua cristalina 39455673680 y 39454870664 ya finalizaron correctamente.
+Unity, las tres pruebas nuevas, escucha y FPS de Sala viva siguen pendientes.
