@@ -157,6 +157,7 @@ namespace Poolrooms
         {if(RegionRoot==null)return false;Vector3 local=RegionRoot.InverseTransformPoint(p);return local.y<Plan.Height(local.x,local.z)-10;}
         private void Update()
         {
+            if(world!=null&&world.FrontendSuspended)return;
             if(materials!=null&&RegionRoot!=null&&appliedVisualQuality!=VisualQuality)
             {
                 appliedVisualQuality=VisualQuality;
@@ -188,6 +189,7 @@ namespace Poolrooms
             TerrainRegionPlan plan=Plan;
             while((IsInside||IsConnected)&&version==epoch)
             {
+                if(world.FrontendSuspended){yield return null;continue;}
                 if(IsConnected&&connectedSuspended){yield return null;continue;}
                 Vector3 p=StreamPosition();int cx=TerrainRegionPlan.Cell(p.x),cz=TerrainRegionPlan.Cell(p.z),radius=world.TerrainRadius;
                 remove.Clear();foreach(var pair in loaded)if(Math.Max(Math.Abs(pair.Value.X-cx),Math.Abs(pair.Value.Z-cz))>radius+1)remove.Add(pair.Key);

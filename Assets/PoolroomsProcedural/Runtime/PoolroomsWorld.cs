@@ -59,11 +59,13 @@ namespace Poolrooms
         public string StreamingFailure {get;private set;}="";
         public string StreamingStatus {get{return !string.IsNullOrEmpty(StreamingFailure)?"Error de generación: "+StreamingFailure:layout==null?"Generador sin inicializar":viewer==null?"Falta el jugador de seguimiento":ViewerReady?"Zona preparada":"Generando suelo y conexiones";}}
         private Coroutine worker;
+        public bool FrontendSuspended { get; set; }
         private IEnumerator SupervisedStream()
         {
             StreamingFailure="";var stream=Stream();
             while(true)
             {
+                if(FrontendSuspended){yield return null;continue;}
                 bool next=false;Exception failure=null;
                 try{next=stream.MoveNext();}catch(Exception error){failure=error;}
                 if(failure!=null){StreamingFailure=failure.GetBaseException().Message;Debug.LogException(failure,this);worker=null;yield break;}
@@ -561,6 +563,7 @@ namespace Poolrooms
         }
         private void Update()
         {
+            if(FrontendSuspended)return;
             if(layout==null)return;
             if(!OutsideRooms)RecenterOrigin();
             if(connectedMalls!=null)
@@ -670,10 +673,14 @@ namespace Poolrooms
         {if(layout==null)return null;if(terrain!=null&&terrain.IsInside)return terrain.AcousticRoom;if(malls!=null&&malls.IsInside)return malls.AcousticRoom;if(connectedMalls!=null&&connectedMalls.AcousticRoom!=null)return connectedMalls.AcousticRoom;Vector2Int f=Focus();return layout.At(f.x,f.y);}
         // Explicit administrator travel does not depend on random portal probability or biome shares.
         public bool VisitAdministratorDistrict(bool exterior)
+        {return VisitDistrict(exterior,true);}
+        internal bool VisitJourneyDistrict(bool exterior)
+        {return VisitDistrict(exterior,false);}
+        private bool VisitDistrict(bool exterior,bool administratorOnly)
         {
             if(!Application.isPlaying||!isActiveAndEnabled||layout==null||viewer==null)return false;
             var actor=viewer.GetComponentInParent<PoolroomsExplorer>();
-            if(actor==null||actor.MasterMode==null||!actor.MasterMode.IsActive)return false;
+            if(actor==null||administratorOnly&&(actor.MasterMode==null||!actor.MasterMode.IsActive))return false;
             if(!exterior&&connectedMalls!=null&&ConnectedMallTopology.Enabled(layout.Config))return connectedMalls.VisitNearest();
             if(exterior&&terrain!=null&&terrain.ConnectedMode)return terrain.VisitNearest();
             if(exterior&&terrain!=null&&terrain.IsInside){actor.Teleport(terrain.Spawn);return true;}

@@ -64,6 +64,8 @@ namespace Poolrooms
         }
         public void OpenStartMenu()
         {
+            if(PoolroomsFrontend.Instance!=null&&PoolroomsFrontend.Instance.Owns(explorer))
+            {PoolroomsFrontend.Instance.ReturnToMenu();return;}
             atTitle=true;
             if(!paused)Pause();else ShowHome();
         }
@@ -86,6 +88,7 @@ namespace Poolrooms
         }
         public void Pause()
         {
+            if(PoolroomsFrontend.Instance!=null&&PoolroomsFrontend.Instance.Flow.Visible&&PoolroomsFrontend.Instance.Owns(explorer))return;
             explorer?.Inventory?.CloseInterface();explorer?.Views?.ExitPhoto();
             if(paused||!isActiveAndEnabled||explorer==null||!explorer.isActiveAndEnabled)return;
             var master=explorer.MasterMode;if(master!=null)master.CloseInterface();

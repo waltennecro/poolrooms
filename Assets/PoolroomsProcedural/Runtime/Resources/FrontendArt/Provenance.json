@@ -1,0 +1,54 @@
+{
+  "authoring": "Created specifically for this project using image_gen, 2026-10-21. No downloaded models or reference photograph copied.",
+  "use": "Menu decoration only; does not promise matching gameplay graphics.",
+  "files": [
+    {
+      "file": "Home.png",
+      "sha256": "9854e41222b93313867fb04eb304a250b7c10d3d135426ead6a2d00bc8459750",
+      "bytes": 2188398,
+      "width": 1672,
+      "height": 941,
+      "kind": "original AI-generated decorative menu illustration, not a Unity screenshot"
+    },
+    {
+      "file": "Journey.png",
+      "sha256": "a511b941111e8c983d3fc13a729883c63dec1b556f8b76d73dc06d436d6783dd",
+      "bytes": 2476676,
+      "width": 1672,
+      "height": 941,
+      "kind": "original AI-generated decorative menu illustration, not a Unity screenshot"
+    },
+    {
+      "file": "Atlas.png",
+      "sha256": "a288d9408cb5d87347065392463c8f05f94c4ba97d045ad6e15dc50eab4d3469",
+      "bytes": 2484951,
+      "width": 1672,
+      "height": 941,
+      "kind": "original AI-generated decorative menu illustration, not a Unity screenshot"
+    },
+    {
+      "file": "Options.png",
+      "sha256": "137a773a75fac3324e67ac5e98207f097e2e8771e2e95b909810a10cbe8d4d7d",
+      "bytes": 2396316,
+      "width": 1672,
+      "height": 941,
+      "kind": "original AI-generated decorative menu illustration, not a Unity screenshot"
+    },
+    {
+      "file": "Appearance.png",
+      "sha256": "3b5c46aea7b6764e48a11df698610559081a9040e6e5a495052c1e7fbf2d0456",
+      "bytes": 2604635,
+      "width": 1672,
+      "height": 941,
+      "kind": "original AI-generated decorative menu illustration, not a Unity screenshot"
+    },
+    {
+      "file": "Credits.png",
+      "sha256": "06fa081bb19bce7c09c4e53cf96c44e836d3cf7e7c2228cb74b43660575d0fdf",
+      "bytes": 2728306,
+      "width": 1672,
+      "height": 941,
+      "kind": "original AI-generated decorative menu illustration, not a Unity screenshot"
+    }
+  ]
+}

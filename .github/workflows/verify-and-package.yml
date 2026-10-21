@@ -28,6 +28,8 @@ jobs:
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --mall-retail
       - name: Check twelve workshops, constructive solutions, state meshes and bounded session memory
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --workshops
+      - name: Check independent frontend lifecycle, cancellation, seed selection and transitions
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --frontend
       - name: Check large procedural regions, broad halls and bounded walking routes
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --large-regions
       - name: Check ten special regions, preserved discovery slots and walking graph
@@ -81,6 +83,8 @@ jobs:
         run: python -m pip install -r Verification/requirements-art-tools.txt
       - name: Check twenty new level resource banks, licences, metric bounds and PBR bindings
         run: python tools/verify_journey_resources.py
+      - name: Check six original menu illustrations and importer bindings
+        run: python tools/verify_frontend_art.py
       - name: Check licensed mall models, LODs, native PBR maps and reference attribution
         run: python tools/verify_mall_resources.py
       - name: Check immersive sound, local library and shipped PCM

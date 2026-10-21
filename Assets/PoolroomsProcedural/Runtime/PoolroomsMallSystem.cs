@@ -143,6 +143,7 @@ namespace Poolrooms
             }
             while(IsInside&&version==epoch)
             {
+                if(world.FrontendSuspended){yield return null;continue;}
                 Vector3 p=interior.InverseTransformPoint(world.viewer.position);int floor=target.FloorAt(p.y),sector=target.SectorAt(p.x);
                 int radius=world.MallRadius,floorRadius=world.MallFloorRadius;remove.Clear();
                 foreach(var pair in loaded)if(Math.Abs(pair.Key/32-floor)>floorRadius||Math.Abs(pair.Key%32-sector)>radius+1)remove.Add(pair.Key);

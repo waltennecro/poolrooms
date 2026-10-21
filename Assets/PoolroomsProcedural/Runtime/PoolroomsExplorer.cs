@@ -205,6 +205,7 @@ namespace Poolrooms
         private bool waitForDestination;
         private void Update()
         {
+            if(PoolroomsFrontend.Instance!=null&&PoolroomsFrontend.Instance.Flow.Visible&&PoolroomsFrontend.Instance.Owns(this))return;
             ClearViewMotion();
             if(!externalInput)
             {

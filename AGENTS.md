@@ -36,6 +36,8 @@ Use an external Unity HDRP project to import the package, create the demo throug
 
 Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --workshops` for constructive puzzle solutions, bounded caches, state geometry and biome distribution. Workshop IDs append after the original twelve; keep legacy station IDs stable.
 
+Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --frontend` and `python tools/verify_frontend_art.py` for independent-menu flow and original background audits. Keep gameplay uninstantiated in the dedicated entry scene until Play is selected; returning to title must preserve the open session.
+
 ## Coding Style & Naming Conventions
 
 Use four-space indentation, PascalCase types/methods, and camelCase fields. Follow nearby compact C# formatting. Keep Core free of Unity references and generation deterministic. Append serialized enum values; preserve existing IDs. Keep the flashlight unchanged unless specifically requested. Prefer suitable high-quality external assets with verified licences, provenance, attribution and bounded placement/LOD costs.

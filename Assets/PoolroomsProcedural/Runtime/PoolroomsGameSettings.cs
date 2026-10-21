@@ -95,6 +95,12 @@ namespace Poolrooms
         {
             Initialize();Preferences.Sanitize();Apply(changes);dirty=true;saveAt=Time.unscaledTime+.6f;Changed?.Invoke();
         }
+        public void ApplyFrontendPreferences(GamePreferences values)
+        {
+            if(values==null)throw new ArgumentNullException(nameof(values));
+            Initialize();Preferences=Copy(values);Preferences.Sanitize();
+            Apply(SettingsChange.All);dirty=true;Changed?.Invoke();Flush();
+        }
         public void Reset(SettingsCategory category)
         {
             Initialize();if(category==SettingsCategory.Skins){GetComponent<PoolroomsAvatar>()?.ResetSettings();GetComponent<PoolroomsWings>()?.ResetSettings();return;}Preferences.Reset(category);
