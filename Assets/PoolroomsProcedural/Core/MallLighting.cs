@@ -16,7 +16,7 @@ namespace Poolrooms.Core
             // Compensate for the roof-to-ground distance, rather than making six floors
             // receive the same weak flux as a two-floor building.
             return new Fixture{Position=position,Width=5,Depth=5,Power=Math.Max(60000,Math.Min(650000,70000*height*height/144)),
-                Temperature=5700,Skylight=true,SolarBeam=true,Aim=new V3(0,-1,.1f).Unit,ConeAngle=55,Range=height+18};
+                Temperature=5700,Skylight=true,SolarBeam=true,MallSunlight=MallRealism.Enabled(p),Aim=new V3(0,-1,.1f).Unit,ConeAngle=55,Range=height+18};
         }
         public static MallShopLight Shop(MallPlan p,MallShop s)
         {

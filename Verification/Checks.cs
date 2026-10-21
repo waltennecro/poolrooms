@@ -48,6 +48,22 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--mall-atlas"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Mall atlas requires current core.");
+#else
+            ExportMallAtlas();return 0;
+#endif
+        }
+        if(args.Contains("--mall-retail"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Retail checks require current core.");
+#else
+            MallRetailWorld();IntegrationSourceContracts();return 0;
+#endif
+        }
         if(args.Contains("--large-regions"))
         {
 #if POOLROOMS_HISTORICAL_CORE
@@ -160,7 +176,7 @@ static partial class Checks
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
 #if !POOLROOMS_HISTORICAL_CORE
-        LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();
+        MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();
 #endif
         IntegrationSourceContracts();
         ForgivingJumpTiming();

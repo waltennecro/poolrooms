@@ -73,6 +73,7 @@ namespace Poolrooms.Core
             if(plan.Enhanced)MallArchitectureV20.ShellDetail(o,plan);
             if(plan.Refined)MallArchitectureV21.ShellDetail(o,plan);
             if(plan.Enhanced)SetMallTheme(o);
+            if(MallRealism.Enabled(plan))o.Structure.Theme=o.Decoration.Theme=SurfaceTheme.MallGallery;
             o.Dressing=ArchitecturalDressing.Build(o.Structure,LiminalRegions.Hash(plan.Seed,plan.AddressX,plan.AddressZ,0xDEC010u));
             return o;
         }
@@ -96,10 +97,17 @@ namespace Poolrooms.Core
                 var collision=new MeshData();var detail=new MeshData();if(store.Program!=null)store.Program.Build(collision,detail,quality);
                 else MallFurnishing.Store(collision,detail,store,quality,!plan.Enhanced);
                 if(plan.Refined&&store.Program==null)MallFurnishingV21.Store(collision,detail,o.Glass,store,quality);
+                if(MallRealism.Enabled(plan))MallRealism.FitOut(collision,detail,store);
                 if(store.FurnishingMirror<0){MallSpatialDesign.Mirror(collision);MallSpatialDesign.Mirror(detail);}
                 collision.TranslateRotate(new V3(store.X,y,store.Side*MallPlan.ShopFront),store.Side==1?0:Shapes.Pi);
                 detail.TranslateRotate(new V3(store.X,y,store.Side*MallPlan.ShopFront),store.Side==1?0:Shapes.Pi);
-                o.Structure.Append(collision);o.Decoration.Append(detail);
+                if(MallRealism.Enabled(plan))
+                {
+                    var interior=new MeshData{Theme=MallRealism.Theme(store.Kind),PaletteVariant=(int)(store.Seed%4),EmissionTint=MallRetailLighting.Emission(store.Kind),EmissionStrength=!MallRetailLighting.Open(plan,store)?3.2f:store.Kind==MallShopKind.Cinema||store.Kind==MallShopKind.Arcade?17.5f:150};
+                    interior.Append(collision);interior.Append(detail);o.VisualMeshes.Add(interior);o.CollisionOnly.Append(collision);
+                    MallRealism.AddSources(o,plan,store);
+                }
+                else{o.Structure.Append(collision);o.Decoration.Append(detail);}
                 string shopLabel=plan.Enhanced?MallArchitectureV20.ShopLabel(store):store.Name;
                 var sign=new MeshData();Box(sign,0,.03f,Math.Min(store.Width-1,14),.2f,3.55f,4.5f,Surface.Slide);
                 float letter=plan.Enhanced?Math.Min(.08f,12f/Math.Max(1,shopLabel.Length*6)):.08f;
@@ -130,10 +138,15 @@ namespace Poolrooms.Core
                     }
                     else MallFurnishing.Bench(o.Structure,x-4,side*20.5f,0,y);
                     float plantZ=side*14.8f;
+                    if(MallRealism.Enabled(plan))
+                    {o.SourceSeats.Add(new SourceFurniturePlacement(90000+floor*64+sector*2+(side>0?1:0),9,new V3(x+5,y,plantZ),0));}
+                    else
+                    {
                     Box(o.Structure,x+5,plantZ,1,1,y,y+.9f,Surface.Accent);Box(o.Decoration,x+5,plantZ,.8f,.8f,y+.86f,y+.9f,Surface.Slide);
                     // Stylized leaf strips; no fungi or character decorations.
                     for(int i=0;i<5;i++)ZoneShapes.Beam(o.Decoration,new V3(x+5,y+.9f,plantZ),new V3(x+5+(i-2)*.2f,y+1.7f,plantZ+(i%2==0?.3f:-.3f)),.05f,Surface.Slide,1.2f,4);
                     Box(o.Structure,x+6.5f,plantZ,.45f,.45f,y,y+.85f,Surface.Metal);
+                    }
                 }
                 Box(o.Decoration,x,z,2.2f,.8f,y+4.95f,y+5,Surface.Glow);
                 Box(o.Decoration,x,z+side*3,1,.15f,y+4.93f,y+5,Surface.Metal);
@@ -173,7 +186,8 @@ namespace Poolrooms.Core
             if(plan.Enhanced)
             {result.Pickups.Clear();SetMallTheme(o);MallArchitectureV20.Sector(result,plan,floor,sector,quality);
              if(plan.Refined)MallArchitectureV21.Sector(result,plan,floor,sector,quality);
-             MallLighting.Sector(result,plan,floor,sector);}
+             MallLighting.Sector(result,plan,floor,sector);
+             if(MallRealism.Enabled(plan)){o.Structure.Theme=o.Decoration.Theme=SurfaceTheme.MallGallery;MallRetailLighting.Apply(result,plan,floor,sector);}}
             o.Dressing=ArchitecturalDressing.Build(o.Structure,LiminalRegions.Hash(plan.Seed,floor,sector,0xDEC011u));
             return result;
         }

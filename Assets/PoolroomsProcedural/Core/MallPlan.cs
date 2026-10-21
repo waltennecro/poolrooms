@@ -27,12 +27,12 @@ namespace Poolrooms.Core
         public readonly MallShopKind Kind;
         public readonly float X,Width,Depth;
         public readonly uint Seed;
-        public readonly bool Refined;
+        public readonly bool Refined,Realistic;
         public readonly MallGeneratedProgram Program;
         public int FurnishingMirror { get { return Refined&&(Seed&1)!=0?-1:1; } }
         public string Name { get { return MallPlan.ShopName(Kind); } }
-        public MallShop(int id,int floor,int side,int sector,MallShopKind kind,float x,float width,float depth,uint seed,bool refined=false,bool autonomous=false)
-        {Id=id;Floor=floor;Side=side;Sector=sector;Kind=kind;X=x;Width=width;Depth=depth;Seed=seed;Refined=refined;Program=autonomous?new MallGeneratedProgram(this):null;}
+        public MallShop(int id,int floor,int side,int sector,MallShopKind kind,float x,float width,float depth,uint seed,bool refined=false,bool autonomous=false,bool realistic=false)
+        {Realistic=realistic;Id=id;Floor=floor;Side=side;Sector=sector;Kind=kind;X=x;Width=width;Depth=depth;Seed=seed;Refined=refined;Program=autonomous?new MallGeneratedProgram(this):null;}
         public V3 World(float x,float y,float z){return new V3(X+Side*x*FurnishingMirror,Floor*MallPlan.FloorHeight+y,Side*(MallPlan.ShopFront+z));}
         public V3 Entrance { get { return World(0,.1f,-1); } }
     }
@@ -40,15 +40,15 @@ namespace Poolrooms.Core
     {
         public const float FloorHeight=5.4f,ShopFront=22,BayWidth=16;
         public readonly int Seed,AddressX,AddressZ,Floors,Bays;
-        public readonly bool Enhanced,Refined,Autonomous,ExpandedArea,Spacious;
+        public readonly bool Enhanced,Refined,Autonomous,ExpandedArea,Spacious,Realistic;
         public readonly MallSpatialDesign Design;
         public readonly float Width,Depth,ShopHalf;
         public readonly MallShop[] Shops;
         public V3 Spawn { get { return new V3(0,.1f,-18); } }
         public int SectorCount { get { return Bays+2; } }
-        private MallPlan(int seed,int x,int z,int floors,int bays,float depth,MallShop[] shops,bool enhanced,bool refined,bool autonomous,bool larger,bool spacious)
-        {Spacious=spacious;ExpandedArea=larger;Enhanced=enhanced;Refined=enhanced&&refined;Autonomous=Enhanced&&Refined&&autonomous;Seed=seed;AddressX=x;AddressZ=z;Floors=floors;Bays=bays;ShopHalf=bays*BayWidth*.5f;Width=ShopHalf*2+56;Depth=depth;Shops=shops;Design=Refined?new MallSpatialDesign(this):null;}
-        public static MallPlan Create(int seed,int x,int z,bool enhanced=false,bool refined=false,bool autonomous=false,bool expanded=false,bool larger=false,bool spacious=false)
+        private MallPlan(int seed,int x,int z,int floors,int bays,float depth,MallShop[] shops,bool enhanced,bool refined,bool autonomous,bool larger,bool spacious,bool realistic)
+        {Realistic=realistic&&enhanced&&refined&&autonomous;Spacious=spacious;ExpandedArea=larger;Enhanced=enhanced;Refined=enhanced&&refined;Autonomous=Enhanced&&Refined&&autonomous;Seed=seed;AddressX=x;AddressZ=z;Floors=floors;Bays=bays;ShopHalf=bays*BayWidth*.5f;Width=ShopHalf*2+56;Depth=depth;Shops=shops;Design=Refined?new MallSpatialDesign(this):null;}
+        public static MallPlan Create(int seed,int x,int z,bool enhanced=false,bool refined=false,bool autonomous=false,bool expanded=false,bool larger=false,bool spacious=false,bool realistic=false)
         {
             var random=new StableRandom(LiminalRegions.Hash(seed,x,z,0xCA110u));
             int floors,bays;float depth;Dimensions(ref random,seed,x,z,expanded,larger,out floors,out bays,out depth,spacious);
@@ -69,9 +69,9 @@ namespace Poolrooms.Core
                     if(ordinal>0&&ordinal%kinds.Count==0)Shuffle(kinds,ref random);
                     kind=kinds[ordinal++%kinds.Count];
                 }
-                shops.Add(new MallShop(shops.Count,floor,side,bay+1+(span-1)/2,kind,-bays*BayWidth*.5f+(bay+span*.5f)*BayWidth,span*BayWidth,depth*.5f-ShopFront-.4f,random.Next(),enhanced&&refined,enhanced&&refined&&autonomous));bay+=span;
+                shops.Add(new MallShop(shops.Count,floor,side,bay+1+(span-1)/2,kind,-bays*BayWidth*.5f+(bay+span*.5f)*BayWidth,span*BayWidth,depth*.5f-ShopFront-.4f,random.Next(),enhanced&&refined,enhanced&&refined&&autonomous,realistic&&enhanced&&refined&&autonomous));bay+=span;
             }
-            return new MallPlan(seed,x,z,floors,bays,depth,shops.ToArray(),enhanced,refined,autonomous,larger,spacious);
+            return new MallPlan(seed,x,z,floors,bays,depth,shops.ToArray(),enhanced,refined,autonomous,larger,spacious,realistic);
         }
         public static void Dimensions(ref StableRandom random,int seed,int x,int z,bool expanded,bool larger,out int floors,out int bays,out float depth,bool spacious=false)
         {

@@ -15,20 +15,36 @@ namespace Poolrooms
         private PoolroomsChunk owner;
         private PoolroomsCarry carry;
         private GameObject batch;
+        private Bounds stockBounds;
+        private bool hasStockBounds;
         public int DisplayedCount { get; private set; }
         public void Initialize(MallPlan mall,MallSectorGeometry sector,float y,PoolroomsProfile p,PoolroomsChunk chunk,PoolroomsCarry c)
-        {plan=mall;slots=sector.Pickups.ToArray();removed=new bool[slots.Length];baseY=y;profile=p;owner=chunk;carry=c;Rebuild();}
+        {plan=mall;slots=sector.Pickups.ToArray();removed=new bool[slots.Length];baseY=y;profile=p;owner=chunk;carry=c;ComputeStockBounds();Rebuild();}
+        private void ComputeStockBounds()
+        {
+            hasStockBounds=false;
+            foreach(var slot in slots)
+            {
+                var center=slot.Position;var size=MallItemCatalog.Get(slot.ItemId).Size;
+                // Yaw can swap the item axes; an enclosing square is conservative.
+                float co=Mathf.Abs(Mathf.Cos(slot.Yaw)),si=Mathf.Abs(Mathf.Sin(slot.Yaw));
+                var bounds=new Bounds(new Vector3(center.X,center.Y-baseY,center.Z),new Vector3(co*size.X+si*size.Z,size.Y,si*size.X+co*size.Z));
+                if(!hasStockBounds){stockBounds=bounds;hasStockBounds=true;}else stockBounds.Encapsulate(bounds);
+            }
+            if(hasStockBounds)stockBounds.Expand(.002f);
+        }
         public bool Find(Vector3 position,Vector3 direction,float maximum,out int index,out float distance)
         {
             index=-1;distance=maximum;
             if(!isActiveAndEnabled||slots==null||carry==null||carry.Held!=null)return false;
             Vector3 local=transform.InverseTransformPoint(position),dir=transform.InverseTransformDirection(direction);
+            if(!hasStockBounds||!stockBounds.IntersectRay(new Ray(local,dir),out float near)||near>maximum)return false;
             V3 origin=new V3(local.x,local.y,local.z),forward=new V3(dir.x,dir.y,dir.z);
             for(int i=0;i<slots.Length;i++)
             {
                 if(removed[i]||carry.WasTaken(MallMerchandise.Key(plan,slots[i])))continue;
                 V3 center=slots[i].Position-new V3(0,baseY,0);float t;
-                if(MallMerchandise.RayBox(origin,forward,center,MallItemCatalog.Get(slots[i].ItemId).Size,distance,out t))
+                if(MallMerchandise.RayOrientedBox(origin,forward,center,MallItemCatalog.Get(slots[i].ItemId).Size,slots[i].Yaw,distance,out t))
                 {index=i;distance=t;}
             }
             return index>=0;

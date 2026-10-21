@@ -242,6 +242,14 @@ namespace Poolrooms.Core
                 default:return new[]{MallItemShape.Snack,MallItemShape.Bottle,MallItemShape.FoodBox,MallItemShape.Soap,MallItemShape.Notebook,MallItemShape.Plate};
             }
         }
+        public static bool RayOrientedBox(V3 origin,V3 direction,V3 center,V3 size,float yaw,float max,out float distance)
+        {
+            distance=0;if(float.IsNaN(yaw)||float.IsInfinity(yaw))return false;
+            float co=(float)Math.Cos(yaw),si=(float)Math.Sin(yaw);var delta=origin-center;
+            var local=new V3(co*delta.X-si*delta.Z,delta.Y,si*delta.X+co*delta.Z);
+            var forward=new V3(co*direction.X-si*direction.Z,direction.Y,si*direction.X+co*direction.Z);
+            return RayBox(local,forward,new V3(),size,max,out distance);
+        }
         public static bool RayBox(V3 origin,V3 direction,V3 center,V3 size,float max,out float distance)
         {
             distance=0;float end=max;

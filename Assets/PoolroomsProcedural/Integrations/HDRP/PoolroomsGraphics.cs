@@ -28,7 +28,8 @@ namespace Poolrooms.HDRP
         private HDAdditionalCameraData savedCamera;
         private HDAdditionalCameraData.AntialiasingMode savedAA;
         private int savedLightBudget,savedShadowBudget;
-        private bool budgetSaved;
+        private bool budgetSaved,textureBudgetSaved,savedTextureStreaming;
+        private float savedTextureBudget;
         private GamePreferences menuPreferences;
         public bool SettingsReady {get{return isActiveAndEnabled&&targetCamera!=null&&atmosphere!=null&&atmosphere.sharedProfile!=null&&GraphicsSettings.currentRenderPipeline is HDRenderPipelineAsset;}}
         public bool RayTracingAvailable {get{return CanRayTrace(out _);}}
@@ -69,6 +70,7 @@ namespace Poolrooms.HDRP
             var world=GetComponent<PoolroomsWorld>();
             if(budgetSaved&&world!=null){world.activeLightBudgetOverride=savedLightBudget;world.shadowLightBudgetOverride=savedShadowBudget;}
             budgetSaved=false;
+            if(textureBudgetSaved){QualitySettings.streamingMipmapsActive=savedTextureStreaming;QualitySettings.streamingMipmapsMemoryBudget=savedTextureBudget;textureBudgetSaved=false;}
         }
         public void Apply()
         {
@@ -99,6 +101,12 @@ namespace Poolrooms.HDRP
             var settings=pipeline.currentPlatformRenderPipelineSettings;
             RayTracingRequested=rt;
             bool low=quality==PoolroomsGraphicsQuality.Rendimiento;
+            if(Application.isPlaying)
+            {
+                if(!textureBudgetSaved){savedTextureStreaming=QualitySettings.streamingMipmapsActive;savedTextureBudget=QualitySettings.streamingMipmapsMemoryBudget;textureBudgetSaved=true;}
+                QualitySettings.streamingMipmapsActive=true;
+                QualitySettings.streamingMipmapsMemoryBudget=quality==PoolroomsGraphicsQuality.Ultra?1024:low?256:512;
+            }
             var sampling=new GraphicsSampling((int)quality,rt);
             ConfigureVolume(profile,low,rt,settings,exposureEV,sampling);
             if(menuPreferences!=null)

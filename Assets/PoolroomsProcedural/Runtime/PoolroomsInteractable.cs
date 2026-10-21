@@ -22,13 +22,17 @@ namespace Poolrooms
         public static void BindSource(PoolroomsPickup pickup,string source)
         {
             RoomActivity kind;
-            if(source=="SheenChair"||source=="I_ChairDamaskPurplegold"||source=="I_GlamVelvetSofa"||source=="U_SheenWoodLeatherSofa"||source=="B_CafeChair")kind=RoomActivity.Rest;
+            if(source=="SheenChair"||source=="I_ChairDamaskPurplegold"||source=="I_GlamVelvetSofa"||source=="U_SheenWoodLeatherSofa"||source=="B_CafeChair"||source=="M_Pouf"||source=="M_IndoorChair"||source=="M_Stool")kind=RoomActivity.Rest;
             else if(source=="G_PottedPlant"||source=="R_FlowerVase")kind=RoomActivity.Plant;
-            else if(source=="T_ArtNouveauLamp"||source=="R_BarnLamp"||source=="Lantern")kind=RoomActivity.Lamp;
+            else if(source=="T_ArtNouveauLamp"||source=="R_BarnLamp"||source=="Lantern"||source=="M_StainedLamp"||source=="M_DeskLamp")kind=RoomActivity.Lamp;
             else if(source=="BoomBox")kind=RoomActivity.Music;
+            else if(source=="M_Refrigerator"||source=="M_MenuSign")kind=RoomActivity.Reading;
+            else if(source=="M_CashRegister")kind=RoomActivity.Game;
             else return;
             var interaction=pickup.gameObject.AddComponent<PoolroomsInteractable>();interaction.activity=kind;interaction.key=pickup.SpawnKey;
             interaction.title=ExplorationItems.Resolve("source:"+source)?.Name??source;
+            if(source=="M_MenuSign")interaction.note="Menú de la tarde: café, té, fruta y una mesa libre. En el reverso alguien escribió: guarda sitio, vuelvo pronto.";
+            if(source=="M_Refrigerator")interaction.note="La reserva está preparada para la siguiente apertura. Quedó una lista de reposición junto al vidrio: agua, fruta y algo para compartir. Puedes guardar y mover este expositor; las botellas del modelo son decorativas.";
             interaction.world=pickup.GetComponentInParent<PoolroomsWorld>();
         }
         private static uint StableKey(string value){uint h=2166136261;foreach(char c in value??"")h=unchecked((h^c)*16777619);return h;}

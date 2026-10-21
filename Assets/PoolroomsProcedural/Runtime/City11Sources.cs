@@ -20,7 +20,7 @@ namespace Poolrooms
         public static Definition Get(string id)
         {
             if(definitions.TryGetValue(id,out var value))return value;
-            var data=Resources.Load<TextAsset>((id.StartsWith("R_",StringComparison.Ordinal)?"RestfulSources/":id.StartsWith("T_",StringComparison.Ordinal)?"BathSources/":id.StartsWith("G_",StringComparison.Ordinal)?"GardenSources/":id.StartsWith("B_Building",StringComparison.Ordinal)?"Buildings/":id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
+            var data=Resources.Load<TextAsset>((id.StartsWith("M_",StringComparison.Ordinal)?"MallSources/":id.StartsWith("R_",StringComparison.Ordinal)?"RestfulSources/":id.StartsWith("T_",StringComparison.Ordinal)?"BathSources/":id.StartsWith("G_",StringComparison.Ordinal)?"GardenSources/":id.StartsWith("B_Building",StringComparison.Ordinal)?"Buildings/":id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
             if(data==null)return null;value=JsonUtility.FromJson<Definition>(data.text);definitions.Add(id,value);return value;
         }
         public static GameObject Create(string id,Transform parent,Vector3 position,float targetLongest,out Vector3 size,int startLOD=0,bool preservePivot=false)
@@ -91,7 +91,7 @@ namespace Poolrooms
         static Vector3 Vec(float[] p){return new Vector3(p[0],p[1],p[2]);}
         static Matrix4x4 Relative(Transform node,Transform root)
         {return node==root?Matrix4x4.identity:Relative(node.parent,root)*Matrix4x4.TRS(node.localPosition,node.localRotation,node.localScale);}
-        static Material MaterialFor(MaterialDefinition d)
+        public static Material MaterialFor(MaterialDefinition d)
         {
             if(materials.TryGetValue(d.name,out var cached)&&cached!=null)return cached;
             bool specularWorkflow=d.workflow=="specular";

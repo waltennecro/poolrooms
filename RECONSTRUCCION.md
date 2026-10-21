@@ -919,3 +919,40 @@ archivos versionados, incluidos 1,085 Assets, coinciden por SHA-256
 individual y CRC. El verificador de descarga trabaja por streaming y no necesita
 almacenar otro ZIP. CI 39540890186 en ejecución al registrar la entrega; las
 cuatro pruebas nuevas, Unity, PhysX, shaders, imágenes y FPS siguen pendientes.
+
+
+## Centro comercial renovado
+
+Las dos rutas de generación comercial activan interiores refinados independientes
+del tamaño regional, conservando las 2–6 plantas, reservas, entradas a pie y radios
+de vista. Mobiliario según superficie mediante paquetes locales acotados, con
+96 conjuntos como máximo por tienda, pasos y bahías reservados. Seis programas
+de techo, revestimientos y luminarias visibles por local. Catorce modelos fuente
+nuevos, 28 derivados LOD y veinte acabados externos CC0/CC BY con procedencia,
+licencias y originales fijados; 161 mapas. Son modelos/derivados diferenciados,
+no miles de modelos descargados. Parte del catálogo paramétrico sigue en uso.
+
+Sol comercial reutilizando la luz regional existente, con desactivación del
+foco de tragaluz alternativo y reserva de presupuesto. Iluminación distribuida
+por planta; reflejos del sistema SSR/RT/sondas actual, sin más cámaras ni sondas.
+Mipmaps en streaming y materiales compartidos; selección de mercancía girada
+y descarte temprano de sectores fuera de alcance. Objetos recogibles, lámparas,
+asientos, fruta usable, menús cálidos y actividad en cajas registradoras. No se
+añade persistencia, ni se cambia la linterna.
+
+Comprobación: seis planos compactos/extensos describen 860 tiendas y 25.258
+conjuntos de mobiliario; 136 sectores construidos contienen 2.850 instancias de
+21 IDs fuente (incluidos anteriores), 26.295 artículos del catálogo y 4.874
+descripciones de luz local. No son objetos cargados simultáneamente ni modelos
+distintos. Se conservan 188 geometrías protegidas. Compilación de núcleo estricta
+sin avisos/errores, regresión de 1.887.360.876 aserciones y sintaxis C#9 de 296
+scripts en cinco configuraciones. Son comprobaciones del núcleo, no pruebas Unity.
+
+34 imágenes de referencia y seis planos reales en
+`Documentation/References/Mall/README.md`; ninguna captura Unity. Tres pruebas
+PlayMode nuevas, sin ejecutar. APIs Unity/HDRP, shaders, aspecto, interacción
+física y FPS quedan pendientes del editor. La animación de puerta del frigorífico
+no se importa: su exposición es estática. El CI anterior 39540890186 terminó
+correctamente; este avance guarda evidencias en `Verification/mall_retail_*`.
+
+Guía: `Assets/PoolroomsProcedural/Documentation/Centro_comercial_renovado.md`.

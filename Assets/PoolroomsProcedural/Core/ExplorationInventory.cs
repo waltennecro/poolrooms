@@ -44,11 +44,11 @@ namespace Poolrooms.Core
             }
             if(parts.Length==2&&parts[0]=="source")
             {
-                int known=-1;for(int i=0;i<14;i++)if(SourceFurniture.Id(i)==parts[1])known=i;
+                int known=-1;for(int i=0;i<SourceFurniture.Count;i++)if(SourceFurniture.Id(i)==parts[1])known=i;
                 if(known>=0||parts[1]=="Lantern")
                 {
-                    string[] names={"Botella de agua","Equipo de música","Silla de madera","Sofá de terciopelo","Sillón tapizado","Sofá de cuero","Cámara de sobremesa","Mesa de café","Silla de café","Planta en maceta","Lámpara Art Nouveau","Taza de porcelana","Jarrón con flores","Lámpara de sobremesa"};
-                    item=new ExplorationItem(key,known>=0?names[known]:"Farol","Modelo con licencia; procedencia y atribución en Créditos.",known==0||known==11?ItemUse.Drink:known==1?ItemUse.Listen:known==6?ItemUse.Photograph:ItemUse.None,false,source:parts[1]);
+                    string[] names={"Botella de agua","Equipo de música","Silla de madera","Sofá de terciopelo","Sillón tapizado","Sofá de cuero","Cámara de sobremesa","Mesa de café","Silla de café","Planta en maceta","Lámpara Art Nouveau","Taza de porcelana","Jarrón con flores","Lámpara de sobremesa","Refrigerador comercial","Puf de seda","Zapatilla de exposición","Lámpara de vidriera","Lámpara de escritorio","Mandarina","Aguacate","Plato de aceitunas","Silla de cafetería interior","Mesa de comedor","Caja registradora","Taburete de barra","Servilletero","Cartel de menú"};
+                    item=new ExplorationItem(key,known>=0?names[known]:"Farol","Modelo con licencia; procedencia y atribución en Créditos.",known==0||known==11?ItemUse.Drink:known==1?ItemUse.Listen:known==6?ItemUse.Photograph:known>=19&&known<=21?ItemUse.Eat:ItemUse.None,known==19||known==20,source:parts[1]);
                 }
             }
             if(parts.Length==3&&parts[0]=="play"&&int.TryParse(parts[1],out int kind)&&int.TryParse(parts[2],out int colour)&&kind>=0&&kind<3&&colour>=0&&colour<16)

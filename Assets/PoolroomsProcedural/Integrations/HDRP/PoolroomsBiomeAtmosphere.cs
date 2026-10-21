@@ -23,7 +23,7 @@ namespace Poolrooms.HDRP
         private PhysicallyBasedSky citySky;
         private float regionalEV;
         private LiminalEnvironment previous;
-        private bool previousMall,configured;
+        private bool previousMall,previousSun,configured;
         private float previousHeight;
         private void OnEnable()
         {
@@ -49,11 +49,14 @@ namespace Poolrooms.HDRP
             bool aerial=room!=null&&world.IsPilotingAircraft&&(world.Terrain==null||!world.Terrain.IsInside);
             bool active=aerial||room!=null&&room.Environment!=LiminalEnvironment.Poolrooms&&(world.Terrain==null||!world.Terrain.IsInside);
             volume.priority=aerial?14:4;
-            bool sunny=aerial||active&&(RestfulLevelPlanner.IsLevel(room.Environment)||room.Environment==LiminalEnvironment.RainHouses||room.Environment==LiminalEnvironment.AquaticPark||room.Environment==LiminalEnvironment.ThermalBaths||room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
+            bool mallPhysical=!aerial&&active&&world.InsideMall&&world.ActiveMallPlan!=null&&MallRealism.Enabled(world.ActiveMallPlan)&&
+                (world.shadowLightBudgetOverride>=0?world.shadowLightBudgetOverride:world.profile.maxShadowLights)>0;
+            bool sunny=mallPhysical||aerial||active&&(RestfulLevelPlanner.IsLevel(room.Environment)||room.Environment==LiminalEnvironment.RainHouses||room.Environment==LiminalEnvironment.AquaticPark||room.Environment==LiminalEnvironment.ThermalBaths||room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
             bool archive=!aerial&&active&&room.Environment==LiminalEnvironment.Archive906;
             bool rainy=!aerial&&sunny&&room.Environment==LiminalEnvironment.RainHouses;
             bool aquatic=!aerial&&sunny&&room.Environment==LiminalEnvironment.AquaticPark;
             bool sunset=!aerial&&sunny&&(room.Environment==LiminalEnvironment.SunsetLibrary||room.Environment==LiminalEnvironment.TeaPavilions||SpecialRegionPlanner.WarmLight(room.Environment)||aquatic||room.Environment==LiminalEnvironment.Coast48);
+            world.SetMallSunActive(mallPhysical);
             if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny&&!rainy;
             if(sunny||archive)
             {
@@ -64,14 +67,14 @@ namespace Poolrooms.HDRP
                 bool rt=shadows>0&&graphics!=null&&graphics.RayTracingRequested&&asset!=null&&asset.currentPlatformRenderPipelineSettings.hdShadowInitParams.supportScreenSpaceShadows;
                 if(citySunData.useScreenSpaceShadows!=rt)citySunData.useScreenSpaceShadows=rt;if(citySunData.useRayTracedShadows!=rt)citySunData.useRayTracedShadows=rt;
                 if(citySunData.numRayTracingSamples!=(rt?8:1))citySunData.numRayTracingSamples=rt?8:1;if(!citySunData.filterTracedShadow)citySunData.filterTracedShadow=true;
-                Vector3 local=world.viewer.position-world.RoomWorldPosition(room);bool shelter=archive;
+                Vector3 local=world.viewer.position-world.RoomWorldPosition(room);bool shelter=archive||mallPhysical;
                 if(!aerial&&room.Plan!=null&&(room.Plan.Restful!=null||room.Plan.Garden!=null||room.Plan.Baths!=null||room.Plan.Aquatic!=null))shelter=true;
                 if(room.Plan!=null&&room.Plan.Quiet!=null)shelter=room.Plan.Quiet.Sheltered(local.x,local.z,room.Width);
                 if(room.Plan!=null&&room.Plan.City!=null)foreach(var building in room.Plan.City.Buildings)
                     if(Mathf.Abs(local.x-building.X)<building.Width*.5f&&Mathf.Abs(local.z-building.Z)<building.Depth*.5f)shelter=true;
                 if(rainy)shelter=room.Plan.Rain.InsideLodge(local.x,local.z);
                 if(aerial)shelter=false;
-                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?6.3f:sunset?10.8f:shelter?7.7f:11.7f)+offset;
+                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?6.3f:sunset?10.8f:shelter?7.7f:11.7f)+offset;
                 if(regionalEV<=0)regionalEV=target;
                 regionalEV=Mathf.Lerp(regionalEV,target,1-Mathf.Exp(-Time.unscaledDeltaTime*2));cityExposure.fixedExposure.Override(regionalEV);
             }
@@ -80,13 +83,13 @@ namespace Poolrooms.HDRP
             bool mall=!aerial&&world.InsideMall;
             var effectiveEnvironment=aerial?LiminalEnvironment.City11:room.Environment;
             float height=mall?world.ActiveMallRoot.position.y:world.transform.position.y;
-            if(configured&&previous==effectiveEnvironment&&previousMall==mall&&Mathf.Abs(height-previousHeight)<.01f)return;
-            previous=effectiveEnvironment;previousMall=mall;previousHeight=height;configured=true;
+            if(configured&&previous==effectiveEnvironment&&previousMall==mall&&previousSun==sunny&&Mathf.Abs(height-previousHeight)<.01f)return;
+            previous=effectiveEnvironment;previousMall=mall;previousSun=sunny;previousHeight=height;configured=true;
             environment.skyType.Override((int)(sunny&&!rainy?SkyType.PhysicallyBased:SkyType.Gradient));
-            citySun.transform.localRotation=Quaternion.Euler(rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
-            citySun.color=rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
+            citySun.transform.localRotation=Quaternion.Euler(mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
+            citySun.color=mallPhysical?new Color(1,.94f,.84f):rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
 #pragma warning disable CS0618
-            citySunData.SetIntensity(rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
+            citySunData.SetIntensity(mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
 #pragma warning restore CS0618
             Color top=new Color(.57f,.66f,.78f),middle=new Color(.84f,.87f,.9f),bottom=new Color(.7f,.73f,.76f);float ev=-1;
             if(rainy){top=new Color(.35f,.43f,.49f);middle=new Color(.61f,.68f,.7f);bottom=new Color(.47f,.53f,.53f);ev=.5f;}
@@ -107,6 +110,7 @@ namespace Poolrooms.HDRP
         }
         private void OnDisable()
         {
+            if(world!=null)world.SetMallSunActive(false);
             if(volume!=null)volume.enabled=false;
             if(root!=null)Destroy(root);
             if(profile!=null){foreach(var component in profile.components)if(component!=null)Destroy(component);Destroy(profile);}

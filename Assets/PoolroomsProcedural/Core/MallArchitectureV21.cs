@@ -123,7 +123,7 @@ namespace Poolrooms.Core
                     B(o.Decoration,x-7.85f,side*18,.018f,7,y+.003f,y+.008f,Surface.Metal);
                     B(o.Decoration,x+6.5f,side*14.8f,.49f,.49f,y+.82f,y+.88f,Surface.Metal);
                     B(o.Decoration,x+6.5f,side*14.8f,.31f,.31f,y+.88f,y+.89f,Surface.Slide);
-                    MallFurnishingV21.Plant(o.Decoration,x+5,side*14.8f,y+.9f,quality);
+                    if(!MallRealism.Enabled(p))MallFurnishingV21.Plant(o.Decoration,x+5,side*14.8f,y+.9f,quality);
                 }
                 // Floor-wide ambience, not another per-frame behaviour or another Light.
                 if(floor==p.Floors-1&&sector%3==0)

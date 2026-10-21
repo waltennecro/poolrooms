@@ -72,7 +72,7 @@ namespace Poolrooms
                 for(int iz=bz-1;iz<=bz+1;iz++)for(int ix=bx-1;ix<=bx+1;ix++)
                 {
                     ConnectedMallSite site;if(!ConnectedMallTopology.Site(config,ix,iz,out site)||site.Distance(focus.x,focus.y)>radius||districts.ContainsKey(site.Key))continue;
-                    var d=new District{Site=site,Plan=MallPlan.Create(config.Seed,site.X,site.Z,true,true,config.AutonomousGeneration,config.ExpandedVariety,config.ExpandedBiomeAreas,LargeRegions.Enabled(config))};
+                    var d=new District{Site=site,Plan=MallPlan.Create(config.Seed,site.X,site.Z,true,true,config.AutonomousGeneration,config.ExpandedVariety,config.ExpandedBiomeAreas,LargeRegions.Enabled(config),true)};
                     var root=new GameObject("Connected mall · "+d.Plan.Floors+" floors · "+site.X+","+site.Z);d.Root=root.transform;d.Root.SetParent(world.transform,false);
                     d.Root.position=world.CellWorldPosition(site.X,site.Z);
                     d.Acoustic=new Room{X=site.X,Z=site.Z,Environment=LiminalEnvironment.Supermarket,Width=d.Plan.Width,Depth=d.Plan.Depth,Height=MallPlan.FloorHeight,
@@ -224,6 +224,7 @@ namespace Poolrooms
             var owner=go.AddComponent<PoolroomsChunk>();owner.cellX=d.Site.X;owner.cellZ=d.Site.Z;owner.connectedMall=true;owner.waterRegions=new WaterRegion[0];
             MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,owner,world.BuildColliders);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,owner,false);
+            PoolroomsMallMaterials.Attach(data,go.transform,world.profile,owner,world.BuildColliders,y);
             PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,world.profile,owner,world,-y);
             if(world.CurrentLayout.Config.EncounterExploration)PoolroomsRoomLife.AttachNotice(world,go.transform,owner,data.Dressing,"mall-note:"+d.Plan.Seed+":"+d.Site.X+":"+d.Site.Z+":"+name,d.Plan.Seed,d.Site.X,d.Site.Z,-y,data,LiminalEnvironment.Supermarket);
             MeshFactory.Create("Windows and skylight glazing",data.Glass,go.transform,world.profile,owner,world.BuildColliders);

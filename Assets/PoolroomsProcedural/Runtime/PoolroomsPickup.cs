@@ -54,7 +54,7 @@ namespace Poolrooms
             var collider=go.AddComponent<BoxCollider>();collider.size=size;
             var item=go.AddComponent<PoolroomsPickup>();item.shape=collider;item.SpawnKey=key;item.InventoryKey="source:"+source;item.surface=PickupSurface.Rigid;
             PoolroomsInteractable.BindSource(item,source);
-            item.mass=source=="WaterBottle"?.45f:source=="I_GlamVelvetSofa"||source=="U_SheenWoodLeatherSofa"?24:source=="SheenChair"||source=="I_ChairDamaskPurplegold"?6.5f:source=="U_AntiqueCamera"?9:source=="B_CafeTable"?12:source=="B_CafeChair"?4:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
+            item.mass=source=="M_Refrigerator"?65:source=="M_Pouf"?4:source=="M_Shoe"?.35f:source=="M_Mandarin"?.09f:source=="M_Avocado"?.18f:source=="M_OliveDish"?.45f:source=="M_IndoorChair"?4:source=="M_IndoorTable"?18:source=="M_CashRegister"?5:source=="M_Stool"?6:source=="M_Napkins"?.12f:source=="M_MenuSign"?1.2f:source=="M_StainedLamp"?4.2f:source=="WaterBottle"?.45f:source=="I_GlamVelvetSofa"||source=="U_SheenWoodLeatherSofa"?24:source=="SheenChair"||source=="I_ChairDamaskPurplegold"?6.5f:source=="U_AntiqueCamera"?9:source=="B_CafeTable"?12:source=="B_CafeChair"?4:1.8f;item.CarryRadius=size.magnitude*.5f+.015f;return item;
         }
         public static PoolroomsPickup Create(string key,Vector3 position,Transform parent,PoolroomsProfile profile)
         {

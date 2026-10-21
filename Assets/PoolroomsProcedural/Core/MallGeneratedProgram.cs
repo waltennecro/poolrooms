@@ -19,9 +19,11 @@ namespace Poolrooms.Core
             Routes=routes.ToArray();
             var obstacles=new List<PlanRect>(routes);
             if(s.Kind==MallShopKind.Cafe||s.Kind==MallShopKind.FoodCourt)obstacles.Add(new PlanRect(2.25f,4.4f,5.35f,5.6f));
+            if(s.Realistic&&(s.Kind==MallShopKind.Home||s.Kind==MallShopKind.Shoes||s.Kind==MallShopKind.Hypermarket||s.Kind==MallShopKind.Accessories))
+                foreach(int side in new[]{-1,1}){float px=side*(s.Width*.5f-2);obstacles.Add(new PlanRect(px-1.3f,s.Depth-5.3f,px+1.3f,s.Depth-2.5f));}
             var bounds=new PlanRect(-s.Width*.5f+.65f,3.6f,s.Width*.5f-.65f,s.Depth-2.4f);
             // Keep enough approach space to select products on the lower shelves.
-            Assemblies=s.Kind==MallShopKind.Restrooms?new GeneratedAssembly[0]:AssemblyPacking.Fill(bounds,obstacles,Kinds(s.Kind),random.Next(),s.Kind==MallShopKind.Hypermarket?24:9+random.Range(7),1.6f);
+            Assemblies=s.Kind==MallShopKind.Restrooms?new GeneratedAssembly[0]:s.Realistic?MallRetailPacking.Fill(bounds,obstacles,Kinds(s.Kind),random.Next()):AssemblyPacking.Fill(bounds,obstacles,Kinds(s.Kind),random.Next(),s.Kind==MallShopKind.Hypermarket?24:9+random.Range(7),1.6f);
         }
         private static AssemblyKind[] Kinds(MallShopKind kind)
         {
@@ -43,7 +45,12 @@ namespace Poolrooms.Core
         {
             if(shop.Kind==MallShopKind.Restrooms)
             {MallFurnishing.Store(physical,detail,shop,quality,false);return;}
-            foreach(var a in Assemblies)AutonomousArchitecture.Build(physical,detail,a,quality,1.2f,false);
+            foreach(var a in Assemblies)
+            {
+                bool replaced=false;
+                if(MallRealism.Replaces(shop,a))foreach(var source in MallRealism.AssemblySources(shop,a,0)){replaced=true;break;}
+                if(!replaced)AutonomousArchitecture.Build(physical,detail,a,quality,1.2f,false);
+            }
             float w=shop.Width,d=shop.Depth;
             // Perimeter finishes and equipment belong to the shop, with no extra dynamic light.
             foreach(int side in new[]{-1,1})
@@ -57,7 +64,7 @@ namespace Poolrooms.Core
                     MallArchitecture.Box(detail,x-side*.02f,z,.02f,1.7f,2.28f,3.02f,Surface.Plaster);
                 }
             }
-            for(float z=4;z<d-2;z+=5.5f)
+            if(!shop.Realistic)for(float z=4;z<d-2;z+=5.5f)
             {
                 MallArchitecture.Box(detail,0,z,1.1f,.7f,4.86f,4.89f,Surface.Glow);
                 if(quality>12)for(int fin=0;fin<4;fin++)MallArchitecture.Box(detail,w*.3f+(fin-1.5f)*.1f,z,.04f,.7f,4.88f,4.9f,Surface.Metal);
@@ -83,6 +90,8 @@ namespace Poolrooms.Core
                 Add(result,categories,ref random,new V3(side*5+(col-1.5f)*.55f,1,1.95f),0);
             foreach(var a in Assemblies)
             {
+                if(MallRealism.Replaces(shop,a))
+                {bool replaced=false;foreach(var source in MallRealism.AssemblySources(shop,a,0)){replaced=true;break;}if(replaced)continue;}
                 foreach(var point in GeneratedFurnishing.StockSupports(a))
                     Add(result,categories,ref random,point,a.Turns);
             }

@@ -11,6 +11,7 @@ namespace Poolrooms.Core
         // Localized aperture lights are the fallback when the physical sun cannot cast shadows.
         public bool SolarBeam,SolarFill;
         public bool AmbientSupport; // Diffuse readability aid; never a floating specular lamp.
+        public bool MallSunlight; // Mall aperture fallback, replaced by the shared regional sun.
         public bool PoolroomSunlight; // Local aperture fallback, replaced only by the Poolrooms directional sun.
         public V3 Aim;
         public float ConeAngle;

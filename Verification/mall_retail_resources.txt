@@ -1,0 +1,1 @@
+{"verified": true, "distinctNewModels": 14, "lodDerivatives": 28, "finishes": 20, "maps": 161, "sourceBytes": 394468245, "nativeAndLodTriangles": 687935, "sourceReferenceImages": 34, "corePlanImages": 6, "unityValidated": false}

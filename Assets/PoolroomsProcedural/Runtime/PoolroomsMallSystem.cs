@@ -98,7 +98,7 @@ namespace Poolrooms
             explorer=world.viewer.GetComponentInParent<PoolroomsExplorer>();if(explorer==null)return false;
             if(IsInside)Exit();
             if(world.Terrain!=null&&world.Terrain.IsInside)world.Terrain.Exit();
-            entrance=room;plan=MallPlan.Create(world.CurrentLayout.Config.Seed,room.X,room.Z,world.profile.enhancedMallArchitecture,world.profile.refinedMallArchitecture,world.profile.autonomousGeneration,world.CurrentLayout.Config.ExpandedVariety,world.CurrentLayout.Config.ExpandedBiomeAreas,LargeRegions.Enabled(world.CurrentLayout.Config));
+            entrance=room;plan=MallPlan.Create(world.CurrentLayout.Config.Seed,room.X,room.Z,world.profile.enhancedMallArchitecture,world.profile.refinedMallArchitecture,world.profile.autonomousGeneration,world.CurrentLayout.Config.ExpandedVariety,world.CurrentLayout.Config.ExpandedBiomeAreas,LargeRegions.Enabled(world.CurrentLayout.Config),true);
             AcousticRoom=new Room{X=room.X,Z=room.Z,Environment=LiminalEnvironment.Supermarket,Width=plan.Width,Depth=plan.Depth,Height=MallPlan.FloorHeight,DetailSeed=room.DetailSeed,
                 Plan=new ProceduralPlan(LiminalEnvironment.Supermarket,new PlannedModule[0],new WaterRegion[0],3,0,3)};
             if(!plan.Valid()){Debug.LogError("Poolrooms: invalid mall plan.",this);return false;}
@@ -208,6 +208,7 @@ namespace Poolrooms
             var chunk=go.AddComponent<PoolroomsChunk>();chunk.waterRegions=new WaterRegion[0];
             MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,chunk,world.BuildColliders);
             MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,chunk,false);
+            PoolroomsMallMaterials.Attach(data,go.transform,world.profile,chunk,world.BuildColliders,y);
             PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,world.profile,chunk,world,-y);
             MeshFactory.Create("Windows and skylight glazing",data.Glass,go.transform,world.profile,chunk,world.BuildColliders);
             world.RegisterExternalChunk(chunk,data.Fixtures);return chunk;
