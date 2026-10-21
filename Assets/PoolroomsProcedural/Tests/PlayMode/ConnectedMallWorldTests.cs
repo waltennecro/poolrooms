@@ -57,7 +57,7 @@ namespace Poolrooms.Tests
                 Assert.That(world.ActiveMallRoot.position.y,Is.EqualTo(world.transform.position.y));
                 Assert.That(world.GeneratedRoot.gameObject.activeSelf,Is.True,"Physical mall hid the shared world.");
                 Assert.That(world.ActiveMallPlan.Floors,Is.InRange(2,6));
-                Assert.That(world.ActiveMallPlan.Bays,Is.InRange(12,18));
+                Assert.That(world.ActiveMallPlan.Bays,Is.InRange(world.ActiveMallPlan.Spacious?24:12,world.ActiveMallPlan.Spacious?28:18));
                 Assert.That(world.ActiveMallPlan.ExpandedArea&&world.ActiveMallPlan.Valid(),Is.True);
                 // Floating-origin movement must keep the district at its logical address.
                 long key=site.Key;explorer.Teleport(world.CellWorldPosition(site.X+5,site.Z)+Vector3.up*30);yield return null;yield return null;

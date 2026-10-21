@@ -1,0 +1,77 @@
+{
+  "status": "implemented_native_validation_pending",
+  "baseRevision": "befcd01e432e02d3741c5888f378316f1f863770",
+  "catalogueBiomes": 38,
+  "additionalDestinations": 2,
+  "totalExplorableEnvironments": 40,
+  "defaultEnabledInUnityProfiles": true,
+  "legacyCoreFixturesUseCompactMode": true,
+  "defaultLinearScale": 8,
+  "allowedLinearScale": [
+    4,
+    12
+  ],
+  "defaultNominalCenterSpacingMetres": 1058.17956888514,
+  "nominalAreaMultiplier": 64,
+  "sectorRoles": [
+    "Galleries",
+    "Forum",
+    "Workshops",
+    "Exhibition",
+    "Rest"
+  ],
+  "broadGalleryProgrammes": 20,
+  "maximumHallSpanChunks": [
+    4,
+    4
+  ],
+  "broadHallCeilingMetres": 10.4,
+  "mallBays": [
+    24,
+    28
+  ],
+  "mallWidthMetres": [
+    440,
+    504
+  ],
+  "mallDepthMetres": [
+    180,
+    228
+  ],
+  "mallFloors": [
+    2,
+    6
+  ],
+  "largeRouteMaximumCoordinates": 16384,
+  "legacyRouteMaximumCoordinates": 4096,
+  "streamingRadiusChanged": false,
+  "newDownloadedModels": 0,
+  "newTextures": 0,
+  "extraReflectionCameras": 0,
+  "fullCoreAssertions": 1870132520,
+  "protectedGeometryFingerprints": 188,
+  "syntaxScripts": 290,
+  "syntaxConfigurations": 5,
+  "strictCoreBuildWarnings": 0,
+  "strictCoreBuildErrors": 0,
+  "focusedVerification": {
+    "locatedBiomeCases": 114,
+    "builtRoomMeshes": 114,
+    "walkingRoutes": 47,
+    "walkingRoomSteps": 5034,
+    "broadHallBoundaryPairs": 60
+  },
+  "newNativeTests": 4,
+  "updatedNativeMallExpectation": true,
+  "nativeUnityExecuted": false,
+  "documentation": "Assets/PoolroomsProcedural/Documentation/Regiones_extensas.md",
+  "evidence": "Verification/large_regions_delivery.json",
+  "limits": [
+    "Not all biomes adopt the same 4x4 hall; specialised architectures are preserved.",
+    "Voronoi centres define nominal scale, not a guaranteed rectangle or walking distance.",
+    "Large route search remains bounded and can fail outside its coordinate budget.",
+    "Native Unity, shader compilation, visual appearance, physics, audio and FPS unrun."
+  ],
+  "meshlessHallLinks": "handled_without_null_renderer",
+  "unloadedHallCaps": "full_width_and_height"
+}

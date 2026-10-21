@@ -388,14 +388,16 @@ namespace Poolrooms
                 for(int d=0;d<4;d++)if(r.HasExit(d))
                 {
                     // Full solid cap seals a doorway until BOTH neighbouring chunks exist.
-                    float half=SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
+                    bool openHall=r.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(layout.Config,r.X,r.Z,d,r.Environment);
+                    float half=openHall?layout.Config.CellSize*.5f:SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
                     var airfield=r.Plan!=null&&r.Plan.City!=null?r.Plan.City.Airfield:null;
                     if(airfield!=null&&Math.Abs(airfield.Column+Directions.DX[d])<=1&&Math.Abs(airfield.Row+Directions.DZ[d])<=3)half=layout.Config.CellSize*.5f;
                     var cap=new MeshData{Theme=profile.mallDistricts&&r.Environment==LiminalEnvironment.Supermarket?SurfaceTheme.Mall:BiomeSurfaces.ForEnvironment(r.Environment),RetailPalette=r.Environment==LiminalEnvironment.Supermarket?1:0,PlayPalette=r.Environment==LiminalEnvironment.IndoorPlay?1:0,PaletteVariant=r.Plan!=null?r.Plan.Palette:0};
-                    cap.Box(new V3(-half,r.Floor,-t*.5f),new V3(half,SolarConnections.DoorHeight(r,d,layout.Config),t*.5f),r.Environment==LiminalEnvironment.Poolrooms?Surface.Tile:Surface.Plaster,layout.Config.TextureWorldSize);
+                    cap.Box(new V3(-half,r.Floor,-t*.5f),new V3(half,openHall?r.Height:SolarConnections.DoorHeight(r,d,layout.Config),t*.5f),r.Environment==LiminalEnvironment.Poolrooms?Surface.Tile:Surface.Plaster,layout.Config.TextureWorldSize);
                     cap.TranslateRotate(new V3(Directions.DX[d]*r.Width*.5f,0,Directions.DZ[d]*r.Depth*.5f),d*Shapes.Pi*.5f);
                     chunk.caps[d]=MeshFactory.Create("Streaming gate "+d,cap,go.transform,profile,chunk,BuildColliders);
-                    if(d<2&&data.Connectors[d]!=null)
+                    // Broad halls share their floor; an intentionally empty connector has no renderer.
+                    if(d<2&&data.Connectors[d]!=null&&data.Connectors[d].Structure.TriangleCount>0)
                     {
                         CorridorGeometry corridor=data.Connectors[d];
                         chunk.links[d]=MeshFactory.Create("Connector "+d+" - "+(corridor.SolarConnection==SolarConnectionKind.Existing?corridor.Style.ToString():corridor.SolarConnection.ToString()),corridor.Structure,go.transform,profile,chunk,BuildColliders);

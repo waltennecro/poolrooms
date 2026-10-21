@@ -17,7 +17,8 @@ namespace Poolrooms.Core
             foreach(var pool in p.Pools)PlanRect.Subtract(floor,new PlanRect(pool.CenterX-pool.Width*.5f,pool.CenterZ-pool.Depth*.5f,pool.CenterX+pool.Width*.5f,pool.CenterZ+pool.Depth*.5f));
             foreach(var f in floor)Box(o.Structure,f.X,f.Z,f.Width,f.Depth,-.28f,0,Surface.Tile);
             foreach(var pool in p.Pools)Basin(o,pool);
-            Envelope(o,r,c);Roof(o,r,c);PerimeterJoinery(o,r);
+            Envelope(o,r,c);Roof(o,r,c);PerimeterJoinery(o,r,c);
+            if(p.Large)RegionalDetails(o,r,c);
             for(int i=0;i<4;i++)
             {
                 var b=p.Bays[i];int sx=i%2==0?-1:1,sz=i<2?-1:1;
@@ -42,7 +43,8 @@ namespace Poolrooms.Core
                 // Under-table stretchers stop below knee height and outside the front approach.
                 Box(o.Decoration,b.X,z+.47f,2.2f,.045f,.22f,.27f,Surface.Metal);
                 // Skirting and inset ceiling joinery, with no decorative coplanar faces.
-                Box(o.Decoration,sx*(half-.12f),sz*(p.Clear+half)*.5f,.1f,half-p.Clear-.3f,.03f,.14f,Surface.Accent);
+                if(!LargeRegions.OpenEdge(c,r.X,r.Z,sx>0?1:3,r.Environment))
+                    Box(o.Decoration,sx*(half-.12f),sz*(p.Clear+half)*.5f,.1f,half-p.Clear-.3f,.03f,.14f,Surface.Accent);
             }
             ProceduralArchitecture.Prune(o.Structure);ProceduralArchitecture.Prune(o.Decoration);ProceduralArchitecture.Prune(o.Glass);return o;
         }
@@ -51,7 +53,14 @@ namespace Poolrooms.Core
             for(int side=0;side<4;side++)
             {
                 var wall=new MeshData();
-                if(r.HasExit(side))Shapes.Portal(wall,r.Width,r.Height,0,c.DoorWidth,c.DoorHeight,.28f,Math.Max(12,c.CurveSegments/2),1.2f);
+                if(r.HasExit(side)&&LargeRegions.OpenEdge(c,r.X,r.Z,side,r.Environment))
+                {
+                    if(side>=2)continue; // One owner avoids coplanar shared portal faces.
+                    float pier=.6f;
+                    foreach(int sign in new[]{-1,1})Box(wall,sign*(r.Width*.5f-pier*.5f),0,pier,.28f,0,r.Height,Surface.Plaster);
+                    Box(wall,0,0,r.Width-2*pier,.28f,r.Height-.45f,r.Height,Surface.Accent);
+                }
+                else if(r.HasExit(side))Shapes.Portal(wall,r.Width,r.Height,0,c.DoorWidth,c.DoorHeight,.28f,Math.Max(12,c.CurveSegments/2),1.2f);
                 else Box(wall,0,0,r.Width,.28f,0,r.Height,Surface.Plaster);
                 wall.Indices[(int)Surface.Plaster].AddRange(wall.Indices[(int)Surface.Tile]);wall.Indices[(int)Surface.Tile].Clear();
                 wall.TranslateRotate(new V3(Directions.DX[side]*r.Width*.5f,0,Directions.DZ[side]*r.Depth*.5f),side*Shapes.Pi*.5f);o.Structure.Append(wall);

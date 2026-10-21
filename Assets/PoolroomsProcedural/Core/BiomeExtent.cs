@@ -9,6 +9,7 @@ namespace Poolrooms.Core
         public const double AreaMultiplier=1.5;
         public static double Linear(LayoutConfig c){return c.ExpandedBiomeAreas?Math.Sqrt(AreaMultiplier):1;}
         public static double Spacing(LayoutConfig c,int original){return original*Linear(c);}
+        public static double RegionSpacing(LayoutConfig c){return Spacing(c,c.EnvironmentRegionSize)*(LargeRegions.Enabled(c)?c.LargeRegionScale:1);}
         public static int Cell(int coordinate,double spacing){return (int)Math.Floor(coordinate/spacing);}
         public static void Radii(LayoutConfig c,int originalX,int originalZ,out int radiusX,out int radiusZ)
         {
@@ -25,7 +26,7 @@ namespace Poolrooms.Core
         }
         public static void NearestRegion(LayoutConfig c,int x,int z,out int selectedX,out int selectedZ)
         {
-            double size=Spacing(c,c.EnvironmentRegionSize);
+            double size=RegionSpacing(c);
             int rx=Cell(x,size),rz=Cell(z,size);selectedX=selectedZ=0;double best=double.MaxValue;
             for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++)
             {

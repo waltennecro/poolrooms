@@ -24,7 +24,9 @@ namespace Poolrooms.Core
         public const int MaxFurniture=9;
         public static RoomLifePlan Build(Room room,RoomGeometry geometry,LayoutConfig c)
         {
-            var plan=new RoomLifePlan{Vignette=RoomMemories.At(c.Seed,room.X,room.Z,room.Environment)};
+            var memory=RoomMemories.At(c.Seed,room.X,room.Z,room.Environment);
+            if(LargeRegions.Enabled(c)){var section=LargeRegions.Section(c,room.X,room.Z,room.Environment);memory=new RoomVignette(memory.Title+" · "+LargeRegions.SectionName(section),memory.Note,memory.Activity,memory.Edition);}
+            var plan=new RoomLifePlan{Vignette=memory};
             if(geometry.Dressing!=null)foreach(var anchor in geometry.Dressing.Anchors)
                 if(anchor.Center.Y>=room.Floor+.85f&&anchor.Center.Y<=room.Floor+1.9f&&V3.Dot(anchor.Normal,new V3(-anchor.Center.X,0,-anchor.Center.Z))>.1f)plan.Notice=anchor;
             if(room.MallGateway||room.TerrainGateway)return plan;

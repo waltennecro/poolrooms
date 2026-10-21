@@ -100,6 +100,7 @@ namespace Poolrooms.Core
                 if(c.Procedural==LiminalGeneration.IndoorPlay&&environment!=LiminalEnvironment.IndoorPlay)return false;
                 if(c.Procedural==LiminalGeneration.Mixed&&c.IndoorPlayShare==0&&environment==LiminalEnvironment.IndoorPlay)return false;
             }
+            if(LargeRegions.Enabled(c))return LargeRegions.Find(c,environment,x,z,out foundX,out foundZ);
             for(int radius=0;radius<=128;radius++)for(int offset=-radius;offset<=radius;offset++)for(int side=0;side<4;side++)
             {
                 long xx=(long)x+(side==0||side==2?offset:side==1?radius:-radius);

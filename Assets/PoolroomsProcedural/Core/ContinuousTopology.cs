@@ -10,6 +10,7 @@ namespace Poolrooms.Core
         private readonly LayoutConfig config;
         private readonly Dictionary<long,Layout> tiles=new Dictionary<long,Layout>();
         private readonly List<long> retired=new List<long>();
+        private readonly Dictionary<long,int> largeEdges=new Dictionary<long,int>();
         public int Count { get { return tiles.Count; } }
         public ContinuousTopology(LayoutConfig c){config=c;}
         public static long CellKey(int x,int z){return unchecked(((long)x<<32)|(uint)z);}
@@ -53,6 +54,7 @@ namespace Poolrooms.Core
 
         public int Exits(int x,int z)
         {
+            long address=CellKey(x,z);if(LargeRegions.Enabled(config)&&largeEdges.TryGetValue(address,out int known))return known;
             int size=config.DistrictSize,tx=FloorDivide(x,size),tz=FloorDivide(z,size);
             int localX=(int)(x-(long)tx*size),localZ=(int)(z-(long)tz*size),exits=Tile(tx,tz).At(localX,localZ).Exits;
             if(localX==size-1&&Gate(tx,tz,localZ,1))exits|=1<<1;
@@ -68,7 +70,7 @@ namespace Poolrooms.Core
                     if(nx>=int.MinValue&&nx<=int.MaxValue&&nz>=int.MinValue&&nz<=int.MaxValue&&LiminalRegions.At(config,(int)nx,(int)nz)!=current)exits|=1<<d;
                 }
             }
-            return exits;
+            int result=LargeRegions.Exits(config,x,z,exits);if(LargeRegions.Enabled(config))largeEdges[address]=result;return result;
         }
 
         private bool Gate(int tx,int tz,int offset,int direction)
@@ -93,6 +95,8 @@ namespace Poolrooms.Core
                 if(tx<x0||tx>x1||tz<z0||tz>z1)retired.Add(pair.Key);
             }
             foreach(long key in retired)tiles.Remove(key);retired.Clear();
+            foreach(var pair in largeEdges)if(Math.Abs((long)(int)(pair.Key>>32)-x)>radius+1L||Math.Abs((long)unchecked((int)pair.Key)-z)>radius+1L)retired.Add(pair.Key);
+            foreach(long key in retired)largeEdges.Remove(key);retired.Clear();
         }
     }
 }

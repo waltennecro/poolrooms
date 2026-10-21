@@ -877,3 +877,37 @@ Respaldo funcional: `db65e160d00a07add367e36be53b156cfe873e0e`. ZIP acumulativo 
 Descarga pública nueva: 509,099,076 bytes, los 1,395 archivos
 versionados y 1,080 Assets coinciden por SHA-256 con el código publicado.
 CI 39537031131 en ejecución al registrar la entrega; no se declara aprobado.
+
+
+## Regiones extensas — ampliación de todos los ambientes
+
+Los 38 biomas reciben campo regional procedural extenso: multiplicador lineal 8
+por defecto, aproximadamente 64× el área nominal y unos 1.058 m entre centros con
+la celda habitual. La escala de perfil se configura entre 4 y 12 y la exploración
+unificada respeta su desactivación. No se escala al jugador ni se modifica el radio
+de renderizado. El núcleo compacto conserva sus comparaciones históricas; la
+opción se activa por defecto en los perfiles de Unity y se prueba por separado.
+
+Cinco sectores por coordenadas; los veinte programas de galerías y especiales
+abren salones de hasta 4×4 chunks con techos alineados, uniones anchas y piezas
+estructurales propias. Los demás biomas mantienen sus arquitecturas específicas
+dentro de regiones mayores. Los centros comerciales crecen a 24–28 módulos,
+440–504 × 180–228 m y 2–6 plantas; las reservas coinciden con el edificio generado
+y permanecen fuera del inicio y de otros edificios/terreno. El nivel 94 amplía
+su terreno poblado conservando las viviendas cercanas, caminos y pasto actuales.
+
+Búsqueda por centros de regiones y rutas A* limitadas a 16.384 coordenadas; las
+avenidas siguen conexiones recíprocas reales. El streaming describe sólo el plan
+seleccionado y recorta sus cachés, incluyendo las nuevas conexiones de salón.
+Se conserva el BFS compacto de 4.096 coordenadas. Sin nuevos modelos descargados,
+mapas, cámaras de reflexión ni persistencia de partida.
+
+Comprobación: 114 destinos y mallas de habitación, 47 rutas/5.034 pasos y 60
+uniones de salón de los veinte programas en tres escalas. Regresión completa:
+1.870.132.520 aserciones del núcleo, 188 geometrías protegidas y sintaxis de 290
+scripts en cinco configuraciones. Compilación estricta sin avisos ni errores.
+Cuatro pruebas nativas nuevas, incluyendo carga real de conectores sin malla y
+sellado de límites de streaming; expectativa de tamaño comercial anterior actualizada;
+Unity, PhysX, shaders, imágenes, escucha y FPS siguen pendientes.
+
+El CI de las diez regiones especiales 39537031131 finalizó correctamente.

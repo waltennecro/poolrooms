@@ -106,7 +106,7 @@ namespace Poolrooms.Core
             // Match the seed's Voronoi group. All rooms in a coastal district share one
             // coastline instead of repeating a separate beach in every room.
             int selectedX,selectedZ;BiomeExtent.NearestRegion(c,r.X,r.Z,out selectedX,out selectedZ);
-            double size=BiomeExtent.Spacing(c,c.EnvironmentRegionSize);
+            double size=BiomeExtent.RegionSpacing(c);
             int group=ContinuousTopology.FloorDivide(selectedX,2);double global=(2.0*group+1)*size*c.CellSize;
             return (float)Math.Max(-c.CellSize*.5f,Math.Min(c.CellSize*.5f,global-(double)r.X*c.CellSize));
         }

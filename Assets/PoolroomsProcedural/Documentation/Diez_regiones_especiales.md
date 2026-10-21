@@ -2,7 +2,8 @@
 
 El catálogo pasa de 28 a **38 biomas**. Sumando los dos destinos especiales
 anteriores —nivel 94 y centro comercial completo— hay **40 ambientes explorables**.
-Las diez incorporaciones son regiones del mundo continuo; no son diez escenas
+La actualización de [regiones extensas](Regiones_extensas.md) amplía su escala
+y añade salones continuos. Las diez incorporaciones son regiones del mundo continuo; no son diez escenas
 separadas ni requieren teletransporte o modo maestro.
 
 | Región | Arquitectura propia | Actividad temática disponible |

@@ -49,6 +49,8 @@ namespace Poolrooms.Core
         public bool ExpandedBiomeAreas;
         public bool EnableRestfulLevels;
         public bool EnableSpecialRegions;
+        public bool LargeProceduralRegions;
+        public int LargeRegionScale=8;
         // 1 preserves old placement budgets. 3 is +200%, never an unbounded multiplier.
         public int ObjectAbundance=1;
         public bool IndependentBiomeMaterials,MallDistricts;
@@ -111,6 +113,7 @@ namespace Poolrooms.Core
 
         public void Validate()
         {
+            if(LargeRegionScale<4||LargeRegionScale>12)throw new ArgumentOutOfRangeException(nameof(LargeRegionScale));
             if(ObjectAbundance<1||ObjectAbundance>3)throw new ArgumentOutOfRangeException(nameof(ObjectAbundance));
             if(!Finite(RainHouseShare)||RainHouseShare<0||RainHouseShare>1)throw new ArgumentOutOfRangeException(nameof(RainHouseShare));
             if(!Finite(AquaticParkShare)||AquaticParkShare<0||AquaticParkShare>1)throw new ArgumentOutOfRangeException(nameof(AquaticParkShare));

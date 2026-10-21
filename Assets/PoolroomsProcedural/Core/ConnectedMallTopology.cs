@@ -11,7 +11,7 @@ namespace Poolrooms.Core
         {
             X=x;Z=z;
             var random=new StableRandom(LiminalRegions.Hash(c.Seed,x,z,0xCA110u));
-            int floors,bays;float depth;MallPlan.Dimensions(ref random,c.Seed,x,z,c.ExpandedVariety,c.ExpandedBiomeAreas,out floors,out bays,out depth);
+            int floors,bays;float depth;MallPlan.Dimensions(ref random,c.Seed,x,z,c.ExpandedVariety,c.ExpandedBiomeAreas,out floors,out bays,out depth,LargeRegions.Enabled(c));
             Floors=floors;Bays=bays;Depth=depth;
             Width=Bays*MallPlan.BayWidth+56;
             RadiusX=(int)Math.Ceiling(Width*.5f/c.CellSize);
@@ -30,12 +30,14 @@ namespace Poolrooms.Core
         public static bool Site(LayoutConfig c,int bx,int bz,out ConnectedMallSite site)
         {
             site=default(ConnectedMallSite);if(!Enabled(c))return false;
+            bool spacious=LargeRegions.Enabled(c);if(spacious&&bx==1&&bz==0)return false;
             uint h=StableRandom.Hash(c.Seed,bx,bz,0x28001u);
             if((bx!=0||bz!=0)&&(h>>8)*(1f/16777216f)>=c.ConnectedMallShare)return false;
             // A first connected district near spawn; subsequent locations vary by seed.
-            long x=(long)bx*BlockSize+(bx==0&&bz==0?9:(int)(h%5)-2);
-            long z=(long)bz*BlockSize+(bx==0&&bz==0?0:(int)((h>>4)%5)-2);
-            if(x<int.MinValue+8L||x>int.MaxValue-8L||z<int.MinValue+8L||z>int.MaxValue-8L)return false;
+            long x=(long)bx*BlockSize+(bx==0&&bz==0?(spacious?13:9):spacious?0:(int)(h%5)-2);
+            long z=(long)bz*BlockSize+(bx==0&&bz==0?0:spacious?0:(int)((h>>4)%5)-2);
+            long margin=spacious?12:8;
+            if(x<int.MinValue+margin||x>int.MaxValue-margin||z<int.MinValue+margin||z>int.MaxValue-margin)return false;
             site=new ConnectedMallSite(c,(int)x,(int)z);
             return !ConnectedTerrainTopology.Intersects(c,site.X,site.Z,site.RadiusX+1,site.RadiusZ+1);
         }

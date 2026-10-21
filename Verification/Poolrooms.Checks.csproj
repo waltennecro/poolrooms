@@ -17,6 +17,7 @@
     <Compile Include="WaterOpticsChecks.cs" />
     <Compile Include="CameraAvatarChecks.cs" />
     <Compile Include="HumanoidChecks.cs" />
+    <Compile Include="LargeRegionChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="SpecialRegionChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="ImmersionStationChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="EncounterChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />

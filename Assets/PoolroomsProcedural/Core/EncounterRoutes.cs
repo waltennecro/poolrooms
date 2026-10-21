@@ -18,6 +18,7 @@ namespace Poolrooms.Core
         public static EncounterRoute Find(LayoutConfig config,int x,int z,RouteDestination destination,LiminalEnvironment selected=LiminalEnvironment.Poolrooms)
         {
             if(config==null||!config.Continuous||ConnectedTerrainTopology.Reserved(config,x,z))return null;
+            if(LargeRegions.Enabled(config))return LargeRegionRoutes.Find(config,x,z,destination,selected);
             var topology=new ContinuousTopology(config);var parents=new Dictionary<long,(long parent,int direction)>();var queue=new Queue<long>();
             var initial=LiminalRegions.At(config,x,z);long origin=ContinuousTopology.CellKey(x,z);parents.Add(origin,(origin,-1));queue.Enqueue(origin);
             while(queue.Count>0)

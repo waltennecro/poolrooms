@@ -24,6 +24,8 @@ jobs:
         run: |
           dotnet build Verification/Poolrooms.Checks.csproj --configuration Release -warnaserror
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj
+      - name: Check large procedural regions, broad halls and bounded walking routes
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --large-regions
       - name: Check ten special regions, preserved discovery slots and walking graph
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --special-regions
       - name: Check all new restful recipe banks and architectural axes

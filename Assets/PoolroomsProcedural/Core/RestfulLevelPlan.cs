@@ -11,15 +11,17 @@ namespace Poolrooms.Core
         public readonly int Recipe,Layout,Span,Reach,Elevation,Roof,Rhythm;
         public readonly LiminalEnvironment Environment;
         public readonly float Clear,Height;
+        public readonly RegionSection Section;
+        public readonly bool Large;
         public readonly PlanRect[] Bays;
         public readonly QuietPropPlan[] Props;
         public readonly WaterRegion[] Pools;
-        public RestfulLevelPlan(int recipe,LiminalEnvironment environment,float clear,PlanRect[] bays,QuietPropPlan[] props,WaterRegion[] pools)
+        public RestfulLevelPlan(int recipe,LiminalEnvironment environment,float clear,PlanRect[] bays,QuietPropPlan[] props,WaterRegion[] pools,bool large=false,RegionSection section=RegionSection.Galleries)
         {
             if(recipe<0||recipe>=RecipeCount)throw new ArgumentOutOfRangeException(nameof(recipe));
             Recipe=recipe;Layout=recipe%4;Span=recipe/4%8;Reach=recipe/32%8;
             Elevation=recipe/256%8;Roof=recipe/2048%8;Rhythm=recipe/16384%8;
-            Environment=environment;Clear=clear;Height=7.2f+Elevation*.42f;Bays=bays;Props=props;Pools=pools;
+            Large=large;Section=section;Environment=environment;Clear=clear;Height=large?10.4f:7.2f+Elevation*.42f;Bays=bays;Props=props;Pools=pools;
         }
         public bool Valid(Room room,LayoutConfig c)
         {
@@ -114,7 +116,7 @@ namespace Poolrooms.Core
             if(r.Environment==LiminalEnvironment.WinterGarden)
                 foreach(var bay in bays)props.Add(new QuietPropPlan(new V3(bay.X,.401f,bay.Z),-1,"G_PottedPlant",(recipe%4)*90));
             if(SpecialRegionPlanner.IsLevel(r.Environment))SpecialRegionPlanner.Furnish(r.Environment,props);
-            var plan=new RestfulLevelPlan(recipe,r.Environment,clear,bays,props.ToArray(),pools.ToArray());
+            var plan=new RestfulLevelPlan(recipe,r.Environment,clear,bays,props.ToArray(),pools.ToArray(),LargeRegions.Enabled(c),LargeRegions.Section(c,r.X,r.Z,r.Environment));
             r.ZoneId=-1;r.Width=r.Depth=c.CellSize;r.Height=plan.Height;
             r.Plan=new ProceduralPlan(r.Environment,new PlannedModule[0],plan.Pools,clear,0,0,restful:plan);
             if(!plan.Valid(r,c))throw new ArgumentException("Invalid restful level recipe "+r.Environment+" / "+recipe);

@@ -48,6 +48,14 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+        if(args.Contains("--large-regions"))
+        {
+#if POOLROOMS_HISTORICAL_CORE
+            throw new InvalidOperationException("Large region checks require current Core.");
+#else
+            LargeRegionWorld();IntegrationSourceContracts();return 0;
+#endif
+        }
         if(args.Contains("--special-regions"))
         {
 #if POOLROOMS_HISTORICAL_CORE
@@ -152,7 +160,7 @@ static partial class Checks
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
 #if !POOLROOMS_HISTORICAL_CORE
-        SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();
+        LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();
 #endif
         IntegrationSourceContracts();
         ForgivingJumpTiming();

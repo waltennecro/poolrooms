@@ -10,7 +10,7 @@ namespace Poolrooms.Core
         {
             X=x;Z=z;var rng=new StableRandom(StableRandom.Hash(c.Seed,x,z,0x940024u));
             int originalX=(int)Math.Ceiling((12+rng.Range(9))*64/c.CellSize),originalZ=(int)Math.Ceiling((12+rng.Range(9))*64/c.CellSize);
-            if(c.EncounterExploration){originalX=6+rng.Range(4);originalZ=6+rng.Range(4);}
+            if(c.EncounterExploration){int span=LargeRegions.Enabled(c)?12:6,range=LargeRegions.Enabled(c)?7:4;originalX=span+rng.Range(range);originalZ=span+rng.Range(range);}
             int rx,rz;BiomeExtent.Radii(c,originalX,originalZ,out rx,out rz);RadiusX=rx;RadiusZ=rz;
             HalfWidth=(RadiusX+.5f)*c.CellSize;HalfDepth=(RadiusZ+.5f)*c.CellSize;
         }
@@ -39,7 +39,7 @@ namespace Poolrooms.Core
             long z=(long)bz*BlockSize+(bx==0&&bz==0?-(int)Math.Ceiling(2048/c.CellSize)-12:(int)((h>>4)%9)-4);
             if(x<int.MinValue+96L||x>int.MaxValue-96L||z<int.MinValue+96L||z>int.MaxValue-96L)return false;
             site=new ConnectedTerrainSite(c,(int)x,(int)z);
-            if(c.EncounterExploration&&bx==0&&bz==0)site=new ConnectedTerrainSite(c,0,-18);
+            if(c.EncounterExploration&&bx==0&&bz==0)site=new ConnectedTerrainSite(c,0,LargeRegions.Enabled(c)?-34:-18);
             return true;
         }
         public static bool At(LayoutConfig c,int x,int z,out ConnectedTerrainSite site){return Find(c,x,z,0,out site);}

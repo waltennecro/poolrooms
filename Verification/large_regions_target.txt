@@ -1,0 +1,2 @@
+PASS: large regions; 114 real biome destinations, 114 full room meshes, 47 reciprocal walking routes / 5034 room steps, 60 broad hall boundary pairs across all twenty programmes, five sector roles, kilometre-scale populated meadows, nonoverlapping 24..28-bay malls, bounded local room streaming. Core only; native Unity/appearance/FPS unrun.
+Core only; native Unity, shaders, PhysX, appearance and FPS unrun.

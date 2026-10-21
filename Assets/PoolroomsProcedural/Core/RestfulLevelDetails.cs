@@ -23,11 +23,12 @@ namespace Poolrooms.Core
                 m.Triangle(new V3(x,bottom,z),loB,loA,V3.Up*-1,V3.Up*-1,V3.Up*-1,new V2(.5f,.5f),new V2((b.X+w)/width,(b.Y+d)/depth),new V2((a.X+w)/width,(a.Y+d)/depth),surface);
             }
         }
-        static void PerimeterJoinery(RoomGeometry o,Room r)
+        static void PerimeterJoinery(RoomGeometry o,Room r,LayoutConfig c)
         {
             float half=r.Width*.5f;var p=r.Plan.Restful;
             for(int side=0;side<4;side++)
             {
+                if(LargeRegions.OpenEdge(c,r.X,r.Z,side,r.Environment))continue;
                 var trim=new MeshData();
                 // Side-bay cornices leave every portal and the walking cross intact.
                 foreach(int sign in new[]{-1,1})

@@ -40,18 +40,18 @@ namespace Poolrooms.Core
     {
         public const float FloorHeight=5.4f,ShopFront=22,BayWidth=16;
         public readonly int Seed,AddressX,AddressZ,Floors,Bays;
-        public readonly bool Enhanced,Refined,Autonomous,ExpandedArea;
+        public readonly bool Enhanced,Refined,Autonomous,ExpandedArea,Spacious;
         public readonly MallSpatialDesign Design;
         public readonly float Width,Depth,ShopHalf;
         public readonly MallShop[] Shops;
         public V3 Spawn { get { return new V3(0,.1f,-18); } }
         public int SectorCount { get { return Bays+2; } }
-        private MallPlan(int seed,int x,int z,int floors,int bays,float depth,MallShop[] shops,bool enhanced,bool refined,bool autonomous,bool larger)
-        {ExpandedArea=larger;Enhanced=enhanced;Refined=enhanced&&refined;Autonomous=Enhanced&&Refined&&autonomous;Seed=seed;AddressX=x;AddressZ=z;Floors=floors;Bays=bays;ShopHalf=bays*BayWidth*.5f;Width=ShopHalf*2+56;Depth=depth;Shops=shops;Design=Refined?new MallSpatialDesign(this):null;}
-        public static MallPlan Create(int seed,int x,int z,bool enhanced=false,bool refined=false,bool autonomous=false,bool expanded=false,bool larger=false)
+        private MallPlan(int seed,int x,int z,int floors,int bays,float depth,MallShop[] shops,bool enhanced,bool refined,bool autonomous,bool larger,bool spacious)
+        {Spacious=spacious;ExpandedArea=larger;Enhanced=enhanced;Refined=enhanced&&refined;Autonomous=Enhanced&&Refined&&autonomous;Seed=seed;AddressX=x;AddressZ=z;Floors=floors;Bays=bays;ShopHalf=bays*BayWidth*.5f;Width=ShopHalf*2+56;Depth=depth;Shops=shops;Design=Refined?new MallSpatialDesign(this):null;}
+        public static MallPlan Create(int seed,int x,int z,bool enhanced=false,bool refined=false,bool autonomous=false,bool expanded=false,bool larger=false,bool spacious=false)
         {
             var random=new StableRandom(LiminalRegions.Hash(seed,x,z,0xCA110u));
-            int floors,bays;float depth;Dimensions(ref random,seed,x,z,expanded,larger,out floors,out bays,out depth);
+            int floors,bays;float depth;Dimensions(ref random,seed,x,z,expanded,larger,out floors,out bays,out depth,spacious);
             var shops=new List<MallShop>();
             var kinds=new List<MallShopKind>();
             foreach(MallShopKind k in Enum.GetValues(typeof(MallShopKind)))if(k!=MallShopKind.Hypermarket&&k!=MallShopKind.Restrooms)kinds.Add(k);
@@ -71,11 +71,12 @@ namespace Poolrooms.Core
                 }
                 shops.Add(new MallShop(shops.Count,floor,side,bay+1+(span-1)/2,kind,-bays*BayWidth*.5f+(bay+span*.5f)*BayWidth,span*BayWidth,depth*.5f-ShopFront-.4f,random.Next(),enhanced&&refined,enhanced&&refined&&autonomous));bay+=span;
             }
-            return new MallPlan(seed,x,z,floors,bays,depth,shops.ToArray(),enhanced,refined,autonomous,larger);
+            return new MallPlan(seed,x,z,floors,bays,depth,shops.ToArray(),enhanced,refined,autonomous,larger,spacious);
         }
-        public static void Dimensions(ref StableRandom random,int seed,int x,int z,bool expanded,bool larger,out int floors,out int bays,out float depth)
+        public static void Dimensions(ref StableRandom random,int seed,int x,int z,bool expanded,bool larger,out int floors,out int bays,out float depth,bool spacious=false)
         {
             floors=2+random.Range(5);bays=8+random.Range(5);depth=SelectDepth(ref random,seed,x,z,expanded);
+            if(spacious){bays=24+(int)(LiminalRegions.Hash(seed,x,z,0x410CA1u)%5);depth=180+16*(LiminalRegions.Hash(seed,x,z,0x410CA2u)%4);return;}
             if(!larger)return;
             float width=bays*BayWidth+56;
             bays=(int)Math.Ceiling(bays*BiomeExtent.AreaMultiplier);
@@ -105,7 +106,7 @@ namespace Poolrooms.Core
         public bool FloorSupported(int floor,float x,float z){foreach(var p in FloorPlates(floor))if(p.Contains(x,z))return true;return false;}
         public bool Valid()
         {
-            if(Floors<2||Floors>6||Bays<(ExpandedArea?12:8)||Bays>(ExpandedArea?18:12)||SectorCount>=32||Shops.Length<30)return false;
+            if(Floors<2||Floors>6||Bays<(Spacious?24:ExpandedArea?12:8)||Bays>(Spacious?28:ExpandedArea?18:12)||SectorCount>=32||Shops.Length<30)return false;
             var catalog=new HashSet<MallShopKind>();int anchors=0;
             foreach(var s in Shops)
             {

@@ -107,6 +107,8 @@ namespace Poolrooms.Core
 
         public static CorridorGeometry Build(Room from, Room to, int direction, LayoutConfig c)
         {
+            // Full-cell floors meet exactly. An extra overlapping strip causes z-fighting.
+            if(from?.Plan?.Restful?.Large==true&&to?.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(c,from.X,from.Z,direction,from.Environment))return new CorridorGeometry{Style=CorridorStyle.WideGallery};
             if(NaturalTransitions.Applies(from,to,c)){var natural=NaturalTransitions.Build(from,to,direction,c);if(natural!=null)return natural;}
             if(from!=null&&to!=null&&(from.Plan!=null&&(from.Plan.Restful!=null||from.Plan.Rain!=null||from.Plan.Quiet!=null||from.Plan.Garden!=null||from.Plan.Baths!=null||from.Plan.Aquatic!=null)||to.Plan!=null&&(to.Plan.Restful!=null||to.Plan.Rain!=null||to.Plan.Quiet!=null||to.Plan.Garden!=null||to.Plan.Baths!=null||to.Plan.Aquatic!=null))&&
                 c.CellSize-(direction==0?from.Depth+to.Depth:from.Width+to.Width)*.5f<=.01f)
