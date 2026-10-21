@@ -77,6 +77,7 @@ namespace Poolrooms.Tests
                 Assert.That(node.GetComponentsInChildren<Light>(true).Length, Is.Zero);
                 Assert.That(node.GetComponentsInChildren<ReflectionProbe>(true).Length, Is.Zero);
                 var renderer = node.GetComponentInChildren<MeshRenderer>(true);
+                Assert.That(renderer.rayTracingMode, Is.EqualTo(UnityEngine.Experimental.Rendering.RayTracingMode.DynamicGeometry));
                 Assert.That(renderer.sharedMaterials.Length, Is.EqualTo(6));
                 foreach (var material in renderer.sharedMaterials)
                 {

@@ -111,7 +111,7 @@ static partial class Checks
         Check(inventory.Contains("new ScrollView") && inventory.Contains("workshopPlayback") && inventory.Contains("board.Revision != revision"), "Workshop UI lacks scrolling or stale-audio cancellation");
         Check(adapter.Contains("PoolroomsWorkshopDisplay.Show") && adapter.Contains("WorkshopSessions.Seed"), "Unvisited station displays not connected");
         Check(display.Contains("mesh.Clear()") && display.Contains("if (Application.isPlaying) Destroy(mesh)") &&
-              display.Contains("WeakReference<WorkshopBoard>") && !display.Contains("Update()") &&
+              display.Contains("WeakReference<WorkshopBoard>") && display.Contains("RayTracingMode.DynamicGeometry") && !display.Contains("Update()") &&
               !display.Contains("new Material("), "Dynamic display retains evicted boards, leaks or updates every frame");
         Console.WriteLine($"Workshops: {games} seeded games solved before/after arbitrary input; {models} state meshes, 36 distinct body/mount combinations; {environments} biome banks include all twelve games; bounded LRU/undo verified. Native Unity UI/audio/rendering unrun.");
     }

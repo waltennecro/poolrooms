@@ -49,7 +49,7 @@ namespace Poolrooms
             renderer.sharedMaterials = materials;
             renderer.shadowCastingMode = ShadowCastingMode.On;
             renderer.receiveShadows = true;
-            renderer.rayTracingMode = UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
+            renderer.rayTracingMode = UnityEngine.Experimental.Rendering.RayTracingMode.DynamicGeometry;
             // This component owns precisely one reusable mesh. It is not added
             // to chunk.ownedMeshes, preventing double destruction on unload.
             return true;

@@ -44,7 +44,8 @@
     "Prevented visible models from retaining evicted boards by using a weak reference.",
     "Cancelled scheduled phrases on interface replacement, closure, edits and new playback.",
     "Removed contradictory static pointers and pipe paths from changing boards.",
-    "Use shared woven PBR maps and cached cloth colours matching the menu palette, rather than metallic hardware materials for threads."
+    "Use shared woven PBR maps and cached cloth colours matching the menu palette, rather than metallic hardware materials for threads.",
+    "Mark changing indicator meshes as DynamicGeometry for ray-tracing geometry updates, rather than transform-only updates."
   ],
   "guide": "Assets/PoolroomsProcedural/Documentation/Talleres_Compartidos.md",
   "remaining": [
@@ -55,5 +56,10 @@
     "verification": 39645397480,
     "publication": 39645470719,
     "reason": "Cancelled before publication to include cloth-material refinement; not a completed verification result."
+  },
+  "supersededMaterialCandidate": {
+    "verification": 39645780956,
+    "publication": 39645845016,
+    "reason": "Final display flag updated for changing ray-tracing geometry before delivery."
   }
 }
