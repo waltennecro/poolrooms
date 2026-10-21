@@ -1,7 +1,7 @@
 {
   "baseRevision": "eff9c668b718f2d7307bbd8e3a67fc088638de6b",
   "request": "Improve the existing world with at least 2000 meaningful new CSharp game-code lines.",
-  "status": "implemented_local_core_verified_ci_pending_native_unrun",
+  "status": "published_full_core_verified_native_unrun",
   "gameCodeDiff": {
     "addedLines": 2062,
     "removedLines": 6,
@@ -37,7 +37,13 @@
     "strictCoreWarnings": 0,
     "strictCoreErrors": 0,
     "nativeUnityExecuted": false,
-    "nativeTest": "WorkshopDisplayTests.EditingAWorkshopReusesOneMeshWithoutAddingLightsOrFloorColliders"
+    "nativeTest": "WorkshopDisplayTests.EditingAWorkshopReusesOneMeshWithoutAddingLightsOrFloorColliders",
+    "fullGitHubRun": "https://github.com/waltennecro/poolrooms/actions/runs/39646269120",
+    "fullGitHubConclusion": "success",
+    "nativeTests": [
+      "WorkshopDisplayTests.EditingAWorkshopReusesOneMeshWithoutAddingLightsOrFloorColliders",
+      "WorkshopDisplayTests.WovenColoursReuseTheirPbrMapsAndMatchTheInterfacePalette"
+    ]
   },
   "fixesDuringReview": [
     "Replaced repeated cylinder rings with bounded extruded annuli.",
@@ -49,7 +55,6 @@
   ],
   "guide": "Assets/PoolroomsProcedural/Documentation/Talleres_Compartidos.md",
   "remaining": [
-    "Run full GitHub workflow and publish an exact-source cumulative Assets package.",
     "Native Unity/HDRP compilation, controls, UI, playback, shaders, appearance and FPS."
   ],
   "supersededRuns": {
@@ -61,5 +66,22 @@
     "verification": 39645780956,
     "publication": 39645845016,
     "reason": "Final display flag updated for changing ray-tracing geometry before delivery."
+  },
+  "sourceRevision": "e47bad25ac8b76bc5a1cfe09ad5b19d9180d314d",
+  "deliveryEvidence": "Verification/workshop_delivery.json",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/talleres-compartidos",
+  "delivery": {
+    "packageFiles": 1594,
+    "assetsBytes": 1296016702,
+    "zipBytes": 1037063084,
+    "sha256": "7659736d40d0984dfad31aa615216f5cbfe824df6df0fca519d1f9b62bdc3f86",
+    "hostedDigestAndSizeMatchLocal": true,
+    "publicPrefixProbe": {
+      "httpStatus": 206,
+      "prefixBytes": 64,
+      "zipHeaderValid": true,
+      "contentRange": "bytes 0-63/1037063084",
+      "fullDownload": false
+    }
   }
 }

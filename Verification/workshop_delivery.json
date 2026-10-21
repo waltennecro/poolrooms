@@ -1,0 +1,38 @@
+{
+  "sourceRevision": "e47bad25ac8b76bc5a1cfe09ad5b19d9180d314d",
+  "fullCoreRun": {
+    "id": 39646269120,
+    "head_sha": "e47bad25ac8b76bc5a1cfe09ad5b19d9180d314d",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39646269120"
+  },
+  "publicationRun": {
+    "id": 39646327391,
+    "head_sha": "e47bad25ac8b76bc5a1cfe09ad5b19d9180d314d",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39646327391"
+  },
+  "releaseUrl": "https://github.com/waltennecro/poolrooms/releases/tag/talleres-compartidos",
+  "downloadUrl": "https://github.com/waltennecro/poolrooms/releases/download/talleres-compartidos/Poolrooms_Talleres_Compartidos_Assets.zip",
+  "packageFiles": 1594,
+  "assetsBytes": 1296016702,
+  "zipBytes": 1037063084,
+  "sha256": "7659736d40d0984dfad31aa615216f5cbfe824df6df0fca519d1f9b62bdc3f86",
+  "hostedDigestAndSizeMatchLocal": true,
+  "publicPrefixProbe": {
+    "httpStatus": 206,
+    "prefixBytes": 64,
+    "zipHeaderValid": true,
+    "contentRange": "bytes 0-63/1037063084",
+    "fullDownload": false
+  },
+  "nativeUnityExecuted": false,
+  "gameCSharpAdded": 2062,
+  "gameCSharpRemoved": 6,
+  "gameCSharpNet": 2056,
+  "lineCountExcludesTestsAndVerification": true,
+  "fullCloudChecksAreNotNativeUnityTests": true,
+  "localFullLogScope": "Initial functional candidate before final cloth-material and ray-tracing display refinements. Exact final-source verification is the successful fullCoreRun recorded above."
+}
