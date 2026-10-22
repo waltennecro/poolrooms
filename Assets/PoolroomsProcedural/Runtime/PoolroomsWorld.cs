@@ -399,6 +399,9 @@ namespace Poolrooms
                     cap.Box(new V3(-half,gateFloor,-t*.5f),new V3(half,openHall?r.Height:SolarConnections.DoorHeight(r,d,layout.Config),t*.5f),r.Environment==LiminalEnvironment.Poolrooms?Surface.Tile:Surface.Plaster,layout.Config.TextureWorldSize);
                     cap.TranslateRotate(new V3(Directions.DX[d]*r.Width*.5f,0,Directions.DZ[d]*r.Depth*.5f),d*Shapes.Pi*.5f);
                     chunk.caps[d]=MeshFactory.Create("Streaming gate "+d,cap,go.transform,profile,chunk,BuildColliders);
+                    // The sky remains open while its physical gate protects an unloaded deck.
+                    if(r.Plan?.Quiet?.Sky63!=null&&chunk.caps[d]!=null)
+                    {var skyGate=chunk.caps[d].GetComponent<MeshRenderer>();if(skyGate!=null)skyGate.enabled=false;}
                     // Broad halls share their floor; an intentionally empty connector has no renderer.
                     if(d<2&&data.Connectors[d]!=null&&data.Connectors[d].Structure.TriangleCount>0)
                     {

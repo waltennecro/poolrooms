@@ -287,7 +287,21 @@
     "protectedGeometries": 188,
     "sourceScriptsInFiveConfigurations": 356,
     "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39799942580",
-    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39799999782"
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39799999782",
+    "previousLocalFullCore": {
+      "sourceRevision": "ce1c2382b0e6f9db6e9238c39e394b961f94ac84",
+      "path": "Verification/sky63_full_core_checks.txt",
+      "assertions": 2129959833,
+      "sameCoreGeometry": true
+    },
+    "supersededBeforePublication": [
+      {
+        "sourceRevision": "ce1c2382b0e6f9db6e9238c39e394b961f94ac84",
+        "verificationRun": 39799942580,
+        "publicationRun": 39799999782,
+        "reason": "Keep the physical sky streaming barriers but hide their opaque renderer; exact-source verification/publication restarted."
+      }
+    ]
   },
   "previousDeliveries": [
     {

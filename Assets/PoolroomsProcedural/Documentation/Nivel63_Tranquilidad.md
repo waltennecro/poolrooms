@@ -4,7 +4,7 @@ Adaptación investigada del nivel **Tranquility**, de Sariastuff / The Backrooms
 
 ## Espacio y generación
 
-Caminos suspendidos de roble se unen entre sectores sin paredes interiores. Terrazas laterales, plataformas de descanso, pasarelas superiores, mástiles, cables y escaleras de dos tramos crean dos alturas transitables. Las barandillas siguen el contorno real de los caminos y huecos, con aperturas hacia los vecinos cargados. Las juntas entre tablones no cambian la altura de pisada.
+Caminos suspendidos de roble se unen entre sectores sin paredes interiores. Terrazas laterales, plataformas de descanso, pasarelas superiores, mástiles, cables y escaleras de dos tramos crean dos alturas transitables. Las barandillas siguen el contorno real de los caminos y huecos, con aperturas hacia los vecinos cargados. Las juntas entre tablones no cambian la altura de pisada. Los cierres de streaming conservan colisión mientras falta el vecino, pero su pared opaca no se dibuja en el cielo.
 
 Ocho programas se distribuyen por distritos de 4×4 sectores: meditación, té, viento, dibujo, observatorio, cartas, campanillas y jardín. Cambian pérgolas, estantes, instrumentos, esculturas y actividades; las variaciones por semilla no se anuncian como miles de modelos diferentes. Las paredes de enredaderas aparecen en los límites exteriores de la región; son vegetación estática, no una simulación de paredes que se reorganizan.
 
