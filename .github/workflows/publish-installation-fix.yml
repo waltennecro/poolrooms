@@ -1,0 +1,69 @@
+name: Verify and publish flexible installation paths
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SOURCE_REVISION: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Require unchanged gameplay, generation, shaders and media
+        run: git diff --exit-code c9d8da0 HEAD -- Assets/PoolroomsProcedural/Core Assets/PoolroomsProcedural/Runtime Assets/PoolroomsProcedural/Integrations Assets/PoolroomsProcedural/Resources Assets/PoolroomsProcedural/Textures
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Strict build, actual locator scenarios, previous compiler guards and all script syntax
+        run: |
+          dotnet build Verification/Poolrooms.Checks.csproj --configuration Release -warnaserror
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --package-paths
+      - name: Verify shipped textures
+        run: python tools/verify_play_textures.py
+      - name: Build and verify complete package and cumulative patch
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage rutas-flexibles --output "${RUNNER_TEMP}/Poolrooms_Rutas_Flexibles_Assets.zip" > /tmp/paths-assets.json
+          python tools/package_installation_hotfix.py --output "${RUNNER_TEMP}/Poolrooms_Parche_Rutas_y_Compilacion.zip" > /tmp/paths-patch.json
+          python - <<'PY'
+          import json,os,pathlib,zipfile
+          a=json.load(open('/tmp/paths-assets.json'));p=json.load(open('/tmp/paths-patch.json'))
+          assert a['sourceRevision']==p['sourceRevision']==os.environ['SOURCE_REVISION']
+          assert not a['workingTreeChanged'] and not p['workingTreeChanged']
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])
+          with zipfile.ZipFile(a['zip']) as full,zipfile.ZipFile(p['zip']) as patch:
+              manifest=json.loads(full.read('RECONSTRUCCION_PAQUETE.json'))
+              repair=json.loads(patch.read('PARCHE_MANIFIESTO.json'))
+              assert len(repair['files'])==10
+              assert all(full.read(name)==patch.read(name) for name in repair['files'])
+          size=sum(v['bytes'] for v in manifest['files'].values())
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'package':a,'patch':p,
+              'assetsUncompressedBytes':size,'gameplayUnchangedFrom':'c9d8da0',
+              'targetedVerification':'actual locator with reduced Unity APIs; four layouts/four moves, missing files, nine shipped maps, prior Runtime type contracts, all-script syntax, texture hashes',
+              'fullNativeUnityExecuted':False,
+              'verificationRun':'https://github.com/'+os.environ['GH_REPO']+'/actions/runs/'+os.environ['GITHUB_RUN_ID']}
+          (out/'Poolrooms_Rutas_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Rutas_Manifiesto.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          (out/'Poolrooms_Rutas_SHA256.txt').write_text(''.join(v['sha256']+'  '+pathlib.Path(v['zip']).name+'\n' for v in (a,p)))
+          notes='''Corrige FileNotFoundException al extraer el paquete dentro de otra carpeta de Assets. Crear demo, materiales de biomas y Nivel 94 localizan la instalación real por su MonoScript. Las nueve texturas se comprueban antes de sustituir la escena.
+
+          **Parche acumulativo de diez archivos:** incluye también los tres errores de compilación y la advertencia de la entrega anterior. Con Unity cerrado, copia Core, Runtime y Editor DENTRO de tu carpeta PoolroomsProcedural existente, sobrescribiendo los archivos correspondientes y conservando el resto y sus .meta. No agregues otra copia del código. Sirve para Rincones, Cinco horizontes y Compilación corregida; no añade los niveles nuevos a instalaciones antiguas.
+
+          **Paquete completo:** incluye los cinco Horizontes, menú independiente y contenido acumulado. Puede quedar dentro de una carpeta contenedora en Assets.
+
+          Verificación enfocada en este cambio de Editor: compilación estricta, localizador real con APIs reducidas, cuatro instalaciones físicas y cuatro movimientos, caché, archivos ausentes, contratos de tipos anteriores, sintaxis de todos los scripts y hashes de texturas. Se comprueba que Core, Runtime, Integrations y todos los recursos permanecen idénticos a c9d8da0, que conserva el núcleo completo verificado anteriormente. No se presenta como nueva ejecución de la comparación histórica completa.
+
+          CRC/SHA-256 de cada entrada verificados; los diez archivos del parche coinciden con el paquete completo. **Unity/HDRP nativo e importación real pendientes**: no hay Editor Unity en este entorno.
+          '''
+          notes+='\nFuente exacta: `'+os.environ['SOURCE_REVISION']+'`.\nPaquete: '+str(a['bytes'])+' bytes; Assets: '+str(size)+' bytes. Parche: '+str(p['bytes'])+' bytes.\n'
+          (out/'paths-release.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          print(json.dumps(record))
+          PY
+      - name: Publish immutable package, patch and integrity evidence
+        run: gh release create rutas-flexibles --target "${SOURCE_REVISION}" --title "Rutas flexibles: instalación y compilación corregidas" --notes-file "${RUNNER_TEMP}/paths-release.md" "${RUNNER_TEMP}/Poolrooms_Rutas_Flexibles_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Rutas_y_Compilacion.zip" "${RUNNER_TEMP}/Poolrooms_Rutas_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Rutas_Manifiesto.json" "${RUNNER_TEMP}/Poolrooms_Rutas_SHA256.txt"

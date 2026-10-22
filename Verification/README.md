@@ -13,6 +13,8 @@ Esto no compila las APIs de Unity ni sustituye las pruebas PlayMode, PhysX o el 
 
 `--runtime-types` compila expresiones reales de `AttachNotice`, `CreateTool` y `Distant` contra los tipos reales del núcleo, y comprueba el conflicto heredado de `animation` con un sustituto reducido de Component. Reproduce y rechaza los cuatro diagnósticos originales CS0200/CS1061/CS0266/CS0108. Ejecuta los radios de las tres herramientas, 4.096 ráfagas de pasos y estaciones a seis elevaciones de centro comercial/casa. También se ejecuta mediante `IntegrationSourceContracts`; no equivale a compilar todos los componentes ni a comprobar las APIs nativas de Unity.
 
+`--package-paths` compila el localizador completo de Editor con sustitutos de AssetDatabase/ScriptableObject y carpetas temporales reales: cuatro ubicaciones, cuatro movimientos, caché, rutas Unicode y archivos ausentes. Comprueba las nueve texturas incluidas y prohíbe rutas fijas de instalación en Editor; ejecuta además los contratos de tipos previos y la sintaxis de todos los scripts. No ejecuta AssetDatabase nativo. El flujo de publicación de rutas verifica por Git que Core/Runtime/Integrations/Resources/Textures siguen idénticos a c9d8da0; por ello usa pruebas enfocadas en instalación, conservando como evidencia la suite completa del núcleo anterior.
+
 Los mapas nuevos se regeneran con `python tools/generate_play_finish.py` (NumPy y Pillow); su procedencia y SHA-256 se guardan en `play_finish_textures.json`.
 
 Para regenerar fuentes externas/adaptaciones se necesitan las herramientas fijadas:

@@ -21,14 +21,14 @@ namespace Poolrooms.Editor
     }
     public static class PoolroomsBiomeMaterialSetup
     {
-        private const string Folder="Assets/PoolroomsProcedural/Resources/BiomeMaterials";
-        private const string Library="Assets/PoolroomsProcedural/Resources/PoolroomsBiomeMaterials.asset";
+        private static string Folder {get{return PoolroomsPackagePaths.Asset("Resources/BiomeMaterials");}}
+        private static string Library {get{return PoolroomsPackagePaths.Asset("Resources/PoolroomsBiomeMaterials.asset");}}
         [InitializeOnLoadMethod]
         private static void OnImport(){EditorApplication.delayCall+=EnsureOnImport;}
         private static void EnsureOnImport()
         {
             if(EditorApplication.isCompiling||EditorApplication.isUpdating){EditorApplication.delayCall+=EnsureOnImport;return;}
-            if(Application.isPlaying||!Directory.Exists("Assets/PoolroomsProcedural/Resources/PoolroomsBiomeTextures"))return;
+            if(Application.isPlaying||!Directory.Exists(PoolroomsPackagePaths.Asset("Resources/PoolroomsBiomeTextures")))return;
             var library=AssetDatabase.LoadAssetAtPath<PoolroomsBiomeMaterials>(Library);
             if(library==null)Build();else{EnsureSoftPlay(library);UpgradeWinterGardenFinish(library);}
         }

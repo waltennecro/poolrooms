@@ -46,8 +46,8 @@ namespace Poolrooms.Editor
         public static void PrepareMaterials(){BuildMaterials();}
         private static void BuildMaterials()
         {
-            const string folder="Assets/PoolroomsProcedural/Resources/TerrainMaterials";
-            const string path="Assets/PoolroomsProcedural/Resources/PoolroomsTerrainMaterials.asset";
+            string folder=PoolroomsPackagePaths.Asset("Resources/TerrainMaterials");
+            string path=PoolroomsPackagePaths.Asset("Resources/PoolroomsTerrainMaterials.asset");
             if(AssetDatabase.LoadAssetAtPath<PoolroomsTerrainMaterials>(path)!=null)return;
             Directory.CreateDirectory(folder);AssetDatabase.Refresh();
             var root=new GameObject("Temporary terrain material builder");var owner=root.AddComponent<PoolroomsChunk>();

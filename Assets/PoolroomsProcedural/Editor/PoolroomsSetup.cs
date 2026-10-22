@@ -12,7 +12,6 @@ namespace Poolrooms.Editor
 {
     public static class PoolroomsSetup
     {
-        private const string Textures="Assets/PoolroomsProcedural/Textures/";
         [MenuItem("Tools/Poolrooms/Crear demo")]
         public static void CreateDemo()
         {CreateDemo(false);}
@@ -21,6 +20,7 @@ namespace Poolrooms.Editor
         {CreateDemo(true);}
         private static void CreateDemo(bool catalogue)
         {
+            PoolroomsPackagePaths.ValidateDemoTextures();
             if(!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())return;
             string folder=AssetDatabase.GenerateUniqueAssetPath("Assets/PoolroomsDemo");
             Directory.CreateDirectory(folder);AssetDatabase.Refresh();
@@ -102,12 +102,14 @@ namespace Poolrooms.Editor
         }
         private static Texture2D LoadMap(string file,bool linear,bool normal)
         {
-            string path=Textures+file;var importer=AssetImporter.GetAtPath(path) as TextureImporter;
-            if(importer==null)throw new FileNotFoundException("Copia la carpeta PoolroomsProcedural directamente en Assets. Falta "+path);
+            string path=PoolroomsPackagePaths.RequireFile("Textures/"+file);var importer=AssetImporter.GetAtPath(path) as TextureImporter;
+            if(importer==null)throw new FileNotFoundException("Unity no ha importado la textura del paquete: "+path,path);
             importer.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
             importer.sRGBTexture=!linear;importer.mipmapEnabled=true;importer.wrapMode=TextureWrapMode.Repeat;importer.anisoLevel=8;
             importer.alphaIsTransparency=false;importer.textureCompression=TextureImporterCompression.CompressedHQ;importer.SaveAndReimport();
-            return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            if(texture==null)throw new InvalidOperationException("Unity no pudo cargar la textura: "+path);
+            return texture;
         }
         private static void SetColor(Material m,string p,Color v){if(m.HasProperty(p))m.SetColor(p,v);}
         private static void SetFloat(Material m,string p,float v){if(m.HasProperty(p))m.SetFloat(p,v);}

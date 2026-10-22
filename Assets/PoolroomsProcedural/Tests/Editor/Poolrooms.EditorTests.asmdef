@@ -1,0 +1,7 @@
+{
+  "name": "Poolrooms.EditorTests",
+  "references": ["Poolrooms.Editor"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"]
+}

@@ -3511,5 +3511,10 @@
     "sourceRevision": "c3a90e98b5d40ea4edd672ed9b3379d94ccbfaa8",
     "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39704509676",
     "deliveryEvidence": "Verification/runtime_compilation_delivery.json"
+  },
+  "flexibleInstallation": {
+    "state": "INSTALACION_RUTAS_ESTADO.json",
+    "status": "implemented_targeted_verification_in_progress",
+    "nativeUnityExecuted": false
   }
 }

@@ -22,6 +22,7 @@
     <Compile Include="WorkshopChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="HorizonChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="RuntimeTypeChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="PackagePathChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="SceneryChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="FrontendChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="MallRealismChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />

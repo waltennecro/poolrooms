@@ -1,0 +1,22 @@
+{
+  "baseRevision": "c9d8da0",
+  "status": "implemented_targeted_verification_in_progress",
+  "issue": "FileNotFoundException on fixed Assets/PoolroomsProcedural/Textures path when installed under container folder",
+  "newLocator": "Editor/PoolroomsPackagePaths.cs",
+  "existingEditorFilesChanged": 4,
+  "cumulativePatchProductionFiles": 10,
+  "coreRuntimeIntegrationsAndMediaChanged": false,
+  "checks": {
+    "strictBuild": "passed_zero_warnings_zero_errors",
+    "fourPhysicalInstallLayoutsAndMoves": "passed",
+    "priorRuntimeTypeContracts": "passed",
+    "shippedPbrMaps": 83,
+    "syntaxConfigurations": 5,
+    "nativeEditorTestsAdded": 4,
+    "nativeEditorTestsExecuted": false
+  },
+  "nativeUnityExecuted": false,
+  "guide": "Assets/PoolroomsProcedural/Documentation/Instalacion_Rutas_Flexibles.md",
+  "newPublicationWorkflow": ".github/workflows/publish-installation-fix.yml",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/rutas-flexibles"
+}

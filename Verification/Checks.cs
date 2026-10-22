@@ -50,6 +50,7 @@ static partial class Checks
     {
 #if !POOLROOMS_HISTORICAL_CORE
         if(args.Contains("--runtime-types")){RuntimeTypeContracts();return 0;}
+        if(args.Contains("--package-paths")){IntegrationSourceContracts();return 0;}
 #endif
         if(args.Contains("--horizons"))
         {
