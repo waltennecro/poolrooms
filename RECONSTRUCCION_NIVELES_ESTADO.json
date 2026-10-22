@@ -3,7 +3,7 @@
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "implemented_local_full_core_verified_ci_pending",
+  "status": "published_full_core_verified_native_visual_review_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -36,7 +36,7 @@
     {
       "environment": "CloudTerminal",
       "adaptation": "Level63 / Tranquility",
-      "status": "implemented_native_visual_review_pending",
+      "status": "published_native_visual_review_pending",
       "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level63.json"
     }
   ],
@@ -280,7 +280,7 @@
     "targetedAssertions": 26476452,
     "fullCoreStatus": "success",
     "resourceAudit": "tools/verify_sky63_resources.py",
-    "ciStatus": "pending",
+    "ciStatus": "success",
     "localFullCore": "Verification/sky63_full_core_checks.txt",
     "localCoreAssertions": 2129959833,
     "localFullCoreRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
@@ -330,7 +330,12 @@
     ],
     "sourceRevision": "d2f48aed6156add44069fb5ad648e6e6ed2ef734",
     "assetsIdenticalToLocallyFullCheckedRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
-    "historicalCompatibility": "Verification/sky63_historical_compatibility.txt"
+    "historicalCompatibility": "Verification/sky63_historical_compatibility.txt",
+    "fullCiStepsSucceeded": 53,
+    "publicationStatus": "success",
+    "publicationStepsSucceeded": 8,
+    "deliveryEvidence": "Verification/sky63_delivery.json",
+    "assetsFileCount": 1671
   },
   "previousDeliveries": [
     {
@@ -433,5 +438,15 @@
       }
     }
   ],
-  "sourceRevision": "d2f48aed6156add44069fb5ad648e6e6ed2ef734"
+  "sourceRevision": "d2f48aed6156add44069fb5ad648e6e6ed2ef734",
+  "delivery": {
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/nivel63-tranquilidad",
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39805118533",
+    "completeAssetsBytes": 1080562690,
+    "completeAssetsSha256": "225fa9f4bccb95257b1da796f140ebffdd0e5eaa94457e62cd69a878f60b0980",
+    "patchBytes": 28925905,
+    "patchSha256": "d422f71489482ce6fc1f3f501f4593274f7fac3bdccee5e9786102d40197012b",
+    "publicFullDownloadAndPatchVerified": true,
+    "assetsUncompressedBytes": 1340096937
+  }
 }

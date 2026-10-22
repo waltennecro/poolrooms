@@ -3579,7 +3579,7 @@
       "publicDownloadsSha256Verified": true
     },
     "sky63": {
-      "status": "implemented_local_full_core_verified_ci_pending",
+      "status": "published_full_core_verified_native_validation_pending",
       "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel63_Tranquilidad.md",
       "rebuiltTotal": 4,
       "remainingGenericProgrammes": 45,
@@ -3624,7 +3624,7 @@
           "reason": "Shared world counter referenced Sky63 on immutable R33, where the type member does not exist. Guard only newer API branch; preserve immutable baseline, all legacy paths/thresholds and current sky checks. Baseline compile plus expected bevel/wing failures verified locally."
         }
       ],
-      "ciStatus": "pending",
+      "ciStatus": "success",
       "localFullCoreRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
       "localBuildWarnings": 0,
       "localBuildErrors": 0,
@@ -3641,7 +3641,15 @@
         "Verification/sky63_generation_audit.txt"
       ],
       "assetsIdenticalToLocallyFullCheckedRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
-      "historicalCompatibility": "Verification/sky63_historical_compatibility.txt"
+      "historicalCompatibility": "Verification/sky63_historical_compatibility.txt",
+      "delivery": "https://github.com/waltennecro/poolrooms/releases/tag/nivel63-tranquilidad",
+      "evidence": "Verification/sky63_delivery.json",
+      "fullCiConclusion": "success",
+      "fullCiStepsSucceeded": 53,
+      "publicationConclusion": "success",
+      "completeAssetsBytes": 1080562690,
+      "patchBytes": 28925905,
+      "publicDownloadsSha256Verified": true
     }
   }
 }
