@@ -3525,6 +3525,11 @@
     "state": "RECONSTRUCCION_NIVELES_ESTADO.json",
     "first": "Courtyard188",
     "pendingGenericLevels": 48,
-    "nativeUnityExecuted": false
+    "nativeUnityExecuted": false,
+    "status": "published_full_core_verified_native_unrun",
+    "sourceRevision": "3b5751cf989baeab9cfe8329da1ccf72d17b81f2",
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/hotel-ventanas-skins",
+    "successfulFullRun": "https://github.com/waltennecro/poolrooms/actions/runs/39732603453",
+    "deliveryEvidence": "Verification/hotel_delivery.json"
   }
 }

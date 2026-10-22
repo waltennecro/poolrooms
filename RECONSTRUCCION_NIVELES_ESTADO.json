@@ -3,7 +3,7 @@
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "implemented_core_verified_native_visual_review_pending",
+  "status": "published_full_core_verified_native_visual_review_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -19,7 +19,7 @@
   "rebuilt": [
     {
       "environment": "Courtyard188",
-      "status": "implemented_native_visual_review_pending",
+      "status": "published_native_visual_review_pending",
       "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level188.json"
     }
   ],
@@ -230,7 +230,7 @@
     "reusedSourceModelsInHotelSample": 13,
     "newExternalModels": 0,
     "sampledHotelChunks": 192,
-    "fullCi": "pending_publication",
+    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39732603453",
     "maximumSupportedDoorHeightMetres": 5.5,
     "supersededBeforePublication": [
       {
@@ -241,6 +241,18 @@
         "sourceRevision": "2096da3a033732852fe7b1287dd5da8e18ba4511",
         "reason": "Gather window blinds vertically below a fixed headrail rather than swinging their geometry through the safety glazing; restore new hotel interaction state on streaming reload."
       }
-    ]
+    ],
+    "deliveryEvidence": "Verification/hotel_delivery.json",
+    "fullCiStepsSucceeded": 51
+  },
+  "sourceRevision": "3b5751cf989baeab9cfe8329da1ccf72d17b81f2",
+  "delivery": {
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/hotel-ventanas-skins",
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39732853753",
+    "completeAssetsBytes": 1051819803,
+    "completeAssetsSha256": "dfb4aca7703ea34bdbde5332fc3abb99011794d5fc62d7b0a33a279ecfcde9f4",
+    "patchBytes": 153577,
+    "patchSha256": "e06ed5d51df59d9baad5e9a6f80e753586f6253d32e1d5d0b5a364eacaa88870",
+    "publicFullDownloadAndPatchVerified": true
   }
 }
