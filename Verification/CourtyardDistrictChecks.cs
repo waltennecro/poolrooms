@@ -8,9 +8,9 @@ static partial class Checks
     static void CourtyardDistricts()
     {
         long start=assertions;int chunks=0,suites=0,windows=0,sources=0;var roles=new HashSet<string>();var sourceIds=new HashSet<int>();
-        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})
+        foreach(int size in new[]{28,36,60})foreach(int door in new[]{3,6})foreach(bool tallest in new[]{false,true})
         {
-            var c=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Courtyard188,RebuildCourtyard188=true,CellSize=size,DoorWidth=door,DoorHeight=door*.5f+2,EncounterExploration=true,CurveSegments=12};
+            var c=new LayoutConfig{Continuous=true,Procedural=LiminalGeneration.Courtyard188,RebuildCourtyard188=true,CellSize=size,DoorWidth=door,DoorHeight=tallest?5.5f:door*.5f+2,EncounterExploration=true,CurveSegments=12};
             var layout=new Layout(c);
             for(int row=0;row<4;row++)for(int col=0;col<4;col++)
             {

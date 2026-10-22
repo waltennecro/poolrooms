@@ -229,7 +229,12 @@
     "nativeUnityExecuted": false,
     "reusedSourceModelsInHotelSample": 13,
     "newExternalModels": 0,
-    "sampledHotelChunks": 96,
-    "fullCi": "pending_publication"
+    "sampledHotelChunks": 192,
+    "fullCi": "pending_publication",
+    "maximumSupportedDoorHeightMetres": 5.5,
+    "supersededBeforePublication": {
+      "sourceRevision": "6e192ecd28d4105d2b074beea14d7ba4ba67441f",
+      "reason": "Extended stair run for the validated maximum 5.5 m entrance height; verification and publication restarted for the corrected exact commit."
+    }
   }
 }

@@ -16,7 +16,7 @@ namespace Poolrooms.Tests
             GameObject root=null;PoolroomsProfile profile=null;
             try
             {
-                var config=new LayoutConfig{RebuildCourtyard188=true,Continuous=true,Procedural=LiminalGeneration.Courtyard188};
+                var config=new LayoutConfig{RebuildCourtyard188=true,Continuous=true,Procedural=LiminalGeneration.Courtyard188,DoorWidth=6,DoorHeight=5.5f};
                 var room=new Layout(config).At(0,0);var plan=room.Plan.Quiet.Courtyard;
                 var data=Architecture.Build(room,config);
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();

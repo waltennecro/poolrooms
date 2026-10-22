@@ -28,7 +28,7 @@ namespace Poolrooms.Core
     public sealed class CourtyardDistrictPlan
     {
         public const int Span=4,Floors=5;
-        public const float Storey=3.4f,Landing=1.25f,Flight=3.9f,StairWidth=3.6f;
+        public const float Storey=3.4f,Landing=1.25f,Flight=4.5f,StairWidth=3.6f;
         public readonly int Column,Row,OriginX,OriginZ;
         public readonly bool Complete,Court,StairCore;
         public readonly float Cell,GroundHeight,Aisle;

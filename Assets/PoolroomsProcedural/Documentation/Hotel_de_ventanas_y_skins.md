@@ -28,7 +28,7 @@ El error `CreateImpl` provenía de construir `MaterialPropertyBlock` en un inici
 
 ## Verificación y siguientes niveles
 
-`--courtyard-hotel` comprueba los dieciséis sectores a tres escalas y dos puertas: apoyos, muebles sin intersección con arquitectura, pasos y descansillos, accesos entre plantas, patio sin techo y bordes del mundo mixto. No sustituye Unity/PhysX/HDRP. Las pruebas PlayMode añadidas deben ejecutarse en Unity; este entorno no tiene Editor y no permite garantizar el resultado visual ni FPS.
+`--courtyard-hotel` comprueba los dieciséis sectores a tres escalas, dos anchos de puerta y alturas mínima/máxima admitidas (192 sectores de muestra): apoyos, muebles sin intersección con arquitectura, pasos y descansillos, accesos entre plantas, patio sin techo y bordes del mundo mixto. No sustituye Unity/PhysX/HDRP. Las pruebas PlayMode añadidas deben ejecutarse en Unity; este entorno no tiene Editor y no permite garantizar el resultado visual ni FPS.
 
 `RECONSTRUCCION_NIVELES_ESTADO.json` conserva la cola: los demás niveles genéricos siguen pendientes de una reconstrucción individual con investigación y arquitectura propia.
 
