@@ -283,7 +283,7 @@
     "ciStatus": "pending",
     "localFullCore": "Verification/sky63_full_core_checks.txt",
     "localCoreAssertions": 2129959833,
-    "localFullCoreRevision": "ce1c2382b0e6f9db6e9238c39e394b961f94ac84",
+    "localFullCoreRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
     "protectedGeometries": 188,
     "sourceScriptsInFiveConfigurations": 356,
     "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39800499818",
