@@ -1,16 +1,17 @@
 {
-  "sourceRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
-  "localPatchBytes": 28925906,
-  "localPatchSha256": "db2f33af9d336528c18517807156fa369de6325013ae6d4529c6b2f8c6e8d062",
+  "sourceRevision": "fd2348ff80fdde974acabacdcfca4e56bebd9b51",
+  "localPatchBytes": 28925907,
+  "localPatchSha256": "b8c06d64c5166ddad53b1906354941e686147e54cd4428a8a8d2d165150de301",
   "localPatchFiles": 80,
   "allPatchEntriesMatchAssets": true,
   "completeCumulativeChangeCoverage": true,
-  "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39800499818",
-  "publication": "https://github.com/waltennecro/poolrooms/actions/runs/39800556024",
+  "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39803845488",
+  "publication": "https://github.com/waltennecro/poolrooms/actions/runs/39803924347",
   "remoteStatus": "pending",
   "nativeUnityExecuted": false,
   "fullPublicDownloadClaimed": false,
   "localFullCoreAssertions": 2129959833,
   "localFullCoreRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
-  "localFullCoreStatus": "success"
+  "localFullCoreStatus": "success",
+  "localWorldSnapshotStatus": "success"
 }
