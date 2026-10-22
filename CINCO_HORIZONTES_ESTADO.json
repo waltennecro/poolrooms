@@ -1,6 +1,6 @@
 {
   "baseRevision": "0462c4d432fe02bc95260c9f2cc1a37dcb040522",
-  "status": "implemented_targeted_core_verified_full_ci_pending_native_unrun",
+  "status": "published_full_core_verified_native_unrun",
   "newLevels": [
     "MagnoliaCourts",
     "FunicularTerminal",
@@ -31,7 +31,11 @@
   "nativeUnityExecuted": false,
   "guide": "Assets/PoolroomsProcedural/Documentation/Cinco_Horizontes.md",
   "remaining": [
-    "Full exact-source verification, complete package and GitHub publication.",
     "Native Unity/HDRP compilation, shaders, appearance, interaction, PhysX, audio and FPS."
-  ]
+  ],
+  "sourceRevision": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/cinco-horizontes",
+  "download": "https://github.com/waltennecro/poolrooms/releases/download/cinco-horizontes/Poolrooms_Cinco_Horizontes_Assets.zip",
+  "successfulFullRun": "https://github.com/waltennecro/poolrooms/actions/runs/39699182229",
+  "deliveryEvidence": "Verification/horizons_delivery.json"
 }

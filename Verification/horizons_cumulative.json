@@ -1,0 +1,37 @@
+{
+  "priorSource": "cb2a67d633fe0efd8279f711d5b42a55d00138cc",
+  "currentSource": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
+  "oldFiles": 1624,
+  "currentFiles": 1629,
+  "noPreviousFilesRemoved": true,
+  "added": [
+    "PoolroomsProcedural/Core/HorizonLevelArchitecture.cs",
+    "PoolroomsProcedural/Core/HorizonLevelPlanner.cs",
+    "PoolroomsProcedural/Documentation/Cinco_Horizontes.md",
+    "PoolroomsProcedural/Runtime/PoolroomsHorizonGlass.cs",
+    "PoolroomsProcedural/Tests/PlayMode/HorizonMaterialTests.cs"
+  ],
+  "changed": [
+    "PoolroomsProcedural/Core/AmbientAudioModel.cs",
+    "PoolroomsProcedural/Core/Architecture.cs",
+    "PoolroomsProcedural/Core/BiomeSurfaces.cs",
+    "PoolroomsProcedural/Core/ImmersiveAudio.cs",
+    "PoolroomsProcedural/Core/JourneyLevelPlanner.cs",
+    "PoolroomsProcedural/Core/Layout.cs",
+    "PoolroomsProcedural/Core/LiminalRegions.cs",
+    "PoolroomsProcedural/Core/NaturalTransitions.cs",
+    "PoolroomsProcedural/Core/RestfulLevelArchitecture.cs",
+    "PoolroomsProcedural/Core/RestfulLevelPlan.cs",
+    "PoolroomsProcedural/Core/RoomMemories.cs",
+    "PoolroomsProcedural/Core/SceneryMoods.cs",
+    "PoolroomsProcedural/Core/WalkableExploration.cs",
+    "PoolroomsProcedural/Integrations/HDRP/PoolroomsBiomeAtmosphere.cs",
+    "PoolroomsProcedural/Runtime/MeshFactory.cs",
+    "PoolroomsProcedural/Runtime/PoolroomsFrontend.UI.cs",
+    "PoolroomsProcedural/Runtime/PoolroomsInventory.cs",
+    "PoolroomsProcedural/Runtime/PoolroomsProfile.cs"
+  ],
+  "unchangedMediaFiles": 979,
+  "comparisonUsesVerifiedPackageManifests": true,
+  "nativeUnityExecuted": false
+}

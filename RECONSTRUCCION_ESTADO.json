@@ -3443,12 +3443,12 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "revision": "cb2a67d633fe0efd8279f711d5b42a55d00138cc",
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/rincones-procedurales",
-    "download": "https://github.com/waltennecro/poolrooms/releases/download/rincones-procedurales/Poolrooms_Rincones_Procedurales_Assets.zip",
-    "assetsBytes": 1311085046,
-    "zipBytes": 1051780269,
-    "sha256": "cc3107977684396c052e1417f54b0083b9faa82b5463dfdcc01889ffe07ddf1e",
+    "revision": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/cinco-horizontes",
+    "download": "https://github.com/waltennecro/poolrooms/releases/download/cinco-horizontes/Poolrooms_Cinco_Horizontes_Assets.zip",
+    "assetsBytes": 1311116709,
+    "zipBytes": 1051791530,
+    "sha256": "99d4325522cb932b886d10dc994c08a1c21d3198bcb6f1b92f535d4b0e7ede56",
     "hostedDigestAndSizeMatchLocal": true,
     "publicRangeProbeStatus": 206
   },
@@ -3488,9 +3488,13 @@
   },
   "fiveHorizons": {
     "stateFile": "CINCO_HORIZONTES_ESTADO.json",
-    "status": "implemented_targeted_core_verified_full_ci_pending_native_unrun",
+    "status": "published_full_core_verified_native_unrun",
     "newLevels": 5,
     "totalCatalogueBiomes": 63,
-    "nativeUnityExecuted": false
+    "nativeUnityExecuted": false,
+    "sourceRevision": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/cinco-horizontes",
+    "successfulFullRun": "https://github.com/waltennecro/poolrooms/actions/runs/39699182229",
+    "deliveryEvidence": "Verification/horizons_delivery.json"
   }
 }

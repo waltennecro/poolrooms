@@ -1,0 +1,39 @@
+{
+  "sourceRevision": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
+  "fullCoreRun": {
+    "id": 39699182229,
+    "head_sha": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39699182229"
+  },
+  "publicationRun": {
+    "id": 39699209874,
+    "head_sha": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/waltennecro/poolrooms/actions/runs/39699209874"
+  },
+  "releaseUrl": "https://github.com/waltennecro/poolrooms/releases/tag/cinco-horizontes",
+  "downloadUrl": "https://github.com/waltennecro/poolrooms/releases/download/cinco-horizontes/Poolrooms_Cinco_Horizontes_Assets.zip",
+  "packageFiles": 1629,
+  "assetsBytes": 1311116709,
+  "zipBytes": 1051791530,
+  "sha256": "99d4325522cb932b886d10dc994c08a1c21d3198bcb6f1b92f535d4b0e7ede56",
+  "hostedDigestAndSizeMatchLocal": true,
+  "publicPrefixProbe": {
+    "httpStatus": 206,
+    "prefixBytes": 64,
+    "zipHeaderValid": true,
+    "contentRange": "bytes 0-63/1051791530",
+    "fullDownload": false
+  },
+  "nativeUnityExecuted": false,
+  "fullCloudChecksAreNotNativeUnityTests": true,
+  "localFullCoreAssertions": 1925461705,
+  "protectedGeometryFingerprints": 188,
+  "previousSerializedIdsVerified": 212,
+  "newLevels": 5,
+  "totalCatalogueBiomes": 63,
+  "newExternalModels": 0
+}
