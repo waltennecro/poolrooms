@@ -1,0 +1,1 @@
+PASS: supplemental min/max cell size 28/60, seed 7, negative coordinates: 126 adjacent-room pairs across 63 dedicated generation modes. Core geometry only; native Unity unrun.

@@ -1509,7 +1509,7 @@
     {
       "id": "superficies-estables",
       "feature": "Opaque surface ownership and streamed shared-wall restoration",
-      "status": "local_core_verified_full_ci_pending_native_visual_pending",
+      "status": "published_exact_source_ci_and_public_downloads_verified_native_visual_pending",
       "nativeUnityExecuted": false,
       "newExternalModels": 0,
       "newExternalTextures": 0,
@@ -1540,7 +1540,19 @@
           "conclusion": "cancelled",
           "reason": "Source review found footstep material lookup requires matching original collision and renderer material slots. Preserve six slots when meshes differ; native regression added, not claimed executed."
         }
-      ]
+      ],
+      "sourceRevision": "c3fa845a9f8b90d21666125550889d29a75ff2c7",
+      "verificationRun": 39843099715,
+      "verificationStepsSucceeded": 55,
+      "publicationRun": 39843165860,
+      "publicationStepsSucceeded": 8,
+      "delivery": "https://github.com/waltennecro/poolrooms/releases/tag/superficies-estables",
+      "deliveryEvidence": "Verification/surface_ownership_delivery.json",
+      "completeAssetsBytes": 1080575383,
+      "patchBytes": 28963380,
+      "patchFiles": 91,
+      "publicDownloadsSha256Verified": true,
+      "supplementalMinMaxRoomPairs": 126
     }
   ],
   "latestCoreChecks": {
@@ -1591,7 +1603,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "Continuar con Conservatory y después TransitGallery, uno por uno y con arquitectura propia; ejecutar revisión Unity/PlayMode, visual y acústica pendiente de los reconstruidos. Persistencia aplazada por el usuario.",
+  "nextIndependentWork": "Revisar en Unity/PlayMode las superficies, materiales de pasos y uniones al cargar/descargar. Continuar después con TransitGallery y la cola de 45 programas pendientes de reconstrucción individual. Persistencia aplazada por el usuario.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
