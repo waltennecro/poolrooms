@@ -81,6 +81,7 @@ static partial class Checks
         string runtime=File.ReadAllText(Path.Combine(root,"Assets/PoolroomsProcedural/Runtime/PoolroomsProvisions.cs"));
         Check(runtime.Contains("Physics.RaycastNonAlloc")&&runtime.Contains("Physics.OverlapBoxNonAlloc")&&runtime.Contains("CreatedItems++")&&!runtime.Contains("private void Update("),"Food population is not finite and physically checked");
         foreach(string file in new[]{"PoolroomsWorld.cs","PoolroomsConnectedMalls.cs","PoolroomsMallSystem.cs","PoolroomsTerrainSystem.cs"})Check(File.ReadAllText(Path.Combine(root,"Assets/PoolroomsProcedural/Runtime",file)).Contains("PoolroomsProvisions.Attach("),"Missing external level distribution hook: "+file);
+        ProvisionFeasibility();
         Console.WriteLine($"City/provisions: {samples} actual dreamcore city blocks at 3 scales / 2 seeds, 3 open pavilion programmes, peak {maxTriangles} triangles; 117 distinct food definitions + 8 drinks, all 63 catalogue biomes eligible, unlimited-stack transactions and native placement hooks. Native physics/appearance pending.");
     }
 }

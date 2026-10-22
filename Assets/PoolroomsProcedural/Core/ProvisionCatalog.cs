@@ -55,7 +55,7 @@ namespace Poolrooms.Core
                 {
                     // Sidewalks are between the road at |axis|=3 and facades at 4.8.
                     // A table is aligned along the street, never across the driving cross.
-                    px=sx*(3.9f+(band/3)*.12f);pz=sz*(6.3f+(band%3)*2.1f);
+                    px=sx*(4.25f+(band/3)*.04f);pz=sz*(6.3f+(band%3)*2.1f);
                     if(Math.Abs(pz)>depth*.5f-.9f)pz=sz*(depth*.5f-.9f);
                 }
                 points[i]=new ProvisionCandidate(index,new V3(px,floor,pz));

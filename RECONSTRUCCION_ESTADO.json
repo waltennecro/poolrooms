@@ -1593,7 +1593,22 @@
         "Unity compilation, native asset import, shaders, HDRP visuals/reflections, PhysX, interactions and FPS not executed.",
         "Other generic programmes remain in their individual reconstruction queue."
       ],
-      "audit": "Verification/city_provisions_audit.json"
+      "audit": "Verification/city_provisions_audit.json",
+      "supersededBeforePublication": [
+        {
+          "sourceRevision": "e6bb8742e7ab9e79e6f83ac86ad34ac6aaa6fff6",
+          "verificationRun": 39856430387,
+          "publicationRun": 39856572717,
+          "conclusion": "cancelled_before_publication",
+          "reason": "A supplemental actual-geometry provision feasibility audit found no approachable City11 sidewalk station because the standing bay overlapped an eight-centimetre kerb. Shifted tables within the same sidewalk, preserved the driving lane, and added all-63-biome feasibility regression checks."
+        }
+      ],
+      "actualGeometryProvisionAudit": {
+        "rooms": 252,
+        "biomesWithFeasibleSupportedDryApproachableSites": 63,
+        "roomsPerBiome": 4,
+        "nativePhysics": false
+      }
     }
   ],
   "latestCoreChecks": {
@@ -3783,6 +3798,21 @@
       "Unity compilation, native asset import, shaders, HDRP visuals/reflections, PhysX, interactions and FPS not executed.",
       "Other generic programmes remain in their individual reconstruction queue."
     ],
-    "audit": "Verification/city_provisions_audit.json"
+    "audit": "Verification/city_provisions_audit.json",
+    "supersededBeforePublication": [
+      {
+        "sourceRevision": "e6bb8742e7ab9e79e6f83ac86ad34ac6aaa6fff6",
+        "verificationRun": 39856430387,
+        "publicationRun": 39856572717,
+        "conclusion": "cancelled_before_publication",
+        "reason": "A supplemental actual-geometry provision feasibility audit found no approachable City11 sidewalk station because the standing bay overlapped an eight-centimetre kerb. Shifted tables within the same sidewalk, preserved the driving lane, and added all-63-biome feasibility regression checks."
+      }
+    ],
+    "actualGeometryProvisionAudit": {
+      "rooms": 252,
+      "biomesWithFeasibleSupportedDryApproachableSites": 63,
+      "roomsPerBiome": 4,
+      "nativePhysics": false
+    }
   }
 }

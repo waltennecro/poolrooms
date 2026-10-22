@@ -48,7 +48,10 @@
     ],
     "maximumCandidates": 36,
     "maximumStationPickups": 4,
-    "physicalSupportVerifiedInUnity": false
+    "physicalSupportVerifiedInUnity": false,
+    "geometrySamples": 252,
+    "biomesWithMathematicallyFeasibleSites": 63,
+    "supersededKerbOverlapDetected": true
   },
   "otherChecks": [
     "surface ownership: 126 rooms, 12 mall sectors, 24 house cases",
