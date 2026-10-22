@@ -48,7 +48,9 @@ namespace Poolrooms
         private static Material PaletteMaterial(MeshData data,int surface,PoolroomsProfile profile,PoolroomsChunk owner)
         {
             SurfaceTheme theme=BiomeSurfaces.Resolve(data);
-            if(JourneyLevelPlanner.IsTheme(theme))
+            if(theme==SurfaceTheme.Glass&&data.PaletteVariant>=100&&data.PaletteVariant<=102)
+                return PoolroomsHorizonGlass.Resolve(data.PaletteVariant-100,surface,profile,owner);
+            if(JourneyLevelPlanner.IsTheme(theme)||HorizonLevelPlanner.IsTheme(theme))
             {var finish=PoolroomsJourneyMaterials.Resolve(theme,surface);if(finish!=null)return finish;}
             if(MallRealism.IsTheme(theme)&&surface!=(int)Surface.Glow)
             {var retail=PoolroomsMallMaterials.Resolve(theme,surface,data.PaletteVariant,owner);if(retail!=null)return retail;}

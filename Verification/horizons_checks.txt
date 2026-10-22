@@ -1,0 +1,8 @@
+PASS: five Horizon programmes, 240 physical rooms at three sizes/two door widths, 16320 supported pickups, 960 reachable activities, 9792 colored glazing triangles; previous IDs and 63-biome coverage preserved. Unity/HDRP/PhysX/rendering/FPS unrun.
+Walking graph seed 0, cell 36: 63 environments + mall + Level94 and both Poolrooms climates reached; 2664 explored cells; longest witness 41 room edges. Not a distance promise or PhysX test.
+Walking graph seed 31, cell 36: 63 environments + mall + Level94 and both Poolrooms climates reached; 2640 explored cells; longest witness 39 room edges. Not a distance promise or PhysX test.
+Walking graph seed 481516, cell 36: 63 environments + mall + Level94 and both Poolrooms climates reached; 1758 explored cells; longest witness 34 room edges. Not a distance promise or PhysX test.
+Walking graph seed 87, cell 28: 63 environments + mall + Level94 and both Poolrooms climates reached; 3435 explored cells; longest witness 47 room edges. Not a distance promise or PhysX test.
+Walking graph seed 1234, cell 60: 63 environments + mall + Level94 and both Poolrooms climates reached; 2525 explored cells; longest witness 38 room edges. Not a distance promise or PhysX test.
+Walkable discovery: 576 mandatory candidate regions across 9 independently shuffled blocks; 335 graph witness routes, 587 physical biome boundary pairs and 10 mall/meadow bridge cases. No administrator state or teleport used; native Unity pending.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

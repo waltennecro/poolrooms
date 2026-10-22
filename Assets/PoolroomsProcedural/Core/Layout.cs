@@ -50,6 +50,7 @@ namespace Poolrooms.Core
         public bool EnableRestfulLevels;
         public bool EnableSpecialRegions;
         public bool EnableJourneyLevels;
+        public bool EnableHorizonLevels;
         public bool ExpandedLevelDetails;
         public bool LargeProceduralRegions;
         public int LargeRegionScale=8;

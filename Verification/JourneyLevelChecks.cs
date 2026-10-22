@@ -8,7 +8,7 @@ static partial class Checks
     static void JourneyLevels()
     {
         Check((int)LiminalEnvironment.MirrorArcade==37&&(int)SurfaceTheme.MallHypermarket==71,"Expansion changed serialized pre-existing IDs");
-        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==58,"Twenty levels missing from catalogue");
+        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==RestfulLevelPlanner.EnvironmentCount,"Twenty levels missing from catalogue");
         int cases=0,props=0,stations=0,pools=0;long vertices=0;
         var names=new HashSet<string>();var buildings=new HashSet<string>();
         foreach(int seed in new[]{0,31,-94,481516})
@@ -16,7 +16,7 @@ static partial class Checks
             var c=new LayoutConfig{Seed=seed};WalkableExploration.Configure(c);
             for(int bx=-2;bx<=2;bx++)for(int bz=-2;bz<=2;bz++)
             {
-                var counts=new int[58];
+                var counts=new int[RestfulLevelPlanner.EnvironmentCount];
                 for(int dx=0;dx<8;dx++)for(int dz=0;dz<8;dz++)
                 {Check(WalkableExploration.Region(c,bx*8+dx,bz*8+dz,out var e),"Unassigned expanded discovery cell");counts[(int)e]++;}
                 Check(counts.All(n=>n>0),"Expanded block hides a biome behind master mode");
@@ -69,6 +69,6 @@ static partial class Checks
             Check(Hash(before.Structure)==Hash(after.Structure),"Detail expansion changed old floor support");
         }
         Check(buildings.Count==20&&stations>0,"Missing architecture or interactable stations");
-        Console.WriteLine($"PASS: twenty Journey programmes; {cases} built rooms at three sizes/two door widths; {props} planned pickups; {stations} reachable stations; {pools} water volumes; {vertices} sampled vertices. 58-biome discovery and old-gallery opt-in detail checked. Core only; Unity/appearance/PhysX/FPS unrun.");
+        Console.WriteLine($"PASS: twenty Journey programmes; {cases} built rooms at three sizes/two door widths; {props} planned pickups; {stations} reachable stations; {pools} water volumes; {vertices} sampled vertices. {RestfulLevelPlanner.EnvironmentCount}-biome discovery and old-gallery opt-in detail checked. Core only; Unity/appearance/PhysX/FPS unrun.");
     }
 }

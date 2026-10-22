@@ -13,6 +13,8 @@ namespace Poolrooms
         public int largeRegionScale=8;
         [Header("Veinte destinos / expansión de arquitectura")]
         public bool enableJourneyLevels=true;
+        [Header("Cinco horizontes / destinos conectados")]
+        public bool enableHorizonLevels=true;
         public bool expandedLevelDetails=true;
         [Header("Diez regiones especiales")]
         public bool enableSpecialRegions=true;
@@ -168,7 +170,7 @@ namespace Poolrooms
                 DoorWidth=doorWidth,DoorHeight=doorHeight,WallThickness=wallThickness,WaterLevel=waterLevel,
                 CurveSegments=curveSegments,TextureWorldSize=textureWorldSize,Weights=roomWeights==null?null:(float[])roomWeights.Clone(),
                 Composition=composition,Lighting=lighting,UniformLighting=uniformLighting,Zones=zoneMode,SingleZone=singleZone,ZoneFamilyFilter=zoneFamilyFilter};
-            c.LargeProceduralRegions=largeProceduralRegions;c.LargeRegionScale=Mathf.Clamp(largeRegionScale,4,12);c.EnableJourneyLevels=enableJourneyLevels;c.ExpandedLevelDetails=expandedLevelDetails;c.EnableSpecialRegions=enableSpecialRegions;c.EnableRestfulLevels=enableRestfulLevels;c.ObjectAbundance=Mathf.Clamp(objectAbundance,1,3);
+            c.LargeProceduralRegions=largeProceduralRegions;c.LargeRegionScale=Mathf.Clamp(largeRegionScale,4,12);c.EnableJourneyLevels=enableJourneyLevels;c.EnableHorizonLevels=enableHorizonLevels;c.ExpandedLevelDetails=expandedLevelDetails;c.EnableSpecialRegions=enableSpecialRegions;c.EnableRestfulLevels=enableRestfulLevels;c.ObjectAbundance=Mathf.Clamp(objectAbundance,1,3);
             c.ExpandedVariety=expandedVariety;c.ExpandedBiomeAreas=expandedBiomeAreas;c.Validate();return c;
         }
         public Material MaterialFor(int surface)

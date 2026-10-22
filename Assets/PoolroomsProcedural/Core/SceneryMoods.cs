@@ -19,6 +19,7 @@ namespace Poolrooms.Core
                 case LiminalEnvironment.WatermillHalls:
                 case LiminalEnvironment.MosaicCistern:
                     return SceneryMood.Water;
+                case LiminalEnvironment.MagnoliaCourts:
                 case LiminalEnvironment.Conservatory:
                 case LiminalEnvironment.Orangerie:
                 case LiminalEnvironment.WinterGarden:

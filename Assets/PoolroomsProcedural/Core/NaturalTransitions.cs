@@ -13,7 +13,7 @@ namespace Poolrooms.Core
             if(Has(LiminalEnvironment.CoveredMarket)||Has(LiminalEnvironment.PostalArcade)||Has(LiminalEnvironment.Supermarket)||Has(LiminalEnvironment.City11))return NaturalPassage.CommercialArcade;
             if(Has(LiminalEnvironment.RainHouses))return NaturalPassage.ResidentialPorch;
             if(Has(LiminalEnvironment.BambooRetreat)||Has(LiminalEnvironment.HangingOrchards)||Has(LiminalEnvironment.LunarGreenhouse)||Has(LiminalEnvironment.RailwayWintergarden))return NaturalPassage.GardenGallery;
-            if(Has(LiminalEnvironment.Conservatory)||Has(LiminalEnvironment.Orangerie)||Has(LiminalEnvironment.WinterGarden)||Has(LiminalEnvironment.TeaPavilions))return NaturalPassage.GardenGallery;
+            if(Has(LiminalEnvironment.MagnoliaCourts)||Has(LiminalEnvironment.Conservatory)||Has(LiminalEnvironment.Orangerie)||Has(LiminalEnvironment.WinterGarden)||Has(LiminalEnvironment.TeaPavilions))return NaturalPassage.GardenGallery;
             if(Has(LiminalEnvironment.CloudBaths)||Has(LiminalEnvironment.MosaicCistern)||Has(LiminalEnvironment.AquariumGalleries))return NaturalPassage.ChangingRoom;
             if(Has(LiminalEnvironment.Poolrooms)||Has(LiminalEnvironment.AquaticPark)||Has(LiminalEnvironment.ThermalBaths))return NaturalPassage.ChangingRoom;
             if(Has(LiminalEnvironment.SunkenLibrary)||Has(LiminalEnvironment.RainyBookshops)||Has(LiminalEnvironment.MapmakersArchive)||Has(LiminalEnvironment.VelvetTheatre))return NaturalPassage.ReadingVestibule;

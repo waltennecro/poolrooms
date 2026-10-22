@@ -70,6 +70,7 @@ namespace Poolrooms.Core
         static readonly int[] Walls={20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39};
         public static int Finish(SurfaceTheme theme,Surface slot)
         {
+            if(HorizonLevelPlanner.IsTheme(theme))return HorizonLevelPlanner.Finish(theme,slot);
             if(!IsTheme(theme)||slot==Surface.Glow)return -1;
             int i=(int)theme-(int)SurfaceTheme.AquariumGalleries;
             return slot==Surface.Tile?Floors[i]:slot==Surface.Plaster?Walls[i]:slot==Surface.Accent?40:slot==Surface.Metal?41:42;

@@ -1,0 +1,75 @@
+name: Publish verified five Horizon levels
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact source commit with successful full verification
+        required: true
+      verification_run:
+        description: Full successful verification run for that commit
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require successful full verification of exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/workshop-verified-run.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open('/tmp/workshop-verified-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert r['head_sha']==os.environ['SOURCE_REVISION']
+          assert r['status']=='completed' and r['conclusion']=='success'
+          assert r['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Package complete current Assets and verify every entry
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage cinco-horizontes --output "${RUNNER_TEMP}/Poolrooms_Cinco_Horizontes_Assets.zip" > /tmp/workshop-assets.json
+          python - <<'PY'
+          import json,os,pathlib
+          a=json.load(open('/tmp/workshop-assets.json'));out=pathlib.Path(os.environ['RUNNER_TEMP'])
+          assert a['sourceRevision']==os.environ['SOURCE_REVISION'] and not a['workingTreeChanged']
+          size=sum(p.stat().st_size for p in pathlib.Path('Assets').rglob('*') if p.is_file())
+          assert 0<size<=6_000_000_000
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'successfulFullRun':os.environ['VERIFIED_RUN'],
+              'assetsUncompressedBytes':size,'package':a,'nativeUnityExecuted':False,'paddingBytes':0}
+          (out/'Poolrooms_Horizontes_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Horizontes_SHA256.txt').write_text(a['sha256']+'  '+pathlib.Path(a['zip']).name+'\n')
+          notes=f'''Cinco niveles nuevos: Patios de magnolias, Terminal de funiculares, Palacio de vitrales, Patios de campanas y Patios del faro. El catálogo pasa a 63 biomas, además del centro comercial completo y el Nivel 94.
+
+          Arquitectura propia, regiones procedurales extensas, entradas caminables, tragaluces, PBR y mobiliario atribuidos existentes, cuatro actividades por sala, historias y perfiles acústicos. Cabinas estacionarias transitables y miradores con escaleras. Tres lotes de vidrio tintado y barreras físicas; no se anuncian vehículos nuevos ni modelos externos nuevos.
+
+          Incluye el menú independiente, rincones procedurales y todo el contenido anterior. Mantiene los IDs serializados, geometrías protegidas, linterna y distancia de renderizado.
+
+          Paquete completo de Assets: {a['bytes']:,} bytes comprimidos; {size:,} bytes reales sin comprimir. CRC y SHA-256 de cada entrada comprobados. Copia PoolroomsProcedural dentro de Assets con Unity detenido.
+
+          Verificación completa de `{os.environ['SOURCE_REVISION']}` superada: núcleo, 188 geometrías anteriores, 240 salas específicas a tres tamaños y dos anchos de puerta, 16.320 objetos apoyados, 960 actividades alcanzables y rutas de núcleo a los 63 destinos en cinco semillas. Sintaxis, recursos, licencias y empaquetado comprobados. Unity/HDRP, shaders, apariencia, interacción, física, audio y FPS pendientes; no hay editor en este entorno.
+
+          Guía: https://github.com/{os.environ['GH_REPO']}/blob/{os.environ['SOURCE_REVISION']}/Assets/PoolroomsProcedural/Documentation/Cinco_Horizontes.md
+          '''
+          (out/'workshop-release.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          print(json.dumps(record))
+          PY
+      - name: Publish immutable complete package
+        shell: bash
+        run: |
+          gh release create cinco-horizontes --target "${SOURCE_REVISION}" --title "Cinco horizontes: cinco niveles conectados caminando" --notes-file "${RUNNER_TEMP}/workshop-release.md" "${RUNNER_TEMP}/Poolrooms_Cinco_Horizontes_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Horizontes_SHA256.txt" "${RUNNER_TEMP}/Poolrooms_Horizontes_Entrega.json"

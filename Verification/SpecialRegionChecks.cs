@@ -12,7 +12,7 @@ static partial class Checks
         Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==RestfulLevelPlanner.EnvironmentCount,"Special environments missing from catalogue");
         foreach(int seed in new[]{0,31,-94,481516})
         {
-            var config=new LayoutConfig{Seed=seed};WalkableExploration.Configure(config);config.EnableJourneyLevels=false;
+            var config=new LayoutConfig{Seed=seed};WalkableExploration.Configure(config);config.EnableJourneyLevels=false;config.EnableHorizonLevels=false; // Isolate the preserved pre-Journey coverage policy.
             for(int bx=-2;bx<=2;bx++)for(int bz=-2;bz<=2;bz++)
             {
                 var coverage=new HashSet<LiminalEnvironment>();

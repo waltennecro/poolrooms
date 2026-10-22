@@ -40,6 +40,8 @@ Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --f
 
 Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --scenery` for the appended furnishing layer. Preserve recipe/anchor/piece pickup keys, both protected crossing axes and source-model dimensions; optional budget exhaustion must not stop structural streaming.
 
+Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --horizons` for the five appended programmes, human-scale cabin/lookout access, previous ID baseline and 63-biome walking discovery. Keep the prior Journey bank at twenty and custom profiles opt-in through EnableHorizonLevels.
+
 ## Coding Style & Naming Conventions
 
 Use four-space indentation, PascalCase types/methods, and camelCase fields. Follow nearby compact C# formatting. Keep Core free of Unity references and generation deterministic. Append serialized enum values; preserve existing IDs. Keep the flashlight unchanged unless specifically requested. Prefer suitable high-quality external assets with verified licences, provenance, attribution and bounded placement/LOD costs.

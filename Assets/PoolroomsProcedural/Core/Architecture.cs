@@ -81,6 +81,8 @@ namespace Poolrooms.Core
             if(cfg.EncounterExploration)
             {
                 output.Life=RoomLifePlanner.Build(r,output,cfg);
+                if(HorizonLevelPlanner.IsLevel(r.Environment))
+                {output.Life.Stations=HorizonLevelPlanner.Stations(r,cfg);output.Life.Vignette=HorizonLevelPlanner.Memory(r.Environment);}
                 output.Life.Scenery=SceneryPlanner.Build(r,output,cfg);
             }
             return output;

@@ -45,16 +45,17 @@ namespace Poolrooms.Core
     }
     public static class RestfulLevelPlanner
     {
-        public const int LevelCount=10,EnvironmentCount=58;
-        public static bool IsLevel(LiminalEnvironment e){return JourneyLevelPlanner.IsLevel(e)||SpecialRegionPlanner.IsLevel(e)||(int)e>=(int)LiminalEnvironment.SunsetLibrary&&(int)e<= (int)LiminalEnvironment.MineralSanctuary;}
+        public const int LevelCount=10,EnvironmentCount=63;
+        public static bool IsLevel(LiminalEnvironment e){return HorizonLevelPlanner.IsLevel(e)||JourneyLevelPlanner.IsLevel(e)||SpecialRegionPlanner.IsLevel(e)||(int)e>=(int)LiminalEnvironment.SunsetLibrary&&(int)e<= (int)LiminalEnvironment.MineralSanctuary;}
         public static bool IsMode(LiminalGeneration m){return (int)m>=(int)LiminalGeneration.SunsetLibrary&&(int)m<=(int)LiminalGeneration.MineralSanctuary;}
         public static LiminalEnvironment ForMode(LiminalGeneration m)
         {if(!IsMode(m))throw new ArgumentOutOfRangeException(nameof(m));return (LiminalEnvironment)((int)LiminalEnvironment.SunsetLibrary+(int)m-(int)LiminalGeneration.SunsetLibrary);}
         public static bool IsTheme(SurfaceTheme t){return (int)t>=(int)SurfaceTheme.SunsetLibrary&&(int)t<=(int)SurfaceTheme.MineralSanctuary;}
         public static SurfaceTheme Theme(LiminalEnvironment e)
-        {if(JourneyLevelPlanner.IsLevel(e))return JourneyLevelPlanner.Theme(e);if(SpecialRegionPlanner.IsLevel(e))return SpecialRegionPlanner.Theme(e);if(!IsLevel(e))throw new ArgumentOutOfRangeException(nameof(e));return (SurfaceTheme)((int)SurfaceTheme.SunsetLibrary+(int)e-(int)LiminalEnvironment.SunsetLibrary);}
+        {if(HorizonLevelPlanner.IsLevel(e))return HorizonLevelPlanner.Theme(e);if(JourneyLevelPlanner.IsLevel(e))return JourneyLevelPlanner.Theme(e);if(SpecialRegionPlanner.IsLevel(e))return SpecialRegionPlanner.Theme(e);if(!IsLevel(e))throw new ArgumentOutOfRangeException(nameof(e));return (SurfaceTheme)((int)SurfaceTheme.SunsetLibrary+(int)e-(int)LiminalEnvironment.SunsetLibrary);}
         public static string Name(LiminalEnvironment e)
         {
+            if(HorizonLevelPlanner.IsLevel(e))return HorizonLevelPlanner.Name(e);
             if(JourneyLevelPlanner.IsLevel(e))return JourneyLevelPlanner.Name(e);
             if(SpecialRegionPlanner.IsLevel(e))return SpecialRegionPlanner.Name(e);
             switch(e)
@@ -116,6 +117,7 @@ namespace Poolrooms.Core
             // meaning. Existing alpha-masked licensed foliage uses its own PBR maps.
             if(r.Environment==LiminalEnvironment.WinterGarden)
                 foreach(var bay in bays)props.Add(new QuietPropPlan(new V3(bay.X,.401f,bay.Z),-1,"G_PottedPlant",(recipe%4)*90));
+            if(HorizonLevelPlanner.IsLevel(r.Environment))HorizonLevelPlanner.Furnish(r.Environment,props);
             if(SpecialRegionPlanner.IsLevel(r.Environment))SpecialRegionPlanner.Furnish(r.Environment,props);
             if(JourneyLevelPlanner.IsLevel(r.Environment))JourneyLevelPlanner.Furnish(r.Environment,props);
             if(c.ExpandedLevelDetails)
