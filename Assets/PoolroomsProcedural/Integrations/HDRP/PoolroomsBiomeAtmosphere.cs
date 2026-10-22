@@ -75,8 +75,9 @@ namespace Poolrooms.HDRP
                 if(rainy)shelter=room.Plan.Rain.InsideLodge(local.x,local.z);
                 if(room.Plan?.Quiet?.Courtyard!=null&&local.y>=room.Plan.Quiet.Courtyard.Roof-.1f)shelter=false;
                 if(aerial)shelter=false;
+                bool botanical=!aerial&&room.Plan?.Quiet?.Conservatory!=null;
                 bool courtyardHotel=!aerial&&room.Plan?.Quiet?.Courtyard!=null;
-                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?(room.Plan?.Quiet?.Archive!=null?7.2f:6.3f):sunset?10.8f:shelter?7.7f:11.7f)+offset;
+                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(botanical?10.0f:courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?(room.Plan?.Quiet?.Archive!=null?7.2f:6.3f):sunset?10.8f:shelter?7.7f:11.7f)+offset;
                 if(regionalEV<=0)regionalEV=target;
                 regionalEV=Mathf.Lerp(regionalEV,target,1-Mathf.Exp(-Time.unscaledDeltaTime*2));cityExposure.fixedExposure.Override(regionalEV);
             }
@@ -88,10 +89,10 @@ namespace Poolrooms.HDRP
             if(configured&&previous==effectiveEnvironment&&previousMall==mall&&previousSun==sunny&&Mathf.Abs(height-previousHeight)<.01f)return;
             previous=effectiveEnvironment;previousMall=mall;previousSun=sunny;previousHeight=height;configured=true;
             environment.skyType.Override((int)(sunny&&!rainy?SkyType.PhysicallyBased:SkyType.Gradient));
-            citySun.transform.localRotation=Quaternion.Euler(mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
+            citySun.transform.localRotation=Quaternion.Euler(room.Plan?.Quiet?.Conservatory!=null?32:mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
             citySun.color=mallPhysical?new Color(1,.94f,.84f):rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
 #pragma warning disable CS0618
-            citySunData.SetIntensity(room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
+            citySunData.SetIntensity(room.Plan?.Quiet?.Conservatory!=null?10000:room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
 #pragma warning restore CS0618
             Color top=new Color(.57f,.66f,.78f),middle=new Color(.84f,.87f,.9f),bottom=new Color(.7f,.73f,.76f);float ev=-1;
             if(rainy){top=new Color(.35f,.43f,.49f);middle=new Color(.61f,.68f,.7f);bottom=new Color(.47f,.53f,.53f);ev=.5f;}

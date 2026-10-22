@@ -1,9 +1,9 @@
 {
-  "stage": "cygnus-reconstruido",
+  "stage": "invernadero-cristal",
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "published_full_core_verified_native_visual_review_pending",
+  "status": "implemented_local_full_core_verified_ci_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -26,13 +26,15 @@
       "environment": "Archive906",
       "status": "published_native_visual_review_pending",
       "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level906.json"
+    },
+    {
+      "environment": "Conservatory",
+      "status": "implemented_native_visual_review_pending",
+      "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Conservatory.json",
+      "originalDesign": true
     }
   ],
   "pendingIndividualRebuilds": [
-    {
-      "environment": "Conservatory",
-      "status": "pending_research_and_distinct_architecture"
-    },
     {
       "environment": "TransitGallery",
       "status": "pending_research_and_distinct_architecture"
@@ -221,7 +223,7 @@
   "otherExistingGenerators": "Existing authored Poolrooms, retail, interiors and coast preserved; not declared visually revalidated.",
   "limits": [
     "No Unity Editor, Play or GPU profiling in this environment",
-    "Direct wiki domains blocked; public attributed transcription reviewed",
+    "Direct Kew/wiki domains blocked; pinned secondary descriptions and three attributed reference photos reviewed; photos not redistributed",
     "No exact original v47 recovery"
   ],
   "previousDelivery": {
@@ -260,45 +262,72 @@
     }
   },
   "verification": {
-    "targetedLibrary": "Verification/archive_library_checks.txt",
-    "sampledLibraryChunks": 108,
-    "reusedSourceModels": 6,
+    "targetedConservatory": "Verification/conservatory_checks.txt",
+    "sampledChunks": 192,
+    "uses": 8,
+    "reusedDistinctSourceModels": 7,
+    "sampledSourceInstances": 1536,
     "newExternalModels": 0,
+    "newExternalTextureSets": 1,
+    "mixedWorldCells": 90,
+    "walkingBoundaryEntrances": 131,
     "protectedGeometries": 188,
     "nativeUnityExecuted": false,
     "maximumSupportedDoorHeightMetres": 5.5,
-    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39741255895",
     "localBuildWarnings": 0,
     "localBuildErrors": 0,
-    "targetedLibraryAssertions": 50022006,
-    "sourceInstancesIn108Samples": 3236,
-    "previousLocalFullCore": {
-      "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
-      "path": "Verification/archive_full_core_before_textiles.txt",
-      "assertions": 2051520885
-    },
-    "supersededBeforePublication": [
-      {
-        "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
-        "reason": "Bind guest cushions to the batched velvet textile mesh rather than the paper slot; verification/publication restarted for exact refined source."
-      }
-    ],
-    "localFullCore": "Verification/archive_full_core_checks.txt",
-    "localFullCoreRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
-    "localCoreAssertions": 2051536209,
-    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
-    "fullCiStatus": "success",
-    "fullCiStepsSucceeded": 51,
-    "deliveryEvidence": "Verification/cygnus_delivery.json"
+    "targetedAssertions": 51416425,
+    "localFullCore": "Verification/conservatory_full_core_checks.txt",
+    "localCoreAssertions": 2103227483,
+    "sourceScriptsInFiveConfigurations": 351,
+    "resourceAudit": "tools/verify_conservatory_resources.py",
+    "ciStatus": "pending"
   },
-  "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
-  "delivery": {
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/cygnus-reconstruido",
-    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
-    "completeAssetsBytes": 1051834663,
-    "completeAssetsSha256": "2e89bce095bdee9ad36cfdc4168ca8db5fbf0dc2848c253167e4220cce1e11bb",
-    "patchBytes": 171231,
-    "patchSha256": "95e992b1748b014e0c7ba370004cadfd2f6da21b0b2cee67b3d452dec5047ce2",
-    "publicFullDownloadAndPatchVerified": true
-  }
+  "previousDeliveries": [
+    {
+      "stage": "cygnus-reconstruido",
+      "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+      "verification": {
+        "targetedLibrary": "Verification/archive_library_checks.txt",
+        "sampledLibraryChunks": 108,
+        "reusedSourceModels": 6,
+        "newExternalModels": 0,
+        "protectedGeometries": 188,
+        "nativeUnityExecuted": false,
+        "maximumSupportedDoorHeightMetres": 5.5,
+        "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39741255895",
+        "localBuildWarnings": 0,
+        "localBuildErrors": 0,
+        "targetedLibraryAssertions": 50022006,
+        "sourceInstancesIn108Samples": 3236,
+        "previousLocalFullCore": {
+          "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
+          "path": "Verification/archive_full_core_before_textiles.txt",
+          "assertions": 2051520885
+        },
+        "supersededBeforePublication": [
+          {
+            "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
+            "reason": "Bind guest cushions to the batched velvet textile mesh rather than the paper slot; verification/publication restarted for exact refined source."
+          }
+        ],
+        "localFullCore": "Verification/archive_full_core_checks.txt",
+        "localFullCoreRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+        "localCoreAssertions": 2051536209,
+        "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
+        "fullCiStatus": "success",
+        "fullCiStepsSucceeded": 51,
+        "deliveryEvidence": "Verification/cygnus_delivery.json"
+      },
+      "delivery": {
+        "release": "https://github.com/waltennecro/poolrooms/releases/tag/cygnus-reconstruido",
+        "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
+        "completeAssetsBytes": 1051834663,
+        "completeAssetsSha256": "2e89bce095bdee9ad36cfdc4168ca8db5fbf0dc2848c253167e4220cce1e11bb",
+        "patchBytes": 171231,
+        "patchSha256": "95e992b1748b014e0c7ba370004cadfd2f6da21b0b2cee67b3d452dec5047ce2",
+        "publicFullDownloadAndPatchVerified": true
+      }
+    }
+  ]
 }

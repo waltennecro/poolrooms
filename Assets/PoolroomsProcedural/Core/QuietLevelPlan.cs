@@ -28,8 +28,9 @@ namespace Poolrooms.Core
         public readonly bool Pavilion;
         public readonly CourtyardDistrictPlan Courtyard;
         public readonly ArchiveDistrictPlan Archive;
-        public QuietLevelPlan(LiminalEnvironment environment,int floors,int variant,uint seed,QuietPropPlan[] props,WaterRegion sea,float shore=0,bool pavilion=false,CourtyardDistrictPlan courtyard=null,ArchiveDistrictPlan archive=null)
-        {Environment=environment;Floors=floors;Variant=variant;Seed=seed;Props=props;Sea=sea;Shore=shore;Pavilion=pavilion;Courtyard=courtyard;Archive=archive;}
+        public readonly ConservatoryDistrictPlan Conservatory;
+        public QuietLevelPlan(LiminalEnvironment environment,int floors,int variant,uint seed,QuietPropPlan[] props,WaterRegion sea,float shore=0,bool pavilion=false,CourtyardDistrictPlan courtyard=null,ArchiveDistrictPlan archive=null,ConservatoryDistrictPlan conservatory=null)
+        {Environment=environment;Floors=floors;Variant=variant;Seed=seed;Props=props;Sea=sea;Shore=shore;Pavilion=pavilion;Courtyard=courtyard;Archive=archive;Conservatory=conservatory;}
         public bool Valid(Room room,LayoutConfig c)
         {return QuietLevelPlanner.IsLevel(Environment)&&room.Environment==Environment&&room.Width==c.CellSize&&room.Depth==c.CellSize&&Props!=null&&Props.Length<=12&&Floors>=1&&Floors<=5;}
         public bool Sheltered(float x,float z,float cellSize)
@@ -43,6 +44,7 @@ namespace Poolrooms.Core
         {return RestfulLevelPlanner.IsLevel(e)||e==LiminalEnvironment.RainHouses||e==LiminalEnvironment.AquaticPark||e==LiminalEnvironment.ThermalBaths||e==LiminalEnvironment.Orangerie||e==LiminalEnvironment.Archive906||e==LiminalEnvironment.Courtyard188||e==LiminalEnvironment.Coast48||IsCivic(e);}
         public static void Describe(Room room,LayoutConfig c)
         {
+            if(ConservatoryDistrictPlanner.Applies(c,room.Environment)){ConservatoryDistrictPlanner.Describe(room,c);return;}
             if(ArchiveDistrictPlanner.Applies(c,room.Environment)){ArchiveDistrictPlanner.Describe(room,c);return;}
             if(CourtyardDistrictPlanner.Applies(c,room.Environment)){CourtyardDistrictPlanner.Describe(room,c);return;}
             if(RestfulLevelPlanner.IsLevel(room.Environment)){RestfulLevelPlanner.Describe(room,c);return;}

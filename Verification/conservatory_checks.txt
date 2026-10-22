@@ -1,0 +1,5 @@
+Crystal conservatory: 192 built chunks, 8 wing uses, 60 sampled ponds, 7 reused source models / 1536 sample instances, 90 mixed-world cells / 131 walking boundary entrances; 51416425 mathematical/source assertions. Zero new downloaded models; one new CC0 texture set. Native Unity unrun.
+PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
+PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
+PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

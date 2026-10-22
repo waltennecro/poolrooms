@@ -1,0 +1,73 @@
+{
+  "identity": "Original liminal Crystal Conservatory; replaces generic Conservatory without changing serialized ID",
+  "canonicalBackroomsLevelClaimed": false,
+  "reviewed": "2026-10-22",
+  "primaryReferences": [
+    {
+      "url": "https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house",
+      "access": "Blocked by environment proxy, HTTP 403"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Palm_House",
+      "access": "Blocked by environment proxy, HTTP 403"
+    }
+  ],
+  "accessibleReferences": [
+    {
+      "url": "https://github.com/RRM1000/london-travel-geek/blob/67d5dec3b6c366053673d3f851e5da2fd3963366/src/content/articles/kew-gardens-guide.md",
+      "sections": [
+        "Palm House and pond",
+        "Princess of Wales Conservatory and Rock Garden",
+        "Treetop Walkway",
+        "Temperate House"
+      ],
+      "use": "Secondary architectural descriptions, photos and attribution; no tourism figures copied into gameplay"
+    },
+    {
+      "url": "https://github.com/bendyline/qualla/blob/5cde0855a6daa716198f43614ef1d555050e55f2/stories/g/c/p/u/royal-botanic-gardens-kew-wp.md",
+      "use": "Secondary comparison of glasshouses, herbarium and seed bank; not treated as an authoritative primary archive"
+    }
+  ],
+  "referencePhotos": [
+    {
+      "url": "https://raw.githubusercontent.com/RRM1000/london-travel-geek/67d5dec3b6c366053673d3f851e5da2fd3963366/src/assets/articles/kew-gardens-guide/kew-palm-house-pond.jpg",
+      "author": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0 (credit in pinned source article)",
+      "sha256": "4bafda98efa04a095dd5affd83ad868e88c912c89cf12f8fa9f763fcd3aefb4f",
+      "redistributedInGameAssets": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/RRM1000/london-travel-geek/67d5dec3b6c366053673d3f851e5da2fd3963366/src/assets/articles/kew-gardens-guide/kew-princess-of-wales-conservatory.jpg",
+      "author": "AndyScott",
+      "license": "CC BY-SA 4.0 (credit in pinned source article)",
+      "sha256": "6979e29eaa94a7fd056067cd5cc490cec606e8fa8c18165421547ebafc011a47",
+      "redistributedInGameAssets": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/RRM1000/london-travel-geek/67d5dec3b6c366053673d3f851e5da2fd3963366/src/assets/articles/kew-gardens-guide/kew-temperate-house-interior.jpg",
+      "author": "Mike Peel",
+      "license": "CC BY-SA 4.0 (credit in pinned source article)",
+      "sha256": "35e5d831116829bcf5efd7a8ecc246a45afd140f9228fcda7595eab75937cca8",
+      "redistributedInGameAssets": false
+    }
+  ],
+  "originalArchitecture": [
+    "One smoothly joined iron-and-glass roof over a four-by-four streamed district",
+    "Four central reflecting-pond quarters when the whole district is available",
+    "Two walkable levels; a continuous raised perimeter and crossing bridges",
+    "Dogleg stairs placed opposite the shared water quarter",
+    "Eight garden programmes: palms, ferns, rock terraces, flowers, tea, seed nursery, herbarium, water"
+  ],
+  "adaptations": [
+    "Original interior design rather than a copy of Kew plans or another game",
+    "Peaceful shared-garden stories, no NPCs required",
+    "Roof and upper/external glazing have real collision; water has basin bottoms and exit steps",
+    "Partial biome borders remain furnished conservatory annexes; mall/terrain reservations preserved"
+  ],
+  "newDownloadedModels": 0,
+  "reusedDistinctModelSources": 7,
+  "newExternalTextureSets": 1,
+  "textureProvenance": "Resources/ConservatorySources/Ground037.json",
+  "photosRedistributedInAssets": 0,
+  "nativeUnityExecuted": false
+}

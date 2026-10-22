@@ -14,8 +14,9 @@ namespace Poolrooms.Editor
             importer.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
             importer.sRGBTexture=!normal&&!mask;importer.mipmapEnabled=true;importer.wrapMode=TextureWrapMode.Repeat;
             bool refined=assetPath.Contains("/CalmWater")||assetPath.Contains("/Rain")||assetPath.Contains("/FlumeFlow")||assetPath.Contains("/Aquatic")||assetPath.Contains("/Bath")||assetPath.Contains("/Garden")||assetPath.Contains("/PlayFinish")||assetPath.Contains("/QuietSand")||assetPath.Contains("/AirfieldAsphalt");
-            importer.anisoLevel=refined?8:4;importer.maxTextureSize=refined?1024:512;importer.textureCompression=TextureImporterCompression.Compressed;
-            if(refined)importer.textureCompression=TextureImporterCompression.CompressedHQ;
+            bool conservatory=assetPath.Contains("/ConservatoryGround");
+            importer.anisoLevel=refined||conservatory?8:4;importer.maxTextureSize=conservatory?2048:refined?1024:512;importer.textureCompression=TextureImporterCompression.Compressed;
+            if(refined||conservatory)importer.textureCompression=TextureImporterCompression.CompressedHQ;
             importer.alphaIsTransparency=false;
         }
     }

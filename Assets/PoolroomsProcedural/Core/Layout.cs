@@ -76,6 +76,7 @@ namespace Poolrooms.Core
         public bool EnableQuietLevels;
         public bool RebuildCourtyard188;
         public bool RebuildArchive906;
+        public bool RebuildConservatory;
         public bool EnableCivicLevels;
         public bool EnableOrangerie;
         public bool EnableRainHouses;
@@ -233,6 +234,8 @@ namespace Poolrooms.Core
                 for(int side=0;side<4;side++)if(CourtyardDistrictPlanner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
             if(config.RebuildArchive906)foreach(var room in Rooms)
                 for(int side=0;side<4;side++)if(ArchiveDistrictPlanner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
+            if(config.RebuildConservatory)foreach(var room in Rooms)
+                for(int side=0;side<4;side++)if(ConservatoryDistrictPlanner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
             foreach(Room room in Rooms)ProceduralPlanner.Describe(room,config);
             SpaceComposition.Apply(this);
         }

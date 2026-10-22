@@ -68,6 +68,7 @@ namespace Poolrooms
             if(theme==SurfaceTheme.Conservatory&&slot==Surface.Slide)color=new Color(.16f,.31f,.12f);
             if(theme==SurfaceTheme.Conservatory&&slot==Surface.Metal)color=new Color(.3f,.36f,.3f);
             if(theme==SurfaceTheme.TransitGallery&&slot==Surface.Plaster)color=new Color(.91f,.89f,.82f);
+            if(theme==SurfaceTheme.CrystalConservatory&&slot==Surface.Metal)color=new Color(.35f,.43f,.4f);
             if(theme==SurfaceTheme.CygnusVelvet&&slot!=Surface.Metal)color=new Color(.045f,.09f,.24f);
             if(theme==SurfaceTheme.CygnusBindings)color=slot==Surface.Metal?new Color(.8f,.62f,.27f):slot==Surface.Tile?new Color(.13f,.2f,.15f):slot==Surface.Accent?new Color(.23f,.08f,.06f):slot==Surface.Plaster?new Color(.1f,.16f,.26f):new Color(.29f,.17f,.07f);
             SetColor(m,"_BaseColor",color);SetColor(m,"_Color",color);

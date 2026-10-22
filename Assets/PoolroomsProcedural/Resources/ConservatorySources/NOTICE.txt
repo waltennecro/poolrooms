@@ -1,0 +1,21 @@
+Ground037 by ambientCG (ambientCG.com / Lennart Demes)
+https://ambientcg.com/a/Ground037
+CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+
+Author and CC0 declaration are preserved in Ground037_source.usda.txt. It is a
+provenance document, not a game dependency; referenced original filenames are
+identified in Ground037.json and are not claimed to be shipped beside it.
+
+The mirrored sources are pinned at BastiaanOlij/godot_vr_climbing_demo commit
+2d246e69a4da33c6a33b07fdf77ae1aec14b15db. Only these independently licensed maps
+are used; no code, scenes, audio or other assets from that game are copied.
+
+Poolrooms adaptation: decoded colour and OpenGL normal converted to PNG;
+metallic/AO/detail/smoothness packed into HDRP mask. 2048x2048. No displacement
+or tessellation is advertised. See tools/build_conservatory_ground.py in the
+repository for deterministic preparation and Ground037.json for source hashes.
+
+Other furniture and plant source models retain their existing attribution
+under GardenSources, BistroSources, InteriorSources, MallSources and JourneySources.
+Botanical meshes in ConservatoryPlants.cs are original procedural geometry,
+not downloaded plant models or thousands of distinct externally acquired assets.

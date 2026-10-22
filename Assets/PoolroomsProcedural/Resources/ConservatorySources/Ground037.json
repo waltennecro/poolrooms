@@ -1,0 +1,59 @@
+{
+  "id": "Ground037",
+  "author": "ambientCG (Lennart Demes)",
+  "source": "https://ambientcg.com/a/Ground037",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "mirrorRevision": "2d246e69a4da33c6a33b07fdf77ae1aec14b15db",
+  "sources": {
+    "Ground037_2K_Color.jpg": {
+      "url": "https://raw.githubusercontent.com/BastiaanOlij/godot_vr_climbing_demo/2d246e69a4da33c6a33b07fdf77ae1aec14b15db/assets/ambientcg.com/Ground037/Ground037_2K_Color.jpg",
+      "bytes": 8673710,
+      "sha256": "3d35e1f871609f5e4c47a032d5e622c30f163576eb3dbb0d2afba1be226a3679"
+    },
+    "Ground037_2K_NormalGL.jpg": {
+      "url": "https://raw.githubusercontent.com/BastiaanOlij/godot_vr_climbing_demo/2d246e69a4da33c6a33b07fdf77ae1aec14b15db/assets/ambientcg.com/Ground037/Ground037_2K_NormalGL.jpg",
+      "bytes": 9801587,
+      "sha256": "64f71696c8ffb5a58d1a6533efe1e49a6c5c0b66a4ab9055763b29035cc0f877"
+    },
+    "Ground037_2K_Roughness.jpg": {
+      "url": "https://raw.githubusercontent.com/BastiaanOlij/godot_vr_climbing_demo/2d246e69a4da33c6a33b07fdf77ae1aec14b15db/assets/ambientcg.com/Ground037/Ground037_2K_Roughness.jpg",
+      "bytes": 3242027,
+      "sha256": "62a2931ff01ae3ed58f7cfa3467c0e16e4ad0fe78141841e05ae58ce31ad105c"
+    },
+    "Ground037_2K_AmbientOcclusion.jpg": {
+      "url": "https://raw.githubusercontent.com/BastiaanOlij/godot_vr_climbing_demo/2d246e69a4da33c6a33b07fdf77ae1aec14b15db/assets/ambientcg.com/Ground037/Ground037_2K_AmbientOcclusion.jpg",
+      "bytes": 2274967,
+      "sha256": "8541699952bcf8bb41f701cf81d10a3a8a0dbdcc904b25c3ab62802eb21f490e"
+    }
+  },
+  "derivedFiles": {
+    "PoolroomsBiomeTextures/ConservatoryGround_Albedo.png": {
+      "bytes": 10960610,
+      "sha256": "61f33a5fb781f1416e2f5aa517b2beff72df8ae918b1ca81941d0cf1cf1266d2"
+    },
+    "PoolroomsBiomeTextures/ConservatoryGround_Normal.png": {
+      "bytes": 10267372,
+      "sha256": "b202a06d4f3256aedae0af2b17ba2ee4224e6bd6029c45dd9648a7e65d98aca3"
+    },
+    "PoolroomsBiomeTextures/ConservatoryGround_Mask.png": {
+      "bytes": 7265882,
+      "sha256": "632d27f205370dcaa6a85f216f22ffea2c0d93e5f7e1bfc44bcc3f77419fbd57"
+    }
+  },
+  "dimensions": [
+    2048,
+    2048
+  ],
+  "normalConvention": "OpenGL (+Y), imported as Unity NormalMap",
+  "hdrpMaskChannels": [
+    "metallic=0",
+    "ambient occlusion",
+    "detail=255",
+    "smoothness=255-roughness"
+  ],
+  "newExternalModels": 0,
+  "newExternalTextureSets": 1,
+  "displacementClaimed": false,
+  "adaptation": "Lossless decoded PNG colour/normal; AO and inverted roughness packed into HDRP mask. No tessellation/displacement promised."
+}
