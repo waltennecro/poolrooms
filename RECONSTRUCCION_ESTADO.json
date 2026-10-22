@@ -3541,9 +3541,11 @@
       "reusedDistinctSourceModels": 6,
       "nativeUnityExecuted": false,
       "localFullCore": "Verification/archive_full_core_checks.txt",
-      "localCoreAssertions": 2051520885,
+      "localCoreAssertions": 2051536209,
       "protectedFingerprints": 188,
-      "previousLocalFullCoreRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18"
+      "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+      "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39741255895",
+      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173"
     }
   }
 }

@@ -3,7 +3,7 @@
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "implemented_local_checks_publication_pending",
+  "status": "local_full_core_passed_remote_full_verification_running",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -267,14 +267,14 @@
     "protectedGeometries": 188,
     "nativeUnityExecuted": false,
     "maximumSupportedDoorHeightMetres": 5.5,
-    "fullCi": "pending",
+    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39741255895",
     "localBuildWarnings": 0,
     "localBuildErrors": 0,
     "targetedLibraryAssertions": 50022006,
     "sourceInstancesIn108Samples": 3236,
     "previousLocalFullCore": {
       "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
-      "path": "Verification/archive_full_core_checks.txt",
+      "path": "Verification/archive_full_core_before_textiles.txt",
       "assertions": 2051520885
     },
     "supersededBeforePublication": [
@@ -282,6 +282,12 @@
         "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
         "reason": "Bind guest cushions to the batched velvet textile mesh rather than the paper slot; verification/publication restarted for exact refined source."
       }
-    ]
-  }
+    ],
+    "localFullCore": "Verification/archive_full_core_checks.txt",
+    "localFullCoreRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+    "localCoreAssertions": 2051536209,
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
+    "fullCiStatus": "in_progress"
+  },
+  "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc"
 }
