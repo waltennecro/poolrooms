@@ -1061,3 +1061,12 @@ Se corrigió la asignación nativa anticipada de `MaterialPropertyBlock`, la sel
 Entrega publicada: https://github.com/waltennecro/poolrooms/releases/tag/hotel-ventanas-skins . Código del juego: `3b5751cf989baeab9cfe8329da1ccf72d17b81f2`. Verificación completa: https://github.com/waltennecro/poolrooms/actions/runs/39732603453 (51 pasos correctos, ninguno omitido). Publicación: https://github.com/waltennecro/poolrooms/actions/runs/39732853753.
 
 Se descargaron y verificaron los bytes reales de los enlaces públicos: paquete completo de 1.051.819.803 bytes y parche acumulativo de 153.577 bytes. SHA-256 completo comprobado sin guardar otro ZIP de 1 GB en disco; los 44 archivos del parche coinciden con Assets. Evidencia: `Verification/hotel_delivery.json`. Unity/Play/HDRP, apariencia, física, audio y FPS siguen sin ejecutarse aquí. Quedan 48 programas genéricos en la cola individual: esta entrega no los presenta como reconstruidos ni recupera exactamente la v47.
+
+
+## Segunda reconstrucción individual: Cygnus / Archivo 906
+
+Se reemplaza el programa de biblioteca por naves continuas abovedadas, galerías y puentes de tres alturas, escaleras propias en cada sector y alas de estanterías, lectura, escritura, té y descanso. Los cinco programas cambian arquitectura/equipamientos; no solo el color o mobiliario de una caja. Vidrieras con sustracción real del techo, madera y tela PBR, seis modelos existentes atribuidos y actividades por planta. Entra por exploración caminable sin alterar IDs, linterna ni distancia.
+
+La descripción de la wiki se contrastó mediante una copia pública fijada de la traducción; la fuente inglesa directa está bloqueada aquí. Autores, licencia y adaptaciones deliberadas en `Assets/PoolroomsProcedural/Documentation/LevelResearch/Level906.json`. No se redistribuyen las imágenes ni los libros del artículo. Se corrigió un índice negativo descubierto por la suite general y se añadió su regresión en coordenadas extremas.
+
+`--archive-library` construye 108 sectores en tres escalas, dos anchuras y extremos de altura; comprueba apoyos, pasos, muebles, plantas, encuentros y mundos finitos. Los modelos nuevos son cero: 3.236 instancias muestreadas reutilizan seis fuentes distintas. Las aserciones del núcleo no son pruebas nativas. Unity/Play/HDRP, shaders, apariencia, física y FPS no ejecutados aquí. Cola persistente: hotel 188 y Archive906 reconstruidos; 47 programas restantes pendientes.

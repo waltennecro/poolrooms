@@ -1,0 +1,70 @@
+{
+  "level": "906 — Cygnus Archive",
+  "reviewed": "2026-10-22",
+  "authors": [
+    "SnomWriting",
+    "Blanche"
+  ],
+  "translationReviewed": "DigIntoGrave (Chinese wiki translation)",
+  "primaryReferences": [
+    {
+      "url": "https://backrooms-wiki.wikidot.com/level-906",
+      "directAccess": "HTTP 403 from environment proxy"
+    },
+    {
+      "url": "https://backrooms-wiki-cn.wikidot.com/level-906",
+      "directAccess": "Public archived HTML translation reviewed instead"
+    }
+  ],
+  "accessibleResearch": [
+    {
+      "url": "https://github.com/Hoshino-Yumetsuki/backroomsmap/blob/d9d5c12bc79e16f7ba17d7bd2f52828635d8ea39/data/raw/level-906.json",
+      "sha256": "c8f18cc738e9301a899d6641b1af39f22ef0dad735dde776162eca7bbd452351",
+      "sectionsReviewed": [
+        "Description",
+        "Notable areas: office, tea room, guest rooms",
+        "Entrances and exits",
+        "Author/image credits"
+      ],
+      "copiedCodeModelsOrImages": false
+    }
+  ],
+  "architecturalFactsAdapted": [
+    "An apparently infinite library with Gothic, Victorian and Baroque elements",
+    "Ordered wooden bookcases containing multilingual books and documents",
+    "Wooden access stairs, very high ceilings and candle chandeliers",
+    "Stained glass, wooden floors and blue velvet carpets with gold ornament",
+    "Writing/receiving office, tea preparation kitchen and guest resting areas"
+  ],
+  "originalImplementation": [
+    "Three-column nave/wing rhythm across streamed world coordinates",
+    "Three walkable levels, open nave voids, cross bridges and guarded galleries",
+    "Dogleg stairs in every sector, even at isolated biome edges",
+    "Real curved vaulted roofs with subtracted glazing apertures and lead frames",
+    "Five wing programmes: stacks, reading, scriptorium, tea kitchen, guest alcoves",
+    "Books, bookbinding/tea and star-chart activities on separate accessible storeys"
+  ],
+  "deliberateAdaptations": [
+    "No NPC Blanche or other entities; warm traces of absent visitors instead",
+    "Walkable entrances instead of mandatory signature teleportation",
+    "Finite physical ceiling instead of unreachable supernatural height",
+    "Guest alcoves rather than a claim to reproduce shape-shifting bedrooms",
+    "Book texts, illustrations, music scores and photographic references are not copied"
+  ],
+  "license": "Level-specific narrative/setting adaptation credited to the wiki authors under CC BY-SA 3.0; original implementation code and already attributed media retain their own licences.",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "newExternalModels": 0,
+  "externalMediaRedistributed": 0,
+  "reusedModels": [
+    "M_IndoorChair",
+    "M_DeskLamp",
+    "WaterBottle",
+    "R_Teacup",
+    "R_FlowerVase",
+    "G_PottedPlant"
+  ],
+  "limitations": [
+    "Research reviewed via pinned public wiki translation, not direct English-page access",
+    "No Unity Editor or native shader/physics/FPS execution here"
+  ]
+}

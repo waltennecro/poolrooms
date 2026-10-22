@@ -76,7 +76,7 @@ namespace Poolrooms.HDRP
                 if(room.Plan?.Quiet?.Courtyard!=null&&local.y>=room.Plan.Quiet.Courtyard.Roof-.1f)shelter=false;
                 if(aerial)shelter=false;
                 bool courtyardHotel=!aerial&&room.Plan?.Quiet?.Courtyard!=null;
-                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?6.3f:sunset?10.8f:shelter?7.7f:11.7f)+offset;
+                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?(room.Plan?.Quiet?.Archive!=null?7.2f:6.3f):sunset?10.8f:shelter?7.7f:11.7f)+offset;
                 if(regionalEV<=0)regionalEV=target;
                 regionalEV=Mathf.Lerp(regionalEV,target,1-Mathf.Exp(-Time.unscaledDeltaTime*2));cityExposure.fixedExposure.Override(regionalEV);
             }

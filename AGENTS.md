@@ -55,3 +55,5 @@ Use the standalone checks for generation and mathematical regressions; Unity Tes
 ## Commit & Pull Request Guidelines
 
 History uses concise imperative subjects such as “Reconstruct …” and “Recover …”. Commit bounded stages and back them up without force-pushing. Describe behavior, validation actually executed, and remaining Unity checks. Include real Unity screenshots for visual claims. Update the reconstruction inventory; distinguish reconstructed features from exact recovery and proposals from working integration.
+
+Use `--archive-library` for the researched Cygnus rebuild: continuous vaulted naves, three walkable storeys, galleries/bridges, stairs, distinct wing programmes, real roof glazing holes, furnishing support and mixed-world routes. `RebuildArchive906` is opt-in in Core historical fixtures and enabled in unified/native profiles. Preserve the individual queue; only Courtyard188 and Archive906 are rebuilt so far. `--archive-atlas <new directory>` exports Core geometry for optional technical previews, never Unity screenshots.

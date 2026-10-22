@@ -390,7 +390,7 @@ namespace Poolrooms
                 for(int d=0;d<4;d++)if(r.HasExit(d))
                 {
                     // Full solid cap seals a doorway until BOTH neighbouring chunks exist.
-                    bool openHall=r.Plan?.Quiet?.Courtyard!=null&&CourtyardDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(layout.Config,r.X,r.Z,d,r.Environment);
+                    bool openHall=r.Plan?.Quiet?.Archive!=null&&ArchiveDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Courtyard!=null&&CourtyardDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(layout.Config,r.X,r.Z,d,r.Environment);
                     float half=openHall?layout.Config.CellSize*.5f:SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
                     var airfield=r.Plan!=null&&r.Plan.City!=null?r.Plan.City.Airfield:null;
                     if(airfield!=null&&Math.Abs(airfield.Column+Directions.DX[d])<=1&&Math.Abs(airfield.Row+Directions.DZ[d])<=3)half=layout.Config.CellSize*.5f;

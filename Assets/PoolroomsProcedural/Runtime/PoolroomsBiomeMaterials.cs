@@ -68,6 +68,8 @@ namespace Poolrooms
             if(theme==SurfaceTheme.Conservatory&&slot==Surface.Slide)color=new Color(.16f,.31f,.12f);
             if(theme==SurfaceTheme.Conservatory&&slot==Surface.Metal)color=new Color(.3f,.36f,.3f);
             if(theme==SurfaceTheme.TransitGallery&&slot==Surface.Plaster)color=new Color(.91f,.89f,.82f);
+            if(theme==SurfaceTheme.CygnusVelvet&&slot!=Surface.Metal)color=new Color(.045f,.09f,.24f);
+            if(theme==SurfaceTheme.CygnusBindings)color=slot==Surface.Metal?new Color(.8f,.62f,.27f):slot==Surface.Tile?new Color(.13f,.2f,.15f):slot==Surface.Accent?new Color(.23f,.08f,.06f):slot==Surface.Plaster?new Color(.1f,.16f,.26f):new Color(.29f,.17f,.07f);
             SetColor(m,"_BaseColor",color);SetColor(m,"_Color",color);
             string set=textureOverride??BiomeSurfaces.TextureSet(theme,slot);float smooth=BiomeSurfaces.Smoothness(set);
             bool soft=theme==SurfaceTheme.SoftPlay||theme==SurfaceTheme.SoftPlayFinish||theme==SurfaceTheme.SoftPlayNet||theme==SurfaceTheme.SoftPlayFloor;
@@ -92,7 +94,7 @@ namespace Poolrooms
             {SetFloat(m,"_CoatMask",1);m.EnableKeyword("_MATERIAL_FEATURE_CLEAR_COAT");}
             if(slot==Surface.Glow)
             {SetColor(m,"_EmissiveColor",Color.white);SetColor(m,"_EmissionColor",Color.white);m.EnableKeyword("_EMISSION");}
-            if(theme==SurfaceTheme.Glass||theme==SurfaceTheme.SlideGlass||theme==SurfaceTheme.FlumeFlow)
+            if(theme==SurfaceTheme.Glass||theme==SurfaceTheme.CygnusGlass||theme==SurfaceTheme.SlideGlass||theme==SurfaceTheme.FlumeFlow)
             {
                 SetColor(m,"_BaseColor",new Color(.84f,.94f,.97f,.13f));SetColor(m,"_Color",new Color(.84f,.94f,.97f,.13f));
                 SetFloat(m,"_DoubleSidedEnable",1);SetFloat(m,"_DoubleSidedNormalMode",1);
@@ -114,6 +116,8 @@ namespace Poolrooms
                 SetFloat(m,"_NormalScale",film?.65f:.1f);SetFloat(m,"_BumpScale",film?.65f:.1f);
                 SetFloat(m,"_Smoothness",film?.96f:.94f);SetFloat(m,"_SmoothnessRemapMax",1);
             }
+            if(theme==SurfaceTheme.CygnusGlass)
+            {SetColor(m,"_BaseColor",new Color(.15f,.35f,.63f,.32f));SetColor(m,"_Color",new Color(.15f,.35f,.63f,.32f));SetFloat(m,"_Ior",1.5f);}
             if(theme==SurfaceTheme.SpecialMirror)
             {
                 // Existing SSR/ray-traced reflections and probe fallback; no mirror cameras.

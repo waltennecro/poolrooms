@@ -106,7 +106,7 @@ namespace Poolrooms
             var go=new GameObject(name);go.transform.SetParent(parent,false);
             go.AddComponent<MeshFilter>().sharedMesh=mesh;
             var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterials=materials.ToArray();
-            renderer.shadowCastingMode=water||data.Theme==SurfaceTheme.Glass||data.Theme==SurfaceTheme.SlideGlass||data.Theme==SurfaceTheme.FlumeFlow?ShadowCastingMode.Off:ShadowCastingMode.On;
+            renderer.shadowCastingMode=water||data.Theme==SurfaceTheme.Glass||data.Theme==SurfaceTheme.CygnusGlass||data.Theme==SurfaceTheme.SlideGlass||data.Theme==SurfaceTheme.FlumeFlow?ShadowCastingMode.Off:ShadowCastingMode.On;
             renderer.receiveShadows=true;renderer.motionVectorGenerationMode=MotionVectorGenerationMode.Camera;
             if(collider)go.AddComponent<MeshCollider>().sharedMesh=mesh;
             owner.ownedMeshes.Add(mesh);return go;

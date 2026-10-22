@@ -1,0 +1,80 @@
+name: Publish verified reconstructed Cygnus library
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact reviewed source commit
+        required: true
+      verification_run:
+        description: Full verification run for that exact commit; publication waits for success
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require complete verification of the exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/hotel-run.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open('/tmp/hotel-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert r['head_sha']==os.environ['SOURCE_REVISION']
+          assert r['status']=='completed' and r['conclusion']=='success'
+          assert r['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - name: Fetch immutable patch compatibility source
+        run: git fetch --no-tags --depth=1 origin b6e631b39f01915fcd367cf3abd4106e27c0707a
+      - name: Create complete Assets and cumulative patch
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage cygnus-reconstruido --output "${RUNNER_TEMP}/Poolrooms_Cygnus_Assets.zip" > /tmp/hotel-full.json
+          python tools/package_archive_update.py --output "${RUNNER_TEMP}/Poolrooms_Parche_Cygnus.zip" > /tmp/hotel-patch.json
+          python - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          full=json.load(open('/tmp/hotel-full.json'));patch=json.load(open('/tmp/hotel-patch.json'))
+          assert full['sourceRevision']==patch['sourceRevision']==os.environ['SOURCE_REVISION']
+          assert not full['workingTreeChanged'] and not patch['workingTreeChanged']
+          with zipfile.ZipFile(full['zip']) as a,zipfile.ZipFile(patch['zip']) as b:
+              assert a.testzip() is None and b.testzip() is None
+              m=json.loads(b.read('PARCHE_MANIFIESTO.json'))
+              for name,entry in m['files'].items():
+                  data=b.read(name)
+                  assert data==a.read(name)
+                  assert len(data)==entry['bytes'] and hashlib.sha256(data).hexdigest()==entry['sha256']
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])
+          size=sum(p.stat().st_size for p in pathlib.Path('Assets').rglob('*') if p.is_file())
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'successfulFullRun':os.environ['VERIFIED_RUN'],
+                  'assetsUncompressedBytes':size,'package':full,'patch':patch,'nativeUnityExecuted':False,'newExternalModels':0,'paddingBytes':0}
+          (out/'Poolrooms_Cygnus_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Cygnus_SHA256.txt').write_text('\n'.join(a['sha256']+'  '+pathlib.Path(a['zip']).name for a in (full,patch))+'\n')
+          notes=f'''Segunda reconstrucción individual: Archivo 906 / Cygnus. Biblioteca continua con naves altas abovedadas, tres plantas recorribles, galerías, puentes y escaleras físicas. Cinco programas de alas: estanterías, lectura, escritura, cocinas de té y alcobas. Vidrieras en huecos reales, libros agrupados, madera PBR, alfombras azules/doradas y luminarias cálidas con alcance escalado. Actividades en las tres plantas y entradas caminables desde otros biomas.
+
+          Incluye todo el contenido anterior, hotel 188 reconstruido, skins y correcciones de compilación/rutas. Los otros 47 programas genéricos continúan pendientes de reconstrucción individual. Linterna, distancia de renderizado e IDs conservados. Seis modelos existentes reutilizados; cero modelos externos nuevos. Referencias, atribución y adaptación de la wiki documentadas; no se copian fotografías ni libros del artículo.
+
+          Assets completos: {full['bytes']:,} bytes comprimidos, {size:,} bytes sin comprimir. Parche acumulativo: {patch['bytes']:,} bytes. Requiere Cinco horizontes o una entrega posterior, incluido Hotel de ventanas. Con Unity detenido, copiar PoolroomsProcedural sobre la carpeta existente dentro de Assets, conservando recursos y .meta; no instalar una segunda copia del código.
+
+          Verificación completa y empaquetado de `{os.environ['SOURCE_REVISION']}` superados; CRC/SHA-256 y parche comparados con el paquete completo. Las comprobaciones son del núcleo/código; no son pruebas nativas de Unity. Unity/HDRP, shaders, apariencia, física, audio y FPS pendientes: no hay Editor aquí.
+
+          Guía: https://github.com/{os.environ['GH_REPO']}/blob/{os.environ['SOURCE_REVISION']}/Assets/PoolroomsProcedural/Documentation/Cygnus_reconstruido.md
+          '''
+          (out/'hotel-notes.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          PY
+      - name: Publish immutable verified update
+        shell: bash
+        run: |
+          gh release create cygnus-reconstruido --target "${SOURCE_REVISION}" --title "Cygnus: biblioteca reconstruida y recorrible" --notes-file "${RUNNER_TEMP}/hotel-notes.md" "${RUNNER_TEMP}/Poolrooms_Cygnus_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Cygnus.zip" "${RUNNER_TEMP}/Poolrooms_Cygnus_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Cygnus_SHA256.txt"

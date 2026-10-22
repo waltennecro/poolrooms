@@ -1555,7 +1555,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "Ejecutar Unity PlayMode y revisión visual/acústica en el proyecto real; persistencia aplazada por el usuario.",
+  "nextIndependentWork": "Continuar con Conservatory y después TransitGallery, uno por uno, con arquitectura propia; revisión nativa de los dos reconstruidos pendiente.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -3530,6 +3530,19 @@
     "sourceRevision": "3b5751cf989baeab9cfe8329da1ccf72d17b81f2",
     "release": "https://github.com/waltennecro/poolrooms/releases/tag/hotel-ventanas-skins",
     "successfulFullRun": "https://github.com/waltennecro/poolrooms/actions/runs/39732603453",
-    "deliveryEvidence": "Verification/hotel_delivery.json"
+    "deliveryEvidence": "Verification/hotel_delivery.json",
+    "cygnus": {
+      "status": "implemented_publication_pending_native_validation_pending",
+      "inventory": "RECONSTRUCCION_NIVELES_ESTADO.json",
+      "documentation": "Assets/PoolroomsProcedural/Documentation/Cygnus_reconstruido.md",
+      "rebuiltTotal": 2,
+      "remainingGenericProgrammes": 47,
+      "newExternalModels": 0,
+      "reusedDistinctSourceModels": 6,
+      "nativeUnityExecuted": false,
+      "localFullCore": "Verification/archive_full_core_checks.txt",
+      "localCoreAssertions": 2051520885,
+      "protectedFingerprints": 188
+    }
   }
 }

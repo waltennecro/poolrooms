@@ -1,9 +1,9 @@
 {
-  "stage": "hotel-ventanas-skins",
+  "stage": "cygnus-reconstruido",
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "published_full_core_verified_native_visual_review_pending",
+  "status": "implemented_local_checks_publication_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -21,13 +21,14 @@
       "environment": "Courtyard188",
       "status": "published_native_visual_review_pending",
       "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level188.json"
+    },
+    {
+      "environment": "Archive906",
+      "status": "implemented_native_visual_review_pending",
+      "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level906.json"
     }
   ],
   "pendingIndividualRebuilds": [
-    {
-      "environment": "Archive906",
-      "status": "pending_research_and_distinct_architecture"
-    },
     {
       "environment": "Conservatory",
       "status": "pending_research_and_distinct_architecture"
@@ -223,36 +224,55 @@
     "Direct wiki domains blocked; public attributed transcription reviewed",
     "No exact original v47 recovery"
   ],
+  "previousDelivery": {
+    "stage": "hotel-ventanas-skins",
+    "sourceRevision": "3b5751cf989baeab9cfe8329da1ccf72d17b81f2",
+    "delivery": {
+      "release": "https://github.com/waltennecro/poolrooms/releases/tag/hotel-ventanas-skins",
+      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39732853753",
+      "completeAssetsBytes": 1051819803,
+      "completeAssetsSha256": "dfb4aca7703ea34bdbde5332fc3abb99011794d5fc62d7b0a33a279ecfcde9f4",
+      "patchBytes": 153577,
+      "patchSha256": "e06ed5d51df59d9baad5e9a6f80e753586f6253d32e1d5d0b5a364eacaa88870",
+      "publicFullDownloadAndPatchVerified": true
+    },
+    "verification": {
+      "targetedHotel": "Verification/courtyard_hotel_checks.txt",
+      "protectedGeometries": 188,
+      "nativeUnityExecuted": false,
+      "reusedSourceModelsInHotelSample": 13,
+      "newExternalModels": 0,
+      "sampledHotelChunks": 192,
+      "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39732603453",
+      "maximumSupportedDoorHeightMetres": 5.5,
+      "supersededBeforePublication": [
+        {
+          "sourceRevision": "6e192ecd28d4105d2b074beea14d7ba4ba67441f",
+          "reason": "Extended stair run for the validated maximum 5.5 m entrance height; verification and publication restarted for the corrected exact commit."
+        },
+        {
+          "sourceRevision": "2096da3a033732852fe7b1287dd5da8e18ba4511",
+          "reason": "Gather window blinds vertically below a fixed headrail rather than swinging their geometry through the safety glazing; restore new hotel interaction state on streaming reload."
+        }
+      ],
+      "deliveryEvidence": "Verification/hotel_delivery.json",
+      "fullCiStepsSucceeded": 51
+    }
+  },
   "verification": {
-    "targetedHotel": "Verification/courtyard_hotel_checks.txt",
+    "targetedLibrary": "Verification/archive_library_checks.txt",
+    "sampledLibraryChunks": 108,
+    "reusedSourceModels": 6,
+    "newExternalModels": 0,
     "protectedGeometries": 188,
     "nativeUnityExecuted": false,
-    "reusedSourceModelsInHotelSample": 13,
-    "newExternalModels": 0,
-    "sampledHotelChunks": 192,
-    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39732603453",
     "maximumSupportedDoorHeightMetres": 5.5,
-    "supersededBeforePublication": [
-      {
-        "sourceRevision": "6e192ecd28d4105d2b074beea14d7ba4ba67441f",
-        "reason": "Extended stair run for the validated maximum 5.5 m entrance height; verification and publication restarted for the corrected exact commit."
-      },
-      {
-        "sourceRevision": "2096da3a033732852fe7b1287dd5da8e18ba4511",
-        "reason": "Gather window blinds vertically below a fixed headrail rather than swinging their geometry through the safety glazing; restore new hotel interaction state on streaming reload."
-      }
-    ],
-    "deliveryEvidence": "Verification/hotel_delivery.json",
-    "fullCiStepsSucceeded": 51
-  },
-  "sourceRevision": "3b5751cf989baeab9cfe8329da1ccf72d17b81f2",
-  "delivery": {
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/hotel-ventanas-skins",
-    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39732853753",
-    "completeAssetsBytes": 1051819803,
-    "completeAssetsSha256": "dfb4aca7703ea34bdbde5332fc3abb99011794d5fc62d7b0a33a279ecfcde9f4",
-    "patchBytes": 153577,
-    "patchSha256": "e06ed5d51df59d9baad5e9a6f80e753586f6253d32e1d5d0b5a364eacaa88870",
-    "publicFullDownloadAndPatchVerified": true
+    "fullCi": "pending",
+    "localFullCore": "Verification/archive_full_core_checks.txt",
+    "localCoreAssertions": 2051520885,
+    "localBuildWarnings": 0,
+    "localBuildErrors": 0,
+    "targetedLibraryAssertions": 50006106,
+    "sourceInstancesIn108Samples": 3236
   }
 }
