@@ -146,11 +146,24 @@ static partial class Checks
     static void RestfulWorldSnapshot()
     {
         var c=new LayoutConfig{Seed=481516,Zones=ZoneMode.Random,Grammar=ProceduralGrammar.SolarAtlas,AutonomousGeneration=true};WalkableExploration.Configure(c);
-        var layout=new Layout(c);int rooms=0,interactions=0,licensed=0;var kinds=new HashSet<string>();var levels=new int[RestfulLevelPlanner.EnvironmentCount-18];var keys=new HashSet<string>();
+        var layout=new Layout(c);int rooms=0,interactions=0,licensed=0;var kinds=new HashSet<string>();var levels=new int[RestfulLevelPlanner.EnvironmentCount-18];var keys=new HashSet<string>();int skyRooms=0,skyPickups=0;
         for(int x=-64;x<=64;x++)for(int z=-64;z<=64;z++)
         {
             if(ConnectedTerrainTopology.Reserved(c,x,z)||!RestfulLevelPlanner.IsLevel(LiminalRegions.At(c,x,z)))continue;
-            var r=layout.DescribeAt(x,z);var p=r.Plan?.Restful;if(p==null)continue;rooms++;levels[(int)r.Environment-18]++;
+            var r=layout.DescribeAt(x,z);
+            if(r.Plan?.Quiet?.Sky63!=null)
+            {
+                // The replacement owns real source placements, not the retired generic Props array.
+                var built=Architecture.Build(r,c);rooms++;skyRooms++;levels[(int)r.Environment-18]++;
+                foreach(var item in built.SourceProps.Concat(built.SourceSeats))
+                {
+                    string key="regional:"+c.Seed+":"+x+":"+z+":"+item.Slot;
+                    Check(keys.Add(key),"Duplicated sky pickup identity");Check(SourceFurniture.Longest(item.Source)>0,"Unresolved sky source");
+                    interactions++;licensed++;skyPickups++;kinds.Add(SourceFurniture.Id(item.Source));
+                }
+                continue;
+            }
+            var p=r.Plan?.Restful;if(p==null)continue;rooms++;levels[(int)r.Environment-18]++;
             for(int slot=0;slot<p.Props.Length;slot++)
             {
                 var item=p.Props[slot];Check(keys.Add(x+":"+z+":"+slot),"Duplicated live-world pickup identity");interactions++;
@@ -158,8 +171,9 @@ static partial class Checks
                 else Check(MallItemCatalog.Get(item.CatalogId)!=null,"Live-world pickup catalogue is unresolved");
             }
         }
+        Check(skyRooms>0&&skyPickups>0,"Rebuilt sky level has no actual pickup placements in the unified snapshot");
         Check(levels.All(v=>v>0),"New level missing from actual unified world snapshot");
         Check(licensed>20000&&interactions>4000,"Object targets absent from the actual coordinate snapshot");
-        Console.WriteLine($"PASS: actual unified-world coordinate snapshot seed {c.Seed}, [-64,64]^2 excluding reserved terrain: {rooms} new-level rooms, {interactions} distinct pickup keys, {licensed} planned licensed-source instances using {kinds.Count} distinct source models. All {levels.Length} programmes present; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.");
+        Console.WriteLine($"PASS: actual unified-world coordinate snapshot seed {c.Seed}, [-64,64]^2 excluding reserved terrain: {rooms} new-level rooms, {interactions} distinct pickup keys, {licensed} planned licensed-source instances using {kinds.Count} distinct source models. All {levels.Length} programmes present, including {skyRooms} rebuilt sky sectors / {skyPickups} sky pickups; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.");
     }
 }

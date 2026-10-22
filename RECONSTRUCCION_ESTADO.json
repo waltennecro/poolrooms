@@ -3608,12 +3608,31 @@
           "verificationRun": 39799942580,
           "publicationRun": 39799999782,
           "reason": "Keep the physical sky streaming barriers but hide their opaque renderer; exact-source verification/publication restarted."
+        },
+        {
+          "sourceRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
+          "verificationRun": 39800499818,
+          "publicationRun": 39800556024,
+          "status": "failed_counter_reproduced_locally",
+          "reason": "Actual-world counter only read Restful.Props, omitted the rebuilt Quiet.Sky63 and failed presence assertion; retain all thresholds and count actual generated source placements with native regional pickup keys. Core/runtime Assets unchanged by this verification repair."
         }
       ],
-      "ciStatus": "pending",
+      "ciStatus": "pending_verification_counter_fix",
       "localFullCoreRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
       "localBuildWarnings": 0,
-      "localBuildErrors": 0
+      "localBuildErrors": 0,
+      "worldSnapshot": {
+        "path": "Verification/sky63_world_counts.txt",
+        "skySectors": 280,
+        "skyPickups": 2240,
+        "allProgrammes": 45,
+        "nativeUnityExecuted": false
+      },
+      "localRemainingAudits": [
+        "Verification/sky63_biome_extents.txt",
+        "Verification/sky63_variety_checks.txt",
+        "Verification/sky63_generation_audit.txt"
+      ]
     }
   }
 }

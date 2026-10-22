@@ -44,14 +44,14 @@ jobs:
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-levels --restful-exhaustive
       - name: Check refined detail, clearance and material geometry
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-refinement
+      - name: Check actual-world object placement counts
+        run: |
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-world
       - name: Compare all 200010 architectures in 21 batches against immutable R33
         shell: bash
         run: |
           git cat-file -e 0a43903830cf694377118229a23dbeeed9a6346b || git fetch --no-tags --depth=1 origin 0a43903830cf694377118229a23dbeeed9a6346b
           python tools/refine_restful_batches.py --output "${{ runner.temp }}/R34-batches" --expect-report Verification/refinement_R34_batches.json
-      - name: Check actual-world object placement counts
-        run: |
-          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --restful-world
       - name: Check newly licensed restful source objects
         run: python tools/verify_restful_sources.py
       - name: Check normal wing flight and original geometry catalogue
