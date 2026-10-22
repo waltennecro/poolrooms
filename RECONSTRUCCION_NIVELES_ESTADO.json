@@ -3,7 +3,7 @@
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "implemented_targeted_core_verified_full_validation_pending",
+  "status": "implemented_local_full_core_verified_ci_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -278,9 +278,16 @@
     "localBuildWarnings": 0,
     "localBuildErrors": 0,
     "targetedAssertions": 26476452,
-    "fullCoreStatus": "running",
+    "fullCoreStatus": "success",
     "resourceAudit": "tools/verify_sky63_resources.py",
-    "ciStatus": "pending"
+    "ciStatus": "pending",
+    "localFullCore": "Verification/sky63_full_core_checks.txt",
+    "localCoreAssertions": 2129959833,
+    "localFullCoreRevision": "ce1c2382b0e6f9db6e9238c39e394b961f94ac84",
+    "protectedGeometries": 188,
+    "sourceScriptsInFiveConfigurations": 356,
+    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39799942580",
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39799999782"
   },
   "previousDeliveries": [
     {
@@ -382,5 +389,6 @@
         "assetsUncompressedBytes": 1339791499
       }
     }
-  ]
+  ],
+  "sourceRevision": "ce1c2382b0e6f9db6e9238c39e394b961f94ac84"
 }

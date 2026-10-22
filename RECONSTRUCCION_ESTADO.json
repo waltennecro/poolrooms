@@ -3579,7 +3579,7 @@
       "publicDownloadsSha256Verified": true
     },
     "sky63": {
-      "status": "implemented_targeted_core_verified_full_validation_pending",
+      "status": "implemented_local_full_core_verified_ci_pending",
       "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel63_Tranquilidad.md",
       "rebuiltTotal": 4,
       "remainingGenericProgrammes": 45,
@@ -3589,7 +3589,13 @@
       "reusedDistinctSourceModels": 7,
       "nativeUnityExecuted": false,
       "targetedCheck": "Verification/sky63_checks.txt",
-      "targetedCoreAssertions": 26476452
+      "targetedCoreAssertions": 26476452,
+      "sourceRevision": "ce1c2382b0e6f9db6e9238c39e394b961f94ac84",
+      "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39799942580",
+      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39799999782",
+      "localFullCore": "Verification/sky63_full_core_checks.txt",
+      "localCoreAssertions": 2129959833,
+      "protectedFingerprints": 188
     }
   }
 }

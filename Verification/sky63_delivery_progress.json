@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "ce1c2382b0e6f9db6e9238c39e394b961f94ac84",
+  "localPatchBytes": 28925793,
+  "localPatchSha256": "c0e39962be904814de468ea587037dbb44c03fa9c96c044c93281a133bf894bf",
+  "localPatchFiles": 80,
+  "allPatchEntriesMatchAssets": true,
+  "completeCumulativeChangeCoverage": true,
+  "localFullCoreAssertions": 2129959833,
+  "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39799942580",
+  "publication": "https://github.com/waltennecro/poolrooms/actions/runs/39799999782",
+  "remoteStatus": "pending",
+  "nativeUnityExecuted": false,
+  "fullPublicDownloadClaimed": false
+}
