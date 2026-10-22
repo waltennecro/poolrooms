@@ -57,6 +57,23 @@ namespace Poolrooms.Core
         {
             var m=Empty(input);for(int s=0;s<input.Indices.Length;s++)foreach(int index in input.Indices[s])CopyVertex(m,input,index,s,offset);return m;
         }
+        public static MeshData Cover(MeshData source,V3 offset,bool winsTie)
+        {
+            var m=Empty(source);
+            for(int s=0;s<source.Indices.Length;s++)
+            {
+                var t=source.Indices[s];for(int i=0;i<t.Count;i+=3)
+                {
+                    V3 a=source.Positions[t[i]],b=source.Positions[t[i+1]],c=source.Positions[t[i+2]];
+                    // Prefer the room on the visible side of a shared face. Its
+                    // interior paint must beat the other room's exterior/back face.
+                    float score=V3.Dot(V3.Cross(b-a,c-a).Unit,offset);
+                    if(score>.0001f||Math.Abs(score)<=.0001f&&winsTie)
+                        for(int j=0;j<3;j++)CopyVertex(m,source,t[i+j],s,offset);
+                }
+            }
+            return m;
+        }
         static void CopyVertex(MeshData target,MeshData source,int index,int surface,V3 offset)
         {
             target.Indices[surface].Add(target.Positions.Count);target.Positions.Add(source.Positions[index]+offset);

@@ -53,6 +53,10 @@ static partial class Checks
         Check(main[0].TriangleCount==0&&seam[0].TriangleCount==2,"Full shared wall escaped narrow seam extraction");
         var hidden=RenderBoundary.Resolve(seam,new[]{RenderBoundary.Translate(right,new V3(36,0,0))});
         Check(hidden[0].TriangleCount==0&&RenderBoundary.Resolve(seam,Array.Empty<MeshData>())[0].TriangleCount==2,"Shared walls do not restore after neighbour unload");
+        var neighbourCover=RenderBoundary.Cover(right,new V3(36,0,0),true);
+        var ownCover=RenderBoundary.Cover(left,new V3(-36,0,0),false);
+        Check(neighbourCover.TriangleCount==0&&ownCover.TriangleCount==2,"An exterior wall face took ownership from the visible room's interior finish");
+        Check(RenderBoundary.Resolve(seam,new[]{neighbourCover})[0].TriangleCount==2&&RenderBoundary.Resolve(new[]{right},new[]{ownCover})[0].TriangleCount==0,"Shared wall interior paint depends on coordinate order");
         Check(RenderBoundary.HigherPriority(int.MinValue,0,int.MaxValue,0)&&!RenderBoundary.HigherPriority(3,5,3,5),"Seam ownership is unstable at extreme coordinates");
         var report=new List<object>();int changed=0,chunks=0;var watch=Stopwatch.StartNew();
         foreach(var mode in Enum.GetValues<LiminalGeneration>())
@@ -72,10 +76,12 @@ static partial class Checks
                 var ownBody=RenderBoundary.Split(output,config.CellSize,out var ownSeam);
                 var neighbourClean=RenderSurfaceOwnership.Resolve(new[]{ng.Structure,ng.Decoration}.Concat(ng.VisualMeshes).ToArray());
                 var neighbourBody=RenderBoundary.Split(neighbourClean,config.CellSize,out var neighbourSeam);
-                var worldNeighbour=neighbourSeam.Select(m=>RenderBoundary.Translate(m,new V3(config.CellSize,0,0))).ToArray();
-                var resolvedSeam=RenderBoundary.Resolve(ownSeam,worldNeighbour);
+                var covers=neighbourSeam.Select(m=>RenderBoundary.Cover(m,new V3(config.CellSize,0,0),true));
+                var resolvedSeam=RenderBoundary.Resolve(ownSeam,covers);
+                var otherCovers=ownSeam.Select(m=>RenderBoundary.Cover(m,new V3(-config.CellSize,0,0),false));
+                var otherSeam=RenderBoundary.Resolve(neighbourSeam,otherCovers).Select(m=>RenderBoundary.Translate(m,new V3(config.CellSize,0,0)));
                 var worldBody=neighbourBody.Select(m=>RenderBoundary.Translate(m,new V3(config.CellSize,0,0)));
-                Check(CoplanarPairs(ownBody.Concat(resolvedSeam).Concat(worldBody).Concat(worldNeighbour).ToArray())==0,"Cross-chunk seam overlap remains in "+mode);
+                Check(CoplanarPairs(ownBody.Concat(resolvedSeam).Concat(worldBody).Concat(otherSeam).ToArray())==0,"Cross-chunk seam overlap remains in "+mode);
                 int sources=input.Sum(m=>m.TriangleCount),rendered=output.Sum(m=>m.TriangleCount);
                 report.Add(new{mode=mode.ToString(),x,z=2,overlapPairsBefore=oldOverlap,overlapPairsAfter=after,sourceTriangles=sources,renderTriangles=rendered,seamTriangles=ownSeam.Sum(m=>m.TriangleCount)});chunks++;
             }

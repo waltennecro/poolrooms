@@ -40,12 +40,16 @@ namespace Poolrooms
         {
             int mask=0;
             for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++)
-                if(TryGet(p.X,p.Z,dx,dz,out var neighbour)&&RenderBoundary.HigherPriority(p.X,p.Z,neighbour.X,neighbour.Z))mask|=1<<((dz+1)*3+dx+1);
+                if((dx!=0||dz!=0)&&TryGet(p.X,p.Z,dx,dz,out var neighbour))mask|=1<<((dz+1)*3+dx+1);
             if(mask==p.Neighbours)return;
             var covers=new List<MeshData>();
             for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++)
-                if(TryGet(p.X,p.Z,dx,dz,out var n)&&RenderBoundary.HigherPriority(p.X,p.Z,n.X,n.Z))
-                    foreach(var source in n.Source)if(source.TriangleCount>0)covers.Add(RenderBoundary.Translate(source,new V3(dx*cellSize,0,dz*cellSize)));
+                if((dx!=0||dz!=0)&&TryGet(p.X,p.Z,dx,dz,out var n))
+                    foreach(var source in n.Source)if(source.TriangleCount>0)
+                    {
+                        var cover=RenderBoundary.Cover(source,new V3(dx*cellSize,0,dz*cellSize),RenderBoundary.HigherPriority(p.X,p.Z,n.X,n.Z));
+                        if(cover.TriangleCount>0)covers.Add(cover);
+                    }
             var clean=covers.Count==0?p.Source:RenderBoundary.Resolve(p.Source,covers);
             for(int i=0;i<clean.Length;i++)if(p.Objects[i]!=null)MeshFactory.UpdateSurface(p.Objects[i],clean[i]);
             p.Neighbours=mask;

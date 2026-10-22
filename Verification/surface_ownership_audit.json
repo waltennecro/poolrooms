@@ -3,7 +3,7 @@
   "mallSectors": 12,
   "terrainHouses": 24,
   "changedMeshes": 240,
-  "elapsedMilliseconds": 9951,
+  "elapsedMilliseconds": 9697,
   "nativeUnityExecuted": false,
   "samples": [
     {
@@ -1268,5 +1268,6 @@
     }
   ],
   "overlapPairMeaning": "Same-facing coplanar cardinal rectangle intersection pairs, not distinct bugs or native rendering tests.",
-  "maxRenderTriangleRatio": 1.5263720598717034
+  "maxRenderTriangleRatio": 1.5263720598717034,
+  "sharedWallMaterialPolicy": "Visible-side room interior wins; coordinate order resolves ties."
 }

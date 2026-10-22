@@ -45,11 +45,12 @@ namespace Poolrooms.Tests
                 register.Invoke(manager,new object[]{0,0,36f,new[]{wall},left.transform,profile,owner});
                 var first=left.GetComponentInChildren<MeshFilter>();Assert.That(first.sharedMesh.triangles.Length,Is.EqualTo(6));
                 register.Invoke(manager,new object[]{1,0,36f,new[]{other},right.transform,profile,otherOwner});yield return null;
-                Assert.That(first.sharedMesh.triangles.Length,Is.Zero);Assert.That(first.GetComponent<MeshRenderer>().enabled,Is.False);
-                Assert.That(right.GetComponentInChildren<MeshFilter>().sharedMesh.triangles.Length,Is.EqualTo(6));
-                remove.Invoke(manager,new object[]{1,0});right.SetActive(false);yield return null;
-                Assert.That(first.sharedMesh.triangles.Length,Is.EqualTo(6));Assert.That(first.GetComponent<MeshRenderer>().enabled,Is.True);
-                Assert.That(first.GetComponent<MeshRenderer>().sharedMaterials.Length,Is.EqualTo(6));LogAssert.NoUnexpectedReceived();
+                var second=right.GetComponentInChildren<MeshFilter>();
+                Assert.That(first.sharedMesh.triangles.Length,Is.EqualTo(6),"The left room must keep its inward-facing painted wall.");
+                Assert.That(second.sharedMesh.triangles.Length,Is.Zero);Assert.That(second.GetComponent<MeshRenderer>().enabled,Is.False);
+                remove.Invoke(manager,new object[]{0,0});left.SetActive(false);yield return null;
+                Assert.That(second.sharedMesh.triangles.Length,Is.EqualTo(6));Assert.That(second.GetComponent<MeshRenderer>().enabled,Is.True);
+                Assert.That(second.GetComponent<MeshRenderer>().sharedMaterials.Length,Is.EqualTo(6));LogAssert.NoUnexpectedReceived();
             }
             finally{if(root!=null)UnityEngine.Object.DestroyImmediate(root);if(profile!=null)UnityEngine.Object.DestroyImmediate(profile);}
         }

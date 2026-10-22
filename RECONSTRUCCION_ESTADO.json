@@ -1522,7 +1522,15 @@
       "physicsSourcePreserved": true,
       "renderDistancePreserved": true,
       "documentation": "Assets/PoolroomsProcedural/Documentation/Superficies_Estables.md",
-      "evidence": "Verification/surface_ownership_audit.json"
+      "evidence": "Verification/surface_ownership_audit.json",
+      "sharedWallMaterialPolicy": "Prefer inward-facing room paint; coordinate order only breaks ties",
+      "supersededRun": {
+        "sourceRevision": "0fed2ce4b93ee0d7805c84b2de683f748ac11162",
+        "verificationRun": 39840916956,
+        "publicationRun": 39841124989,
+        "conclusion": "cancelled",
+        "reason": "Stopped before publication to preserve inward-facing room materials on shared walls; no compilation failure claimed."
+      }
     }
   ],
   "latestCoreChecks": {
