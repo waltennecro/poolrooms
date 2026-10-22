@@ -3,7 +3,7 @@
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "local_full_core_passed_remote_full_verification_running",
+  "status": "published_full_core_verified_native_visual_review_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -24,7 +24,7 @@
     },
     {
       "environment": "Archive906",
-      "status": "implemented_native_visual_review_pending",
+      "status": "published_native_visual_review_pending",
       "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level906.json"
     }
   ],
@@ -287,7 +287,18 @@
     "localFullCoreRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
     "localCoreAssertions": 2051536209,
     "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
-    "fullCiStatus": "in_progress"
+    "fullCiStatus": "success",
+    "fullCiStepsSucceeded": 51,
+    "deliveryEvidence": "Verification/cygnus_delivery.json"
   },
-  "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc"
+  "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+  "delivery": {
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/cygnus-reconstruido",
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
+    "completeAssetsBytes": 1051834663,
+    "completeAssetsSha256": "2e89bce095bdee9ad36cfdc4168ca8db5fbf0dc2848c253167e4220cce1e11bb",
+    "patchBytes": 171231,
+    "patchSha256": "95e992b1748b014e0c7ba370004cadfd2f6da21b0b2cee67b3d452dec5047ce2",
+    "publicFullDownloadAndPatchVerified": true
+  }
 }

@@ -1555,7 +1555,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "Continuar con Conservatory y después TransitGallery, uno por uno, con arquitectura propia; revisión nativa de los dos reconstruidos pendiente.",
+  "nextIndependentWork": "Continuar con Conservatory y después TransitGallery, uno por uno y con arquitectura propia; ejecutar revisión Unity/PlayMode, visual y acústica pendiente de los reconstruidos. Persistencia aplazada por el usuario.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -3443,16 +3443,15 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "revision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/rutas-flexibles",
-    "download": "https://github.com/waltennecro/poolrooms/releases/download/rutas-flexibles/Poolrooms_Rutas_Flexibles_Assets.zip",
-    "patchDownload": "https://github.com/waltennecro/poolrooms/releases/download/rutas-flexibles/Poolrooms_Parche_Rutas_y_Compilacion.zip",
-    "assetsBytes": 1311127349,
-    "zipBytes": 1051797368,
-    "sha256": "db40d75407c69950541124a98503f77332e82f049df2d047866dd12e387425e4",
-    "publicRangeProbeStatus": 206,
-    "hostedDigestAndSizeMatchPublisher": true,
-    "hostedArchiveManifestMatchesLocalAssets": true
+    "stage": "cygnus-reconstruido",
+    "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+    "url": "https://github.com/waltennecro/poolrooms/releases/tag/cygnus-reconstruido",
+    "packageBytes": 1051834663,
+    "patchBytes": 171231,
+    "assetsFiles": 1647,
+    "assetsUncompressedBytes": 1311233406,
+    "evidence": "Verification/cygnus_delivery.json",
+    "nativeUnityExecuted": false
   },
   "sharedWorkshops": {
     "stateFile": "TALLERES_COMPARTIDOS_ESTADO.json",
@@ -3532,7 +3531,7 @@
     "successfulFullRun": "https://github.com/waltennecro/poolrooms/actions/runs/39732603453",
     "deliveryEvidence": "Verification/hotel_delivery.json",
     "cygnus": {
-      "status": "implemented_publication_pending_native_validation_pending",
+      "status": "published_full_core_verified_native_validation_pending",
       "inventory": "RECONSTRUCCION_NIVELES_ESTADO.json",
       "documentation": "Assets/PoolroomsProcedural/Documentation/Cygnus_reconstruido.md",
       "rebuiltTotal": 2,
@@ -3545,7 +3544,14 @@
       "protectedFingerprints": 188,
       "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
       "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39741255895",
-      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173"
+      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
+      "delivery": "https://github.com/waltennecro/poolrooms/releases/tag/cygnus-reconstruido",
+      "evidence": "Verification/cygnus_delivery.json",
+      "fullCiConclusion": "success",
+      "publicationConclusion": "success",
+      "completeAssetsBytes": 1051834663,
+      "patchBytes": 171231,
+      "publicDownloadsSha256Verified": true
     }
   }
 }

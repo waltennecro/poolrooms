@@ -1,0 +1,260 @@
+{
+  "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+  "successfulFullRun": "39741255895",
+  "assetsUncompressedBytes": 1311233406,
+  "package": {
+    "zip": "/home/runner/work/_temp/Poolrooms_Cygnus_Assets.zip",
+    "files": 1647,
+    "bytes": 1051834663,
+    "sha256": "2e89bce095bdee9ad36cfdc4168ca8db5fbf0dc2848c253167e4220cce1e11bb",
+    "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+    "workingTreeChanged": false
+  },
+  "patch": {
+    "zip": "/home/runner/work/_temp/Poolrooms_Parche_Cygnus.zip",
+    "files": 50,
+    "bytes": 171231,
+    "sha256": "95e992b1748b014e0c7ba370004cadfd2f6da21b0b2cee67b3d452dec5047ce2",
+    "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
+    "workingTreeChanged": false
+  },
+  "nativeUnityExecuted": false,
+  "newExternalModels": 0,
+  "paddingBytes": 0,
+  "publicDownloadsVerified": {
+    "patch": {
+      "bytes": 171231,
+      "sha256": "95e992b1748b014e0c7ba370004cadfd2f6da21b0b2cee67b3d452dec5047ce2",
+      "httpStatus": 200,
+      "contentLength": "171231",
+      "contentType": "application/octet-stream",
+      "downloadedAndHashed": true,
+      "streamedWithoutWritingWholePackageToDisk": false,
+      "elapsedSeconds": 0.39
+    },
+    "package": {
+      "bytes": 1051834663,
+      "sha256": "2e89bce095bdee9ad36cfdc4168ca8db5fbf0dc2848c253167e4220cce1e11bb",
+      "httpStatus": 200,
+      "contentLength": "1051834663",
+      "contentType": "application/octet-stream",
+      "downloadedAndHashed": true,
+      "streamedWithoutWritingWholePackageToDisk": true,
+      "elapsedSeconds": 22.19
+    }
+  },
+  "patchEntriesComparedWithCurrentAssets": 50,
+  "fullCiUrl": "https://github.com/waltennecro/poolrooms/actions/runs/39741255895",
+  "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39741297173",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/cygnus-reconstruido",
+  "fullCiSteps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify pinned SDK resolution",
+      "conclusion": "success"
+    },
+    {
+      "name": "Compile core, compare geometry, check CSharp syntax",
+      "conclusion": "success"
+    },
+    {
+      "name": "Compile reported Runtime-Core type boundaries and replay original failures",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check detailed mall geometry, licensed placement and floor-local lighting",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check twelve workshops, constructive solutions, state meshes and bounded session memory",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check five Horizon levels, walk-in cabins, lookouts and physical discovery",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check procedural furnishing, real-room integration, support, clearance and bounded work",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check independent frontend lifecycle, cancellation, seed selection and transitions",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check large procedural regions, broad halls and bounded walking routes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check ten special regions, preserved discovery slots and walking graph",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check all new restful recipe banks and architectural axes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check refined detail, clearance and material geometry",
+      "conclusion": "success"
+    },
+    {
+      "name": "Compare all 200010 architectures in 21 batches against immutable R33",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check actual-world object placement counts",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check newly licensed restful source objects",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check normal wing flight and original geometry catalogue",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed wing selector icons and source attribution",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check larger biome areas, populated Level94 and accessible mall expansion",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check expanded biome recipes, house footprints and mall reservations",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check full aquatic catalogue at extreme room scales",
+      "conclusion": "success"
+    },
+    {
+      "name": "Audit generated data, source lookups and room streaming selection",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check source texture hashes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check original rain texture and audio resources",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed City11 source assets and LODs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed aircraft sources and native resource hashes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed helicopter source, pivots and LODs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check attributed furniture, UV maps and placement dimensions",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check additional licensed urban sources and wheel assemblies",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check attributed Bistro components, PBR maps and metric dimensions",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install pinned offline art verification tools",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check twenty new level resource banks, licences, metric bounds and PBR bindings",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check six original menu illustrations and importer bindings",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed mall models, LODs, native PBR maps and reference attribution",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check immersive sound, local library and shipped PCM",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check walkable encounters, inventory transactions and licensed resources",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed garden source, alpha cutout and static-only adaptation",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check licensed thermal lamp, wicker maps and source attribution",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check building subtraction areas, UVs, licences and all LOD access volumes",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check UV baking transforms, colour sampling and normals",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check native runner rejects missing, stale, failed or empty results",
+      "conclusion": "success"
+    },
+    {
+      "name": "Create verified complete Assets package",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "localCoreAssertions": 2051536209,
+  "targetedLibraryAssertions": 50022006,
+  "reusedDistinctSourceModels": 6,
+  "pendingGenericRebuilds": 47
+}
