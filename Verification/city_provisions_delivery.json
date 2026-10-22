@@ -1,0 +1,85 @@
+{
+  "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-dreamcore-provisiones",
+  "publicDownloads": [
+    {
+      "kind": "package",
+      "name": "Poolrooms_Nivel11_Provisiones_Assets.zip",
+      "bytes": 1092862271,
+      "sha256": "0fd0f82583278d86f7b3efa0a0b51971d3316d30df22f0394cecbce231e98aac",
+      "httpStatus": 200,
+      "publicDownloadVerified": true,
+      "crcAndSourceFilesVerifiedLocally": false
+    },
+    {
+      "kind": "patch",
+      "name": "PoolroomsProcedural/Tests/PlayMode/StaticObjSkinTests.cs",
+      "bytes": 41271518,
+      "sha256": "c1b91135d29da4bd4ac528a13fb5bfe077f9eeae01aeacb82fc29835aed73d39",
+      "httpStatus": 200,
+      "publicDownloadVerified": true,
+      "crcAndSourceFilesVerifiedLocally": true
+    }
+  ],
+  "nativeUnityExecuted": false,
+  "verificationRun": 39859893917,
+  "verificationSteps": 56,
+  "publicationRun": 39860000309,
+  "publicationSteps": 9,
+  "releaseMetadata": {
+    "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+    "successfulFullRun": "39859893917",
+    "assetsUncompressedBytes": 1379444608,
+    "package": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Nivel11_Provisiones_Assets.zip",
+      "files": 2325,
+      "bytes": 1092862271,
+      "sha256": "0fd0f82583278d86f7b3efa0a0b51971d3316d30df22f0394cecbce231e98aac",
+      "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+      "workingTreeChanged": false
+    },
+    "patch": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Parche_Nivel11_Provisiones.zip",
+      "files": 747,
+      "bytes": 41271518,
+      "sha256": "c1b91135d29da4bd4ac528a13fb5bfe077f9eeae01aeacb82fc29835aed73d39",
+      "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+      "workingTreeChanged": false
+    },
+    "nativeUnityExecuted": false,
+    "newExternalModels": 125,
+    "foodTypes": 103,
+    "foodPresentations": 117,
+    "drinks": 8,
+    "newOriginalPbrSets": 4,
+    "newOriginalLabelMaps": 1,
+    "paddingBytes": 0
+  },
+  "ciArtifacts": [
+    {
+      "expired": false,
+      "id": 12462780429,
+      "name": "R34-Batch-Evidence",
+      "size_in_bytes": 6596
+    },
+    {
+      "expired": false,
+      "id": 12462730503,
+      "name": "Poolrooms-Reconstruccion-Assets",
+      "size_in_bytes": 1088106862
+    },
+    {
+      "expired": false,
+      "id": 12461277184,
+      "name": "Surface-ownership-evidence",
+      "size_in_bytes": 2734
+    }
+  ],
+  "directCiArtifactDownload": {
+    "artifactId": 12461277184,
+    "name": "Surface-ownership-evidence",
+    "downloadSucceeded": false,
+    "nativeUnityExecuted": false,
+    "reason": "Artifact storage endpoint returned forbidden"
+  }
+}

@@ -1557,7 +1557,7 @@
     {
       "id": "nivel11-dreamcore-provisiones",
       "feature": "Open dreamcore civic pavilions and optional licensed stackable food across all existing level systems",
-      "status": "implemented_local_checks_passed_ci_pending",
+      "status": "published_exact_source_ci_and_public_downloads_verified_native_unity_pending",
       "nativeUnityExecuted": false,
       "newExternalModels": 125,
       "distinctFoodTypes": 103,
@@ -1617,12 +1617,23 @@
         "biomesWithFeasibleSupportedDryApproachableSites": 63,
         "roomsPerBiome": 4,
         "nativePhysics": false
-      }
+      },
+      "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+      "verificationRun": 39859893917,
+      "ciSuccessSteps": 56,
+      "publicationRun": 39860000309,
+      "publicationSuccessSteps": 9,
+      "delivery": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-dreamcore-provisiones",
+      "deliveryEvidence": "Verification/city_provisions_delivery.json",
+      "completeAssetsBytes": 1092862271,
+      "patchBytes": 41271518,
+      "patchFiles": 747,
+      "publicDownloadsSha256Verified": true
     }
   ],
   "latestCoreChecks": {
-    "revision": "ec0d77018470d9bb115238ab4597a18ca52b0da1",
-    "run": "https://github.com/waltennecro/poolrooms/actions/runs/39633700771",
+    "revision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+    "run": "https://github.com/waltennecro/poolrooms/actions/runs/39859893917",
     "conclusion": "success",
     "nativeUnityExecuted": false
   },
@@ -3559,14 +3570,15 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "stage": "cygnus-reconstruido",
-    "sourceRevision": "f69bc2b365200520801b818511d3adb59c2a77dc",
-    "url": "https://github.com/waltennecro/poolrooms/releases/tag/cygnus-reconstruido",
-    "packageBytes": 1051834663,
-    "patchBytes": 171231,
-    "assetsFiles": 1647,
-    "assetsUncompressedBytes": 1311233406,
-    "evidence": "Verification/cygnus_delivery.json",
+    "stage": "nivel11-dreamcore-provisiones",
+    "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+    "url": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-dreamcore-provisiones",
+    "packageBytes": 1092862271,
+    "patchBytes": 41271518,
+    "assetsFiles": 2325,
+    "assetsUncompressedBytes": 1379444608,
+    "evidence": "Verification/city_provisions_delivery.json",
+    "publicDownloadsSha256Verified": true,
     "nativeUnityExecuted": false
   },
   "sharedWorkshops": {
@@ -3771,7 +3783,7 @@
   "cityDreamProvisions": {
     "id": "nivel11-dreamcore-provisiones",
     "feature": "Open dreamcore civic pavilions and optional licensed stackable food across all existing level systems",
-    "status": "implemented_local_checks_passed_ci_pending",
+    "status": "published_exact_source_ci_and_public_downloads_verified_native_unity_pending",
     "nativeUnityExecuted": false,
     "newExternalModels": 125,
     "distinctFoodTypes": 103,
@@ -3831,6 +3843,17 @@
       "biomesWithFeasibleSupportedDryApproachableSites": 63,
       "roomsPerBiome": 4,
       "nativePhysics": false
-    }
+    },
+    "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
+    "verificationRun": 39859893917,
+    "ciSuccessSteps": 56,
+    "publicationRun": 39860000309,
+    "publicationSuccessSteps": 9,
+    "delivery": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-dreamcore-provisiones",
+    "deliveryEvidence": "Verification/city_provisions_delivery.json",
+    "completeAssetsBytes": 1092862271,
+    "patchBytes": 41271518,
+    "patchFiles": 747,
+    "publicDownloadsSha256Verified": true
   }
 }
