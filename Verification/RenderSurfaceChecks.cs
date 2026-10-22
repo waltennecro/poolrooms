@@ -109,6 +109,7 @@ static partial class Checks
         File.WriteAllText(Environment.GetEnvironmentVariable("POOLROOMS_SURFACE_REPORT")??Path.Combine(Path.GetTempPath(),"poolrooms-surface-audit.json"),JsonSerializer.Serialize(new{chunks,mallSectors,terrainHouses,changedMeshes=changed,elapsedMilliseconds=watch.ElapsedMilliseconds,nativeUnityExecuted=false,samples=report},new JsonSerializerOptions{WriteIndented=true}));
         var runtime=File.ReadAllText("Assets/PoolroomsProcedural/Runtime/MeshFactory.cs");
         Check(runtime.Contains("PhysicsMesh(name+\" / original collision\",collisionSource,owner)")&&runtime.Contains("water?data:renderData??"),"Runtime lost original collision or water bypass");
+        Check(runtime.Contains("mesh.subMeshCount=data.Indices.Length")&&runtime.Contains("bool preserveSlots=stableMaterialSlots||collider&&!ReferenceEquals(data,collisionSource)"),"Physics/render material slots no longer match footstep lookup");
         Console.WriteLine($"PASS: coplanar surface ownership, UV/blend/area preservation, transparent exclusions, seam unload restoration; {chunks} real chunks + {mallSectors} mall sectors + {terrainHouses} near/far house samples, {changed} changed render meshes, {watch.ElapsedMilliseconds} ms including architecture/audit (not FPS).");
     }
     // Independent detector: cardinal six-index rectangles, same-facing plane,

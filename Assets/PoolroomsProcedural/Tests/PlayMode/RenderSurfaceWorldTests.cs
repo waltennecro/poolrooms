@@ -19,13 +19,20 @@ namespace Poolrooms.Tests
                 root=new GameObject("Surface ownership native regression");root.transform.position=Vector3.up*16000;
                 profile=ScriptableObject.CreateInstance<PoolroomsProfile>();var owner=root.AddComponent<PoolroomsChunk>();var source=new MeshData();
                 foreach(var slot in new[]{Surface.Tile,Surface.Accent})source.Quad(new V3(-2,0,-2),new V3(2,0,-2),new V3(2,0,2),new V3(-2,0,2),V3.Up,slot);
+                source.Quad(new V3(3,0,-1),new V3(4,0,-1),new V3(4,0,1),new V3(3,0,1),V3.Up,Surface.Metal);
                 var go=MeshFactory.Create("Overlaid floor",source,root.transform,profile,owner,true);
                 var render=go.GetComponent<MeshFilter>().sharedMesh;var collision=go.GetComponent<MeshCollider>();
-                Assert.That(render.triangles.Length,Is.EqualTo(6));Assert.That(collision.sharedMesh.triangles.Length,Is.EqualTo(12));
-                Assert.That(source.TriangleCount,Is.EqualTo(4));Assert.That(render,Is.Not.SameAs(collision.sharedMesh));
+                Assert.That(render.triangles.Length,Is.EqualTo(12));Assert.That(collision.sharedMesh.triangles.Length,Is.EqualTo(18));
+                Assert.That(source.TriangleCount,Is.EqualTo(6));Assert.That(render,Is.Not.SameAs(collision.sharedMesh));
                 Physics.SyncTransforms();yield return null;
                 Assert.That(collision.Raycast(new Ray(root.transform.position+Vector3.up,Vector3.down),out var hit,2),Is.True);
-                Assert.That(hit.point.y,Is.EqualTo(root.transform.position.y).Within(.001f));LogAssert.NoUnexpectedReceived();
+                Assert.That(hit.point.y,Is.EqualTo(root.transform.position.y).Within(.001f));
+                Assert.That(collision.sharedMesh.subMeshCount,Is.EqualTo(6));
+                Assert.That(go.GetComponent<MeshRenderer>().sharedMaterials.Length,Is.EqualTo(6));
+                Assert.That(collision.Raycast(new Ray(root.transform.position+new Vector3(3.5f,1,0),Vector3.down),out var metalHit,2),Is.True);
+                int count=0,slot=-1;for(int i=0;i<6;i++){count+=collision.sharedMesh.GetSubMesh(i).indexCount;if(metalHit.triangleIndex*3<count){slot=i;break;}}
+                Assert.That(slot,Is.EqualTo((int)Surface.Metal),"Physics/render material slots changed the metal step sound.");
+                Assert.That(go.GetComponent<MeshRenderer>().sharedMaterials[slot],Is.SameAs(profile.metal));LogAssert.NoUnexpectedReceived();
             }
             finally{if(root!=null)UnityEngine.Object.DestroyImmediate(root);if(profile!=null)UnityEngine.Object.DestroyImmediate(profile);}
         }

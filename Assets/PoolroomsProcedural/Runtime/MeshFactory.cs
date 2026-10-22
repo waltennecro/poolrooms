@@ -46,7 +46,16 @@ namespace Poolrooms
             var mesh=new Mesh{name=name};if(positionCount>65535)mesh.indexFormat=IndexFormat.UInt32;
             var positions=UploadPositions;positions.Clear();if(positions.Capacity<positionCount)positions.Capacity=positionCount;
             for(int i=0;i<positionCount;i++){var p=data.Positions[i];positions.Add(new Vector3(p.X,p.Y,p.Z));}
-            mesh.SetVertices(positions);mesh.SetTriangles(triangles,0);mesh.RecalculateBounds();
+            mesh.SetVertices(positions);
+            if(supportIndexCount>=0)mesh.SetTriangles(triangles,0);
+            else
+            {
+                // Raycast material lookup (including metal footsteps) uses these
+                // original surface slots, even if the render mesh was trimmed.
+                mesh.subMeshCount=data.Indices.Length;
+                for(int i=0;i<data.Indices.Length;i++)mesh.SetTriangles(data.Indices[i],i,false);
+            }
+            mesh.RecalculateBounds();
             owner.ownedMeshes.Add(mesh);return mesh;
         }
         private static Material PaletteMaterial(MeshData data,int surface,PoolroomsProfile profile,PoolroomsChunk owner)
@@ -114,10 +123,11 @@ namespace Poolrooms
             mesh.SetVertices(positions);mesh.SetNormals(normals);mesh.SetUVs(0,uv);
             if(data.BlendWeights.Count==data.Positions.Count)
             {var colors=UploadColors;colors.Clear();if(colors.Capacity<data.BlendWeights.Count)colors.Capacity=data.BlendWeights.Count;foreach(V3 w in data.BlendWeights)colors.Add(new Color(w.X,w.Y,w.Z,1));mesh.SetColors(colors);}
+            bool preserveSlots=stableMaterialSlots||collider&&!ReferenceEquals(data,collisionSource);
             var materials=UploadMaterials;materials.Clear();int count=0;
-            foreach(var tris in data.Indices)if(stableMaterialSlots||tris.Count>0)count++;
+            foreach(var tris in data.Indices)if(preserveSlots||tris.Count>0)count++;
             mesh.subMeshCount=count;int index=0;
-            for(int i=0;i<data.Indices.Length;i++)if(stableMaterialSlots||data.Indices[i].Count>0)
+            for(int i=0;i<data.Indices.Length;i++)if(preserveSlots||data.Indices[i].Count>0)
             {mesh.SetTriangles(data.Indices[i],index++,false);Material material=materialOverrides!=null&&i<materialOverrides.Length?materialOverrides[i]:water?PoolroomsClearWaterMaterial.Resolve(profile,owner):PaletteMaterial(data,i,profile,owner);
                 if(!water&&i==(int)Surface.Glow&&data.EmissionStrength>=0&&material!=null)
                 {

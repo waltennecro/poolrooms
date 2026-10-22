@@ -1530,7 +1530,17 @@
         "publicationRun": 39841124989,
         "conclusion": "cancelled",
         "reason": "Stopped before publication to preserve inward-facing room materials on shared walls; no compilation failure claimed."
-      }
+      },
+      "physicsMaterialSlotsPreserved": true,
+      "additionalSupersededRuns": [
+        {
+          "sourceRevision": "3ed72057aa926ee5011ac88d75a3a737d9ceca39",
+          "verificationRun": 39841960884,
+          "publicationRun": 39842081627,
+          "conclusion": "cancelled",
+          "reason": "Source review found footstep material lookup requires matching original collision and renderer material slots. Preserve six slots when meshes differ; native regression added, not claimed executed."
+        }
+      ]
     }
   ],
   "latestCoreChecks": {

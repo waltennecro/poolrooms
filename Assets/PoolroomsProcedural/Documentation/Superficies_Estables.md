@@ -11,7 +11,7 @@ Las mallas contenían porciones de rectángulos opacos coplanares orientados en 
 - Agua, cristales, película de los toboganes y redes quedan fuera del recorte opaco. Los mapeados no afines conservan su triangulación.
 - `RenderBoundary` separa las primitivas opacas que tocan los 60 cm exteriores de cada sector (también las losas o vigas que llegan hasta allí). `PoolroomsSurfaceSeams` da prioridad al acabado del lado visible de cada sala; usa las coordenadas para desempatar en caras horizontales cuando hay vecinos cargados y restaura las caras al descargarlos. Sólo guarda estas primitivas del perímetro; actualiza las afectadas por un cambio de vecinos. No recorre el mundo por fotograma ni cambia la distancia de renderizado.
 - HDRP clasifica estas franjas como `DynamicGeometry`, también después de aplicar opciones gráficas, para actualizar su geometría en el ray tracing.
-- Las instalaciones comerciales resuelven revestimientos y estructura después de pasarlos a coordenadas locales del mismo piso. Las colisiones continúan usando la geometría original.
+- Las instalaciones comerciales resuelven revestimientos y estructura después de pasarlos a coordenadas locales del mismo piso. Las colisiones continúan usando la geometría original. Conservan también los seis índices de superficie y su correspondencia con los materiales del renderer para que la detección de pasos metálicos siga funcionando.
 
 El recorte puede aumentar la triangulación local: cambia solapamiento por porciones separadas. No se promete una ganancia de FPS. La medición nativa queda pendiente.
 
