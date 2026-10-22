@@ -3443,12 +3443,13 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "revision": "b6e631b39f01915fcd367cf3abd4106e27c0707a",
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/cinco-horizontes",
-    "download": "https://github.com/waltennecro/poolrooms/releases/download/cinco-horizontes/Poolrooms_Cinco_Horizontes_Assets.zip",
-    "assetsBytes": 1311116709,
-    "zipBytes": 1051791530,
-    "sha256": "99d4325522cb932b886d10dc994c08a1c21d3198bcb6f1b92f535d4b0e7ede56",
+    "revision": "c3a90e98b5d40ea4edd672ed9b3379d94ccbfaa8",
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/correccion-compilacion-runtime",
+    "download": "https://github.com/waltennecro/poolrooms/releases/download/correccion-compilacion-runtime/Poolrooms_Compilacion_Corregida_Assets.zip",
+    "patchDownload": "https://github.com/waltennecro/poolrooms/releases/download/correccion-compilacion-runtime/Poolrooms_Parche_Compilacion_Runtime.zip",
+    "assetsBytes": 1311120018,
+    "zipBytes": 1051793304,
+    "sha256": "4674829b21714dce4ebc8b55e2b4c8a8eb64880b12e3438caec32e0bcb63125b",
     "hostedDigestAndSizeMatchLocal": true,
     "publicRangeProbeStatus": 206
   },
@@ -3498,7 +3499,7 @@
     "deliveryEvidence": "Verification/horizons_delivery.json"
   },
   "runtimeCompilationRepair": {
-    "status": "implemented_verification_in_progress",
+    "status": "published_full_core_verified_native_unrun",
     "state": "RUNTIME_COMPILACION_ESTADO.json",
     "reportedDiagnostics": [
       "CS0200",
@@ -3506,6 +3507,9 @@
       "CS0266",
       "CS0108"
     ],
-    "nativeUnityExecuted": false
+    "nativeUnityExecuted": false,
+    "sourceRevision": "c3a90e98b5d40ea4edd672ed9b3379d94ccbfaa8",
+    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39704509676",
+    "deliveryEvidence": "Verification/runtime_compilation_delivery.json"
   }
 }
