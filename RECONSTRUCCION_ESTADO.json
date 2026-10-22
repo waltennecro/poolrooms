@@ -3590,9 +3590,9 @@
       "nativeUnityExecuted": false,
       "targetedCheck": "Verification/sky63_checks.txt",
       "targetedCoreAssertions": 26476452,
-      "sourceRevision": "fd2348ff80fdde974acabacdcfca4e56bebd9b51",
-      "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39803845488",
-      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39803924347",
+      "sourceRevision": "d2f48aed6156add44069fb5ad648e6e6ed2ef734",
+      "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39804827690",
+      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39805118533",
       "localFullCore": "Verification/sky63_full_core_checks.txt",
       "localCoreAssertions": 2129959833,
       "protectedFingerprints": 188,
@@ -3624,7 +3624,7 @@
           "reason": "Shared world counter referenced Sky63 on immutable R33, where the type member does not exist. Guard only newer API branch; preserve immutable baseline, all legacy paths/thresholds and current sky checks. Baseline compile plus expected bevel/wing failures verified locally."
         }
       ],
-      "ciStatus": "pending_historical_compatibility_fix",
+      "ciStatus": "pending",
       "localFullCoreRevision": "3675a17cdbcd88b9663b72fbfe16122c76979d11",
       "localBuildWarnings": 0,
       "localBuildErrors": 0,
