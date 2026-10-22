@@ -134,7 +134,7 @@ namespace Poolrooms
             float best=float.MaxValue;bool found=false;
             for(int i=0;i<count;i++)if(hits[i].collider!=null&&!hits[i].collider.transform.IsChildOf(transform)&&hits[i].normal.y>.6f&&hits[i].distance<best){best=hits[i].distance;candidate=hits[i].point+Vector3.up*.08f;found=true;}
             if(!found||Vector3.Distance(candidate,ears)<8)return;
-            if(cue==AtmosphereCue.RemoteSteps){stepPosition=candidate;remainingSteps=random.Range(2,5);nextStep=1.2f;return;}
+            if(cue==AtmosphereCue.RemoteSteps){stepPosition=candidate;remainingSteps=2+random.Range(3);nextStep=1.2f;return;}
             Detail(cue==AtmosphereCue.WoodCreak?creak:cue==AtmosphereCue.PipeResonance?pipe:air,candidate,.15f*Options.tension*Options.detail,225,true);
         }
         private void Detail(AudioClip clip,Vector3 position,float gain,int priority,bool unsettling=false,bool atPlayer=false,bool allowEqual=false,bool ambience=false,bool interaction=false)

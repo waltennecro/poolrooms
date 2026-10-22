@@ -3496,5 +3496,16 @@
     "release": "https://github.com/waltennecro/poolrooms/releases/tag/cinco-horizontes",
     "successfulFullRun": "https://github.com/waltennecro/poolrooms/actions/runs/39699182229",
     "deliveryEvidence": "Verification/horizons_delivery.json"
+  },
+  "runtimeCompilationRepair": {
+    "status": "implemented_verification_in_progress",
+    "state": "RUNTIME_COMPILACION_ESTADO.json",
+    "reportedDiagnostics": [
+      "CS0200",
+      "CS1061",
+      "CS0266",
+      "CS0108"
+    ],
+    "nativeUnityExecuted": false
   }
 }

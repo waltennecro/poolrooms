@@ -10,6 +10,21 @@ namespace Poolrooms.Tests
     // These exercise actual component/input/physics behavior; cloud syntax checks do not execute them.
     public sealed class EncounterInteractionTests
     {
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        public void ToolCarryRadiusUsesItsCoreDimensions(int id)
+        {
+            var toolProfile=ScriptableObject.CreateInstance<PoolroomsProfile>();PoolroomsPickup item=null;
+            try
+            {
+                item=PoolroomsPickup.CreateTool("test:tool-radius:"+id,id,Vector3.zero,toolProfile);
+                Assert.That(item,Is.Not.Null);var size=EncounterTools.Size(id);
+                Assert.That(item.CarryRadius,Is.EqualTo(size.Length*.5f+.015f).Within(.00001f));
+                Assert.That(item.GetComponent<BoxCollider>().size,Is.EqualTo(new Vector3(size.X,size.Y,size.Z)));
+            }
+            finally{if(item!=null)Object.DestroyImmediate(item.gameObject);Object.DestroyImmediate(toolProfile);}
+        }
         GameObject root,actor,obstacle;
         PoolroomsProfile profile;
         PoolroomsExplorer explorer;

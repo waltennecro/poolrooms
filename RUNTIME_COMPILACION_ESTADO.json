@@ -1,0 +1,37 @@
+{
+  "baseRevision": "6abad17",
+  "status": "implemented_verification_in_progress",
+  "reportedDiagnostics": {
+    "CS0200": "Room.Floor read-only assignment",
+    "CS1061": "Core.V3 has Length, not magnitude",
+    "CS0266": "StableRandom two-argument Range returns float",
+    "CS0108": "Station coroutine field hides inherited Component.animation"
+  },
+  "productionFilesChanged": 5,
+  "nativeUnityExecuted": false,
+  "tests": {
+    "strictCoreBuild": "passed_zero_warnings_zero_errors",
+    "reducedSemanticContracts": "passed_four_original_diagnostics_reproduced",
+    "stationFloorElevations": 6,
+    "stationFloorContexts": [
+      "Supermarket",
+      "RainHouses"
+    ],
+    "soundBurstSamples": 4096,
+    "nativeToolCasesAdded": 3,
+    "nativeToolCasesExecuted": false,
+    "fullSuite": "running"
+  },
+  "patchCompatibleReleases": [
+    "rincones-procedurales",
+    "cinco-horizontes"
+  ],
+  "patchIncludesNewHorizons": false,
+  "fullPackagePreservesFiveHorizons": true,
+  "guide": "Assets/PoolroomsProcedural/Documentation/Correccion_Compilacion_Runtime.md",
+  "packaging": "tools/package_assets.py and tools/package_runtime_hotfix.py",
+  "limits": [
+    "Reduced type contracts do not compile complete Unity components or native APIs.",
+    "Native Unity/HDRP compilation, shaders, appearance, PhysX, audio and FPS remain unrun."
+  ]
+}

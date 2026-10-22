@@ -117,6 +117,9 @@ static partial class Checks
             bindings++;
         }
         Check(bindings>=6,"HDRP LightUnit binding checks did not execute");
+#if !POOLROOMS_HISTORICAL_CORE
+        RuntimeTypeContracts();
+#endif
         Console.WriteLine($"PASS: C# syntax/Tooltip contracts in {configs.Length} symbol configurations; {bindings} reduced LightUnit binding checks. Native Unity APIs NOT compiled.");
     }
 }

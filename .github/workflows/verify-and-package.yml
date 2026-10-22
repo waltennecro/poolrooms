@@ -24,6 +24,8 @@ jobs:
         run: |
           dotnet build Verification/Poolrooms.Checks.csproj --configuration Release -warnaserror
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj
+      - name: Compile reported Runtime-Core type boundaries and replay original failures
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --runtime-types
       - name: Check detailed mall geometry, licensed placement and floor-local lighting
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --mall-retail
       - name: Check twelve workshops, constructive solutions, state meshes and bounded session memory

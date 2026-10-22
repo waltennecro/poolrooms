@@ -1031,3 +1031,10 @@ Mobiliario y PBR atribuidos existentes, cuatro actividades por sala, historias y
 
 
 Entrega de Cinco horizontes publicada: https://github.com/waltennecro/poolrooms/releases/tag/cinco-horizontes. Fuente exacta b6e631b39f01915fcd367cf3abd4106e27c0707a; CI completo https://github.com/waltennecro/poolrooms/actions/runs/39699182229 y publicación https://github.com/waltennecro/poolrooms/actions/runs/39699209874 terminados correctamente. 1629 archivos de Assets, 1311116709 bytes reales; ZIP 1051791530 bytes, SHA-256 99d4325522cb932b886d10dc994c08a1c21d3198bcb6f1b92f535d4b0e7ede56. Digest y tamaño alojados coinciden con el paquete local comprobado por CRC y SHA-256 de cada entrada. GET público parcial HTTP 206 confirma cabecera ZIP y longitud total; no equivale a otra descarga completa. Se mantienen 212 IDs serializados anteriores y 188 geometrías protegidas. Comprobación nativa Unity pendiente. Evidencia: Verification/horizons_delivery.json.
+
+
+## Corrección de tipos en Runtime detectada en Unity
+
+La consola del usuario detectó CS0200 en Room.Floor, CS1061 en V3.magnitude, CS0266 en el contador de pasos y CS0108 por el campo animation. Las comprobaciones anteriores de núcleo/sintaxis no compilaban estas expresiones de Runtime y no los detectaron. Se corrigen los cinco archivos de producción afectados, conservando la altura de estaciones en plantas comerciales mediante un parámetro explícito y el comportamiento previo por defecto.
+
+Se añaden contratos semánticos reducidos extraídos de las expresiones reales, compilados contra los tipos reales del núcleo. Reproducen los cuatro diagnósticos originales, ejecutan los tres radios de herramientas y 4.096 ráfagas enteras; comprueban seis alturas en casas/tiendas. Se integran en CI y se incluyen tres casos PlayMode de herramientas, no ejecutados en remoto. No equivale a una compilación nativa completa de Unity. Inventario: RUNTIME_COMPILACION_ESTADO.json.

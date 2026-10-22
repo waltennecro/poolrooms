@@ -48,6 +48,9 @@ static partial class Checks
     }
     static int Main(string[] args)
     {
+#if !POOLROOMS_HISTORICAL_CORE
+        if(args.Contains("--runtime-types")){RuntimeTypeContracts();return 0;}
+#endif
         if(args.Contains("--horizons"))
         {
 #if POOLROOMS_HISTORICAL_CORE

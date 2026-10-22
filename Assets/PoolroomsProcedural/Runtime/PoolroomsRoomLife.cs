@@ -18,8 +18,9 @@ namespace Poolrooms
                 var story=RoomMemories.At(seed,x,z,LiminalEnvironment.RainHouses);var interaction=node.AddComponent<PoolroomsInteractable>();interaction.world=world;interaction.key=key;interaction.activity=RoomActivity.Notice;interaction.title=story.Title;interaction.note="Dejamos este lugar preparado para la próxima visita. Hay tiempo para descansar, leer o escuchar una canción. Gracias por cuidar las cosas que encuentres.";
                 if(geometry!=null&&world.CurrentLayout!=null)
                 {
-                    var room=new Room{X=x,Z=z,Floor=-offsetY,Environment=environment};var plan=new RoomLifePlan{Notice=anchor};
-                    var stations=ImmersionStations.Plan(room,geometry,plan,world.CurrentLayout.Config);
+                    var room=new Room{X=x,Z=z,Environment=environment};var plan=new RoomLifePlan{Notice=anchor};
+                    // Mall geometry keeps its storey elevation; the parent applies offsetY.
+                    var stations=ImmersionStations.Plan(room,geometry,plan,world.CurrentLayout.Config,-offsetY);
                     PoolroomsStation.Attach(world,parent,owner,stations,key,offsetY);
                 }
                 return;

@@ -11,6 +11,8 @@ El ejecutable compila el núcleo real con C# 9; compara 108 geometrías de suelo
 
 Esto no compila las APIs de Unity ni sustituye las pruebas PlayMode, PhysX o el render en Unity 6.3/HDRP 17.3. No copiar esta carpeta a `Assets`: usa Roslyn, que no forma parte del juego.
 
+`--runtime-types` compila expresiones reales de `AttachNotice`, `CreateTool` y `Distant` contra los tipos reales del núcleo, y comprueba el conflicto heredado de `animation` con un sustituto reducido de Component. Reproduce y rechaza los cuatro diagnósticos originales CS0200/CS1061/CS0266/CS0108. Ejecuta los radios de las tres herramientas, 4.096 ráfagas de pasos y estaciones a seis elevaciones de centro comercial/casa. También se ejecuta mediante `IntegrationSourceContracts`; no equivale a compilar todos los componentes ni a comprobar las APIs nativas de Unity.
+
 Los mapas nuevos se regeneran con `python tools/generate_play_finish.py` (NumPy y Pillow); su procedencia y SHA-256 se guardan en `play_finish_textures.json`.
 
 Para regenerar fuentes externas/adaptaciones se necesitan las herramientas fijadas:

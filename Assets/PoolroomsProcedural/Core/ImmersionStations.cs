@@ -42,12 +42,13 @@ namespace Poolrooms.Core
             }
             return bank[hash%(uint)bank.Length];
         }
-        public static List<StationPlacement> Plan(Room room,RoomGeometry geometry,RoomLifePlan life,LayoutConfig config)
+        public static List<StationPlacement> Plan(Room room,RoomGeometry geometry,RoomLifePlan life,LayoutConfig config,float? floorHeight=null)
         {
             var result=new List<StationPlacement>();if(!config.EncounterExploration||geometry.Dressing==null)return result;
+            float floor=floorHeight??room.Floor;
             for(int index=0;index<geometry.Dressing.Anchors.Count&&result.Count<MaximumPerRoom;index++)
             {
-                var a=geometry.Dressing.Anchors[index];if(a.Center.Y<room.Floor+.95f||a.Center.Y>room.Floor+1.75f||V3.Dot(a.Normal,new V3(-a.Center.X,0,-a.Center.Z))<=.1f)continue;
+                var a=geometry.Dressing.Anchors[index];if(a.Center.Y<floor+.95f||a.Center.Y>floor+1.75f||V3.Dot(a.Normal,new V3(-a.Center.X,0,-a.Center.Z))<=.1f)continue;
                 if(life.Notice.HasValue&&(life.Notice.Value.Center-a.Center).Length<1.05f)continue;
                 bool blocked=false;
                 foreach(var prior in result)if((prior.Anchor.Center-a.Center).Length<1.1f)blocked=true;

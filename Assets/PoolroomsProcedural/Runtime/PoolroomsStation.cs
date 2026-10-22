@@ -14,7 +14,7 @@ namespace Poolrooms
         public int variant;
         private float nextUse;
         private PoolroomsLuminaire lamp;
-        private Coroutine animation,flowAnimation;
+        private Coroutine swingAnimation,flowAnimation;
         private GameObject flow;
         private Transform accent;
         private Texture2D drawing;
@@ -24,7 +24,7 @@ namespace Poolrooms
         public Vector3 SoundPosition {get{return transform.TransformPoint(new Vector3(0,0,.2f));}}
         public string Label {get{return kind==StationKind.Chimes||kind==StationKind.RestBell?"hacer sonar suavemente":kind==StationKind.Light?"encender / apagar luz":ImmersionStations.Name(kind);}}
         private void OnEnable(){if(registryIndex<0&&registry.Count<8192){registryIndex=registry.Count;registry.Add(this);}}
-        private void OnDisable(){if(registryIndex>=0){int end=registry.Count-1;var last=registry[end];registry[registryIndex]=last;last.registryIndex=registryIndex;registry.RemoveAt(end);registryIndex=-1;}if(animation!=null)StopCoroutine(animation);animation=null;if(flowAnimation!=null)StopCoroutine(flowAnimation);flowAnimation=null;if(flow!=null)flow.SetActive(false);if(accent!=null)accent.localRotation=Quaternion.identity;}
+        private void OnDisable(){if(registryIndex>=0){int end=registry.Count-1;var last=registry[end];registry[registryIndex]=last;last.registryIndex=registryIndex;registry.RemoveAt(end);registryIndex=-1;}if(swingAnimation!=null)StopCoroutine(swingAnimation);swingAnimation=null;if(flowAnimation!=null)StopCoroutine(flowAnimation);flowAnimation=null;if(flow!=null)flow.SetActive(false);if(accent!=null)accent.localRotation=Quaternion.identity;}
         public static PoolroomsStation Nearby(PoolroomsWorld world,Vector3 ears,ref int cursor)
         {
             PoolroomsStation best=null;float distance=18*18;
@@ -75,11 +75,11 @@ namespace Poolrooms
         public void Pulse()
         {
             if(accent==null)accent=transform.Find("Moving accent");if(accent==null)return;
-            if(animation!=null)StopCoroutine(animation);animation=StartCoroutine(Swing());
+            if(swingAnimation!=null)StopCoroutine(swingAnimation);swingAnimation=StartCoroutine(Swing());
         }
         private IEnumerator Swing()
         {
-            float t=0;while(t<2.5f){t+=Time.deltaTime;accent.localRotation=Quaternion.Euler(0,0,Mathf.Sin(t*9)*7*Mathf.Exp(-t*2));yield return null;}accent.localRotation=Quaternion.identity;animation=null;
+            float t=0;while(t<2.5f){t+=Time.deltaTime;accent.localRotation=Quaternion.Euler(0,0,Mathf.Sin(t*9)*7*Mathf.Exp(-t*2));yield return null;}accent.localRotation=Quaternion.identity;swingAnimation=null;
         }
         public void Paint(byte[] pixels)
         {

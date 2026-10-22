@@ -29,7 +29,7 @@ namespace Poolrooms
             var owner=go.AddComponent<PoolroomsChunk>();var visual=MeshFactory.Create("Detailed travel tool",EncounterTools.Build(id),go.transform,profile,owner,false);
             visual.GetComponent<MeshRenderer>().rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
             var size=EncounterTools.Size(id);var shape=go.AddComponent<BoxCollider>();shape.size=new Vector3(size.X,size.Y,size.Z);shape.center=Vector3.up*size.Y*.5f+(id==2?Vector3.right*.045f:Vector3.zero);
-            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.InventoryKey="tool:"+id;item.shape=shape;item.mass=id==2?.5f:.05f;item.CarryRadius=size.magnitude*.5f+.015f;item.surface=PickupSurface.Rigid;return item;
+            var item=go.AddComponent<PoolroomsPickup>();item.SpawnKey=key;item.InventoryKey="tool:"+id;item.shape=shape;item.mass=id==2?.5f:.05f;item.CarryRadius=size.Length*.5f+.015f;item.surface=PickupSurface.Rigid;return item;
         }
         public static PoolroomsPickup CreateSourceSeat(string key,SourceFurniturePlacement seat,Transform parent,float offsetY=0)
         {
