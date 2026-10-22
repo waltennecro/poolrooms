@@ -1601,6 +1601,15 @@
           "publicationRun": 39856572717,
           "conclusion": "cancelled_before_publication",
           "reason": "A supplemental actual-geometry provision feasibility audit found no approachable City11 sidewalk station because the standing bay overlapped an eight-centimetre kerb. Shifted tables within the same sidewalk, preserved the driving lane, and added all-63-biome feasibility regression checks."
+        },
+        {
+          "sourceRevision": "0f9a25d4a42c215ee91ed6ec5ce6d65e60a9509d",
+          "verificationRun": 39857077059,
+          "publicationRun": 39857149249,
+          "conclusion": "verification_failure_reproduced_locally_release_not_published",
+          "failingStep": "Check licensed wing selector icons and source attribution",
+          "reason": "The previous wing-source audit requires in-game credits to equal generate_asset_credits.build(). The food attribution was appended directly without updating that generator. Reproduced its assertion locally, added FoodSources notice/catalogue/research to the canonical generator and regenerated the credits. No checks weakened; Core and Runtime C# unchanged.",
+          "immutableR33Comparison": "success in the same failed run before the credits assertion"
         }
       ],
       "actualGeometryProvisionAudit": {
@@ -3806,6 +3815,15 @@
         "publicationRun": 39856572717,
         "conclusion": "cancelled_before_publication",
         "reason": "A supplemental actual-geometry provision feasibility audit found no approachable City11 sidewalk station because the standing bay overlapped an eight-centimetre kerb. Shifted tables within the same sidewalk, preserved the driving lane, and added all-63-biome feasibility regression checks."
+      },
+      {
+        "sourceRevision": "0f9a25d4a42c215ee91ed6ec5ce6d65e60a9509d",
+        "verificationRun": 39857077059,
+        "publicationRun": 39857149249,
+        "conclusion": "verification_failure_reproduced_locally_release_not_published",
+        "failingStep": "Check licensed wing selector icons and source attribution",
+        "reason": "The previous wing-source audit requires in-game credits to equal generate_asset_credits.build(). The food attribution was appended directly without updating that generator. Reproduced its assertion locally, added FoodSources notice/catalogue/research to the canonical generator and regenerated the credits. No checks weakened; Core and Runtime C# unchanged.",
+        "immutableR33Comparison": "success in the same failed run before the credits assertion"
       }
     ],
     "actualGeometryProvisionAudit": {

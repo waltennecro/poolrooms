@@ -1,0 +1,82 @@
+{
+  "previousSourceRevision": "0f9a25d4a42c215ee91ed6ec5ce6d65e60a9509d",
+  "previousVerificationRun": 39857077059,
+  "failureReproduced": "tools/verify_wing_sources.py: in-game attribution text differs from generate_asset_credits.build()",
+  "repair": "Integrate FoodSources NOTICE and catalogue/research attribution in the canonical generator, regenerate the in-game credits; preserve exact-match assertion.",
+  "commandsExecuted": [
+    {
+      "command": "/usr/bin/python3 tools/verify_aircraft_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_bath_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_bistro_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_building_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_city_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_conservatory_resources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_encounter_resources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_food_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_garden_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_helicopter_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_interior_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_journey_resources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_mall_resources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_rain_resources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_restful_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_sky63_resources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_urban_sources.py",
+      "exitCode": 0
+    },
+    {
+      "command": "/usr/bin/python3 tools/verify_wing_sources.py",
+      "exitCode": 0
+    }
+  ],
+  "coreRuntimeCSharpChanged": false,
+  "nativeUnityExecuted": false
+}
