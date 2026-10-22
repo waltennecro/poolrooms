@@ -3443,15 +3443,16 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "revision": "c3a90e98b5d40ea4edd672ed9b3379d94ccbfaa8",
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/correccion-compilacion-runtime",
-    "download": "https://github.com/waltennecro/poolrooms/releases/download/correccion-compilacion-runtime/Poolrooms_Compilacion_Corregida_Assets.zip",
-    "patchDownload": "https://github.com/waltennecro/poolrooms/releases/download/correccion-compilacion-runtime/Poolrooms_Parche_Compilacion_Runtime.zip",
-    "assetsBytes": 1311120018,
-    "zipBytes": 1051793304,
-    "sha256": "4674829b21714dce4ebc8b55e2b4c8a8eb64880b12e3438caec32e0bcb63125b",
-    "hostedDigestAndSizeMatchLocal": true,
-    "publicRangeProbeStatus": 206
+    "revision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/rutas-flexibles",
+    "download": "https://github.com/waltennecro/poolrooms/releases/download/rutas-flexibles/Poolrooms_Rutas_Flexibles_Assets.zip",
+    "patchDownload": "https://github.com/waltennecro/poolrooms/releases/download/rutas-flexibles/Poolrooms_Parche_Rutas_y_Compilacion.zip",
+    "assetsBytes": 1311127349,
+    "zipBytes": 1051797368,
+    "sha256": "db40d75407c69950541124a98503f77332e82f049df2d047866dd12e387425e4",
+    "publicRangeProbeStatus": 206,
+    "hostedDigestAndSizeMatchPublisher": true,
+    "hostedArchiveManifestMatchesLocalAssets": true
   },
   "sharedWorkshops": {
     "stateFile": "TALLERES_COMPARTIDOS_ESTADO.json",
@@ -3514,7 +3515,10 @@
   },
   "flexibleInstallation": {
     "state": "INSTALACION_RUTAS_ESTADO.json",
-    "status": "implemented_targeted_verification_in_progress",
-    "nativeUnityExecuted": false
+    "status": "published_targeted_verified_native_unrun",
+    "nativeUnityExecuted": false,
+    "sourceRevision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39717122493",
+    "deliveryEvidence": "Verification/installation_delivery.json"
   }
 }

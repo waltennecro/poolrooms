@@ -1,0 +1,50 @@
+{
+  "sourceRevision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
+  "package": {
+    "zip": "/home/runner/work/_temp/Poolrooms_Rutas_Flexibles_Assets.zip",
+    "files": 1634,
+    "bytes": 1051797368,
+    "sha256": "db40d75407c69950541124a98503f77332e82f049df2d047866dd12e387425e4",
+    "sourceRevision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
+    "workingTreeChanged": false
+  },
+  "patch": {
+    "zip": "/home/runner/work/_temp/Poolrooms_Parche_Rutas_y_Compilacion.zip",
+    "files": 10,
+    "bytes": 30016,
+    "sha256": "db5404a11d8c4af4979cd32fff37edb33aee183640e369267e3b45e0a24391e9",
+    "sourceRevision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
+    "workingTreeChanged": false
+  },
+  "assetsUncompressedBytes": 1311127349,
+  "gameplayUnchangedFrom": "c9d8da0",
+  "targetedVerification": "actual locator with reduced Unity APIs; four layouts/four moves, missing files, nine shipped maps, prior Runtime type contracts, all-script syntax, texture hashes",
+  "fullNativeUnityExecuted": false,
+  "verificationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39717122493",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/rutas-flexibles",
+  "publication": "success",
+  "hostedDigestAndSizeMatch": true,
+  "localAssetsMatched": 1634,
+  "publicFullArchivePrefixProbe": {
+    "status": 206,
+    "contentRange": "bytes 0-63/1051797368",
+    "bytesRead": 64,
+    "zipHeaderValid": true,
+    "fullDownload": false
+  },
+  "publicPatchFullyDownloadedAndCrcVerified": true,
+  "localPatch": {
+    "zip": "/workspace/output/rutas-flexibles/Poolrooms_Parche_Rutas_y_Compilacion.zip",
+    "files": 10,
+    "bytes": 30016,
+    "sha256": "db5404a11d8c4af4979cd32fff37edb33aee183640e369267e3b45e0a24391e9",
+    "sourceRevision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
+    "workingTreeChanged": false
+  },
+  "retainedFullCoreReference": "https://github.com/waltennecro/poolrooms/actions/runs/39704509676",
+  "newHistoricalFullRunRequiredForThisEditorOnlyChange": false,
+  "nativeUnityExecuted": false,
+  "workflowPublicationSyntaxErrorFixedBeforeDelivery": true,
+  "fullCompressedArchiveRegeneratedLocally": false,
+  "largeArchiveVerification": "Publisher verified CRC and per-file SHA; hosted archive manifest matches all local Assets; hosted digest/size match publisher record; public 64-byte range verified. Small patch fully downloaded and compared to local zip."
+}

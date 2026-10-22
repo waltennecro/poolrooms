@@ -1,0 +1,1 @@
+Verified 83 PBR maps: SHA-256, 1024px, PNG CRC and decompression.
