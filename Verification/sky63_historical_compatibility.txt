@@ -1,0 +1,10 @@
+  Determining projects to restore...
+  Restored /tmp/sky63-immutable-baseline/baseline-project/Verification/Poolrooms.Checks.csproj (in 67 ms).
+  Poolrooms.Checks -> /tmp/sky63-immutable-baseline/baseline-project/Verification/bin/Release/net8.0/Poolrooms.Checks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.22
+PASS: immutable R33 compiled with current verifier; old bevel failure and wing rejection reproduced. Baseline unchanged: 0a43903830cf694377118229a23dbeeed9a6346b /tmp/sky63-immutable-baseline/baseline-project/Verification/Poolrooms.Checks.csproj

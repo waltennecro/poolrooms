@@ -151,6 +151,7 @@ static partial class Checks
         {
             if(ConnectedTerrainTopology.Reserved(c,x,z)||!RestfulLevelPlanner.IsLevel(LiminalRegions.At(c,x,z)))continue;
             var r=layout.DescribeAt(x,z);
+#if !POOLROOMS_HISTORICAL_CORE
             if(r.Plan?.Quiet?.Sky63!=null)
             {
                 // The replacement owns real source placements, not the retired generic Props array.
@@ -163,6 +164,7 @@ static partial class Checks
                 }
                 continue;
             }
+#endif
             var p=r.Plan?.Restful;if(p==null)continue;rooms++;levels[(int)r.Environment-18]++;
             for(int slot=0;slot<p.Props.Length;slot++)
             {
@@ -171,7 +173,9 @@ static partial class Checks
                 else Check(MallItemCatalog.Get(item.CatalogId)!=null,"Live-world pickup catalogue is unresolved");
             }
         }
+#if !POOLROOMS_HISTORICAL_CORE
         Check(skyRooms>0&&skyPickups>0,"Rebuilt sky level has no actual pickup placements in the unified snapshot");
+#endif
         Check(levels.All(v=>v>0),"New level missing from actual unified world snapshot");
         Check(licensed>20000&&interactions>4000,"Object targets absent from the actual coordinate snapshot");
         Console.WriteLine($"PASS: actual unified-world coordinate snapshot seed {c.Seed}, [-64,64]^2 excluding reserved terrain: {rooms} new-level rooms, {interactions} distinct pickup keys, {licensed} planned licensed-source instances using {kinds.Count} distinct source models. All {levels.Length} programmes present, including {skyRooms} rebuilt sky sectors / {skyPickups} sky pickups; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.");
