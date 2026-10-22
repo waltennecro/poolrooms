@@ -70,6 +70,8 @@ namespace Poolrooms.Core
                     if(nx>=int.MinValue&&nx<=int.MaxValue&&nz>=int.MinValue&&nz<=int.MaxValue&&LiminalRegions.At(config,(int)nx,(int)nz)!=current)exits|=1<<d;
                 }
             }
+            if(CourtyardDistrictPlanner.Applies(config,LiminalRegions.At(config,x,z)))
+                for(int d=0;d<4;d++)if(CourtyardDistrictPlanner.Same(config,x,z,d))exits|=1<<d;
             int result=LargeRegions.Exits(config,x,z,exits);if(LargeRegions.Enabled(config))largeEdges[address]=result;return result;
         }
 

@@ -20,7 +20,10 @@
     <Compile Include="MallAtlas.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="JourneyLevelChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="WorkshopChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="CourtyardDistrictAtlas.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="CourtyardDistrictChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="HorizonChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="UnityLifetimeChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="RuntimeTypeChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="PackagePathChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="SceneryChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />

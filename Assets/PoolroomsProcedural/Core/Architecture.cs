@@ -20,6 +20,7 @@ namespace Poolrooms.Core
         // Local mall lamps must not illuminate the next storey when shadows are unavailable.
         public bool MallLocal;
         public float FloorOffset,ShadowlessRange;
+        public float StoreyHeight; // Zero keeps historical mall eligibility.
     }
     [Serializable]
     public struct WaterRegion
@@ -67,6 +68,7 @@ namespace Poolrooms.Core
         }
         public static RoomGeometry Build(Room r,LayoutConfig cfg)
         {
+            if(r.Plan?.Quiet?.Courtyard!=null)return CourtyardDistrictArchitecture.Build(r,cfg);
             RoomGeometry output=BuildBase(r,cfg);
             RoomPrograms.Append(output,r,cfg);
             ExistingLevelEnrichment.Append(output,r,cfg);

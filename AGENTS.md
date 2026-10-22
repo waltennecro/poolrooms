@@ -42,6 +42,8 @@ Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --s
 
 Use `dotnet run -c Release --project Verification/Poolrooms.Checks.csproj -- --horizons` for the five appended programmes, human-scale cabin/lookout access, previous ID baseline and 63-biome walking discovery. Keep the prior Journey bank at twenty and custom profiles opt-in through EnableHorizonLevels.
 
+Use `--courtyard-hotel` for the first researched level rebuild: one shared four-sector court, five hotel storeys, human-scale stairs, supported furniture, finite-world edges and mixed-world annexes. `RebuildCourtyard188` remains false in historical Core fixtures and is enabled in unified exploration/native profiles. `RECONSTRUCCION_NIVELES_ESTADO.json` lists the other generic programmes as pending individual reconstruction; do not label them finished because the catalogue exists. `--unity-lifetimes` audits native Unity allocations in MonoBehaviour instance fields; native constructor/OBJ/door/collider tests remain in PlayMode and must not be claimed executed by source checks.
+
 ## Coding Style & Naming Conventions
 
 Use four-space indentation, PascalCase types/methods, and camelCase fields. Follow nearby compact C# formatting. Keep Core free of Unity references and generation deterministic. Append serialized enum values; preserve existing IDs. Keep the flashlight unchanged unless specifically requested. Prefer suitable high-quality external assets with verified licences, provenance, attribution and bounded placement/LOD costs.

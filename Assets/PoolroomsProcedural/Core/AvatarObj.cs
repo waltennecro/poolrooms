@@ -8,7 +8,7 @@ namespace Poolrooms.Core
     // Bounded static OBJ reader. Filesystem, textures and Unity objects belong to the runtime adapter.
     public sealed class AvatarObj
     {
-        public const int MaxBytes=16*1024*1024,MaxVertices=150000,MaxTriangles=200000,MaxMaterials=16;
+        public const int MaxBytes=64*1024*1024,MaxVertices=150000,MaxTriangles=200000,MaxMaterials=16;
         public readonly List<V3> Positions=new List<V3>(),Normals=new List<V3>();
         public readonly List<V2> UV=new List<V2>();
         public readonly List<List<int>> Submeshes=new List<List<int>>();
@@ -27,7 +27,7 @@ namespace Poolrooms.Core
         }
         public static AvatarObj Parse(string source)
         {
-            if(source==null||source.Length>MaxBytes)throw new FormatException("El OBJ supera el límite de 16 MB.");
+            if(source==null||source.Length>MaxBytes)throw new FormatException("El OBJ supera el límite de 64 MB.");
             var result=new AvatarObj();var vertices=new List<V3>();var normals=new List<V3>();var uv=new List<V2>();
             var corners=new Dictionary<(int,int,int),int>();int material=-1,triangles=0;
             using var reader=new StringReader(source);string line;

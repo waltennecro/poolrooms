@@ -390,7 +390,7 @@ namespace Poolrooms
                 for(int d=0;d<4;d++)if(r.HasExit(d))
                 {
                     // Full solid cap seals a doorway until BOTH neighbouring chunks exist.
-                    bool openHall=r.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(layout.Config,r.X,r.Z,d,r.Environment);
+                    bool openHall=r.Plan?.Quiet?.Courtyard!=null&&CourtyardDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(layout.Config,r.X,r.Z,d,r.Environment);
                     float half=openHall?layout.Config.CellSize*.5f:SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
                     var airfield=r.Plan!=null&&r.Plan.City!=null?r.Plan.City.Airfield:null;
                     if(airfield!=null&&Math.Abs(airfield.Column+Directions.DX[d])<=1&&Math.Abs(airfield.Row+Directions.DZ[d])<=3)half=layout.Config.CellSize*.5f;
@@ -426,6 +426,7 @@ namespace Poolrooms
 
         private void AttachRoomExtras(Room r,Transform parent)
         {
+            if(Application.isPlaying&&r.Plan?.Quiet?.Courtyard!=null)PoolroomsCourtyard188.Attach(this,r,parent);
             if(r.Plan!=null&&r.Plan.City!=null)PoolroomsCityBuildings.Attach(r.Plan.City,parent,layout.Config);
             var sources=parent.GetComponent<PoolroomsChunk>();
             if(Application.isPlaying&&layout.Config.EncounterExploration&&sources!=null)PoolroomsRoomLife.Attach(this,r,parent,sources.lifePlan);
@@ -526,7 +527,7 @@ namespace Poolrooms
             var lamp=new GameObject(f.Skylight?"Skylight":"Ceiling light");lamp.transform.SetParent(parent,false);
             lamp.transform.localPosition=new Vector3(f.Position.X,f.Position.Y,f.Position.Z);lamp.transform.localRotation=f.Aim.Length>0.001f?Quaternion.LookRotation(new Vector3(f.Aim.X,f.Aim.Y,f.Aim.Z),Mathf.Abs(f.Aim.Y)>.95f?Vector3.forward:Vector3.up):Quaternion.Euler(90,0,0);
             var meta=lamp.AddComponent<PoolroomsLuminaire>();meta.lumens=f.Power;meta.width=f.Width;meta.depth=f.Depth;meta.temperature=f.Temperature;meta.solarBeam=f.SolarBeam;meta.solarFill=f.SolarFill;meta.poolroomSunlight=f.PoolroomSunlight;meta.mallSunlight=f.MallSunlight;meta.ambientSupport=f.AmbientSupport;
-            meta.mallLocal=f.MallLocal;meta.floorOffset=f.FloorOffset;meta.fullRange=f.Range>0?f.Range:25;meta.shadowlessRange=f.ShadowlessRange;
+            meta.mallLocal=f.MallLocal;meta.floorOffset=f.FloorOffset;meta.storeyHeight=f.StoreyHeight;meta.fullRange=f.Range>0?f.Range:25;meta.shadowlessRange=f.ShadowlessRange;
             var light=lamp.AddComponent<Light>();light.type=LightType.Spot;light.spotAngle=f.ConeAngle>0?f.ConeAngle:110;light.innerSpotAngle=f.SolarBeam?light.spotAngle*.85f:75;
             light.useColorTemperature=false;light.range=f.Range>0?f.Range:25;light.color=f.CustomColor?new Color(f.LightColor.X,f.LightColor.Y,f.LightColor.Z):Mathf.CorrelatedColorTemperatureToRGB(f.Temperature);light.intensity=f.CustomColor?f.Power/1500f:4;
             light.shadows=LightShadows.None;light.enabled=false;meta.source=light;lamps.Add(meta);
@@ -599,7 +600,7 @@ namespace Poolrooms
                 if(!lamp.userEnabled){lamp.source.enabled=false;continue;}
                 Vector3 offset=lamp.transform.position-p;float distance=offset.sqrMagnitude;
                 if(lamp.fullRange<=0)lamp.fullRange=lamp.source.range; // Older baked metadata.
-                bool eligible=lamp.gameObject.activeInHierarchy&&!(PoolroomSunActive&&lamp.poolroomSunlight)&&!(MallSunActive&&lamp.mallSunlight)&&(!lamp.mallLocal||MallLighting.FloorEligible(-offset.y,lamp.floorOffset));
+                bool eligible=lamp.gameObject.activeInHierarchy&&!(PoolroomSunActive&&lamp.poolroomSunlight)&&!(MallSunActive&&lamp.mallSunlight)&&(!lamp.mallLocal||MallLighting.FloorEligible(-offset.y,lamp.floorOffset,lamp.storeyHeight));
                 if(lamp.solarBeam)distance=(offset.x*offset.x+offset.z*offset.z+offset.y*offset.y*.08f)*.35f;
                 else if(lamp.solarFill)distance*=.6f;
                 if(eligible&&shadowBudget>0&&lightBudget>0&&lamp.solarBeam&&mallDaylight&&lamp.transform.IsChildOf(mallRoot)&&

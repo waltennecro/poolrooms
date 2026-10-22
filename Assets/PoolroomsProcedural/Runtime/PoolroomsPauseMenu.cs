@@ -251,10 +251,10 @@ namespace Poolrooms
         }
         private static string Format(float value,string unit,bool percent)
         {return percent?Mathf.RoundToInt(value*100)+" %":value.ToString(unit=="°"?"0":"0.00")+unit;}
-        private void Choice(string name,string description,List<string> choices,int index,Action<int> setter,bool enabled=true)
+        private DropdownField Choice(string name,string description,List<string> choices,int index,Action<int> setter,bool enabled=true)
         {
             Row(name,description,out var control,enabled);var dropdown=new DropdownField(choices,Mathf.Clamp(index,0,choices.Count-1));dropdown.AddToClassList("pr-dropdown");dropdown.tooltip=name;control.Add(dropdown);
-            dropdown.RegisterValueChangedCallback(e=>{int selected=choices.IndexOf(e.newValue);if(selected>=0)setter(selected);});
+            dropdown.RegisterValueChangedCallback(e=>{int selected=choices.IndexOf(e.newValue);if(selected>=0)setter(selected);});return dropdown;
         }
         private void DrawDisplay()
         {
@@ -358,22 +358,35 @@ namespace Poolrooms
         }
         private void DrawSkins()
         {
-            DrawWings();
             var avatar=explorer.GetComponent<PoolroomsAvatar>();if(avatar==null)return;var skin=avatar.Preferences;
-            Row("Importar modelo","OBJ directo. GLB/glTF requieren Unity glTFast. En el Editor también FBX, DAE, 3DS, DXF y BLEND.",out var input);
+            Row("Importar modelo","OBJ directo, hasta 64 MB. GLB/glTF requieren Unity glTFast. FBX, DAE, 3DS, DXF y BLEND usan el importador del Editor.",out var input);
             input.AddToClassList("pr-skin-import");
             var path=new TextField{value="",tooltip="Ruta local completa al archivo 3D"};path.AddToClassList("pr-skin-path");input.Add(path);
             var fileActions=Element("pr-skin-actions",input);
             ActionButton("Examinar…",()=>{string file=AvatarFilePicker.Open();if(!string.IsNullOrEmpty(file))path.value=file;},"pr-secondary",fileActions);
-            ActionButton("Importar",()=>avatar.LoadFile(path.value),"pr-primary",fileActions);
+            ActionButton("Importar",()=>avatar.LoadFile(path.value,!atTitle),"pr-primary",fileActions);
+            var importResult=Label(avatar.Status,"pr-muted",input);
+            importResult.schedule.Execute(()=>importResult.text=(avatar.Loading?"IMPORTANDO · ":avatar.HasModel?"MODELO CARGADO · ":"")+avatar.Status).Every(200);
+            ActionButton("Ver skin en tercera persona",()=>{if(!avatar.HasModel){avatar.PreviewLoadedSkin();return;}Resume(true);avatar.PreviewLoadedSkin();},"pr-secondary",fileActions).SetEnabled(!atTitle);
             Toggle("OBJ sencillo · sin huesos","Importa el modelo como una skin estática, sin intentar adaptarlo. Conserva materiales, sombras y movimiento del jugador. Actívalo antes de importar o pulsa Recalcular para aplicarlo.",skin.objStatic,v=>{skin.objStatic=v;avatar.SavePreferences();},SettingsChange.None);
             var definitions=avatar.Definitions();var files=avatar.ObjFiles();var names=new List<string>{"Sin skin"};
             foreach(var definition in definitions)names.Add(definition.name);foreach(var file in files)names.Add(System.IO.Path.GetFileName(file));
             string saved=PlayerPrefs.GetString("Poolrooms.Avatar.Selection","");int index=0;
             for(int i=0;i<definitions.Length;i++)if(saved=="asset:"+definitions[i].name)index=i+1;
             for(int i=0;i<files.Length;i++)if(saved=="obj:"+files[i]||saved=="file:"+files[i])index=1+definitions.Length+i;
-            Choice("Skin seleccionada","Solo cambia la apariencia. Conserva colisiones y habilidades del jugador.",names,index,i=>
-            {if(i==0)avatar.ResetAppearance();else if(i<=definitions.Length)avatar.Apply(definitions[i-1]);else avatar.LoadFile(files[i-definitions.Length-1]);});
+            bool refreshingSkinList=false;
+            var selection=Choice("Skin seleccionada","Solo cambia la apariencia. Conserva colisiones y habilidades del jugador.",names,index,i=>
+            {if(refreshingSkinList)return;if(i==0)avatar.ResetAppearance();else if(i<=definitions.Length){if(avatar.Apply(definitions[i-1])&&!atTitle)avatar.PreviewLoadedSkin();}else avatar.LoadFile(files[i-definitions.Length-1],!atTitle);});
+            string observed=saved;
+            selection.schedule.Execute(()=>
+            {
+                string current=PlayerPrefs.GetString("Poolrooms.Avatar.Selection","");if(current==observed||avatar.Loading)return;observed=current;
+                definitions=avatar.Definitions();files=avatar.ObjFiles();names.Clear();names.Add("Sin skin");foreach(var definition in definitions)names.Add(definition.name);
+                foreach(var file in files)names.Add(System.IO.Path.GetFileName(file));int selected=0;
+                for(int i=0;i<definitions.Length;i++)if(current=="asset:"+definitions[i].name)selected=i+1;
+                for(int i=0;i<files.Length;i++)if(current=="obj:"+files[i]||current=="file:"+files[i])selected=1+definitions.Length+i;
+                refreshingSkinList=true;try{selection.choices=names;selection.SetValueWithoutNotify(names[selected]);}finally{refreshingSkinList=false;}
+            }).Every(250);
             Row("Biblioteca local","Los modelos preparados en Unity permanecen fuera de la carpeta de código reemplazable.",out var library);
             ActionButton("Abrir carpeta",()=>{System.IO.Directory.CreateDirectory(avatar.Folder);Application.OpenURL(new Uri(avatar.Folder).AbsoluteUri);},"pr-secondary",library);
             ActionButton("Actualizar lista",()=>OpenSettings(SettingsCategory.Skins),"pr-secondary",library);
@@ -402,6 +415,7 @@ namespace Poolrooms
             Slider("Suavidad de la skin","Solo con ajuste de acabado activado.",0,1,skin.smoothness,v=>{skin.smoothness=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
             Slider("Metal de la skin","Cero para tela y piel; aumenta solo en superficies metálicas.",0,1,skin.metallic,v=>{skin.metallic=v;avatar.SavePreferences();},SettingsChange.None,percent:true);
             Note("Ray tracing: geometría animada dinámica en Cinemático RT/Ultra con hardware compatible; en otras calidades usa iluminación y reflejos disponibles. No agrega luces ni sondas por personaje. GLB/glTF: instala com.unity.cloud.gltfast 6.7.1 desde Package Manager. BLEND requiere Blender en el equipo del Editor.");
+            DrawWings();
         }
         private void DrawWings()
         {

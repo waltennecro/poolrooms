@@ -1,0 +1,22 @@
+{
+  "level": "188 — hotel courtyard / The Windows",
+  "reviewed": "2026-10-22",
+  "canonicalVariantsDiffer": true,
+  "primaryReferences": [
+    {"url": "https://backrooms.fandom.com/wiki/Level_188", "variant": "Hotel / The Windows, five interconnected floors", "directAccess": "Blocked by network proxy: HTTP 403"},
+    {"url": "https://backrooms.fandom.com/api.php?action=parse&oldid=22084&format=json", "variant": "2020 original attributed to 1000dumplings, ported by Nick6978", "directAccess": "Blocked by network proxy: HTTP 403"},
+    {"url": "https://backrooms-wiki.wikidot.com/level-188", "variant": "Number reused by unrelated articles; not treated as the current hotel description", "directAccess": "Blocked by network proxy: HTTP 403"}
+  ],
+  "accessibleResearch": [
+    {"url": "https://github.com/jeffreyhockema/VS-Backrooms/blob/def6d8bd12efa47ef822e25bb00674c3d8e81831/docs/design/new-levels/188-plan.md", "sectionsUsed": ["1.1 Which Level 188", "1.2 The original", "1.3 Fandom today"], "purpose": "Compare short wiki quotations, versions, architecture and source attribution", "copiedCodeModelsTexturesOrGameDesign": false},
+    {"url": "https://github.com/EricColeGame/backroomssavior_top/blob/main/content/de/levels/backrooms-level-188.mdx", "purpose": "Secondary comparison of the courtyard/windows description; not treated as the primary wiki"}
+  ],
+  "architecturalFactsAdapted": ["One large courtyard surrounded by many windows", "Four grassy areas and a central wooden circle", "Raised/lowered blinds", "Hotel-like rooms behind doors", "Interconnected hallways and five storeys", "A staircase beside the courtyard"],
+  "originalImplementation": ["4 by 4 streamed district, four open court sectors and twelve hotel sectors", "Deterministic furnished annexes at irregular biome boundaries", "Guest/twin suites, reception, breakfast, reading and laundry programmes", "Four corner dogleg stair cores with landing cut-outs and roof access", "Physical doors, operable blinds with fixed safety glazing, source-model furniture and existing activities"],
+  "deliberateAdaptations": ["Peaceful exploration: no entities, disappearances or jump scares", "Walkable hotel entrances instead of mandatory teleport windows", "Wooden circle is safe decoration, not an advertised functional inter-level trapdoor", "Multiple procedural hotel districts extend the source's compact setting"],
+  "externalMediaDownloadedForThisLevel": 0,
+  "newExternalModels": 0,
+  "photoPolicy": "The famous reference photograph is not redistributed; no verified reuse license was found.",
+  "assetReuse": "Existing attributed Bistro, InteriorSources, MallSources, JourneySources, garden models and original Level94 grass PBR; all shipped notices retained.",
+  "verificationLimit": "Research is based on accessible transcribed wiki references; direct full primary-page verification and native Unity appearance remain pending."
+}

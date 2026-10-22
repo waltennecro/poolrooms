@@ -10,7 +10,7 @@ using UnityEngine.Rendering;
 namespace Poolrooms
 {
     [DisallowMultipleComponent,RequireComponent(typeof(PoolroomsExplorer))]
-    public sealed class PoolroomsAvatar : MonoBehaviour
+    public sealed partial class PoolroomsAvatar : MonoBehaviour
     {
         public string Status {get;private set;}="Sin skin · importa tu humanoide";
         public string Attribution {get;private set;}="";
@@ -66,7 +66,12 @@ namespace Poolrooms
             {
                 Directory.CreateDirectory(Folder);var files=new List<string>();foreach(var file in Directory.GetFiles(Folder))
                 {string ext=Path.GetExtension(file).ToLowerInvariant();if(ext==".obj"||ext==".glb"||ext==".gltf")files.Add(file);}
-                files.Sort(StringComparer.OrdinalIgnoreCase);if(files.Count>64)files.RemoveRange(64,files.Count-64);return files.ToArray();
+                files.Sort(StringComparer.OrdinalIgnoreCase);if(files.Count>64)files.RemoveRange(64,files.Count-64);
+                // Imports outside the library remain valid selections too.
+                string saved=PlayerPrefs.GetString("Poolrooms.Avatar.Selection","");
+                string selected=saved.StartsWith("file:",StringComparison.Ordinal)?saved.Substring(5):saved.StartsWith("obj:",StringComparison.Ordinal)?saved.Substring(4):null;
+                if(!string.IsNullOrEmpty(selected)&&File.Exists(selected)&&!files.Contains(selected))files.Add(selected);
+                return files.ToArray();
             }
             catch(Exception e){Status=e.Message;return Array.Empty<string>();}
         }
@@ -88,9 +93,9 @@ namespace Poolrooms
                 candidate=new GameObject("Player avatar / "+skin.name);candidate.SetActive(false);candidate.transform.SetParent(transform,false);
                 var instance=Instantiate(skin.model,candidate.transform);Sanitize(instance);
                 if(!Normalize(candidate,skin.height,skin.forwardCorrection+targetYaw,Preferences.zUp))throw new FormatException("El modelo no tiene geometría o altura válida.");
-                if(skin.sharedHumanoid)candidate.AddComponent<PoolroomsHumanoidSkin>().Build(Preferences,skin.height);
+                candidate=PrepareDisplay(candidate,skin.sharedHumanoid,skin.height,out string preparation);
                 generation++;Loading=false;Replace(candidate);candidate=null;
-                Status=skin.name+" · "+(humanoid!=null?humanoid.Report:"Modelo estático");Attribution=skin.attribution??"";
+                Status=skin.name+" · "+preparation;Attribution=skin.attribution??"";
                 PlayerPrefs.SetString("Poolrooms.Avatar.Selection","asset:"+skin.name);PlayerPrefs.Save();return true;
             }
             catch(Exception e){if(candidate!=null)Destroy(candidate);Status=e.Message;return false;}
@@ -117,7 +122,10 @@ namespace Poolrooms
             var renderers=candidate.GetComponentsInChildren<Renderer>(true);bool found=false;var bounds=new Bounds();
             foreach(var r in renderers)if(r is MeshRenderer||r is SkinnedMeshRenderer)
             {
-                var b=r.localBounds;
+                var filter=r.GetComponent<MeshFilter>();
+                // Inactive newly imported MeshRenderers may not yet have a
+                // renderer bounds cache. The mesh already has authoritative bounds.
+                var b=r is MeshRenderer&&filter!=null&&filter.sharedMesh!=null?filter.sharedMesh.bounds:r.localBounds;
                 for(int corner=0;corner<8;corner++)
                 {
                     Vector3 point=candidate.transform.InverseTransformPoint(r.transform.TransformPoint(b.center+Vector3.Scale(b.extents,new Vector3((corner&1)==0?-1:1,(corner&2)==0?-1:1,(corner&4)==0?-1:1))));
@@ -135,25 +143,26 @@ namespace Poolrooms
             wrapper.transform.localScale=Vector3.one*scale;return true;
         }
         public void LoadObj(string file){LoadFile(file);}
-        public void LoadFile(string file)
+        public void LoadFile(string file,bool preview=false)
         {
-            if(Loading)return;
+            if(Loading){Status="Hay una importación en curso. Espera a que termine.";return;}
             try
             {
-                string path=Path.GetFullPath(file.Trim().Trim('"'));if(!File.Exists(path))throw new FileNotFoundException("No existe el modelo seleccionado.");
+                if(string.IsNullOrWhiteSpace(file))throw new FormatException("Selecciona un archivo con Examinar o pega su ruta completa.");
+                string path=Path.GetFullPath(file.Trim().Trim('"'));if(!File.Exists(path))throw new FileNotFoundException("No existe el modelo seleccionado: "+path);
                 string ext=Path.GetExtension(path).ToLowerInvariant();
-                if(ext==".obj"){if(new FileInfo(path).Length>AvatarObj.MaxBytes)throw new FormatException("OBJ mayor de 16 MB.");StartCoroutine(ImportObj(path,++generation));}
+                if(ext==".obj"){if(new FileInfo(path).Length>AvatarObj.MaxBytes)throw new FormatException("OBJ mayor de 64 MB. Exporta una versión optimizada.");StartCoroutine(ImportObj(path,++generation,preview));}
                 else if(ext==".glb"||ext==".gltf")
                 {
                     if(!AvatarGltf.Available)throw new FormatException("Instala Unity glTFast para importar GLB/glTF. OBJ funciona sin extensiones.");
-                    if(new FileInfo(path).Length>64*1024*1024)throw new FormatException("GLB/glTF mayor de 64 MB.");StartCoroutine(ImportGltf(path,++generation));
+                    if(new FileInfo(path).Length>64*1024*1024)throw new FormatException("GLB/glTF mayor de 64 MB.");StartCoroutine(ImportGltf(path,++generation,preview));
                 }
-                else if(ProjectImporter!=null){var definition=ProjectImporter(path);if(definition!=null)Apply(definition);}
+                else if(ProjectImporter!=null){var definition=ProjectImporter(path);if(definition==null)throw new FormatException("Unity no generó una skin con ese archivo. Revisa el importador del modelo.");if(Apply(definition)&&preview)PreviewLoadedSkin();}
                 else throw new FormatException("FBX, DAE, 3DS, DXF y BLEND se preparan desde Unity. En el juego importa OBJ o GLB/glTF con glTFast instalado.");
             }
             catch(Exception e){Status=e.GetBaseException().Message;}
         }
-        private IEnumerator ImportObj(string path,int request)
+        private IEnumerator ImportObj(string path,int request,bool preview)
         {
             Loading=true;Status="Leyendo OBJ…";var task=Task.Run(()=>AvatarObj.Parse(File.ReadAllText(path)));
             while(!task.IsCompleted)yield return null;if(request!=generation)yield break;
@@ -174,15 +183,15 @@ namespace Poolrooms
                 renderer.sharedMaterials=AvatarObjMaterials.Create(data,path,resources);
                 // Convert OBJ handedness by reflecting Z and reversing winding together.
                 if(!Normalize(candidate,1.75f,targetYaw,Preferences.zUp,true))throw new FormatException("El OBJ no tiene altura válida.");
-                if(!Preferences.objStatic)candidate.AddComponent<PoolroomsHumanoidSkin>().Build(Preferences,1.75f);
+                candidate=PrepareDisplay(candidate,!Preferences.objStatic,1.75f,out string preparation);
                 Replace(candidate);candidate=null;owned.AddRange(resources);resources.Clear();
-                Status=Path.GetFileName(path)+" · "+(humanoid!=null?humanoid.Report:"OBJ estático · sin adaptación al esqueleto");Attribution="Modelo local proporcionado por el jugador.";
-                PlayerPrefs.SetString("Poolrooms.Avatar.Selection","file:"+path);PlayerPrefs.Save();
+                Status=Path.GetFileName(path)+" · "+(Preferences.objStatic?"OBJ estático · sin adaptación al esqueleto":preparation);Attribution="Modelo local proporcionado por el jugador.";
+                PlayerPrefs.SetString("Poolrooms.Avatar.Selection","file:"+path);PlayerPrefs.Save();if(preview)PreviewLoadedSkin();
             }
-            catch(Exception e){if(candidate!=null)Destroy(candidate);Status="No se pudo adaptar: "+e.GetBaseException().Message;}
+            catch(Exception e){if(candidate!=null)Destroy(candidate);Status="No se pudo importar el OBJ: "+e.GetBaseException().Message+(HasModel?" Se conserva la skin anterior.":"");}
             finally{foreach(var resource in resources)if(resource!=null)Destroy(resource);Loading=false;}
         }
-        private IEnumerator ImportGltf(string path,int request)
+        private IEnumerator ImportGltf(string path,int request,bool preview)
         {
             Loading=true;Status="Leyendo glTF…";var candidate=new GameObject("Player glTF");candidate.SetActive(false);candidate.transform.SetParent(transform,false);
             AvatarGltf loader=null;Task<bool> task=null;Exception failure=null;
@@ -193,8 +202,8 @@ namespace Poolrooms
                 if(request!=generation)throw new OperationCanceledException();
                 if(failure!=null)throw failure;if(task.IsFaulted)throw task.Exception.GetBaseException();if(!task.Result)throw new FormatException("glTFast no pudo leer el modelo. Revisa el archivo y sus texturas.");
                 Sanitize(candidate);if(!Normalize(candidate,1.75f,targetYaw,Preferences.zUp))throw new FormatException("Altura no válida.");
-                candidate.AddComponent<PoolroomsHumanoidSkin>().Build(Preferences,1.75f);Replace(candidate);candidate=null;imported=loader;loader=null;
-                Status=Path.GetFileName(path)+" · "+humanoid.Report;Attribution="Modelo local proporcionado por el jugador.";PlayerPrefs.SetString("Poolrooms.Avatar.Selection","file:"+path);PlayerPrefs.Save();
+                candidate=PrepareDisplay(candidate,!Preferences.objStatic,1.75f,out string preparation);Replace(candidate);candidate=null;imported=loader;loader=null;
+                Status=Path.GetFileName(path)+" · "+preparation;Attribution="Modelo local proporcionado por el jugador.";PlayerPrefs.SetString("Poolrooms.Avatar.Selection","file:"+path);PlayerPrefs.Save();if(preview)PreviewLoadedSkin();
             }
             catch(OperationCanceledException){}catch(Exception e){Status=e.GetBaseException().Message;}
             finally{if(candidate!=null)Destroy(candidate);loader?.Dispose();if(request==generation)Loading=false;}

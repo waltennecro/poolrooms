@@ -3520,5 +3520,11 @@
     "sourceRevision": "ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af",
     "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39717122493",
     "deliveryEvidence": "Verification/installation_delivery.json"
+  },
+  "individualLevelRebuilds": {
+    "state": "RECONSTRUCCION_NIVELES_ESTADO.json",
+    "first": "Courtyard188",
+    "pendingGenericLevels": 48,
+    "nativeUnityExecuted": false
   }
 }

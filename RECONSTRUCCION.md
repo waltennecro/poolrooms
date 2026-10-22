@@ -1051,3 +1051,9 @@ Prueba enfocada del localizador real con sustitutos reducidos de Unity: cuatro i
 
 
 Entrega de rutas flexibles publicada: https://github.com/waltennecro/poolrooms/releases/tag/rutas-flexibles. Fuente exacta ef2ae4435fb1abcf6c1209665c3ad5dc3ec023af; verificación enfocada y publicación https://github.com/waltennecro/poolrooms/actions/runs/39717122493 superadas. Paquete completo: 1051797368 bytes, SHA-256 db40d75407c69950541124a98503f77332e82f049df2d047866dd12e387425e4; parche acumulativo de diez archivos: 30016 bytes, SHA-256 db5404a11d8c4af4979cd32fff37edb33aee183640e369267e3b45e0a24391e9. Los 1634 archivos del manifiesto alojado coinciden con los Assets locales. Digest/tamaño remotos comprobados, parche descargado por completo y verificado por CRC/SHA, y cabecera pública del ZIP completo comprobada mediante GET parcial HTTP 206; no se anuncia una segunda descarga completa del paquete grande. Core/Runtime/Integrations/Resources/Textures idénticos a c9d8da0; se conserva su suite completa anterior, sin presentar esta publicación enfocada como otra comparación histórica. Unity nativo pendiente. Evidencia: Verification/installation_delivery.json.
+
+## Reconstrucción individual: hotel de ventanas y skins
+
+El usuario rechazó las salas genéricas como niveles terminados. `RECONSTRUCCION_NIVELES_ESTADO.json` registra la cola real; el primer reemplazo es Courtyard188, con distrito hotelero, patio continuo y cinco plantas. Los restantes programas recientes conservan su contenido mientras esperan investigación y arquitectura propia. Véase `Assets/PoolroomsProcedural/Documentation/Hotel_de_ventanas_y_skins.md`.
+
+Se corrigió la asignación nativa anticipada de `MaterialPropertyBlock`, la selección de archivos de skin externos y la falta de respuesta visible en la importación. La adaptación anatómica se realiza sobre una copia y puede volver al modelo estático válido. No se afirma que cualquier archivo arbitrario sea compatible.

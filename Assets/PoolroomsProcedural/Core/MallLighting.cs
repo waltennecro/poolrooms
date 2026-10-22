@@ -52,10 +52,11 @@ namespace Poolrooms.Core
                 f.FloorOffset=f.Position.Y-floor*MallPlan.FloorHeight;fixtures[i]=f;
             }
         }
-        public static bool FloorEligible(float viewerMinusLampY,float offset)
+        public static bool FloorEligible(float viewerMinusLampY,float offset,float storeyHeight=0)
         {
             float relative=viewerMinusLampY+offset;
-            return !float.IsNaN(relative)&&!float.IsInfinity(relative)&&relative>=-.45f&&relative<MallPlan.FloorHeight-.45f;
+            float height=storeyHeight>0?storeyHeight:MallPlan.FloorHeight;
+            return !float.IsNaN(relative)&&!float.IsInfinity(relative)&&relative>=-.45f&&relative<height-.45f;
         }
         public static float Range(float full,float shadowless,bool shadows)
         {return !shadows&&shadowless>0?Math.Min(full,shadowless):full;}

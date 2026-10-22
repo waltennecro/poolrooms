@@ -1,0 +1,235 @@
+{
+  "stage": "hotel-ventanas-skins",
+  "reconstructionNotExactRecovery": true,
+  "totalCatalogueBiomes": 63,
+  "firstRebuiltLevel": "Courtyard188",
+  "status": "implemented_core_verified_native_visual_review_pending",
+  "nativeUnityExecuted": false,
+  "newExternalModels": 0,
+  "unchangedDedicatedGenerators": [
+    "City11",
+    "Level94",
+    "AquaticPark",
+    "ThermalBaths",
+    "Orangerie",
+    "RainHouses",
+    "SoftPlay",
+    "full mall"
+  ],
+  "rebuilt": [
+    {
+      "environment": "Courtyard188",
+      "status": "implemented_native_visual_review_pending",
+      "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level188.json"
+    }
+  ],
+  "pendingIndividualRebuilds": [
+    {
+      "environment": "Archive906",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "Conservatory",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "TransitGallery",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "SunsetLibrary",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "CloudTerminal",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "TeaPavilions",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "CeramicGalleria",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "WinterGarden",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "CanalGalleries",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "MusicStudios",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "LanternCourts",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "LinenLaundries",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "MineralSanctuary",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "SolarObservatory",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "CoveredMarket",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "TextileAtelier",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "PostalArcade",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "IndoorMarina",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "ClockGallery",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "PaperWorkshop",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "ChessPavilion",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "RadioSalon",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "MirrorArcade",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "AquariumGalleries",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "BambooRetreat",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "DesertCaravanserai",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "CrystalMuseum",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "CloudBaths",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "SunkenLibrary",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "RailwayWintergarden",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "CeramicVillage",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "LunarGreenhouse",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "AmberRestaurant",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "MapmakersArchive",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "SculptureCourts",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "PaperLanternTown",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "WatermillHalls",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "IndoorBoardwalk",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "VelvetTheatre",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "HangingOrchards",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "RainyBookshops",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "MosaicCistern",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "AeronauticalGallery",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "MagnoliaCourts",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "FunicularTerminal",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "StainedGlassHalls",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "BellCourts",
+      "status": "pending_research_and_distinct_architecture"
+    },
+    {
+      "environment": "LighthouseCourts",
+      "status": "pending_research_and_distinct_architecture"
+    }
+  ],
+  "otherExistingGenerators": "Existing authored Poolrooms, retail, interiors and coast preserved; not declared visually revalidated.",
+  "limits": [
+    "No Unity Editor, Play or GPU profiling in this environment",
+    "Direct wiki domains blocked; public attributed transcription reviewed",
+    "No exact original v47 recovery"
+  ],
+  "verification": {
+    "targetedHotel": "Verification/courtyard_hotel_checks.txt",
+    "protectedGeometries": 188,
+    "nativeUnityExecuted": false,
+    "reusedSourceModelsInHotelSample": 13,
+    "newExternalModels": 0,
+    "sampledHotelChunks": 96,
+    "fullCi": "pending_publication"
+  }
+}

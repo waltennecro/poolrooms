@@ -74,6 +74,7 @@ namespace Poolrooms.Core
         public bool EnableImportedBuildings;
         public float City11Share=.15f;
         public bool EnableQuietLevels;
+        public bool RebuildCourtyard188;
         public bool EnableCivicLevels;
         public bool EnableOrangerie;
         public bool EnableRainHouses;
@@ -227,6 +228,8 @@ namespace Poolrooms.Core
                 if(zoneIds[id]>=0)Rooms[id].Height=Math.Max(config.DoorHeight+.6f,ZoneCatalog.Get(zoneIds[id]).Height);
             }
             Topology.Generate(this);
+            if(config.RebuildCourtyard188)foreach(var room in Rooms)
+                for(int side=0;side<4;side++)if(CourtyardDistrictPlanner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
             foreach(Room room in Rooms)ProceduralPlanner.Describe(room,config);
             SpaceComposition.Apply(this);
         }

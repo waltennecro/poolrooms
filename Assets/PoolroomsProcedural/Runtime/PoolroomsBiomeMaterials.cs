@@ -78,9 +78,10 @@ namespace Poolrooms
             SetFloat(m,"_NormalScale",theme==SurfaceTheme.Merchandise?.08f:.35f);SetFloat(m,"_BumpScale",.35f);
             if(set!=null)
             {
-                var albedo=Resources.Load<Texture2D>(TextureRoot+set+"_Albedo");
-                var normal=Resources.Load<Texture2D>(TextureRoot+set+"_Normal");
-                var mask=Resources.Load<Texture2D>(TextureRoot+set+"_Mask");
+                string textureRoot=theme==SurfaceTheme.CourtyardLawn?"PoolroomsTerrainTextures/":TextureRoot;
+                var albedo=Resources.Load<Texture2D>(textureRoot+set+"_Albedo");
+                var normal=Resources.Load<Texture2D>(textureRoot+set+"_Normal");
+                var mask=Resources.Load<Texture2D>(textureRoot+set+"_Mask");
                 foreach(string name in new[]{"_BaseColorMap","_BaseMap","_MainTex"})SetTexture(m,name,albedo);
                 foreach(string name in new[]{"_NormalMap","_BumpMap"})SetTexture(m,name,normal);
                 SetTexture(m,"_MaskMap",mask);SetFloat(m,"_AORemapMin",0);SetFloat(m,"_AORemapMax",1);

@@ -40,7 +40,7 @@ namespace Poolrooms.Core
                 trim.TranslateRotate(new V3(),side*Shapes.Pi*.5f);o.Decoration.Append(trim);
             }
         }
-        static void Washer(RoomGeometry o,float x,float z,float width)
+        internal static void Washer(RoomGeometry o,float x,float z,float width)
         {
             // Split the housing around an actual recess instead of placing a glass
             // disc over an opaque front. Collision retains a sealed, usable body.

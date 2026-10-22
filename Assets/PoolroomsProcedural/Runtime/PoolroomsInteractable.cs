@@ -10,15 +10,17 @@ namespace Poolrooms
         public string key,title,note;
         public PoolroomsWorld world;
         public Transform movingPart;
+        public bool sideHinge;
         public Vector3 closedPosition;
         public Quaternion closedRotation;
         public GameObject contents;
         private bool open,initialized;
         private float pose;
         private PoolroomsLuminaire lamp;
-        private readonly MaterialPropertyBlock properties=new MaterialPropertyBlock();
+        private MaterialPropertyBlock propertyBlock;
+        private MaterialPropertyBlock Properties {get{if(propertyBlock==null)propertyBlock=new MaterialPropertyBlock();return propertyBlock;}}
         private Renderer[] renderers;
-        public string ActionLabel {get{var station=GetComponent<PoolroomsStation>();if(station!=null)return station.Label;return activity==RoomActivity.Notice?"leer y ver caminos":activity==RoomActivity.Rest?"sentarse":activity==RoomActivity.Plant?"cuidar la planta":activity==RoomActivity.Music?"tocar / escuchar música":activity==RoomActivity.Game?"jugar a parejas":activity==RoomActivity.Lamp?"encender / apagar lámpara":activity==RoomActivity.Drawer?(open?"mirar el interior":"abrir mueble"):activity==RoomActivity.Window?"abrir / cerrar contraventana":"leer";}}
+        public string ActionLabel {get{var station=GetComponent<PoolroomsStation>();if(station!=null)return station.Label;return activity==RoomActivity.Notice?"leer y ver caminos":activity==RoomActivity.Rest?"sentarse":activity==RoomActivity.Plant?"cuidar la planta":activity==RoomActivity.Music?"tocar / escuchar música":activity==RoomActivity.Game?"jugar a parejas":activity==RoomActivity.Lamp?"encender / apagar lámpara":activity==RoomActivity.Drawer?(open?"mirar el interior":"abrir mueble"):activity==RoomActivity.Window?(sideHinge?"abrir / cerrar puerta":"abrir / cerrar persiana"):"leer";}}
         public static void BindSource(PoolroomsPickup pickup,string source)
         {
             RoomActivity kind;
@@ -105,7 +107,7 @@ namespace Poolrooms
             {
                 actor.GetComponent<PoolroomsSoundscape>()?.PlayStation(StationSound.Fabric,transform.position);inventory.SetState("clean:"+key,true);inventory.Animate(HumanoidGesture.Clean,2.2f);
                 // Mild physical roughness change through a property block, preserving all source maps/materials.
-                foreach(var renderer in renderers)if(renderer!=null){renderer.GetPropertyBlock(properties);properties.SetFloat("_Smoothness",.36f);properties.SetFloat("_Glossiness",.36f);renderer.SetPropertyBlock(properties);}
+                foreach(var renderer in renderers)if(renderer!=null){renderer.GetPropertyBlock(Properties);Properties.SetFloat("_Smoothness",.36f);Properties.SetFloat("_Glossiness",.36f);renderer.SetPropertyBlock(Properties);}
                 inventory.Toast("Rincón limpio y listo para otra visita.");return true;
             }
             return false;
@@ -118,9 +120,9 @@ namespace Poolrooms
                 var materials=renderer.sharedMaterials;
                 for(int i=0;i<materials.Length;i++)
                 {
-                    var material=materials[i];if(material==null)continue;renderer.GetPropertyBlock(properties,i);
-                    foreach(string name in new[]{"_EmissiveColor","_EmissionColor"})if(material.HasProperty(name))properties.SetColor(name,lamp!=null&&lamp.userEnabled?material.GetColor(name):Color.black);
-                    renderer.SetPropertyBlock(properties,i);
+                    var material=materials[i];if(material==null)continue;renderer.GetPropertyBlock(Properties,i);
+                    foreach(string name in new[]{"_EmissiveColor","_EmissionColor"})if(material.HasProperty(name))Properties.SetColor(name,lamp!=null&&lamp.userEnabled?material.GetColor(name):Color.black);
+                    renderer.SetPropertyBlock(Properties,i);
                 }
             }
         }
@@ -129,9 +131,9 @@ namespace Poolrooms
             // Only darken the pot near its base; leaf alpha and all normal/roughness maps stay intact.
             foreach(var renderer in renderers)if(renderer!=null&&renderer.bounds.center.y<transform.position.y+.08f)
             {
-                var material=renderer.sharedMaterial;if(material==null)continue;renderer.GetPropertyBlock(properties);
-                if(material.HasProperty("_BaseColor"))properties.SetColor("_BaseColor",material.GetColor("_BaseColor")*new Color(.94f,.96f,.94f,1));
-                renderer.SetPropertyBlock(properties);
+                var material=renderer.sharedMaterial;if(material==null)continue;renderer.GetPropertyBlock(Properties);
+                if(material.HasProperty("_BaseColor"))Properties.SetColor("_BaseColor",material.GetColor("_BaseColor")*new Color(.94f,.96f,.94f,1));
+                renderer.SetPropertyBlock(Properties);
             }
         }
         private string Directions(PoolroomsExplorer actor)
@@ -147,7 +149,7 @@ namespace Poolrooms
             float target=open?1:0;if(Mathf.Abs(pose-target)<.0001f)return;pose=Mathf.MoveTowards(pose,target,Time.deltaTime*1.8f);ApplyPose();
         }
         private void ApplyPose()
-        {if(movingPart!=null)movingPart.localRotation=closedRotation*Quaternion.Euler(activity==RoomActivity.Window?-pose*76:0,activity==RoomActivity.Drawer?pose*105:0,0);}
+        {if(movingPart!=null)movingPart.localRotation=closedRotation*Quaternion.Euler(activity==RoomActivity.Window&&!sideHinge?-pose*76:0,activity==RoomActivity.Window&&sideHinge?pose*90:activity==RoomActivity.Drawer?pose*105:0,0);}
         private void OnDestroy(){if(lamp!=null&&world!=null)world.RequestLightingRefresh();}
     }
 }

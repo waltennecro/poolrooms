@@ -67,7 +67,7 @@ metálicos/roughness avanzados y shaders personalizados en el editor.
 pulsa Actualizar lista y selecciónalo. OBJ usa lectura/triangulación fuera del
 hilo principal, materiales difusos MTL y PNG/JPEG; convierte coordenadas,
 preserva UV/normales y admite índices negativos y polígonos cóncavos.
-Límites: 16 MB de OBJ, 150.000 esquinas, 200.000 triángulos, 16 materiales,
+Límites: 64 MB de OBJ, 150.000 esquinas, 200.000 triángulos, 16 materiales,
 8 texturas de hasta 4096 px y 16 megapíxeles combinados. No lee URLs ni texturas
 fuera de su carpeta. Una importación fallida conserva la apariencia anterior.
 

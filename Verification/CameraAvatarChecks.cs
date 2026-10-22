@@ -48,6 +48,11 @@ static partial class Checks
             Check(seams.Libraries.Single()=="skin.mtl"&&seams.Positions[1].X==1.5f,"OBJ culture or material library changed");
             foreach(string invalid in new[]{"", "v NaN 0 0", "v Infinity 0 0", "v 0 0 0\nf 0 1 1", "v 0 0 0\nf -5 1 1", "v 0 0 0\nf 1 1 1", "v 0 0 0\nf 1 2 3",new string('x',AvatarObj.MaxBytes+1)})
             {bool failed=false;try{AvatarObj.Parse(invalid);}catch(FormatException){failed=true;}Check(failed,"Malformed OBJ accepted");}
+            // Text-heavy exports can exceed the former 16 MiB limit while their
+            // geometry remains tiny. The 64 MiB file budget must accept these.
+            string comments=string.Concat(Enumerable.Repeat("# export metadata "+new string('a',1000)+"\n",17000));
+            Check(comments.Length>16*1024*1024&&comments.Length<AvatarObj.MaxBytes,"OBJ large-text fixture misses the former boundary");
+            Check(AvatarObj.Parse(comments+"v 0 0 0\nv 1 0 0\nv 0 1 0\nf 1 2 3\n").Positions.Count==3,"Valid OBJ over the former 16 MiB cap was rejected");
             var random=new Random(2701);
             for(int n=3;n<=32;n++)for(int trial=0;trial<8;trial++)
             {

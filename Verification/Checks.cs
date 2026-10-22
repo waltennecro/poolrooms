@@ -49,7 +49,10 @@ static partial class Checks
     static int Main(string[] args)
     {
 #if !POOLROOMS_HISTORICAL_CORE
-        if(args.Contains("--runtime-types")){RuntimeTypeContracts();return 0;}
+        if(args.Contains("--courtyard-atlas")){int index=Array.IndexOf(args,"--courtyard-atlas");if(index+1>=args.Length)throw new ArgumentException("Supply a new preview directory");CourtyardAtlas(args[index+1]);return 0;}
+        if(args.Contains("--courtyard-hotel")){CourtyardDistricts();IntegrationSourceContracts();return 0;}
+        if(args.Contains("--unity-lifetimes")){UnityNativeLifetimes();return 0;}
+        if(args.Contains("--runtime-types")){RuntimeTypeContracts();UnityNativeLifetimes();return 0;}
         if(args.Contains("--package-paths")){IntegrationSourceContracts();return 0;}
 #endif
         if(args.Contains("--horizons"))
@@ -219,6 +222,9 @@ static partial class Checks
         OrangerieGeneration();
         MovementAndQuality();
         WaterOptics();CameraAndAvatars();HumanoidSkins();
+#if !POOLROOMS_HISTORICAL_CORE
+        CourtyardDistricts();UnityNativeLifetimes();
+#endif
 #if !POOLROOMS_HISTORICAL_CORE
         JourneyLevels();MallRetailWorld();LargeRegionWorld();SpecialRegions();WingsAndNormalFlight();ImmersiveSoundAndMusic();EncounterWorld();ImmersionStationWorld();WorkshopWorld();FrontendContract();SceneryWorld();HorizonLevels();
 #endif

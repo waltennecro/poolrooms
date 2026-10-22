@@ -14,7 +14,7 @@ en `Application.persistentDataPath` y las definiciones de Resources.
 
 - **OBJ:** importación directa sin plugins, con MTL, color y mapas difusos locales
   PNG/JPEG. OBJ no contiene huesos: R28 calcula un rig y cuatro pesos por vértice.
-  Conserva UV, normales, submallas y sentido de caras. Límite: 16 MB, 150.000
+  Conserva UV, normales, submallas y sentido de caras. Límite: 64 MB, 150.000
   esquinas, 200.000 triángulos, 16 materiales; hasta ocho imágenes de 4096 px y
   16 millones de píxeles en total. No convierte un MTL simple en un acabado PBR
   avanzado que el archivo no incluya.
