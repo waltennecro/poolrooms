@@ -14,9 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 3
       - name: Require unchanged gameplay, generation, shaders and media
-        run: git diff --exit-code c9d8da0 HEAD -- Assets/PoolroomsProcedural/Core Assets/PoolroomsProcedural/Runtime Assets/PoolroomsProcedural/Integrations Assets/PoolroomsProcedural/Resources Assets/PoolroomsProcedural/Textures
+        run: |
+          git cat-file -e c9d8da0 || git fetch --no-tags --depth=1 origin c9d8da05bb96b0e6e546529ec0023957cf5eaaa0
+          git diff --exit-code c9d8da0 HEAD -- Assets/PoolroomsProcedural/Core Assets/PoolroomsProcedural/Runtime Assets/PoolroomsProcedural/Integrations Assets/PoolroomsProcedural/Resources Assets/PoolroomsProcedural/Textures
       - uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
@@ -66,4 +68,5 @@ jobs:
           print(json.dumps(record))
           PY
       - name: Publish immutable package, patch and integrity evidence
-        run: gh release create rutas-flexibles --target "${SOURCE_REVISION}" --title "Rutas flexibles: instalación y compilación corregidas" --notes-file "${RUNNER_TEMP}/paths-release.md" "${RUNNER_TEMP}/Poolrooms_Rutas_Flexibles_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Rutas_y_Compilacion.zip" "${RUNNER_TEMP}/Poolrooms_Rutas_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Rutas_Manifiesto.json" "${RUNNER_TEMP}/Poolrooms_Rutas_SHA256.txt"
+        run: |
+          gh release create rutas-flexibles --target "${SOURCE_REVISION}" --title "Rutas flexibles: instalación y compilación corregidas" --notes-file "${RUNNER_TEMP}/paths-release.md" "${RUNNER_TEMP}/Poolrooms_Rutas_Flexibles_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Rutas_y_Compilacion.zip" "${RUNNER_TEMP}/Poolrooms_Rutas_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Rutas_Manifiesto.json" "${RUNNER_TEMP}/Poolrooms_Rutas_SHA256.txt"
