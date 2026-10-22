@@ -1,0 +1,411 @@
+{
+  "model": "cake",
+  "name": "Tarta",
+  "drink": false,
+  "id": "F_cake",
+  "key": "food:16",
+  "resourceId": "F_cake",
+  "family": "pastry",
+  "resource": "FoodSources/Models/F_cake",
+  "minimum": [
+    -0.3099997937679291,
+    0.0,
+    -0.3099997937679291
+  ],
+  "maximum": [
+    0.3099997937679291,
+    0.2645041048526764,
+    0.3100000023841858
+  ],
+  "triangles": 1680,
+  "materials": [
+    {
+      "name": "Food_pastry_65_51_49",
+      "colour": [
+        0.052860647023180246,
+        0.033104766570885055,
+        0.030713443732993635,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_81_65_61",
+      "colour": [
+        0.0822827071298148,
+        0.052860647023180246,
+        0.046665086336880095,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_84_68_63",
+      "colour": [
+        0.08865558628577294,
+        0.05780543019106723,
+        0.04970656598412723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_87_70_65",
+      "colour": [
+        0.0953074666309647,
+        0.06124605423161761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_132_84_66",
+      "colour": [
+        0.23074004852434915,
+        0.08865558628577294,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_136_85_65",
+      "colour": [
+        0.24620132670783548,
+        0.09084171118340768,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_142_86_65",
+      "colour": [
+        0.2704977910130658,
+        0.09305896284668745,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_148_88_65",
+      "colour": [
+        0.2961382707983211,
+        0.09758734714186246,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_156_90_65",
+      "colour": [
+        0.33245153634617935,
+        0.10224173308810132,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_205_136_96",
+      "colour": [
+        0.6104955708078648,
+        0.24620132670783548,
+        0.11697066775851084,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_211_85_77",
+      "colour": [
+        0.6514056374198242,
+        0.09084171118340768,
+        0.07421356838014963,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_212_146_107",
+      "colour": [
+        0.6583748172794485,
+        0.2874408377269175,
+        0.14702726649759498,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_215_87_76",
+      "colour": [
+        0.6795424696330938,
+        0.0953074666309647,
+        0.07227185068231748,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_218_89_75",
+      "colour": [
+        0.7011018919329731,
+        0.09989872824711389,
+        0.07036009569659588,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_218_155_116",
+      "colour": [
+        0.7011018919329731,
+        0.3277780980565422,
+        0.17464740365558504,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_222_91_74",
+      "colour": [
+        0.7304607400903537,
+        0.10461648409110419,
+        0.06847816984440017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_225_93_73",
+      "colour": [
+        0.7529422167760779,
+        0.10946171077829933,
+        0.06662593864377289,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_228_141_219",
+      "colour": [
+        0.7758222183174236,
+        0.26635560480286247,
+        0.7083757798916868,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_229_172_133",
+      "colour": [
+        0.7835377915261935,
+        0.41254261348390375,
+        0.23455058216100522,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_233_97_71",
+      "colour": [
+        0.8148465722161012,
+        0.11953842798834562,
+        0.06301001765316767,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_235_235_242",
+      "colour": [
+        0.8307698767746546,
+        0.8307698767746546,
+        0.8879231178819663,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_241_155_224",
+      "colour": [
+        0.8796223968878317,
+        0.3277780980565422,
+        0.7454042095403874,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_244_103_67",
+      "colour": [
+        0.9046611743911496,
+        0.13563332965520566,
+        0.05612849004960009,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_249_106_66",
+      "colour": [
+        0.9473065367331999,
+        0.14412847085805777,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_250_250_252",
+      "colour": [
+        0.9559733532492861,
+        0.9559733532492861,
+        0.9734452903984125,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_cake_LOD1",
+      "triangles": 700
+    }
+  ],
+  "removedDuplicateFaces": 0,
+  "sourceSha256": "e4d50ca630f1a2b86204751b12f9abeceef7e7e6417fa492e312fa683284e5da",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "cake"
+}

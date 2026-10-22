@@ -1,0 +1,126 @@
+{
+  "model": "onion",
+  "name": "Cebolla",
+  "drink": false,
+  "id": "F_onion",
+  "key": "food:73",
+  "resourceId": "F_onion",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_onion",
+  "minimum": [
+    -0.10652109980583191,
+    0.0,
+    -0.12253010272979736
+  ],
+  "maximum": [
+    0.10652109980583191,
+    0.25,
+    0.12253010272979736
+  ],
+  "triangles": 356,
+  "materials": [
+    {
+      "name": "Food_produce_181_101_69",
+      "colour": [
+        0.4620769996544071,
+        0.1301364766903643,
+        0.0595112381629812,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_186_105_72",
+      "colour": [
+        0.4910208498478356,
+        0.14126329114027164,
+        0.06480326669290577,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_205_121_84",
+      "colour": [
+        0.6104955708078648,
+        0.19120168274079138,
+        0.08865558628577294,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_218_131_92",
+      "colour": [
+        0.7011018919329731,
+        0.22696587351009836,
+        0.10702310297826761,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_224_136_96",
+      "colour": [
+        0.7454042095403874,
+        0.24620132670783548,
+        0.11697066775851084,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_235_146_104",
+      "colour": [
+        0.8307698767746546,
+        0.2874408377269175,
+        0.13843161503245183,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_onion_LOD1",
+      "triangles": 148
+    }
+  ],
+  "removedDuplicateFaces": 68,
+  "sourceSha256": "38928bd14a08e9c0ee9340f52f20b48f107d61c43ebfe09a0270544b5a4cef70",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "onion"
+}

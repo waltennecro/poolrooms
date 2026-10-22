@@ -1,0 +1,186 @@
+{
+  "model": "cup-coffee",
+  "name": "Café",
+  "drink": true,
+  "id": "F_cup_coffee",
+  "key": "food:117",
+  "resourceId": "F_cup_coffee",
+  "family": "drink",
+  "resource": "FoodSources/Models/F_cup_coffee",
+  "minimum": [
+    -0.107988640666008,
+    -3.4877750046653133e-26,
+    -0.1429911106824875
+  ],
+  "maximum": [
+    0.107988640666008,
+    0.14000000059604645,
+    0.1426520198583603
+  ],
+  "triangles": 706,
+  "materials": [
+    {
+      "name": "Food_drink_81_65_61",
+      "colour": [
+        0.0822827071298148,
+        0.052860647023180246,
+        0.046665086336880095,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_193_193_216",
+      "colour": [
+        0.5332764040105052,
+        0.5332764040105052,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_197_197_218",
+      "colour": [
+        0.5583403896342679,
+        0.5583403896342679,
+        0.7011018919329731,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_202_202_222",
+      "colour": [
+        0.5906188409193369,
+        0.5906188409193369,
+        0.7304607400903537,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_207_207_225",
+      "colour": [
+        0.6239603916750761,
+        0.6239603916750761,
+        0.7529422167760779,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_218_218_232",
+      "colour": [
+        0.7011018919329731,
+        0.7011018919329731,
+        0.8069522576692516,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_229_229_238",
+      "colour": [
+        0.7835377915261935,
+        0.7835377915261935,
+        0.8549926081242338,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_235_235_242",
+      "colour": [
+        0.8307698767746546,
+        0.8307698767746546,
+        0.8879231178819663,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_241_241_246",
+      "colour": [
+        0.8796223968878317,
+        0.8796223968878317,
+        0.9215818562772946,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_250_250_252",
+      "colour": [
+        0.9559733532492861,
+        0.9559733532492861,
+        0.9734452903984125,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_cup_coffee_LOD1",
+      "triangles": 296
+    }
+  ],
+  "removedDuplicateFaces": 108,
+  "sourceSha256": "b57a9fbb985301504945f9f9f2c20ae17989f5a2422919239ead75a34d86b010",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "cup-coffee"
+}

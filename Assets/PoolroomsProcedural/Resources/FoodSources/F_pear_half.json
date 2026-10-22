@@ -1,0 +1,291 @@
+{
+  "model": "pear-half",
+  "name": "Media pera",
+  "drink": false,
+  "id": "F_pear_half",
+  "key": "food:82",
+  "resourceId": "F_pear_half",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_pear_half",
+  "minimum": [
+    -0.048734355717897415,
+    0.0,
+    -0.09756065905094147
+  ],
+  "maximum": [
+    0.04907364025712013,
+    0.270753413438797,
+    0.09752646088600159
+  ],
+  "triangles": 437,
+  "materials": [
+    {
+      "name": "Food_produce_32_137_107",
+      "colour": [
+        0.014443843596092545,
+        0.25015828472995344,
+        0.14702726649759498,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_39_145_111",
+      "colour": [
+        0.0202885630566524,
+        0.2831487404299921,
+        0.1589608350608804,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_49_154_115",
+      "colour": [
+        0.030713443732993635,
+        0.32314320911295075,
+        0.1714411007328226,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_63_168_122",
+      "colour": [
+        0.04970656598412723,
+        0.39157247774972326,
+        0.1946178304415758,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_72_178_127",
+      "colour": [
+        0.06480326669290577,
+        0.44520119451622786,
+        0.21223075741405523,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_83_189_132",
+      "colour": [
+        0.08650046203654976,
+        0.5088813208549338,
+        0.23074004852434915,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_88_195_135",
+      "colour": [
+        0.09758734714186246,
+        0.5457244613701866,
+        0.24228112246555486,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_142_86_65",
+      "colour": [
+        0.2704977910130658,
+        0.09305896284668745,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_148_88_65",
+      "colour": [
+        0.2961382707983211,
+        0.09758734714186246,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_181_101_69",
+      "colour": [
+        0.4620769996544071,
+        0.1301364766903643,
+        0.0595112381629812,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_235_146_104",
+      "colour": [
+        0.8307698767746546,
+        0.2874408377269175,
+        0.13843161503245183,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_244_202_153",
+      "colour": [
+        0.9046611743911496,
+        0.5906188409193369,
+        0.31854677812509186,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_245_205_158",
+      "colour": [
+        0.9130986517934192,
+        0.6104955708078648,
+        0.3419144249086609,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_246_208_164",
+      "colour": [
+        0.9215818562772946,
+        0.6307571363461468,
+        0.3712376804741491,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_247_211_169",
+      "colour": [
+        0.9301108583754237,
+        0.6514056374198242,
+        0.39675523072562685,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_248_214_174",
+      "colour": [
+        0.938685728457888,
+        0.6724431569576875,
+        0.4232676699860717,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_252_226_195",
+      "colour": [
+        0.9734452903984125,
+        0.7605245046752924,
+        0.5457244613701866,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_pear_half_LOD1",
+      "triangles": 182
+    }
+  ],
+  "removedDuplicateFaces": 126,
+  "sourceSha256": "2eeadda7efe96efdf8a45ef13c4bd00e074e823f23b2e22ff7516fa3cf6995f2",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "pear"
+}

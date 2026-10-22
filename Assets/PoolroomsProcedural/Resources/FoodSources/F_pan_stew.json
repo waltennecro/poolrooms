@@ -1,0 +1,231 @@
+{
+  "model": "pan-stew",
+  "name": "Guiso de sartén",
+  "drink": false,
+  "id": "F_pan_stew",
+  "key": "food:76",
+  "resourceId": "F_pan_stew",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_pan_stew",
+  "minimum": [
+    -0.26744118332862854,
+    0.0,
+    -0.3100000023841858
+  ],
+  "maximum": [
+    0.26744118332862854,
+    0.14265738427639008,
+    0.3100000023841858
+  ],
+  "triangles": 450,
+  "materials": [
+    {
+      "name": "Food_prepared_89_95_119",
+      "colour": [
+        0.09989872824711389,
+        0.11443537382697373,
+        0.184474994500441,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_93_98_122",
+      "colour": [
+        0.10946171077829933,
+        0.12213877222960187,
+        0.1946178304415758,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_98_104_128",
+      "colour": [
+        0.12213877222960187,
+        0.13843161503245183,
+        0.21586050011389926,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_115_121_144",
+      "colour": [
+        0.1714411007328226,
+        0.19120168274079138,
+        0.2788942634768104,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_124_130_153",
+      "colour": [
+        0.20155625379439707,
+        0.2232279573168085,
+        0.31854677812509186,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_127_132_156",
+      "colour": [
+        0.21223075741405523,
+        0.23074004852434915,
+        0.33245153634617935,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_176_96_65",
+      "colour": [
+        0.43415363617474895,
+        0.11697066775851084,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_205_121_84",
+      "colour": [
+        0.6104955708078648,
+        0.19120168274079138,
+        0.08865558628577294,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_207_207_225",
+      "colour": [
+        0.6239603916750761,
+        0.6239603916750761,
+        0.7529422167760779,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_211_85_77",
+      "colour": [
+        0.6514056374198242,
+        0.09084171118340768,
+        0.07421356838014963,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_249_106_66",
+      "colour": [
+        0.9473065367331999,
+        0.14412847085805777,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_250_250_252",
+      "colour": [
+        0.9559733532492861,
+        0.9559733532492861,
+        0.9734452903984125,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_193_84",
+      "colour": [
+        1.0,
+        0.5332764040105052,
+        0.08865558628577294,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_pan_stew_LOD1",
+      "triangles": 412
+    }
+  ],
+  "removedDuplicateFaces": 344,
+  "sourceSha256": "4e326814022178337010f1980addbf4a87ea4b2436430d3913d86a4287010d28",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "pan-stew"
+}

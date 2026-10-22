@@ -1,0 +1,246 @@
+{
+  "model": "lollypop",
+  "name": "Paleta de caramelo",
+  "drink": false,
+  "id": "F_lollypop",
+  "key": "food:59",
+  "resourceId": "F_lollypop",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_lollypop",
+  "minimum": [
+    -0.01902090199291706,
+    3.479381721982621e-17,
+    -0.09324672073125839
+  ],
+  "maximum": [
+    0.018581543117761612,
+    0.3797999918460846,
+    0.09324672818183899
+  ],
+  "triangles": 364,
+  "materials": [
+    {
+      "name": "Food_prepared_181_101_69",
+      "colour": [
+        0.4620769996544071,
+        0.1301364766903643,
+        0.0595112381629812,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_218_131_92",
+      "colour": [
+        0.7011018919329731,
+        0.22696587351009836,
+        0.10702310297826761,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_219_130_216",
+      "colour": [
+        0.7083757798916868,
+        0.2232279573168085,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_223_223_235",
+      "colour": [
+        0.7379104087727308,
+        0.7379104087727308,
+        0.8307698767746546,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_224_136_218",
+      "colour": [
+        0.7454042095403874,
+        0.24620132670783548,
+        0.7011018919329731,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_228_141_219",
+      "colour": [
+        0.7758222183174236,
+        0.26635560480286247,
+        0.7083757798916868,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_232_145_221",
+      "colour": [
+        0.8069522576692516,
+        0.2831487404299921,
+        0.7230551289219693,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_235_235_242",
+      "colour": [
+        0.8307698767746546,
+        0.8307698767746546,
+        0.8879231178819663,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_237_150_222",
+      "colour": [
+        0.846873231509858,
+        0.3049873140698863,
+        0.7304607400903537,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_241_155_224",
+      "colour": [
+        0.8796223968878317,
+        0.3277780980565422,
+        0.7454042095403874,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_241_241_246",
+      "colour": [
+        0.8796223968878317,
+        0.8796223968878317,
+        0.9215818562772946,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_244_159_225",
+      "colour": [
+        0.9046611743911496,
+        0.3467040563550296,
+        0.7529422167760779,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_245_245_249",
+      "colour": [
+        0.9130986517934192,
+        0.9130986517934192,
+        0.9473065367331999,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_248_163_226",
+      "colour": [
+        0.938685728457888,
+        0.3662525955988395,
+        0.7605245046752924,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_lollypop_LOD1",
+      "triangles": 152
+    }
+  ],
+  "removedDuplicateFaces": 108,
+  "sourceSha256": "2ba12380b8a9171e14a72ac9c640de4050bd6e5d7a8658446de1b0c5052ea679",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "lollypop"
+}

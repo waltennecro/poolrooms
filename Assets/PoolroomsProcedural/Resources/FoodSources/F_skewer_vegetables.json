@@ -1,0 +1,261 @@
+{
+  "model": "skewer-vegetables",
+  "name": "Brocheta vegetal",
+  "drink": false,
+  "id": "F_skewer_vegetables",
+  "key": "food:101",
+  "resourceId": "F_skewer_vegetables",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_skewer_vegetables",
+  "minimum": [
+    -0.2983500063419342,
+    0.000528576725628227,
+    -0.05382109060883522
+  ],
+  "maximum": [
+    0.2983500063419342,
+    0.10714191943407059,
+    0.0538109615445137
+  ],
+  "triangles": 1092,
+  "materials": [
+    {
+      "name": "Food_prepared_32_137_107",
+      "colour": [
+        0.014443843596092545,
+        0.25015828472995344,
+        0.14702726649759498,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_46_152_114",
+      "colour": [
+        0.027320891639074894,
+        0.31398871337571754,
+        0.16826940018969075,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_77_183_129",
+      "colour": [
+        0.07421356838014963,
+        0.47353149614800955,
+        0.2195261997292692,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_88_195_135",
+      "colour": [
+        0.09758734714186246,
+        0.5457244613701866,
+        0.24228112246555486,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_132_84_66",
+      "colour": [
+        0.23074004852434915,
+        0.08865558628577294,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_142_86_65",
+      "colour": [
+        0.2704977910130658,
+        0.09305896284668745,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_153_89_65",
+      "colour": [
+        0.31854677812509186,
+        0.09989872824711389,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_166_93_65",
+      "colour": [
+        0.38132601143253014,
+        0.10946171077829933,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_171_94_65",
+      "colour": [
+        0.4072402119017367,
+        0.1119324278369056,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_211_85_77",
+      "colour": [
+        0.6514056374198242,
+        0.09084171118340768,
+        0.07421356838014963,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_222_91_74",
+      "colour": [
+        0.7304607400903537,
+        0.10461648409110419,
+        0.06847816984440017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_232_176_138",
+      "colour": [
+        0.8069522576692516,
+        0.43415363617474895,
+        0.25415209433082675,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_238_100_69",
+      "colour": [
+        0.8549926081242338,
+        0.12743768043564743,
+        0.0595112381629812,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_239_186_148",
+      "colour": [
+        0.8631572134541023,
+        0.4910208498478356,
+        0.2961382707983211,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_249_106_66",
+      "colour": [
+        0.9473065367331999,
+        0.14412847085805777,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_skewer_vegetables_LOD1",
+      "triangles": 458
+    }
+  ],
+  "removedDuplicateFaces": 20,
+  "sourceSha256": "6bf4223243fd010a1c10226d0b74f0fbb87f334a81014a46828c3c235c65b567",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "skewer-vegetables"
+}

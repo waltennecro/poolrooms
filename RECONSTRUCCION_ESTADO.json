@@ -1553,6 +1553,47 @@
       "patchFiles": 91,
       "publicDownloadsSha256Verified": true,
       "supplementalMinMaxRoomPairs": 126
+    },
+    {
+      "id": "nivel11-dreamcore-provisiones",
+      "feature": "Open dreamcore civic pavilions and optional licensed stackable food across all existing level systems",
+      "status": "implemented_local_checks_passed_ci_pending",
+      "nativeUnityExecuted": false,
+      "newExternalModels": 125,
+      "distinctFoodTypes": 103,
+      "foodPresentations": 117,
+      "drinks": 8,
+      "newLodDerivatives": 125,
+      "reducedLodModels": 124,
+      "retainedSmallMeshLodModels": 1,
+      "newOriginalPbrSets": 4,
+      "newOriginalLabelMaps": 1,
+      "textureResolution": 1024,
+      "newHud": false,
+      "survivalNeeds": false,
+      "inventoryPersistence": "session_only_as_previously_requested",
+      "distribution": "all 63 room biomes eligible, connected and legacy mall sectors/floors, detailed Level94 houses; one sharing table and four pickups if a safe physical site exists",
+      "maxCandidatesPerChunk": 36,
+      "cityPavilionProgrammes": 3,
+      "testedCityBlocks": 42,
+      "testedCellSizes": [
+        28,
+        36,
+        60
+      ],
+      "protectedFingerprints": 188,
+      "localCoreAssertions": 2129911002,
+      "verification": "Verification/city_provisions_full_checks.txt",
+      "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel11_Provisiones.md",
+      "research": "Documentation/References/CityDream11/research.json",
+      "license": "CC0-1.0 Food Kit 2.0 by Kenney; original additions CC0; existing furniture retains its attribution",
+      "limitations": [
+        "Imported food geometry is stylised, not photogrammetry.",
+        "At most one table per eligible sector; empty/unsafe candidates are deliberately skipped.",
+        "Unity compilation, native asset import, shaders, HDRP visuals/reflections, PhysX, interactions and FPS not executed.",
+        "Other generic programmes remain in their individual reconstruction queue."
+      ],
+      "audit": "Verification/city_provisions_audit.json"
     }
   ],
   "latestCoreChecks": {
@@ -1603,7 +1644,7 @@
       "originalSixNamedProposalsImplemented": false
     }
   ],
-  "nextIndependentWork": "Revisar en Unity/PlayMode las superficies, materiales de pasos y uniones al cargar/descargar. Continuar después con TransitGallery y la cola de 45 programas pendientes de reconstrucción individual. Persistencia aplazada por el usuario.",
+  "nextIndependentWork": "Probar en Unity la importación de los 125 modelos, recogida/apoyo físico y aspecto del Nivel11 y comida. Mantener las comprobaciones de superficies y continuar la cola de reconstrucciones individuales; persistencia aplazada.",
   "backupPolicy": "Commit bounded stages, push without rewriting history, package all current Assets with per-file hashes. Never claim pending levels or CI runs are complete.",
   "sourceModelCounts": {
     "distinctDownloadedCitySources": 5,
@@ -1664,7 +1705,10 @@
     "newMallSourceModels": 14,
     "newMallLodDerivatives": 28,
     "newMallNativeMaps": 161,
-    "olderAggregateFieldsAreHistorical": true
+    "olderAggregateFieldsAreHistorical": true,
+    "additionalFoodSourceModels": 125,
+    "foodTypesExcludingCutVariants": 103,
+    "foodLodDerivativesNotNewModels": 125
   },
   "ciSdkFix": {
     "commit": "0444bd9",
@@ -3699,5 +3743,46 @@
       "patchBytes": 28925905,
       "publicDownloadsSha256Verified": true
     }
+  },
+  "cityDreamProvisions": {
+    "id": "nivel11-dreamcore-provisiones",
+    "feature": "Open dreamcore civic pavilions and optional licensed stackable food across all existing level systems",
+    "status": "implemented_local_checks_passed_ci_pending",
+    "nativeUnityExecuted": false,
+    "newExternalModels": 125,
+    "distinctFoodTypes": 103,
+    "foodPresentations": 117,
+    "drinks": 8,
+    "newLodDerivatives": 125,
+    "reducedLodModels": 124,
+    "retainedSmallMeshLodModels": 1,
+    "newOriginalPbrSets": 4,
+    "newOriginalLabelMaps": 1,
+    "textureResolution": 1024,
+    "newHud": false,
+    "survivalNeeds": false,
+    "inventoryPersistence": "session_only_as_previously_requested",
+    "distribution": "all 63 room biomes eligible, connected and legacy mall sectors/floors, detailed Level94 houses; one sharing table and four pickups if a safe physical site exists",
+    "maxCandidatesPerChunk": 36,
+    "cityPavilionProgrammes": 3,
+    "testedCityBlocks": 42,
+    "testedCellSizes": [
+      28,
+      36,
+      60
+    ],
+    "protectedFingerprints": 188,
+    "localCoreAssertions": 2129911002,
+    "verification": "Verification/city_provisions_full_checks.txt",
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel11_Provisiones.md",
+    "research": "Documentation/References/CityDream11/research.json",
+    "license": "CC0-1.0 Food Kit 2.0 by Kenney; original additions CC0; existing furniture retains its attribution",
+    "limitations": [
+      "Imported food geometry is stylised, not photogrammetry.",
+      "At most one table per eligible sector; empty/unsafe candidates are deliberately skipped.",
+      "Unity compilation, native asset import, shaders, HDRP visuals/reflections, PhysX, interactions and FPS not executed.",
+      "Other generic programmes remain in their individual reconstruction queue."
+    ],
+    "audit": "Verification/city_provisions_audit.json"
   }
 }

@@ -1,0 +1,96 @@
+{
+  "model": "meat-patty",
+  "name": "Tortita de carne",
+  "drink": false,
+  "id": "F_meat_patty",
+  "key": "food:64",
+  "resourceId": "F_meat_patty",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_meat_patty",
+  "minimum": [
+    -0.14938941597938538,
+    0.0,
+    -0.17249999940395355
+  ],
+  "maximum": [
+    0.14938941597938538,
+    0.062431201338768005,
+    0.17249999940395355
+  ],
+  "triangles": 101,
+  "materials": [
+    {
+      "name": "Food_prepared_132_84_66",
+      "colour": [
+        0.23074004852434915,
+        0.08865558628577294,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_142_86_65",
+      "colour": [
+        0.2704977910130658,
+        0.09305896284668745,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_162_92_65",
+      "colour": [
+        0.3613067797835095,
+        0.10702310297826761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_171_94_65",
+      "colour": [
+        0.4072402119017367,
+        0.1119324278369056,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_meat_patty_LOD1",
+      "triangles": 37
+    }
+  ],
+  "removedDuplicateFaces": 104,
+  "sourceSha256": "90b07365ad62ef18f65bcd0188044b5ee651d0c47ab81a20ce62477239bb6aec",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "meat-patty"
+}

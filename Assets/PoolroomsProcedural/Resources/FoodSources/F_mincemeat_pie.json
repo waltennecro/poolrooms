@@ -1,0 +1,156 @@
+{
+  "model": "mincemeat-pie",
+  "name": "Pastel salado",
+  "drink": false,
+  "id": "F_mincemeat_pie",
+  "key": "food:67",
+  "resourceId": "F_mincemeat_pie",
+  "family": "pastry",
+  "resource": "FoodSources/Models/F_mincemeat_pie",
+  "minimum": [
+    -0.2654632031917572,
+    0.0,
+    -0.30604371428489685
+  ],
+  "maximum": [
+    0.2654632031917572,
+    0.16731730103492737,
+    0.30604371428489685
+  ],
+  "triangles": 554,
+  "materials": [
+    {
+      "name": "Food_pastry_176_96_65",
+      "colour": [
+        0.43415363617474895,
+        0.11697066775851084,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_193_193_216",
+      "colour": [
+        0.5332764040105052,
+        0.5332764040105052,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_213_213_228",
+      "colour": [
+        0.665387298282272,
+        0.665387298282272,
+        0.7758222183174236,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_218_131_92",
+      "colour": [
+        0.7011018919329731,
+        0.22696587351009836,
+        0.10702310297826761,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_223_223_235",
+      "colour": [
+        0.7379104087727308,
+        0.7379104087727308,
+        0.8307698767746546,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_224_136_96",
+      "colour": [
+        0.7454042095403874,
+        0.24620132670783548,
+        0.11697066775851084,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_230_141_100",
+      "colour": [
+        0.7912979403326302,
+        0.26635560480286247,
+        0.12743768043564743,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_235_146_104",
+      "colour": [
+        0.8307698767746546,
+        0.2874408377269175,
+        0.13843161503245183,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_mincemeat_pie_LOD1",
+      "triangles": 222
+    }
+  ],
+  "removedDuplicateFaces": 164,
+  "sourceSha256": "8aa8609e09fbac4ad172c3376fe10e6f98739d34ce389e052ef541ebf2c5b63b",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "mincemeat-pie"
+}

@@ -1,0 +1,231 @@
+{
+  "model": "radish",
+  "name": "Rábano",
+  "drink": false,
+  "id": "F_radish",
+  "key": "food:94",
+  "resourceId": "F_radish",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_radish",
+  "minimum": [
+    -0.1700754463672638,
+    0.0,
+    -0.1700754463672638
+  ],
+  "maximum": [
+    0.17306655645370483,
+    0.5757652521133423,
+    0.17306655645370483
+  ],
+  "triangles": 811,
+  "materials": [
+    {
+      "name": "Food_produce_53_158_117",
+      "colour": [
+        0.03560131487502034,
+        0.3419144249086609,
+        0.17788841598362912,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_57_163_120",
+      "colour": [
+        0.04091519690685319,
+        0.3662525955988395,
+        0.18782077230067787,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_67_173_125",
+      "colour": [
+        0.05612849004960009,
+        0.4178850708481375,
+        0.20507873639031693,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_72_178_127",
+      "colour": [
+        0.06480326669290577,
+        0.44520119451622786,
+        0.21223075741405523,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_77_183_129",
+      "colour": [
+        0.07421356838014963,
+        0.47353149614800955,
+        0.2195261997292692,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_83_189_132",
+      "colour": [
+        0.08650046203654976,
+        0.5088813208549338,
+        0.23074004852434915,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_88_195_135",
+      "colour": [
+        0.09758734714186246,
+        0.5457244613701866,
+        0.24228112246555486,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_193_193_216",
+      "colour": [
+        0.5332764040105052,
+        0.5332764040105052,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_202_202_222",
+      "colour": [
+        0.5906188409193369,
+        0.5906188409193369,
+        0.7304607400903537,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_207_207_225",
+      "colour": [
+        0.6239603916750761,
+        0.6239603916750761,
+        0.7529422167760779,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_213_213_228",
+      "colour": [
+        0.665387298282272,
+        0.665387298282272,
+        0.7758222183174236,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_219_130_216",
+      "colour": [
+        0.7083757798916868,
+        0.2232279573168085,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_248_163_226",
+      "colour": [
+        0.938685728457888,
+        0.3662525955988395,
+        0.7605245046752924,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_radish_LOD1",
+      "triangles": 321
+    }
+  ],
+  "removedDuplicateFaces": 166,
+  "sourceSha256": "67c1cd2f0a4d0c252c85905cdc30be6808b96cdb0f4f7f1c40e5026884f6e0f1",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "radish"
+}

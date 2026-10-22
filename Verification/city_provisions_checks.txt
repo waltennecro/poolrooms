@@ -1,0 +1,5 @@
+City/provisions: 42 actual dreamcore city blocks at 3 scales / 2 seeds, 3 open pavilion programmes, peak 17594 triangles; 117 distinct food definitions + 8 drinks, all 63 catalogue biomes eligible, unlimited-stack transactions and native placement hooks. Native physics/appearance pending.
+PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
+PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
+PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

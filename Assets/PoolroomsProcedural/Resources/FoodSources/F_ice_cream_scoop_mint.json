@@ -1,0 +1,111 @@
+{
+  "model": "ice-cream-scoop-mint",
+  "name": "Bola de helado de menta",
+  "drink": false,
+  "id": "F_ice_cream_scoop_mint",
+  "key": "food:52",
+  "resourceId": "F_ice_cream_scoop_mint",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_ice_cream_scoop_mint",
+  "minimum": [
+    -0.11746594309806824,
+    0.0,
+    -0.1350862979888916
+  ],
+  "maximum": [
+    0.11746980994939804,
+    0.1650197058916092,
+    0.1350862979888916
+  ],
+  "triangles": 344,
+  "materials": [
+    {
+      "name": "Food_prepared_32_137_107",
+      "colour": [
+        0.014443843596092545,
+        0.25015828472995344,
+        0.14702726649759498,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_43_149_113",
+      "colour": [
+        0.024157632448504756,
+        0.3005437944157765,
+        0.1651321945016676,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_53_158_117",
+      "colour": [
+        0.03560131487502034,
+        0.3419144249086609,
+        0.17788841598362912,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_77_183_129",
+      "colour": [
+        0.07421356838014963,
+        0.47353149614800955,
+        0.2195261997292692,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_88_195_135",
+      "colour": [
+        0.09758734714186246,
+        0.5457244613701866,
+        0.24228112246555486,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_ice_cream_scoop_mint_LOD1",
+      "triangles": 144
+    }
+  ],
+  "removedDuplicateFaces": 56,
+  "sourceSha256": "476d3976ff000654b8147b66ae31e5faffe55a5fa7601a8726147b2ae9bc1bb2",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "ice-cream-scoop-mint"
+}

@@ -1,0 +1,156 @@
+{
+  "model": "beet",
+  "name": "Remolacha",
+  "drink": false,
+  "id": "F_beet",
+  "key": "food:5",
+  "resourceId": "F_beet",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_beet",
+  "minimum": [
+    -0.04864097014069557,
+    0.0,
+    -0.04864487051963806
+  ],
+  "maximum": [
+    0.04834617301821709,
+    0.2668245732784271,
+    0.04864487051963806
+  ],
+  "triangles": 532,
+  "materials": [
+    {
+      "name": "Food_produce_53_158_117",
+      "colour": [
+        0.03560131487502034,
+        0.3419144249086609,
+        0.17788841598362912,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_72_178_127",
+      "colour": [
+        0.06480326669290577,
+        0.44520119451622786,
+        0.21223075741405523,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_83_189_132",
+      "colour": [
+        0.08650046203654976,
+        0.5088813208549338,
+        0.23074004852434915,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_88_195_135",
+      "colour": [
+        0.09758734714186246,
+        0.5457244613701866,
+        0.24228112246555486,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_193_193_216",
+      "colour": [
+        0.5332764040105052,
+        0.5332764040105052,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_202_202_222",
+      "colour": [
+        0.5906188409193369,
+        0.5906188409193369,
+        0.7304607400903537,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_224_136_218",
+      "colour": [
+        0.7454042095403874,
+        0.24620132670783548,
+        0.7011018919329731,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_228_141_219",
+      "colour": [
+        0.7758222183174236,
+        0.26635560480286247,
+        0.7083757798916868,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_beet_LOD1",
+      "triangles": 218
+    }
+  ],
+  "removedDuplicateFaces": 100,
+  "sourceSha256": "bb8aec31c26bc2ddc65841139d1360e47910a471f1520930149b1a3c8e719998",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "beet"
+}

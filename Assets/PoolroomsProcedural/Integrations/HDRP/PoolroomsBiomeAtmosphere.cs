@@ -90,11 +90,12 @@ namespace Poolrooms.HDRP
             float height=mall?world.ActiveMallRoot.position.y:world.transform.position.y;
             if(configured&&previous==effectiveEnvironment&&previousMall==mall&&previousSun==sunny&&Mathf.Abs(height-previousHeight)<.01f)return;
             previous=effectiveEnvironment;previousMall=mall;previousSun=sunny;previousHeight=height;configured=true;
+            bool dreamCity=effectiveEnvironment==LiminalEnvironment.City11&&world.CurrentLayout!=null&&world.CurrentLayout.Config.DreamCity11;
             environment.skyType.Override((int)(sunny&&!rainy?SkyType.PhysicallyBased:SkyType.Gradient));
-            citySun.transform.localRotation=Quaternion.Euler(room.Plan?.Quiet?.Sky63!=null?27:room.Plan?.Quiet?.Conservatory!=null?32:mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
-            citySun.color=mallPhysical?new Color(1,.94f,.84f):rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
+            citySun.transform.localRotation=Quaternion.Euler(dreamCity?29:room.Plan?.Quiet?.Sky63!=null?27:room.Plan?.Quiet?.Conservatory!=null?32:mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
+            citySun.color=dreamCity?new Color(1,.87f,.75f):mallPhysical?new Color(1,.94f,.84f):rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
 #pragma warning disable CS0618
-            citySunData.SetIntensity(room.Plan?.Quiet?.Sky63!=null?16000:room.Plan?.Quiet?.Conservatory!=null?10000:room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
+            citySunData.SetIntensity(dreamCity?15500:room.Plan?.Quiet?.Sky63!=null?16000:room.Plan?.Quiet?.Conservatory!=null?10000:room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
 #pragma warning restore CS0618
             Color top=new Color(.57f,.66f,.78f),middle=new Color(.84f,.87f,.9f),bottom=new Color(.7f,.73f,.76f);float ev=-1;
             if(rainy){top=new Color(.35f,.43f,.49f);middle=new Color(.61f,.68f,.7f);bottom=new Color(.47f,.53f,.53f);ev=.5f;}

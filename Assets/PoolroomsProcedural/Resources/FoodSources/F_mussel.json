@@ -1,0 +1,81 @@
+{
+  "model": "mussel",
+  "name": "Mejillón",
+  "drink": false,
+  "id": "F_mussel",
+  "key": "food:71",
+  "resourceId": "F_mussel",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_mussel",
+  "minimum": [
+    -0.04602234438061714,
+    0.0,
+    -0.07647331058979034
+  ],
+  "maximum": [
+    0.04584818333387375,
+    0.04152384027838707,
+    0.07647331058979034
+  ],
+  "triangles": 234,
+  "materials": [
+    {
+      "name": "Food_prepared_62_46_45",
+      "colour": [
+        0.04817182422688942,
+        0.027320891639074894,
+        0.026241221894849898,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_75_59_55",
+      "colour": [
+        0.07036009569659588,
+        0.043735029256973465,
+        0.0382043715953465,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_87_70_65",
+      "colour": [
+        0.0953074666309647,
+        0.06124605423161761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_mussel_LOD1",
+      "triangles": 98
+    }
+  ],
+  "removedDuplicateFaces": 38,
+  "sourceSha256": "8eeb22710c9f6b57099cb9d21d00b8f3df28ea23cdffd0c1601c94e6ed7438a8",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "mussel"
+}

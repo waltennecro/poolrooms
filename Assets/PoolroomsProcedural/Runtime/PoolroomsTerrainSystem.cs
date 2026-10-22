@@ -334,6 +334,7 @@ namespace Poolrooms
                     if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
                     if(td)
                     {
+                        PoolroomsProvisions.Attach(world,home.transform,"home-"+plan.Seed,house.Seed,house.CellX,house.CellZ,house.Width,house.Depth);
                         PoolroomsArchitecturalDetail.Attach(houseData.Geometry.Dressing,home.transform,world.profile,owner,world);
                         if(world.CurrentLayout!=null&&world.CurrentLayout.Config.EncounterExploration)PoolroomsRoomLife.AttachNotice(world,home.transform,owner,houseData.Geometry.Dressing,"home-note:"+house.Seed+":"+house.CellX+":"+house.CellZ,house.Seed,house.CellX,house.CellZ,0,houseData.Geometry,LiminalEnvironment.RainHouses);
                         // Fixtures use house-local coordinates. Keep registration in the same owner space.

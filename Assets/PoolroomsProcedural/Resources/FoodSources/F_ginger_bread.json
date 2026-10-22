@@ -1,0 +1,81 @@
+{
+  "model": "ginger-bread",
+  "name": "Galleta de jengibre",
+  "drink": false,
+  "id": "F_ginger_bread",
+  "key": "food:45",
+  "resourceId": "F_ginger_bread",
+  "family": "pastry",
+  "resource": "FoodSources/Models/F_ginger_bread",
+  "minimum": [
+    -0.12932473421096802,
+    0.0,
+    -0.11666258424520493
+  ],
+  "maximum": [
+    0.1291198432445526,
+    0.029999999329447746,
+    0.11663028597831726
+  ],
+  "triangles": 488,
+  "materials": [
+    {
+      "name": "Food_pastry_181_101_69",
+      "colour": [
+        0.4620769996544071,
+        0.1301364766903643,
+        0.0595112381629812,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_235_146_104",
+      "colour": [
+        0.8307698767746546,
+        0.2874408377269175,
+        0.13843161503245183,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_255_255_255",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_ginger_bread_LOD1",
+      "triangles": 204
+    }
+  ],
+  "removedDuplicateFaces": 80,
+  "sourceSha256": "29b31752f22ae533ee09a6c6c690868a0f923c14491333e1229f67d306979b9b",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "ginger-bread"
+}

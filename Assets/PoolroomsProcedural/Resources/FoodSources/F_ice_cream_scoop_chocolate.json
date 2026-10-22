@@ -1,0 +1,171 @@
+{
+  "model": "ice-cream-scoop-chocolate",
+  "name": "Bola de helado de chocolate",
+  "drink": false,
+  "id": "F_ice_cream_scoop_chocolate",
+  "key": "food:51",
+  "resourceId": "F_ice_cream_scoop_chocolate",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_ice_cream_scoop_chocolate",
+  "minimum": [
+    -0.11747124791145325,
+    0.0,
+    -0.13508842885494232
+  ],
+  "maximum": [
+    0.11747124791145325,
+    0.1650197058916092,
+    0.13508844375610352
+  ],
+  "triangles": 392,
+  "materials": [
+    {
+      "name": "Food_prepared_132_84_66",
+      "colour": [
+        0.23074004852434915,
+        0.08865558628577294,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_142_86_65",
+      "colour": [
+        0.2704977910130658,
+        0.09305896284668745,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_156_90_65",
+      "colour": [
+        0.33245153634617935,
+        0.10224173308810132,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_171_94_65",
+      "colour": [
+        0.4072402119017367,
+        0.1119324278369056,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_219_130_216",
+      "colour": [
+        0.7083757798916868,
+        0.2232279573168085,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_228_141_219",
+      "colour": [
+        0.7758222183174236,
+        0.26635560480286247,
+        0.7083757798916868,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_237_150_222",
+      "colour": [
+        0.846873231509858,
+        0.3049873140698863,
+        0.7304607400903537,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_241_155_224",
+      "colour": [
+        0.8796223968878317,
+        0.3277780980565422,
+        0.7454042095403874,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_248_163_226",
+      "colour": [
+        0.938685728457888,
+        0.3662525955988395,
+        0.7605245046752924,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_ice_cream_scoop_chocolate_LOD1",
+      "triangles": 164
+    }
+  ],
+  "removedDuplicateFaces": 80,
+  "sourceSha256": "028d081ad2ad58a5eb36c3a9b3e3298496bcc6d0749d148da85db52cbfa2f2ee",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "ice-cream-scoop-chocolate"
+}

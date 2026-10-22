@@ -1,0 +1,156 @@
+{
+  "model": "sushi-egg",
+  "name": "Sushi de huevo",
+  "drink": false,
+  "id": "F_sushi_egg",
+  "key": "food:106",
+  "resourceId": "F_sushi_egg",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_sushi_egg",
+  "minimum": [
+    -0.05894999951124191,
+    2.9401863454558875e-19,
+    -0.08714588731527328
+  ],
+  "maximum": [
+    0.05894999951124191,
+    0.07917600125074387,
+    0.08714588731527328
+  ],
+  "triangles": 444,
+  "materials": [
+    {
+      "name": "Food_prepared_62_46_45",
+      "colour": [
+        0.04817182422688942,
+        0.027320891639074894,
+        0.026241221894849898,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_65_51_49",
+      "colour": [
+        0.052860647023180246,
+        0.033104766570885055,
+        0.030713443732993635,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_84_68_63",
+      "colour": [
+        0.08865558628577294,
+        0.05780543019106723,
+        0.04970656598412723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_87_70_65",
+      "colour": [
+        0.0953074666309647,
+        0.06124605423161761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_193_193_216",
+      "colour": [
+        0.5332764040105052,
+        0.5332764040105052,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_250_250_252",
+      "colour": [
+        0.9559733532492861,
+        0.9559733532492861,
+        0.9734452903984125,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_151_49",
+      "colour": [
+        1.0,
+        0.30946892281750854,
+        0.030713443732993635,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_211_99",
+      "colour": [
+        1.0,
+        0.6514056374198242,
+        0.12477181756095049,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_sushi_egg_LOD1",
+      "triangles": 186
+    }
+  ],
+  "removedDuplicateFaces": 78,
+  "sourceSha256": "875471079955092c62f9ed3519497a8422d179a0c46b3455b89dd629865b63b7",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "sushi-egg"
+}

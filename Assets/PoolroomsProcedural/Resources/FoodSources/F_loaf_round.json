@@ -1,0 +1,141 @@
+{
+  "model": "loaf-round",
+  "name": "Pan redondo",
+  "drink": false,
+  "id": "F_loaf_round",
+  "key": "food:58",
+  "resourceId": "F_loaf_round",
+  "family": "pastry",
+  "resource": "FoodSources/Models/F_loaf_round",
+  "minimum": [
+    -0.3100000023841858,
+    0.0,
+    -0.20666664838790894
+  ],
+  "maximum": [
+    0.3100000023841858,
+    0.23554372787475586,
+    0.20666664838790894
+  ],
+  "triangles": 275,
+  "materials": [
+    {
+      "name": "Food_pastry_132_84_66",
+      "colour": [
+        0.23074004852434915,
+        0.08865558628577294,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_142_86_65",
+      "colour": [
+        0.2704977910130658,
+        0.09305896284668745,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_162_92_65",
+      "colour": [
+        0.3613067797835095,
+        0.10702310297826761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_166_93_65",
+      "colour": [
+        0.38132601143253014,
+        0.10946171077829933,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_171_94_65",
+      "colour": [
+        0.4072402119017367,
+        0.1119324278369056,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_230_141_100",
+      "colour": [
+        0.7912979403326302,
+        0.26635560480286247,
+        0.12743768043564743,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    },
+    {
+      "name": "Food_pastry_235_146_104",
+      "colour": [
+        0.8307698767746546,
+        0.2874408377269175,
+        0.13843161503245183,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/pastry_albedo",
+      "normal": "FoodSources/Textures/pastry_normal",
+      "mask": "FoodSources/Textures/pastry_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_loaf_round_LOD1",
+      "triangles": 239
+    }
+  ],
+  "removedDuplicateFaces": 116,
+  "sourceSha256": "26229994928189867c56381745640600a24bb53d4dc0f801f5cd44474c4cf268",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "loaf-round"
+}

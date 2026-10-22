@@ -1,0 +1,81 @@
+{
+  "model": "candy-bar",
+  "name": "Barrita de chocolate",
+  "drink": false,
+  "id": "F_candy_bar",
+  "key": "food:18",
+  "resourceId": "F_candy_bar",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_candy_bar",
+  "minimum": [
+    -0.1462240070104599,
+    0.0,
+    -0.03722136467695236
+  ],
+  "maximum": [
+    0.1462240070104599,
+    0.06529200077056885,
+    0.03722136467695236
+  ],
+  "triangles": 336,
+  "materials": [
+    {
+      "name": "Food_prepared_148_88_65",
+      "colour": [
+        0.2961382707983211,
+        0.09758734714186246,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_159_91_65",
+      "colour": [
+        0.3467040563550296,
+        0.10461648409110419,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_162_92_65",
+      "colour": [
+        0.3613067797835095,
+        0.10702310297826761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_candy_bar_LOD1",
+      "triangles": 140
+    }
+  ],
+  "removedDuplicateFaces": 72,
+  "sourceSha256": "ef8a978aee10c7d575149835fef76b44a30c407d5868eccb937b43958680b7bf",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "candy-bar"
+}

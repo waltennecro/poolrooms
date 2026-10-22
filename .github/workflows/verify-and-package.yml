@@ -33,6 +33,10 @@ jobs:
           name: Surface-ownership-evidence
           path: ${{ runner.temp }}/surface-audit.json
           if-no-files-found: error
+      - name: Check dreamcore city, stackable food distribution and source licences
+        run: |
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --city-provisions
+          python tools/verify_food_sources.py
       - name: Compile reported Runtime-Core type boundaries and replay original failures
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --runtime-types
       - name: Check detailed mall geometry, licensed placement and floor-local lighting

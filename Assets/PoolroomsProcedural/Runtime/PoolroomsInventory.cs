@@ -90,7 +90,8 @@ namespace Poolrooms
         private static PoolroomsPickup Spawn(ExplorationItem item,PoolroomsProfile profile,Vector3 position)
         {
             string key="carried:"+Guid.NewGuid().ToString("N");PoolroomsPickup result;
-            if(item.Key.StartsWith("tool:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(5),out int tool)&&EncounterTools.Available(tool))result=PoolroomsPickup.CreateTool(key,tool,position,profile);
+            if(item.Key.StartsWith("food:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(5),out int food))result=PoolroomsPickup.CreateFood(key,food,position,null,profile);
+            else if(item.Key.StartsWith("tool:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(5),out int tool)&&EncounterTools.Available(tool))result=PoolroomsPickup.CreateTool(key,tool,position,profile);
             else if(item.Source!=null)result=PoolroomsPickup.CreateSource(key,item.Source,position,null,SourceFurniture.Longest(item.Source));
             else if(item.PlayKind>=0)result=PoolroomsPickup.CreatePlayProp(key,item.PlayKind,item.PlayColour,position,null,profile);
             else result=PoolroomsPickup.CreateCatalog(key,item.CatalogId>=0?item.CatalogId:0,position,null,profile);

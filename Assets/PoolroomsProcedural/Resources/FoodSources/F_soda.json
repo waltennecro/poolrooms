@@ -1,0 +1,141 @@
+{
+  "model": "soda",
+  "name": "Refresco",
+  "drink": true,
+  "id": "F_soda",
+  "key": "food:119",
+  "resourceId": "F_soda",
+  "family": "drink",
+  "resource": "FoodSources/Models/F_soda",
+  "minimum": [
+    -0.12649080157279968,
+    0.0,
+    -0.12649080157279968
+  ],
+  "maximum": [
+    0.1264934092760086,
+    0.43244731426239014,
+    0.12649080157279968
+  ],
+  "triangles": 1020,
+  "materials": [
+    {
+      "name": "Food_drink_111_73_196",
+      "colour": [
+        0.1589608350608804,
+        0.06662593864377289,
+        0.5520114015120001,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_148_103_219",
+      "colour": [
+        0.2961382707983211,
+        0.13563332965520566,
+        0.7083757798916868,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_159_113_227",
+      "colour": [
+        0.3467040563550296,
+        0.1651321945016676,
+        0.768151147247507,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_193_193_216",
+      "colour": [
+        0.5332764040105052,
+        0.5332764040105052,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_197_197_218",
+      "colour": [
+        0.5583403896342679,
+        0.5583403896342679,
+        0.7011018919329731,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_229_229_238",
+      "colour": [
+        0.7835377915261935,
+        0.7835377915261935,
+        0.8549926081242338,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    },
+    {
+      "name": "Food_drink_235_235_242",
+      "colour": [
+        0.8307698767746546,
+        0.8307698767746546,
+        0.8879231178819663,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/drink_albedo",
+      "normal": "FoodSources/Textures/drink_normal",
+      "mask": "FoodSources/Textures/drink_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_soda_LOD1",
+      "triangles": 428
+    }
+  ],
+  "removedDuplicateFaces": 188,
+  "sourceSha256": "f28aefb6f45c4bfeb5dcbe0a2deb5a0847ca3c95c2ffe9236769336bb09c9e95",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "soda"
+}

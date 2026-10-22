@@ -22,6 +22,26 @@ namespace Poolrooms
         internal Vector3 StreamingVelocity {get{return streamingFrozen?streamingVelocity:body!=null?body.linearVelocity:Vector3.zero;}}
         public int CatalogId { get; private set; }=-1;
         public float CarryRadius { get; private set; }=.27f;
+        public bool IsProvision {get{return InventoryKey!=null&&InventoryKey.StartsWith("food:",System.StringComparison.Ordinal);}}
+        public static PoolroomsPickup CreateFood(string key,int id,Vector3 bottom,Transform parent,PoolroomsProfile profile)
+        {
+            var definition=ProvisionCatalog.Get(id);
+            var item=CreateSource(key,definition.Source,bottom,parent,definition.Longest);
+            if(item==null)return null;
+            item.name=definition.Name;item.InventoryKey=definition.Key;item.mass=definition.Drink?.35f:.18f;
+            item.surface=definition.Drink?PickupSurface.Packaging:PickupSurface.Foam;
+            if(id==ProvisionCatalog.AlmondWater)
+            {
+                var owner=item.gameObject.AddComponent<PoolroomsChunk>();var mesh=new MeshData();var s=definition.Size;
+                float w=s.X*.34f,h=s.Y*.22f,y=-s.Y*.04f,z=-s.Z*.5f-.0008f;
+                var normal=new V3(0,0,-1);
+                mesh.QuadUV(new V3(-w,y-h,z),new V3(-w,y+h,z),new V3(w,y+h,z),new V3(w,y-h,z),normal,normal,normal,normal,new V2(0,0),new V2(0,1),new V2(1,1),new V2(1,0),Surface.Tile);
+                var mat=City11Sources.MaterialFor(new City11Sources.MaterialDefinition{name="Food_almond_label",albedo="FoodSources/Textures/almond_label_albedo",normal="FoodSources/Textures/drink_normal",mask="FoodSources/Textures/drink_mask",colour=new[]{1f,1f,1f,1f},roughness=.6f});
+                var visual=MeshFactory.Create("Agua de almendra · etiqueta original",mesh,item.transform,profile,owner,false,materialOverrides:new[]{mat,mat,mat,mat,mat,mat});
+                visual.GetComponent<MeshRenderer>().rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
+            }
+            return item;
+        }
         public static PoolroomsPickup CreateTool(string key,int id,Vector3 position,PoolroomsProfile profile)
         {
             if(!EncounterTools.Available(id))return null;

@@ -1,0 +1,111 @@
+{
+  "model": "tomato-slice",
+  "name": "Rodaja de tomate",
+  "drink": false,
+  "id": "F_tomato_slice",
+  "key": "food:110",
+  "resourceId": "F_tomato_slice",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_tomato_slice",
+  "minimum": [
+    -0.09000000357627869,
+    0.0,
+    -0.09000000357627869
+  ],
+  "maximum": [
+    0.09000000357627869,
+    0.030000001192092896,
+    0.09000000357627869
+  ],
+  "triangles": 200,
+  "materials": [
+    {
+      "name": "Food_produce_211_85_77",
+      "colour": [
+        0.6514056374198242,
+        0.09084171118340768,
+        0.07421356838014963,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_222_91_74",
+      "colour": [
+        0.7304607400903537,
+        0.10461648409110419,
+        0.06847816984440017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_233_97_71",
+      "colour": [
+        0.8148465722161012,
+        0.11953842798834562,
+        0.06301001765316767,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_238_100_69",
+      "colour": [
+        0.8549926081242338,
+        0.12743768043564743,
+        0.0595112381629812,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_249_106_66",
+      "colour": [
+        0.9473065367331999,
+        0.14412847085805777,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_tomato_slice_LOD1",
+      "triangles": 137
+    }
+  ],
+  "removedDuplicateFaces": 140,
+  "sourceSha256": "83169c3042e521f6c2894f400309c1d28329102e631af139d9cc47a9bfabf6e6",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "tomato"
+}

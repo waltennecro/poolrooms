@@ -1,0 +1,126 @@
+{
+  "model": "pumpkin-basic",
+  "name": "Calabaza pequeña",
+  "drink": false,
+  "id": "F_pumpkin_basic",
+  "key": "food:93",
+  "resourceId": "F_pumpkin_basic",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_pumpkin_basic",
+  "minimum": [
+    -0.20954442024230957,
+    0.0,
+    -0.18186530470848083
+  ],
+  "maximum": [
+    0.20952868461608887,
+    0.29899999499320984,
+    0.18186530470848083
+  ],
+  "triangles": 416,
+  "materials": [
+    {
+      "name": "Food_produce_32_137_107",
+      "colour": [
+        0.014443843596092545,
+        0.25015828472995344,
+        0.14702726649759498,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_88_195_135",
+      "colour": [
+        0.09758734714186246,
+        0.5457244613701866,
+        0.24228112246555486,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_255_116_68",
+      "colour": [
+        1.0,
+        0.17464740365558504,
+        0.05780543019106723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_255_129_68",
+      "colour": [
+        1.0,
+        0.2195261997292692,
+        0.05780543019106723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_255_142_68",
+      "colour": [
+        1.0,
+        0.2704977910130658,
+        0.05780543019106723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_255_155_68",
+      "colour": [
+        1.0,
+        0.3277780980565422,
+        0.05780543019106723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_pumpkin_basic_LOD1",
+      "triangles": 174
+    }
+  ],
+  "removedDuplicateFaces": 80,
+  "sourceSha256": "1275ec98006602e54384b80c0745e1ac5d37a54b2b28487e2cf2246f75aa1ffb",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "pumpkin"
+}

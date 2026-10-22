@@ -176,6 +176,8 @@ namespace Poolrooms
                 loaded.Add(Key(buildFloor,buildSector),chunk);
                 var carry=explorer.GetComponent<PoolroomsCarry>();
                 PoolroomsPickup.CreateMallSeats(target,description.Geometry,baseY,chunk.transform,carry);
+                float provisionX=target.SectorCenter(buildSector);
+                PoolroomsProvisions.Attach(world,chunk.transform,"legacy-mall-"+target.AddressX+"-"+target.AddressZ,target.Seed,buildSector,buildFloor,12,32,center:new V3(provisionX,0,0));
                 if(target.Enhanced)
                 {
                     var display=chunk.gameObject.AddComponent<PoolroomsMallDisplay>();

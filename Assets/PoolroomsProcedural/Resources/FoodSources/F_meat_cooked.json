@@ -1,0 +1,126 @@
+{
+  "model": "meat-cooked",
+  "name": "Filete cocinado",
+  "drink": false,
+  "id": "F_meat_cooked",
+  "key": "food:63",
+  "resourceId": "F_meat_cooked",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_meat_cooked",
+  "minimum": [
+    -0.23924709856510162,
+    0.0,
+    -0.28716611862182617
+  ],
+  "maximum": [
+    0.23924709856510162,
+    0.06449999660253525,
+    0.28723961114883423
+  ],
+  "triangles": 660,
+  "materials": [
+    {
+      "name": "Food_prepared_97_203_139",
+      "colour": [
+        0.11953842798834562,
+        0.5972017883637634,
+        0.2581828529215958,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_171_94_65",
+      "colour": [
+        0.4072402119017367,
+        0.1119324278369056,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_205_136_96",
+      "colour": [
+        0.6104955708078648,
+        0.24620132670783548,
+        0.11697066775851084,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_224_136_96",
+      "colour": [
+        0.7454042095403874,
+        0.24620132670783548,
+        0.11697066775851084,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_232_176_138",
+      "colour": [
+        0.8069522576692516,
+        0.43415363617474895,
+        0.25415209433082675,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_239_186_148",
+      "colour": [
+        0.8631572134541023,
+        0.4910208498478356,
+        0.2961382707983211,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_meat_cooked_LOD1",
+      "triangles": 276
+    }
+  ],
+  "removedDuplicateFaces": 116,
+  "sourceSha256": "28939967a72a10b12bd7dae5556ea8be03d484a30d7b18cf1f9bd6aa2ec4e3e0",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "meat-cooked"
+}

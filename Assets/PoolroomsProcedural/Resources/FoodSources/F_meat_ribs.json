@@ -1,0 +1,141 @@
+{
+  "model": "meat-ribs",
+  "name": "Costillas",
+  "drink": false,
+  "id": "F_meat_ribs",
+  "key": "food:65",
+  "resourceId": "F_meat_ribs",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_meat_ribs",
+  "minimum": [
+    -0.2676936984062195,
+    -1.5604864622709158e-11,
+    -0.1916888952255249
+  ],
+  "maximum": [
+    0.2676936984062195,
+    0.05999999865889549,
+    0.1916888952255249
+  ],
+  "triangles": 344,
+  "materials": [
+    {
+      "name": "Food_prepared_132_84_66",
+      "colour": [
+        0.23074004852434915,
+        0.08865558628577294,
+        0.05448027644244237,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_136_85_65",
+      "colour": [
+        0.24620132670783548,
+        0.09084171118340768,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_159_91_65",
+      "colour": [
+        0.3467040563550296,
+        0.10461648409110419,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_165_93_65",
+      "colour": [
+        0.3762621229909065,
+        0.10946171077829933,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_171_94_65",
+      "colour": [
+        0.4072402119017367,
+        0.1119324278369056,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_208_141_102",
+      "colour": [
+        0.6307571363461468,
+        0.26635560480286247,
+        0.13286832155381798,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_226_167_129",
+      "colour": [
+        0.7605245046752924,
+        0.386429433787049,
+        0.2195261997292692,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_meat_ribs_LOD1",
+      "triangles": 340
+    }
+  ],
+  "removedDuplicateFaces": 164,
+  "sourceSha256": "544bef91d7f902873c2ed53fbb18bab08282a6b036f46838c795484a0030d151",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "meat-ribs"
+}

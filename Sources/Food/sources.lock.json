@@ -1,0 +1,519 @@
+{
+  "url": "https://kenney.nl/media/pages/assets/food-kit/83086fa91c-1719418518/kenney_food-kit.zip",
+  "page": "https://kenney.nl/assets/food-kit",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "version": "2.0",
+  "archiveBytes": 4606270,
+  "archiveSha256": "cdad90853682499b94c9fda2f87678b24bfd8f3264e0ed323f6b6a27fd7c6f6f",
+  "members": {
+    "License.txt": {
+      "bytes": 711,
+      "sha256": "32a081c2035dd4db47d850c83244da048165f0e53d71c076b76c1afc0590bc7f"
+    },
+    "Models/OBJ format/advocado-half.obj": {
+      "bytes": 8722,
+      "sha256": "4a0be79dcc399f233cf3dbb5dc0bf111221b9d9153423bbd9f3c53c1d399a327"
+    },
+    "Models/OBJ format/apple-half.obj": {
+      "bytes": 11451,
+      "sha256": "b1c776e7ddff735194224a5ab353270ee9135cf5a8ee8c6ed034a2bf8da87fae"
+    },
+    "Models/OBJ format/apple.obj": {
+      "bytes": 12746,
+      "sha256": "cb8d02f0860a426bdefa373d748ab6f4a65cfbbd757db3275e68738cdd2fa5ad"
+    },
+    "Models/OBJ format/avocado.obj": {
+      "bytes": 4157,
+      "sha256": "07bc0b56cf7b0f4f35f996b52b1b9655dc69059eeb8f81e309c68911220a22c2"
+    },
+    "Models/OBJ format/banana.obj": {
+      "bytes": 11319,
+      "sha256": "b676ad8dfd2d3a5b8d4496c6da5b4e487a5fe0f3a24825bfdcff5ef60d3c6a54"
+    },
+    "Models/OBJ format/beet.obj": {
+      "bytes": 9428,
+      "sha256": "bb8aec31c26bc2ddc65841139d1360e47910a471f1520930149b1a3c8e719998"
+    },
+    "Models/OBJ format/bowl-broth.obj": {
+      "bytes": 20791,
+      "sha256": "94faf92df27e3b99015424dff13690e1aa2f8397a9cbe2324787eac9b5b8f3a4"
+    },
+    "Models/OBJ format/bowl-cereal.obj": {
+      "bytes": 11595,
+      "sha256": "fc79b52dba74dd2d540e2d9102987c606867fe7674c8216bb18bd432ad57e104"
+    },
+    "Models/OBJ format/bowl-soup.obj": {
+      "bytes": 12774,
+      "sha256": "2c5c44778f0d253c4d8be88710b16289d54ed06cd4a31282127c41a37d234fd3"
+    },
+    "Models/OBJ format/bread.obj": {
+      "bytes": 9651,
+      "sha256": "3d6e849f0b1dea61d2c19ebf90095dee12e99877ea47f517d2d5efa4d43351b6"
+    },
+    "Models/OBJ format/broccoli.obj": {
+      "bytes": 23388,
+      "sha256": "2896cf9807346b821900b9b934e6a36fd33821aa4fec0c7e69ba8e451bb2296d"
+    },
+    "Models/OBJ format/burger-cheese-double.obj": {
+      "bytes": 17674,
+      "sha256": "d6d72ce06887834a0946ed757f087dbb45ff4c890f37971233adcb19e7ee3aad"
+    },
+    "Models/OBJ format/burger-cheese.obj": {
+      "bytes": 10713,
+      "sha256": "cf9a336c05436dbf1c56ce17f505f0cc9293ac573b1a5eb973baf7d1a30e7caa"
+    },
+    "Models/OBJ format/burger-double.obj": {
+      "bytes": 23823,
+      "sha256": "5fde4c01a45ab5c2998ff72355ad94813c83294558f3799b3149b84211dbeb5d"
+    },
+    "Models/OBJ format/burger.obj": {
+      "bytes": 15677,
+      "sha256": "069af03983766487e07477dc4ad7bef4b9cf09b58942fdbc3d2245e5c1f9dae3"
+    },
+    "Models/OBJ format/cabbage.obj": {
+      "bytes": 14464,
+      "sha256": "2315f8aef134334a4195e7021364b14949839a0dd831700bdf4422e4863b2b4b"
+    },
+    "Models/OBJ format/cake-birthday.obj": {
+      "bytes": 83706,
+      "sha256": "b57526b1e20ca3136acf1f97b765b36a5c44fb58fc1cafbd2d54c3f3d3b6259a"
+    },
+    "Models/OBJ format/cake.obj": {
+      "bytes": 58478,
+      "sha256": "e4d50ca630f1a2b86204751b12f9abeceef7e7e6417fa492e312fa683284e5da"
+    },
+    "Models/OBJ format/candy-bar.obj": {
+      "bytes": 5658,
+      "sha256": "ef8a978aee10c7d575149835fef76b44a30c407d5868eccb937b43958680b7bf"
+    },
+    "Models/OBJ format/carrot.obj": {
+      "bytes": 13824,
+      "sha256": "23792b149cb22222317ff7aa811e9b040ca19fa6a1093dc630d16a5d73300c69"
+    },
+    "Models/OBJ format/carton-small.obj": {
+      "bytes": 6467,
+      "sha256": "b698ab6accfc17fd817c0f3392ef589b3df3fe5080cfe0feb0becd43ef5c4ec7"
+    },
+    "Models/OBJ format/cauliflower.obj": {
+      "bytes": 15676,
+      "sha256": "83904e472d3bb1173f46e25e452b551f7e9f5ad0c2504a1c910437d0ffe7cc6c"
+    },
+    "Models/OBJ format/celery-stick.obj": {
+      "bytes": 4252,
+      "sha256": "5e1d2b5f3e803297e77179de4bc286639f3b96966a6f1f712e28fe8def234609"
+    },
+    "Models/OBJ format/cheese-cut.obj": {
+      "bytes": 11152,
+      "sha256": "6ea3486c502027544891c0e9667c49619fc729cb63ff310f7054d3055a6a5765"
+    },
+    "Models/OBJ format/cheese.obj": {
+      "bytes": 39363,
+      "sha256": "453f61da0072ce6545b65f503dc6901b99500702b1882ce23642c211f5a9ad34"
+    },
+    "Models/OBJ format/cherries.obj": {
+      "bytes": 11602,
+      "sha256": "d3e073561fe4993d27f614484950aa017d0928efcb0b549de22a319440cd0c04"
+    },
+    "Models/OBJ format/chinese.obj": {
+      "bytes": 14244,
+      "sha256": "75ee69b0ff361b916f8d39088cd4fb09e4eb1c0b94e79626159045de2f97e41d"
+    },
+    "Models/OBJ format/chocolate.obj": {
+      "bytes": 9983,
+      "sha256": "c9b2a0ae2ac5bb33f17a0ab6ce7499b9961260d741eddbb64505f5e7d67e3454"
+    },
+    "Models/OBJ format/coconut-half.obj": {
+      "bytes": 8138,
+      "sha256": "8ca36d17370a7b3f20818ef81039bbd63b45b4596d51175259aa8c0279b177f6"
+    },
+    "Models/OBJ format/coconut.obj": {
+      "bytes": 6718,
+      "sha256": "d0742f438e08dfa17ab4f078397d03c399332a2c5d9f504ccf31e678f9a50b61"
+    },
+    "Models/OBJ format/cookie-chocolate.obj": {
+      "bytes": 11512,
+      "sha256": "6ffdf84e5fd0540f791a8bd63817cee8ceabb288067a3d46625048d3c48cf484"
+    },
+    "Models/OBJ format/cookie.obj": {
+      "bytes": 6160,
+      "sha256": "7b2ba4847492305ded015826da5654a595d731aaed18841b77199e1ed2454513"
+    },
+    "Models/OBJ format/corn-dog.obj": {
+      "bytes": 4662,
+      "sha256": "eed8fd54d8e931c721d87b1c14cea822659a2b0c47d888e93553e99fdc3de65c"
+    },
+    "Models/OBJ format/corn.obj": {
+      "bytes": 12783,
+      "sha256": "3360674668d5f25d446b3a0d482d8fc60de85b29aa806a6b5c42d402d85df660"
+    },
+    "Models/OBJ format/croissant.obj": {
+      "bytes": 15299,
+      "sha256": "1dda97b67e806d5ed99afec55d730a0d2050115cec9d7a2dd06d093691fd620a"
+    },
+    "Models/OBJ format/cup-coffee.obj": {
+      "bytes": 9537,
+      "sha256": "b57a9fbb985301504945f9f9f2c20ae17989f5a2422919239ead75a34d86b010"
+    },
+    "Models/OBJ format/cup-tea.obj": {
+      "bytes": 12658,
+      "sha256": "f4559941485e1a2ea99aea58dcd04cc10adbf45c50f291bed94ee258299232c3"
+    },
+    "Models/OBJ format/cupcake.obj": {
+      "bytes": 15751,
+      "sha256": "d12cdf69f588393cd7c6d479746f261587a3d866812b535b09417c0dd1cfd550"
+    },
+    "Models/OBJ format/dim-sum.obj": {
+      "bytes": 4806,
+      "sha256": "687db11edd7c0182c7b3ac452b4fc164fff3b95108a99049285dfa2143429e90"
+    },
+    "Models/OBJ format/donut-chocolate.obj": {
+      "bytes": 11680,
+      "sha256": "8bd3b60a2a230c7fee685bd155d5c08721d333a1f2d28e6d2f394500794876bb"
+    },
+    "Models/OBJ format/donut-sprinkles.obj": {
+      "bytes": 19157,
+      "sha256": "7695804cc9aeefc5ca20fe79d7a537ad5390da169d81141c2cb24cc29461876e"
+    },
+    "Models/OBJ format/donut.obj": {
+      "bytes": 9717,
+      "sha256": "b9ab244700e1e7f0a93e2ffbdee9d7c956592e590b9a98807cb6399a90185695"
+    },
+    "Models/OBJ format/egg-cooked.obj": {
+      "bytes": 7917,
+      "sha256": "c6a5b9e3ca877539125a1df888885b257390a16fcb222fc3012f84beb2a738b9"
+    },
+    "Models/OBJ format/egg-half.obj": {
+      "bytes": 6111,
+      "sha256": "3e9e136478fbf7cebf1e799ce076ee354a4322f9e7c845d2bba862e8a72e9131"
+    },
+    "Models/OBJ format/eggplant.obj": {
+      "bytes": 13444,
+      "sha256": "55d54111ec37520b5fcb87e3af5c3e0b4b47f88c40de4f5d1411aa3cea5c172d"
+    },
+    "Models/OBJ format/fish.obj": {
+      "bytes": 29615,
+      "sha256": "f18bdc1f9af0d3317843bd044e835b699c9c1fbe7c89d69fc141af4701c3ef77"
+    },
+    "Models/OBJ format/frappe.obj": {
+      "bytes": 31692,
+      "sha256": "b90a06d0b86cae3c27aaa264141b188c010196d6f4e88edd59d6997e0952c125"
+    },
+    "Models/OBJ format/fries.obj": {
+      "bytes": 37656,
+      "sha256": "2275f4dff6d99764658e89f762d8448d4a07c27c4fe1fd9a96048fe7d606e364"
+    },
+    "Models/OBJ format/frikandel-speciaal.obj": {
+      "bytes": 21017,
+      "sha256": "9535eb45f030658ffda4dd4839f931f43656f1d8cca751f2183fa05a50fd7d8d"
+    },
+    "Models/OBJ format/ginger-bread.obj": {
+      "bytes": 6472,
+      "sha256": "29b31752f22ae533ee09a6c6c690868a0f923c14491333e1229f67d306979b9b"
+    },
+    "Models/OBJ format/grapes.obj": {
+      "bytes": 58437,
+      "sha256": "3208c85baaa3755f73a220aea8f0845e7f8648a4745f24d2d5d4617a7c1e0e81"
+    },
+    "Models/OBJ format/honey.obj": {
+      "bytes": 12226,
+      "sha256": "2f5456f8c94b6b765b42171aad41e18dd6cac905d757515eb9ed49b5b44dfeea"
+    },
+    "Models/OBJ format/hot-dog.obj": {
+      "bytes": 20564,
+      "sha256": "95a5c16364a26a8b3658952393876bb74a772d5ebfab966fa4be788beaf6e157"
+    },
+    "Models/OBJ format/ice-cream-cup.obj": {
+      "bytes": 5450,
+      "sha256": "2b93606c23d15ae5843e32df268ae9713899415eaeae416e9ff9313b703cae31"
+    },
+    "Models/OBJ format/ice-cream-scoop-chocolate.obj": {
+      "bytes": 7834,
+      "sha256": "028d081ad2ad58a5eb36c3a9b3e3298496bcc6d0749d148da85db52cbfa2f2ee"
+    },
+    "Models/OBJ format/ice-cream-scoop-mint.obj": {
+      "bytes": 5207,
+      "sha256": "476d3976ff000654b8147b66ae31e5faffe55a5fa7601a8726147b2ae9bc1bb2"
+    },
+    "Models/OBJ format/ice-cream.obj": {
+      "bytes": 5336,
+      "sha256": "e6ddfe8313b12dc1c7356e0eea54b60df6e6e8f2e3b897ee2dbb32ad823f0107"
+    },
+    "Models/OBJ format/leek.obj": {
+      "bytes": 17654,
+      "sha256": "51961e09d5ad35c89deb52fb321dff7927d996d80224413423cef841456de6b5"
+    },
+    "Models/OBJ format/lemon-half.obj": {
+      "bytes": 9539,
+      "sha256": "6366435e4c2219c054577583a8f8fea68495948fa66aa12c6586260518957354"
+    },
+    "Models/OBJ format/lemon.obj": {
+      "bytes": 9367,
+      "sha256": "f1dc743e7de83bbacf72b3b60a9766647a443dee67465641fc0842c275a501ca"
+    },
+    "Models/OBJ format/loaf-baguette.obj": {
+      "bytes": 10923,
+      "sha256": "4715e781152f4ccd978278c4730b7594d60fcd71f6a58ae9d0f63d327f3157f0"
+    },
+    "Models/OBJ format/loaf-round.obj": {
+      "bytes": 10265,
+      "sha256": "26229994928189867c56381745640600a24bb53d4dc0f801f5cd44474c4cf268"
+    },
+    "Models/OBJ format/loaf.obj": {
+      "bytes": 9759,
+      "sha256": "da3a33355e74500a775958c91d9428294a56aa6a0a7f4498c81d29b13377a57a"
+    },
+    "Models/OBJ format/lollypop.obj": {
+      "bytes": 9450,
+      "sha256": "2ba12380b8a9171e14a72ac9c640de4050bd6e5d7a8658446de1b0c5052ea679"
+    },
+    "Models/OBJ format/maki-roe.obj": {
+      "bytes": 4621,
+      "sha256": "53be3a816bdb74c44e144b21e6662bba8e285d16553dfdd96ece7a983724fac2"
+    },
+    "Models/OBJ format/maki-salmon.obj": {
+      "bytes": 4142,
+      "sha256": "914cf945a0408b6be722f010cc7f6745f108bdfb732dccc5aa8e6b95e3347049"
+    },
+    "Models/OBJ format/maki-vegetable.obj": {
+      "bytes": 4503,
+      "sha256": "fc9f430377cb1e1fa60233d71d855fa4e5487c52fd68eeed4a80b2966424c925"
+    },
+    "Models/OBJ format/meat-cooked.obj": {
+      "bytes": 10076,
+      "sha256": "28939967a72a10b12bd7dae5556ea8be03d484a30d7b18cf1f9bd6aa2ec4e3e0"
+    },
+    "Models/OBJ format/meat-patty.obj": {
+      "bytes": 8653,
+      "sha256": "90b07365ad62ef18f65bcd0188044b5ee651d0c47ab81a20ce62477239bb6aec"
+    },
+    "Models/OBJ format/meat-ribs.obj": {
+      "bytes": 13076,
+      "sha256": "544bef91d7f902873c2ed53fbb18bab08282a6b036f46838c795484a0030d151"
+    },
+    "Models/OBJ format/meat-sausage.obj": {
+      "bytes": 32740,
+      "sha256": "6401d254db28e7029674361fbc49ba836608de5566082ab4b55167739d5bbf52"
+    },
+    "Models/OBJ format/mincemeat-pie.obj": {
+      "bytes": 13710,
+      "sha256": "8aa8609e09fbac4ad172c3376fe10e6f98739d34ce389e052ef541ebf2c5b63b"
+    },
+    "Models/OBJ format/muffin.obj": {
+      "bytes": 7706,
+      "sha256": "2a07b5306c5428fc057e08d4db820e96efa59ec658f02134e4c7f57cf2e962bb"
+    },
+    "Models/OBJ format/mushroom-half.obj": {
+      "bytes": 5579,
+      "sha256": "14890c4dc160f4fa963131983d468c66849b00eb38341aef3539021c855f8b52"
+    },
+    "Models/OBJ format/mushroom.obj": {
+      "bytes": 6629,
+      "sha256": "abe856209ebde07bb8dd937f64999fd42235fc27324431850d2e405d28541968"
+    },
+    "Models/OBJ format/mussel-open.obj": {
+      "bytes": 8559,
+      "sha256": "4e12d2fb81d375a670d9054ecf67301862d65d397639cf7940f30a236c469e6f"
+    },
+    "Models/OBJ format/mussel.obj": {
+      "bytes": 3628,
+      "sha256": "8eeb22710c9f6b57099cb9d21d00b8f3df28ea23cdffd0c1601c94e6ed7438a8"
+    },
+    "Models/OBJ format/onion-half.obj": {
+      "bytes": 10775,
+      "sha256": "8131f2d6d36fa1aa88c5bddb805bcf250ead2f1d6f4f03e06907b4e1e7e6b89b"
+    },
+    "Models/OBJ format/onion.obj": {
+      "bytes": 5950,
+      "sha256": "38928bd14a08e9c0ee9340f52f20b48f107d61c43ebfe09a0270544b5a4cef70"
+    },
+    "Models/OBJ format/orange.obj": {
+      "bytes": 10589,
+      "sha256": "b8e4f2019d980db840a63a374cf646a5a2216d2443ed0d9882cd6571b49e82f3"
+    },
+    "Models/OBJ format/pan-stew.obj": {
+      "bytes": 31031,
+      "sha256": "4e326814022178337010f1980addbf4a87ea4b2436430d3913d86a4287010d28"
+    },
+    "Models/OBJ format/pancakes.obj": {
+      "bytes": 32721,
+      "sha256": "562f8650daebe9543c4e07204d084cbc6aa3a28363a4ed9a8cd6779b86dc4085"
+    },
+    "Models/OBJ format/paprika-slice.obj": {
+      "bytes": 7947,
+      "sha256": "a419c383175318bef4191b31ae64f745a2453bbb0bdd3ad0a3b30e4c327531df"
+    },
+    "Models/OBJ format/paprika.obj": {
+      "bytes": 13925,
+      "sha256": "7e64379440cad4ebfb8c713fb7db6a2dae6734d90d650f83048378b39c3a45f2"
+    },
+    "Models/OBJ format/peanut-butter.obj": {
+      "bytes": 13805,
+      "sha256": "5c9a99e8c21166ea13425bfdc476163f69e1b2ced9f7239900875996a1f5aec1"
+    },
+    "Models/OBJ format/pear-half.obj": {
+      "bytes": 11647,
+      "sha256": "2eeadda7efe96efdf8a45ef13c4bd00e074e823f23b2e22ff7516fa3cf6995f2"
+    },
+    "Models/OBJ format/pear.obj": {
+      "bytes": 13082,
+      "sha256": "a6558dd5af90bdd1a84245e45fbae25e5973cb251fa0632fc103d1d0556be7dd"
+    },
+    "Models/OBJ format/pepper.obj": {
+      "bytes": 9752,
+      "sha256": "4b8f895b692ec6e1a82880a3f59ee1c71cd987f13711a4be19b7d8343da0f92b"
+    },
+    "Models/OBJ format/pie.obj": {
+      "bytes": 23177,
+      "sha256": "0fdabcd70d1e74801b7f6531509c108b6622a738b0e5d9810f78d8586cbae685"
+    },
+    "Models/OBJ format/pineapple.obj": {
+      "bytes": 19012,
+      "sha256": "2234edbf3a7d639c321ce37eb9ca09e26af97245e6e7851a0e805d0b3aeda546"
+    },
+    "Models/OBJ format/pizza.obj": {
+      "bytes": 89194,
+      "sha256": "a5f7826abefe7b16ca2abf3a0c2dbbf42379088182604d6f1ec891ac5b55d68b"
+    },
+    "Models/OBJ format/plate-sauerkraut.obj": {
+      "bytes": 57449,
+      "sha256": "d7925d4a4c623f82ceb2f61546f00109bef6855ad15a46483b21e6f238d3de39"
+    },
+    "Models/OBJ format/popsicle-chocolate.obj": {
+      "bytes": 11208,
+      "sha256": "dad0faa5af86e802593d14b356e926091bc28ea57205ae0e2849bb5f164e1c7a"
+    },
+    "Models/OBJ format/popsicle.obj": {
+      "bytes": 6183,
+      "sha256": "50ff258efbf0135c94aac625127fca524b956d58fb2024d95ff6db8dba5e4242"
+    },
+    "Models/OBJ format/pot-stew.obj": {
+      "bytes": 32297,
+      "sha256": "8c8c56a5b78a1b4cf94528e6743c2eac0cff5fc4b0ad59e31a75ef6880d19543"
+    },
+    "Models/OBJ format/pudding.obj": {
+      "bytes": 4639,
+      "sha256": "521e31ed3a5f5841f6646fc186247e26ffa74020a5024a7df22c1739b2bc8713"
+    },
+    "Models/OBJ format/pumpkin-basic.obj": {
+      "bytes": 6634,
+      "sha256": "1275ec98006602e54384b80c0745e1ac5d37a54b2b28487e2cf2246f75aa1ffb"
+    },
+    "Models/OBJ format/pumpkin.obj": {
+      "bytes": 20077,
+      "sha256": "b57a025cecb275c45515fc9ba89a309d293a5d392f2ef3cc83670f6c77bcb763"
+    },
+    "Models/OBJ format/radish.obj": {
+      "bytes": 15920,
+      "sha256": "67c1cd2f0a4d0c252c85905cdc30be6808b96cdb0f4f7f1c40e5026884f6e0f1"
+    },
+    "Models/OBJ format/rice-ball.obj": {
+      "bytes": 9881,
+      "sha256": "226d52ceee0708e6674aca552d02ddfb4dead1ef577276124a7adc2336feae22"
+    },
+    "Models/OBJ format/salad.obj": {
+      "bytes": 15907,
+      "sha256": "58a5e72050a2bfd71023098ae608af761385e7f1496ac4830df4666211ca0a20"
+    },
+    "Models/OBJ format/sandwich.obj": {
+      "bytes": 9198,
+      "sha256": "e4c59c3a1cda925902722bb5e7474afdcc7cbe06a89d56244515a5be7dd4c108"
+    },
+    "Models/OBJ format/sausage-half.obj": {
+      "bytes": 8796,
+      "sha256": "d5ae78171ed50792c0fd9f63790c0c6d43b85501e391df6c973c3fef5d7cd205"
+    },
+    "Models/OBJ format/sausage.obj": {
+      "bytes": 8044,
+      "sha256": "ecd18c9ccb177d8b2bb1ea59bb9ec751ffd836d4c6903653c83c796c00bcbbb7"
+    },
+    "Models/OBJ format/skewer-vegetables.obj": {
+      "bytes": 9537,
+      "sha256": "6bf4223243fd010a1c10226d0b74f0fbb87f334a81014a46828c3c235c65b567"
+    },
+    "Models/OBJ format/skewer.obj": {
+      "bytes": 7114,
+      "sha256": "3d80cc582972bec32accc802a163b8e08e5f36bd0efdb8dc3ae416384cad97e0"
+    },
+    "Models/OBJ format/soda-bottle.obj": {
+      "bytes": 9622,
+      "sha256": "053066741c3408fcd90780660cce17057072a1ece5d4a03bfc1ee4b679dfc6f0"
+    },
+    "Models/OBJ format/soda-can.obj": {
+      "bytes": 14295,
+      "sha256": "fcd5134b8bff057c50ef81559697d9742a8bfaa9eebe051f773b8783319f1cb8"
+    },
+    "Models/OBJ format/soda-glass.obj": {
+      "bytes": 9872,
+      "sha256": "4fad053ea7de5ef9a6ce711fe3defb0dce951f6b5b369f112ecce9fda1e3f7ee"
+    },
+    "Models/OBJ format/soda.obj": {
+      "bytes": 16067,
+      "sha256": "f28aefb6f45c4bfeb5dcbe0a2deb5a0847ca3c95c2ffe9236769336bb09c9e95"
+    },
+    "Models/OBJ format/strawberry.obj": {
+      "bytes": 14673,
+      "sha256": "1be28091f09494cf22194638d3f92f0159072b55af6ba66c285db22739a2e4bf"
+    },
+    "Models/OBJ format/styrofoam-dinner.obj": {
+      "bytes": 20307,
+      "sha256": "467ec57650a3398d4801fd14f8e43c19d243ff17118f28b9a5e42d8136128a1d"
+    },
+    "Models/OBJ format/sub.obj": {
+      "bytes": 32068,
+      "sha256": "cc48989b36a734072db3c241b3dc343cd26c65bd7935b6937f12ea12b4c8a67b"
+    },
+    "Models/OBJ format/sundae.obj": {
+      "bytes": 29640,
+      "sha256": "c52b3b65d1cfd4beee73deb74e93c78b63a84f72b7f8b871f68f33912eb972f8"
+    },
+    "Models/OBJ format/sushi-egg.obj": {
+      "bytes": 7151,
+      "sha256": "875471079955092c62f9ed3519497a8422d179a0c46b3455b89dd629865b63b7"
+    },
+    "Models/OBJ format/sushi-salmon.obj": {
+      "bytes": 8726,
+      "sha256": "8645835be614b0197285f81e6b597e1f39a6f7b359110075fd92ba79adf3288e"
+    },
+    "Models/OBJ format/taco.obj": {
+      "bytes": 17266,
+      "sha256": "fc07b449dc48072e310d37bdc532ba84f9cd1859fc68a969274ea454ba280e2d"
+    },
+    "Models/OBJ format/Textures/colormap.png": {
+      "bytes": 10715,
+      "sha256": "75baf74d9483a0fc56ac21ceba346fbe16fc24a2a1bf0524c53e6bbe802e1153"
+    },
+    "Models/OBJ format/tomato-slice.obj": {
+      "bytes": 10302,
+      "sha256": "83169c3042e521f6c2894f400309c1d28329102e631af139d9cc47a9bfabf6e6"
+    },
+    "Models/OBJ format/tomato.obj": {
+      "bytes": 12031,
+      "sha256": "6a8af249f512e5b7c03a09a71b821a83a7c2a3d647863eee65b9c3e467f58711"
+    },
+    "Models/OBJ format/turkey.obj": {
+      "bytes": 32878,
+      "sha256": "e807222c6bfcdec21aca52b080a4fe5a6ed632e9b56d81ebbf531c1378342359"
+    },
+    "Models/OBJ format/waffle.obj": {
+      "bytes": 45718,
+      "sha256": "13f1a6d4302c9958ffb2792c41c34cd9689bc6f7a68119b340b2cf22c9548e62"
+    },
+    "Models/OBJ format/watermelon.obj": {
+      "bytes": 100030,
+      "sha256": "a104af3a607723f2dd77afd5a173889cc7acf96679b1b358b423a8572c3798c3"
+    },
+    "Models/OBJ format/whipped-cream.obj": {
+      "bytes": 7282,
+      "sha256": "d1e823861dd4d7c4e0a5e487998145624954f271d0c04e4ad0d12d3502dee1bd"
+    },
+    "Models/OBJ format/whole-ham.obj": {
+      "bytes": 13150,
+      "sha256": "014b98b38d90f1cae52d8acb0bbed2a271c12a3f111f656513b38237ed49f624"
+    },
+    "Models/OBJ format/wholer-ham.obj": {
+      "bytes": 11602,
+      "sha256": "8bf2861fb42408be0d9408b8588533adba4a81ddab585e8107e9a40c010c3785"
+    }
+  }
+}

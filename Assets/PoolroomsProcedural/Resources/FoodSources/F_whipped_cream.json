@@ -1,0 +1,111 @@
+{
+  "model": "whipped-cream",
+  "name": "Crema batida",
+  "drink": false,
+  "id": "F_whipped_cream",
+  "key": "food:114",
+  "resourceId": "F_whipped_cream",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_whipped_cream",
+  "minimum": [
+    -0.06798107922077179,
+    0.0,
+    -0.07793769240379333
+  ],
+  "maximum": [
+    0.06798107922077179,
+    0.09668044745922089,
+    0.07793769240379333
+  ],
+  "triangles": 608,
+  "materials": [
+    {
+      "name": "Food_prepared_193_193_216",
+      "colour": [
+        0.5332764040105052,
+        0.5332764040105052,
+        0.6866853124353135,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_207_207_225",
+      "colour": [
+        0.6239603916750761,
+        0.6239603916750761,
+        0.7529422167760779,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_218_218_232",
+      "colour": [
+        0.7011018919329731,
+        0.7011018919329731,
+        0.8069522576692516,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_229_229_238",
+      "colour": [
+        0.7835377915261935,
+        0.7835377915261935,
+        0.8549926081242338,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_250_250_252",
+      "colour": [
+        0.9559733532492861,
+        0.9559733532492861,
+        0.9734452903984125,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_whipped_cream_LOD1",
+      "triangles": 254
+    }
+  ],
+  "removedDuplicateFaces": 80,
+  "sourceSha256": "d1e823861dd4d7c4e0a5e487998145624954f271d0c04e4ad0d12d3502dee1bd",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "whipped-cream"
+}

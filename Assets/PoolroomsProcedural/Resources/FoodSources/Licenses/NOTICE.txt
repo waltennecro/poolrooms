@@ -1,0 +1,3 @@
+Food Kit 2.0 by Kenney (https://kenney.nl/assets/food-kit), CC0 1.0.
+Adaptation by this project: bevels, smooth normals, metric detail UVs, one simplified LOD, original tiled PBR microfinishes and almond-water label. These additions are also CC0.
+This is stylised source geometry, not photogrammetric food. LODs and textures are not additional source models.

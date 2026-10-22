@@ -70,6 +70,8 @@ namespace Poolrooms.Core
         public bool AutonomousGeneration;
         public bool EnableSoftPlay;
         public bool EnableCity11;
+        public bool DreamCity11;
+        public bool EnableProvisions;
         public bool EnableAircraft;
         public bool EnableImportedBuildings;
         public float City11Share=.15f;

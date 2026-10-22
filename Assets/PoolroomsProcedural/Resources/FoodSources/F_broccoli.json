@@ -1,0 +1,201 @@
+{
+  "model": "broccoli",
+  "name": "Brócoli",
+  "drink": false,
+  "id": "F_broccoli",
+  "key": "food:10",
+  "resourceId": "F_broccoli",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_broccoli",
+  "minimum": [
+    -0.18695682287216187,
+    0.0,
+    -0.18694894015789032
+  ],
+  "maximum": [
+    0.1869424283504486,
+    0.42166799306869507,
+    0.18694894015789032
+  ],
+  "triangles": 1520,
+  "materials": [
+    {
+      "name": "Food_produce_57_163_120",
+      "colour": [
+        0.04091519690685319,
+        0.3662525955988395,
+        0.18782077230067787,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_59_140_113",
+      "colour": [
+        0.043735029256973465,
+        0.26225065752969623,
+        0.1651321945016676,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_61_144_115",
+      "colour": [
+        0.046665086336880095,
+        0.2788942634768104,
+        0.1714411007328226,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_63_148_118",
+      "colour": [
+        0.04970656598412723,
+        0.2961382707983211,
+        0.18116424424986022,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_63_168_122",
+      "colour": [
+        0.04970656598412723,
+        0.39157247774972326,
+        0.1946178304415758,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_65_151_119",
+      "colour": [
+        0.052860647023180246,
+        0.30946892281750854,
+        0.184474994500441,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_67_155_121",
+      "colour": [
+        0.05612849004960009,
+        0.3277780980565422,
+        0.19120168274079138,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_67_173_125",
+      "colour": [
+        0.05612849004960009,
+        0.4178850708481375,
+        0.20507873639031693,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_71_164_126",
+      "colour": [
+        0.06301001765316767,
+        0.3712376804741491,
+        0.20863687014525575,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_72_178_127",
+      "colour": [
+        0.06480326669290577,
+        0.44520119451622786,
+        0.21223075741405523,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_88_195_135",
+      "colour": [
+        0.09758734714186246,
+        0.5457244613701866,
+        0.24228112246555486,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_broccoli_LOD1",
+      "triangles": 638
+    }
+  ],
+  "removedDuplicateFaces": 220,
+  "sourceSha256": "2896cf9807346b821900b9b934e6a36fd33821aa4fec0c7e69ba8e451bb2296d",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "broccoli"
+}

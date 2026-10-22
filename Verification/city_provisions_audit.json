@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-22",
+  "nativeUnityExecuted": false,
+  "strictCoreBuild": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "defaultCoreAssertions": 2129911002,
+  "protectedFingerprints": 188,
+  "csharp9Scripts": 366,
+  "symbolConfigurations": 5,
+  "dreamCity": {
+    "blocks": 42,
+    "seeds": [
+      7,
+      481516
+    ],
+    "cellSizes": [
+      28,
+      36,
+      60
+    ],
+    "publicProgrammes": 3,
+    "peakArchitectureTriangles": 17594
+  },
+  "food": {
+    "distinctSourceModels": 125,
+    "distinctFoodTypes": 103,
+    "presentations": 117,
+    "drinks": 8,
+    "sourceDuplicateFacesRemoved": 15277,
+    "catalogueDetailedTriangles": 83239,
+    "catalogueLowTriangles": 39436,
+    "newResourceBytes": 39258730,
+    "lods": 125,
+    "actuallyReducedLods": 124,
+    "sharedOriginalPbrSets": 4,
+    "originalLabelMaps": 1,
+    "resolution": 1024,
+    "licence": "CC0-1.0"
+  },
+  "distribution": {
+    "eligibleRoomBiomes": 63,
+    "externalSystems": [
+      "connected malls: per sector/floor",
+      "legacy mall interiors: per sector/floor",
+      "Level94: detailed houses"
+    ],
+    "maximumCandidates": 36,
+    "maximumStationPickups": 4,
+    "physicalSupportVerifiedInUnity": false
+  },
+  "otherChecks": [
+    "surface ownership: 126 rooms, 12 mall sectors, 24 house cases",
+    "Scenery: 105 actual furnished room samples; 756 open-room biome/seed plans",
+    "immutable R33 standalone baseline strict compilation succeeded; source compatibility remains intact"
+  ],
+  "pendingNative": [
+    "Unity API/import compilation",
+    "125 model imports / material bindings",
+    "food support and table-removal PhysX",
+    "actual pickup/eat/drink input",
+    "HDRP sun, shading/reflections and source quality",
+    "FPS/streaming frame-time"
+  ]
+}

@@ -1,0 +1,1252 @@
+[
+  {
+    "model": "apple",
+    "name": "Manzana",
+    "drink": false,
+    "id": 0,
+    "key": "food:0",
+    "resourceId": "F_apple",
+    "family": "produce",
+    "foodType": "apple"
+  },
+  {
+    "model": "apple-half",
+    "name": "Media manzana",
+    "drink": false,
+    "id": 1,
+    "key": "food:1",
+    "resourceId": "F_apple_half",
+    "family": "produce",
+    "foodType": "apple"
+  },
+  {
+    "model": "avocado",
+    "name": "Aguacate",
+    "drink": false,
+    "id": 2,
+    "key": "food:2",
+    "resourceId": "F_avocado",
+    "family": "produce",
+    "foodType": "avocado"
+  },
+  {
+    "model": "advocado-half",
+    "name": "Medio aguacate",
+    "drink": false,
+    "id": 3,
+    "key": "food:3",
+    "resourceId": "F_advocado_half",
+    "family": "produce",
+    "foodType": "avocado"
+  },
+  {
+    "model": "banana",
+    "name": "Plátano",
+    "drink": false,
+    "id": 4,
+    "key": "food:4",
+    "resourceId": "F_banana",
+    "family": "produce",
+    "foodType": "banana"
+  },
+  {
+    "model": "beet",
+    "name": "Remolacha",
+    "drink": false,
+    "id": 5,
+    "key": "food:5",
+    "resourceId": "F_beet",
+    "family": "produce",
+    "foodType": "beet"
+  },
+  {
+    "model": "bowl-broth",
+    "name": "Caldo",
+    "drink": false,
+    "id": 6,
+    "key": "food:6",
+    "resourceId": "F_bowl_broth",
+    "family": "prepared",
+    "foodType": "bowl-broth"
+  },
+  {
+    "model": "bowl-cereal",
+    "name": "Cereal con leche",
+    "drink": false,
+    "id": 7,
+    "key": "food:7",
+    "resourceId": "F_bowl_cereal",
+    "family": "prepared",
+    "foodType": "bowl-cereal"
+  },
+  {
+    "model": "bowl-soup",
+    "name": "Sopa de verduras",
+    "drink": false,
+    "id": 8,
+    "key": "food:8",
+    "resourceId": "F_bowl_soup",
+    "family": "prepared",
+    "foodType": "bowl-soup"
+  },
+  {
+    "model": "bread",
+    "name": "Rebanada de pan",
+    "drink": false,
+    "id": 9,
+    "key": "food:9",
+    "resourceId": "F_bread",
+    "family": "pastry",
+    "foodType": "bread"
+  },
+  {
+    "model": "broccoli",
+    "name": "Brócoli",
+    "drink": false,
+    "id": 10,
+    "key": "food:10",
+    "resourceId": "F_broccoli",
+    "family": "produce",
+    "foodType": "broccoli"
+  },
+  {
+    "model": "burger",
+    "name": "Hamburguesa",
+    "drink": false,
+    "id": 11,
+    "key": "food:11",
+    "resourceId": "F_burger",
+    "family": "prepared",
+    "foodType": "burger"
+  },
+  {
+    "model": "burger-cheese",
+    "name": "Hamburguesa con queso",
+    "drink": false,
+    "id": 12,
+    "key": "food:12",
+    "resourceId": "F_burger_cheese",
+    "family": "prepared",
+    "foodType": "burger-cheese"
+  },
+  {
+    "model": "burger-double",
+    "name": "Hamburguesa doble",
+    "drink": false,
+    "id": 13,
+    "key": "food:13",
+    "resourceId": "F_burger_double",
+    "family": "prepared",
+    "foodType": "burger-double"
+  },
+  {
+    "model": "burger-cheese-double",
+    "name": "Hamburguesa doble con queso",
+    "drink": false,
+    "id": 14,
+    "key": "food:14",
+    "resourceId": "F_burger_cheese_double",
+    "family": "prepared",
+    "foodType": "burger-cheese-double"
+  },
+  {
+    "model": "cabbage",
+    "name": "Col",
+    "drink": false,
+    "id": 15,
+    "key": "food:15",
+    "resourceId": "F_cabbage",
+    "family": "produce",
+    "foodType": "cabbage"
+  },
+  {
+    "model": "cake",
+    "name": "Tarta",
+    "drink": false,
+    "id": 16,
+    "key": "food:16",
+    "resourceId": "F_cake",
+    "family": "pastry",
+    "foodType": "cake"
+  },
+  {
+    "model": "cake-birthday",
+    "name": "Tarta de cumpleaños",
+    "drink": false,
+    "id": 17,
+    "key": "food:17",
+    "resourceId": "F_cake_birthday",
+    "family": "pastry",
+    "foodType": "cake-birthday"
+  },
+  {
+    "model": "candy-bar",
+    "name": "Barrita de chocolate",
+    "drink": false,
+    "id": 18,
+    "key": "food:18",
+    "resourceId": "F_candy_bar",
+    "family": "prepared",
+    "foodType": "candy-bar"
+  },
+  {
+    "model": "carrot",
+    "name": "Zanahoria",
+    "drink": false,
+    "id": 19,
+    "key": "food:19",
+    "resourceId": "F_carrot",
+    "family": "produce",
+    "foodType": "carrot"
+  },
+  {
+    "model": "cauliflower",
+    "name": "Coliflor",
+    "drink": false,
+    "id": 20,
+    "key": "food:20",
+    "resourceId": "F_cauliflower",
+    "family": "produce",
+    "foodType": "cauliflower"
+  },
+  {
+    "model": "celery-stick",
+    "name": "Apio",
+    "drink": false,
+    "id": 21,
+    "key": "food:21",
+    "resourceId": "F_celery_stick",
+    "family": "produce",
+    "foodType": "celery-stick"
+  },
+  {
+    "model": "cheese",
+    "name": "Queso",
+    "drink": false,
+    "id": 22,
+    "key": "food:22",
+    "resourceId": "F_cheese",
+    "family": "prepared",
+    "foodType": "cheese"
+  },
+  {
+    "model": "cheese-cut",
+    "name": "Porción de queso",
+    "drink": false,
+    "id": 23,
+    "key": "food:23",
+    "resourceId": "F_cheese_cut",
+    "family": "prepared",
+    "foodType": "cheese"
+  },
+  {
+    "model": "cherries",
+    "name": "Cerezas",
+    "drink": false,
+    "id": 24,
+    "key": "food:24",
+    "resourceId": "F_cherries",
+    "family": "produce",
+    "foodType": "cherries"
+  },
+  {
+    "model": "chinese",
+    "name": "Fideos para llevar",
+    "drink": false,
+    "id": 25,
+    "key": "food:25",
+    "resourceId": "F_chinese",
+    "family": "prepared",
+    "foodType": "chinese"
+  },
+  {
+    "model": "chocolate",
+    "name": "Chocolate",
+    "drink": false,
+    "id": 26,
+    "key": "food:26",
+    "resourceId": "F_chocolate",
+    "family": "prepared",
+    "foodType": "chocolate"
+  },
+  {
+    "model": "coconut",
+    "name": "Coco",
+    "drink": false,
+    "id": 27,
+    "key": "food:27",
+    "resourceId": "F_coconut",
+    "family": "produce",
+    "foodType": "coconut"
+  },
+  {
+    "model": "coconut-half",
+    "name": "Medio coco",
+    "drink": false,
+    "id": 28,
+    "key": "food:28",
+    "resourceId": "F_coconut_half",
+    "family": "produce",
+    "foodType": "coconut"
+  },
+  {
+    "model": "cookie",
+    "name": "Galleta de mantequilla",
+    "drink": false,
+    "id": 29,
+    "key": "food:29",
+    "resourceId": "F_cookie",
+    "family": "pastry",
+    "foodType": "cookie"
+  },
+  {
+    "model": "cookie-chocolate",
+    "name": "Galleta con chocolate",
+    "drink": false,
+    "id": 30,
+    "key": "food:30",
+    "resourceId": "F_cookie_chocolate",
+    "family": "pastry",
+    "foodType": "cookie-chocolate"
+  },
+  {
+    "model": "corn",
+    "name": "Maíz",
+    "drink": false,
+    "id": 31,
+    "key": "food:31",
+    "resourceId": "F_corn",
+    "family": "produce",
+    "foodType": "corn"
+  },
+  {
+    "model": "corn-dog",
+    "name": "Banderilla de salchicha",
+    "drink": false,
+    "id": 32,
+    "key": "food:32",
+    "resourceId": "F_corn_dog",
+    "family": "prepared",
+    "foodType": "corn-dog"
+  },
+  {
+    "model": "croissant",
+    "name": "Cruasán",
+    "drink": false,
+    "id": 33,
+    "key": "food:33",
+    "resourceId": "F_croissant",
+    "family": "pastry",
+    "foodType": "croissant"
+  },
+  {
+    "model": "cupcake",
+    "name": "Pastelito",
+    "drink": false,
+    "id": 34,
+    "key": "food:34",
+    "resourceId": "F_cupcake",
+    "family": "pastry",
+    "foodType": "cupcake"
+  },
+  {
+    "model": "dim-sum",
+    "name": "Dim sum",
+    "drink": false,
+    "id": 35,
+    "key": "food:35",
+    "resourceId": "F_dim_sum",
+    "family": "prepared",
+    "foodType": "dim-sum"
+  },
+  {
+    "model": "donut",
+    "name": "Dona glaseada",
+    "drink": false,
+    "id": 36,
+    "key": "food:36",
+    "resourceId": "F_donut",
+    "family": "pastry",
+    "foodType": "donut"
+  },
+  {
+    "model": "donut-chocolate",
+    "name": "Dona de chocolate",
+    "drink": false,
+    "id": 37,
+    "key": "food:37",
+    "resourceId": "F_donut_chocolate",
+    "family": "pastry",
+    "foodType": "donut-chocolate"
+  },
+  {
+    "model": "donut-sprinkles",
+    "name": "Dona con grageas",
+    "drink": false,
+    "id": 38,
+    "key": "food:38",
+    "resourceId": "F_donut_sprinkles",
+    "family": "pastry",
+    "foodType": "donut-sprinkles"
+  },
+  {
+    "model": "egg-cooked",
+    "name": "Huevo frito",
+    "drink": false,
+    "id": 39,
+    "key": "food:39",
+    "resourceId": "F_egg_cooked",
+    "family": "prepared",
+    "foodType": "egg-cooked"
+  },
+  {
+    "model": "egg-half",
+    "name": "Huevo cocido",
+    "drink": false,
+    "id": 40,
+    "key": "food:40",
+    "resourceId": "F_egg_half",
+    "family": "prepared",
+    "foodType": "egg-half"
+  },
+  {
+    "model": "eggplant",
+    "name": "Berenjena",
+    "drink": false,
+    "id": 41,
+    "key": "food:41",
+    "resourceId": "F_eggplant",
+    "family": "produce",
+    "foodType": "eggplant"
+  },
+  {
+    "model": "fish",
+    "name": "Pescado preparado",
+    "drink": false,
+    "id": 42,
+    "key": "food:42",
+    "resourceId": "F_fish",
+    "family": "prepared",
+    "foodType": "fish"
+  },
+  {
+    "model": "fries",
+    "name": "Papas fritas",
+    "drink": false,
+    "id": 43,
+    "key": "food:43",
+    "resourceId": "F_fries",
+    "family": "prepared",
+    "foodType": "fries"
+  },
+  {
+    "model": "frikandel-speciaal",
+    "name": "Salchicha especial",
+    "drink": false,
+    "id": 44,
+    "key": "food:44",
+    "resourceId": "F_frikandel_speciaal",
+    "family": "prepared",
+    "foodType": "frikandel-speciaal"
+  },
+  {
+    "model": "ginger-bread",
+    "name": "Galleta de jengibre",
+    "drink": false,
+    "id": 45,
+    "key": "food:45",
+    "resourceId": "F_ginger_bread",
+    "family": "pastry",
+    "foodType": "ginger-bread"
+  },
+  {
+    "model": "grapes",
+    "name": "Uvas",
+    "drink": false,
+    "id": 46,
+    "key": "food:46",
+    "resourceId": "F_grapes",
+    "family": "produce",
+    "foodType": "grapes"
+  },
+  {
+    "model": "honey",
+    "name": "Miel",
+    "drink": false,
+    "id": 47,
+    "key": "food:47",
+    "resourceId": "F_honey",
+    "family": "prepared",
+    "foodType": "honey"
+  },
+  {
+    "model": "hot-dog",
+    "name": "Hot dog",
+    "drink": false,
+    "id": 48,
+    "key": "food:48",
+    "resourceId": "F_hot_dog",
+    "family": "prepared",
+    "foodType": "hot-dog"
+  },
+  {
+    "model": "ice-cream",
+    "name": "Helado en cono",
+    "drink": false,
+    "id": 49,
+    "key": "food:49",
+    "resourceId": "F_ice_cream",
+    "family": "prepared",
+    "foodType": "ice-cream"
+  },
+  {
+    "model": "ice-cream-cup",
+    "name": "Helado en copa",
+    "drink": false,
+    "id": 50,
+    "key": "food:50",
+    "resourceId": "F_ice_cream_cup",
+    "family": "prepared",
+    "foodType": "ice-cream-cup"
+  },
+  {
+    "model": "ice-cream-scoop-chocolate",
+    "name": "Bola de helado de chocolate",
+    "drink": false,
+    "id": 51,
+    "key": "food:51",
+    "resourceId": "F_ice_cream_scoop_chocolate",
+    "family": "prepared",
+    "foodType": "ice-cream-scoop-chocolate"
+  },
+  {
+    "model": "ice-cream-scoop-mint",
+    "name": "Bola de helado de menta",
+    "drink": false,
+    "id": 52,
+    "key": "food:52",
+    "resourceId": "F_ice_cream_scoop_mint",
+    "family": "prepared",
+    "foodType": "ice-cream-scoop-mint"
+  },
+  {
+    "model": "leek",
+    "name": "Puerro",
+    "drink": false,
+    "id": 53,
+    "key": "food:53",
+    "resourceId": "F_leek",
+    "family": "produce",
+    "foodType": "leek"
+  },
+  {
+    "model": "lemon",
+    "name": "Limón",
+    "drink": false,
+    "id": 54,
+    "key": "food:54",
+    "resourceId": "F_lemon",
+    "family": "produce",
+    "foodType": "lemon"
+  },
+  {
+    "model": "lemon-half",
+    "name": "Medio limón",
+    "drink": false,
+    "id": 55,
+    "key": "food:55",
+    "resourceId": "F_lemon_half",
+    "family": "produce",
+    "foodType": "lemon"
+  },
+  {
+    "model": "loaf",
+    "name": "Pan de molde",
+    "drink": false,
+    "id": 56,
+    "key": "food:56",
+    "resourceId": "F_loaf",
+    "family": "pastry",
+    "foodType": "loaf"
+  },
+  {
+    "model": "loaf-baguette",
+    "name": "Baguette",
+    "drink": false,
+    "id": 57,
+    "key": "food:57",
+    "resourceId": "F_loaf_baguette",
+    "family": "pastry",
+    "foodType": "loaf-baguette"
+  },
+  {
+    "model": "loaf-round",
+    "name": "Pan redondo",
+    "drink": false,
+    "id": 58,
+    "key": "food:58",
+    "resourceId": "F_loaf_round",
+    "family": "pastry",
+    "foodType": "loaf-round"
+  },
+  {
+    "model": "lollypop",
+    "name": "Paleta de caramelo",
+    "drink": false,
+    "id": 59,
+    "key": "food:59",
+    "resourceId": "F_lollypop",
+    "family": "prepared",
+    "foodType": "lollypop"
+  },
+  {
+    "model": "maki-roe",
+    "name": "Maki de huevas",
+    "drink": false,
+    "id": 60,
+    "key": "food:60",
+    "resourceId": "F_maki_roe",
+    "family": "prepared",
+    "foodType": "maki-roe"
+  },
+  {
+    "model": "maki-salmon",
+    "name": "Maki de salmón",
+    "drink": false,
+    "id": 61,
+    "key": "food:61",
+    "resourceId": "F_maki_salmon",
+    "family": "prepared",
+    "foodType": "maki-salmon"
+  },
+  {
+    "model": "maki-vegetable",
+    "name": "Maki vegetal",
+    "drink": false,
+    "id": 62,
+    "key": "food:62",
+    "resourceId": "F_maki_vegetable",
+    "family": "prepared",
+    "foodType": "maki-vegetable"
+  },
+  {
+    "model": "meat-cooked",
+    "name": "Filete cocinado",
+    "drink": false,
+    "id": 63,
+    "key": "food:63",
+    "resourceId": "F_meat_cooked",
+    "family": "prepared",
+    "foodType": "meat-cooked"
+  },
+  {
+    "model": "meat-patty",
+    "name": "Tortita de carne",
+    "drink": false,
+    "id": 64,
+    "key": "food:64",
+    "resourceId": "F_meat_patty",
+    "family": "prepared",
+    "foodType": "meat-patty"
+  },
+  {
+    "model": "meat-ribs",
+    "name": "Costillas",
+    "drink": false,
+    "id": 65,
+    "key": "food:65",
+    "resourceId": "F_meat_ribs",
+    "family": "prepared",
+    "foodType": "meat-ribs"
+  },
+  {
+    "model": "meat-sausage",
+    "name": "Salchichas de parrilla",
+    "drink": false,
+    "id": 66,
+    "key": "food:66",
+    "resourceId": "F_meat_sausage",
+    "family": "prepared",
+    "foodType": "meat-sausage"
+  },
+  {
+    "model": "mincemeat-pie",
+    "name": "Pastel salado",
+    "drink": false,
+    "id": 67,
+    "key": "food:67",
+    "resourceId": "F_mincemeat_pie",
+    "family": "pastry",
+    "foodType": "mincemeat-pie"
+  },
+  {
+    "model": "muffin",
+    "name": "Magdalena",
+    "drink": false,
+    "id": 68,
+    "key": "food:68",
+    "resourceId": "F_muffin",
+    "family": "pastry",
+    "foodType": "muffin"
+  },
+  {
+    "model": "mushroom",
+    "name": "Champiñón",
+    "drink": false,
+    "id": 69,
+    "key": "food:69",
+    "resourceId": "F_mushroom",
+    "family": "produce",
+    "foodType": "mushroom"
+  },
+  {
+    "model": "mushroom-half",
+    "name": "Medio champiñón",
+    "drink": false,
+    "id": 70,
+    "key": "food:70",
+    "resourceId": "F_mushroom_half",
+    "family": "produce",
+    "foodType": "mushroom"
+  },
+  {
+    "model": "mussel",
+    "name": "Mejillón",
+    "drink": false,
+    "id": 71,
+    "key": "food:71",
+    "resourceId": "F_mussel",
+    "family": "prepared",
+    "foodType": "mussel"
+  },
+  {
+    "model": "mussel-open",
+    "name": "Mejillón abierto",
+    "drink": false,
+    "id": 72,
+    "key": "food:72",
+    "resourceId": "F_mussel_open",
+    "family": "prepared",
+    "foodType": "mussel"
+  },
+  {
+    "model": "onion",
+    "name": "Cebolla",
+    "drink": false,
+    "id": 73,
+    "key": "food:73",
+    "resourceId": "F_onion",
+    "family": "produce",
+    "foodType": "onion"
+  },
+  {
+    "model": "onion-half",
+    "name": "Media cebolla",
+    "drink": false,
+    "id": 74,
+    "key": "food:74",
+    "resourceId": "F_onion_half",
+    "family": "produce",
+    "foodType": "onion"
+  },
+  {
+    "model": "orange",
+    "name": "Naranja",
+    "drink": false,
+    "id": 75,
+    "key": "food:75",
+    "resourceId": "F_orange",
+    "family": "produce",
+    "foodType": "orange"
+  },
+  {
+    "model": "pan-stew",
+    "name": "Guiso de sartén",
+    "drink": false,
+    "id": 76,
+    "key": "food:76",
+    "resourceId": "F_pan_stew",
+    "family": "prepared",
+    "foodType": "pan-stew"
+  },
+  {
+    "model": "pancakes",
+    "name": "Panqueques",
+    "drink": false,
+    "id": 77,
+    "key": "food:77",
+    "resourceId": "F_pancakes",
+    "family": "pastry",
+    "foodType": "pancakes"
+  },
+  {
+    "model": "paprika",
+    "name": "Pimiento",
+    "drink": false,
+    "id": 78,
+    "key": "food:78",
+    "resourceId": "F_paprika",
+    "family": "produce",
+    "foodType": "paprika"
+  },
+  {
+    "model": "paprika-slice",
+    "name": "Rodaja de pimiento",
+    "drink": false,
+    "id": 79,
+    "key": "food:79",
+    "resourceId": "F_paprika_slice",
+    "family": "produce",
+    "foodType": "paprika"
+  },
+  {
+    "model": "peanut-butter",
+    "name": "Crema de cacahuate",
+    "drink": false,
+    "id": 80,
+    "key": "food:80",
+    "resourceId": "F_peanut_butter",
+    "family": "prepared",
+    "foodType": "peanut-butter"
+  },
+  {
+    "model": "pear",
+    "name": "Pera",
+    "drink": false,
+    "id": 81,
+    "key": "food:81",
+    "resourceId": "F_pear",
+    "family": "produce",
+    "foodType": "pear"
+  },
+  {
+    "model": "pear-half",
+    "name": "Media pera",
+    "drink": false,
+    "id": 82,
+    "key": "food:82",
+    "resourceId": "F_pear_half",
+    "family": "produce",
+    "foodType": "pear"
+  },
+  {
+    "model": "pepper",
+    "name": "Chile",
+    "drink": false,
+    "id": 83,
+    "key": "food:83",
+    "resourceId": "F_pepper",
+    "family": "produce",
+    "foodType": "pepper"
+  },
+  {
+    "model": "pie",
+    "name": "Pay de fruta",
+    "drink": false,
+    "id": 84,
+    "key": "food:84",
+    "resourceId": "F_pie",
+    "family": "pastry",
+    "foodType": "pie"
+  },
+  {
+    "model": "pineapple",
+    "name": "Piña",
+    "drink": false,
+    "id": 85,
+    "key": "food:85",
+    "resourceId": "F_pineapple",
+    "family": "produce",
+    "foodType": "pineapple"
+  },
+  {
+    "model": "pizza",
+    "name": "Pizza",
+    "drink": false,
+    "id": 86,
+    "key": "food:86",
+    "resourceId": "F_pizza",
+    "family": "prepared",
+    "foodType": "pizza"
+  },
+  {
+    "model": "plate-sauerkraut",
+    "name": "Chucrut",
+    "drink": false,
+    "id": 87,
+    "key": "food:87",
+    "resourceId": "F_plate_sauerkraut",
+    "family": "prepared",
+    "foodType": "plate-sauerkraut"
+  },
+  {
+    "model": "popsicle",
+    "name": "Paleta helada",
+    "drink": false,
+    "id": 88,
+    "key": "food:88",
+    "resourceId": "F_popsicle",
+    "family": "prepared",
+    "foodType": "popsicle"
+  },
+  {
+    "model": "popsicle-chocolate",
+    "name": "Paleta de chocolate",
+    "drink": false,
+    "id": 89,
+    "key": "food:89",
+    "resourceId": "F_popsicle_chocolate",
+    "family": "prepared",
+    "foodType": "popsicle-chocolate"
+  },
+  {
+    "model": "pot-stew",
+    "name": "Estofado",
+    "drink": false,
+    "id": 90,
+    "key": "food:90",
+    "resourceId": "F_pot_stew",
+    "family": "prepared",
+    "foodType": "pot-stew"
+  },
+  {
+    "model": "pudding",
+    "name": "Pudín",
+    "drink": false,
+    "id": 91,
+    "key": "food:91",
+    "resourceId": "F_pudding",
+    "family": "prepared",
+    "foodType": "pudding"
+  },
+  {
+    "model": "pumpkin",
+    "name": "Calabaza",
+    "drink": false,
+    "id": 92,
+    "key": "food:92",
+    "resourceId": "F_pumpkin",
+    "family": "produce",
+    "foodType": "pumpkin"
+  },
+  {
+    "model": "pumpkin-basic",
+    "name": "Calabaza pequeña",
+    "drink": false,
+    "id": 93,
+    "key": "food:93",
+    "resourceId": "F_pumpkin_basic",
+    "family": "produce",
+    "foodType": "pumpkin"
+  },
+  {
+    "model": "radish",
+    "name": "Rábano",
+    "drink": false,
+    "id": 94,
+    "key": "food:94",
+    "resourceId": "F_radish",
+    "family": "produce",
+    "foodType": "radish"
+  },
+  {
+    "model": "rice-ball",
+    "name": "Onigiri",
+    "drink": false,
+    "id": 95,
+    "key": "food:95",
+    "resourceId": "F_rice_ball",
+    "family": "prepared",
+    "foodType": "rice-ball"
+  },
+  {
+    "model": "salad",
+    "name": "Ensalada",
+    "drink": false,
+    "id": 96,
+    "key": "food:96",
+    "resourceId": "F_salad",
+    "family": "prepared",
+    "foodType": "salad"
+  },
+  {
+    "model": "sandwich",
+    "name": "Sándwich",
+    "drink": false,
+    "id": 97,
+    "key": "food:97",
+    "resourceId": "F_sandwich",
+    "family": "prepared",
+    "foodType": "sandwich"
+  },
+  {
+    "model": "sausage",
+    "name": "Salchichón",
+    "drink": false,
+    "id": 98,
+    "key": "food:98",
+    "resourceId": "F_sausage",
+    "family": "prepared",
+    "foodType": "sausage"
+  },
+  {
+    "model": "sausage-half",
+    "name": "Medio salchichón",
+    "drink": false,
+    "id": 99,
+    "key": "food:99",
+    "resourceId": "F_sausage_half",
+    "family": "prepared",
+    "foodType": "sausage"
+  },
+  {
+    "model": "skewer",
+    "name": "Brocheta mixta",
+    "drink": false,
+    "id": 100,
+    "key": "food:100",
+    "resourceId": "F_skewer",
+    "family": "prepared",
+    "foodType": "skewer"
+  },
+  {
+    "model": "skewer-vegetables",
+    "name": "Brocheta vegetal",
+    "drink": false,
+    "id": 101,
+    "key": "food:101",
+    "resourceId": "F_skewer_vegetables",
+    "family": "prepared",
+    "foodType": "skewer-vegetables"
+  },
+  {
+    "model": "strawberry",
+    "name": "Fresa",
+    "drink": false,
+    "id": 102,
+    "key": "food:102",
+    "resourceId": "F_strawberry",
+    "family": "produce",
+    "foodType": "strawberry"
+  },
+  {
+    "model": "styrofoam-dinner",
+    "name": "Comida para llevar",
+    "drink": false,
+    "id": 103,
+    "key": "food:103",
+    "resourceId": "F_styrofoam_dinner",
+    "family": "prepared",
+    "foodType": "styrofoam-dinner"
+  },
+  {
+    "model": "sub",
+    "name": "Bocadillo",
+    "drink": false,
+    "id": 104,
+    "key": "food:104",
+    "resourceId": "F_sub",
+    "family": "prepared",
+    "foodType": "sub"
+  },
+  {
+    "model": "sundae",
+    "name": "Copa helada",
+    "drink": false,
+    "id": 105,
+    "key": "food:105",
+    "resourceId": "F_sundae",
+    "family": "prepared",
+    "foodType": "sundae"
+  },
+  {
+    "model": "sushi-egg",
+    "name": "Sushi de huevo",
+    "drink": false,
+    "id": 106,
+    "key": "food:106",
+    "resourceId": "F_sushi_egg",
+    "family": "prepared",
+    "foodType": "sushi-egg"
+  },
+  {
+    "model": "sushi-salmon",
+    "name": "Sushi de salmón",
+    "drink": false,
+    "id": 107,
+    "key": "food:107",
+    "resourceId": "F_sushi_salmon",
+    "family": "prepared",
+    "foodType": "sushi-salmon"
+  },
+  {
+    "model": "taco",
+    "name": "Taco",
+    "drink": false,
+    "id": 108,
+    "key": "food:108",
+    "resourceId": "F_taco",
+    "family": "prepared",
+    "foodType": "taco"
+  },
+  {
+    "model": "tomato",
+    "name": "Tomate",
+    "drink": false,
+    "id": 109,
+    "key": "food:109",
+    "resourceId": "F_tomato",
+    "family": "produce",
+    "foodType": "tomato"
+  },
+  {
+    "model": "tomato-slice",
+    "name": "Rodaja de tomate",
+    "drink": false,
+    "id": 110,
+    "key": "food:110",
+    "resourceId": "F_tomato_slice",
+    "family": "produce",
+    "foodType": "tomato"
+  },
+  {
+    "model": "turkey",
+    "name": "Pavo asado",
+    "drink": false,
+    "id": 111,
+    "key": "food:111",
+    "resourceId": "F_turkey",
+    "family": "prepared",
+    "foodType": "turkey"
+  },
+  {
+    "model": "waffle",
+    "name": "Waffle",
+    "drink": false,
+    "id": 112,
+    "key": "food:112",
+    "resourceId": "F_waffle",
+    "family": "pastry",
+    "foodType": "waffle"
+  },
+  {
+    "model": "watermelon",
+    "name": "Sandía",
+    "drink": false,
+    "id": 113,
+    "key": "food:113",
+    "resourceId": "F_watermelon",
+    "family": "produce",
+    "foodType": "watermelon"
+  },
+  {
+    "model": "whipped-cream",
+    "name": "Crema batida",
+    "drink": false,
+    "id": 114,
+    "key": "food:114",
+    "resourceId": "F_whipped_cream",
+    "family": "prepared",
+    "foodType": "whipped-cream"
+  },
+  {
+    "model": "whole-ham",
+    "name": "Jamón entero",
+    "drink": false,
+    "id": 115,
+    "key": "food:115",
+    "resourceId": "F_whole_ham",
+    "family": "prepared",
+    "foodType": "whole-ham"
+  },
+  {
+    "model": "wholer-ham",
+    "name": "Jamón en tabla",
+    "drink": false,
+    "id": 116,
+    "key": "food:116",
+    "resourceId": "F_wholer_ham",
+    "family": "prepared",
+    "foodType": "whole-ham"
+  },
+  {
+    "model": "cup-coffee",
+    "name": "Café",
+    "drink": true,
+    "id": 117,
+    "key": "food:117",
+    "resourceId": "F_cup_coffee",
+    "family": "drink",
+    "foodType": "cup-coffee"
+  },
+  {
+    "model": "cup-tea",
+    "name": "Té",
+    "drink": true,
+    "id": 118,
+    "key": "food:118",
+    "resourceId": "F_cup_tea",
+    "family": "drink",
+    "foodType": "cup-tea"
+  },
+  {
+    "model": "soda",
+    "name": "Refresco",
+    "drink": true,
+    "id": 119,
+    "key": "food:119",
+    "resourceId": "F_soda",
+    "family": "drink",
+    "foodType": "soda"
+  },
+  {
+    "model": "soda-bottle",
+    "name": "Refresco de botella",
+    "drink": true,
+    "id": 120,
+    "key": "food:120",
+    "resourceId": "F_soda_bottle",
+    "family": "drink",
+    "foodType": "soda-bottle"
+  },
+  {
+    "model": "soda-can",
+    "name": "Refresco en lata",
+    "drink": true,
+    "id": 121,
+    "key": "food:121",
+    "resourceId": "F_soda_can",
+    "family": "drink",
+    "foodType": "soda-can"
+  },
+  {
+    "model": "soda-glass",
+    "name": "Refresco en vaso",
+    "drink": true,
+    "id": 122,
+    "key": "food:122",
+    "resourceId": "F_soda_glass",
+    "family": "drink",
+    "foodType": "soda-glass"
+  },
+  {
+    "model": "frappe",
+    "name": "Frappé",
+    "drink": true,
+    "id": 123,
+    "key": "food:123",
+    "resourceId": "F_frappe",
+    "family": "drink",
+    "foodType": "frappe"
+  },
+  {
+    "model": "carton-small",
+    "name": "Agua de almendra",
+    "drink": true,
+    "id": 124,
+    "key": "food:124",
+    "resourceId": "F_carton_small",
+    "family": "drink",
+    "foodType": "carton-small"
+  }
+]

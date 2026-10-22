@@ -1,0 +1,111 @@
+{
+  "model": "maki-roe",
+  "name": "Maki de huevas",
+  "drink": false,
+  "id": "F_maki_roe",
+  "key": "food:60",
+  "resourceId": "F_maki_roe",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_maki_roe",
+  "minimum": [
+    -0.059596143662929535,
+    0.0,
+    -0.05196152999997139
+  ],
+  "maximum": [
+    0.059596143662929535,
+    0.09000000357627869,
+    0.05196152999997139
+  ],
+  "triangles": 332,
+  "materials": [
+    {
+      "name": "Food_prepared_62_46_45",
+      "colour": [
+        0.04817182422688942,
+        0.027320891639074894,
+        0.026241221894849898,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_81_65_61",
+      "colour": [
+        0.0822827071298148,
+        0.052860647023180246,
+        0.046665086336880095,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_146_68",
+      "colour": [
+        1.0,
+        0.2874408377269175,
+        0.05780543019106723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_150_68",
+      "colour": [
+        1.0,
+        0.3049873140698863,
+        0.05780543019106723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_155_68",
+      "colour": [
+        1.0,
+        0.3277780980565422,
+        0.05780543019106723,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_maki_roe_LOD1",
+      "triangles": 138
+    }
+  ],
+  "removedDuplicateFaces": 56,
+  "sourceSha256": "53be3a816bdb74c44e144b21e6662bba8e285d16553dfdd96ece7a983724fac2",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "maki-roe"
+}

@@ -1,0 +1,2566 @@
+{
+  "F_advocado_half.json": {
+    "bytes": 7392,
+    "sha256": "e864eb251a43fae700f70b828e9dfdf1a7f77f75c033f25e7438b8000c3c0b0d"
+  },
+  "F_apple.json": {
+    "bytes": 4470,
+    "sha256": "e3c7227e4f8c64e6256da37ba45dcf6b5db016715c90a30c0992cf1eb44bde60"
+  },
+  "F_apple_half.json": {
+    "bytes": 6960,
+    "sha256": "05f857147cb4c1be104fefa7a705a05f30c4a5514e49d02dfa8f216610c4e1f9"
+  },
+  "F_avocado.json": {
+    "bytes": 2435,
+    "sha256": "edd2d8baac0d1a43eec5ac573a4fc8bf4195c53eb02314273f3c2ac9d868ac7a"
+  },
+  "F_banana.json": {
+    "bytes": 6439,
+    "sha256": "72e0422d0b88f2bfb6035237c996e25203f9e79c23799e38a6bf76cb38abc5b7"
+  },
+  "F_beet.json": {
+    "bytes": 4060,
+    "sha256": "20daac7a6c65d11a2eb2eadb5f556a2a4130fc886cfc4fd4b2bd6db3b5401b2b"
+  },
+  "F_bowl_broth.json": {
+    "bytes": 9059,
+    "sha256": "4c242bec049c0080138883ed9cb1b1765503a8492a81edcb604a2245274c9876"
+  },
+  "F_bowl_cereal.json": {
+    "bytes": 7009,
+    "sha256": "c22f94c6b9d6b2683bcbd276b0ea17d2517ae7edf0b03bfe9fc17745ae9e00f4"
+  },
+  "F_bowl_soup.json": {
+    "bytes": 6159,
+    "sha256": "de75962ff39059c620065422765655445ad14b64f89120939e0ca7552e99a4ad"
+  },
+  "F_bread.json": {
+    "bytes": 2432,
+    "sha256": "89a89e9d25d0edbedc91abbe36065eec3f34db3c27ced3a12bf9c9fa986fb06d"
+  },
+  "F_broccoli.json": {
+    "bytes": 5318,
+    "sha256": "a0889cbbd74778c3b51e4f87ef509a7a1ddd2fe0b13a4aa6ff27aedd6c37b7e0"
+  },
+  "F_burger.json": {
+    "bytes": 6576,
+    "sha256": "174b4083e59d7839a97c240156bb3e8a03f4ab6076773fec20c9cfc28cc99981"
+  },
+  "F_burger_cheese.json": {
+    "bytes": 4139,
+    "sha256": "bd4089fdd18610fea95de6606fe0c24eb7dd42e50bc05e706070579bfe5e5aaf"
+  },
+  "F_burger_cheese_double.json": {
+    "bytes": 4187,
+    "sha256": "d60b81541440dbbaffff74ae7aa10e2e1c6297b8b54e34ba816452be7631661b"
+  },
+  "F_burger_double.json": {
+    "bytes": 6624,
+    "sha256": "69cda6f966065ae987d3e75bfa1192bc53cb17cdf2ce0f344df7f3b0094dcb64"
+  },
+  "F_cabbage.json": {
+    "bytes": 4914,
+    "sha256": "9bbd41d93777a07fb1690f67ec3d912c71eed8e472250e68c46294d5be719b0f"
+  },
+  "F_cake.json": {
+    "bytes": 10915,
+    "sha256": "0259973ca9aaa4eec41ae922cff71e48b94e9859f02a71958a348fc15545ffbe"
+  },
+  "F_cake_birthday.json": {
+    "bytes": 8940,
+    "sha256": "ec44a775cf9410fab63c221404df3d8ddc5e249659acf64f52c737a8e5536c2d"
+  },
+  "F_candy_bar.json": {
+    "bytes": 2064,
+    "sha256": "4b967835a9831b76f350aa5ff167c19ee144392b3ee0779740caa1ec7fd7f46d"
+  },
+  "F_carrot.json": {
+    "bytes": 4046,
+    "sha256": "eae68c185546fc08931f8ef31c670055882061404858a6c501d3d125e9bc8057"
+  },
+  "F_carton_small.json": {
+    "bytes": 5646,
+    "sha256": "ae615b9c97a5566a151131ca325db34925a5e051b79db44309bf97b0388b2500"
+  },
+  "F_cauliflower.json": {
+    "bytes": 6170,
+    "sha256": "9775c4702f704d4e7b059dd389283b0fc1b1de7040ccf92c314eb8d86aa3ecd0"
+  },
+  "F_celery_stick.json": {
+    "bytes": 2468,
+    "sha256": "d1a485ad5fa62840613e9a8ddd776defb7909b5c046bf1d080db6c012521c266"
+  },
+  "F_cheese.json": {
+    "bytes": 6088,
+    "sha256": "e5b828ba0f211027f16b0b3410935a8abe878c44f3689b5eb296233fce5f000b"
+  },
+  "F_cheese_cut.json": {
+    "bytes": 2464,
+    "sha256": "c89bce9f69159061ff32be1c91968e4db419682e47cd0bda7db9cd0bacea50a4"
+  },
+  "F_cherries.json": {
+    "bytes": 4902,
+    "sha256": "80a6cc5dba4b3e6307d4b4e9332718742db45335ee72d95a649e396645b15f54"
+  },
+  "F_chinese.json": {
+    "bytes": 7826,
+    "sha256": "d16b5a31c52fd0b3a5abbe28bf44f626e7a54fbd42593a3c65a3982481367466"
+  },
+  "F_chocolate.json": {
+    "bytes": 2057,
+    "sha256": "09c6af2eba9c2a9b77e97daa68ca253a0b5760e1f0cfff1851f50cb94214c310"
+  },
+  "F_coconut.json": {
+    "bytes": 2841,
+    "sha256": "33ee9adae5fea3dd452ec3e0c03d6acf41ffffbf1ff2d915d93360e3fc50d94a"
+  },
+  "F_coconut_half.json": {
+    "bytes": 2871,
+    "sha256": "717011ede708d787c2ae0b2259701f004da7a715a2a60e9a7980ca124006883c"
+  },
+  "F_cookie.json": {
+    "bytes": 2834,
+    "sha256": "b6e46f2b7e9a9f3c3c9c26d776792694752cb9a0b6faffb53990f36cc8b128f5"
+  },
+  "F_cookie_chocolate.json": {
+    "bytes": 3301,
+    "sha256": "953df2e77e851fde36995762c27f0a21a0d1f13dd9a638e74736127ccb41d335"
+  },
+  "F_corn.json": {
+    "bytes": 5652,
+    "sha256": "206dafc21be2c4a77a1a775a2b58b2c6d2ac6b8cd8e4315e5a294f695262a306"
+  },
+  "F_corn_dog.json": {
+    "bytes": 3739,
+    "sha256": "6e36fee3844b6cf9ec7f4afacf89e420303aedd1800239e8294197418f4467eb"
+  },
+  "F_croissant.json": {
+    "bytes": 4073,
+    "sha256": "26b36ebc8645d6e217abae0ae57085c24b4a890b70c52dad52e528b63f3b7d87"
+  },
+  "F_cup_coffee.json": {
+    "bytes": 4838,
+    "sha256": "673950f1ddafae1b06051a58e91af57f485ded3b373bf3d844a46e3987d1987f"
+  },
+  "F_cup_tea.json": {
+    "bytes": 7620,
+    "sha256": "1dad7fa553a9e88ded16cf1e227b2630ef03ffaed5df349a8e9d6bc29be9a2ef"
+  },
+  "F_cupcake.json": {
+    "bytes": 7276,
+    "sha256": "e1b174dbb1025e983c87fc974035cd7a99c232dcef316b4fadc5e5b5c5b4148e"
+  },
+  "F_dim_sum.json": {
+    "bytes": 3697,
+    "sha256": "e3f657f12f21eb07f8dc1b33bb46c215fa4abaa4e9d22f828f99d8c90132f2f9"
+  },
+  "F_donut.json": {
+    "bytes": 3228,
+    "sha256": "baae468d0358eed6079bea3405569dfdbd2d41fe7e9af54ca358ee45633f86ff"
+  },
+  "F_donut_chocolate.json": {
+    "bytes": 4910,
+    "sha256": "25b3b94ac9384f9d66c68574f09ce297493e99e5850ddc3b24c1f9fd1514f6ab"
+  },
+  "F_donut_sprinkles.json": {
+    "bytes": 7281,
+    "sha256": "1a74dd264e89d741233e6fab70c74275b7d449a9bb195026162d40f67a4b1e16"
+  },
+  "F_egg_cooked.json": {
+    "bytes": 1985,
+    "sha256": "c0d728adf1cb1d7b6fd7ba0640600b7aaf6f9349e8cdf5f2b5a2e91e6cda04bb"
+  },
+  "F_egg_half.json": {
+    "bytes": 3230,
+    "sha256": "68df27a07c7dfae1cdede2c05615152618d02c6291f09d33bfdcdaf5a42dc51f"
+  },
+  "F_eggplant.json": {
+    "bytes": 6977,
+    "sha256": "c4435ff3b788b7ad9e855e05a308da021fc2131b0dd2b9cc6a37ed6be032f18c"
+  },
+  "F_fish.json": {
+    "bytes": 8674,
+    "sha256": "e0898347732b616d0ab12dbac5eb4a5db2661667a749632fc8703445f6c0e4dc"
+  },
+  "F_frappe.json": {
+    "bytes": 5611,
+    "sha256": "f095d5a57b5ab0af83150fe006c4fc71a7df45dc8be7c506584b55436a50caaa"
+  },
+  "F_fries.json": {
+    "bytes": 6415,
+    "sha256": "7cb12887e53497d536c3def2b651f7810d55e47b5f21f39a9050f8aa38671685"
+  },
+  "F_frikandel_speciaal.json": {
+    "bytes": 5834,
+    "sha256": "46479606e31f8893114f6f4e94a81d5ecfc7578c707b0f4571cc7d1009687d75"
+  },
+  "F_ginger_bread.json": {
+    "bytes": 2009,
+    "sha256": "d2a35ddc29a4d7ca220d498c41c2ebed88c28618a6e1fc59d3b20a9a977529d8"
+  },
+  "F_grapes.json": {
+    "bytes": 9408,
+    "sha256": "4b11d87873f531350773df28cfe0fdde13a1e8396db3c52146debf371f60982d"
+  },
+  "F_honey.json": {
+    "bytes": 5301,
+    "sha256": "31a9811383a379f5c70cf37196b67c0c793e76e2050410e2dc1c7b8b45639816"
+  },
+  "F_hot_dog.json": {
+    "bytes": 7387,
+    "sha256": "23a10f39fde0f5dfbecc51c4221d6e2bbbd26a9874164d71088f6254c4bf3f27"
+  },
+  "F_ice_cream.json": {
+    "bytes": 3709,
+    "sha256": "10fd1a716ff374f62e48ae77e53fdc59c6c169c8c71d435224f7576696d18790"
+  },
+  "F_ice_cream_cup.json": {
+    "bytes": 2911,
+    "sha256": "c314f4a047d1924ea095240c853d11b2aaeddee3151bf27590f21a2a4a0d501f"
+  },
+  "F_ice_cream_scoop_chocolate.json": {
+    "bytes": 4646,
+    "sha256": "635f56a9b026040623750f45b98ac7fb84cdbf0139fdde15c74c66a246ba56a8"
+  },
+  "F_ice_cream_scoop_mint.json": {
+    "bytes": 2962,
+    "sha256": "7f44310d5eed8dce11a3cd39efe50bbdcfb6ce02ccd3576e9c32248488a8658c"
+  },
+  "F_leek.json": {
+    "bytes": 4877,
+    "sha256": "a225990516346ecac28eeb4b7689c3d10da2b34fa6cb5821175d6ca8aa61e9a1"
+  },
+  "F_lemon.json": {
+    "bytes": 5152,
+    "sha256": "cb59c2ac442503df654d4cfc192c9907d1fab556b7884e1e68a89bf95443beca"
+  },
+  "F_lemon_half.json": {
+    "bytes": 4000,
+    "sha256": "36839a4c6c00928fc9c749bc5ffdc2b3b9982649605e43ca59d4b0ed39e061e6"
+  },
+  "F_loaf.json": {
+    "bytes": 5666,
+    "sha256": "f8a736140f09c884487442167b2e79d1014c9e4cd30cd03832cc18f830e9ea43"
+  },
+  "F_loaf_baguette.json": {
+    "bytes": 4889,
+    "sha256": "7c4cc66d4eb738d582eb06dbfb47ad532944cf2b6919bdb3b9fd60f22ef4d31d"
+  },
+  "F_loaf_round.json": {
+    "bytes": 3661,
+    "sha256": "853607b62a8f94136a67c31cf52ea7afb68e278ad17893f8d2a03fbc58f3ccbb"
+  },
+  "F_lollypop.json": {
+    "bytes": 6617,
+    "sha256": "6be61e980a7bd5002eccc60bee5077ca32d75f67c8727baea36147290799932d"
+  },
+  "F_maki_roe.json": {
+    "bytes": 2837,
+    "sha256": "00d7bfcbcb49ea5acc5325cfff8d109f255bd2bb28aa3a3ebeda52a6de8fc3d1"
+  },
+  "F_maki_salmon.json": {
+    "bytes": 2841,
+    "sha256": "b8bfdc75e7a3fe7887b82dfa33afeea2283218ae8ec183fe0e040f873e05ad02"
+  },
+  "F_maki_vegetable.json": {
+    "bytes": 3319,
+    "sha256": "9525672f46ce9516a6d0369afdafd048887c8e355006d5d0844d59f8bee3c73b"
+  },
+  "F_meat_cooked.json": {
+    "bytes": 3314,
+    "sha256": "a79697eaed9a79396f3eed80b235c403d18360dad7a879e140ccd46828252000"
+  },
+  "F_meat_patty.json": {
+    "bytes": 2482,
+    "sha256": "f5119bcdf7b8d4772c51a0e98790ad370b6309d2943e97e2b48da7168ba4cec9"
+  },
+  "F_meat_ribs.json": {
+    "bytes": 3727,
+    "sha256": "65b447d0f77324d94f17b1659d621b54078ee49472a3c4b1bf359d64b0151f20"
+  },
+  "F_meat_sausage.json": {
+    "bytes": 4154,
+    "sha256": "aa910ccc17cf90e55d830865fbc3f962bf110859244cac2d4bbed83116632594"
+  },
+  "F_mincemeat_pie.json": {
+    "bytes": 4083,
+    "sha256": "8ad62a9a8a5e7aa643a6ad4b9e2cf2f4f76245b5412ce05bb226ad39f6a81528"
+  },
+  "F_muffin.json": {
+    "bytes": 3637,
+    "sha256": "5dadc1344ef1d8a3387cf5df3c57d3737c71f34c0e8a49ff0500b28211dc815d"
+  },
+  "F_mushroom.json": {
+    "bytes": 3271,
+    "sha256": "13c3cfb254a9df2e7ac5f73bf41449973142e433d89c77764f0c6350d902f9b0"
+  },
+  "F_mushroom_half.json": {
+    "bytes": 4936,
+    "sha256": "8bbaa503124527c1d832541d40f1863244354b4364f15571644e298ea057724c"
+  },
+  "F_mussel.json": {
+    "bytes": 2035,
+    "sha256": "c0f967f2698a881c7384d171cbadb647dca9f88eaf10389c541fff9371ab88c8"
+  },
+  "F_mussel_open.json": {
+    "bytes": 4135,
+    "sha256": "819f8e12ca9045e1f6b5a94b15df791be0ad71bf8f6636cbc913591221fefd2b"
+  },
+  "F_onion.json": {
+    "bytes": 3229,
+    "sha256": "4d7a176bb01894e9aa9800f4a2541090e9d86b555b3c52ecb9048042bb53aa23"
+  },
+  "F_onion_half.json": {
+    "bytes": 4904,
+    "sha256": "cde7f971c573a2d1ff8ced7fd5a88d23ffe0e80e80b597b4db6579678d7830de"
+  },
+  "F_orange.json": {
+    "bytes": 3992,
+    "sha256": "c5cb45882926dfeaf6ac4223147690463be53cea4b4f51a1db58c830148fb4ea"
+  },
+  "F_pan_stew.json": {
+    "bytes": 6178,
+    "sha256": "f5c908eeb7a91aa454b1076ed00e9c0ff47c4d365cfee426458cf159c2247970"
+  },
+  "F_pancakes.json": {
+    "bytes": 5259,
+    "sha256": "b79c294cf4bbea6c7923210b76160de01eb2fb03b24de0c52477d01851b8e975"
+  },
+  "F_paprika.json": {
+    "bytes": 4916,
+    "sha256": "1d855231763ed7d7069801d24d8495e2358ad62ea066eae04a93011046834e30"
+  },
+  "F_paprika_slice.json": {
+    "bytes": 1657,
+    "sha256": "886936b3795836acae0a89bc49cfe0c66b25ddbeb702016c642061827fd1c000"
+  },
+  "F_peanut_butter.json": {
+    "bytes": 5400,
+    "sha256": "74d06b26f8142b48fc1e1c57126a954967cb304bf1353d949201a027781bd4e7"
+  },
+  "F_pear.json": {
+    "bytes": 4875,
+    "sha256": "c7f32037fc639406e4e16e2de3a505027bbb9ade647b95bb0f3a1bf610e49eb9"
+  },
+  "F_pear_half.json": {
+    "bytes": 7773,
+    "sha256": "1ba896416d3ee3a4badbe55fd461f61d558197fc051c21394695e41ba0621f5d"
+  },
+  "F_pepper.json": {
+    "bytes": 6933,
+    "sha256": "f86fb7cb5c47cc30c93fbe39777fabcc8b1103f63523f037576423f9d73200ce"
+  },
+  "F_pie.json": {
+    "bytes": 3621,
+    "sha256": "31162ae33815029377ba6a859a547aff0a68c2f7c95ee8968e4cbaf105636258"
+  },
+  "F_pineapple.json": {
+    "bytes": 5653,
+    "sha256": "b2d58bfb16f29925c97688ca203a6fecb5271909d6e0e7d03e5f326783dd8864"
+  },
+  "F_pizza.json": {
+    "bytes": 5739,
+    "sha256": "2b058217cbe6abb56f87dbe84ea47f386e269b0b7c4d4039c90ae996ba2d10f8"
+  },
+  "F_plate_sauerkraut.json": {
+    "bytes": 7057,
+    "sha256": "c22fd7c1870355475f31082a94abc67c0ea984d6c19769f33a722ca8b733ec1d"
+  },
+  "F_popsicle.json": {
+    "bytes": 4459,
+    "sha256": "ee379f14c40393b50dba9c18f5e315f3687ff6527f606fff7b1e64c12aaf289c"
+  },
+  "F_popsicle_chocolate.json": {
+    "bytes": 5842,
+    "sha256": "9f346967b2bda0ad5982dea2906a40dd77dcaf7b1de9d1d3533e79dee800840c"
+  },
+  "F_pot_stew.json": {
+    "bytes": 5724,
+    "sha256": "6c27926d67107fc0fda5329565fb9a83d11fe74338a8dd2bc2f0155fe27570e9"
+  },
+  "F_pudding.json": {
+    "bytes": 3281,
+    "sha256": "0b43db33b842d2b04e41cd92e671185dda24542c390ba5ca60dd8444b50d2d7a"
+  },
+  "F_pumpkin.json": {
+    "bytes": 5199,
+    "sha256": "5956fdcc5b9302f5a2dd4433400d52518f8f0a08de25672101e851b2dc0069f7"
+  },
+  "F_pumpkin_basic.json": {
+    "bytes": 3237,
+    "sha256": "03f48bba9fcb9176a9ea9e06fd9909155590d3893edbbaa8e41af35892608da8"
+  },
+  "F_radish.json": {
+    "bytes": 6112,
+    "sha256": "6a583802e279490d1f25466318f0b582f3d104127eb9e8900e33aa5acf5249a0"
+  },
+  "F_rice_ball.json": {
+    "bytes": 6184,
+    "sha256": "0ab4466469d7b127b734da4d01e2d0d8f9699f03c89b4e5dd858a34d989cec41"
+  },
+  "F_salad.json": {
+    "bytes": 5341,
+    "sha256": "2e2c2ffcdd873cde1f9e4d5286d4801e9e1ab8c93ee1ba75fc4a440271f09ea2"
+  },
+  "F_sandwich.json": {
+    "bytes": 3699,
+    "sha256": "d319f681f582fd9da900bdefb838a54c5f5ed397c16abb592888aee4070859d9"
+  },
+  "F_sausage.json": {
+    "bytes": 4131,
+    "sha256": "32953afd4cc9600bf272c36d8f0823329f19ed27c94ccd67c05778a1d347aec2"
+  },
+  "F_sausage_half.json": {
+    "bytes": 7885,
+    "sha256": "13966a2a899a423cd8bfed08980894ce1ce7a8fa6f75ef50eb739233ff369878"
+  },
+  "F_skewer.json": {
+    "bytes": 3718,
+    "sha256": "c8eb9d327f9d45310dc35a197c8ac787f308ceb2174310feb355e331f67ba8ad"
+  },
+  "F_skewer_vegetables.json": {
+    "bytes": 7096,
+    "sha256": "0604a1948ff660a2e2466fe115ef3f789df83b987f8e829a0e5a03168bf6cd9f"
+  },
+  "F_soda.json": {
+    "bytes": 3587,
+    "sha256": "658a17fc94cc1a762919904eaa14712095eb5452ad4cd757a3674569d95d9fd6"
+  },
+  "F_soda_bottle.json": {
+    "bytes": 5251,
+    "sha256": "fd414098d7b909b9a9586646ec4652315d6655fbf2e3d58a66e90023925bc5d6"
+  },
+  "F_soda_can.json": {
+    "bytes": 5229,
+    "sha256": "12358b0592f10700ffdd66cd143c639d9f9f0ef680e4fde89611fe5bdf323e0e"
+  },
+  "F_soda_glass.json": {
+    "bytes": 6773,
+    "sha256": "7952949fa23155fc493e0e971f22c9eef11a30799d6216cb6c969320cb7818d0"
+  },
+  "F_strawberry.json": {
+    "bytes": 4907,
+    "sha256": "a7c4f54cb82a8462fd53dd4304177630ca11515ae73a16721c04118b24235acd"
+  },
+  "F_styrofoam_dinner.json": {
+    "bytes": 6658,
+    "sha256": "195d9714ce5d50d7a926d90a64a8d56d807f606674d42ed3929171e48e448cdd"
+  },
+  "F_sub.json": {
+    "bytes": 6571,
+    "sha256": "3da1a21c73a8784927f819623f0a808f894dbacd3d302048833e7873be9ba4ab"
+  },
+  "F_sundae.json": {
+    "bytes": 12366,
+    "sha256": "525b8cc34cbf7bbb0682ce1cb1399d5c51d0d50bd9bd356c7375b8e5666b0b71"
+  },
+  "F_sushi_egg.json": {
+    "bytes": 4119,
+    "sha256": "415b8e2a8c54658585cbc61c6edacd55c480d568da8b991a2f9059cd29cebe2c"
+  },
+  "F_sushi_salmon.json": {
+    "bytes": 3688,
+    "sha256": "6a3d0f59f262d828a9720ec19a15bec02d3a16cbf5d0f804fa960e31909fa6d6"
+  },
+  "F_taco.json": {
+    "bytes": 13500,
+    "sha256": "a5b8ffa4fe850f5471134f041c762eed4eb825a83c3ad45ca8530ef31af2078e"
+  },
+  "F_tomato.json": {
+    "bytes": 4067,
+    "sha256": "237aad9a12e02f2081a8695783ff6860fdbf4a3a383eff51717ca7b3f88720f3"
+  },
+  "F_tomato_slice.json": {
+    "bytes": 2880,
+    "sha256": "91aff987e3b1ee01bb32b39e5149618bc538ccc46bff5540bde3d8bbc278f905"
+  },
+  "F_turkey.json": {
+    "bytes": 8264,
+    "sha256": "d6d1f906c4128cf566a1b5934757863c5af738205024830ec5122f6cb167ede9"
+  },
+  "F_waffle.json": {
+    "bytes": 3249,
+    "sha256": "3c5e44f2dd4c7d697d984814c2cf2f3cf5affb562d89e9d4cfd4ec5fc11d526d"
+  },
+  "F_watermelon.json": {
+    "bytes": 17896,
+    "sha256": "2c64697c1588978da88aadd5f246e25cace0b4719e2586e1a48712c276b26f48"
+  },
+  "F_whipped_cream.json": {
+    "bytes": 2906,
+    "sha256": "82993a0e3b9d04ed02d4879bfe7f58c2ba18eda64cbbde36e9ed319b70cd15d8"
+  },
+  "F_whole_ham.json": {
+    "bytes": 10287,
+    "sha256": "15f5d4b23bc4d323a6309f9065f6baef19523b901296c1ba916ab9d48f86ef39"
+  },
+  "F_wholer_ham.json": {
+    "bytes": 7051,
+    "sha256": "b6f3a63f57f423825451f9f1fbfb955e2477a1dd1e1c3cac1609f214d36e465f"
+  },
+  "Licenses/Kenney_License.txt": {
+    "bytes": 711,
+    "sha256": "32a081c2035dd4db47d850c83244da048165f0e53d71c076b76c1afc0590bc7f"
+  },
+  "Licenses/NOTICE.txt": {
+    "bytes": 359,
+    "sha256": "feb5fed7c0f280090048b76fbf0fa279b12e50d83eea0299de618e0807e601e7"
+  },
+  "Models/F_advocado_half.mtl": {
+    "bytes": 641,
+    "sha256": "abd501dfab5e8d98bad80e2bea7bcc1c29daf644fdf3aece795f51ce37620a28"
+  },
+  "Models/F_advocado_half.obj": {
+    "bytes": 98431,
+    "sha256": "41107a5239bd561d29816d7f64668237b7af047d01fbed5cecf3d7cf28ddecde"
+  },
+  "Models/F_advocado_half_LOD1.mtl": {
+    "bytes": 641,
+    "sha256": "abd501dfab5e8d98bad80e2bea7bcc1c29daf644fdf3aece795f51ce37620a28"
+  },
+  "Models/F_advocado_half_LOD1.obj": {
+    "bytes": 42186,
+    "sha256": "24483dcb02a03e66ba9c61475c94a99cadd133c0fabff0691af9a3b5017f37b8"
+  },
+  "Models/F_apple.mtl": {
+    "bytes": 366,
+    "sha256": "61be0e6b13d3a2461c492edaa1d9a9fa5a09fd79673c8dffbd0dad3706def1d1"
+  },
+  "Models/F_apple.obj": {
+    "bytes": 132035,
+    "sha256": "b4245b21a56aa925344069d4c9c5b578e3dfa462547e8f795c95b551b69fb360"
+  },
+  "Models/F_apple_LOD1.mtl": {
+    "bytes": 366,
+    "sha256": "61be0e6b13d3a2461c492edaa1d9a9fa5a09fd79673c8dffbd0dad3706def1d1"
+  },
+  "Models/F_apple_LOD1.obj": {
+    "bytes": 56548,
+    "sha256": "4f2a1bf78dfd77149d544790453ae4a08ecfdbab955f819f739f280acdb867e7"
+  },
+  "Models/F_apple_half.mtl": {
+    "bytes": 617,
+    "sha256": "ac1fdde394a830b0e77507b1a8e87e355e27301b6cc26a07de6ad66dcbf2f7da"
+  },
+  "Models/F_apple_half.obj": {
+    "bytes": 94162,
+    "sha256": "14d0204f41334a14bcb3104662b40d537d9736de71415fe3ef09d8d60c302e66"
+  },
+  "Models/F_apple_half_LOD1.mtl": {
+    "bytes": 617,
+    "sha256": "ac1fdde394a830b0e77507b1a8e87e355e27301b6cc26a07de6ad66dcbf2f7da"
+  },
+  "Models/F_apple_half_LOD1.obj": {
+    "bytes": 41372,
+    "sha256": "43ad1e1bfabf32e0671edae575cdddcce12dab048a59fc8d1a4936be1fa82cef"
+  },
+  "Models/F_avocado.mtl": {
+    "bytes": 155,
+    "sha256": "1a84251433b140882b1bd874190fcea5230e2d23e75d3b5fc83ae2c0547f7096"
+  },
+  "Models/F_avocado.obj": {
+    "bytes": 60623,
+    "sha256": "cebbe7a048f9b71cef0ab29d9f510b2a1c95fd57f58dcac6db4e943895480e1e"
+  },
+  "Models/F_avocado_LOD1.mtl": {
+    "bytes": 155,
+    "sha256": "1a84251433b140882b1bd874190fcea5230e2d23e75d3b5fc83ae2c0547f7096"
+  },
+  "Models/F_avocado_LOD1.obj": {
+    "bytes": 25690,
+    "sha256": "9c197c94f4ae958bda2304b67eefd362e6e9f4b15f1d33c3dce8ac4bd523d406"
+  },
+  "Models/F_banana.mtl": {
+    "bytes": 566,
+    "sha256": "45efe731140c441b1125db309c56c96676b64de3839afd0ef153323eb24fb9b1"
+  },
+  "Models/F_banana.obj": {
+    "bytes": 107332,
+    "sha256": "6d9bb87b3fc07ae4f194cd260a95acda6430c422474428a54116087789d2a6af"
+  },
+  "Models/F_banana_LOD1.mtl": {
+    "bytes": 566,
+    "sha256": "45efe731140c441b1125db309c56c96676b64de3839afd0ef153323eb24fb9b1"
+  },
+  "Models/F_banana_LOD1.obj": {
+    "bytes": 46354,
+    "sha256": "383f04a9aee4f06288ca2875071577778437cf485a2a28fb77fe185de3e984b8"
+  },
+  "Models/F_beet.mtl": {
+    "bytes": 331,
+    "sha256": "f3f230a1b8f17a740eb0396b02f18e0d0464212c71bd74015413ae267ca55605"
+  },
+  "Models/F_beet.obj": {
+    "bytes": 137640,
+    "sha256": "20c9e05f236879c6aa7224f59bb567bc39b222690149a4867710d8621bd18b06"
+  },
+  "Models/F_beet_LOD1.mtl": {
+    "bytes": 331,
+    "sha256": "f3f230a1b8f17a740eb0396b02f18e0d0464212c71bd74015413ae267ca55605"
+  },
+  "Models/F_beet_LOD1.obj": {
+    "bytes": 57279,
+    "sha256": "1673f5d389787cf07d95f51e4c73380df318638b7b357f6c49055dc35e556578"
+  },
+  "Models/F_bowl_broth.mtl": {
+    "bytes": 852,
+    "sha256": "f8a3d049999c51ebccba20622017da6ac653304c46f83c0876c80674d3127305"
+  },
+  "Models/F_bowl_broth.obj": {
+    "bytes": 248421,
+    "sha256": "bbebc8d39e7019c62c2fcce7bd732a6d9977eeec73f5783b3126f01de4e0e206"
+  },
+  "Models/F_bowl_broth_LOD1.mtl": {
+    "bytes": 852,
+    "sha256": "f8a3d049999c51ebccba20622017da6ac653304c46f83c0876c80674d3127305"
+  },
+  "Models/F_bowl_broth_LOD1.obj": {
+    "bytes": 107353,
+    "sha256": "be9d4f11082d88682a2f3c0002659972c253d80922c43f13c3d0fe5f2ca4736c"
+  },
+  "Models/F_bowl_cereal.mtl": {
+    "bytes": 640,
+    "sha256": "5f878159bc3bbf2dcc2e22a11c3135e7fec101b63cf98eb39b9ccaed49f650e0"
+  },
+  "Models/F_bowl_cereal.obj": {
+    "bytes": 122067,
+    "sha256": "7814d696408521eb44eaac5aaff59e16da92f3c641c95031d401ab5f2c86a8ce"
+  },
+  "Models/F_bowl_cereal_LOD1.mtl": {
+    "bytes": 640,
+    "sha256": "5f878159bc3bbf2dcc2e22a11c3135e7fec101b63cf98eb39b9ccaed49f650e0"
+  },
+  "Models/F_bowl_cereal_LOD1.obj": {
+    "bytes": 52202,
+    "sha256": "3dd06861578ae55eacfad7cde468ed3c8987bfc7ef905c97fec220bb01d6444d"
+  },
+  "Models/F_bowl_soup.mtl": {
+    "bytes": 552,
+    "sha256": "5133256c5cb5db8896c6bf34c8671fa70b6782ca4377946fb3e9a1b997d5da99"
+  },
+  "Models/F_bowl_soup.obj": {
+    "bytes": 168503,
+    "sha256": "ddf43d60d21c91af6de239ed11b62ac0562aec1e872aacc8d44e9daa42e19dfd"
+  },
+  "Models/F_bowl_soup_LOD1.mtl": {
+    "bytes": 552,
+    "sha256": "5133256c5cb5db8896c6bf34c8671fa70b6782ca4377946fb3e9a1b997d5da99"
+  },
+  "Models/F_bowl_soup_LOD1.obj": {
+    "bytes": 71638,
+    "sha256": "4003b6a3f8325e65ef6e0cabc50426b91fa3bb1ac42b27f5853389b226ebd916"
+  },
+  "Models/F_bread.mtl": {
+    "bytes": 161,
+    "sha256": "ec44e113c087b526d42ac0052b0e624b42f462a58f9ac7b8be3f29460dcaca63"
+  },
+  "Models/F_bread.obj": {
+    "bytes": 55743,
+    "sha256": "87461252a17391fe951f3472c08ba0539311471d75914cfea1cb22d0d3fa3f4d"
+  },
+  "Models/F_bread_LOD1.mtl": {
+    "bytes": 161,
+    "sha256": "ec44e113c087b526d42ac0052b0e624b42f462a58f9ac7b8be3f29460dcaca63"
+  },
+  "Models/F_bread_LOD1.obj": {
+    "bytes": 18773,
+    "sha256": "6d935db714fc80db8a1fc0da6a3765389e1bbeb159fcf70663a576ca46eecd9e"
+  },
+  "Models/F_broccoli.mtl": {
+    "bytes": 450,
+    "sha256": "86568a88b0d3458e239562c2a132e674cdb8b5817cc400c3ff454f6551441e7d"
+  },
+  "Models/F_broccoli.obj": {
+    "bytes": 397165,
+    "sha256": "1307415377ca0ece28f03384c5197a9bdac5727bd9c10515db6f8090bf0caa2c"
+  },
+  "Models/F_broccoli_LOD1.mtl": {
+    "bytes": 450,
+    "sha256": "86568a88b0d3458e239562c2a132e674cdb8b5817cc400c3ff454f6551441e7d"
+  },
+  "Models/F_broccoli_LOD1.obj": {
+    "bytes": 171707,
+    "sha256": "7f04250ffd1665378aa524b9d91f49b303f8f3795e5aaf34fc31aa7bcbeabc3d"
+  },
+  "Models/F_burger.mtl": {
+    "bytes": 585,
+    "sha256": "f64cecdb3eed15522b1a061201f60cfefe0f921fba72fc035c67ee15d6738cd8"
+  },
+  "Models/F_burger.obj": {
+    "bytes": 186985,
+    "sha256": "ce24e282a5794bc7af96ee13c53f27952a891a2219756f06d0bb435950b56190"
+  },
+  "Models/F_burger_LOD1.mtl": {
+    "bytes": 585,
+    "sha256": "f64cecdb3eed15522b1a061201f60cfefe0f921fba72fc035c67ee15d6738cd8"
+  },
+  "Models/F_burger_LOD1.obj": {
+    "bytes": 73620,
+    "sha256": "a531f383281ffcb1d490022354437f6ce61a90f0be213ee48cbd1db6854ded7c"
+  },
+  "Models/F_burger_cheese.mtl": {
+    "bytes": 335,
+    "sha256": "61cfcf3bf52d498e5b6b82b8728753005f8c66c4f2f8a5b9d39d494e486422ba"
+  },
+  "Models/F_burger_cheese.obj": {
+    "bytes": 137202,
+    "sha256": "d89ef31b4beddf489487938f8c7d7310dea3dce099e496dbe1ee4938b4ca9ca8"
+  },
+  "Models/F_burger_cheese_LOD1.mtl": {
+    "bytes": 335,
+    "sha256": "61cfcf3bf52d498e5b6b82b8728753005f8c66c4f2f8a5b9d39d494e486422ba"
+  },
+  "Models/F_burger_cheese_LOD1.obj": {
+    "bytes": 50852,
+    "sha256": "bee8f4614a233a09dde7499aeeaee77840556817478ec1c85ad8320932308e6f"
+  },
+  "Models/F_burger_cheese_double.mtl": {
+    "bytes": 335,
+    "sha256": "61cfcf3bf52d498e5b6b82b8728753005f8c66c4f2f8a5b9d39d494e486422ba"
+  },
+  "Models/F_burger_cheese_double.obj": {
+    "bytes": 217525,
+    "sha256": "ac3aa01f37bb6c7fde03f911745c5a4d4364054deab5b1f3d6ec5d545b1d7b30"
+  },
+  "Models/F_burger_cheese_double_LOD1.mtl": {
+    "bytes": 335,
+    "sha256": "61cfcf3bf52d498e5b6b82b8728753005f8c66c4f2f8a5b9d39d494e486422ba"
+  },
+  "Models/F_burger_cheese_double_LOD1.obj": {
+    "bytes": 81242,
+    "sha256": "1b6d6fe9bd0afc25e7b420adaf930234be17dedf6a3f021bd881d962afdf1676"
+  },
+  "Models/F_burger_double.mtl": {
+    "bytes": 585,
+    "sha256": "f64cecdb3eed15522b1a061201f60cfefe0f921fba72fc035c67ee15d6738cd8"
+  },
+  "Models/F_burger_double.obj": {
+    "bytes": 238237,
+    "sha256": "8b30cd9aa0f4863fad408fcb3806add81f307e2c09c8490055b458a371f95be3"
+  },
+  "Models/F_burger_double_LOD1.mtl": {
+    "bytes": 585,
+    "sha256": "f64cecdb3eed15522b1a061201f60cfefe0f921fba72fc035c67ee15d6738cd8"
+  },
+  "Models/F_burger_double_LOD1.obj": {
+    "bytes": 91044,
+    "sha256": "38766fbb2989d044cc84465f4725e88a9b171eb77f602cb7e360d79ea84c1c34"
+  },
+  "Models/F_cabbage.mtl": {
+    "bytes": 409,
+    "sha256": "2005ab2ce81eda0513970eb2e49c27826ec1e372aef059bed624fbcdf8cc6006"
+  },
+  "Models/F_cabbage.obj": {
+    "bytes": 191683,
+    "sha256": "fdd92ac519a44e54db7f1a1b542d86d4579a9fe00b5f12f5c0cf31d589a8d545"
+  },
+  "Models/F_cabbage_LOD1.mtl": {
+    "bytes": 409,
+    "sha256": "2005ab2ce81eda0513970eb2e49c27826ec1e372aef059bed624fbcdf8cc6006"
+  },
+  "Models/F_cabbage_LOD1.obj": {
+    "bytes": 123702,
+    "sha256": "a5ee2a677497538aac5e431b40f86624fea409ed7a6d82bd7a1250565baae017"
+  },
+  "Models/F_cake.mtl": {
+    "bytes": 987,
+    "sha256": "cc0bb8e000e635b69d86209a03da06ed4932e91eecf5557bbf7a47ecfdc25532"
+  },
+  "Models/F_cake.obj": {
+    "bytes": 432542,
+    "sha256": "a95353f4e8f877b7db9646981c33683d8a29b080a31d9c474f570e178c264c5c"
+  },
+  "Models/F_cake_LOD1.mtl": {
+    "bytes": 987,
+    "sha256": "cc0bb8e000e635b69d86209a03da06ed4932e91eecf5557bbf7a47ecfdc25532"
+  },
+  "Models/F_cake_LOD1.obj": {
+    "bytes": 184783,
+    "sha256": "91d7651b34be6533b498b4ae62a665249e7aa311daefe9ed46f65d26c731b245"
+  },
+  "Models/F_cake_birthday.mtl": {
+    "bytes": 788,
+    "sha256": "5b4b7fa30d9eef98c161391caf489a9e76e16bd592e23dac94afba784078f3d9"
+  },
+  "Models/F_cake_birthday.obj": {
+    "bytes": 456260,
+    "sha256": "6b50603ca5009e585d892ee66d2d123efa38b01c9d3015bda8f69561a9ace660"
+  },
+  "Models/F_cake_birthday_LOD1.mtl": {
+    "bytes": 788,
+    "sha256": "5b4b7fa30d9eef98c161391caf489a9e76e16bd592e23dac94afba784078f3d9"
+  },
+  "Models/F_cake_birthday_LOD1.obj": {
+    "bytes": 397541,
+    "sha256": "4e0a924a18fb8e4cd9a818519566a6d128a8818322a1b29e52e3efb89f6d50dd"
+  },
+  "Models/F_candy_bar.mtl": {
+    "bytes": 122,
+    "sha256": "3c91565dab93a5f18eeae3e71485d2e7f31d272ae353c1a7f1fd177adf2eabca"
+  },
+  "Models/F_candy_bar.obj": {
+    "bytes": 84825,
+    "sha256": "23f06fd9ca6e00ee9ac6b1d75dd267a534ff1c54910edd7399aba0f8b35a7aab"
+  },
+  "Models/F_candy_bar_LOD1.mtl": {
+    "bytes": 122,
+    "sha256": "3c91565dab93a5f18eeae3e71485d2e7f31d272ae353c1a7f1fd177adf2eabca"
+  },
+  "Models/F_candy_bar_LOD1.obj": {
+    "bytes": 36037,
+    "sha256": "592d533b5774c0f2a6459654893ba335e1a990d96beb57eac76ee0c390a5dee3"
+  },
+  "Models/F_carrot.mtl": {
+    "bytes": 327,
+    "sha256": "d0d4a52f41de0af8f68df2ddcc8d2c7c7364c6d85bbc1e3ced1a760a28145edb"
+  },
+  "Models/F_carrot.obj": {
+    "bytes": 144376,
+    "sha256": "96d146a01460b7cd34df380a9f863c5831fda6813ff5c109490f5d544fb33851"
+  },
+  "Models/F_carrot_LOD1.mtl": {
+    "bytes": 327,
+    "sha256": "d0d4a52f41de0af8f68df2ddcc8d2c7c7364c6d85bbc1e3ced1a760a28145edb"
+  },
+  "Models/F_carrot_LOD1.obj": {
+    "bytes": 58838,
+    "sha256": "35fbc311b4e4c553b879a08ff49ca508caebca5e90d6abdb1a0d6223f3d5b536"
+  },
+  "Models/F_carton_small.mtl": {
+    "bytes": 479,
+    "sha256": "63954aad8aab64ce54f805aaaf73cb2884a0a81c8fbe6e285f954ef5bb1d6a1e"
+  },
+  "Models/F_carton_small.obj": {
+    "bytes": 108520,
+    "sha256": "88d38ccf8ed97c9df40a2e9ac5a8770d2e5eab19a37e23d710cb662acce46d76"
+  },
+  "Models/F_carton_small_LOD1.mtl": {
+    "bytes": 479,
+    "sha256": "63954aad8aab64ce54f805aaaf73cb2884a0a81c8fbe6e285f954ef5bb1d6a1e"
+  },
+  "Models/F_carton_small_LOD1.obj": {
+    "bytes": 44686,
+    "sha256": "8edd907d112d46865ff9693e8fb38f474a5ab4e2f90e0b4ce85dfcd38fec34d6"
+  },
+  "Models/F_cauliflower.mtl": {
+    "bytes": 536,
+    "sha256": "a50712c91592c1f69729f9f25f579079d35836925f5503581a7a9761504f65a7"
+  },
+  "Models/F_cauliflower.obj": {
+    "bytes": 165554,
+    "sha256": "f56eeda1628f45ae38de68a82d1a0e433bf83f82219e5940708fd69304397e9a"
+  },
+  "Models/F_cauliflower_LOD1.mtl": {
+    "bytes": 536,
+    "sha256": "a50712c91592c1f69729f9f25f579079d35836925f5503581a7a9761504f65a7"
+  },
+  "Models/F_cauliflower_LOD1.obj": {
+    "bytes": 115782,
+    "sha256": "4f20aed8dc3327fdb0c2dc11bc8e874985371c47286f0f4b9839ec1939dcf872"
+  },
+  "Models/F_celery_stick.mtl": {
+    "bytes": 163,
+    "sha256": "585de5493439e9e9a5704c2f9c36db3ff7716fe69073ecbe8618cebb280676fc"
+  },
+  "Models/F_celery_stick.obj": {
+    "bytes": 58289,
+    "sha256": "453c4359bff1df932b17f384e8c5ec0d4f5b0b39f1d1426d8c9ad56eb002ac4c"
+  },
+  "Models/F_celery_stick_LOD1.mtl": {
+    "bytes": 163,
+    "sha256": "585de5493439e9e9a5704c2f9c36db3ff7716fe69073ecbe8618cebb280676fc"
+  },
+  "Models/F_celery_stick_LOD1.obj": {
+    "bytes": 25323,
+    "sha256": "0d469fef4e0c5b7f4951759dbc0b2e903afbf1062756c420ce75f5c9b42faed0"
+  },
+  "Models/F_cheese.mtl": {
+    "bytes": 552,
+    "sha256": "ff0a9b2c8653dd671c31e04977b7afff6e15ff66ddb837a1b0267777395d50b9"
+  },
+  "Models/F_cheese.obj": {
+    "bytes": 143584,
+    "sha256": "445ef4385115ff46ea94f5cbb70d2cf207d5042bbafcf49e98571872b140cc53"
+  },
+  "Models/F_cheese_LOD1.mtl": {
+    "bytes": 552,
+    "sha256": "ff0a9b2c8653dd671c31e04977b7afff6e15ff66ddb837a1b0267777395d50b9"
+  },
+  "Models/F_cheese_LOD1.obj": {
+    "bytes": 143210,
+    "sha256": "275a582bc5dc176dd205a408f0009182578ca3f0e48dea6b1080c456189369d8"
+  },
+  "Models/F_cheese_cut.mtl": {
+    "bytes": 169,
+    "sha256": "fc10772a81ed0450605012039a5cd42175ee2ff86309f90a8fb80f303b241481"
+  },
+  "Models/F_cheese_cut.obj": {
+    "bytes": 290684,
+    "sha256": "ec3df6ca4d798eed0922a56c5be4da22b1b0e007bd3cc47f1a3ea49259756f58"
+  },
+  "Models/F_cheese_cut_LOD1.mtl": {
+    "bytes": 169,
+    "sha256": "fc10772a81ed0450605012039a5cd42175ee2ff86309f90a8fb80f303b241481"
+  },
+  "Models/F_cheese_cut_LOD1.obj": {
+    "bytes": 125872,
+    "sha256": "7e32cc82e6df0101119d0828df77f2bc6dd2defd84107efe160ce0147ccd9188"
+  },
+  "Models/F_cherries.mtl": {
+    "bytes": 408,
+    "sha256": "f5e775d062079a086ced25d761d3d52c5d6a8bfb1140084fbd7fa6a94766fa5b"
+  },
+  "Models/F_cherries.obj": {
+    "bytes": 229514,
+    "sha256": "59a0f028f2e0c8f714418694be2d6ed00585ea09a376aa320e9388d50de31ed8"
+  },
+  "Models/F_cherries_LOD1.mtl": {
+    "bytes": 408,
+    "sha256": "f5e775d062079a086ced25d761d3d52c5d6a8bfb1140084fbd7fa6a94766fa5b"
+  },
+  "Models/F_cherries_LOD1.obj": {
+    "bytes": 97919,
+    "sha256": "7c2cb2e6653a6676b8ca06cb550e7f8c3c5d2869248ad03614efc67ddb63c677"
+  },
+  "Models/F_chinese.mtl": {
+    "bytes": 723,
+    "sha256": "69b4d13ce79a8b01d5004d406288dbd5bbec950efc9531d14590f4a057137b5d"
+  },
+  "Models/F_chinese.obj": {
+    "bytes": 106202,
+    "sha256": "f770adcd88e006aeaee599ee5c34eb7d31337dafc742ad46e99a18995ec2c23b"
+  },
+  "Models/F_chinese_LOD1.mtl": {
+    "bytes": 723,
+    "sha256": "69b4d13ce79a8b01d5004d406288dbd5bbec950efc9531d14590f4a057137b5d"
+  },
+  "Models/F_chinese_LOD1.obj": {
+    "bytes": 47410,
+    "sha256": "61f1816388302449d15e3995524666675ab77ef095e1a6293d0b7d6fab93955a"
+  },
+  "Models/F_chocolate.mtl": {
+    "bytes": 122,
+    "sha256": "a290d8db54766fa7278330191a9d36e4b6e08be44dc24fd8ef38b2f00c8158fa"
+  },
+  "Models/F_chocolate.obj": {
+    "bytes": 276613,
+    "sha256": "63c0fa0f2e56ba9bb78b00d409dbed055efbf7dc597546619159b41adda925d1"
+  },
+  "Models/F_chocolate_LOD1.mtl": {
+    "bytes": 122,
+    "sha256": "a290d8db54766fa7278330191a9d36e4b6e08be44dc24fd8ef38b2f00c8158fa"
+  },
+  "Models/F_chocolate_LOD1.obj": {
+    "bytes": 116001,
+    "sha256": "775030e65cf2348f3e28726d28217bf968868af1d34befd199e093ffbfb51e6b"
+  },
+  "Models/F_coconut.mtl": {
+    "bytes": 199,
+    "sha256": "3a82795839670e19f6ddfe76b66892c1228c127dcc166296da662e2273b23185"
+  },
+  "Models/F_coconut.obj": {
+    "bytes": 84747,
+    "sha256": "0430d2406e3922be4bef7d72de1726e824c20be3c76d2f1a1d1a700c1f024cf3"
+  },
+  "Models/F_coconut_LOD1.mtl": {
+    "bytes": 199,
+    "sha256": "3a82795839670e19f6ddfe76b66892c1228c127dcc166296da662e2273b23185"
+  },
+  "Models/F_coconut_LOD1.obj": {
+    "bytes": 36753,
+    "sha256": "23203bfbcea65db05c0caed807caa25d1e59b0ebed6ffb0d0cda4d5e0d732aea"
+  },
+  "Models/F_coconut_half.mtl": {
+    "bytes": 203,
+    "sha256": "3ee6244fc8d2329e482043d0583b6ba52fcdceb76a160f2dbcd923d15716e774"
+  },
+  "Models/F_coconut_half.obj": {
+    "bytes": 126278,
+    "sha256": "d3bbec93ba305c1b5e97e74d77b03db9caf335ef0692ed5ee4d3490c2d679c27"
+  },
+  "Models/F_coconut_half_LOD1.mtl": {
+    "bytes": 203,
+    "sha256": "3ee6244fc8d2329e482043d0583b6ba52fcdceb76a160f2dbcd923d15716e774"
+  },
+  "Models/F_coconut_half_LOD1.obj": {
+    "bytes": 54657,
+    "sha256": "0e2e865877792096c4ac9834eae9ca63b9e98b4c21fbcae4f576ea615715a2a8"
+  },
+  "Models/F_cookie.mtl": {
+    "bytes": 198,
+    "sha256": "d7bb429f9f7cce5d9d694640da325695a5af7b325b2b68e158e06a41b8e6fe92"
+  },
+  "Models/F_cookie.obj": {
+    "bytes": 123357,
+    "sha256": "c6f66b99819bd20813e02488cc353b526ba4087f3a0ff367bf205d538d16fa19"
+  },
+  "Models/F_cookie_LOD1.mtl": {
+    "bytes": 198,
+    "sha256": "d7bb429f9f7cce5d9d694640da325695a5af7b325b2b68e158e06a41b8e6fe92"
+  },
+  "Models/F_cookie_LOD1.obj": {
+    "bytes": 52867,
+    "sha256": "b7e21c245c0ac332aa3b684fec98f4add78d8ab1126fe78eaca4cc0644d111a4"
+  },
+  "Models/F_cookie_chocolate.mtl": {
+    "bytes": 236,
+    "sha256": "bbaef28f9eb6ee8ec5ef0611f99136503a89ead3551556c04692d8869a7d8a4a"
+  },
+  "Models/F_cookie_chocolate.obj": {
+    "bytes": 277280,
+    "sha256": "fcf2493ac2e71428f42e24a93e0b040ea1f98a959dc56da2cbc088421ed7dc45"
+  },
+  "Models/F_cookie_chocolate_LOD1.mtl": {
+    "bytes": 236,
+    "sha256": "bbaef28f9eb6ee8ec5ef0611f99136503a89ead3551556c04692d8869a7d8a4a"
+  },
+  "Models/F_cookie_chocolate_LOD1.obj": {
+    "bytes": 119842,
+    "sha256": "cf5fbe9c1bfdbfc41a0099feef2d0ee743fb8fe135a7272adda93a41d48deaec"
+  },
+  "Models/F_corn.mtl": {
+    "bytes": 491,
+    "sha256": "32f7b8bbb4bd6be1ef37807585fb6affe601c392ef87f6cb5dfd26da20a7fd2f"
+  },
+  "Models/F_corn.obj": {
+    "bytes": 152866,
+    "sha256": "60f938360d12e6e5b9cb1032ac98ed697a708dae0889c2230f29fe001b247c7d"
+  },
+  "Models/F_corn_LOD1.mtl": {
+    "bytes": 491,
+    "sha256": "32f7b8bbb4bd6be1ef37807585fb6affe601c392ef87f6cb5dfd26da20a7fd2f"
+  },
+  "Models/F_corn_LOD1.obj": {
+    "bytes": 66705,
+    "sha256": "6899d0688bab154482d652e5eef14d209f2d0550cbbae26f3c21c77ba6f62cea"
+  },
+  "Models/F_corn_dog.mtl": {
+    "bytes": 290,
+    "sha256": "a1d12980c882d912f453e9398ac2b8e2bd258bc5ef5cb3359370885ed08e2760"
+  },
+  "Models/F_corn_dog.obj": {
+    "bytes": 102117,
+    "sha256": "a5b1ad1c4ebb989b36cdaaf979b5604e066af496620951c7338761ff333f8504"
+  },
+  "Models/F_corn_dog_LOD1.mtl": {
+    "bytes": 290,
+    "sha256": "a1d12980c882d912f453e9398ac2b8e2bd258bc5ef5cb3359370885ed08e2760"
+  },
+  "Models/F_corn_dog_LOD1.obj": {
+    "bytes": 44498,
+    "sha256": "323a4bd9063ddfc71c8d7f0bd1c888aada89fb65e634ecc53299ba8626567e57"
+  },
+  "Models/F_croissant.mtl": {
+    "bytes": 320,
+    "sha256": "f6762d5f048214cd513a67dc63cd74f6b3620e230aa25d0268d9455ac288b3c9"
+  },
+  "Models/F_croissant.obj": {
+    "bytes": 300392,
+    "sha256": "6a329d30ee3c18472bd30e080bd4df0952ba81b28ed44082a9b663827b384e02"
+  },
+  "Models/F_croissant_LOD1.mtl": {
+    "bytes": 320,
+    "sha256": "f6762d5f048214cd513a67dc63cd74f6b3620e230aa25d0268d9455ac288b3c9"
+  },
+  "Models/F_croissant_LOD1.obj": {
+    "bytes": 130489,
+    "sha256": "7d730fe7faed9a7623a823acd9d2b4ad5acfc1c7757355dc03cf196b01f6a37b"
+  },
+  "Models/F_cup_coffee.mtl": {
+    "bytes": 396,
+    "sha256": "0d5b64d7b35a73a8e96c5f6b384fc9022d3bc75f68e809b04162f409a01a0033"
+  },
+  "Models/F_cup_coffee.obj": {
+    "bytes": 185395,
+    "sha256": "838a181a15c16a3627a7bbb473eb3704e21619f835136d262a620c4984fb621d"
+  },
+  "Models/F_cup_coffee_LOD1.mtl": {
+    "bytes": 396,
+    "sha256": "0d5b64d7b35a73a8e96c5f6b384fc9022d3bc75f68e809b04162f409a01a0033"
+  },
+  "Models/F_cup_coffee_LOD1.obj": {
+    "bytes": 79125,
+    "sha256": "59413788810a24d867179e62257c43c54d9c28a535603179916e700f15f52716"
+  },
+  "Models/F_cup_tea.mtl": {
+    "bytes": 672,
+    "sha256": "55d08fd41d4624681ad4e81f2cf74849d7d9c79d993223ad9959850c794f5ce4"
+  },
+  "Models/F_cup_tea.obj": {
+    "bytes": 178864,
+    "sha256": "67f02b378ec285af8a599d0ce7690f5a5ad0cebf7b7cabeb8ce802f2deec911b"
+  },
+  "Models/F_cup_tea_LOD1.mtl": {
+    "bytes": 672,
+    "sha256": "55d08fd41d4624681ad4e81f2cf74849d7d9c79d993223ad9959850c794f5ce4"
+  },
+  "Models/F_cup_tea_LOD1.obj": {
+    "bytes": 77260,
+    "sha256": "6686fb541d275994db5609b6bdc588112682aef83a7cbbfd60b8e3f4d38bcca2"
+  },
+  "Models/F_cupcake.mtl": {
+    "bytes": 639,
+    "sha256": "9c59bdf35a3e6d4dd0250d8aba7b5262ca361b4f4a2896194a0728e9ea527cae"
+  },
+  "Models/F_cupcake.obj": {
+    "bytes": 231431,
+    "sha256": "60822044a52394bd523c6b63ec161af192bd8e37710497c3aeb7a14f142ceef0"
+  },
+  "Models/F_cupcake_LOD1.mtl": {
+    "bytes": 639,
+    "sha256": "9c59bdf35a3e6d4dd0250d8aba7b5262ca361b4f4a2896194a0728e9ea527cae"
+  },
+  "Models/F_cupcake_LOD1.obj": {
+    "bytes": 98577,
+    "sha256": "ec3c7441157e1aec8e6ca5cf95c4480563491d839aae991e8e3d49c5f06e97a3"
+  },
+  "Models/F_dim_sum.mtl": {
+    "bytes": 297,
+    "sha256": "8d44f5ad3f1f28678c360473ca930018225850bd42eea904d1c28b36394066ae"
+  },
+  "Models/F_dim_sum.obj": {
+    "bytes": 108541,
+    "sha256": "e2e9ac01e5a35f1eadd953a737555665277d919e8ca9aaff594e66c9cf95b8ee"
+  },
+  "Models/F_dim_sum_LOD1.mtl": {
+    "bytes": 297,
+    "sha256": "8d44f5ad3f1f28678c360473ca930018225850bd42eea904d1c28b36394066ae"
+  },
+  "Models/F_dim_sum_LOD1.obj": {
+    "bytes": 46621,
+    "sha256": "04fdc159a05bdba3d88c81e6026224ed122c5f3d9b903d2df388d9e62fc98877"
+  },
+  "Models/F_donut.mtl": {
+    "bytes": 244,
+    "sha256": "76431ff00aa3c99b04a41b92e870e453bc35d51b180083dfcf63a399f0c4b428"
+  },
+  "Models/F_donut.obj": {
+    "bytes": 129081,
+    "sha256": "10b95d8efe84392dfc55c446f5dbdf113004b19947d2d5718a3cbb4a422b8434"
+  },
+  "Models/F_donut_LOD1.mtl": {
+    "bytes": 244,
+    "sha256": "76431ff00aa3c99b04a41b92e870e453bc35d51b180083dfcf63a399f0c4b428"
+  },
+  "Models/F_donut_LOD1.obj": {
+    "bytes": 54973,
+    "sha256": "5142131f70d81567a2392e94205e7e36caea169a8b6b033d7cc48705aa26ed33"
+  },
+  "Models/F_donut_chocolate.mtl": {
+    "bytes": 402,
+    "sha256": "414fc69ed78c92f2c41fb2af85d2e2a9eea09044aed79e83df98a63b6a9d5683"
+  },
+  "Models/F_donut_chocolate.obj": {
+    "bytes": 135318,
+    "sha256": "f54d9d3f7bf4d6ee3e570d1df28902378c1158851b6a58fdc2acebcd9b99b7b1"
+  },
+  "Models/F_donut_chocolate_LOD1.mtl": {
+    "bytes": 402,
+    "sha256": "414fc69ed78c92f2c41fb2af85d2e2a9eea09044aed79e83df98a63b6a9d5683"
+  },
+  "Models/F_donut_chocolate_LOD1.obj": {
+    "bytes": 57831,
+    "sha256": "38b1cc20b6bc12d7630426eab34c7e8ce71d95f46eef2a98662ceb74729ce34b"
+  },
+  "Models/F_donut_sprinkles.mtl": {
+    "bytes": 648,
+    "sha256": "9320aae9b27406710b99925b31bfbf4afb385023ad8aa03b191aef7ca3d4f779"
+  },
+  "Models/F_donut_sprinkles.obj": {
+    "bytes": 251751,
+    "sha256": "e4efc8068055c5947b5a0ad58de67a88cc7454169c10a3a5bffed06b2aad82d7"
+  },
+  "Models/F_donut_sprinkles_LOD1.mtl": {
+    "bytes": 648,
+    "sha256": "9320aae9b27406710b99925b31bfbf4afb385023ad8aa03b191aef7ca3d4f779"
+  },
+  "Models/F_donut_sprinkles_LOD1.obj": {
+    "bytes": 106987,
+    "sha256": "2ff920d540b13f211073f644b3d7af30e1e4f1a50437cd6cc12f2d0238e6413a"
+  },
+  "Models/F_egg_cooked.mtl": {
+    "bytes": 126,
+    "sha256": "3904ce608927ba3c87b0288ef8c7e2cf482a23d54f3d66a9badda6ec7ff0a9d6"
+  },
+  "Models/F_egg_cooked.obj": {
+    "bytes": 54855,
+    "sha256": "079ba81f7daae2e73f27f97a0c9d1562e7c9cfb31081b4e07c7a28b9523b7c09"
+  },
+  "Models/F_egg_cooked_LOD1.mtl": {
+    "bytes": 126,
+    "sha256": "3904ce608927ba3c87b0288ef8c7e2cf482a23d54f3d66a9badda6ec7ff0a9d6"
+  },
+  "Models/F_egg_cooked_LOD1.obj": {
+    "bytes": 22944,
+    "sha256": "f138a1ff01817018534f418ffeb091b417801e1d2727b6667c62410909f7db38"
+  },
+  "Models/F_egg_half.mtl": {
+    "bytes": 255,
+    "sha256": "444a26881acb32c9cebe3a4729360c69e9f1391a370704118b9ba84f9fe645f8"
+  },
+  "Models/F_egg_half.obj": {
+    "bytes": 20344,
+    "sha256": "46b5b03792e64513d24e45b7798f868e45e52d697efa581a031b6423109ebf30"
+  },
+  "Models/F_egg_half_LOD1.mtl": {
+    "bytes": 255,
+    "sha256": "444a26881acb32c9cebe3a4729360c69e9f1391a370704118b9ba84f9fe645f8"
+  },
+  "Models/F_egg_half_LOD1.obj": {
+    "bytes": 18133,
+    "sha256": "ba6fe0630fc17f2fac9323883fada4041795d4f783621cc33c529fa262e78937"
+  },
+  "Models/F_eggplant.mtl": {
+    "bytes": 615,
+    "sha256": "11a13b8124a6290a290258f93197bc89cafff6cff2f5660cfcd1b65fc5929f48"
+  },
+  "Models/F_eggplant.obj": {
+    "bytes": 136897,
+    "sha256": "02a5232adefdb9e1b1c42eef7bbccdda4e5f9cbd0e11027b759bd7e27a7e1b16"
+  },
+  "Models/F_eggplant_LOD1.mtl": {
+    "bytes": 615,
+    "sha256": "11a13b8124a6290a290258f93197bc89cafff6cff2f5660cfcd1b65fc5929f48"
+  },
+  "Models/F_eggplant_LOD1.obj": {
+    "bytes": 59253,
+    "sha256": "bc486a92d9a3beb16a72e58415833bc950473118b2a47ebe5eb04e48f8e9c5d5"
+  },
+  "Models/F_fish.mtl": {
+    "bytes": 813,
+    "sha256": "4d9d8c4ebd51a50092306bf95d3ab6077cb7f570dcc3f2f673f55680b28945bf"
+  },
+  "Models/F_fish.obj": {
+    "bytes": 198249,
+    "sha256": "85c2ac516183aee3e16af017b5df6f978d15570f883c21fa62aa53a6b7b496ad"
+  },
+  "Models/F_fish_LOD1.mtl": {
+    "bytes": 813,
+    "sha256": "4d9d8c4ebd51a50092306bf95d3ab6077cb7f570dcc3f2f673f55680b28945bf"
+  },
+  "Models/F_fish_LOD1.obj": {
+    "bytes": 100121,
+    "sha256": "36eb71c973a9ed6f9554881f2d46e892b1d16816f86f3f10ad4008ffd843e03a"
+  },
+  "Models/F_frappe.mtl": {
+    "bytes": 469,
+    "sha256": "06c61a38f5f63c616b26a85682858ed186ee466037d4ae2ff4d18e5ce6f0fa76"
+  },
+  "Models/F_frappe.obj": {
+    "bytes": 325121,
+    "sha256": "a50473c89a31b99f14849349f6c5c5eb183b7487205a0c51aa215cca36677290"
+  },
+  "Models/F_frappe_LOD1.mtl": {
+    "bytes": 469,
+    "sha256": "06c61a38f5f63c616b26a85682858ed186ee466037d4ae2ff4d18e5ce6f0fa76"
+  },
+  "Models/F_frappe_LOD1.obj": {
+    "bytes": 137159,
+    "sha256": "7f074d0df18c1458045230bee270c76a44bf23743a76a85586cd289416552b55"
+  },
+  "Models/F_fries.mtl": {
+    "bytes": 586,
+    "sha256": "15845744389f08471b0c0a33a4dd72c52db051ef87738456cce560412b6e193f"
+  },
+  "Models/F_fries.obj": {
+    "bytes": 141331,
+    "sha256": "d8e13ff31250cfcce22ce484c4f1d1f3ef7b6df42a2f2668487de054785a8efa"
+  },
+  "Models/F_fries_LOD1.mtl": {
+    "bytes": 586,
+    "sha256": "15845744389f08471b0c0a33a4dd72c52db051ef87738456cce560412b6e193f"
+  },
+  "Models/F_fries_LOD1.obj": {
+    "bytes": 141388,
+    "sha256": "206ee1f537180cb56d634d5e3024c8d3dea9f56594374a80253398b5bfca5cda"
+  },
+  "Models/F_frikandel_speciaal.mtl": {
+    "bytes": 503,
+    "sha256": "2cef79bd9fb4c7165d089d618195d8caa45898a3e06013f40630b69e8c6dad20"
+  },
+  "Models/F_frikandel_speciaal.obj": {
+    "bytes": 101308,
+    "sha256": "d93f6d80b6c3dbe540bf599ab4e516a88706fca9ea0a2a3ca71ed8b5bc98826f"
+  },
+  "Models/F_frikandel_speciaal_LOD1.mtl": {
+    "bytes": 503,
+    "sha256": "2cef79bd9fb4c7165d089d618195d8caa45898a3e06013f40630b69e8c6dad20"
+  },
+  "Models/F_frikandel_speciaal_LOD1.obj": {
+    "bytes": 90533,
+    "sha256": "d46d3e8a5a50ea4d78f15ffe7b473a87a3a4e5bf95eff1b6e75f647572aa6c8b"
+  },
+  "Models/F_ginger_bread.mtl": {
+    "bytes": 121,
+    "sha256": "85f8dc5f67a694f9e69886036a4cdea498dc583cea4d40f9542681439bd52638"
+  },
+  "Models/F_ginger_bread.obj": {
+    "bytes": 126076,
+    "sha256": "3689f02020029afc60cfe8253f4e41510412b7d7d9fbbdf15d71909cc0a5acc7"
+  },
+  "Models/F_ginger_bread_LOD1.mtl": {
+    "bytes": 121,
+    "sha256": "85f8dc5f67a694f9e69886036a4cdea498dc583cea4d40f9542681439bd52638"
+  },
+  "Models/F_ginger_bread_LOD1.obj": {
+    "bytes": 53519,
+    "sha256": "a43d712e680d1e37ac01ef40fb98a33919e9821acfc849998b5d993247ff9c44"
+  },
+  "Models/F_grapes.mtl": {
+    "bytes": 852,
+    "sha256": "0fecec85f1589ca4485286cbed53c284449602db45d57437d8f4ca8292ca94e2"
+  },
+  "Models/F_grapes.obj": {
+    "bytes": 712339,
+    "sha256": "721e5b3576e941ddab6202ff268e9e10831ed2c4d1e1f930c7cf7e5e8c0cfec1"
+  },
+  "Models/F_grapes_LOD1.mtl": {
+    "bytes": 852,
+    "sha256": "0fecec85f1589ca4485286cbed53c284449602db45d57437d8f4ca8292ca94e2"
+  },
+  "Models/F_grapes_LOD1.obj": {
+    "bytes": 416404,
+    "sha256": "8e04957d993e72af0dafcae7957128f74d51f7b9cebaf4d4cda4e5ef1d88498e"
+  },
+  "Models/F_honey.mtl": {
+    "bytes": 461,
+    "sha256": "20a06d63c9b2a7a44bd5a5d15d72df51bac4e62f83d586eaca2ea30e7a0120d9"
+  },
+  "Models/F_honey.obj": {
+    "bytes": 207444,
+    "sha256": "07b5ad9ea9ea87d66adac736e60312bf1aa760ed18afa588b7357688d251c372"
+  },
+  "Models/F_honey_LOD1.mtl": {
+    "bytes": 461,
+    "sha256": "20a06d63c9b2a7a44bd5a5d15d72df51bac4e62f83d586eaca2ea30e7a0120d9"
+  },
+  "Models/F_honey_LOD1.obj": {
+    "bytes": 88557,
+    "sha256": "55943b95157dd3e427eec06896be88598e1f53fbea9b5aa3345d6b988c3faea2"
+  },
+  "Models/F_hot_dog.mtl": {
+    "bytes": 677,
+    "sha256": "a097c9cfc74665929547a0b871fd0ee57dc46774b8ebfd699648dcbeb50de328"
+  },
+  "Models/F_hot_dog.obj": {
+    "bytes": 92869,
+    "sha256": "8e93c52c5ea31efa0e946dbb78ee402b2fa9bf8fa303afdb167ede9c1cf54cea"
+  },
+  "Models/F_hot_dog_LOD1.mtl": {
+    "bytes": 677,
+    "sha256": "a097c9cfc74665929547a0b871fd0ee57dc46774b8ebfd699648dcbeb50de328"
+  },
+  "Models/F_hot_dog_LOD1.obj": {
+    "bytes": 87409,
+    "sha256": "b0e0cac03a80c5d3bd8ff3816a53284f9838e121abbeb9ea3fd9abddb61b4dd8"
+  },
+  "Models/F_ice_cream.mtl": {
+    "bytes": 299,
+    "sha256": "9a0e7c00c10b3590e730f6e89911671c28e572ac1a3a37ceb40e8c564f1d3ae9"
+  },
+  "Models/F_ice_cream.obj": {
+    "bytes": 134586,
+    "sha256": "ecc63e0c395bd1d96fae54c01ef7f269e27d982af16e7bd792b6dbbc95dfa236"
+  },
+  "Models/F_ice_cream_LOD1.mtl": {
+    "bytes": 299,
+    "sha256": "9a0e7c00c10b3590e730f6e89911671c28e572ac1a3a37ceb40e8c564f1d3ae9"
+  },
+  "Models/F_ice_cream_LOD1.obj": {
+    "bytes": 57445,
+    "sha256": "af36f99d3dbc3e902b3d880f7f5fd784a03609b8f47bb660cea1cbcc013c65aa"
+  },
+  "Models/F_ice_cream_cup.mtl": {
+    "bytes": 213,
+    "sha256": "5beb73d7316d176ed8706666898370917d2b23b06a759323b3aea3682c4578f6"
+  },
+  "Models/F_ice_cream_cup.obj": {
+    "bytes": 103531,
+    "sha256": "c00e29cbe2402978ca101a01e1390607dc1da558a86d3ea98402848b0723ba3e"
+  },
+  "Models/F_ice_cream_cup_LOD1.mtl": {
+    "bytes": 213,
+    "sha256": "5beb73d7316d176ed8706666898370917d2b23b06a759323b3aea3682c4578f6"
+  },
+  "Models/F_ice_cream_cup_LOD1.obj": {
+    "bytes": 43733,
+    "sha256": "841dffaf96be1243ad2b7b5f232e20932d7e71b620546f385dcb30a72027f4a0"
+  },
+  "Models/F_ice_cream_scoop_chocolate.mtl": {
+    "bytes": 378,
+    "sha256": "6b1eda7c19d72c95f738c898d788ee9709d56eb3fb8e70ee6f56b3f115f444ea"
+  },
+  "Models/F_ice_cream_scoop_chocolate.obj": {
+    "bytes": 102431,
+    "sha256": "ae7da8598245527c738fb7028acf8411e76fca12dbc9dea27e30e688482b3f92"
+  },
+  "Models/F_ice_cream_scoop_chocolate_LOD1.mtl": {
+    "bytes": 378,
+    "sha256": "6b1eda7c19d72c95f738c898d788ee9709d56eb3fb8e70ee6f56b3f115f444ea"
+  },
+  "Models/F_ice_cream_scoop_chocolate_LOD1.obj": {
+    "bytes": 44184,
+    "sha256": "b63a1275f7134b247a42b710e0ec61f7f43c0881a82b4ababf2b8dd0afb27ca5"
+  },
+  "Models/F_ice_cream_scoop_mint.mtl": {
+    "bytes": 209,
+    "sha256": "13d70ae25f5988eb8a78ab2c04d7848ad9f85597ec6ec0c7ecf2c2c17b794ec2"
+  },
+  "Models/F_ice_cream_scoop_mint.obj": {
+    "bytes": 89413,
+    "sha256": "7c4d394f1b9ee446ab3f1dec8e2c638ef42456bbb715de0dcda688755c066d2d"
+  },
+  "Models/F_ice_cream_scoop_mint_LOD1.mtl": {
+    "bytes": 209,
+    "sha256": "13d70ae25f5988eb8a78ab2c04d7848ad9f85597ec6ec0c7ecf2c2c17b794ec2"
+  },
+  "Models/F_ice_cream_scoop_mint_LOD1.obj": {
+    "bytes": 38163,
+    "sha256": "d457cab4181b2657bfef6573971a3970500b8ca9b28c9135a2ea6c6686325755"
+  },
+  "Models/F_leek.mtl": {
+    "bytes": 412,
+    "sha256": "fc18f50bc3583e6f7390cc5341de3af8c72ff24eb61c16f2c062e92be63cff97"
+  },
+  "Models/F_leek.obj": {
+    "bytes": 192045,
+    "sha256": "661e94ac83f7e102c7d85b8dbef1fc7de3136841a2c3a2ce35d55e43529d5e19"
+  },
+  "Models/F_leek_LOD1.mtl": {
+    "bytes": 412,
+    "sha256": "fc18f50bc3583e6f7390cc5341de3af8c72ff24eb61c16f2c062e92be63cff97"
+  },
+  "Models/F_leek_LOD1.obj": {
+    "bytes": 85011,
+    "sha256": "a3b44a240e286b781afd5a79da627b077e30b12057f666f20a831fc39ae11bff"
+  },
+  "Models/F_lemon.mtl": {
+    "bytes": 448,
+    "sha256": "4015f316b4ef4ff8f8e6888a31f8703f7a465c74108d6dba20a3801e18070d05"
+  },
+  "Models/F_lemon.obj": {
+    "bytes": 145895,
+    "sha256": "bb1636f6a5ccbfc6fef73dbceff2660d948c65c5813144784310a123e3514bfc"
+  },
+  "Models/F_lemon_LOD1.mtl": {
+    "bytes": 448,
+    "sha256": "4015f316b4ef4ff8f8e6888a31f8703f7a465c74108d6dba20a3801e18070d05"
+  },
+  "Models/F_lemon_LOD1.obj": {
+    "bytes": 62217,
+    "sha256": "baa7256c3b3aada39b217631797f87fe1f00eeff350aa4b0ecaf04e9fe76cc68"
+  },
+  "Models/F_lemon_half.mtl": {
+    "bytes": 327,
+    "sha256": "c8049e6c475f75a6d9a8fe2af9b38f7ad197dcffe64bd871716cbe38349074dc"
+  },
+  "Models/F_lemon_half.obj": {
+    "bytes": 38515,
+    "sha256": "dddef9ec73be7035d44604cd3af36188405e56226727015620d5984615962353"
+  },
+  "Models/F_lemon_half_LOD1.mtl": {
+    "bytes": 327,
+    "sha256": "c8049e6c475f75a6d9a8fe2af9b38f7ad197dcffe64bd871716cbe38349074dc"
+  },
+  "Models/F_lemon_half_LOD1.obj": {
+    "bytes": 28294,
+    "sha256": "51141d9909a3e12ea8ce20d364cad6bd54a370fb90be3a7c7d22f4678155d057"
+  },
+  "Models/F_loaf.mtl": {
+    "bytes": 485,
+    "sha256": "9afb05967338ff1b9344e2342c55e83af757985ee87d8b8e08c7854810ecf0a6"
+  },
+  "Models/F_loaf.obj": {
+    "bytes": 93338,
+    "sha256": "ceb9832d10ff42d3d4f8edd497cd5d231c2578beb6ee5e16d6da8bbe2ca140bb"
+  },
+  "Models/F_loaf_LOD1.mtl": {
+    "bytes": 485,
+    "sha256": "9afb05967338ff1b9344e2342c55e83af757985ee87d8b8e08c7854810ecf0a6"
+  },
+  "Models/F_loaf_LOD1.obj": {
+    "bytes": 39960,
+    "sha256": "a397d903f78b30a497dc6dd9e439a7b9b4a1772bde6013d9df21be69aa3658b5"
+  },
+  "Models/F_loaf_baguette.mtl": {
+    "bytes": 404,
+    "sha256": "98b52ee01f492fe525cf9f90f20aaef4be7487b55f06b7723740c78706b19611"
+  },
+  "Models/F_loaf_baguette.obj": {
+    "bytes": 154498,
+    "sha256": "917986bbfdc23593ed522dbcd5471119c6390c18c8d3f7480649ca298f06264f"
+  },
+  "Models/F_loaf_baguette_LOD1.mtl": {
+    "bytes": 404,
+    "sha256": "98b52ee01f492fe525cf9f90f20aaef4be7487b55f06b7723740c78706b19611"
+  },
+  "Models/F_loaf_baguette_LOD1.obj": {
+    "bytes": 65602,
+    "sha256": "0810bac0b5b811af9151fb51fafb483ee7b1324fb9647191ef53e40466d96171"
+  },
+  "Models/F_loaf_round.mtl": {
+    "bytes": 276,
+    "sha256": "0eded029715ffcf0bf75715b5a71ccca6d5da695cc047046704f3da176cf2386"
+  },
+  "Models/F_loaf_round.obj": {
+    "bytes": 73469,
+    "sha256": "35900f441e5fd6b421909ca0e8485bc849dd0e85d8d8ceb1af52d94ea3b2538c"
+  },
+  "Models/F_loaf_round_LOD1.mtl": {
+    "bytes": 276,
+    "sha256": "0eded029715ffcf0bf75715b5a71ccca6d5da695cc047046704f3da176cf2386"
+  },
+  "Models/F_loaf_round_LOD1.obj": {
+    "bytes": 63939,
+    "sha256": "905ebc7160601294645017d96215897e777648abec23c96e0e5c58572e18ce3a"
+  },
+  "Models/F_lollypop.mtl": {
+    "bytes": 599,
+    "sha256": "a2738784f4001253367a208b8def5c889804c7a08f527a5cd17e065b40fe60da"
+  },
+  "Models/F_lollypop.obj": {
+    "bytes": 90286,
+    "sha256": "3564442b0a478e98fa6cb0a6599925923fe6ff6507bb22c504f2b07014b1a6cb"
+  },
+  "Models/F_lollypop_LOD1.mtl": {
+    "bytes": 599,
+    "sha256": "a2738784f4001253367a208b8def5c889804c7a08f527a5cd17e065b40fe60da"
+  },
+  "Models/F_lollypop_LOD1.obj": {
+    "bytes": 40426,
+    "sha256": "658392dcaf3e479fd45a57ad6799081c779d2385b05dd020e7262ee8c3ef824c"
+  },
+  "Models/F_maki_roe.mtl": {
+    "bytes": 205,
+    "sha256": "480a5cbcab892b7c965dace146821667655d1177c1946cc71c0f986560617aa6"
+  },
+  "Models/F_maki_roe.obj": {
+    "bytes": 83631,
+    "sha256": "a23c98a335c36ba49edad550a9ef66687dd19377517c7fe7ec59f9fbe6a98fc1"
+  },
+  "Models/F_maki_roe_LOD1.mtl": {
+    "bytes": 205,
+    "sha256": "480a5cbcab892b7c965dace146821667655d1177c1946cc71c0f986560617aa6"
+  },
+  "Models/F_maki_roe_LOD1.obj": {
+    "bytes": 35389,
+    "sha256": "8177c5e6894a950e1e6748a5870d44f54db2e780b79ae02ca8b00961a5695abb"
+  },
+  "Models/F_maki_salmon.mtl": {
+    "bytes": 204,
+    "sha256": "fd2de1464775458ab506aef8f9069763272e1042e9d460240aae005540c7632a"
+  },
+  "Models/F_maki_salmon.obj": {
+    "bytes": 87210,
+    "sha256": "3429a2dcc4292c9e93cd8cf86942958d33d8a0c069a2d9f52668d702f602f9ae"
+  },
+  "Models/F_maki_salmon_LOD1.mtl": {
+    "bytes": 204,
+    "sha256": "fd2de1464775458ab506aef8f9069763272e1042e9d460240aae005540c7632a"
+  },
+  "Models/F_maki_salmon_LOD1.obj": {
+    "bytes": 37287,
+    "sha256": "7cecfbc7cbb055257a42632b9db2f1b3c4eccdf803ab954cf17692a25e5cf646"
+  },
+  "Models/F_maki_vegetable.mtl": {
+    "bytes": 246,
+    "sha256": "8202d811f59819208eb336e5dab0b46c28423192f2343c0fbc88cb829d17d0a6"
+  },
+  "Models/F_maki_vegetable.obj": {
+    "bytes": 87834,
+    "sha256": "32e7829391dc5daee281daeab0eb33620d54c83d501575ff51323d765ff6af55"
+  },
+  "Models/F_maki_vegetable_LOD1.mtl": {
+    "bytes": 246,
+    "sha256": "8202d811f59819208eb336e5dab0b46c28423192f2343c0fbc88cb829d17d0a6"
+  },
+  "Models/F_maki_vegetable_LOD1.obj": {
+    "bytes": 37473,
+    "sha256": "551f29f01447da42e119c13f6bc5fa767a528f6c53779adf009391b08833c25d"
+  },
+  "Models/F_meat_cooked.mtl": {
+    "bytes": 252,
+    "sha256": "c9d95534ec8a77ca831b82922768c7a6d084fde8d3a79b7c4423d945864fb0b9"
+  },
+  "Models/F_meat_cooked.obj": {
+    "bytes": 170280,
+    "sha256": "03c4cb60ff453bf94764bae579f9b5c87642bd4d1ebf3cc750fb16595b8b1d40"
+  },
+  "Models/F_meat_cooked_LOD1.mtl": {
+    "bytes": 252,
+    "sha256": "c9d95534ec8a77ca831b82922768c7a6d084fde8d3a79b7c4423d945864fb0b9"
+  },
+  "Models/F_meat_cooked_LOD1.obj": {
+    "bytes": 73061,
+    "sha256": "8a073d69f93d90e27eba00b97806d9bfcfc7f0e683a08523b6689343dded6235"
+  },
+  "Models/F_meat_patty.mtl": {
+    "bytes": 163,
+    "sha256": "9ee61c855f9ba98dba8bf3b534db96eff015afdab01b8433fcbb3a9437af0941"
+  },
+  "Models/F_meat_patty.obj": {
+    "bytes": 25533,
+    "sha256": "3f74ebe69a8737f5cf72a6eaa32e4841452ee770254c328c45fdf01b9fc5f426"
+  },
+  "Models/F_meat_patty_LOD1.mtl": {
+    "bytes": 163,
+    "sha256": "9ee61c855f9ba98dba8bf3b534db96eff015afdab01b8433fcbb3a9437af0941"
+  },
+  "Models/F_meat_patty_LOD1.obj": {
+    "bytes": 11807,
+    "sha256": "7e5504db4427fb3e9df87afbd0d0ebe0f7146512c7614c444ac0e29b2b6b536c"
+  },
+  "Models/F_meat_ribs.mtl": {
+    "bytes": 290,
+    "sha256": "d6b6f5d54aaae57a821f5d098bd05870ceef512dd16f586d184e3b4207b6839e"
+  },
+  "Models/F_meat_ribs.obj": {
+    "bytes": 94066,
+    "sha256": "28c0345c6de0bb6c8128ee989fe5f75ff2fb7b5bd7204cda0dc9c56cabb1c614"
+  },
+  "Models/F_meat_ribs_LOD1.mtl": {
+    "bytes": 290,
+    "sha256": "d6b6f5d54aaae57a821f5d098bd05870ceef512dd16f586d184e3b4207b6839e"
+  },
+  "Models/F_meat_ribs_LOD1.obj": {
+    "bytes": 94979,
+    "sha256": "aec8e7df554b4687e30acc632f1fa3c8e0b66c25339faca00abf29c5ad8cc1d1"
+  },
+  "Models/F_meat_sausage.mtl": {
+    "bytes": 327,
+    "sha256": "dbd3272298182b7e89ed58757dbdd08f9269ac2b9ea09880c9a460e41daeee26"
+  },
+  "Models/F_meat_sausage.obj": {
+    "bytes": 280928,
+    "sha256": "18c9a9a643825dddb3c440d360db5852781ae31aa5006833ff6d0d2fd1b2f302"
+  },
+  "Models/F_meat_sausage_LOD1.mtl": {
+    "bytes": 327,
+    "sha256": "dbd3272298182b7e89ed58757dbdd08f9269ac2b9ea09880c9a460e41daeee26"
+  },
+  "Models/F_meat_sausage_LOD1.obj": {
+    "bytes": 119954,
+    "sha256": "372d446f63e5b1a6cd42682f50cde0bf7dc6bd80df4ca0df832b9ac542ec28da"
+  },
+  "Models/F_mincemeat_pie.mtl": {
+    "bytes": 323,
+    "sha256": "aacfec91eec6ea2d4c7af48b821740e78550e9363fdce1cfb853110fd71a7b82"
+  },
+  "Models/F_mincemeat_pie.obj": {
+    "bytes": 141073,
+    "sha256": "e6ee29ac106f4ec1bf2a2c3fee390a4c88015e629ee466e8e11d0bcabbc5cace"
+  },
+  "Models/F_mincemeat_pie_LOD1.mtl": {
+    "bytes": 323,
+    "sha256": "aacfec91eec6ea2d4c7af48b821740e78550e9363fdce1cfb853110fd71a7b82"
+  },
+  "Models/F_mincemeat_pie_LOD1.obj": {
+    "bytes": 57869,
+    "sha256": "8cbab3e40741380ef1df1f7a1c055f68a9005458bebe6759d281fe0207a8327b"
+  },
+  "Models/F_muffin.mtl": {
+    "bytes": 279,
+    "sha256": "27e5653c48df18fe8ac96badfb0049b559967596aef83655bc8b1c360b2d6e9e"
+  },
+  "Models/F_muffin.obj": {
+    "bytes": 100735,
+    "sha256": "4fdde01928427f33302963d3bfda5701a7a83dadc5a7dbe03760655912ad72b5"
+  },
+  "Models/F_muffin_LOD1.mtl": {
+    "bytes": 279,
+    "sha256": "27e5653c48df18fe8ac96badfb0049b559967596aef83655bc8b1c360b2d6e9e"
+  },
+  "Models/F_muffin_LOD1.obj": {
+    "bytes": 42866,
+    "sha256": "48ebac563f21d0312682da6c7f9ffe3db7d9fe15b64a2bab34af5e8707d4b126"
+  },
+  "Models/F_mushroom.mtl": {
+    "bytes": 242,
+    "sha256": "0068042d3249d6adb143bc85450e83ba62ea6e9372a2c1d2a029f9634967f7be"
+  },
+  "Models/F_mushroom.obj": {
+    "bytes": 160818,
+    "sha256": "8e847224577ff8d913ab6f54a072da8d15bf8c8d4de32aab96fd8d729470ce33"
+  },
+  "Models/F_mushroom_LOD1.mtl": {
+    "bytes": 242,
+    "sha256": "0068042d3249d6adb143bc85450e83ba62ea6e9372a2c1d2a029f9634967f7be"
+  },
+  "Models/F_mushroom_LOD1.obj": {
+    "bytes": 68620,
+    "sha256": "9a1a56ddf00728064533bcb90279ee4ff6cd9387b541472476b981c0c9c64294"
+  },
+  "Models/F_mushroom_half.mtl": {
+    "bytes": 408,
+    "sha256": "8f360b00277fafbf796afaf13da3ec3b20473803f12255011a05e976daa18701"
+  },
+  "Models/F_mushroom_half.obj": {
+    "bytes": 50921,
+    "sha256": "331496cd6e3b49d58c4d08996911d9e969aa03aec8f29e4732b7ec14180918fe"
+  },
+  "Models/F_mushroom_half_LOD1.mtl": {
+    "bytes": 408,
+    "sha256": "8f360b00277fafbf796afaf13da3ec3b20473803f12255011a05e976daa18701"
+  },
+  "Models/F_mushroom_half_LOD1.obj": {
+    "bytes": 27539,
+    "sha256": "69df3fd1302c82bbe120b1e886209d948913eadce9414e369c71ae46f891fa22"
+  },
+  "Models/F_mussel.mtl": {
+    "bytes": 119,
+    "sha256": "6ec1748c00b69bec178a9c0d766e83dc7e2f6000c45719e1e1dd4b177dc50f54"
+  },
+  "Models/F_mussel.obj": {
+    "bytes": 60436,
+    "sha256": "ea08e148874a6a3b63bd9a54ddad0315d0e6ddbba02becb642d524a2f4063d1c"
+  },
+  "Models/F_mussel_LOD1.mtl": {
+    "bytes": 119,
+    "sha256": "6ec1748c00b69bec178a9c0d766e83dc7e2f6000c45719e1e1dd4b177dc50f54"
+  },
+  "Models/F_mussel_LOD1.obj": {
+    "bytes": 25816,
+    "sha256": "54331e4ec4ca2b068cb7b0594115bafa849e78b3bb94d44eb87a8bc470017e76"
+  },
+  "Models/F_mussel_open.mtl": {
+    "bytes": 324,
+    "sha256": "825aec695ee7d1e1ae63550da09b0952551dc854167b6eadac686b376235870d"
+  },
+  "Models/F_mussel_open.obj": {
+    "bytes": 55756,
+    "sha256": "544b86fa23045cc107b6ee6a2e58ea3dfcbc22e8dbb76b59650625a5a2a17ce8"
+  },
+  "Models/F_mussel_open_LOD1.mtl": {
+    "bytes": 324,
+    "sha256": "825aec695ee7d1e1ae63550da09b0952551dc854167b6eadac686b376235870d"
+  },
+  "Models/F_mussel_open_LOD1.obj": {
+    "bytes": 31027,
+    "sha256": "7c8964776cfe029b39c45725c186bfe1750f58c9954405901a5e306251cfcb19"
+  },
+  "Models/F_onion.mtl": {
+    "bytes": 246,
+    "sha256": "c761be19dac5078605cef51b9cb471193e3c97a34851517b474ff051685adcb2"
+  },
+  "Models/F_onion.obj": {
+    "bytes": 91217,
+    "sha256": "7ad04b0ad084e328f84c04915de6019d3d823d3e05b2f1db8ab958e5e273a75b"
+  },
+  "Models/F_onion_LOD1.mtl": {
+    "bytes": 246,
+    "sha256": "c761be19dac5078605cef51b9cb471193e3c97a34851517b474ff051685adcb2"
+  },
+  "Models/F_onion_LOD1.obj": {
+    "bytes": 38803,
+    "sha256": "6a700503ba59fd23463a9dee0a79005d3fc9d6780a5cf543c388839f6c2fa007"
+  },
+  "Models/F_onion_half.mtl": {
+    "bytes": 412,
+    "sha256": "19f0a41f69349a29615e74287f1d4ca0c37c97c508199de0c950016d8e8bb1c2"
+  },
+  "Models/F_onion_half.obj": {
+    "bytes": 69358,
+    "sha256": "f577d60142217839611853ec9de1e450cbc970b10816a019121cfa741c7e39bd"
+  },
+  "Models/F_onion_half_LOD1.mtl": {
+    "bytes": 412,
+    "sha256": "19f0a41f69349a29615e74287f1d4ca0c37c97c508199de0c950016d8e8bb1c2"
+  },
+  "Models/F_onion_half_LOD1.obj": {
+    "bytes": 30933,
+    "sha256": "da85c5550c477c62238d89416ec413ee4adb69464c3c2e2d2f755754b61ace3c"
+  },
+  "Models/F_orange.mtl": {
+    "bytes": 327,
+    "sha256": "152ef4c33d51f5cf5f449be5330f9e88615bf04d0b8ddcd3d64d40bf3f5f6f0b"
+  },
+  "Models/F_orange.obj": {
+    "bytes": 167025,
+    "sha256": "822c256b91e3dd7dd9aabb1b4f6a561ae0901331dfc53817592e043a5afb6ba8"
+  },
+  "Models/F_orange_LOD1.mtl": {
+    "bytes": 327,
+    "sha256": "152ef4c33d51f5cf5f449be5330f9e88615bf04d0b8ddcd3d64d40bf3f5f6f0b"
+  },
+  "Models/F_orange_LOD1.obj": {
+    "bytes": 70562,
+    "sha256": "df8775ddbd4ccb81bca8f89664b0dffe8af8a28bc30af69738252e68148abcbb"
+  },
+  "Models/F_pan_stew.mtl": {
+    "bytes": 546,
+    "sha256": "04dc1d8a2141be39141c104e73bd331d3142bc0f7f2aab233ba6b23b162d771e"
+  },
+  "Models/F_pan_stew.obj": {
+    "bytes": 121440,
+    "sha256": "ce632a42f1fe0e9ba4ef059d787b4d886578402e6d652b41488a158c9fe0d894"
+  },
+  "Models/F_pan_stew_LOD1.mtl": {
+    "bytes": 546,
+    "sha256": "04dc1d8a2141be39141c104e73bd331d3142bc0f7f2aab233ba6b23b162d771e"
+  },
+  "Models/F_pan_stew_LOD1.obj": {
+    "bytes": 113748,
+    "sha256": "bc453816a329ba218dd8c35ae3248763d363c9e863465316e23bb7e9b07c7672"
+  },
+  "Models/F_pancakes.mtl": {
+    "bytes": 442,
+    "sha256": "9b53297e8665aeac2938a50d51179af1598b85ac816f18509e17fd145135c36e"
+  },
+  "Models/F_pancakes.obj": {
+    "bytes": 280856,
+    "sha256": "e38ed1748939450a26e0eceab672eb2d17f04e827dc316e3408d096ef9fb3886"
+  },
+  "Models/F_pancakes_LOD1.mtl": {
+    "bytes": 442,
+    "sha256": "9b53297e8665aeac2938a50d51179af1598b85ac816f18509e17fd145135c36e"
+  },
+  "Models/F_pancakes_LOD1.obj": {
+    "bytes": 123775,
+    "sha256": "fcefbec9b68f73806e31296cc308ccaddf3c70b7d5430fc899eb410c1b92521c"
+  },
+  "Models/F_paprika.mtl": {
+    "bytes": 405,
+    "sha256": "9656b841496a00e7f7364c49aa5ef4b89136d1b7eb516f4577e3f728696f37c9"
+  },
+  "Models/F_paprika.obj": {
+    "bytes": 164401,
+    "sha256": "69af2b623e474f893b582708ef5f59a3feb614f784d6238cbe0c1d64ba9ab09f"
+  },
+  "Models/F_paprika_LOD1.mtl": {
+    "bytes": 405,
+    "sha256": "9656b841496a00e7f7364c49aa5ef4b89136d1b7eb516f4577e3f728696f37c9"
+  },
+  "Models/F_paprika_LOD1.obj": {
+    "bytes": 70303,
+    "sha256": "b42905cf033398d06af97a46ea6c32ebe06f5e34f28cd926365a1203dea875b1"
+  },
+  "Models/F_paprika_slice.mtl": {
+    "bytes": 80,
+    "sha256": "e725faa269edd300ebe385342f331ae8cb747cfa0d1ff92e9c3351c7cfce0dc8"
+  },
+  "Models/F_paprika_slice.obj": {
+    "bytes": 140324,
+    "sha256": "b223e94ebc5fa3c1139c0c2d0c9b26687c65e87d90aa8ae79df33241c77bd9d6"
+  },
+  "Models/F_paprika_slice_LOD1.mtl": {
+    "bytes": 80,
+    "sha256": "e725faa269edd300ebe385342f331ae8cb747cfa0d1ff92e9c3351c7cfce0dc8"
+  },
+  "Models/F_paprika_slice_LOD1.obj": {
+    "bytes": 59624,
+    "sha256": "2667e4bbfade3f14d8396ef7472aab9e5c5c8f162ad505c7ffbab79a5daa05fc"
+  },
+  "Models/F_peanut_butter.mtl": {
+    "bytes": 465,
+    "sha256": "ae8fdf30e0798caa90db9a065d5a0ea12e08bbafe5e5a93fd47c7f882bd68276"
+  },
+  "Models/F_peanut_butter.obj": {
+    "bytes": 271433,
+    "sha256": "6fc83e5ad6d49ee13d85e008eb74dec3de0f9c200cf8d82125347a82f01788be"
+  },
+  "Models/F_peanut_butter_LOD1.mtl": {
+    "bytes": 465,
+    "sha256": "ae8fdf30e0798caa90db9a065d5a0ea12e08bbafe5e5a93fd47c7f882bd68276"
+  },
+  "Models/F_peanut_butter_LOD1.obj": {
+    "bytes": 114866,
+    "sha256": "731495787aa5e3a7476bc86106441f71eed6a4a1f52c713c437cae6bf9a365d2"
+  },
+  "Models/F_pear.mtl": {
+    "bytes": 410,
+    "sha256": "553d7766dbe05f6f6620ec26d814aee49796b5eb9ca58c5c3a6754487207300e"
+  },
+  "Models/F_pear.obj": {
+    "bytes": 173541,
+    "sha256": "35a8da0dba6899c94d9579922dc8c09aad3f73153e6640d2cc15860741417529"
+  },
+  "Models/F_pear_LOD1.mtl": {
+    "bytes": 410,
+    "sha256": "553d7766dbe05f6f6620ec26d814aee49796b5eb9ca58c5c3a6754487207300e"
+  },
+  "Models/F_pear_LOD1.obj": {
+    "bytes": 74274,
+    "sha256": "9bd77648d44564534c3b7e0037e97c8c49084384c5af142766f7081f226d88e2"
+  },
+  "Models/F_pear_half.mtl": {
+    "bytes": 701,
+    "sha256": "75c69c6b2fd5de699d384ecccd702184f786a18399996562cb974384ca2234ae"
+  },
+  "Models/F_pear_half.obj": {
+    "bytes": 111036,
+    "sha256": "44699edf8dbba6a93966c8d7d4bd598dd88f266bc8fb8396c44fc2c0222773e4"
+  },
+  "Models/F_pear_half_LOD1.mtl": {
+    "bytes": 701,
+    "sha256": "75c69c6b2fd5de699d384ecccd702184f786a18399996562cb974384ca2234ae"
+  },
+  "Models/F_pear_half_LOD1.obj": {
+    "bytes": 48946,
+    "sha256": "07d1a128037d2360841db5700f3e561894e80869aacf6eea3888d1e77842d7d7"
+  },
+  "Models/F_pepper.mtl": {
+    "bytes": 606,
+    "sha256": "9762c5c9195d12bdf8124cd9ed5347cd3e42f9f5aa91dc795832c92e26511f3d"
+  },
+  "Models/F_pepper.obj": {
+    "bytes": 123651,
+    "sha256": "508c8b348950b4beae1460fd53ab32b337bf42c70ce2b2ec311bdf5ef151512d"
+  },
+  "Models/F_pepper_LOD1.mtl": {
+    "bytes": 606,
+    "sha256": "9762c5c9195d12bdf8124cd9ed5347cd3e42f9f5aa91dc795832c92e26511f3d"
+  },
+  "Models/F_pepper_LOD1.obj": {
+    "bytes": 51283,
+    "sha256": "6a0cf445a9253143fa54cebaa6bd68994d39f17b75728ac739a11f73524f48bc"
+  },
+  "Models/F_pie.mtl": {
+    "bytes": 283,
+    "sha256": "4079d1f6c0f0e8af3432f2c0ac2118867f624ad9f9c389acfd75e37512b65bfd"
+  },
+  "Models/F_pie.obj": {
+    "bytes": 151627,
+    "sha256": "c1a6375476631bf7af74a9d64a2a5138512feb3570b005fd75a5959bb5ba327d"
+  },
+  "Models/F_pie_LOD1.mtl": {
+    "bytes": 283,
+    "sha256": "4079d1f6c0f0e8af3432f2c0ac2118867f624ad9f9c389acfd75e37512b65bfd"
+  },
+  "Models/F_pie_LOD1.obj": {
+    "bytes": 45296,
+    "sha256": "8811058ba178c9bef19aa4f282a5de0bb26f45c934301592e73229efe13ccc7a"
+  },
+  "Models/F_pineapple.mtl": {
+    "bytes": 491,
+    "sha256": "81177f9a3944863670e0180c81422e0e4d1129e88105e1773ae802c765f49acb"
+  },
+  "Models/F_pineapple.obj": {
+    "bytes": 53668,
+    "sha256": "e72c6d0eea6d512adcd8d5ded3d498193878df888084b2ab1212c1e7ca28d4ae"
+  },
+  "Models/F_pineapple_LOD1.mtl": {
+    "bytes": 491,
+    "sha256": "81177f9a3944863670e0180c81422e0e4d1129e88105e1773ae802c765f49acb"
+  },
+  "Models/F_pineapple_LOD1.obj": {
+    "bytes": 52730,
+    "sha256": "c953b281024b2d7fb7cd6ce7f5b4874e70d4750ad1f37d7c2b29d42d641b27a5"
+  },
+  "Models/F_pizza.mtl": {
+    "bytes": 502,
+    "sha256": "3a5b773dd66b120e7bca432a6a98c6ca33bdc197d2b7c7c2ab31442bf6a33230"
+  },
+  "Models/F_pizza.obj": {
+    "bytes": 449540,
+    "sha256": "4d357dea0d81a38999e6464e7a06d72bad62c5ed748166bc3bcb6460b379ca1b"
+  },
+  "Models/F_pizza_LOD1.mtl": {
+    "bytes": 502,
+    "sha256": "3a5b773dd66b120e7bca432a6a98c6ca33bdc197d2b7c7c2ab31442bf6a33230"
+  },
+  "Models/F_pizza_LOD1.obj": {
+    "bytes": 325815,
+    "sha256": "9228d32bd1ab4a78855bcc371e20fd56aa71a3d54db689e5dbcc50f08fa73a5d"
+  },
+  "Models/F_plate_sauerkraut.mtl": {
+    "bytes": 626,
+    "sha256": "7c640cdaaa8830b3acae9b917bfa1ffef11a791cf3b8c1c836994e991ee8e5f0"
+  },
+  "Models/F_plate_sauerkraut.obj": {
+    "bytes": 529329,
+    "sha256": "4942b02b53bd44e43e999155f94f84ceb087aa8aaab06d3611b0fd91a4e3e49b"
+  },
+  "Models/F_plate_sauerkraut_LOD1.mtl": {
+    "bytes": 626,
+    "sha256": "7c640cdaaa8830b3acae9b917bfa1ffef11a791cf3b8c1c836994e991ee8e5f0"
+  },
+  "Models/F_plate_sauerkraut_LOD1.obj": {
+    "bytes": 227262,
+    "sha256": "f386ed5443a783f60738e4aa57c2c3b360fa018a113840f85c7c89f6b144fed2"
+  },
+  "Models/F_popsicle.mtl": {
+    "bytes": 379,
+    "sha256": "dba4e16a3bbece0cccb0f930dac963e464b75fffa5f29f33b8d78583aff46b75"
+  },
+  "Models/F_popsicle.obj": {
+    "bytes": 88769,
+    "sha256": "83688bb3e7a119d5a883fee2f8ae0eca7049264a1fff6d8123ce28c5117ea03b"
+  },
+  "Models/F_popsicle_LOD1.mtl": {
+    "bytes": 379,
+    "sha256": "dba4e16a3bbece0cccb0f930dac963e464b75fffa5f29f33b8d78583aff46b75"
+  },
+  "Models/F_popsicle_LOD1.obj": {
+    "bytes": 38546,
+    "sha256": "ba9ccfbea4128e3e1ac7e6c9f2598cffe3284e94287cd8f2b929016c0a4d13e7"
+  },
+  "Models/F_popsicle_chocolate.mtl": {
+    "bytes": 502,
+    "sha256": "3bdd394c3c3da7ce2a8cd4dc90dce197861c27bea74da0422387bf2aa784c9bd"
+  },
+  "Models/F_popsicle_chocolate.obj": {
+    "bytes": 39527,
+    "sha256": "fd8df2846ce08af11f4072c47260a8a99c19618b1dc7a7e8669357f018f2e023"
+  },
+  "Models/F_popsicle_chocolate_LOD1.mtl": {
+    "bytes": 502,
+    "sha256": "3bdd394c3c3da7ce2a8cd4dc90dce197861c27bea74da0422387bf2aa784c9bd"
+  },
+  "Models/F_popsicle_chocolate_LOD1.obj": {
+    "bytes": 38135,
+    "sha256": "476d7979f6273c9cde4a546af6d9e238bbd691ae918c30ddfcef129cbd8c2f88"
+  },
+  "Models/F_pot_stew.mtl": {
+    "bytes": 505,
+    "sha256": "51a7bd8dbcfc9f36a3f5af41198852f74c006c86a3df82b044f04293271ada5c"
+  },
+  "Models/F_pot_stew.obj": {
+    "bytes": 364896,
+    "sha256": "81c9fc787ec790b06e0d94de0c67d44b212a980d267808fc949d7c13a97b2941"
+  },
+  "Models/F_pot_stew_LOD1.mtl": {
+    "bytes": 505,
+    "sha256": "51a7bd8dbcfc9f36a3f5af41198852f74c006c86a3df82b044f04293271ada5c"
+  },
+  "Models/F_pot_stew_LOD1.obj": {
+    "bytes": 158573,
+    "sha256": "5ce4f228c76a875c8191177c26a874e6da6121a21d9e6be6838af57549887a4b"
+  },
+  "Models/F_pudding.mtl": {
+    "bytes": 251,
+    "sha256": "ddc24ba0d000138960675b3290e430ae9890cb9a1105d44973ce575897e0314a"
+  },
+  "Models/F_pudding.obj": {
+    "bytes": 63875,
+    "sha256": "24224256edc11dde740052241b70b2513671faa06867b2c1ab0e87de219e8cad"
+  },
+  "Models/F_pudding_LOD1.mtl": {
+    "bytes": 251,
+    "sha256": "ddc24ba0d000138960675b3290e430ae9890cb9a1105d44973ce575897e0314a"
+  },
+  "Models/F_pudding_LOD1.obj": {
+    "bytes": 27479,
+    "sha256": "a43fe1ac95d6ac592fbfd2731b6d3ad010e69f59e3492f84f96695bb6144445c"
+  },
+  "Models/F_pumpkin.mtl": {
+    "bytes": 450,
+    "sha256": "d2f4a77a6e8a1d43c908b1ed2685087794bf30377d495189a07191da2ff94592"
+  },
+  "Models/F_pumpkin.obj": {
+    "bytes": 198649,
+    "sha256": "539a9a25d0f9eefad82e6b38614e5d990774c9293e693e201117ce180a106f4c"
+  },
+  "Models/F_pumpkin_LOD1.mtl": {
+    "bytes": 450,
+    "sha256": "d2f4a77a6e8a1d43c908b1ed2685087794bf30377d495189a07191da2ff94592"
+  },
+  "Models/F_pumpkin_LOD1.obj": {
+    "bytes": 83134,
+    "sha256": "fe8e459feaf86813e412f772d7368c98343679621d385d95fb52e9913626b8c0"
+  },
+  "Models/F_pumpkin_basic.mtl": {
+    "bytes": 245,
+    "sha256": "9c82e57eabae05c4cacabab6981587fb9415ec3069c47b1db2f72d21a67bdf23"
+  },
+  "Models/F_pumpkin_basic.obj": {
+    "bytes": 105329,
+    "sha256": "0cee9314730ade03f940c952bb8245e22256cb8e57fae1fd3b78c42ab3caa53a"
+  },
+  "Models/F_pumpkin_basic_LOD1.mtl": {
+    "bytes": 245,
+    "sha256": "9c82e57eabae05c4cacabab6981587fb9415ec3069c47b1db2f72d21a67bdf23"
+  },
+  "Models/F_pumpkin_basic_LOD1.obj": {
+    "bytes": 45362,
+    "sha256": "a6b105d02afd47dee94de2c0f9f90200a0b7d7c7feb8e1f36fcfae111d809c57"
+  },
+  "Models/F_radish.mtl": {
+    "bytes": 538,
+    "sha256": "3225fff780b370ace691d07077ac5b3ccab5d78e075ef5563e6a032d75305932"
+  },
+  "Models/F_radish.obj": {
+    "bytes": 211717,
+    "sha256": "179c30c15945ceb5ff62487a23ce9ae45e2c209f00efa7d75af01cc05c5c983d"
+  },
+  "Models/F_radish_LOD1.mtl": {
+    "bytes": 538,
+    "sha256": "3225fff780b370ace691d07077ac5b3ccab5d78e075ef5563e6a032d75305932"
+  },
+  "Models/F_radish_LOD1.obj": {
+    "bytes": 82646,
+    "sha256": "7b2b79169d175a845df62633566277f639375001464c8dcf79cb0a9b59085c7f"
+  },
+  "Models/F_rice_ball.mtl": {
+    "bytes": 549,
+    "sha256": "3ed09280dc5d78bbafa083461af09202679f416963285f365a3f7c786a6463a0"
+  },
+  "Models/F_rice_ball.obj": {
+    "bytes": 95556,
+    "sha256": "c2365c746dbc79e302c6289e696b84e3810bd42ff368a06a9cedafc478a0edf5"
+  },
+  "Models/F_rice_ball_LOD1.mtl": {
+    "bytes": 549,
+    "sha256": "3ed09280dc5d78bbafa083461af09202679f416963285f365a3f7c786a6463a0"
+  },
+  "Models/F_rice_ball_LOD1.obj": {
+    "bytes": 39263,
+    "sha256": "cb9b9bb864caeb14b5609064df438611892c1e7bf22aa8885086d52fe51530ba"
+  },
+  "Models/F_salad.mtl": {
+    "bytes": 460,
+    "sha256": "c299c0ebc16a0928e6253caca651028534c8d20595faa46e11a408c12696cc75"
+  },
+  "Models/F_salad.obj": {
+    "bytes": 249874,
+    "sha256": "76099625ec88102f5ef6d384bea4142fcde9e2562cba7ad9ecfd60366dc980ff"
+  },
+  "Models/F_salad_LOD1.mtl": {
+    "bytes": 460,
+    "sha256": "c299c0ebc16a0928e6253caca651028534c8d20595faa46e11a408c12696cc75"
+  },
+  "Models/F_salad_LOD1.obj": {
+    "bytes": 101883,
+    "sha256": "01b8303e46d8d4ac62e60778e1e42f365bf131913c2f574aba6d8949da1975c9"
+  },
+  "Models/F_sandwich.mtl": {
+    "bytes": 293,
+    "sha256": "4bd2c765261d481d4ad8104bb72e2ad39d5a5021b9992138b699663930f6c700"
+  },
+  "Models/F_sandwich.obj": {
+    "bytes": 175142,
+    "sha256": "75392086cfb84ec0255bfcbb2d247f24c8bc672bddc605c8c1cf2d6b49cfbd9f"
+  },
+  "Models/F_sandwich_LOD1.mtl": {
+    "bytes": 293,
+    "sha256": "4bd2c765261d481d4ad8104bb72e2ad39d5a5021b9992138b699663930f6c700"
+  },
+  "Models/F_sandwich_LOD1.obj": {
+    "bytes": 68736,
+    "sha256": "0fb02783ee384e0975a6e8ac375f90ca2e2377fa305ac44880dc00c23634082b"
+  },
+  "Models/F_sausage.mtl": {
+    "bytes": 342,
+    "sha256": "2725b90f8a36cd62dec58173a8222d49398762e8fc64b40f15638538517cb734"
+  },
+  "Models/F_sausage.obj": {
+    "bytes": 149298,
+    "sha256": "29f415da9e131479a569979905f17b32084823670022d5251617eeb483fe3575"
+  },
+  "Models/F_sausage_LOD1.mtl": {
+    "bytes": 342,
+    "sha256": "2725b90f8a36cd62dec58173a8222d49398762e8fc64b40f15638538517cb734"
+  },
+  "Models/F_sausage_LOD1.obj": {
+    "bytes": 64464,
+    "sha256": "c19ac990a494aedc94fb97a7409fb0eab06eed59286fe523fc88245bbf11bf58"
+  },
+  "Models/F_sausage_half.mtl": {
+    "bytes": 721,
+    "sha256": "c0d3470b811e85cda52aa2e3bb0cce506c016ea50ad39ccfb348b74416af6ab2"
+  },
+  "Models/F_sausage_half.obj": {
+    "bytes": 105458,
+    "sha256": "5bb876161ff1f3b92f47b7aa1f6c15b4e220b9318db87b3cb4a27eead3ccff4c"
+  },
+  "Models/F_sausage_half_LOD1.mtl": {
+    "bytes": 721,
+    "sha256": "c0d3470b811e85cda52aa2e3bb0cce506c016ea50ad39ccfb348b74416af6ab2"
+  },
+  "Models/F_sausage_half_LOD1.obj": {
+    "bytes": 46813,
+    "sha256": "d3a1633a4257b39cbcfa3364df026d9ab2fa738861080303b77ea702d19907f2"
+  },
+  "Models/F_skewer.mtl": {
+    "bytes": 290,
+    "sha256": "a1d12980c882d912f453e9398ac2b8e2bd258bc5ef5cb3359370885ed08e2760"
+  },
+  "Models/F_skewer.obj": {
+    "bytes": 199497,
+    "sha256": "0f5f19f50e075526f827202aa7e98e1c3d3b119c9ba748667c7030c2ec260d17"
+  },
+  "Models/F_skewer_LOD1.mtl": {
+    "bytes": 290,
+    "sha256": "a1d12980c882d912f453e9398ac2b8e2bd258bc5ef5cb3359370885ed08e2760"
+  },
+  "Models/F_skewer_LOD1.obj": {
+    "bytes": 86159,
+    "sha256": "488bc122d8ae00a146ad9224e9d9cd740be883a02f342bc3595f545b23df89a9"
+  },
+  "Models/F_skewer_vegetables.mtl": {
+    "bytes": 624,
+    "sha256": "b3f4410b79f66a286c5d774997a6f6168bae257c359c69291654039b386ece34"
+  },
+  "Models/F_skewer_vegetables.obj": {
+    "bytes": 287592,
+    "sha256": "c2fb23fab5931194bed9e1d2c4e14dd53718cb509fb38388a21b6c24ddab5696"
+  },
+  "Models/F_skewer_vegetables_LOD1.mtl": {
+    "bytes": 624,
+    "sha256": "b3f4410b79f66a286c5d774997a6f6168bae257c359c69291654039b386ece34"
+  },
+  "Models/F_skewer_vegetables_LOD1.obj": {
+    "bytes": 124520,
+    "sha256": "5046c96e835e7390b409deb84d4879c2d6d3435688c6058ac50920222fa86e08"
+  },
+  "Models/F_soda.mtl": {
+    "bytes": 278,
+    "sha256": "68e86c9587c6ab7e7ef424e3dbd0c18bdfd4438f4a522221cd9ebec89afc703f"
+  },
+  "Models/F_soda.obj": {
+    "bytes": 265375,
+    "sha256": "9b3ece0778ce8735c252d7853e75d4b5774ad8e26d5474afd01aaf7eb75f5b1f"
+  },
+  "Models/F_soda_LOD1.mtl": {
+    "bytes": 278,
+    "sha256": "68e86c9587c6ab7e7ef424e3dbd0c18bdfd4438f4a522221cd9ebec89afc703f"
+  },
+  "Models/F_soda_LOD1.obj": {
+    "bytes": 113129,
+    "sha256": "564d4c5325a2218fb740d3626a477b726fdb021ceb67d93953e1e77dcd394e20"
+  },
+  "Models/F_soda_bottle.mtl": {
+    "bytes": 418,
+    "sha256": "05d74ca50921ff819b12019e2dc49d10fcdcb0ecf2911d81de612eed766d9b49"
+  },
+  "Models/F_soda_bottle.obj": {
+    "bytes": 159077,
+    "sha256": "189f5d8d6f1e8fcc3ef5bdf07c5ed04cac3789fbd72ec55a4a9a7ec97d8ebcad"
+  },
+  "Models/F_soda_bottle_LOD1.mtl": {
+    "bytes": 418,
+    "sha256": "05d74ca50921ff819b12019e2dc49d10fcdcb0ecf2911d81de612eed766d9b49"
+  },
+  "Models/F_soda_bottle_LOD1.obj": {
+    "bytes": 67196,
+    "sha256": "1e0a3f47113338f2fd721b223d3f9e7ae6e8982c0029fbeddb26d7a0f03a1ae9"
+  },
+  "Models/F_soda_can.mtl": {
+    "bytes": 429,
+    "sha256": "852f7bce73adb335c8f13c6b6edff0f313d19e8586bc7ab3674aa15c9debd6a4"
+  },
+  "Models/F_soda_can.obj": {
+    "bytes": 215697,
+    "sha256": "8c360df45cda4f5dff9c9600fad8d3dc230c2fdfa50eb7c1237ee7a3f48ba051"
+  },
+  "Models/F_soda_can_LOD1.mtl": {
+    "bytes": 429,
+    "sha256": "852f7bce73adb335c8f13c6b6edff0f313d19e8586bc7ab3674aa15c9debd6a4"
+  },
+  "Models/F_soda_can_LOD1.obj": {
+    "bytes": 91383,
+    "sha256": "3113b9c94dee6a7b429c019345b5f07cb5f6b928bd23eda72c49e34094330d18"
+  },
+  "Models/F_soda_glass.mtl": {
+    "bytes": 591,
+    "sha256": "a62f9ff9d116276e059796668031af453bdd40677935010ecefaaf531ff615c4"
+  },
+  "Models/F_soda_glass.obj": {
+    "bytes": 178473,
+    "sha256": "a26cfa956b3bb48b70b4ea782a2fae199252e59ab6610a9592e631608f4b02c9"
+  },
+  "Models/F_soda_glass_LOD1.mtl": {
+    "bytes": 591,
+    "sha256": "a62f9ff9d116276e059796668031af453bdd40677935010ecefaaf531ff615c4"
+  },
+  "Models/F_soda_glass_LOD1.obj": {
+    "bytes": 77111,
+    "sha256": "0c6fa74d39c8ba95ceb282bc581913a33f42e81f566528060313b774064a5923"
+  },
+  "Models/F_strawberry.mtl": {
+    "bytes": 407,
+    "sha256": "02a161381a2ff1707d02c729f2fb21dadbd1c5d245960e57d5771899be24b7c6"
+  },
+  "Models/F_strawberry.obj": {
+    "bytes": 209035,
+    "sha256": "865e600d2a6c59e0272cb7b9c9f5d1b168cf94082a4ecaf977e972ee012c860e"
+  },
+  "Models/F_strawberry_LOD1.mtl": {
+    "bytes": 407,
+    "sha256": "02a161381a2ff1707d02c729f2fb21dadbd1c5d245960e57d5771899be24b7c6"
+  },
+  "Models/F_strawberry_LOD1.obj": {
+    "bytes": 85366,
+    "sha256": "19422bfb1699b601267e1fcfce4eb6493618f4990745a6f17226ec8e3f34d9c6"
+  },
+  "Models/F_styrofoam_dinner.mtl": {
+    "bytes": 589,
+    "sha256": "49703812107f8fb151109a501a27e9ff460464dca470d4298f27ae038ad39b9f"
+  },
+  "Models/F_styrofoam_dinner.obj": {
+    "bytes": 406476,
+    "sha256": "0f90ca901ff99b470c9ca0ae4698d550c1bd870f90e09037c4723e04a12ffb19"
+  },
+  "Models/F_styrofoam_dinner_LOD1.mtl": {
+    "bytes": 589,
+    "sha256": "49703812107f8fb151109a501a27e9ff460464dca470d4298f27ae038ad39b9f"
+  },
+  "Models/F_styrofoam_dinner_LOD1.obj": {
+    "bytes": 171724,
+    "sha256": "302b6524fa8fc2e60081a5a0750d72b7abf787e9f82f857f6aa2b8eab2753f10"
+  },
+  "Models/F_sub.mtl": {
+    "bytes": 585,
+    "sha256": "78fedd277facb03bdd20a0450ddfb84b6f877fbaca1f5f0b12a8e1ea846daf0d"
+  },
+  "Models/F_sub.obj": {
+    "bytes": 173437,
+    "sha256": "e73eb36d1c584a75528afdd7235903d04030a17d04350eeb974b7bb2bcba80cd"
+  },
+  "Models/F_sub_LOD1.mtl": {
+    "bytes": 585,
+    "sha256": "78fedd277facb03bdd20a0450ddfb84b6f877fbaca1f5f0b12a8e1ea846daf0d"
+  },
+  "Models/F_sub_LOD1.obj": {
+    "bytes": 161159,
+    "sha256": "486d0713ce2b9e03437f6ea31c2146f71814412f8e05f5544b6ad79c1881b7f9"
+  },
+  "Models/F_sundae.mtl": {
+    "bytes": 1183,
+    "sha256": "e6bdb43777e3ed4fc4e951d1a7ad8cb76f5b51a8e6c6393452592d1d72f95fe6"
+  },
+  "Models/F_sundae.obj": {
+    "bytes": 407168,
+    "sha256": "90b19f3f4b74bcec2375887c049255c30da4f9f7956b83c24003f64ee7de50c8"
+  },
+  "Models/F_sundae_LOD1.mtl": {
+    "bytes": 1183,
+    "sha256": "e6bdb43777e3ed4fc4e951d1a7ad8cb76f5b51a8e6c6393452592d1d72f95fe6"
+  },
+  "Models/F_sundae_LOD1.obj": {
+    "bytes": 172528,
+    "sha256": "08296f57203b1e9f771b4c004c4f08e5d234a39c2746aeb7a9b613b2c6029208"
+  },
+  "Models/F_sushi_egg.mtl": {
+    "bytes": 329,
+    "sha256": "ab91f2b7a5096f15a66d56fac30abef75a6785a4758c4653c8bf124b971da9b2"
+  },
+  "Models/F_sushi_egg.obj": {
+    "bytes": 114966,
+    "sha256": "de60c173099b1e302c7436b130851b410e72a82e802ee3f7b75dd8a43722e20a"
+  },
+  "Models/F_sushi_egg_LOD1.mtl": {
+    "bytes": 329,
+    "sha256": "ab91f2b7a5096f15a66d56fac30abef75a6785a4758c4653c8bf124b971da9b2"
+  },
+  "Models/F_sushi_egg_LOD1.obj": {
+    "bytes": 49807,
+    "sha256": "3b31ef8b5abee0c0f7ede47afde8e55b795f0f61aeb829380fbbfd68f97c0d15"
+  },
+  "Models/F_sushi_salmon.mtl": {
+    "bytes": 296,
+    "sha256": "7ca323d74e5f324e93c108c08e50f60ca24219b3c01b25cc90097f42f9971877"
+  },
+  "Models/F_sushi_salmon.obj": {
+    "bytes": 30268,
+    "sha256": "5e497dbfed5c95858f67a4d0e7dda88a038eb5d865f151133e49e81e28e3e363"
+  },
+  "Models/F_sushi_salmon_LOD1.mtl": {
+    "bytes": 296,
+    "sha256": "7ca323d74e5f324e93c108c08e50f60ca24219b3c01b25cc90097f42f9971877"
+  },
+  "Models/F_sushi_salmon_LOD1.obj": {
+    "bytes": 28158,
+    "sha256": "d29aec40823fde8f30b8f938949813786eb3ed418bbf6782593b43e563d2f453"
+  },
+  "Models/F_taco.mtl": {
+    "bytes": 1297,
+    "sha256": "1353a9b9e794e954ad119968c5c5c6fb5f9df8fb7c2444e5a573a7b330748353"
+  },
+  "Models/F_taco.obj": {
+    "bytes": 246151,
+    "sha256": "20767c3c396a3c89dc2b14c49c5628f03fbf222d8f67582b848f6bfbc9de4ffa"
+  },
+  "Models/F_taco_LOD1.mtl": {
+    "bytes": 1297,
+    "sha256": "1353a9b9e794e954ad119968c5c5c6fb5f9df8fb7c2444e5a573a7b330748353"
+  },
+  "Models/F_taco_LOD1.obj": {
+    "bytes": 107571,
+    "sha256": "5c04f884a6e8671831a6df70abc5fd4c1dcffe2cbaffee2f4647a878b54ce17c"
+  },
+  "Models/F_tomato.mtl": {
+    "bytes": 324,
+    "sha256": "858c96fac8e937d5468aff098dd8ecbfbe10213fcd39c76f74c9a2b6c58d99e3"
+  },
+  "Models/F_tomato.obj": {
+    "bytes": 171528,
+    "sha256": "00da904a6e591324c6021f1dc4b60efb22244da44ace3f2422136c049ec7f5f9"
+  },
+  "Models/F_tomato_LOD1.mtl": {
+    "bytes": 324,
+    "sha256": "858c96fac8e937d5468aff098dd8ecbfbe10213fcd39c76f74c9a2b6c58d99e3"
+  },
+  "Models/F_tomato_LOD1.obj": {
+    "bytes": 71301,
+    "sha256": "404a06eb0f9d1febb011510b9af5222f3d64d51fdf464e848b7042df6a0432a6"
+  },
+  "Models/F_tomato_slice.mtl": {
+    "bytes": 201,
+    "sha256": "e246dbede08a6139431860b76d630e9c76d7dcea31ecbbc0a6e0669a8eec6907"
+  },
+  "Models/F_tomato_slice.obj": {
+    "bytes": 58442,
+    "sha256": "26ec197b6a7320fce6f3b4c0c08623666ef4a3ac06f4b891d986eafcd8ccf926"
+  },
+  "Models/F_tomato_slice_LOD1.mtl": {
+    "bytes": 201,
+    "sha256": "e246dbede08a6139431860b76d630e9c76d7dcea31ecbbc0a6e0669a8eec6907"
+  },
+  "Models/F_tomato_slice_LOD1.obj": {
+    "bytes": 38830,
+    "sha256": "5889d70b0ea4fef3936093f66078914553089b4be85a544793cd7dbe21db48a7"
+  },
+  "Models/F_turkey.mtl": {
+    "bytes": 749,
+    "sha256": "17b19022367a4b3084163200e8df7b338b9d1630873e9e8ee8d46ea5e759bade"
+  },
+  "Models/F_turkey.obj": {
+    "bytes": 556471,
+    "sha256": "f46565c008763de67a4c472dc199a74a5f10970dcb26a6b060cd18739559bbbb"
+  },
+  "Models/F_turkey_LOD1.mtl": {
+    "bytes": 749,
+    "sha256": "17b19022367a4b3084163200e8df7b338b9d1630873e9e8ee8d46ea5e759bade"
+  },
+  "Models/F_turkey_LOD1.obj": {
+    "bytes": 240181,
+    "sha256": "a37806e35e57ec6f44512a7eafa7876c2f7c437a4f417aa6473a3cab3ab4b28f"
+  },
+  "Models/F_waffle.mtl": {
+    "bytes": 244,
+    "sha256": "986520b97df501ccb3b9c9e53ed6a56a8a68d3703b525360b86883ab5e6b4aca"
+  },
+  "Models/F_waffle.obj": {
+    "bytes": 221670,
+    "sha256": "6407dd770d08e71711e1f3115850bf7dedac58b75b4a83a885315696c469e6da"
+  },
+  "Models/F_waffle_LOD1.mtl": {
+    "bytes": 244,
+    "sha256": "986520b97df501ccb3b9c9e53ed6a56a8a68d3703b525360b86883ab5e6b4aca"
+  },
+  "Models/F_waffle_LOD1.obj": {
+    "bytes": 217996,
+    "sha256": "efecde8d550245ca834232e8661aea38a45443caa4bb2e9175b59b4d12f7df05"
+  },
+  "Models/F_watermelon.mtl": {
+    "bytes": 1704,
+    "sha256": "dbf4e0319fe3c8ea6ebc5100c5dc3a0c03160e0f48e09c081f80e55255cd082c"
+  },
+  "Models/F_watermelon.obj": {
+    "bytes": 300853,
+    "sha256": "5169ec668b99f937dae69cb9a6434fadcdd4d3e33b6abbc9dcb1a3136e4225be"
+  },
+  "Models/F_watermelon_LOD1.mtl": {
+    "bytes": 1704,
+    "sha256": "dbf4e0319fe3c8ea6ebc5100c5dc3a0c03160e0f48e09c081f80e55255cd082c"
+  },
+  "Models/F_watermelon_LOD1.obj": {
+    "bytes": 192921,
+    "sha256": "eaaf98bdc663bb230dd1ce7e56ab2a3af88100459419466bd67b5f2dba60d4bb"
+  },
+  "Models/F_whipped_cream.mtl": {
+    "bytes": 214,
+    "sha256": "e1ce99bebccebc26964d6792befd78b13815b408678d94c0cd5127db9b03f2f6"
+  },
+  "Models/F_whipped_cream.obj": {
+    "bytes": 159293,
+    "sha256": "38924cb346026cc2a34a9f3ea39e5dc76f8e43733be6119288e1b1b84bfb8367"
+  },
+  "Models/F_whipped_cream_LOD1.mtl": {
+    "bytes": 214,
+    "sha256": "e1ce99bebccebc26964d6792befd78b13815b408678d94c0cd5127db9b03f2f6"
+  },
+  "Models/F_whipped_cream_LOD1.obj": {
+    "bytes": 68634,
+    "sha256": "d1063e0cb2df78873ca6d74c8794347af3e0090bae722302ba5434647c382317"
+  },
+  "Models/F_whole_ham.mtl": {
+    "bytes": 962,
+    "sha256": "580c3f31b3cd5d085573f4635b3dfdd9a23a257278163def7ed5840bbdd16c85"
+  },
+  "Models/F_whole_ham.obj": {
+    "bytes": 199005,
+    "sha256": "54f9c325585b54e45fc22b398b3f9579b550292cc0ce9c7f1fd3e28b22b7dda3"
+  },
+  "Models/F_whole_ham_LOD1.mtl": {
+    "bytes": 962,
+    "sha256": "580c3f31b3cd5d085573f4635b3dfdd9a23a257278163def7ed5840bbdd16c85"
+  },
+  "Models/F_whole_ham_LOD1.obj": {
+    "bytes": 85663,
+    "sha256": "edf4e0890644cf74f901e0d05277269373093e6afc4430a3a51e8f19e7183524"
+  },
+  "Models/F_wholer_ham.mtl": {
+    "bytes": 622,
+    "sha256": "f92724d7e19e177a02a142f5de2b8adb341ed8e1313ac7e94dd8032a84af28fb"
+  },
+  "Models/F_wholer_ham.obj": {
+    "bytes": 146211,
+    "sha256": "92a3de946b50efec2f2aa1601f4760a2228b86c1421b6c08d6c7b55563688674"
+  },
+  "Models/F_wholer_ham_LOD1.mtl": {
+    "bytes": 622,
+    "sha256": "f92724d7e19e177a02a142f5de2b8adb341ed8e1313ac7e94dd8032a84af28fb"
+  },
+  "Models/F_wholer_ham_LOD1.obj": {
+    "bytes": 55888,
+    "sha256": "f1e1b88d2f16476410a4e2c62648f0cd607651f4ee088b31cd499a4e98d38f24"
+  },
+  "Textures/almond_label_albedo.png": {
+    "bytes": 29310,
+    "sha256": "67c672827e0cb37a4106fd05901f91268870572b6a433e0adf2268d28790443c"
+  },
+  "Textures/drink_albedo.png": {
+    "bytes": 141007,
+    "sha256": "8e73368ab6d9171d41cbecf7ef065a1a4faba887ce715f192ad1202ed4e068a1"
+  },
+  "Textures/drink_mask.png": {
+    "bytes": 233847,
+    "sha256": "643f19a7069298390f1cebf6698ee7db890d4e7ec80e299f97f632b85a390032"
+  },
+  "Textures/drink_normal.png": {
+    "bytes": 126792,
+    "sha256": "b52ffb8de6e3ea8a9820f40fec6972ea8885bc31477f10ab0dbcbfdde2c30db9"
+  },
+  "Textures/pastry_albedo.png": {
+    "bytes": 430292,
+    "sha256": "9f96cfbfee5a9a198c10de4189d9cde6d6705a1fe27fa7c6792a1716a51e0c63"
+  },
+  "Textures/pastry_mask.png": {
+    "bytes": 281980,
+    "sha256": "e5d1065166362d27ccfd3395d54161f5052f8f7ba38b3dd62d0483aa9c311482"
+  },
+  "Textures/pastry_normal.png": {
+    "bytes": 1375665,
+    "sha256": "e664697e4f3e8b26bc89f7d75370b4aa3bc24f18c74ba7468d24afe5054ff561"
+  },
+  "Textures/prepared_albedo.png": {
+    "bytes": 296477,
+    "sha256": "6724bcbc9033ec7ed0ba534be802e2d7d7956556f30e62cd8f03e30bdf9d4b0e"
+  },
+  "Textures/prepared_mask.png": {
+    "bytes": 281946,
+    "sha256": "a32436992b4be39e581828531616b8dd56df45835768d93c86aeb7d904f32109"
+  },
+  "Textures/prepared_normal.png": {
+    "bytes": 1049312,
+    "sha256": "b92d56b8c9ec1d506eb6645bd04201b2811232b442ff637fc29e60e2664a1329"
+  },
+  "Textures/produce_albedo.png": {
+    "bytes": 372282,
+    "sha256": "3f9aa17faabeda48f7db04b3bdca1a57524c6d15da08e20825d8547edf92c2f7"
+  },
+  "Textures/produce_mask.png": {
+    "bytes": 185701,
+    "sha256": "6236de1c15ca60ec1a87d82edbb86bf4e0e5ad7bce7702d244101df2894e64f9"
+  },
+  "Textures/produce_normal.png": {
+    "bytes": 658301,
+    "sha256": "f717ff920607ca82ebc97985b585114cd9e87b1b0e46c7e75783a09768d71f4a"
+  },
+  "catalog.json": {
+    "bytes": 749906,
+    "sha256": "70ecefc842d0dc55b391262ff5b720d43b16d3cce523739acabdeb733bb80d8b"
+  }
+}

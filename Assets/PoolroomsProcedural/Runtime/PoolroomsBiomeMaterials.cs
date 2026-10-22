@@ -56,6 +56,8 @@ namespace Poolrooms
             }
             Color color=Color.white;
             if(theme==SurfaceTheme.CityStreet&&slot==Surface.Tile)color=new Color(.19f,.2f,.21f);
+            if(theme==SurfaceTheme.DreamCityLime&&slot==Surface.Plaster)color=new Color(.76f,.84f,.77f);
+            if(theme==SurfaceTheme.DreamCityClay&&slot==Surface.Plaster)color=new Color(.9f,.76f,.69f);
             if(theme==SurfaceTheme.IndoorPlay)
             {V3 c=LiminalPalette.Color(slot,0);color=slot==Surface.Tile||slot==Surface.Plaster?new Color(.87f,.89f,.85f):new Color(c.X,c.Y,c.Z);}
             if(theme==SurfaceTheme.Hotel&&slot==Surface.Plaster)color=new Color(.95f,.91f,.84f);

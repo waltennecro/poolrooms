@@ -1,0 +1,81 @@
+{
+  "model": "chocolate",
+  "name": "Chocolate",
+  "drink": false,
+  "id": "F_chocolate",
+  "key": "food:26",
+  "resourceId": "F_chocolate",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_chocolate",
+  "minimum": [
+    -0.1462240070104599,
+    0.0,
+    -0.07311200350522995
+  ],
+  "maximum": [
+    0.1462240070104599,
+    0.033743999898433685,
+    0.07311200350522995
+  ],
+  "triangles": 1065,
+  "materials": [
+    {
+      "name": "Food_prepared_148_88_65",
+      "colour": [
+        0.2961382707983211,
+        0.09758734714186246,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_153_89_65",
+      "colour": [
+        0.31854677812509186,
+        0.09989872824711389,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_162_92_65",
+      "colour": [
+        0.3613067797835095,
+        0.10702310297826761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_chocolate_LOD1",
+      "triangles": 439
+    }
+  ],
+  "removedDuplicateFaces": 140,
+  "sourceSha256": "c9b2a0ae2ac5bb33f17a0ab6ce7499b9961260d741eddbb64505f5e7d67e3454",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "chocolate"
+}

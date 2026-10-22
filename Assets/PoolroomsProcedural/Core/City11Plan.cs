@@ -59,8 +59,8 @@ namespace Poolrooms.Core
                     b=new CityBuildingPlan(x*9.8f,z*9.8f,10,10,4,b.Program,1,b.Seed,b.Turn,1+(int)((b.Seed>>8)%2));
                 if(c.ExpandedVariety)b=new CityBuildingPlan(b.X,b.Z,b.Width,b.Depth,b.Floors,b.Program,b.Facade,b.Seed,b.Turn,b.ExteriorSource,(int)((b.Seed>>12)%9));
                 w=b.Width;d=b.Depth;buildings[index]=b;
-                props[index*2]=new CityPropPlan(b.Point(w*.23f,1.02f,0),0);
-                props[index*2+1]=new CityPropPlan(b.Point(w*.23f,1.06f,d*.28f),1);
+                props[index*2]=new CityPropPlan(b.Point(w*.23f,c.DreamCity11?.884f:1.02f,0),0);
+                props[index*2+1]=new CityPropPlan(b.Point(w*.23f,c.DreamCity11?.924f:1.06f,d*.28f),1);
                 int choice=(int)((b.Seed>>8)%3),source=choice==0?2:choice==1&&w>=10&&d>=10?((b.Seed&1)==0?3:5):4;
                 props[8+index]=new CityPropPlan(b.Point(w*.23f,.14f,source==3||source==5?1.6f:1.12f),source,b.Turn?0:180);index++;
             }

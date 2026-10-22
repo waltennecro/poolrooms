@@ -20,7 +20,7 @@ namespace Poolrooms
         public static Definition Get(string id)
         {
             if(definitions.TryGetValue(id,out var value))return value;
-            var data=Resources.Load<TextAsset>((id.StartsWith("J_",StringComparison.Ordinal)?"JourneySources/":id.StartsWith("M_",StringComparison.Ordinal)?"MallSources/":id.StartsWith("R_",StringComparison.Ordinal)?"RestfulSources/":id.StartsWith("T_",StringComparison.Ordinal)?"BathSources/":id.StartsWith("G_",StringComparison.Ordinal)?"GardenSources/":id.StartsWith("B_Building",StringComparison.Ordinal)?"Buildings/":id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
+            var data=Resources.Load<TextAsset>((id.StartsWith("F_",StringComparison.Ordinal)?"FoodSources/":id.StartsWith("J_",StringComparison.Ordinal)?"JourneySources/":id.StartsWith("M_",StringComparison.Ordinal)?"MallSources/":id.StartsWith("R_",StringComparison.Ordinal)?"RestfulSources/":id.StartsWith("T_",StringComparison.Ordinal)?"BathSources/":id.StartsWith("G_",StringComparison.Ordinal)?"GardenSources/":id.StartsWith("B_Building",StringComparison.Ordinal)?"Buildings/":id.StartsWith("B_",StringComparison.Ordinal)?"Bistro/":id.StartsWith("U_",StringComparison.Ordinal)?"Urban/":id.StartsWith("A_",StringComparison.Ordinal)?"Aircraft/":id.StartsWith("H_",StringComparison.Ordinal)?"Helicopters/":id.StartsWith("I_",StringComparison.Ordinal)?"Interiors/":"City11/")+id);
             if(data==null)return null;value=JsonUtility.FromJson<Definition>(data.text);definitions.Add(id,value);return value;
         }
         public static GameObject Create(string id,Transform parent,Vector3 position,float targetLongest,out Vector3 size,int startLOD=0,bool preservePivot=false)
@@ -45,12 +45,12 @@ namespace Poolrooms
             mesh.transform.localPosition=(mesh.transform.localPosition-(preservePivot?Vector3.zero:bounds.center))*scale;mesh.transform.localScale*=scale;
             if(definition.lods!=null&&definition.lods.Length>0)
             {
-                var tiers=new List<LOD>{new LOD(.12f,mesh.GetComponentsInChildren<Renderer>())};
+                var tiers=new List<LOD>{new LOD(id.StartsWith("F_",StringComparison.Ordinal)?.06f:.12f,mesh.GetComponentsInChildren<Renderer>())};
                 for(int i=startLOD;i<definition.lods.Length;i++)
                 {
                     var lowSource=Resources.Load<GameObject>(definition.lods[i].resource);if(lowSource==null)continue;
                     var low=UnityEngine.Object.Instantiate(lowSource,root.transform);low.transform.localPosition=mesh.transform.localPosition;low.transform.localRotation=mesh.transform.localRotation;low.transform.localScale=mesh.transform.localScale;
-                    tiers.Add(new LOD(i==0?.045f:.008f,low.GetComponentsInChildren<Renderer>()));
+                    tiers.Add(new LOD(id.StartsWith("F_",StringComparison.Ordinal)?.005f:i==0?.045f:.008f,low.GetComponentsInChildren<Renderer>()));
                 }
                 var group=root.AddComponent<LODGroup>();group.SetLODs(tiers.ToArray());group.RecalculateBounds();group.fadeMode=LODFadeMode.CrossFade;group.animateCrossFading=true;
             }

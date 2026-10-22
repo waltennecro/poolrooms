@@ -1,0 +1,81 @@
+{
+  "model": "egg-cooked",
+  "name": "Huevo frito",
+  "drink": false,
+  "id": "F_egg_cooked",
+  "key": "food:39",
+  "resourceId": "F_egg_cooked",
+  "family": "prepared",
+  "resource": "FoodSources/Models/F_egg_cooked",
+  "minimum": [
+    -0.20623022317886353,
+    0.0,
+    -0.18983440101146698
+  ],
+  "maximum": [
+    0.20623019337654114,
+    0.028200000524520874,
+    0.18989717960357666
+  ],
+  "triangles": 220,
+  "materials": [
+    {
+      "name": "Food_prepared_255_181_74",
+      "colour": [
+        1.0,
+        0.4620769996544071,
+        0.06847816984440017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_211_99",
+      "colour": [
+        1.0,
+        0.6514056374198242,
+        0.12477181756095049,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    },
+    {
+      "name": "Food_prepared_255_255_255",
+      "colour": [
+        1.0,
+        1.0,
+        1.0,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/prepared_albedo",
+      "normal": "FoodSources/Textures/prepared_normal",
+      "mask": "FoodSources/Textures/prepared_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_egg_cooked_LOD1",
+      "triangles": 92
+    }
+  ],
+  "removedDuplicateFaces": 92,
+  "sourceSha256": "c6a5b9e3ca877539125a1df888885b257390a16fcb222fc3012f84beb2a738b9",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "egg-cooked"
+}

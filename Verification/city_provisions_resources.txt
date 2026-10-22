@@ -1,0 +1,1 @@
+Food: 125 distinct imported models, 103 food types / 117 presentations + 8 drinks; 83239 total catalogue triangles; 125 LOD derivatives; 13 original 1024px maps; pinned CC0 source and every shipped hash verified. No native Unity result.

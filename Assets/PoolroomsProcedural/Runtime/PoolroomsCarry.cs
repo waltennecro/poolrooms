@@ -56,6 +56,14 @@ namespace Poolrooms
             {display.Take(slot);return;}
             if(candidate>solid+.02f)return;
             if(pickupOnly){if(pickup!=null&&CarryModel.CanGrab(held!=null,explorer.InputCaptured,explorer.IsPaused,candidate))Grab(pickup);return;}
+            if(pickup!=null&&pickup.IsProvision)
+            {
+                var inventory=PoolroomsInventory.For(explorer);
+                if(inventory!=null&&inventory.Items.Add(pickup.InventoryKey,System.Numerics.BigInteger.One))
+                {MarkTaken(pickup.SpawnKey);inventory.Animate(HumanoidGesture.Reach,.75f);inventory.RefreshAll();Destroy(pickup.gameObject);}
+                else inventory?.Toast("El inventario no tiene un espacio libre para otro alimento. Las pilas existentes siguen admitiendo más.");
+                return;
+            }
             if(vehicle!=null){vehicle.Enter(explorer);return;}
             if(terrainPortal!=null){terrainPortal.Use();return;}
             if(portal!=null){portal.Use();return;}

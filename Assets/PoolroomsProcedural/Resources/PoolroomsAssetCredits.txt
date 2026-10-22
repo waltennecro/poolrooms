@@ -186,3 +186,7 @@ Changes: selected object extraction/rebasing, PBR exports up to native 4K, OBJ a
 
 
 Calm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.
+
+Food Kit 2.0 — Kenney, https://kenney.nl/assets/food-kit — CC0 1.0.
+125 distinct imported models: 117 foods and 8 drinks; one LOD derivative each is not an additional model. Adapted metric bevels, source duplicate-face cleanup, smooth normals and detail UVs. Four original 1024px PBR microfinish sets and the original almond-water label are CC0. Stylised source geometry; not food photogrammetry. Original source notice: FoodSources/Licenses.
+Dreamcore Level11 civic pavilions are original architecture. Textual research: Level 11, The Backrooms Wiki, Stretchster / Boring Talking, https://backrooms-wiki.wikidot.com/level-11 (CC BY-SA 3.0). No wiki image or quoted passage included. Source research/provenance and adaptations are documented; existing Bistro, mall and botanical furniture keeps its original licence and notices.

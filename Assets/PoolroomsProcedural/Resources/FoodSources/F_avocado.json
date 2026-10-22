@@ -1,0 +1,96 @@
+{
+  "model": "avocado",
+  "name": "Aguacate",
+  "drink": false,
+  "id": "F_avocado",
+  "key": "food:2",
+  "resourceId": "F_avocado",
+  "family": "produce",
+  "resource": "FoodSources/Models/F_avocado",
+  "minimum": [
+    -0.07509934902191162,
+    0.0,
+    -0.08626938611268997
+  ],
+  "maximum": [
+    0.07509934902191162,
+    0.21373969316482544,
+    0.08626938611268997
+  ],
+  "triangles": 236,
+  "materials": [
+    {
+      "name": "Food_produce_62_46_45",
+      "colour": [
+        0.04817182422688942,
+        0.027320891639074894,
+        0.026241221894849898,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_69_53_51",
+      "colour": [
+        0.0595112381629812,
+        0.03560131487502034,
+        0.033104766570885055,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_75_59_55",
+      "colour": [
+        0.07036009569659588,
+        0.043735029256973465,
+        0.0382043715953465,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    },
+    {
+      "name": "Food_produce_87_70_65",
+      "colour": [
+        0.0953074666309647,
+        0.06124605423161761,
+        0.052860647023180246,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.55,
+      "normalScale": 0.35,
+      "albedo": "FoodSources/Textures/produce_albedo",
+      "normal": "FoodSources/Textures/produce_normal",
+      "mask": "FoodSources/Textures/produce_mask"
+    }
+  ],
+  "lods": [
+    {
+      "resource": "FoodSources/Models/F_avocado_LOD1",
+      "triangles": 98
+    }
+  ],
+  "removedDuplicateFaces": 44,
+  "sourceSha256": "07bc0b56cf7b0f4f35f996b52b1b9655dc69059eeb8f81e309c68911220a22c2",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "sourceUrl": "https://kenney.nl/assets/food-kit",
+  "nativeUnityValidated": false,
+  "foodType": "avocado"
+}

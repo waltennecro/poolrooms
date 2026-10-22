@@ -22,7 +22,14 @@ namespace Poolrooms.Core
             Road(road,new PlanRect(-room.Width*.5f,-3,-3,3));Road(road,new PlanRect(3,-3,room.Width*.5f,3));o.VisualMeshes.Add(road);
             double u=(double)room.X*c.CellSize/4,v=(double)room.Z*c.CellSize/4;
             for(int i=0;i<road.UV.Count;i++){var uv=road.UV[i];road.UV[i]=new V2(uv.X+(float)(u-Math.Floor(u)),uv.Y+(float)(v-Math.Floor(v)));}
-            foreach(var b in room.Plan.City.Buildings)Building(o,b,c);
+            int pavilion=c.DreamCity11?City11Dreamscape.Pavilion(room.Plan.City):-1;
+            for(int i=0;i<room.Plan.City.Buildings.Length;i++)
+            {
+                var b=room.Plan.City.Buildings[i];
+                if(i==pavilion)City11Dreamscape.BuildPavilion(o,b,c);
+                else {Building(o,b,c);if(c.DreamCity11)City11Dreamscape.Facade(o,b);}
+            }
+            City11Dreamscape.Append(o,room,c);
             CityStreetDetails.Append(o,room,c);
             // Limits retain the graph's actual openings; no opening leads to an absent connector.
             for(int side=0;side<4;side++)

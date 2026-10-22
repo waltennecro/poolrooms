@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-22",
+  "officialReference": "https://backrooms-wiki.wikidot.com/level-11",
+  "officialAccess": "403 in this environment; read a pinned publicly accessible English mirror for textual research only",
+  "mirrorUrl": "https://raw.githubusercontent.com/DrK0ndraki/54502D454E2D434E2D4261636B726F6F6D735F57696B69646F742D3230323530353134/42b05e390e6cc710d779544aa337fff988e024f8/projects/backrooms/level-11/EN/level-11.ftml",
+  "readBytes": 56060,
+  "readSha256": "462536b46ca0e0056cb25b92fc26f8401c1754d8ad62845e09b50f957e5aa4b6",
+  "creditedAuthors": [
+    "Stretchster (original)",
+    "Boring Talking (rewrite)"
+  ],
+  "originalWikiLicense": "CC-BY-SA-3.0 (verify individual media separately)",
+  "researchFacts": [
+    "Urban blocks, secondary roads, alleys and plazas.",
+    "Neighbourhoods vary in density and building use.",
+    "Interior functions and stocked goods belong to the city description."
+  ],
+  "originalAdaptation": [
+    "Warm late-afternoon light, muted clay and sage details.",
+    "One open civic pavilion in each non-airfield block, with three architectural programmes.",
+    "Deep repeated arches, open pergolas and partially glazed canopies.",
+    "Botanical pockets, wooden waiting benches, licensed cafe furniture and shared food."
+  ],
+  "scope": "An original peaceful dreamcore adaptation, not a complete canonical Level11 simulation. Existing working vehicles deliberately remain driveable. No wiki image, text passage, game code, or third-party game screenshot is redistributed.",
+  "dreamcoreNotes": "Quiet familiar civic spaces, softened material colours, repeated thresholds and an unusually calm, unoccupied urban rhythm. No horror entities or survival needs added."
+}
