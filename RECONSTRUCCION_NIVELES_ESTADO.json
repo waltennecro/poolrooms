@@ -268,11 +268,20 @@
     "nativeUnityExecuted": false,
     "maximumSupportedDoorHeightMetres": 5.5,
     "fullCi": "pending",
-    "localFullCore": "Verification/archive_full_core_checks.txt",
-    "localCoreAssertions": 2051520885,
     "localBuildWarnings": 0,
     "localBuildErrors": 0,
-    "targetedLibraryAssertions": 50006106,
-    "sourceInstancesIn108Samples": 3236
+    "targetedLibraryAssertions": 50022006,
+    "sourceInstancesIn108Samples": 3236,
+    "previousLocalFullCore": {
+      "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
+      "path": "Verification/archive_full_core_checks.txt",
+      "assertions": 2051520885
+    },
+    "supersededBeforePublication": [
+      {
+        "sourceRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18",
+        "reason": "Bind guest cushions to the batched velvet textile mesh rather than the paper slot; verification/publication restarted for exact refined source."
+      }
+    ]
   }
 }

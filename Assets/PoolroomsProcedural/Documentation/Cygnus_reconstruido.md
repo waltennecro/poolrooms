@@ -4,7 +4,7 @@ Se sustituye la biblioteca de una sola sala por un edificio continuo. Cada tres 
 
 Las alas alternan depósitos de libros, lectura, escritura, cocinas de té y alcobas de descanso. Cambian las particiones y equipamientos: hileras de estanterías, arcos, casilleros, encimeras, fregadero y alcobas con entradas físicas. Los libros tienen volúmenes, lomos y bandas doradas agrupados en mallas; no un componente por libro.
 
-El techo es una bóveda construida, con huecos reales para vidrieras curvas y nervios. Los suelos conservan madera PBR; las alfombras usan tela con tinte azul y bordes de latón. Se reutilizan seis modelos atribuidos existentes: sillas, lámparas, botellas, tazas, jarrones y plantas. **Cero modelos externos nuevos**; no se cuentan copias como modelos distintos.
+El techo es una bóveda construida, con huecos reales para vidrieras curvas y nervios. Los suelos conservan madera PBR; las alfombras y cojines usan tela con tinte azul y bordes de latón. Se reutilizan seis modelos atribuidos existentes: sillas, lámparas, botellas, tazas, jarrones y plantas. **Cero modelos externos nuevos**; no se cuentan copias como modelos distintos.
 
 ## Encontrarlo y jugar
 

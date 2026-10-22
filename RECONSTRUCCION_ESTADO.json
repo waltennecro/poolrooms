@@ -3542,7 +3542,8 @@
       "nativeUnityExecuted": false,
       "localFullCore": "Verification/archive_full_core_checks.txt",
       "localCoreAssertions": 2051520885,
-      "protectedFingerprints": 188
+      "protectedFingerprints": 188,
+      "previousLocalFullCoreRevision": "f32fe248fbc57d49861aa698fb7e773585ff2b18"
     }
   }
 }

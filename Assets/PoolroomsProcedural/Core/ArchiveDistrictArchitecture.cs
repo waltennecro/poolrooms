@@ -188,7 +188,7 @@ namespace Poolrooms.Core
                 {
                     float x=sx*h*.48f,z=sz*h*.7f;
                     if(sx<0&&sz<0&&new PlanRect(x-3,z-2,x+3,z+2).Overlaps(p.Stair.Expanded(.7f)))continue;
-                    if(use==ArchiveWingUse.Guest)Guest(o,x,z,y);
+                    if(use==ArchiveWingUse.Guest)Guest(o,carpet,x,z,y);
                     else if(use==ArchiveWingUse.Stacks)
                     {
                         Shelf(o,books,x,z,y,3.4f,90,p.Seed+(uint)(f*47+sx+sz+5));
@@ -254,7 +254,7 @@ namespace Poolrooms.Core
             // Original loose sheets have visible edge thickness and remain on the tabletop.
             Box(o.Decoration,x,z-.22f,.42f,.28f,y+.781f,y+.785f,Surface.Slide);
         }
-        static void Guest(RoomGeometry o,float x,float z,float y)
+        static void Guest(RoomGeometry o,MeshData cloth,float x,float z,float y)
         {
             // Guest alcoves have physical side walls and a real arched entrance.
             // They face the inner reading hall and retain a clear approach.
@@ -266,8 +266,9 @@ namespace Poolrooms.Core
             // Framed divan, cushions and a bedside table are inside the alcove.
             Box(o.Structure,x,z,2.1f,1.1f,y+.15f,y+.38f,Surface.Accent);
             Box(o.Structure,x,z+.51f,2.12f,.12f,y+.25f,y+1.1f,Surface.Accent);
-            Box(o.Structure,x,z,2.03f,.96f,y+.38f,y+.55f,Surface.Slide);
-            foreach(int s in new[]{-1,1})Box(o.Decoration,x+s*.6f,z+.22f,.6f,.45f,y+.55f,y+.7f,Surface.Slide);
+            Box(o.CollisionOnly,x,z,2.03f,.96f,y+.38f,y+.55f,Surface.Tile);
+            Box(cloth,x,z,2.03f,.96f,y+.38f,y+.55f,Surface.Tile);
+            foreach(int s in new[]{-1,1})Box(cloth,x+s*.6f,z+.22f,.6f,.45f,y+.55f,y+.7f,Surface.Tile);
             Table(o,x+2.0f,z,y,.7f,.65f,.65f);Source(o,11,x+2,z,y+.659f);
         }
         static void Kitchen(RoomGeometry o,ArchiveDistrictPlan p,float y)

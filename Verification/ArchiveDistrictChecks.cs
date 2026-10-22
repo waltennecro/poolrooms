@@ -23,6 +23,8 @@ static partial class Checks
                 foreach(var m in new[]{g.Structure,g.Decoration,g.Glass,g.CollisionOnly})Validate(m);
                 foreach(var m in g.VisualMeshes)Validate(m);
                 Check(g.Life!=null&&g.Life.Stations.Count==3,"Library lacks three floor-specific activities");
+                if(!p.Nave)for(int f=0;f<3;f++)if(((int)p.Use+f)%5==(int)ArchiveWingUse.Guest)
+                    Check(g.VisualMeshes.Any(m=>m.Theme==SurfaceTheme.CygnusVelvet&&m.Positions.Any(v=>Math.Abs(v.Y-p.FloorY(f)-.55f)<.001f)),"Guest cushions must use textile PBR instead of the paper binding slot");
                 foreach(var station in g.Life.Stations)
                 {
                     var a=station.Anchor;Check(ArchitecturalDressing.FootprintFits(a.Center,a.Normal,a.A,a.B,a.C),"Library activity board footprint is invalid");

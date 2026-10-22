@@ -1,4 +1,4 @@
-Cygnus library: 108 built chunks, 5 wing uses, 6 reused source models / 3236 sample instances, 88 mixed-world cells, 119 boundary entrances; 50006106 mathematical/source assertions. Native Unity not executed.
+Cygnus library: 108 built chunks, 5 wing uses, 6 reused source models / 3236 sample instances, 88 mixed-world cells, 119 boundary entrances; 50022006 mathematical/source assertions. Native Unity not executed.
 PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
 PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
 PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
