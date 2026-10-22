@@ -13,6 +13,8 @@ namespace Poolrooms
             var plan=room.Plan?.Quiet?.Courtyard;if(plan==null||plan.Court)return;
             var owner=parent.GetComponent<PoolroomsChunk>();if(owner==null)return;
             string prefix="courtyard188:"+world.CurrentLayout.Config.Seed+":"+room.X+":"+room.Z+":";
+            var actor=world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsExplorer>():null;
+            var inventory=actor!=null?PoolroomsInventory.For(actor):null;
             int slot=0,windows=0;GameObject doorDisplay=null,blindDisplay=null;
             foreach(var opening in CourtyardDistrictArchitecture.Openings(room,world.CurrentLayout.Config))
             {
@@ -37,7 +39,7 @@ namespace Poolrooms
                 else
                 {
                     hinge.transform.localPosition=Vector3.up*opening.Height;
-                    // Slats tilt as one shallow blind; the glass and its safety
+                    // Slats gather vertically below their fixed headrail; the glass and its safety
                     // collider stay fixed, so opening a blind cannot cause a fall.
                     int slats=17;for(int i=0;i<slats;i++)
                     {
@@ -52,13 +54,14 @@ namespace Poolrooms
                     var display=MeshFactory.Create(opening.Door?"Panel and handles":"Blind slats",mesh,hinge.transform,world.profile,owner,false);
                     if(opening.Door)doorDisplay=display;else blindDisplay=display;
                 }
-                // A moving box collider is cheap and follows the visible door.
+                // A moving box collider follows the visible door or gathered blind.
                 var collider=hinge.AddComponent<BoxCollider>();
                 collider.center=opening.Door?new Vector3(opening.Width*.5f,opening.Height*.5f,0):new Vector3(0,-opening.Height*.5f,-.11f);
                 collider.size=new Vector3(opening.Width-.05f,opening.Height-.05f,.09f);
                 var interaction=hinge.AddComponent<PoolroomsInteractable>();interaction.world=world;interaction.activity=RoomActivity.Window;
                 interaction.key=prefix+id;interaction.title=opening.Door?"Habitación "+opening.Number:"Persiana del patio";
-                interaction.movingPart=hinge.transform;interaction.closedRotation=Quaternion.identity;interaction.sideHinge=opening.Door;
+                interaction.movingPart=hinge.transform;interaction.closedRotation=Quaternion.identity;interaction.sideHinge=opening.Door;interaction.rollBlind=!opening.Door;
+                if(inventory!=null)interaction.Initialize(inventory);
             }
         }
     }

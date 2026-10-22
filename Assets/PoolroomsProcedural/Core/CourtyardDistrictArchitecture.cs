@@ -132,6 +132,7 @@ namespace Poolrooms.Core
                 foreach(int sign in new[]{-1,1})Box(frame,x+sign*(width*.5f-.035f),-.005f,.07f,.3f,sill,top,Surface.Metal);
                 foreach(float sy in new[]{sill,top})Box(frame,x,-.015f,width,.33f,sy-.04f,sy+.04f,Surface.Metal);
                 Box(frame,x,0,.045f,.25f,sill,top,Surface.Metal);
+                Box(frame,x,-.105f,width,.16f,top+.04f,top+.14f,Surface.Metal);
                 Box(frame,x,-.05f,width+.16f,.4f,sill-.08f,sill-.025f,Surface.Tile);
                 frame.TranslateRotate(new V3(Directions.DX[side]*(p.Cell*.5f-.12f),p.FloorY(floor),Directions.DZ[side]*(p.Cell*.5f-.12f)),side*Shapes.Pi*.5f);o.Decoration.Append(frame);
             }

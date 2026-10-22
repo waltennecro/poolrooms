@@ -232,9 +232,15 @@
     "sampledHotelChunks": 192,
     "fullCi": "pending_publication",
     "maximumSupportedDoorHeightMetres": 5.5,
-    "supersededBeforePublication": {
-      "sourceRevision": "6e192ecd28d4105d2b074beea14d7ba4ba67441f",
-      "reason": "Extended stair run for the validated maximum 5.5 m entrance height; verification and publication restarted for the corrected exact commit."
-    }
+    "supersededBeforePublication": [
+      {
+        "sourceRevision": "6e192ecd28d4105d2b074beea14d7ba4ba67441f",
+        "reason": "Extended stair run for the validated maximum 5.5 m entrance height; verification and publication restarted for the corrected exact commit."
+      },
+      {
+        "sourceRevision": "2096da3a033732852fe7b1287dd5da8e18ba4511",
+        "reason": "Gather window blinds vertically below a fixed headrail rather than swinging their geometry through the safety glazing; restore new hotel interaction state on streaming reload."
+      }
+    ]
   }
 }

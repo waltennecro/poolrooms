@@ -57,6 +57,22 @@ namespace Poolrooms.Tests
             finally {Object.DestroyImmediate(door);}
         }
         [Test]
+        public void BlindGathersBelowItsHeadrailWithoutSwingingThroughGlass()
+        {
+            var blind=new GameObject("Hotel blind regression");
+            try
+            {
+                var i=blind.AddComponent<PoolroomsInteractable>();i.activity=RoomActivity.Window;i.rollBlind=true;i.movingPart=blind.transform;i.closedRotation=Quaternion.identity;
+                var flags=BindingFlags.Instance|BindingFlags.NonPublic;
+                typeof(PoolroomsInteractable).GetField("pose",flags).SetValue(i,1f);
+                typeof(PoolroomsInteractable).GetMethod("ApplyPose",flags).Invoke(i,null);
+                Assert.That(Quaternion.Angle(blind.transform.localRotation,Quaternion.identity),Is.LessThan(.01f));
+                Assert.That(blind.transform.localScale.y,Is.EqualTo(.12f).Within(.0001f));
+                Assert.That(blind.transform.localScale.z,Is.EqualTo(1));
+            }
+            finally {Object.DestroyImmediate(blind);}
+        }
+        [Test]
         public void LawnUsesExistingTerrainPbrInsteadOfPaintedPlaster()
         {
             Material material=null;

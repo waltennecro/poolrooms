@@ -10,7 +10,7 @@ namespace Poolrooms
         public string key,title,note;
         public PoolroomsWorld world;
         public Transform movingPart;
-        public bool sideHinge;
+        public bool sideHinge,rollBlind;
         public Vector3 closedPosition;
         public Quaternion closedRotation;
         public GameObject contents;
@@ -42,7 +42,7 @@ namespace Poolrooms
             interaction.world=pickup.GetComponentInParent<PoolroomsWorld>();
         }
         private static uint StableKey(string value){uint h=2166136261;foreach(char c in value??"")h=unchecked((h^c)*16777619);return h;}
-        private void Initialize(PoolroomsInventory inventory)
+        internal void Initialize(PoolroomsInventory inventory)
         {
             if(initialized)return;initialized=true;renderers=GetComponentsInChildren<Renderer>();open=inventory.State("open:"+key);
             if(movingPart!=null){closedPosition=movingPart.localPosition;closedRotation=movingPart.localRotation;pose=open?1:0;ApplyPose();}
@@ -149,7 +149,11 @@ namespace Poolrooms
             float target=open?1:0;if(Mathf.Abs(pose-target)<.0001f)return;pose=Mathf.MoveTowards(pose,target,Time.deltaTime*1.8f);ApplyPose();
         }
         private void ApplyPose()
-        {if(movingPart!=null)movingPart.localRotation=closedRotation*Quaternion.Euler(activity==RoomActivity.Window&&!sideHinge?-pose*76:0,activity==RoomActivity.Window&&sideHinge?pose*90:activity==RoomActivity.Drawer?pose*105:0,0);}
+        {
+            if(movingPart==null)return;
+            if(rollBlind){movingPart.localRotation=closedRotation;movingPart.localScale=new Vector3(1,Mathf.Lerp(1,.12f,pose),1);return;}
+            movingPart.localRotation=closedRotation*Quaternion.Euler(activity==RoomActivity.Window&&!sideHinge?-pose*76:0,activity==RoomActivity.Window&&sideHinge?pose*90:activity==RoomActivity.Drawer?pose*105:0,0);
+        }
         private void OnDestroy(){if(lamp!=null&&world!=null)world.RequestLightingRefresh();}
     }
 }
