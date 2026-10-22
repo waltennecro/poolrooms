@@ -3,7 +3,7 @@
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "implemented_local_full_core_verified_ci_pending",
+  "status": "published_full_core_verified_native_visual_review_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -29,7 +29,7 @@
     },
     {
       "environment": "Conservatory",
-      "status": "implemented_native_visual_review_pending",
+      "status": "published_native_visual_review_pending",
       "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Conservatory.json",
       "originalDesign": true
     }
@@ -281,9 +281,25 @@
     "localCoreAssertions": 2103227483,
     "sourceScriptsInFiveConfigurations": 351,
     "resourceAudit": "tools/verify_conservatory_resources.py",
-    "ciStatus": "pending",
+    "ciStatus": "success",
     "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
-    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777"
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
+    "fullCiStepsSucceeded": 52,
+    "publicationStatus": "success",
+    "publicationStepsSucceeded": 8,
+    "deliveryEvidence": "Verification/conservatory_delivery.json",
+    "localFullCoreRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
+    "assetsFileCount": 1660,
+    "ciArtifacts": [
+      {
+        "id": 12431017167,
+        "name": "R34-Batch-Evidence"
+      },
+      {
+        "id": 12430567096,
+        "name": "Poolrooms-Reconstruccion-Assets"
+      }
+    ]
   },
   "previousDeliveries": [
     {
@@ -332,5 +348,15 @@
       }
     }
   ],
-  "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10"
+  "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
+  "delivery": {
+    "release": "https://github.com/waltennecro/poolrooms/releases/tag/invernadero-cristal",
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
+    "completeAssetsBytes": 1080349904,
+    "completeAssetsSha256": "e052fb158dae2fafc8dc6c349dba2f859c2265b6816e83516021e9682f50cb40",
+    "patchBytes": 28694101,
+    "patchSha256": "03df65ecbee05b3e30542bfb7852f6528db174cf4c481ccdf9ed5dfce0d1d8b4",
+    "publicFullDownloadAndPatchVerified": true,
+    "assetsUncompressedBytes": 1339791499
+  }
 }

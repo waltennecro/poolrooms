@@ -10,7 +10,7 @@
   "newExternalTextureSets": 1,
   "fullRun": 39787999097,
   "publicationRun": 39788127777,
-  "remoteStatus": "pending",
+  "remoteStatus": "completed_success",
   "nativeUnityExecuted": false,
   "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
   "publication": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
@@ -19,5 +19,6 @@
   "warnings": 0,
   "errors": 0,
   "protectedGeometryFingerprints": 188,
-  "lastKnownRemoteState": "Full CI in progress; publication waiting for that exact commit, no downloadable release claimed yet."
+  "lastKnownRemoteState": "Full verification: 52 successful steps. Publication: 8 successful steps. Both public ZIP downloads read and SHA-256 verified; all 65 patch entries match Assets.",
+  "finalEvidence": "Verification/conservatory_delivery.json"
 }

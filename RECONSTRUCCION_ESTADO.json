@@ -3554,7 +3554,7 @@
       "publicDownloadsSha256Verified": true
     },
     "conservatory": {
-      "status": "implemented_local_full_core_verified_ci_pending",
+      "status": "published_full_core_verified_native_validation_pending",
       "inventory": "RECONSTRUCCION_NIVELES_ESTADO.json",
       "documentation": "Assets/PoolroomsProcedural/Documentation/Invernadero_de_Cristal.md",
       "rebuiltTotal": 3,
@@ -3568,7 +3568,15 @@
       "protectedFingerprints": 188,
       "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
       "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
-      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777"
+      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
+      "delivery": "https://github.com/waltennecro/poolrooms/releases/tag/invernadero-cristal",
+      "evidence": "Verification/conservatory_delivery.json",
+      "fullCiConclusion": "success",
+      "fullCiStepsSucceeded": 52,
+      "publicationConclusion": "success",
+      "completeAssetsBytes": 1080349904,
+      "patchBytes": 28694101,
+      "publicDownloadsSha256Verified": true
     }
   }
 }
