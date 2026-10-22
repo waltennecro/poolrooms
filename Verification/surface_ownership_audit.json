@@ -1,0 +1,1272 @@
+{
+  "chunks": 126,
+  "mallSectors": 12,
+  "terrainHouses": 24,
+  "changedMeshes": 240,
+  "elapsedMilliseconds": 9951,
+  "nativeUnityExecuted": false,
+  "samples": [
+    {
+      "mode": "Poolrooms",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 16,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 2048,
+      "renderTriangles": 2068,
+      "seamTriangles": 552
+    },
+    {
+      "mode": "Poolrooms",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 28,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 2588,
+      "renderTriangles": 2632,
+      "seamTriangles": 548
+    },
+    {
+      "mode": "IndoorPlay",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 3252,
+      "renderTriangles": 3282,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "IndoorPlay",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 8,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4152,
+      "renderTriangles": 4168,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "Supermarkets",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 1139,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5612,
+      "renderTriangles": 8566,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "Supermarkets",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 860,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4452,
+      "renderTriangles": 6750,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "Offices",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 294,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5692,
+      "renderTriangles": 6228,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "Offices",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 272,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4994,
+      "renderTriangles": 5512,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "Hotels",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 120,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 3374,
+      "renderTriangles": 3526,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "Hotels",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 120,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 3432,
+      "renderTriangles": 3584,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "WaitingHalls",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 250,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9080,
+      "renderTriangles": 9580,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "WaitingHalls",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 250,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9304,
+      "renderTriangles": 9804,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "DiningHalls",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 860,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4800,
+      "renderTriangles": 6520,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "DiningHalls",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 876,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4704,
+      "renderTriangles": 6456,
+      "seamTriangles": 0
+    },
+    {
+      "mode": "SoftPlay",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 194,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 19874,
+      "renderTriangles": 20540,
+      "seamTriangles": 466
+    },
+    {
+      "mode": "SoftPlay",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 194,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 17378,
+      "renderTriangles": 18044,
+      "seamTriangles": 514
+    },
+    {
+      "mode": "City11",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 979,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 16074,
+      "renderTriangles": 17008,
+      "seamTriangles": 210
+    },
+    {
+      "mode": "City11",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 1118,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 17958,
+      "renderTriangles": 18856,
+      "seamTriangles": 210
+    },
+    {
+      "mode": "Archive906",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 1682,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 81580,
+      "renderTriangles": 84960,
+      "seamTriangles": 628
+    },
+    {
+      "mode": "Archive906",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 1642,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 81088,
+      "renderTriangles": 84388,
+      "seamTriangles": 588
+    },
+    {
+      "mode": "Courtyard188",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 18,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 1136,
+      "renderTriangles": 1190,
+      "seamTriangles": 338
+    },
+    {
+      "mode": "Courtyard188",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 18,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 1136,
+      "renderTriangles": 1190,
+      "seamTriangles": 338
+    },
+    {
+      "mode": "Coast48",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 4,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 240,
+      "renderTriangles": 256,
+      "seamTriangles": 244
+    },
+    {
+      "mode": "Coast48",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 0,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 1248,
+      "renderTriangles": 1248,
+      "seamTriangles": 248
+    },
+    {
+      "mode": "Conservatory",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 158,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 21836,
+      "renderTriangles": 21708,
+      "seamTriangles": 1374
+    },
+    {
+      "mode": "Conservatory",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 164,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 31288,
+      "renderTriangles": 31168,
+      "seamTriangles": 1374
+    },
+    {
+      "mode": "TransitGallery",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 46,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 2616,
+      "renderTriangles": 2728,
+      "seamTriangles": 968
+    },
+    {
+      "mode": "TransitGallery",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 46,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 2712,
+      "renderTriangles": 2824,
+      "seamTriangles": 968
+    },
+    {
+      "mode": "Orangerie",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 88,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5564,
+      "renderTriangles": 5680,
+      "seamTriangles": 3804
+    },
+    {
+      "mode": "Orangerie",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 88,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7120,
+      "renderTriangles": 7256,
+      "seamTriangles": 4432
+    },
+    {
+      "mode": "ThermalBaths",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 80,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7392,
+      "renderTriangles": 7492,
+      "seamTriangles": 5400
+    },
+    {
+      "mode": "ThermalBaths",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 112,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7152,
+      "renderTriangles": 7296,
+      "seamTriangles": 4048
+    },
+    {
+      "mode": "AquaticPark",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 298,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 23176,
+      "renderTriangles": 23796,
+      "seamTriangles": 3492
+    },
+    {
+      "mode": "AquaticPark",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 314,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 20164,
+      "renderTriangles": 20800,
+      "seamTriangles": 3608
+    },
+    {
+      "mode": "RainHouses",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 534,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 10484,
+      "renderTriangles": 11314,
+      "seamTriangles": 732
+    },
+    {
+      "mode": "RainHouses",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 470,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9644,
+      "renderTriangles": 10474,
+      "seamTriangles": 732
+    },
+    {
+      "mode": "SunsetLibrary",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 176,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5624,
+      "renderTriangles": 5704,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "SunsetLibrary",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 128,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4652,
+      "renderTriangles": 4732,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "CloudTerminal",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 1568,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 18996,
+      "renderTriangles": 21608,
+      "seamTriangles": 3008
+    },
+    {
+      "mode": "CloudTerminal",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 1566,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 19272,
+      "renderTriangles": 22056,
+      "seamTriangles": 3008
+    },
+    {
+      "mode": "TeaPavilions",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5804,
+      "renderTriangles": 5852,
+      "seamTriangles": 1336
+    },
+    {
+      "mode": "TeaPavilions",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5156,
+      "renderTriangles": 5204,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "CeramicGalleria",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 11372,
+      "renderTriangles": 11420,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "CeramicGalleria",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9380,
+      "renderTriangles": 9428,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "WinterGarden",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 88,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 3860,
+      "renderTriangles": 4004,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "WinterGarden",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 80,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4004,
+      "renderTriangles": 4132,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "CanalGalleries",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5588,
+      "renderTriangles": 5708,
+      "seamTriangles": 1520
+    },
+    {
+      "mode": "CanalGalleries",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5276,
+      "renderTriangles": 5396,
+      "seamTriangles": 1232
+    },
+    {
+      "mode": "MusicStudios",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 44,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6452,
+      "renderTriangles": 6564,
+      "seamTriangles": 1336
+    },
+    {
+      "mode": "MusicStudios",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 44,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5636,
+      "renderTriangles": 5748,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "LanternCourts",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6352,
+      "renderTriangles": 6400,
+      "seamTriangles": 1336
+    },
+    {
+      "mode": "LanternCourts",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5892,
+      "renderTriangles": 5940,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "LinenLaundries",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7052,
+      "renderTriangles": 7100,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "LinenLaundries",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 8276,
+      "renderTriangles": 8324,
+      "seamTriangles": 1336
+    },
+    {
+      "mode": "MineralSanctuary",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7956,
+      "renderTriangles": 8076,
+      "seamTriangles": 1520
+    },
+    {
+      "mode": "MineralSanctuary",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7680,
+      "renderTriangles": 7800,
+      "seamTriangles": 1328
+    },
+    {
+      "mode": "SolarObservatory",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4676,
+      "renderTriangles": 4724,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "SolarObservatory",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4328,
+      "renderTriangles": 4376,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "CoveredMarket",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 120,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5972,
+      "renderTriangles": 6212,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "CoveredMarket",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 152,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7064,
+      "renderTriangles": 7368,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "TextileAtelier",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7868,
+      "renderTriangles": 7916,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "TextileAtelier",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9956,
+      "renderTriangles": 10004,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "PostalArcade",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 8576,
+      "renderTriangles": 8624,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "PostalArcade",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9380,
+      "renderTriangles": 9428,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "IndoorMarina",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 228,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7784,
+      "renderTriangles": 7840,
+      "seamTriangles": 1232
+    },
+    {
+      "mode": "IndoorMarina",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 228,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 8564,
+      "renderTriangles": 8620,
+      "seamTriangles": 1520
+    },
+    {
+      "mode": "ClockGallery",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 8468,
+      "renderTriangles": 8516,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "ClockGallery",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 11900,
+      "renderTriangles": 11948,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "PaperWorkshop",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6812,
+      "renderTriangles": 6860,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "PaperWorkshop",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5948,
+      "renderTriangles": 5996,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "ChessPavilion",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 26180,
+      "renderTriangles": 26228,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "ChessPavilion",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 25940,
+      "renderTriangles": 25988,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "RadioSalon",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5156,
+      "renderTriangles": 5204,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "RadioSalon",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5444,
+      "renderTriangles": 5492,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "MirrorArcade",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 136,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 3452,
+      "renderTriangles": 3468,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "MirrorArcade",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 136,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4316,
+      "renderTriangles": 4332,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "AquariumGalleries",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5324,
+      "renderTriangles": 5356,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "AquariumGalleries",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5940,
+      "renderTriangles": 5972,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "BambooRetreat",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 16268,
+      "renderTriangles": 16380,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "BambooRetreat",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 13460,
+      "renderTriangles": 13572,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "DesertCaravanserai",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 232,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7420,
+      "renderTriangles": 7532,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "DesertCaravanserai",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 232,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 8152,
+      "renderTriangles": 8264,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "CrystalMuseum",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5488,
+      "renderTriangles": 5536,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "CrystalMuseum",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6700,
+      "renderTriangles": 6748,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "CloudBaths",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4956,
+      "renderTriangles": 5076,
+      "seamTriangles": 1520
+    },
+    {
+      "mode": "CloudBaths",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4116,
+      "renderTriangles": 4236,
+      "seamTriangles": 1232
+    },
+    {
+      "mode": "SunkenLibrary",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 124,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4364,
+      "renderTriangles": 4564,
+      "seamTriangles": 1328
+    },
+    {
+      "mode": "SunkenLibrary",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 124,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5180,
+      "renderTriangles": 5380,
+      "seamTriangles": 1328
+    },
+    {
+      "mode": "RailwayWintergarden",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6812,
+      "renderTriangles": 6924,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "RailwayWintergarden",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5804,
+      "renderTriangles": 5916,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "CeramicVillage",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 48,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4240,
+      "renderTriangles": 4320,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "CeramicVillage",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 48,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4588,
+      "renderTriangles": 4668,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "LunarGreenhouse",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 8220,
+      "renderTriangles": 8332,
+      "seamTriangles": 1336
+    },
+    {
+      "mode": "LunarGreenhouse",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7064,
+      "renderTriangles": 7176,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "AmberRestaurant",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5300,
+      "renderTriangles": 5348,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "AmberRestaurant",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4796,
+      "renderTriangles": 4844,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "MapmakersArchive",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5348,
+      "renderTriangles": 5396,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "MapmakersArchive",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4484,
+      "renderTriangles": 4532,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "SculptureCourts",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 26300,
+      "renderTriangles": 26348,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "SculptureCourts",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 22004,
+      "renderTriangles": 22052,
+      "seamTriangles": 1336
+    },
+    {
+      "mode": "PaperLanternTown",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9920,
+      "renderTriangles": 10032,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "PaperLanternTown",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 12416,
+      "renderTriangles": 12528,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "WatermillHalls",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 16592,
+      "renderTriangles": 16712,
+      "seamTriangles": 1328
+    },
+    {
+      "mode": "WatermillHalls",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 16172,
+      "renderTriangles": 16292,
+      "seamTriangles": 1328
+    },
+    {
+      "mode": "IndoorBoardwalk",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6740,
+      "renderTriangles": 6860,
+      "seamTriangles": 1520
+    },
+    {
+      "mode": "IndoorBoardwalk",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 100,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5780,
+      "renderTriangles": 5900,
+      "seamTriangles": 1232
+    },
+    {
+      "mode": "VelvetTheatre",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7028,
+      "renderTriangles": 7076,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "VelvetTheatre",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 10208,
+      "renderTriangles": 10256,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "HangingOrchards",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 11304,
+      "renderTriangles": 11416,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "HangingOrchards",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 11712,
+      "renderTriangles": 11824,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "RainyBookshops",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 176,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6068,
+      "renderTriangles": 6148,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "RainyBookshops",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 84,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4844,
+      "renderTriangles": 4908,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "MosaicCistern",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 104,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6692,
+      "renderTriangles": 6828,
+      "seamTriangles": 1232
+    },
+    {
+      "mode": "MosaicCistern",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 104,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 6140,
+      "renderTriangles": 6276,
+      "seamTriangles": 1232
+    },
+    {
+      "mode": "AeronauticalGallery",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5540,
+      "renderTriangles": 5652,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "AeronauticalGallery",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4856,
+      "renderTriangles": 4968,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "MagnoliaCourts",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 7588,
+      "renderTriangles": 7700,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "MagnoliaCourts",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 56,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9172,
+      "renderTriangles": 9284,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "FunicularTerminal",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 140,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 5716,
+      "renderTriangles": 5716,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "FunicularTerminal",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 140,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4276,
+      "renderTriangles": 4276,
+      "seamTriangles": 1432
+    },
+    {
+      "mode": "StainedGlassHalls",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 88,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 10300,
+      "renderTriangles": 10468,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "StainedGlassHalls",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 88,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 10708,
+      "renderTriangles": 10876,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "BellCourts",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 8920,
+      "renderTriangles": 8968,
+      "seamTriangles": 1240
+    },
+    {
+      "mode": "BellCourts",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 24,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 9124,
+      "renderTriangles": 9172,
+      "seamTriangles": 1336
+    },
+    {
+      "mode": "LighthouseCourts",
+      "x": -3,
+      "z": 2,
+      "overlapPairsBefore": 40,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4332,
+      "renderTriangles": 4396,
+      "seamTriangles": 1144
+    },
+    {
+      "mode": "LighthouseCourts",
+      "x": 2,
+      "z": 2,
+      "overlapPairsBefore": 40,
+      "overlapPairsAfter": 0,
+      "sourceTriangles": 4764,
+      "renderTriangles": 4828,
+      "seamTriangles": 1240
+    }
+  ],
+  "overlapPairMeaning": "Same-facing coplanar cardinal rectangle intersection pairs, not distinct bugs or native rendering tests.",
+  "maxRenderTriangleRatio": 1.5263720598717034
+}

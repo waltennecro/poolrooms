@@ -287,6 +287,7 @@ namespace Poolrooms
                 if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
                 if(houseData!=null)
                 {
+                    var houseRender=td?RenderSurfaceOwnership.Resolve(houseData.Envelope.Structure,houseData.Roof,houseData.WallFinish,houseData.Interior.Structure,houseData.Interior.Decoration,houseData.Envelope.Decoration):RenderSurfaceOwnership.Resolve(houseData.Geometry.Structure,houseData.Envelope.Decoration);
                     var b=house.Blueprint;
                     var home=new GameObject("House · "+(b==null?"classic":b.Name+" #"+b.Id)+" · "+house.Floors+" floors"+(b!=null&&b.Basements>0?" + cellar":"")+(b!=null&&b.Attic?" + attic":""));home.transform.SetParent(tileGo.transform,false);home.transform.localPosition=new Vector3(house.X-tx*TerrainRegionPlan.TileSize,house.Base,house.Z-tz*TerrainRegionPlan.TileSize);
                     if(td)
@@ -295,35 +296,35 @@ namespace Poolrooms
 
                         if(td)yield return null;
                         if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
-                        MeshFactory.Create("House shell",houseData.Envelope.Structure,home.transform,world.profile,owner,false,false,materials.Houses[house.Variant]);
+                        MeshFactory.Create("House shell",houseData.Envelope.Structure,home.transform,world.profile,owner,false,false,materials.Houses[house.Variant],renderData:houseRender[0]);
 
                         if(td)yield return null;
                         if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
-                        MeshFactory.Create("House roof",houseData.Roof,home.transform,world.profile,owner,false,false,materials.Roof);
+                        MeshFactory.Create("House roof",houseData.Roof,home.transform,world.profile,owner,false,false,materials.Roof,renderData:houseRender[1]);
 
                         if(td)yield return null;
                         if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
-                        MeshFactory.Create("House inside wall finish",houseData.WallFinish,home.transform,world.profile,owner,false,false,materials.Interior);
+                        MeshFactory.Create("House inside wall finish",houseData.WallFinish,home.transform,world.profile,owner,false,false,materials.Interior,renderData:houseRender[2]);
 
                         if(td)yield return null;
                         if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
-                        MeshFactory.Create("House interior",houseData.Interior.Structure,home.transform,world.profile,owner,false,false,materials.Interior);
+                        MeshFactory.Create("House interior",houseData.Interior.Structure,home.transform,world.profile,owner,false,false,materials.Interior,renderData:houseRender[3]);
 
                         if(td)yield return null;
                         if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
-                        MeshFactory.Create("House interior details",houseData.Interior.Decoration,home.transform,world.profile,owner,false,false,materials.Interior);
+                        MeshFactory.Create("House interior details",houseData.Interior.Decoration,home.transform,world.profile,owner,false,false,materials.Interior,renderData:houseRender[4]);
 
                         if(td)yield return null;
                         if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
                     }
                     else
                     {
-                        MeshFactory.Create("House shell",houseData.Geometry.Structure,home.transform,world.profile,owner,false,false,materials.Houses[house.Variant]);
+                        MeshFactory.Create("House shell",houseData.Geometry.Structure,home.transform,world.profile,owner,false,false,materials.Houses[house.Variant],renderData:houseRender[0]);
                         if(td)yield return null;
                         if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}
                     }
                     // Distant houses retain their old three-renderer budget; no furniture or trim growth.
-                    MeshFactory.Create("House details",houseData.Envelope.Decoration,home.transform,world.profile,owner,false,false,materials.Houses[house.Variant]);
+                    MeshFactory.Create("House details",houseData.Envelope.Decoration,home.transform,world.profile,owner,false,false,materials.Houses[house.Variant],renderData:houseRender[td?5:1]);
 
                     if(td)yield return null;
                     if(!TileBuildCurrent(version,tx,tz,tr,td)){DiscardStagedTile();yield break;}

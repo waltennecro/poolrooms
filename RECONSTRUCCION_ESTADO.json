@@ -1505,6 +1505,24 @@
       "status": "implemented_native_validation_pending",
       "feature": "Interior fit-outs, area-based packing, licensed retail furniture, 20 source PBR finishes, shared regional skylight sun, bounded texture streaming and rotated merchandise picking",
       "documentation": "Assets/PoolroomsProcedural/Documentation/Centro_comercial_renovado.md"
+    },
+    {
+      "id": "superficies-estables",
+      "feature": "Opaque surface ownership and streamed shared-wall restoration",
+      "status": "local_core_verified_full_ci_pending_native_visual_pending",
+      "nativeUnityExecuted": false,
+      "newExternalModels": 0,
+      "newExternalTextures": 0,
+      "samples": {
+        "generatedChunks": 126,
+        "mallSectors": 12,
+        "nearFarLevel94HouseCases": 24
+      },
+      "protectedGeometryFingerprints": 188,
+      "physicsSourcePreserved": true,
+      "renderDistancePreserved": true,
+      "documentation": "Assets/PoolroomsProcedural/Documentation/Superficies_Estables.md",
+      "evidence": "Verification/surface_ownership_audit.json"
     }
   ],
   "latestCoreChecks": {

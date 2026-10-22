@@ -24,6 +24,15 @@ jobs:
         run: |
           dotnet build Verification/Poolrooms.Checks.csproj --configuration Release -warnaserror
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj
+      - name: Check coplanar faces, material ownership and streamed seam restoration
+        env:
+          POOLROOMS_SURFACE_REPORT: ${{ runner.temp }}/surface-audit.json
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --render-surfaces
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Surface-ownership-evidence
+          path: ${{ runner.temp }}/surface-audit.json
+          if-no-files-found: error
       - name: Compile reported Runtime-Core type boundaries and replay original failures
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --runtime-types
       - name: Check detailed mall geometry, licensed placement and floor-local lighting

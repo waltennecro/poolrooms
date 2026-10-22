@@ -21,12 +21,20 @@ namespace Poolrooms
             // does not allocate another 4K texture or another source material.
             return City11Sources.MaterialFor(palette.materials[index]);
         }
-        public static void Attach(RoomGeometry data,Transform parent,PoolroomsProfile profile,PoolroomsChunk owner,bool collision,float baseY)
+        public static MeshData[] PrepareSurfaces(RoomGeometry data,float baseY)
         {
-            foreach(var visual in data.VisualMeshes)
+            // Retail meshes are authored in floor coordinates, then parented at y.
+            // Resolve overlap only after all finish meshes share room-local space.
+            foreach(var visual in data.VisualMeshes)visual.TranslateRotate(new V3(0,-baseY,0),0);
+            return MeshFactory.RoomSurfaces(data);
+        }
+        public static void Attach(RoomGeometry data,Transform parent,PoolroomsProfile profile,PoolroomsChunk owner,bool collision,float baseY,MeshData[] renderSurfaces=null)
+        {
+            if(renderSurfaces==null)renderSurfaces=PrepareSurfaces(data,baseY);
+            for(int i=0;i<data.VisualMeshes.Count;i++)
             {
-                visual.TranslateRotate(new V3(0,-baseY,0),0);
-                MeshFactory.Create("Retail finish / "+visual.Theme,visual,parent,profile,owner,false);
+                var visual=data.VisualMeshes[i];
+                MeshFactory.Create("Retail finish / "+visual.Theme,visual,parent,profile,owner,false,renderData:renderSurfaces[i+2]);
             }
             if(collision&&data.CollisionOnly.TriangleCount>0)
             {

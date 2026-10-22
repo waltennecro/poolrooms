@@ -14,6 +14,7 @@ namespace Poolrooms
             public SourceProp(SourceFurniturePlacement p){slot=p.Slot;source=p.Source;bottom=new Vector3(p.Bottom.X,p.Bottom.Y,p.Bottom.Z);yaw=p.Yaw;}
             public SourceFurniturePlacement Plan(){return new SourceFurniturePlacement(slot,source,new V3(bottom.x,bottom.y,bottom.z),yaw);}
         }
+        public readonly HashSet<Renderer> deformingSurfaces=new HashSet<Renderer>();
         [HideInInspector] public int roomId,cellX,cellZ;
         [HideInInspector] public WaterRegion[] waterRegions;
         [HideInInspector] public GameObject[] caps=new GameObject[4];

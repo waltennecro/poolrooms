@@ -207,9 +207,10 @@ namespace Poolrooms
         {
             var go=new GameObject(name);go.transform.SetParent(interior,false);go.transform.localPosition=Vector3.up*y;
             var chunk=go.AddComponent<PoolroomsChunk>();chunk.waterRegions=new WaterRegion[0];
-            MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,chunk,world.BuildColliders);
-            MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,chunk,false);
-            PoolroomsMallMaterials.Attach(data,go.transform,world.profile,chunk,world.BuildColliders,y);
+            var renderSurfaces=PoolroomsMallMaterials.PrepareSurfaces(data,y);
+            MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,chunk,world.BuildColliders,renderData:renderSurfaces[0]);
+            MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,chunk,false,renderData:renderSurfaces[1]);
+            PoolroomsMallMaterials.Attach(data,go.transform,world.profile,chunk,world.BuildColliders,y,renderSurfaces);
             PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,world.profile,chunk,world,-y);
             MeshFactory.Create("Windows and skylight glazing",data.Glass,go.transform,world.profile,chunk,world.BuildColliders);
             world.RegisterExternalChunk(chunk,data.Fixtures);return chunk;

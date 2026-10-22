@@ -52,6 +52,7 @@ static partial class Checks
         if(args.Contains("--courtyard-atlas")){int index=Array.IndexOf(args,"--courtyard-atlas");if(index+1>=args.Length)throw new ArgumentException("Supply a new preview directory");CourtyardAtlas(args[index+1]);return 0;}
         if(args.Contains("--archive-atlas")){int index=Array.IndexOf(args,"--archive-atlas");if(index+1>=args.Length)throw new ArgumentException("Supply a new preview directory");ArchiveAtlas(args[index+1]);return 0;}
         if(args.Contains("--conservatory-atlas")){int i=Array.IndexOf(args,"--conservatory-atlas");if(i+1>=args.Length)throw new ArgumentException("Supply a new preview directory");ConservatoryAtlas(args[i+1]);return 0;}
+        if(args.Contains("--render-surfaces")){RenderSurfaces();IntegrationSourceContracts();return 0;}
         if(args.Contains("--sky63")){Sky63();IntegrationSourceContracts();return 0;}
         if(args.Contains("--crystal-conservatory")){ConservatoryDistricts();IntegrationSourceContracts();return 0;}
         if(args.Contains("--archive-library")){ArchiveDistricts();IntegrationSourceContracts();return 0;}

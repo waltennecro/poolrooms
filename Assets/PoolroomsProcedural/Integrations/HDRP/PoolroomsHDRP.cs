@@ -306,6 +306,7 @@ namespace Poolrooms.HDRP
         {
             foreach(var renderer in chunk.GetComponentsInChildren<MeshRenderer>(true))
                 renderer.rayTracingMode=renderer==chunk.water?UnityEngine.Experimental.Rendering.RayTracingMode.Off:
+                    chunk.deformingSurfaces.Contains(renderer)?UnityEngine.Experimental.Rendering.RayTracingMode.DynamicGeometry:
                     (renderer.GetComponentInParent<PoolroomsPickup>()!=null||renderer.GetComponentInParent<PoolroomsVehicle>()!=null||world.CurrentLayout!=null&&world.CurrentLayout.Config.Continuous)?UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform:UnityEngine.Experimental.Rendering.RayTracingMode.Static;
             foreach(var lamp in chunk.GetComponentsInChildren<PoolroomsLuminaire>(true))
             {

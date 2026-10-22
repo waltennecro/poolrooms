@@ -24,6 +24,7 @@ namespace Poolrooms
         // Scene quality overrides; -1 keeps the generation profile budget. Never edits the shared asset.
         [NonSerialized] public int activeLightBudgetOverride=-1,shadowLightBudgetOverride=-1;
         [SerializeField,HideInInspector] private Transform generatedRoot;
+        private readonly PoolroomsSurfaceSeams surfaceSeams=new PoolroomsSurfaceSeams();
         private readonly Dictionary<long,PoolroomsChunk> loaded=new Dictionary<long,PoolroomsChunk>();
         private readonly List<PoolroomsLuminaire> lamps=new List<PoolroomsLuminaire>();
         // Reused buffers: the streaming loop runs every frame and must not allocate.
@@ -219,7 +220,7 @@ namespace Poolrooms
             if(terrain!=null)terrain.Exit();
             if(malls!=null)malls.Exit();
             if(connectedMalls!=null)connectedMalls.Clear();
-            generation++;loaded.Clear();lamps.Clear();visibleLamps.Clear();origin.Reset();cacheFocusX=cacheFocusZ=int.MinValue;
+            generation++;loaded.Clear();surfaceSeams.Clear();lamps.Clear();visibleLamps.Clear();origin.Reset();cacheFocusX=cacheFocusZ=int.MinValue;
             if(generatedRoot!=null)
             {
                 // Immediately disable colliders; Destroy is deferred until end of frame.
@@ -356,7 +357,7 @@ namespace Poolrooms
             List<long> remove=removeScratch;remove.Clear();int radius=UnloadRadius;
             foreach(var pair in loaded)if(Math.Max(Math.Abs((long)pair.Value.cellX-focus.x),Math.Abs((long)pair.Value.cellZ-focus.y))>radius&&!NearConnection(pair.Value.cellX,pair.Value.cellZ))remove.Add(pair.Key);
             if(remove.Count==0)return;
-            foreach(long id in remove){PoolroomsChunk chunk=loaded[id];loaded.Remove(id);chunk.gameObject.SetActive(false);Dispose(chunk.gameObject);}
+            foreach(long id in remove){PoolroomsChunk chunk=loaded[id];loaded.Remove(id);surfaceSeams.Remove(chunk.cellX,chunk.cellZ);chunk.gameObject.SetActive(false);Dispose(chunk.gameObject);}
             remove.Clear();
             lamps.RemoveAll(l=>l==null);
             RefreshConnections();LimitLights();Physics.SyncTransforms();GeometryChanged?.Invoke();
@@ -372,9 +373,10 @@ namespace Poolrooms
                 chunk.lifePlan=data.Life;chunk.waterRegions=data.Regions.ToArray();
                 chunk.preparedTransitions=data.PreparedTransitions.ToArray();
                 var sourceProps=new List<PoolroomsChunk.SourceProp>();foreach(var p in data.SourceProps)sourceProps.Add(new PoolroomsChunk.SourceProp(p));foreach(var p in data.SourceSeats)sourceProps.Add(new PoolroomsChunk.SourceProp(p));chunk.sourceProps=sourceProps.ToArray();
-                MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders);
+                var renderSurfaces=RenderBoundary.Split(MeshFactory.RoomSurfaces(data),layout.Config.CellSize,out var boundarySurfaces);
+                MeshFactory.Create("Architecture",data.Structure,go.transform,profile,chunk,BuildColliders,renderData:renderSurfaces[0]);
                 if(BuildColliders&&data.CollisionOnly.TriangleCount>0)MeshFactory.CreateCollider("Play safety nets",data.CollisionOnly,go.transform,chunk);
-                MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false);
+                MeshFactory.Create("Batched decoration",data.Decoration,go.transform,profile,chunk,false,renderData:renderSurfaces[1]);
                 PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,profile,chunk,this);
                 MeshFactory.Create("Glazing",data.Glass,go.transform,profile,chunk,false);
                 for(int i=0;i<data.VisualMeshes.Count;i++)
@@ -382,8 +384,9 @@ namespace Poolrooms
                     var visual=data.VisualMeshes[i];Material[] overrides=null;
                     if(visual.Theme==SurfaceTheme.FlumeFlow)
                     {overrides=new Material[6];overrides[(int)Surface.Slide]=Application.isPlaying?PoolroomsFlumeFlow.For(this).Resolve(visual.FlowProfile):PoolroomsBiomeMaterialFactory.Resolve(SurfaceTheme.FlumeFlow,(int)Surface.Slide,profile,chunk);}
-                    MeshFactory.Create(visual.Theme==SurfaceTheme.FlumeFlow?"Flowing flume water":"Biome finish "+i,visual,go.transform,profile,chunk,false,materialOverrides:overrides);
+                    MeshFactory.Create(visual.Theme==SurfaceTheme.FlumeFlow?"Flowing flume water":"Biome finish "+i,visual,go.transform,profile,chunk,false,materialOverrides:overrides,renderData:renderSurfaces[i+2]);
                 }
+                surfaceSeams.Register(r.X,r.Z,layout.Config.CellSize,boundarySurfaces,go.transform,profile,chunk);
                 var water=MeshFactory.Create("Water footprint",data.Water,go.transform,profile,chunk,false,true);
                 chunk.water=water!=null?water.GetComponent<MeshRenderer>():null;
                 float t=layout.Config.WallThickness;
@@ -410,7 +413,8 @@ namespace Poolrooms
                         if(corridor.Natural)
                         {
                             chunk.links[d].GetComponent<MeshRenderer>().enabled=false;
-                            for(int part=0;part<corridor.Finishes.Count;part++)MeshFactory.Create("Transition material "+part,corridor.Finishes[part],chunk.links[d].transform,profile,chunk,false);
+                            var transitionRender=RenderSurfaceOwnership.Resolve(corridor.Finishes.ToArray());
+                            for(int part=0;part<corridor.Finishes.Count;part++)MeshFactory.Create("Transition material "+part,corridor.Finishes[part],chunk.links[d].transform,profile,chunk,false,renderData:transitionRender[part]);
                             if(corridor.TransitionGlass.TriangleCount>0)
                             {
                                 MeshFactory.Create("Garden roof glazing",corridor.TransitionGlass,chunk.links[d].transform,profile,chunk,false);
@@ -425,7 +429,7 @@ namespace Poolrooms
                 AttachRoomExtras(r,go.transform);
                 loaded.Add(ContinuousTopology.CellKey(r.X,r.Z),chunk);ChunkCreated?.Invoke(chunk);
             }
-            catch{loaded.Remove(ContinuousTopology.CellKey(r.X,r.Z));go.SetActive(false);Dispose(go);throw;}
+            catch{surfaceSeams.Remove(r.X,r.Z);loaded.Remove(ContinuousTopology.CellKey(r.X,r.Z));go.SetActive(false);Dispose(go);throw;}
         }
 
         private void AttachRoomExtras(Room r,Transform parent)

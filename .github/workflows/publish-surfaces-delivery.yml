@@ -1,0 +1,84 @@
+name: Publish verified stable procedural surfaces
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact reviewed source commit
+        required: true
+      verification_run:
+        description: Full verification run for that exact commit; publication waits for success
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require complete verification of the exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/hotel-run.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open('/tmp/hotel-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert r['head_sha']==os.environ['SOURCE_REVISION']
+          assert r['status']=='completed' and r['conclusion']=='success'
+          assert r['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - name: Fetch immutable patch compatibility source
+        run: git fetch --no-tags --depth=1 origin b6e631b39f01915fcd367cf3abd4106e27c0707a
+      - name: Create complete Assets and cumulative patch
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage superficies-estables --output "${RUNNER_TEMP}/Poolrooms_Superficies_Estables_Assets.zip" > /tmp/hotel-full.json
+          python tools/package_surface_update.py --output "${RUNNER_TEMP}/Poolrooms_Parche_Superficies_Estables.zip" > /tmp/hotel-patch.json
+          python - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          full=json.load(open('/tmp/hotel-full.json'));patch=json.load(open('/tmp/hotel-patch.json'))
+          assert full['sourceRevision']==patch['sourceRevision']==os.environ['SOURCE_REVISION']
+          assert not full['workingTreeChanged'] and not patch['workingTreeChanged']
+          with zipfile.ZipFile(full['zip']) as a,zipfile.ZipFile(patch['zip']) as b:
+              assert a.testzip() is None and b.testzip() is None
+              m=json.loads(b.read('PARCHE_MANIFIESTO.json'))
+              for name,entry in m['files'].items():
+                  data=b.read(name)
+                  assert data==a.read(name)
+                  assert len(data)==entry['bytes'] and hashlib.sha256(data).hexdigest()==entry['sha256']
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])
+          size=sum(p.stat().st_size for p in pathlib.Path('Assets').rglob('*') if p.is_file())
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'successfulFullRun':os.environ['VERIFIED_RUN'],
+                  'assetsUncompressedBytes':size,'package':full,'patch':patch,'nativeUnityExecuted':False,'newExternalModels':0,'newExternalTextureSets':0,'newOriginalVolumeTextures':0,'paddingBytes':0}
+          (out/'Poolrooms_Superficies_Estables_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Superficies_Estables_SHA256.txt').write_text('\n'.join(a['sha256']+'  '+pathlib.Path(a['zip']).name for a in (full,patch))+'\n')
+          notes=f'''Corrección de parpadeos por superficies superpuestas en la generación procedural. Se recortan las porciones coincidentes de rectángulos opacos que miran en la misma dirección y se eliminan triángulos idénticos: cada porción visible tiene un solo acabado. Mantiene UV, normales, pesos de mezcla, relieve intencional, agua, cristales y las mallas originales de colisión.
+
+          Propiedad de paredes compartidas entre sectores: se actualizan sólo las primitivas de unión cuando cambia un vecino, con restauración de las caras al descargarlo. Sin barrido por fotograma ni reconstrucción completa de salas. Las uniones usan geometría dinámica para que HDRP actualice también los reflejos RT. Los centros comerciales resuelven sus acabados en las coordenadas del piso correcto.
+
+          Pruebas específicas: 126 salas generadas de 63 modos dedicados, 12 sectores comerciales y 24 casas cercanas/lejanas del Nivel94, uniones entre vecinos, UV, mezcla, área, transparencias, idempotencia y restauración de caras. Geometrías históricas protegidas intactas. Verificación completa de código/núcleo de `{os.environ['SOURCE_REVISION']}` superada en el run {os.environ['VERIFIED_RUN']}. No son pruebas nativas de Unity.
+
+          Incluye Nivel63, Invernadero, Cygnus, hotel188, skins y correcciones previas. Cero modelos/texturas externos nuevos, cero relleno. Assets completos: {full['bytes']:,} bytes comprimidos y {size:,} sin comprimir. Parche acumulativo: {patch['bytes']:,} bytes, compatible con Cinco horizontes o cualquier entrega posterior, incluida Nivel63.
+
+          Con Unity detenido, copia PoolroomsProcedural SOBRE tu carpeta existente dentro de Assets. Sobrescribe los archivos y añade los nuevos, conservando los recursos restantes y .meta; no instales otra copia paralela. Vuelve a generar la demo para sustituir geometría horneada anterior.
+
+          Unity/Play/HDRP, shaders, apariencia, ray tracing, física y FPS pendientes: no hay Editor en este entorno. No se afirma eliminar otras causas de parpadeo, por ejemplo transparencias, superficies curvas parcialmente coincidentes o aliasing especular. El resto de los niveles genéricos mantiene su cola de reconstrucción individual.
+
+          Guía: https://github.com/{os.environ['GH_REPO']}/blob/{os.environ['SOURCE_REVISION']}/Assets/PoolroomsProcedural/Documentation/Superficies_Estables.md
+          '''
+          (out/'hotel-notes.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          PY
+      - name: Publish immutable verified update
+        shell: bash
+        run: |
+          gh release create superficies-estables --target "${SOURCE_REVISION}" --title "Corrección de superficies y paredes superpuestas" --notes-file "${RUNNER_TEMP}/hotel-notes.md" "${RUNNER_TEMP}/Poolrooms_Superficies_Estables_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Superficies_Estables.zip" "${RUNNER_TEMP}/Poolrooms_Superficies_Estables_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Superficies_Estables_SHA256.txt"

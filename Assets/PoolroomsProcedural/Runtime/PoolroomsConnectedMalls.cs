@@ -222,9 +222,10 @@ namespace Poolrooms
         {
             var go=new GameObject(name);go.transform.SetParent(d.Root,false);go.transform.localPosition=Vector3.up*y;
             var owner=go.AddComponent<PoolroomsChunk>();owner.cellX=d.Site.X;owner.cellZ=d.Site.Z;owner.connectedMall=true;owner.waterRegions=new WaterRegion[0];
-            MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,owner,world.BuildColliders);
-            MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,owner,false);
-            PoolroomsMallMaterials.Attach(data,go.transform,world.profile,owner,world.BuildColliders,y);
+            var renderSurfaces=PoolroomsMallMaterials.PrepareSurfaces(data,y);
+            MeshFactory.Create("Architecture",data.Structure,go.transform,world.profile,owner,world.BuildColliders,renderData:renderSurfaces[0]);
+            MeshFactory.Create("Batched decoration",data.Decoration,go.transform,world.profile,owner,false,renderData:renderSurfaces[1]);
+            PoolroomsMallMaterials.Attach(data,go.transform,world.profile,owner,world.BuildColliders,y,renderSurfaces);
             PoolroomsArchitecturalDetail.Attach(data.Dressing,go.transform,world.profile,owner,world,-y);
             if(world.CurrentLayout.Config.EncounterExploration)PoolroomsRoomLife.AttachNotice(world,go.transform,owner,data.Dressing,"mall-note:"+d.Plan.Seed+":"+d.Site.X+":"+d.Site.Z+":"+name,d.Plan.Seed,d.Site.X,d.Site.Z,-y,data,LiminalEnvironment.Supermarket);
             MeshFactory.Create("Windows and skylight glazing",data.Glass,go.transform,world.profile,owner,world.BuildColliders);
