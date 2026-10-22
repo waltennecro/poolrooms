@@ -1,0 +1,55 @@
+{
+  "level": "63 — Tranquility",
+  "author": "Sariastuff",
+  "translationReviewed": "long island 520 (Chinese wiki)",
+  "reviewed": "2026-10-22",
+  "primaryReference": "https://backrooms-wiki.wikidot.com/level-63",
+  "directAccess": "HTTP 403 from this environment; public pinned translation reviewed",
+  "accessibleResearch": {
+    "url": "https://github.com/Hoshino-Yumetsuki/backroomsmap/blob/d9d5c12bc79e16f7ba17d7bd2f52828635d8ea39/data/raw/level-63.json",
+    "sha256": "9bb6547f13fa8b0cb50cba3e0f87d9e5b9684993712f255d9c1b69bf03cd9c59",
+    "sections": [
+      "Description",
+      "Meditation points",
+      "Entrances and exits",
+      "Author credit"
+    ]
+  },
+  "factsAdapted": [
+    "A vast daylight sky with suspended oak bridges and platforms",
+    "Connected paths, handrails and climbing structures",
+    "Large vine-like walls",
+    "Quiet meditation platforms and a bench",
+    "Occasional wind, wood creaks and foliage; no entities",
+    "Falling is not fatal in the source setting"
+  ],
+  "implementation": [
+    "Replaces CloudTerminal without changing serialized biome ID; 63 catalogue biomes remain",
+    "Two physically connected deck levels, guarded suspended paths, real voids, support masts and cables",
+    "Eight activity programmes, seats, tea objects, storage and warm original notes",
+    "Shared native HDRP cloud sea uses two bounded local fog volumes and one original 64^3 density mask",
+    "Unified walkable entrances and generation, no master-mode dependency"
+  ],
+  "deliberateAdaptations": [
+    "Walkable exits retained rather than requiring a fall/teleport",
+    "Falling below the sky without wings returns to the same sector centre; no unconsciousness or random-level transition",
+    "Meditation terraces enlarged for a standing humanoid rather than a one-metre-radius replica",
+    "Added upper galleries, astronomy/tea/drawing activities and attributed furnishings for playability",
+    "Vine walls are static vegetation, not the source setting supernatural rearranging structures",
+    "Always daylight with a fixed regional sun rather than a new day/night simulation",
+    "No population, entity or faction NPC simulation"
+  ],
+  "license": "The level-specific setting adaptation is attributed to Sariastuff / The Backrooms Wiki under CC BY-SA 3.0. Original implementation, original cloud data and pre-existing attributed resources retain their respective licences.",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "externalImagesCopied": 0,
+  "newExternalModels": 0,
+  "newExternalTextureSets": 0,
+  "existingDistinctSourceModels": 7,
+  "cloudData": "Resources/Sky63/Provenance.json",
+  "nativeApiReference": {
+    "url": "https://github.com/Unity-Technologies/Graphics/blob/6000.3/staging/Packages/com.unity.render-pipelines.high-definition/Runtime/Lighting/VolumetricLighting/LocalVolumetricFog.cs",
+    "observedSha256": "4c082ca4ba53652bdf94ba1a475b54e8969c224606aa3fc3368039794c2ee38d",
+    "use": "Reviewed public parameter types/names; native compilation still required"
+  },
+  "nativeUnityExecuted": false
+}

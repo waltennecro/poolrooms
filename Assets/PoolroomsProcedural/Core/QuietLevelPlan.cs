@@ -29,12 +29,13 @@ namespace Poolrooms.Core
         public readonly CourtyardDistrictPlan Courtyard;
         public readonly ArchiveDistrictPlan Archive;
         public readonly ConservatoryDistrictPlan Conservatory;
-        public QuietLevelPlan(LiminalEnvironment environment,int floors,int variant,uint seed,QuietPropPlan[] props,WaterRegion sea,float shore=0,bool pavilion=false,CourtyardDistrictPlan courtyard=null,ArchiveDistrictPlan archive=null,ConservatoryDistrictPlan conservatory=null)
-        {Environment=environment;Floors=floors;Variant=variant;Seed=seed;Props=props;Sea=sea;Shore=shore;Pavilion=pavilion;Courtyard=courtyard;Archive=archive;Conservatory=conservatory;}
+        public readonly Sky63Plan Sky63;
+        public QuietLevelPlan(LiminalEnvironment environment,int floors,int variant,uint seed,QuietPropPlan[] props,WaterRegion sea,float shore=0,bool pavilion=false,CourtyardDistrictPlan courtyard=null,ArchiveDistrictPlan archive=null,ConservatoryDistrictPlan conservatory=null,Sky63Plan sky63=null)
+        {Environment=environment;Floors=floors;Variant=variant;Seed=seed;Props=props;Sea=sea;Shore=shore;Pavilion=pavilion;Courtyard=courtyard;Archive=archive;Conservatory=conservatory;Sky63=sky63;}
         public bool Valid(Room room,LayoutConfig c)
         {return QuietLevelPlanner.IsLevel(Environment)&&room.Environment==Environment&&room.Width==c.CellSize&&room.Depth==c.CellSize&&Props!=null&&Props.Length<=12&&Floors>=1&&Floors<=5;}
         public bool Sheltered(float x,float z,float cellSize)
-        {if(Courtyard!=null)return !Courtyard.Court;return QuietLevelPlanner.IsCivic(Environment)||Environment==LiminalEnvironment.Archive906||Environment==LiminalEnvironment.Courtyard188&&(Math.Abs(x)>cellSize*.25f||z>cellSize*.25f);}
+        {if(Sky63!=null)return false;if(Courtyard!=null)return !Courtyard.Court;return QuietLevelPlanner.IsCivic(Environment)||Environment==LiminalEnvironment.Archive906||Environment==LiminalEnvironment.Courtyard188&&(Math.Abs(x)>cellSize*.25f||z>cellSize*.25f);}
     }
     public static class QuietLevelPlanner
     {
@@ -44,6 +45,7 @@ namespace Poolrooms.Core
         {return RestfulLevelPlanner.IsLevel(e)||e==LiminalEnvironment.RainHouses||e==LiminalEnvironment.AquaticPark||e==LiminalEnvironment.ThermalBaths||e==LiminalEnvironment.Orangerie||e==LiminalEnvironment.Archive906||e==LiminalEnvironment.Courtyard188||e==LiminalEnvironment.Coast48||IsCivic(e);}
         public static void Describe(Room room,LayoutConfig c)
         {
+            if(Sky63Planner.Applies(c,room.Environment)){Sky63Planner.Describe(room,c);return;}
             if(ConservatoryDistrictPlanner.Applies(c,room.Environment)){ConservatoryDistrictPlanner.Describe(room,c);return;}
             if(ArchiveDistrictPlanner.Applies(c,room.Environment)){ArchiveDistrictPlanner.Describe(room,c);return;}
             if(CourtyardDistrictPlanner.Applies(c,room.Environment)){CourtyardDistrictPlanner.Describe(room,c);return;}

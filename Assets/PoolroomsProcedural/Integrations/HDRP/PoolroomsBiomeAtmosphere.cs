@@ -28,6 +28,7 @@ namespace Poolrooms.HDRP
         private void OnEnable()
         {
             if(!Application.isPlaying)return;
+            if(GetComponent<PoolroomsSky63Clouds>()==null)gameObject.AddComponent<PoolroomsSky63Clouds>();
             world=GetComponent<PoolroomsWorld>();root=new GameObject("Independent biome sky and fog");root.transform.SetParent(transform,false);
             volume=root.AddComponent<Volume>();volume.isGlobal=true;volume.priority=4;volume.enabled=false;
             profile=ScriptableObject.CreateInstance<VolumeProfile>();profile.name="Runtime independent biome atmosphere";
@@ -75,9 +76,10 @@ namespace Poolrooms.HDRP
                 if(rainy)shelter=room.Plan.Rain.InsideLodge(local.x,local.z);
                 if(room.Plan?.Quiet?.Courtyard!=null&&local.y>=room.Plan.Quiet.Courtyard.Roof-.1f)shelter=false;
                 if(aerial)shelter=false;
+                bool sky63=!aerial&&room.Plan?.Quiet?.Sky63!=null;
                 bool botanical=!aerial&&room.Plan?.Quiet?.Conservatory!=null;
                 bool courtyardHotel=!aerial&&room.Plan?.Quiet?.Courtyard!=null;
-                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(botanical?10.0f:courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?(room.Plan?.Quiet?.Archive!=null?7.2f:6.3f):sunset?10.8f:shelter?7.7f:11.7f)+offset;
+                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(sky63?11.2f:botanical?10.0f:courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?(room.Plan?.Quiet?.Archive!=null?7.2f:6.3f):sunset?10.8f:shelter?7.7f:11.7f)+offset;
                 if(regionalEV<=0)regionalEV=target;
                 regionalEV=Mathf.Lerp(regionalEV,target,1-Mathf.Exp(-Time.unscaledDeltaTime*2));cityExposure.fixedExposure.Override(regionalEV);
             }
@@ -89,10 +91,10 @@ namespace Poolrooms.HDRP
             if(configured&&previous==effectiveEnvironment&&previousMall==mall&&previousSun==sunny&&Mathf.Abs(height-previousHeight)<.01f)return;
             previous=effectiveEnvironment;previousMall=mall;previousSun=sunny;previousHeight=height;configured=true;
             environment.skyType.Override((int)(sunny&&!rainy?SkyType.PhysicallyBased:SkyType.Gradient));
-            citySun.transform.localRotation=Quaternion.Euler(room.Plan?.Quiet?.Conservatory!=null?32:mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
+            citySun.transform.localRotation=Quaternion.Euler(room.Plan?.Quiet?.Sky63!=null?27:room.Plan?.Quiet?.Conservatory!=null?32:mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
             citySun.color=mallPhysical?new Color(1,.94f,.84f):rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
 #pragma warning disable CS0618
-            citySunData.SetIntensity(room.Plan?.Quiet?.Conservatory!=null?10000:room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
+            citySunData.SetIntensity(room.Plan?.Quiet?.Sky63!=null?16000:room.Plan?.Quiet?.Conservatory!=null?10000:room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
 #pragma warning restore CS0618
             Color top=new Color(.57f,.66f,.78f),middle=new Color(.84f,.87f,.9f),bottom=new Color(.7f,.73f,.76f);float ev=-1;
             if(rainy){top=new Color(.35f,.43f,.49f);middle=new Color(.61f,.68f,.7f);bottom=new Color(.47f,.53f,.53f);ev=.5f;}
@@ -105,7 +107,9 @@ namespace Poolrooms.HDRP
             {top=new Color(.63f,.73f,.83f);middle=new Color(.89f,.9f,.87f);bottom=new Color(.74f,.78f,.73f);ev=-.8f;}
             else if(archive){top=new Color(.57f,.56f,.5f);middle=new Color(.82f,.8f,.74f);bottom=new Color(.65f,.62f,.55f);ev=-1;}
             sky.top.Override(top);sky.middle.Override(middle);sky.bottom.Override(bottom);sky.exposure.Override(ev);
-            fog.baseHeight.Override(height);fog.maximumHeight.Override(height+(mall?world.ActiveMallPlan.Floors*MallPlan.FloorHeight+12:room.Height+8));
+            bool skyPaths=room.Plan?.Quiet?.Sky63!=null;
+            fog.depthExtent.overrideState=skyPaths;if(skyPaths)fog.depthExtent.Override(Mathf.Max(512,world.LoadRadius*room.Width*2));
+            fog.baseHeight.Override(skyPaths?height-100:height);fog.maximumHeight.Override(skyPaths?height-80:height+(mall?world.ActiveMallPlan.Floors*MallPlan.FloorHeight+12:room.Height+8));
             fog.meanFreePath.Override(rainy?180:sunny?850:mall?500:350);fog.colorMode.Override(FogColorMode.ConstantColor);fog.color.Override(sunset?new Color(.91f,.79f,.67f):middle);
             // Refresh existing reflection probes through their bounded queue, not a capture every frame.
             world.ExternalGeometryChanged();

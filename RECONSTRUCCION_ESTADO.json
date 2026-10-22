@@ -3523,7 +3523,7 @@
   "individualLevelRebuilds": {
     "state": "RECONSTRUCCION_NIVELES_ESTADO.json",
     "first": "Courtyard188",
-    "pendingGenericLevels": 46,
+    "pendingGenericLevels": 45,
     "nativeUnityExecuted": false,
     "status": "published_full_core_verified_native_unrun",
     "sourceRevision": "3b5751cf989baeab9cfe8329da1ccf72d17b81f2",
@@ -3577,6 +3577,19 @@
       "completeAssetsBytes": 1080349904,
       "patchBytes": 28694101,
       "publicDownloadsSha256Verified": true
+    },
+    "sky63": {
+      "status": "implemented_targeted_core_verified_full_validation_pending",
+      "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel63_Tranquilidad.md",
+      "rebuiltTotal": 4,
+      "remainingGenericProgrammes": 45,
+      "newExternalModels": 0,
+      "newExternalTextureSets": 0,
+      "newOriginalVolumeTextures": 1,
+      "reusedDistinctSourceModels": 7,
+      "nativeUnityExecuted": false,
+      "targetedCheck": "Verification/sky63_checks.txt",
+      "targetedCoreAssertions": 26476452
     }
   }
 }

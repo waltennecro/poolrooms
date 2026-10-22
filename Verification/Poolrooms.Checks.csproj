@@ -23,6 +23,7 @@
     <Compile Include="CourtyardDistrictAtlas.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="ArchiveDistrictAtlas.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="ConservatoryDistrictAtlas.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="Sky63Checks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="ConservatoryDistrictChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="ArchiveDistrictChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="CourtyardDistrictChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />

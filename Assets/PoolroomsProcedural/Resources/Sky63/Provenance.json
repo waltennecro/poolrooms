@@ -1,0 +1,15 @@
+{
+  "author": "Poolrooms contributors",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "kind": "Original periodic 3D density, no imported photograph/model",
+  "size": [
+    64,
+    64,
+    64
+  ],
+  "layout": "x fastest, then y, then z; uint8 density copied to RGBA channels",
+  "bytes": 262144,
+  "sha256": "39f8daf6e6798c020e0455bb0b9204810c6e5058b5c0830ce459600516344390",
+  "generator": "tools/build_sky63_clouds.py"
+}

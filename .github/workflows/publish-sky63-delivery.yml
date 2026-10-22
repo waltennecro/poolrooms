@@ -1,0 +1,84 @@
+name: Publish verified Level63 Tranquility
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact reviewed source commit
+        required: true
+      verification_run:
+        description: Full verification run for that exact commit; publication waits for success
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require complete verification of the exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/hotel-run.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open('/tmp/hotel-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert r['head_sha']==os.environ['SOURCE_REVISION']
+          assert r['status']=='completed' and r['conclusion']=='success'
+          assert r['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - name: Fetch immutable patch compatibility source
+        run: git fetch --no-tags --depth=1 origin b6e631b39f01915fcd367cf3abd4106e27c0707a
+      - name: Create complete Assets and cumulative patch
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage nivel63-tranquilidad --output "${RUNNER_TEMP}/Poolrooms_Nivel63_Assets.zip" > /tmp/hotel-full.json
+          python tools/package_sky63_update.py --output "${RUNNER_TEMP}/Poolrooms_Parche_Nivel63.zip" > /tmp/hotel-patch.json
+          python - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          full=json.load(open('/tmp/hotel-full.json'));patch=json.load(open('/tmp/hotel-patch.json'))
+          assert full['sourceRevision']==patch['sourceRevision']==os.environ['SOURCE_REVISION']
+          assert not full['workingTreeChanged'] and not patch['workingTreeChanged']
+          with zipfile.ZipFile(full['zip']) as a,zipfile.ZipFile(patch['zip']) as b:
+              assert a.testzip() is None and b.testzip() is None
+              m=json.loads(b.read('PARCHE_MANIFIESTO.json'))
+              for name,entry in m['files'].items():
+                  data=b.read(name)
+                  assert data==a.read(name)
+                  assert len(data)==entry['bytes'] and hashlib.sha256(data).hexdigest()==entry['sha256']
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])
+          size=sum(p.stat().st_size for p in pathlib.Path('Assets').rglob('*') if p.is_file())
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'successfulFullRun':os.environ['VERIFIED_RUN'],
+                  'assetsUncompressedBytes':size,'package':full,'patch':patch,'nativeUnityExecuted':False,'newExternalModels':0,'newExternalTextureSets':0,'newOriginalVolumeTextures':1,'paddingBytes':0}
+          (out/'Poolrooms_Nivel63_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Nivel63_SHA256.txt').write_text('\n'.join(a['sha256']+'  '+pathlib.Path(a['zip']).name for a in (full,patch))+'\n')
+          notes=f'''Cuarta reconstrucción individual: Nivel63 / Tranquilidad, adaptación investigada de Tranquility de Sariastuff / The Backrooms Wiki (CC BY-SA 3.0). Sustituye la Terminal de nubes genérica sin alterar su ID: el catálogo mantiene 63 biomas. Puentes y terrazas de roble suspendidos sobre huecos reales, dos alturas unidas por escaleras, galerías y barandillas. Mástiles, cables, pérgolas, observatorios y paredes de enredaderas; ocho programas de actividad, asientos, recogibles, armarios funcionales y relatos cálidos. Entradas y salidas caminables sin modo maestro.
+
+          Mar de nubes HDRP con dos volúmenes para el observador completo y una densidad tridimensional original 64³ CC0, con deriva suave. Respeta la opción de volumétricos y calidad; en Rendimiento quedan los caminos y el cielo. Sol regional único, exposición propia y opciones SSR/sondas/RT existentes. Pasos de madera, viento y acústica abierta. Recuperación segura al caer sin volar; se conservan alas, cámaras, inventario y distancia de renderizado.
+
+          Roble/latón/hojas PBR y siete modelos existentes atribuidos; cero modelos externos nuevos, cero texturas externas nuevas. No se confunden instancias o recetas con modelos distintos. La wiki se revisó a través de una traducción pública fijada; no se copian fotos ni textos extensos. Se documentan las diferencias deliberadas respecto al nivel original.
+
+          Incluye Invernadero de Cristal, hotel188, Cygnus, skins y correcciones anteriores. Cuatro reconstrucciones individuales completas en código; otros 45 programas siguen pendientes. Assets completos: {full['bytes']:,} bytes comprimidos, {size:,} bytes sin comprimir. Parche acumulativo: {patch['bytes']:,} bytes, para Cinco horizontes o cualquier entrega posterior.
+
+          Con Unity detenido, copiar PoolroomsProcedural sobre la carpeta existente dentro de Assets, conservando recursos y .meta. No instalar una segunda copia del código. Una escena personalizada puede seleccionar CloudTerminal y activar rebuildSky63 en el perfil.
+
+          Verificación completa y empaquetado de `{os.environ['SOURCE_REVISION']}` superados; CRC/SHA-256 y parche comparados con el paquete completo. Son comprobaciones del núcleo/código, no pruebas nativas de Unity. Unity/Play/HDRP, nubes, shaders, apariencia, física, audio y FPS pendientes: no hay Editor aquí.
+
+          Guía: https://github.com/{os.environ['GH_REPO']}/blob/{os.environ['SOURCE_REVISION']}/Assets/PoolroomsProcedural/Documentation/Nivel63_Tranquilidad.md
+          '''
+          (out/'hotel-notes.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          PY
+      - name: Publish immutable verified update
+        shell: bash
+        run: |
+          gh release create nivel63-tranquilidad --target "${SOURCE_REVISION}" --title "Nivel 63: Tranquilidad sobre las nubes" --notes-file "${RUNNER_TEMP}/hotel-notes.md" "${RUNNER_TEMP}/Poolrooms_Nivel63_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Nivel63.zip" "${RUNNER_TEMP}/Poolrooms_Nivel63_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Nivel63_SHA256.txt"

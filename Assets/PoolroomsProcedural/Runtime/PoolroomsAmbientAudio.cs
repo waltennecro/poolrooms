@@ -137,12 +137,13 @@ namespace Poolrooms
                 reverb.decayTime=smoothed.Decay;reverb.decayHFRatio=underwater?.35f:smoothed.HighDecay;
                 reverb.reflectionsDelay=smoothed.ReflectionsDelay;reverb.reverbDelay=smoothed.ReverbDelay;
             }
-            bool useReverb=roomReverb&&(world.Terrain==null||!world.Terrain.IsInside||world.Terrain.InsideHouse);
+            bool skyPaths=cachedRoom?.Plan?.Quiet?.Sky63!=null;
+            bool useReverb=!skyPaths&&roomReverb&&(world.Terrain==null||!world.Terrain.IsInside||world.Terrain.InsideHouse);
             if(reverb.enabled!=useReverb)reverb.enabled=useReverb;
             ventilationTransmission=SpatialAudioModel.Step(ventilationTransmission,ventilationBlocked,underwater,dt);
             waterTransmission=SpatialAudioModel.Step(waterTransmission,waterBlocked,underwater,dt);
             ventilation.spatialBlend=waterBed.spatialBlend=spatialAmbience?1:0;
-            ventilation.volume=masterVolume<=0?0:Mathf.Lerp(ventilation.volume,ventilationTransmission.Gain*smoothed.Ventilation*Unit(masterVolume)*Unit(environmentVolume)*(soundscape!=null?soundscape.AmbienceGain:1),k);
+            ventilation.volume=masterVolume<=0?0:Mathf.Lerp(ventilation.volume,ventilationTransmission.Gain*smoothed.Ventilation*(skyPaths?0:1)*Unit(masterVolume)*Unit(environmentVolume)*(soundscape!=null?soundscape.AmbienceGain:1),k);
             waterBed.volume=masterVolume<=0?0:Mathf.Lerp(waterBed.volume,waterTransmission.Gain*smoothed.Water*Unit(masterVolume)*Unit(environmentVolume)*Unit(waterVolume)*(soundscape!=null?soundscape.AmbienceGain:1),k);
             float nextCutoff=Mathf.Lerp(cutoff,underwater?900:18000,1-Mathf.Exp(-dt*6));
             if(Mathf.Abs(nextCutoff-cutoff)>20)
@@ -160,7 +161,7 @@ namespace Poolrooms
                 bool outside=world.Terrain!=null&&world.Terrain.IsInside&&!world.Terrain.InsideHouse;
                 bool inHouse=world.Terrain!=null&&world.Terrain.IsInside&&world.Terrain.InsideHouse;
                 bool padded=cachedRoom!=null&&(cachedRoom.Environment==LiminalEnvironment.IndoorPlay||cachedRoom.Environment==LiminalEnvironment.SoftPlay||cachedRoom.Environment==LiminalEnvironment.Office||cachedRoom.Environment==LiminalEnvironment.Hotel);
-                int category=swimming?3:feetWet||wetFeet>0?2:IsMetalGround()?1:outside?7:inHouse?8:padded?6:0;
+                int category=swimming?3:feetWet||wetFeet>0?2:IsMetalGround()?1:outside?7:inHouse||skyPaths?8:padded?6:0;
                 var clips=category==3?wade:category==2?wetTile:category==1?metal:category==7?grass:category==8?wood:category==6?soft:tile;
                 float gain=1;
                 if(category==0&&cachedRoom!=null&&(cachedRoom.Environment==LiminalEnvironment.IndoorPlay||cachedRoom.Environment==LiminalEnvironment.SoftPlay))gain*=.55f;

@@ -1,9 +1,9 @@
 {
-  "stage": "invernadero-cristal",
+  "stage": "nivel63-tranquilidad",
   "reconstructionNotExactRecovery": true,
   "totalCatalogueBiomes": 63,
   "firstRebuiltLevel": "Courtyard188",
-  "status": "published_full_core_verified_native_visual_review_pending",
+  "status": "implemented_targeted_core_verified_full_validation_pending",
   "nativeUnityExecuted": false,
   "newExternalModels": 0,
   "unchangedDedicatedGenerators": [
@@ -32,6 +32,12 @@
       "status": "published_native_visual_review_pending",
       "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Conservatory.json",
       "originalDesign": true
+    },
+    {
+      "environment": "CloudTerminal",
+      "adaptation": "Level63 / Tranquility",
+      "status": "implemented_native_visual_review_pending",
+      "research": "Assets/PoolroomsProcedural/Documentation/LevelResearch/Level63.json"
     }
   ],
   "pendingIndividualRebuilds": [
@@ -41,10 +47,6 @@
     },
     {
       "environment": "SunsetLibrary",
-      "status": "pending_research_and_distinct_architecture"
-    },
-    {
-      "environment": "CloudTerminal",
       "status": "pending_research_and_distinct_architecture"
     },
     {
@@ -222,8 +224,8 @@
   ],
   "otherExistingGenerators": "Existing authored Poolrooms, retail, interiors and coast preserved; not declared visually revalidated.",
   "limits": [
-    "No Unity Editor, Play or GPU profiling in this environment",
-    "Direct Kew/wiki domains blocked; pinned secondary descriptions and three attributed reference photos reviewed; photos not redistributed",
+    "No Unity Editor, Play, native cloud rendering or GPU profiling in this environment",
+    "Direct wiki access blocked; pinned public Chinese translation of Level63 reviewed and credited",
     "No exact original v47 recovery"
   ],
   "previousDelivery": {
@@ -262,44 +264,23 @@
     }
   },
   "verification": {
-    "targetedConservatory": "Verification/conservatory_checks.txt",
+    "targetedSky63": "Verification/sky63_checks.txt",
     "sampledChunks": 192,
-    "uses": 8,
+    "programmes": 8,
     "reusedDistinctSourceModels": 7,
     "sampledSourceInstances": 1536,
     "newExternalModels": 0,
-    "newExternalTextureSets": 1,
-    "mixedWorldCells": 90,
-    "walkingBoundaryEntrances": 131,
-    "protectedGeometries": 188,
+    "newExternalTextureSets": 0,
+    "newOriginalVolumeTextures": 1,
+    "mixedWorldCells": 16,
+    "walkingBoundaryEntrances": 22,
     "nativeUnityExecuted": false,
-    "maximumSupportedDoorHeightMetres": 5.5,
     "localBuildWarnings": 0,
     "localBuildErrors": 0,
-    "targetedAssertions": 51416425,
-    "localFullCore": "Verification/conservatory_full_core_checks.txt",
-    "localCoreAssertions": 2103227483,
-    "sourceScriptsInFiveConfigurations": 351,
-    "resourceAudit": "tools/verify_conservatory_resources.py",
-    "ciStatus": "success",
-    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
-    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
-    "fullCiStepsSucceeded": 52,
-    "publicationStatus": "success",
-    "publicationStepsSucceeded": 8,
-    "deliveryEvidence": "Verification/conservatory_delivery.json",
-    "localFullCoreRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
-    "assetsFileCount": 1660,
-    "ciArtifacts": [
-      {
-        "id": 12431017167,
-        "name": "R34-Batch-Evidence"
-      },
-      {
-        "id": 12430567096,
-        "name": "Poolrooms-Reconstruccion-Assets"
-      }
-    ]
+    "targetedAssertions": 26476452,
+    "fullCoreStatus": "running",
+    "resourceAudit": "tools/verify_sky63_resources.py",
+    "ciStatus": "pending"
   },
   "previousDeliveries": [
     {
@@ -346,17 +327,60 @@
         "patchSha256": "95e992b1748b014e0c7ba370004cadfd2f6da21b0b2cee67b3d452dec5047ce2",
         "publicFullDownloadAndPatchVerified": true
       }
+    },
+    {
+      "stage": "invernadero-cristal",
+      "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
+      "verification": {
+        "targetedConservatory": "Verification/conservatory_checks.txt",
+        "sampledChunks": 192,
+        "uses": 8,
+        "reusedDistinctSourceModels": 7,
+        "sampledSourceInstances": 1536,
+        "newExternalModels": 0,
+        "newExternalTextureSets": 1,
+        "mixedWorldCells": 90,
+        "walkingBoundaryEntrances": 131,
+        "protectedGeometries": 188,
+        "nativeUnityExecuted": false,
+        "maximumSupportedDoorHeightMetres": 5.5,
+        "localBuildWarnings": 0,
+        "localBuildErrors": 0,
+        "targetedAssertions": 51416425,
+        "localFullCore": "Verification/conservatory_full_core_checks.txt",
+        "localCoreAssertions": 2103227483,
+        "sourceScriptsInFiveConfigurations": 351,
+        "resourceAudit": "tools/verify_conservatory_resources.py",
+        "ciStatus": "success",
+        "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
+        "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
+        "fullCiStepsSucceeded": 52,
+        "publicationStatus": "success",
+        "publicationStepsSucceeded": 8,
+        "deliveryEvidence": "Verification/conservatory_delivery.json",
+        "localFullCoreRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
+        "assetsFileCount": 1660,
+        "ciArtifacts": [
+          {
+            "id": 12431017167,
+            "name": "R34-Batch-Evidence"
+          },
+          {
+            "id": 12430567096,
+            "name": "Poolrooms-Reconstruccion-Assets"
+          }
+        ]
+      },
+      "delivery": {
+        "release": "https://github.com/waltennecro/poolrooms/releases/tag/invernadero-cristal",
+        "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
+        "completeAssetsBytes": 1080349904,
+        "completeAssetsSha256": "e052fb158dae2fafc8dc6c349dba2f859c2265b6816e83516021e9682f50cb40",
+        "patchBytes": 28694101,
+        "patchSha256": "03df65ecbee05b3e30542bfb7852f6528db174cf4c481ccdf9ed5dfce0d1d8b4",
+        "publicFullDownloadAndPatchVerified": true,
+        "assetsUncompressedBytes": 1339791499
+      }
     }
-  ],
-  "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
-  "delivery": {
-    "release": "https://github.com/waltennecro/poolrooms/releases/tag/invernadero-cristal",
-    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
-    "completeAssetsBytes": 1080349904,
-    "completeAssetsSha256": "e052fb158dae2fafc8dc6c349dba2f859c2265b6816e83516021e9682f50cb40",
-    "patchBytes": 28694101,
-    "patchSha256": "03df65ecbee05b3e30542bfb7852f6528db174cf4c481ccdf9ed5dfce0d1d8b4",
-    "publicFullDownloadAndPatchVerified": true,
-    "assetsUncompressedBytes": 1339791499
-  }
+  ]
 }

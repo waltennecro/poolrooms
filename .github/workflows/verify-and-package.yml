@@ -87,6 +87,8 @@ jobs:
           python-version: '3.11'
       - name: Install pinned offline art verification tools
         run: python -m pip install -r Verification/requirements-art-tools.txt
+      - name: Check Level63 original cloud density, attribution and bounded rendering source
+        run: python tools/verify_sky63_resources.py
       - name: Check conservatory CC0 maps, provenance and material/import bindings
         run: python tools/verify_conservatory_resources.py
       - name: Check twenty new level resource banks, licences, metric bounds and PBR bindings

@@ -1,0 +1,3 @@
+Original procedural 64-cubed cloud density: Poolrooms contributors, CC0-1.0. See Provenance.json and CC0-1.0.txt. No cloud photograph or downloaded model is included.
+
+Level-specific setting: Level 63 / Tranquility, Sariastuff / The Backrooms Wiki, CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/). Research and deliberate adaptations: Documentation/LevelResearch/Level63.json. The original prose/images are not redistributed. Existing oak/brass/foliage finishes and furniture retain their shipped attribution and licences.

@@ -68,6 +68,7 @@ namespace Poolrooms.Core
         }
         public static RoomGeometry Build(Room r,LayoutConfig cfg)
         {
+            if(r.Plan?.Quiet?.Sky63!=null)return Sky63Architecture.Build(r,cfg);
             if(r.Plan?.Quiet?.Conservatory!=null)return ConservatoryDistrictArchitecture.Build(r,cfg);
             if(r.Plan?.Quiet?.Archive!=null)return ArchiveDistrictArchitecture.Build(r,cfg);
             if(r.Plan?.Quiet?.Courtyard!=null)return CourtyardDistrictArchitecture.Build(r,cfg);

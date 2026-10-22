@@ -61,7 +61,7 @@ namespace Poolrooms.Core
             switch(e)
             {
                 case LiminalEnvironment.SunsetLibrary:return "Biblioteca del atardecer";
-                case LiminalEnvironment.CloudTerminal:return "Terminal de nubes";
+                case LiminalEnvironment.CloudTerminal:return "Nivel 63 · Tranquilidad";
                 case LiminalEnvironment.TeaPavilions:return "Pabellones de té";
                 case LiminalEnvironment.CeramicGalleria:return "Galería de cerámica";
                 case LiminalEnvironment.WinterGarden:return "Jardín de invierno";

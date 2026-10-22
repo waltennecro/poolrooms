@@ -73,6 +73,9 @@ static partial class Checks
         {
             var e=(LiminalEnvironment)(18+index);var c=LargeConfig(481516,size);c.ConnectedMalls=c.ConnectedTerrain=false;
             c.Procedural=index<10?(LiminalGeneration)((int)LiminalGeneration.SunsetLibrary+index):(LiminalGeneration)((int)LiminalGeneration.SolarObservatory+index-10);
+            // This loop retains the twenty legacy roofed-gallery contracts. The replacement
+            // CloudTerminal is open sky and has its own full-scale Sky63 traversal suite.
+            c.RebuildSky63=false;
             int hx=0,hz=0;bool ready=false;
             for(int sx=-8;sx<=8&&!ready;sx++)for(int sz=-8;sz<=8&&!ready;sz++)if(LargeRegions.Section(c,sx*4,sz*4,e)==RegionSection.Forum){hx=sx*4+1;hz=sz*4+1;ready=true;}
             Check(ready,"Missing broad interior sector");var layout=new Layout(c);var a=layout.At(hx,hz);var b=layout.At(hx+1,hz);
