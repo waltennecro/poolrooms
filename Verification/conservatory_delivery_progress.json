@@ -1,0 +1,23 @@
+{
+  "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
+  "patchFiles": 65,
+  "patchBytes": 28694101,
+  "patchSha256": "03df65ecbee05b3e30542bfb7852f6528db174cf4c481ccdf9ed5dfce0d1d8b4",
+  "crcChecked": true,
+  "allFilesEqualAssets": true,
+  "completeCumulativeChangeCoverage": true,
+  "newExternalModels": 0,
+  "newExternalTextureSets": 1,
+  "fullRun": 39787999097,
+  "publicationRun": 39788127777,
+  "remoteStatus": "pending",
+  "nativeUnityExecuted": false,
+  "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
+  "publication": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777",
+  "intendedTag": "invernadero-cristal",
+  "localFullCoreAssertions": 2103227483,
+  "warnings": 0,
+  "errors": 0,
+  "protectedGeometryFingerprints": 188,
+  "lastKnownRemoteState": "Full CI in progress; publication waiting for that exact commit, no downloadable release claimed yet."
+}

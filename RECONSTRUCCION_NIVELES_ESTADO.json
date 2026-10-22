@@ -281,7 +281,9 @@
     "localCoreAssertions": 2103227483,
     "sourceScriptsInFiveConfigurations": 351,
     "resourceAudit": "tools/verify_conservatory_resources.py",
-    "ciStatus": "pending"
+    "ciStatus": "pending",
+    "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
+    "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777"
   },
   "previousDeliveries": [
     {
@@ -329,5 +331,6 @@
         "publicFullDownloadAndPatchVerified": true
       }
     }
-  ]
+  ],
+  "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10"
 }

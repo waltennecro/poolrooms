@@ -3565,7 +3565,10 @@
       "nativeUnityExecuted": false,
       "localFullCore": "Verification/conservatory_full_core_checks.txt",
       "localCoreAssertions": 2103227483,
-      "protectedFingerprints": 188
+      "protectedFingerprints": 188,
+      "sourceRevision": "f3a115f0a088f6f20131a0ec034c2860585c6d10",
+      "fullCi": "https://github.com/waltennecro/poolrooms/actions/runs/39787999097",
+      "publicationRun": "https://github.com/waltennecro/poolrooms/actions/runs/39788127777"
     }
   }
 }
