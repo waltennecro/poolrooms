@@ -1,0 +1,92 @@
+name: Publish verified Runtime compilation fix
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact source commit with successful full verification
+        required: true
+      verification_run:
+        description: Full verification run for that commit; publication waits for success
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require successful complete verification of exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/runtime-verified-run.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open('/tmp/runtime-verified-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert r['head_sha']==os.environ['SOURCE_REVISION']
+          assert r['status']=='completed' and r['conclusion']=='success'
+          assert r['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - name: Fetch exact patch compatibility sources without rewriting history
+        run: |
+          git fetch --no-tags --depth=1 origin cb2a67d633fe0efd8279f711d5b42a55d00138cc
+          git fetch --no-tags --depth=1 origin b6e631b39f01915fcd367cf3abd4106e27c0707a
+      - name: Build complete package and compatible five-file patch
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage correccion-compilacion-runtime --output "${RUNNER_TEMP}/Poolrooms_Compilacion_Corregida_Assets.zip" > /tmp/runtime-assets.json
+          python tools/package_runtime_hotfix.py --output "${RUNNER_TEMP}/Poolrooms_Parche_Compilacion_Runtime.zip" > /tmp/runtime-patch.json
+          python - <<'PY'
+          import json,os,pathlib,zipfile
+          a=json.load(open('/tmp/runtime-assets.json'));p=json.load(open('/tmp/runtime-patch.json'))
+          assert a['sourceRevision']==p['sourceRevision']==os.environ['SOURCE_REVISION']
+          assert not a['workingTreeChanged'] and not p['workingTreeChanged']
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])
+          with zipfile.ZipFile(a['zip']) as full,zipfile.ZipFile(p['zip']) as patch:
+              manifest=json.loads(full.read('RECONSTRUCCION_PAQUETE.json'))
+              repair=json.loads(patch.read('PARCHE_MANIFIESTO.json'))
+              assert len(repair['files'])==5
+              assert all(full.read(name)==patch.read(name) for name in repair['files'])
+              size=sum(v['bytes'] for v in manifest['files'].values())
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'successfulFullRun':os.environ['VERIFIED_RUN'],
+              'assetsUncompressedBytes':size,'package':a,'patch':p,'nativeUnityExecuted':False,
+              'reducedSemanticContracts':4,'originalDiagnosticsReproduced':['CS0200','CS1061','CS0266','CS0108']}
+          (out/'Poolrooms_Compilacion_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Compilacion_SHA256.txt').write_text(''.join(v['sha256']+'  '+pathlib.Path(v['zip']).name+'\n' for v in (a,p)))
+          notes='''Corrige tres errores de compilación y una advertencia detectados en Unity: Room.Floor de solo lectura, V3.Length, contador entero de pasos y swingAnimation. Mantiene las estaciones a la altura de su planta.
+
+          **Parche pequeño:** con Unity cerrado, copia sus carpetas Core y Runtime dentro de la carpeta PoolroomsProcedural existente, sobrescribiendo los cinco archivos. Conserva sus .meta y el contenido restante. Compatible con Rincones procedurales y Cinco horizontes. No agregues una segunda copia del código. El parche no agrega los cinco niveles a una instalación antigua.
+
+          **Paquete completo:** incluye los cinco Horizontes, el menú independiente, los rincones y el contenido anterior. Sustituye la carpeta PoolroomsProcedural anterior por esta para recibir todo el contenido.
+
+          Compilación estricta del núcleo sin errores ni avisos. Comprobaciones completas de núcleo, geometrías protegidas, tipos, sintaxis, recursos, licencias y empaquetado superadas. Los contratos reducidos compilan expresiones reales contra el núcleo y reproducen los cuatro diagnósticos originales. Se comprueban seis alturas, tres herramientas y 4.096 ráfagas de pasos. No son pruebas nativas de Unity.
+
+          CRC y SHA-256 de cada entrada comprobados; los cinco archivos del parche coinciden con los del paquete completo. **Unity/HDRP no ejecutado**: compilación nativa completa, shaders, apariencia, PhysX, audio y FPS pendientes.
+          '''
+          notes+='\nFuente exacta: `'+os.environ['SOURCE_REVISION']+'`.\nCI completo: https://github.com/'+os.environ['GH_REPO']+'/actions/runs/'+os.environ['VERIFIED_RUN']+'\n'
+          notes+='\nPaquete: '+str(a['bytes'])+' bytes; Assets: '+str(size)+' bytes. Parche: '+str(p['bytes'])+' bytes.\n'
+          (out/'runtime-release.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          print(json.dumps(record))
+          PY
+      - name: Publish complete package and small patch without overwriting prior assets
+        shell: bash
+        run: |
+          gh release view correccion-compilacion-runtime --json isDraft,assets,targetCommitish > /tmp/runtime-draft.json
+          python - <<'PY'
+          import json,os
+          r=json.load(open('/tmp/runtime-draft.json'))
+          assert r['isDraft'] and not r['assets']
+          assert r['targetCommitish']==os.environ['SOURCE_REVISION']
+          PY
+          gh release upload correccion-compilacion-runtime "${RUNNER_TEMP}/Poolrooms_Compilacion_Corregida_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Compilacion_Runtime.zip" "${RUNNER_TEMP}/Poolrooms_Compilacion_SHA256.txt" "${RUNNER_TEMP}/Poolrooms_Compilacion_Entrega.json"
+          gh release edit correccion-compilacion-runtime --draft=false --latest --title "Corrección de compilación: parche pequeño y paquete completo" --notes-file "${RUNNER_TEMP}/runtime-release.md"
