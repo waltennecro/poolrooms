@@ -35,6 +35,7 @@ Frontend: 1000 lifecycle/cancel/restart/resume sequences, six page routes, deter
 Scenery real-room sample: 105 furnished rooms, 884 additional instances; empty/complex rooms may conservatively reject additions.
 PASS: scenery 768 open-room biome/seed plans, 1536 clusters, 7892 instances, 41 distinct authored arrangements, 12 stories; native Unity/physics/FPS unrun.
 PASS: five Horizon programmes, 240 physical rooms at three sizes/two door widths, 16320 supported pickups, 960 reachable activities, 9792 colored glazing triangles; previous IDs and coverage preserved alongside the appended forest. Unity/HDRP/PhysX/rendering/FPS unrun.
+PASS: actual forest pickup factory/wrapper compiled with reduced Unity types; CS0272/CS0122 replayed and rejected; three keepsakes/invalid IDs checked. NOT Unity API compilation.
 PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
 PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
 PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
@@ -56,5 +57,5 @@ Quiet levels: 72 rooms across three sizes; 540 actual item supports, stair headr
 Civic levels: 72 generated rooms, 66 geometry variants and 720 furniture instances checked; 2 new procedural environments, zero new downloaded models.
 Camera landing: bounded and monotonic at 10–240 FPS; pause, reset and preference migration checked mathematically.
 Dressing: 8 procedural fitting types / 16 distinct geometry variants; 300 doorway-safe placements in 16 wall samples. Not new downloaded source models.
-PASS: 2130203384 checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax 389 scripts x 5 configurations.
+PASS: 2130203438 checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax 390 scripts x 5 configurations.
 Core compiled; Unity/HDRP API compilation, shaders, PhysX, visual quality and FPS NOT executed.

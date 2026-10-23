@@ -1,0 +1,239 @@
+{
+  "sourceRevision": "d887be56ac3d76205802c158b948f02263916cb4",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/nivel39-bosque-encantado",
+  "fullVerification": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39910104718",
+    "conclusion": "success",
+    "steps": 61,
+    "failed": 0,
+    "skipped": 0
+  },
+  "publisher": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39910235956",
+    "conclusion": "success",
+    "steps": 9
+  },
+  "delivery": {
+    "sourceRevision": "d887be56ac3d76205802c158b948f02263916cb4",
+    "successfulFullRun": "39910104718",
+    "assetsUncompressedBytes": 1745224174,
+    "package": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Nivel39_Bosque_Encantado_Assets.zip",
+      "files": 2412,
+      "bytes": 1453806247,
+      "sha256": "af48fad14d3cad1f8cc0794df1244d0f371ab1e749dc6c852faf6258e0daa7f9",
+      "sourceRevision": "d887be56ac3d76205802c158b948f02263916cb4",
+      "workingTreeChanged": false
+    },
+    "patch": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Parche_Nivel39_Bosque_Encantado.zip",
+      "files": 839,
+      "bytes": 402227265,
+      "sha256": "1d86bc97abf5b24f8e6b3e2f207413c2b74cc31d5ef903d83c858d9368f2dfbd",
+      "sourceRevision": "d887be56ac3d76205802c158b948f02263916cb4",
+      "workingTreeChanged": false
+    },
+    "nativeUnityExecuted": false,
+    "newExternalModels": 0,
+    "newDistinctScanIds": 3,
+    "native4KScanSets": 3,
+    "canopyScanNativeSize": [
+      512,
+      512
+    ],
+    "clearingProgrammes": 12,
+    "newInventoryItems": 3,
+    "activities": 8,
+    "upscaledTextures": false,
+    "paddingBytes": 0
+  },
+  "publicDownloads": [
+    {
+      "file": "Poolrooms_Nivel39_Bosque_Encantado_Assets.zip",
+      "httpStatus": 200,
+      "bytes": 1453806247,
+      "sha256": "af48fad14d3cad1f8cc0794df1244d0f371ab1e749dc6c852faf6258e0daa7f9",
+      "downloadedCompletely": true,
+      "storedLocally": false
+    },
+    {
+      "file": "Poolrooms_Parche_Nivel39_Bosque_Encantado.zip",
+      "httpStatus": 200,
+      "bytes": 402227265,
+      "sha256": "1d86bc97abf5b24f8e6b3e2f207413c2b74cc31d5ef903d83c858d9368f2dfbd",
+      "downloadedCompletely": true,
+      "storedLocally": true
+    }
+  ],
+  "patchAudit": {
+    "crcVerified": true,
+    "filesComparedToSource": 839,
+    "fileNamesSafe": true,
+    "duplicateMembers": 0
+  },
+  "sourceReproduction": {
+    "reproducedFiles": 24,
+    "files": [
+      {
+        "path": "Audio/OakLeaves0.wav",
+        "bytes": 97064,
+        "sha256": "d6701f39750f958f485329db631a58baddbfd30ddf2de3b322bf15709dbe2150"
+      },
+      {
+        "path": "Audio/OakLeaves1.wav",
+        "bytes": 114704,
+        "sha256": "226ad025fb70ce893eb2fc3cbfe990b47a5cd907e4f409639deb38bf63b8f823"
+      },
+      {
+        "path": "Audio/OakLeaves2.wav",
+        "bytes": 132344,
+        "sha256": "d37554a63de215b8a419219ca8232d1025589705249d86726b250c7d1318564c"
+      },
+      {
+        "path": "Audio/OakWind.wav",
+        "bytes": 2116844,
+        "sha256": "892c6fe5cf92e71170ea0a2647518219517210d29b73ee2e34d9bb202d21936b"
+      },
+      {
+        "path": "Audio/manifest.json",
+        "bytes": 1445,
+        "sha256": "1bddbbc4bc56bb216bb327ac2d115a220c11e136c9a6f7e8c50528ce277e00d1"
+      },
+      {
+        "path": "Licenses/NOTICE.txt",
+        "bytes": 988,
+        "sha256": "bd5fb899e0d4a3213a86973ce7bf953aa14a4f04133e24f508863092d0801c67"
+      },
+      {
+        "path": "Textures/Bark_Albedo.png",
+        "bytes": 15967121,
+        "sha256": "c324a8371e9ff6327f2ef027c1b12ae187c7f99598c2203bb2a8ffce5e5f3c45"
+      },
+      {
+        "path": "Textures/Bark_Height.png",
+        "bytes": 5214459,
+        "sha256": "fe4079a78ab11ced9752f9b7b45771548da29bc2b651efbffc8d362663610e47"
+      },
+      {
+        "path": "Textures/Bark_Mask.png",
+        "bytes": 7300135,
+        "sha256": "21054f1b8496aab2c808768343aa57ca2349dfcf119e4fc4a24e57928c6ba5bd"
+      },
+      {
+        "path": "Textures/Bark_Normal.png",
+        "bytes": 21551248,
+        "sha256": "ba8fa4ee2a904e353ab1b4126c6779e0fec3c7579f924e7ce663d15a926aeceb"
+      },
+      {
+        "path": "Textures/Canopy_Albedo.png",
+        "bytes": 254824,
+        "sha256": "e0892ace5baa74c93d216847db842462f9c3d4ec5221091ea58d26841d2c1f9f"
+      },
+      {
+        "path": "Textures/Canopy_Mask.png",
+        "bytes": 85768,
+        "sha256": "80a90d03e562233203ae15cf00a89b884a3df1c5799f38e02830f3765afedafa"
+      },
+      {
+        "path": "Textures/Canopy_Normal.png",
+        "bytes": 305233,
+        "sha256": "626d4778ba17b28e8b677d59461afd27157f0b252079cdac86d38ec528c42dd7"
+      },
+      {
+        "path": "Textures/Ground_Albedo.png",
+        "bytes": 42599040,
+        "sha256": "b5a92fea3270ecf256d1afc05ce2f8771b251f1421a5e226791b5f51c64e1528"
+      },
+      {
+        "path": "Textures/Ground_Height.png",
+        "bytes": 22519,
+        "sha256": "549458715a7bafb51bae3773abcf773ea2bf583684c7587cee21297e8dd777f2"
+      },
+      {
+        "path": "Textures/Ground_Mask.png",
+        "bytes": 26076902,
+        "sha256": "3c2070fa479f14a2a274129b37418f70a3dc24874abd30d57e0c87b48b69b627"
+      },
+      {
+        "path": "Textures/Ground_Normal.png",
+        "bytes": 41829879,
+        "sha256": "3327793d5b80c345ec475328520735d707f98eb95c052fc498caaf8117bd8b68"
+      },
+      {
+        "path": "Textures/Leaf_Albedo.png",
+        "bytes": 751597,
+        "sha256": "b93bc5b3da08bffc9c9f8a9d0593a2252b1c5e1b3290864aefa424ed80d0f0f7"
+      },
+      {
+        "path": "Textures/Stone_Albedo.png",
+        "bytes": 35909402,
+        "sha256": "981afe2db855d135fac60332c61196bd906b6954a9443cf4f7f43477d701d76e"
+      },
+      {
+        "path": "Textures/Stone_Height.png",
+        "bytes": 2983499,
+        "sha256": "cb83bef1063b2c0e29ce75f21b8a0329e526b801a9eb52147da0960a97b81fcb"
+      },
+      {
+        "path": "Textures/Stone_Mask.png",
+        "bytes": 19680117,
+        "sha256": "1e62495096be1fd54063a8ba4d7263f88df9fb7e35cd53791592a2ffc8b2e18f"
+      },
+      {
+        "path": "Textures/Stone_Normal.png",
+        "bytes": 43537449,
+        "sha256": "fbd46692c13058c7662480b1b17c888839e5436276142cd6693657f4ed317577"
+      },
+      {
+        "path": "canopy.json",
+        "bytes": 2285,
+        "sha256": "871e4aa4a654c8c5b548bd08ca7ce34b0e24d0591604d6035cef4ec3e46d23f7"
+      },
+      {
+        "path": "manifest.json",
+        "bytes": 9691,
+        "sha256": "f4d775f632a431b6fd5688f7e83b345db93f68c47ad4a7131f933a8d099f6021"
+      }
+    ],
+    "python": "3.13.5",
+    "pillow": "11.1.0",
+    "numpy": "2.2.4",
+    "byteIdentical": true,
+    "temporaryDerivativesRemoved": true,
+    "nativeUnityExecuted": false
+  },
+  "ciArtifacts": [
+    {
+      "name": "R34-Batch-Evidence",
+      "id": 12483422786,
+      "bytes": 6596,
+      "expired": false
+    },
+    {
+      "name": "Poolrooms-Reconstruccion-Assets",
+      "id": 12483213642,
+      "bytes": 1449139400,
+      "expired": false
+    },
+    {
+      "name": "City-buildings-evidence",
+      "id": 12482895614,
+      "bytes": 12933,
+      "expired": false
+    },
+    {
+      "name": "Surface-ownership-evidence",
+      "id": 12482776191,
+      "bytes": 2786,
+      "expired": false
+    },
+    {
+      "name": "Level39-evidence",
+      "id": 12482682575,
+      "bytes": 1731,
+      "expired": false
+    }
+  ],
+  "nativeUnityExecuted": false,
+  "limitations": "Core/source and media checks only. Unity/PlayMode, HDRP APIs/shaders, native physics, final appearance, listening and FPS pending."
+}

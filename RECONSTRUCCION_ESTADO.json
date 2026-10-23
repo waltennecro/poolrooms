@@ -1640,8 +1640,8 @@
     }
   ],
   "latestCoreChecks": {
-    "revision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
-    "run": "https://github.com/waltennecro/poolrooms/actions/runs/39881391043",
+    "revision": "d887be56ac3d76205802c158b948f02263916cb4",
+    "run": "https://github.com/waltennecro/poolrooms/actions/runs/39910104718",
     "conclusion": "success",
     "nativeUnityExecuted": false
   },
@@ -3578,14 +3578,14 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "stage": "nivel11-arquitectura-256",
-    "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
-    "url": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-arquitectura-256",
-    "packageBytes": 1187626264,
-    "patchBytes": 136037880,
-    "assetsFiles": 2364,
-    "assetsUncompressedBytes": 1478537267,
-    "evidence": "Verification/city_buildings_delivery.json",
+    "stage": "nivel39-bosque-encantado",
+    "sourceRevision": "d887be56ac3d76205802c158b948f02263916cb4",
+    "url": "https://github.com/waltennecro/poolrooms/releases/tag/nivel39-bosque-encantado",
+    "packageBytes": 1453806247,
+    "patchBytes": 402227265,
+    "assetsFiles": 2412,
+    "assetsUncompressedBytes": 1745224174,
+    "evidence": "Verification/forest39_delivery.json",
     "publicDownloadsSha256Verified": true,
     "nativeUnityExecuted": false
   },
@@ -3901,7 +3901,7 @@
     "peakBlockTrianglesBeforeSurfaceOwnership": 86978
   },
   "enchantedForest39": {
-    "status": "Implemented and locally checked; exact-source GitHub CI and publication pending",
+    "status": "Implemented, exact-source full CI passed, public release published and both complete downloads SHA-256 verified; native Unity validation pending",
     "wikiLevel": "39 — Enchanted Forest",
     "wikiAuthor": "Ferraru",
     "newEnvironmentId": 63,
@@ -3924,8 +3924,6 @@
     "guide": "Assets/PoolroomsProcedural/Documentation/Nivel39_Bosque_Encantado.md",
     "verification": "--forest39 and tools/verify_forest39_resources.py",
     "pending": [
-      "Exact-source GitHub CI",
-      "Cumulative public package and actual download verification",
       "Native Unity/PlayMode/HDRP/physics/appearance/listening/FPS"
     ],
     "resourceBytes": 266551090,
@@ -3937,7 +3935,7 @@
       "strictBuild": "0 warnings / 0 errors",
       "immutableR33VerifierCompile": "passed",
       "newEnvironmentCount": 64,
-      "fullCoreAssertions": 2130203384,
+      "fullCoreAssertions": 2130203438,
       "protectedGeometryFingerprints": 188,
       "nativeFactoryReducedProbe": "passed"
     },
@@ -3968,6 +3966,48 @@
       "foliageMipCoverage": "Native alpha coverage reference .45 and colour dilation; UnityCsReference importer properties reviewed",
       "regressionReproduced": "Previous per-vertex modulo phase failed the new mathematical test before correction",
       "nativeRenderingExecuted": false
+    },
+    "sourceRevision": "d887be56ac3d76205802c158b948f02263916cb4",
+    "delivery": "https://github.com/waltennecro/poolrooms/releases/tag/nivel39-bosque-encantado",
+    "deliveryEvidence": "Verification/forest39_delivery.json",
+    "finalVerification": {
+      "url": "https://github.com/waltennecro/poolrooms/actions/runs/39910104718",
+      "conclusion": "success",
+      "steps": 61,
+      "failed": 0,
+      "skipped": 0
+    },
+    "publisher": {
+      "url": "https://github.com/waltennecro/poolrooms/actions/runs/39910235956",
+      "conclusion": "success",
+      "steps": 9
+    },
+    "codeScope": {
+      "comparedWithSource": "416f75c8f3f0d1b9b91d1c2dd0a796bd397b48be",
+      "newCodeLinesAdded": 4378,
+      "lineCounting": "Git added text lines, including comments/spacing. Separate production, verification, tools and workflow counts; documentation/data excluded.",
+      "workflowLinesAdded": 91,
+      "productionCSharpLinesAdded": 2600,
+      "nativeTestLinesAdded": 153,
+      "coreVerificationLinesAdded": 602,
+      "assetAndDeliveryToolLinesAdded": 932,
+      "forestResourceBytes": 266551090,
+      "forestResourceFiles": 25,
+      "native4KScanSets": 3,
+      "newDistinctExternalScanIds": 3,
+      "existingScanUpgradedFromNative2KToNative4K": "Ground037",
+      "canopyNativeDimensions": [
+        512,
+        512
+      ],
+      "newExternalModels": 0,
+      "originalClearingProgrammes": 12,
+      "newInventoryItems": 3,
+      "activityTypes": 8,
+      "originalFoleyClips": 4,
+      "paddingBytes": 0,
+      "upscaledTextures": false,
+      "nativeUnityExecuted": false
     }
   }
 }
