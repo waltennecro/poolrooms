@@ -1,7 +1,7 @@
 """Extract a third distinct CC BY 4.0 building skin; no opaque source interiors.
 
 Original authored texture resolutions are retained in reused 4K/2K banks;
-new source-only maps remain native-resolution-capped 1024, never upscaled.
+new source-only maps are restored from native DDS inputs, capped at 4K.
 Invalid/interpolated opposite face normals are repaired only in this derivative.
 """
 from pathlib import Path
@@ -15,7 +15,7 @@ from source_lods import compact
 import numpy as np
 root=Path(__file__).resolve().parents[1];dest=root/'Assets/PoolroomsProcedural/Resources/CityArchitectureSources';source=root/'Sources/CityArchitecture';parser=__import__('argparse').ArgumentParser(description='Import one licensed Bistro facade derivative');parser.add_argument('--cache',type=Path,required=True);cache=parser.parse_args().cache
 dest.mkdir(exist_ok=True);source.mkdir(exist_ok=True);(dest/'Licenses').mkdir(exist_ok=True)
-# Re-fetch the small pinned upstream document; match the already licensed source.
+# Read/download the pinned upstream document; match the already licensed source.
 raw=upstream.acquire(upstream.BASE+'bistro.gltf',cache);binary=upstream.acquire(upstream.BASE+'bistro.bin',cache);doc=json.loads(raw)
 assert hashlib.sha256(raw).hexdigest()==hashlib.sha256((root/'Sources/Bistro/bistro_source.gltf').read_bytes()).hexdigest()
 def adapted(entries,document):
@@ -74,8 +74,10 @@ for p in (dest/'Textures').glob('*.png'):
 report.update(detail,sourceUrl=upstream.BASE+'bistro.gltf',upstreamRevision=upstream.REV,modelLicense='CC-BY-4.0',canonicalWidth=10,canonicalDepth=10,canonicalFloors=4,nativeUnityValidated=False,adaptation='Third distinct Bistro building source subtree; canonical doorway/window/interior cut, physical shell generated separately; shared source PBR maps; two clipped LODs.')
 (dest/(name+'.json')).write_text(json.dumps(report,indent=2)+'\n')
 for n in ['Bistro_CC_BY_4.txt','upstream_MIT.txt']:(dest/'Licenses'/n).write_bytes((root/'Sources/Bistro'/n).read_bytes())
-(dest/'Licenses/NOTICE.txt').write_text('Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0. https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Pinned source: '+upstream.BASE+'bistro.gltf . Adaptation: Paris_Building_010 as an exterior skin with generated interior clearances, two LODs and reused native source PBR finishes. Original interior is not retained. No endorsement.\n')
+(dest/'Licenses/NOTICE.txt').write_text('Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0. https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Pinned source: '+upstream.BASE+'bistro.gltf . Adaptation: Paris_Building_010 as an exterior skin with generated interior clearances, two LODs and reused native source PBR finishes. Texture adaptations: decode original DDS to PNG at native resolution up to 4K, invert tangent-normal green for Unity, retain authored specular colour/gloss and pack the HDRP mask; original input sizes/hashes are recorded. Original interior is not retained. No endorsement.\n')
 (dest/'catalog.json').write_text(json.dumps({'distinctNewSourceModels':1,'proceduralBuildingDesigns':256,'untouchedCompleteModels':0,'nativeUnityValidated':False,'models':[report]},indent=2)+'\n')
 (source/'sources.lock.json').write_text(json.dumps(upstream.locked,indent=2)+'\n')
 (dest/'files.sha256.json').write_text(json.dumps({p.relative_to(dest).as_posix():{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(dest.rglob('*')) if p.is_file() and p.name!='files.sha256.json'},indent=2)+'\n')
+from refine_city_architecture_textures import main as native_finishes
+native_finishes(cache)
 print('SOURCE_COMPLETE',report['triangles'],report['lods'])

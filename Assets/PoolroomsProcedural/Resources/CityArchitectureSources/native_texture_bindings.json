@@ -1,0 +1,280 @@
+{
+  "upscaled": false,
+  "maximum": 4096,
+  "materials": [
+    {
+      "material": "C_BuildingArcade_m1",
+      "sourceMaterial": 14,
+      "maps": {
+        "normal": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/grain_metal_01/grain_metal_01_ddna.dds",
+          "sha256": "445aeacda97e0dc44ffa65bfa502ef5a1f5d42ed07c564208d3a5ef05d00a503",
+          "originalSize": [
+            2048,
+            2048
+          ],
+          "emittedSize": [
+            2048,
+            2048
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m1_normal",
+          "normalGreenInverted": true
+        }
+      }
+    },
+    {
+      "material": "C_BuildingArcade_m3",
+      "sourceMaterial": 19,
+      "maps": {
+        "albedo": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/structures/standard/doors/paris_doors_01a/paris_doors_01a_diff.dds",
+          "sha256": "e91842bcb0208ce7e0be024a2dfd837e7e1ca371d88a08d7ee5bfc731e1e6fd1",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m3_albedo",
+          "normalGreenInverted": false
+        },
+        "normal": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/structures/standard/doors/paris_doors_01a/paris_doors_01a_ddna.dds",
+          "sha256": "14ee416ec1ba9dc78fcf3ad8c040d17e378a0c7102cfdbf559d41f7dd87a1b08",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m3_normal",
+          "normalGreenInverted": true
+        },
+        "specular": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/structures/standard/doors/paris_doors_01a/paris_doors_01a_spec.dds",
+          "sha256": "7933e70f6a6941793f12fc237c5e2f07f59d58401f68335eab1fb32c5d0fe9d5",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m3_specular"
+        },
+        "mask": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/structures/standard/doors/paris_doors_01a/paris_doors_01a_spec.dds",
+          "sha256": "7933e70f6a6941793f12fc237c5e2f07f59d58401f68335eab1fb32c5d0fe9d5",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m3_mask"
+        }
+      }
+    },
+    {
+      "material": "C_BuildingArcade_m4",
+      "sourceMaterial": 20,
+      "maps": {
+        "normal": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/grain_metal_01/grain_metal_01_ddna.dds",
+          "sha256": "445aeacda97e0dc44ffa65bfa502ef5a1f5d42ed07c564208d3a5ef05d00a503",
+          "originalSize": [
+            2048,
+            2048
+          ],
+          "emittedSize": [
+            2048,
+            2048
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m4_normal",
+          "normalGreenInverted": true
+        }
+      }
+    },
+    {
+      "material": "C_BuildingArcade_m9",
+      "sourceMaterial": 68,
+      "maps": {
+        "albedo": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/roofing_metal_01/Roofing_Metal_01_diff.dds",
+          "sha256": "094970e77bdc7330756b8f027dfe7d65f396cbac1f67b7f6e8cf04e8ea062948",
+          "originalSize": [
+            2048,
+            2048
+          ],
+          "emittedSize": [
+            2048,
+            2048
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m9_albedo",
+          "normalGreenInverted": false
+        },
+        "normal": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/roofing_metal_01/roofing_metal_01_ddna.dds",
+          "sha256": "c9b31fbcfdea005a23cdcbf62b0f2f3d3df1b4d271230dc120f9db80dda4b800",
+          "originalSize": [
+            2048,
+            2048
+          ],
+          "emittedSize": [
+            2048,
+            2048
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m9_normal",
+          "normalGreenInverted": true
+        }
+      }
+    },
+    {
+      "material": "C_BuildingArcade_m10",
+      "sourceMaterial": 69,
+      "maps": {
+        "albedo": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_beams_01b_diff.dds",
+          "sha256": "3a97269d6545dc157d54ecdcfc95fd8a026c77264952e2cae81d766c22e0904d",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m10_albedo",
+          "normalGreenInverted": false
+        },
+        "normal": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_beams_01a_ddna.dds",
+          "sha256": "3ae43ee0417dd345d39f75d4e3871a30a3c4e8799e6006267ecbd3bc011518bb",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m10_normal",
+          "normalGreenInverted": true
+        },
+        "specular": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_beams_01a_spec.dds",
+          "sha256": "9ecc08806efb28b112a16f995316cf84cca3499688f34e6e43e3404dbe751306",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m10_specular"
+        },
+        "mask": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_beams_01a_spec.dds",
+          "sha256": "9ecc08806efb28b112a16f995316cf84cca3499688f34e6e43e3404dbe751306",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m10_mask"
+        }
+      }
+    },
+    {
+      "material": "C_BuildingArcade_m11",
+      "sourceMaterial": 70,
+      "maps": {
+        "albedo": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/textures/shared/tiling/boulangerie/boulangeria_diff.dds",
+          "sha256": "8c9620b8d1b2e387742bcb165dec3c6b60b036739913591e3f4557b5fadf2464",
+          "originalSize": [
+            2048,
+            2048
+          ],
+          "emittedSize": [
+            2048,
+            2048
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m11_albedo",
+          "normalGreenInverted": false
+        }
+      }
+    },
+    {
+      "material": "C_BuildingArcade_m12",
+      "sourceMaterial": 71,
+      "maps": {
+        "albedo": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_fabric_01a_diff.dds",
+          "sha256": "348d1556ba3eefaeba8807fd37cd400584801427e14160b2a1e873a3a0128eda",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m12_albedo",
+          "normalGreenInverted": false
+        },
+        "normal": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_fabric_01a_ddna.dds",
+          "sha256": "0deddbb305c16c1b95585e74909412b614543b6cb8690c460a237ba56ccc288f",
+          "originalSize": [
+            4096,
+            4096
+          ],
+          "emittedSize": [
+            4096,
+            4096
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m12_normal",
+          "normalGreenInverted": true
+        },
+        "specular": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_fabric_01a_spec.dds",
+          "sha256": "b8a425a15ecd44f734ab079ad2cf436c1fb6955823ef6d86bec13d98cf58c317",
+          "originalSize": [
+            32,
+            32
+          ],
+          "emittedSize": [
+            32,
+            32
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m12_specular"
+        },
+        "mask": {
+          "url": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/objects/props/street/paris_bistroawning_01/paris_bistroawning_fabric_01a_spec.dds",
+          "sha256": "b8a425a15ecd44f734ab079ad2cf436c1fb6955823ef6d86bec13d98cf58c317",
+          "originalSize": [
+            32,
+            32
+          ],
+          "emittedSize": [
+            32,
+            32
+          ],
+          "resource": "CityArchitectureSources/Textures/C_BuildingArcade_m12_mask"
+        }
+      }
+    }
+  ]
+}

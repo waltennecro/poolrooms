@@ -10,11 +10,17 @@ for name,d in records.items():
  p=DEST/name;assert p.stat().st_size==d['bytes'] and sha(p)==d['sha256'],name
 assert set(records)=={p.relative_to(DEST).as_posix() for p in DEST.rglob('*') if p.is_file() and p.name!='files.sha256.json'}
 catalog=json.loads((DEST/'catalog.json').read_text());assert catalog['distinctNewSourceModels']==1 and catalog['proceduralBuildingDesigns']==256 and catalog['untouchedCompleteModels']==0 and not catalog['nativeUnityValidated']
+native=json.loads((DEST/'native_texture_bindings.json').read_text());assert native['upscaled'] is False and native['maximum']==4096
+for binding in native['materials']:
+ for d in binding['maps'].values():
+  p=RES/(d['resource']+'.png');emitted=struct.unpack_from('>II',p.read_bytes(),16);assert list(emitted)==d['emittedSize']
+  assert all(a<=b for a,b in zip(emitted,d['originalSize'])) and max(emitted)<=4096
 assert 'CC BY 4.0' in (DEST/'Licenses/NOTICE.txt').read_text()
 assert (DEST/'Licenses/Bistro_CC_BY_4.txt').read_bytes()==(ROOT/'Sources/Bistro/Bistro_CC_BY_4.txt').read_bytes()
 m=catalog['models'][0];assert m['sourceRootName']=='Paris_Building_010' and m['modelLicense']=='CC-BY-4.0' and len(m['lods'])==2
 assert sha(ROOT/'Sources/CityArchitecture'/f"{m['id']}_adapted.glb")==m['sourceSha256']
-lock=json.loads((ROOT/'Sources/CityArchitecture/sources.lock.json').read_text());doc=next(v for k,v in lock.items() if k.endswith('/bistro.gltf'));assert sha(ROOT/'Sources/Bistro/bistro_source.gltf')==doc['sha256']
+lock=json.loads((ROOT/'Sources/CityArchitecture/sources.lock.json').read_text());assert all(d['sha256'] in {r['sha256'] for r in lock.values()} for m in native['materials'] for d in m['maps'].values())
+doc=next(v for k,v in lock.items() if k.endswith('/bistro.gltf'));assert sha(ROOT/'Sources/Bistro/bistro_source.gltf')==doc['sha256']
 # Independent separating-axis triangle/box intersection, not the importer cut.
 def intersects(triangle,lo,hi):
  center=(lo+hi)*.5;half=(hi-lo)*.5;v=triangle-center;edges=np.roll(v,-1,axis=0)-v

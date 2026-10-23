@@ -388,7 +388,8 @@
       "canonicalWidth": 10,
       "canonicalDepth": 10,
       "canonicalFloors": 4,
-      "nativeUnityValidated": false
+      "nativeUnityValidated": false,
+      "nativeTextureResolutionPreserved": true
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "C_BuildingArcade.json": {
-    "bytes": 10181,
-    "sha256": "3f1b18f9978cf01d8a666fbe940c2082a2b2dce86d5a02a4f8aaed9207da26a5"
+    "bytes": 10225,
+    "sha256": "6c97ee1d1a5e50874be3e354dea093f3b9444d4674950db0d1905074f67509bf"
   },
   "Licenses/Bistro_CC_BY_4.txt": {
     "bytes": 19242,
     "sha256": "eb53f08e7a562c6f56d9ef93a260d1cbe26a726f959783dbf7e5091421e6a0d0"
   },
   "Licenses/NOTICE.txt": {
-    "bytes": 444,
-    "sha256": "8001abff61c52df4c4a5e4ef85bca83e73ae3ee7eef5f4efcba47ddb71d1ba48"
+    "bytes": 666,
+    "sha256": "074b01882951196038d709617534c7c4fae2f00786b2cedf7b5a481f1ad40e8d"
   },
   "Licenses/upstream_MIT.txt": {
     "bytes": 1073,
@@ -32,24 +32,24 @@
     "sha256": "eb197b9071004e82d05c0e9ca6615af636a4fd2b49012b835fed86c21b240477"
   },
   "Textures/C_BuildingArcade_m10_albedo.png": {
-    "bytes": 1063117,
-    "sha256": "85e554e330782b578792ab84f4fcf9bb2c4485b819e7d373540c3faade6fd6c1"
+    "bytes": 16643328,
+    "sha256": "77185b0d955bcbdfa56f4282cc6a0120ed6835f576e5b84330ff5120982c8e96"
   },
   "Textures/C_BuildingArcade_m10_mask.png": {
-    "bytes": 8998,
-    "sha256": "295670f4b750905b13ee25690af101c96462ef1ed5a225e34761e46b69e20c47"
+    "bytes": 116401,
+    "sha256": "9639b8fae8184e9dc40a0622df64870c4e5010e95e77f5704b3e61c311c7f544"
   },
   "Textures/C_BuildingArcade_m10_normal.png": {
-    "bytes": 663626,
-    "sha256": "e54de0930006397e099d9a6044f266e04b815834bbedf24f587ed503a72289b1"
+    "bytes": 4579344,
+    "sha256": "53284b1059c5b72f0a8cdbd419bec4f5c2244da10a19b05ac3b267f96ae0931d"
   },
   "Textures/C_BuildingArcade_m10_specular.png": {
-    "bytes": 109908,
-    "sha256": "bceb10d58403843076b299abd7af78f602ab517b8b9f3ff534f4806d7c50bd4b"
+    "bytes": 1074811,
+    "sha256": "1dfa58edca95ec771fe1b8bc9a177625f0b9c59ae95ce0e90468c1a4d230a6ab"
   },
   "Textures/C_BuildingArcade_m11_albedo.png": {
-    "bytes": 1278506,
-    "sha256": "f47be66f92bd29a29f6d54ee7eee91176d9f20839080ad8215bbba7b94e66435"
+    "bytes": 4164083,
+    "sha256": "59fd5c33e342e06050aeb9ac7eb101387287e73e7c1aae57202b93ed6e1ff043"
   },
   "Textures/C_BuildingArcade_m11_mask.png": {
     "bytes": 78,
@@ -64,16 +64,16 @@
     "sha256": "f75c8af4ad31eee3f6689c81126c676487babb8722b361a7eb4eaff5a2c3c1cd"
   },
   "Textures/C_BuildingArcade_m12_albedo.png": {
-    "bytes": 863351,
-    "sha256": "2bb661381bd1a7386a93575a07de23b2987039061c16a796db3eaca123a34362"
+    "bytes": 15344660,
+    "sha256": "1d507d30646309a578b1818de00d745716b0c943fc693f55b4d076786e101e12"
   },
   "Textures/C_BuildingArcade_m12_mask.png": {
     "bytes": 104,
-    "sha256": "cf4f2102af6c5d6f51ecf707767f4354c17c9e700ca62aa2d8b0c1aaf7be66a6"
+    "sha256": "26c1fa6db1b31154cad6b879459c7ae35d774f758a94909a6bac80a343d1987a"
   },
   "Textures/C_BuildingArcade_m12_normal.png": {
-    "bytes": 400836,
-    "sha256": "55ec592d5ba7efc268102a3d6c4cfe8234c397827e9f5149d6ab6c463d338c59"
+    "bytes": 3095834,
+    "sha256": "a257e3757f51f7897530eba0ed916a396c8749dacbb5aed5ecd67497b5fad009"
   },
   "Textures/C_BuildingArcade_m12_specular.png": {
     "bytes": 106,
@@ -84,51 +84,55 @@
     "sha256": "d9b47eddbefa66a33a4bb59d941ff0cccf4d9bea079d22fa71941cfc3fa386a0"
   },
   "Textures/C_BuildingArcade_m1_normal.png": {
-    "bytes": 1841275,
-    "sha256": "eda330d3a343e10a7b2706e6d450ac82ef7373efb8fdaf85f36f0999a62d10d7"
+    "bytes": 8363517,
+    "sha256": "24b2e466263c466a2896c294ec259e473f4054e2b28384040d411c5a101d41fa"
   },
   "Textures/C_BuildingArcade_m3_albedo.png": {
-    "bytes": 1111838,
-    "sha256": "7f0253e1e42080ce4a65ab9dba9eef00002e3f2097417ab8ac18de095e122741"
+    "bytes": 12504282,
+    "sha256": "1d8b8386681acd27eff753561d16f2f134cebc120a6109edd09385ebd1f64547"
   },
   "Textures/C_BuildingArcade_m3_mask.png": {
-    "bytes": 10473,
-    "sha256": "15235e0e6daa7df9e56095fd92444c0043de5114e01c35e29285f39842e5c10d"
+    "bytes": 157094,
+    "sha256": "8386cd65a655745df2d1d04841463f363250cd545b445ca6bd3cd547a18e097f"
   },
   "Textures/C_BuildingArcade_m3_normal.png": {
-    "bytes": 847069,
-    "sha256": "3835848b7f391afea65fc6285b380be7f0215ab835e0d5a48adb448e13bd7afc"
+    "bytes": 6464726,
+    "sha256": "ce4f60de9f81299cf0b31b6cb348da91bf9f94b14a1862b1453b272678a87e01"
   },
   "Textures/C_BuildingArcade_m3_specular.png": {
-    "bytes": 438887,
-    "sha256": "78387b2637c45523f3ac8f46c7c13f6a549c8ba2ef19aec791641c9cbafec039"
+    "bytes": 4608368,
+    "sha256": "25ec689f710766b121f14c569f684e3597f8b69752b16b7944e4f73fa43842d6"
   },
   "Textures/C_BuildingArcade_m4_mask.png": {
     "bytes": 79,
     "sha256": "d9b47eddbefa66a33a4bb59d941ff0cccf4d9bea079d22fa71941cfc3fa386a0"
   },
   "Textures/C_BuildingArcade_m4_normal.png": {
-    "bytes": 1841275,
-    "sha256": "eda330d3a343e10a7b2706e6d450ac82ef7373efb8fdaf85f36f0999a62d10d7"
+    "bytes": 8363517,
+    "sha256": "24b2e466263c466a2896c294ec259e473f4054e2b28384040d411c5a101d41fa"
   },
   "Textures/C_BuildingArcade_m9_albedo.png": {
-    "bytes": 1131040,
-    "sha256": "21bd25f3708f18968a82fdbc3e6c84de8956ed483b2efb9079cfa708e885e3c1"
+    "bytes": 3790568,
+    "sha256": "4099f78cd81e65b4ef947e1341ad64091895274db41886c9bdca4def5a517966"
   },
   "Textures/C_BuildingArcade_m9_mask.png": {
     "bytes": 78,
     "sha256": "3deefab85797d3a4c6062a97af3aac31aaa4d36a4bfb276b03079f0309aa33db"
   },
   "Textures/C_BuildingArcade_m9_normal.png": {
-    "bytes": 1316011,
-    "sha256": "9cf3667441e564141dc7e2595a79109f131157d0a1d258214596c46b6961b1d4"
+    "bytes": 4788929,
+    "sha256": "edfd17d2409ef2bff9dccaaf54bed2ac021adf6c0af85627badf88460ca0569a"
   },
   "Textures/C_BuildingArcade_m9_specular.png": {
     "bytes": 78,
     "sha256": "bb553441241481eb904000c56a3772bc496192672f50f55b2f5226faae6725b2"
   },
   "catalog.json": {
-    "bytes": 11880,
-    "sha256": "4f9bda07ba6dfb59a36128e5d5b6534a988a6791153e8dd9cb5174f1b7587b5c"
+    "bytes": 11928,
+    "sha256": "19a172b47c17f85c71ff1cc7b3536662cd6b71d854034b2ef018a9374a940b85"
+  },
+  "native_texture_bindings.json": {
+    "bytes": 10466,
+    "sha256": "40fc4fdc8a751701d579efdfb01d58e80d8dcb898b80f52b534e67cf4d9e7049"
   }
 }

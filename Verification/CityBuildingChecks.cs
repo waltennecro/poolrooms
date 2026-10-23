@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Text.Json;
 using Poolrooms.Core;
 
 static partial class Checks
@@ -8,7 +10,7 @@ static partial class Checks
     static void CityBuildings()
     {
         Check(CityBuildingDesign.OrdinaryCount>100&&CityBuildingDesign.StrangeCount>=100,"Requested building bank sizes");
-        var fingerprints=new HashSet<string>();var names=new HashSet<string>();int peak=0,builds=0,walking=0;
+        var designs=new List<object>();var fingerprints=new HashSet<string>();var names=new HashSet<string>();int peak=0,builds=0,walking=0;
         for(int id=0;id<CityBuildingDesign.Count;id++)
         {
             var p=new CityBuildingDesign(id);names.Add(p.Name);
@@ -23,7 +25,12 @@ static partial class Checks
                     var owned=RenderSurfaceOwnership.Resolve(new[]{a.Structure,a.Decoration}.Concat(a.VisualMeshes).ToArray());
                     Check(owned[0].TriangleCount==0&&owned[2].TriangleCount>0&&owned[2].Theme==SurfaceTheme.CityArchitecture&&owned[2].PaletteVariant==id,"Styled collision geometry rendered twice or lost its PBR owner");
                 }
-                if(size==10)Check(fingerprints.Add(Hash(a.Structure,a.Decoration)),"Architectural duplicate independent of colour/props: "+id);
+                if(size==10)
+                {
+                    string geometryHash=Hash(a.Structure,a.Decoration);
+                    Check(fingerprints.Add(geometryHash),"Architectural duplicate independent of colour/props: "+id);
+                    designs.Add(new{id,name=p.Name,family=p.Family,variant=p.Variant,strange=p.Strange,structuralSha256=geometryHash,colourAndSourcePropsIncluded=false});
+                }
                 int triangles=a.Structure.TriangleCount+a.Decoration.TriangleCount+a.VisualMeshes.Sum(m=>m.TriangleCount);
                 peak=Math.Max(peak,triangles);Check(triangles<45000,"Single building exceeds geometry budget: "+id+" / "+size+" / "+triangles);
                 var index=new ScenerySurfaceIndex(a,new SceneryWorkBudget());Check(index.Valid,"Invalid building support index: "+id);
@@ -35,7 +42,7 @@ static partial class Checks
                     float y=.12f+floor*3.2f;
                     for(int step=0;step<=8;step++)
                     {
-                        float x=sx+2.35f+(size*.5f-.65f-(sx+2.35f))*step/8;
+                        float x=sx+2.35f+(p.Envelope(b,floor).MaxX-.65f-(sx+2.35f))*step/8;
                         var q=new V3(x,y,-2.05f);
                         Check(index.Supported(q),"Broken upper front gallery support: "+id+"/"+size+"/"+floor+" step "+step+" x "+x);
                         Check(index.Clear(new SceneryBox(q+new V3(-.22f,.03f,-.22f),q+new V3(.22f,1.85f,.22f)),0),"Blocked front gallery: "+id+"/"+size+"/"+floor+" step "+step);
@@ -51,6 +58,9 @@ static partial class Checks
                         walking++;
                     }
                 }
+                index=new ScenerySurfaceIndex(a,new SceneryWorkBudget());
+                foreach(var lamp in a.Fixtures)
+                    Check(index.Clear(new SceneryBox(lamp.Position-new V3(.03f,.03f,.03f),lamp.Position+new V3(.03f,.03f,.03f)),0),"Recessed facade traps an interior luminaire");
                 foreach(var seat in a.SourceSeats)
                 {Check(index.Supported(seat.Bottom-new V3(0,.004f,0)),"Source furniture floats: "+id);Check(SourceFurniture.Clear(a.Structure,seat,.005f),"Source furniture clips architecture: "+id);}
                 // Shared 4K binds a full native source map, never a scaled placeholder.
@@ -83,6 +93,8 @@ static partial class Checks
         Check(seen.Count==256,"Some building designs never appear in real walking generation: "+seen.Count);Check(imported>0,"New licensed facade not integrated");
         var unified=new LayoutConfig();WalkableExploration.Configure(unified);Check(unified.DetailedCityBuildings,"Unified generation leaves new bank disabled");
         Check(!new LayoutConfig().DetailedCityBuildings,"Historical opt-in contract changed");
+        string output=Environment.GetEnvironmentVariable("POOLROOMS_CITY_BUILDING_REPORT");
+        if(!string.IsNullOrEmpty(output))File.WriteAllText(output,JsonSerializer.Serialize(new{ordinaryDesigns=128,strangeDesigns=128,designs,meshSamples=builds,walkingSamples=walking,worldPlanCells=1201,fullWorldBlocks=blocks,newFacadeInstances=imported,peakBuildingTriangles=peak,peakBlockTriangles=maxBlock,nativeUnityExecuted=false},new JsonSerializerOptions{WriteIndented=true})+"\n");
         Console.WriteLine($"City architecture: 128 ordinary + 128 strange designs, 32 structural families; {builds} meshes at 7.8/10/18m, {walking} actual triangle support/clearance samples, 256 unique structural hashes. {blocks} full city blocks / all 256 designs found in 1201 planned walking cells / new licensed facade occurrences {imported}. Peak {peak} per-building, {maxBlock} per-block triangles before render ownership. Native Unity/PhysX/visual quality/FPS pending.");
     }
 }

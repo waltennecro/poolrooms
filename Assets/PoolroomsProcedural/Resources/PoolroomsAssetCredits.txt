@@ -194,7 +194,7 @@ This is stylised source geometry, not photogrammetric food. LODs and textures ar
 
 
 CityArchitectureSources
-Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0. https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Pinned source: https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf . Adaptation: Paris_Building_010 as an exterior skin with generated interior clearances, two LODs and reused native source PBR finishes. Original interior is not retained. No endorsement.
+Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0. https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Pinned source: https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf . Adaptation: Paris_Building_010 as an exterior skin with generated interior clearances, two LODs and reused native source PBR finishes. Texture adaptations: decode original DDS to PNG at native resolution up to 4K, invert tangent-normal green for Unity, retain authored specular colour/gloss and pack the HDRP mask; original input sizes/hashes are recorded. Original interior is not retained. No endorsement.
 
 
 Calm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.

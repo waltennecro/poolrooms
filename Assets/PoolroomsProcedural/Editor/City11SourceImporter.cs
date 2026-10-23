@@ -14,6 +14,7 @@ namespace Poolrooms.Editor
             importer.sRGBTexture=!normal&&!mask;importer.mipmapEnabled=true;importer.maxTextureSize=assetPath.Contains("SheenChair_")||assetPath.Contains("/Resources/Interiors/")||assetPath.Contains("/Resources/Urban/")&&!assetPath.Contains("U_CarConcept_")?2048:1024;
             if(assetPath.Contains("/Resources/GardenSources/")&&assetPath.EndsWith("_m1_albedo.png")||assetPath.Contains("/Resources/RestfulSources/")&&assetPath.EndsWith("_albedo.png"))
             {importer.alphaIsTransparency=true;importer.mipMapsPreserveCoverage=true;importer.alphaTestReferenceValue=.5f;}
+            if(assetPath.Contains("/Resources/CityArchitectureSources/Textures/"))importer.maxTextureSize=4096;
             importer.textureCompression=TextureImporterCompression.CompressedHQ;importer.wrapMode=TextureWrapMode.Repeat;importer.anisoLevel=4;
         }
         void OnPreprocessModel()

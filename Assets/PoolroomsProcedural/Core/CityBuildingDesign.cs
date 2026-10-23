@@ -25,19 +25,28 @@ namespace Poolrooms.Core
         public CityBuildingDesign(int id)
         {if(id<0||id>=Count)throw new ArgumentOutOfRangeException(nameof(id));Id=id;}
         public static int Select(uint seed){return (int)(StableRandom.Hash(unchecked((int)seed),0,0,0xC17AB1u)%Count);}
+        public PlanRect Envelope(CityBuildingPlan b,int floor)
+        {
+            if(floor==0)return new PlanRect(-b.Width*.5f,-b.Depth*.5f,b.Width*.5f,b.Depth*.5f);
+            float side=Math.Min(Math.Max(0,b.Width-7.3f),Strange?.4f*((floor+Family)%5):.24f*(Family%4)+(floor>2?.32f:0));
+            float front=Math.Min(Math.Max(0,b.Depth*.5f-3.6f),.28f*((floor+Family)%3));
+            float rear=Math.Min(Math.Max(0,b.Depth*.5f-3.85f),.4f*((floor+Family)%4));
+            return new PlanRect(-b.Width*.5f,-b.Depth*.5f+front,b.Width*.5f-side,b.Depth*.5f-rear);
+        }
+        public float PorchDepth {get{return 1.03f+(Variant%3)*.06f;}}
         public PlanRect Shaft(CityBuildingPlan b)
         {float x=-b.Width*.5f+2.2f;return new PlanRect(x-2.1f,-3.6f,x+2.1f,3.6f);}
         // A continuous front gallery connects the stair return to every upper wing.
         // No floor opening reaches this protected route or the exterior perimeter.
         public PlanRect Court(CityBuildingPlan b,int floor)
         {
-            float left=-b.Width*.5f+4.55f,right=b.Width*.5f-1.22f;
+            float left=-b.Width*.5f+4.55f,right=Envelope(b,floor).MaxX-1.22f;
             float width=(right-left)*(.62f+Variant*.035f);
             float center=(left+right)*.5f+((Family%3)-1)*(right-left-width)*.33f;
             float depth=b.Depth*(.22f+Variant*.011f+(Family%4)*.018f+((Family%16)/4)*.017f);
             float minZ=-.8f+Variant*.025f+(Family%3)*.03f;
             if(Strange)minZ+=((floor+Family)%3-1)*.14f;
-            float maxZ=Math.Min(b.Depth*.5f-1.35f,minZ+depth);
+            float maxZ=Math.Min(Envelope(b,floor).MaxZ-1.35f,minZ+depth);
             return new PlanRect(center-width*.5f,minZ,center+width*.5f,maxZ);
         }
         public List<PlanRect> Openings(CityBuildingPlan b,int floor)
@@ -61,7 +70,7 @@ namespace Poolrooms.Core
         public List<PlanRect> Floor(CityBuildingPlan b,int level)
         {
             if(level<0||level>=b.Floors)throw new ArgumentOutOfRangeException(nameof(level));
-            var parts=new List<PlanRect>{new PlanRect(-b.Width*.5f,-b.Depth*.5f,b.Width*.5f,b.Depth*.5f)};
+            var parts=new List<PlanRect>{Envelope(b,level)};
             if(level==0)return parts;
             PlanRect.Subtract(parts,Shaft(b));
             foreach(var hole in Openings(b,level))PlanRect.Subtract(parts,hole);

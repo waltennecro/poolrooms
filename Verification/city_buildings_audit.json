@@ -1,0 +1,2318 @@
+{
+  "ordinaryDesigns": 128,
+  "strangeDesigns": 128,
+  "designs": [
+    {
+      "id": 0,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "C3956CE2B71D1E4FCF88FBD70175EBC3AE145E489DADA4EC9BB0491A2551B34D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 1,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "7377F59F3A1FB62F478C4E6EBF8E8C7C0F06ADA9D3CC06F811646BD507A7E4E9",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 2,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "0C42F4DEBAD0FD7964EB75F50B8E2F316923C5A3423FB7AEC3B6B154808D2824",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 3,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "67F5B2D19D461689151B471A54329A4A51CB7EC6ECC39D88AAA0A8C69F26D742",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 4,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "A44DC608E300EAC64A6647E5DB82856110F14412875647F5B28143E0DB259741",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 5,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "54C8591FBDAA9746871EFED5A6531877DDDE35DC72EBF3C5E0D6B5FFEB77D631",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 6,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "49C20F1E01A962B892F10ED8099A5DB65B10C823A6BCBE80FAADB2619091724B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 7,
+      "name": "Casa de patios",
+      "family": 0,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "704C5D044C7D302F1CFDED722129635DFFE8EDFB4F6DD74DE89B6A79CC3A82D2",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 8,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "1CF6F861A9759B5BD5CAC88161C71870F0B62B95F96CD8BF1276B6CB3B08AB20",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 9,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "B4233984AD886DC42F36ED3ED3EC27A3259D57B5D4DB30611C2F21C5FF06AC8B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 10,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "CF634C3074142A3528894F141FEE002E08DC53EBFB19D44926074B62E5A7D98B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 11,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "0BBD32045F3F92EE372A7E228353669DEBF2D218F581B959276796501A722C58",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 12,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "4477D0678E2AF7C19845C4D3C747B98168B88693D2509FF4E2705338D1A61F89",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 13,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "0FFFAC317C1800ABED5A27ACAA463792D75D2EE94BD982B455529A072E22597E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 14,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "650EBD081A5C46A7EDC2A4D4D0B85E56851AC984F484E424258A8A400B098306",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 15,
+      "name": "Galer\u00EDa comercial",
+      "family": 1,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "974F4A9BDECE8333B962E39AD2E31C3C21BD5DC5464C5D7657FBD6BE39AFAEF2",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 16,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "63D500A2DB86AA3C7A9C88A34EFD7C208DE7CD708BD13F0C58144ED13BEF470E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 17,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "B85B9EEDCED960B5AB3F49D093B8980D12EFED56F6C6C424447E3E05080C7F07",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 18,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "0F58AC71F679275A3562193ADEF9237C5E9443286A9FB8C6319BB4E4F66F4BB9",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 19,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "327F369F724FF88AB1A67E3B6948F8D201B78D5DCAB0B15F1ACC0D90DD7BEDB1",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 20,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "59A9AB2E4A7A28D208FD36C9D2C2FB3F560F7DBECF5D65A1FA5CB312A4BEAB88",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 21,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "86E28BB8E36E5F1BAB6F84174B0B731E50A21138504FBAB2EE4F172177190BFD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 22,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "6FF313C6FC7CA1F3DB014A2BC85B2BEBE0325709EB5C072C8B31BD0AD9CF8411",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 23,
+      "name": "Biblioteca urbana",
+      "family": 2,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "5ED249FFAC17483C442D6E8E452A376D9DA7EA10644447E2DABA066FF44A5D06",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 24,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "E3AEA554A6A6AEF2AAD21CA1990D11B5F376771CA43BEDE28FC9570E6B0C688D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 25,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "741CE20F8E7459B71995A8A0DB5688840768BC8CC24FB1D918EB534ED1B57D2A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 26,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "F86EB7161B46481CFFB2BE5F7A8D437B74FBA076CCDDD377324B0EB6B498063A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 27,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "5176E11A9449CD171920AA7E3F6D7FAB982296F6A6FCD5FCE030086C06DF93E7",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 28,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "4B936FFB2D795D7301B24F23F4696CF184A9F0C1B88EDDF2EFAEE42648984442",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 29,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "DE9DDA56532B37B59558B35EED5265F4B16BC29B26DE2D9EF5A5EC09C2CB9E80",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 30,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "1D4F68C36D0C18DD4DDB57FF3E801B2580E959B29698219B26DAC4DCD5137CDF",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 31,
+      "name": "Talleres escalonados",
+      "family": 3,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "E005716C9A2BC529221F1A35351254F8FF9DB3184665A47D9227CDF64495580D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 32,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "67FECAA3BB0721E8D71DCD56736C79367F3634DB8226C3B13749304154285ACC",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 33,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "C010F12D8FF53327AE309DFD968424841A54C08F5F2ED4C374B1D9F64B040787",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 34,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "5EA3D1B3B01CFCA432B7E897252030173D5D4367D1EAC8DA2FF767426651A968",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 35,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "67E76C202E5008FAC8DD2E27739227F52E1DC329798A10A3099E5B3C08EA0EAF",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 36,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "08937DE89F1FA166E6A29820639EC0056E8839AF26D968AAF1C62827B514B89D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 37,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "D5D8FD1E6D1C4D76E6E168DCF85AA0E0FD0CBC18C50CB3D9ECFDF6A7AFE20F8D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 38,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "D75DCD3F7254BB476108739B71964CB03776CDCC2E75AAE1FDC0E0820BE295F8",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 39,
+      "name": "Jard\u00EDn de invierno",
+      "family": 4,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "CBBE9F4017E3129D821BE41B31D171F95A9C85E6834027521E38DE44F9812D4A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 40,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "8032732C7440547DABA204DF40E398D0C40F5E42430949DFBB1908082332754A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 41,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "190A8C242A2D9830A8FC577770F1B7A5B4B205824D9C6F103A54A471B5D012E7",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 42,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "D61407B7CB58CAC0D73FBA73431ADE1F8CBF486FE209CBF0EBD7C7B8347C01E0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 43,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "87F23631C9E962E28190AF2000DED03AE7E99D100AD1557461D17BE833E94869",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 44,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "F8F4EFF2DF134D134BD699F6B72AC7DC478DE083A3980A0F66C0DFB8807DD039",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 45,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "4AAF29181AEC3C551720A2B14BC42421E3B3E2E65671605ED9915860EA6B2454",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 46,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "0BA84847C296A386661C2BF08AA0AACF40319B359261CE560C123DDAE7F98A47",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 47,
+      "name": "Patios gemelos",
+      "family": 5,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "C1C431289355E593CC5A5284BCCC22623F00A8B5B379B94E05C76AF8E6D9C024",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 48,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "E884EFC97C347D550B2418B995D09CAE38D79FE923C38986446749FB0DBB14AD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 49,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "638C0FD38D9188EE699ABD8CB4CDF7D73A26DBA70D9EACFD035FE87F701F53B9",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 50,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "A0A58B6F1F5BCD9A551C3034A895C132919E8E010DED74ECEF1B2ED58CC76016",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 51,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "6605B5A34F49B802596178FA596DD1C53D3340BBFA4E0A58BBD0EFD4C129EED0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 52,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "BAB34EC798DB77F885829905203792571A43C897EAD1EB101CCC07C0662ADED2",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 53,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "CFBA8B3912B0937439D0B9B7DE74EF9BD1C02AA6F9AF6D0F988EA8F301089C06",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 54,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "69F485511E5AEA539B2A968958FA87D1B7FB6963712237F549A8DB70B8266B1C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 55,
+      "name": "Escuela de artes",
+      "family": 6,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "DC1DF751154A90E5263C99F69872AE46998DD09851618906DB990E8A33BE228A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 56,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "272B487BAE37E6F9ABF9E42EC004AF54C10BC8D33FD6675F5F02E7FBA86DF0F4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 57,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "34E77F10FB9C80D4AAFC4DD1BEBF2AC0D1281A7526CD0551FF862AF0CBCC4441",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 58,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "C644B864B409A7290FF199D3BFC25E09CF2404347B81B3B16C1FDEA55DAD9163",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 59,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "59EB4BFA392E794A52860B5F66974FB64BE4C6B6C1B8BD841EF854BF1FECB7CE",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 60,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "FA0C3A9BFF5FF966C08085A560910A7BDDBF8D1F3C7BA6D442062EE8D87935F6",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 61,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "5A9940838BE52688E4674786AA81604F66B49DF59045DEA603931A3E387277B6",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 62,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "F8633CA4E86A8D9B5C5DEC7739C33C534D0368DFF699206A3E39A48F32AB8096",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 63,
+      "name": "Pasaje con puentes",
+      "family": 7,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "4BAA5370BC6EF4454458342B1AC2419BD92787703B3C1C495E47A62C06D5249E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 64,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "42A80404B3C39413254E79E95A4D8277129BD9E5B27526EA39266A6BFF14DA20",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 65,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "C82F3C81B76BA5014E1C47622DAAE1988B802186E5A77C1B703DF4F7340E8DF0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 66,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "DA8B2680BDC77C18EA785F2DA0027A96D506A03A8C4F85ABFC7556FB3645AC61",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 67,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "1B302319B3BDC28669770441DA505C9EF1C7C5B81DA38A90F6CE98E7ED6F438F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 68,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "06CB2399CC07435D353D49AE33994185850A737739979B233FAC28219CA7A8A9",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 69,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "E881D3AEA1E497420BD99394675C9C999CFF5B41269286E4E2EACE38945CEA6F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 70,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "CB52B080F6964A6686B6769DF33A164D45D85C28C5236C7C0264C89C629BD561",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 71,
+      "name": "Lonja porticada",
+      "family": 8,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "034E7506195770797C334E704369588554F0E4EE5FD81214F8DD2552A2A3056C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 72,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "F9EE1E1316D92D8081781B10CC149E528F97545869DA916010AEC243A3CF4CD8",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 73,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "6C4BAC23653E32DCB412C4E9B3FA1BE6591F2FFA086D67C98FC5EAB96AB293A6",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 74,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "83FF2320F1D5D09D17A8322994F94B0D76FDFA11D3F5C8376FF8E2D0E35014BC",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 75,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "154F308AF7B10F0E72409805C8CAA9FD888056E8B907B8209CD82A1FD499D4A2",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 76,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "000356A21592A9E70B1FDC589A2662EFE2C47B55D42A89AD0A9CDBF6590897D8",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 77,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "FFCE1A1CCBEC334159EA8BBE873764C41EE57A62CCFBA0C1D5D96F780243A891",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 78,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "ABB9288976ADCC6575A744010A4AD527EEBB9A4645307AF01B0485B953DF77ED",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 79,
+      "name": "Hotel de galer\u00EDas",
+      "family": 9,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "213A0831AE7E040AB9B6D5DAB04A42B6ADAC5CBABCEB3ADA3297630ADDD7249B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 80,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "CF95C7D6F1882C4306B41AAF027174AFEA68F14DC54BC334B2EC57E1889A06B4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 81,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "00143C7822D6317623D6A01D76BCFA12F65BB04A802068AD150D6FF70EE7099D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 82,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "E0DC17DB95A740339DFE699B016A0404D65A0971DD6EF566CE8D80544D5F759C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 83,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "BCBE55A5F10C4BFB0A5255E1E151C9A239195B2117FC0F6F31004CB5CBB10551",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 84,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "000A384FA4E7E7A33B3B045C073C29F4A033CEB6F694914AF93D725A619895B6",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 85,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "46B4B69AC948F460BA6CE56589CB5E41C3046FF60B5C44352C4B94ADCD288ECF",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 86,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "9CB48FD52E4E72EF8B8348142F2EC27BA04DF6D2FFA02B9B39AFF74A48324BD4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 87,
+      "name": "Mercado cubierto",
+      "family": 10,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "75B78A90A162A49540536CDB5EF541146390C8BF9AFC2C12B86F508D657294DD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 88,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "2D234E0DAEBCAC53C33A531772F34DA841178623BE5EC2C2B7D577154FE3F0DC",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 89,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "6F4069475469D886034D11F5689E5A28723BE6BCA4DB579BDFC2381435BC6350",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 90,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "CB5FC37F471401873565827B8EB52751DEFE408075492A6A9BAC79A4A6E45B0F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 91,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "91D874649F07B2E32290E76617D829BED0D11086FDD358D0B9658751EEFD91DC",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 92,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "49E66FA3C0000233577C4AC2DFE55B0761A158760E550BA6775F6EDDC597925E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 93,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "506CC6F173C8F8642D2B79358A20210A1A9E504E31EB4AEBC62156A55CBC4C47",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 94,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "5922B96F59D198371265D5D4DB322F79D9E1C3E6C66453A34DA957312173D2D5",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 95,
+      "name": "Sala de espera urbana",
+      "family": 11,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "C0C6DAE1E4D06C40280326A29854480D665E8FE32207780EBE8D2313AFFF7BA0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 96,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "8CF7BFDF4F3072CAC23E7CEC57895631F0BF65D11123D1746B10BC6010945095",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 97,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "7D8D529FD219583782024BCD7FF8C989EC1A7E59F49884DAAF3C60549701EDFD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 98,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "AC6A704B04663A198EAE16894A0FFDA6CCAF77221040D040D540C8AAE5485670",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 99,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "51F49566C1069DE4C42573A322947F45A5D7F9E037468591CFC91DCDC96C6F99",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 100,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "126698F9779F919C138EBEFD010BD71FB51F37CCE4C45AB6572BDC19A93791FA",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 101,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "0DB7619D2A12EFA26A0C430B6068C47FFD29F5A31A70387837D246DC29D31E8A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 102,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "F24B1B6B8E4B4928F7037778BDFC11980EE5447F0E78259C6B8ED243B1245D1E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 103,
+      "name": "Estudios con terrazas",
+      "family": 12,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "D7A7F82917B44FD23DAC81456129896344AA1E767B16F4C16B821493FF1062A2",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 104,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "1FA245026E620BBB655A3952BF2DD76D6C5642BC9ACDD4D3292F10B4C7F4F56E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 105,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "7A4B4DF35982F4D1C151E1DFB5762994B8C1A00D39C2466215B5281F621CEEF3",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 106,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "F8746945328A5438A5276552BC5D03A54532B7AB1F431FD5492C401026433B70",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 107,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "570D46440AEA2FEF0528770DE1D8D2F3FCD84185DF50B00CC1A0A5C0F5FBC0FD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 108,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "2550E90F59BF543ADD246475CB0DCEF201C1F97BD588F3726B254D0DE18D6A2D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 109,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "987FE290D1AAC6A191E39E431C23FE5658B443FA71705E4E1BA13409BB803BEB",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 110,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "0A75DA43B88B62B8FFB5E70E25E63607DD698971B52940EFFEEEBB5009602F48",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 111,
+      "name": "Oficinas de atrio",
+      "family": 13,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "3CFD24FFE92BD9CCA1BC853E4D0EA78F009416B8B4B5AABED37632BF940A7FA4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 112,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "CA8C6A478A8BB3553C23DE0B35D5CAAAFA8CA2545584A90F10A85119B1B4944D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 113,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "24A927E8990EF834298B3EEE1DA13A90B38637828CC526DAF677D6FD86EDC973",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 114,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "85A7D049576D6832222F5226219245CBB1D105B13F0586EB16ED9D9F5E625795",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 115,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "8B768CA04358D52D40B9BAFD181C2027426271388F9A6E378D5597D92FA3A346",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 116,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "75ED1E9E5C6380953F5B535C9CAB235414DA7FA795377D700E4E4D5B4EC072A7",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 117,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "28C9B182DA8A702B414ABEF65D8A170ACF0599E87513DF579AD62E9B67D7EBAA",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 118,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "4F3AE1E470E704257AFE79065A1D0E5662DE02E6A6352B476EA86B5027BDDEE7",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 119,
+      "name": "Conservatorio",
+      "family": 14,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "3E6424796DE0257C801863AF4125677DA63D6B4A3EB571550D68BA30BD61E1AC",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 120,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 0,
+      "strange": false,
+      "structuralSha256": "B02257C34B7BF1CF3A3EB244BAA38A20E094FB00EFEA0F6D80C4EE1C8E48E223",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 121,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 1,
+      "strange": false,
+      "structuralSha256": "5CD0FA1852D6DDBA63CA81DC66AAAF53AAC4ED577AD9BB20D4EE9C99EBE55C37",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 122,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 2,
+      "strange": false,
+      "structuralSha256": "366BBEA6F9611FF5CE33C9299053152506EEE5B8855E6C207D0FE15EB470B934",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 123,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 3,
+      "strange": false,
+      "structuralSha256": "C55B6F4D3C8898AEA873713C2ACB42902FBC7522FA140AEE1430DE6D0BFFC3A0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 124,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 4,
+      "strange": false,
+      "structuralSha256": "2CE58104BC04CC4DED2CE01A304C05449F0053600FF869A70D9A563DB1DDD778",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 125,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 5,
+      "strange": false,
+      "structuralSha256": "88581F5B902D9B1F24AC8D4B87051426D2FE09DEB29E3A0BE9A1E96B2F049432",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 126,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 6,
+      "strange": false,
+      "structuralSha256": "66A9797FC1B36E35BCD65E45990BFC27AD2FA1181BACDE756274699988B45549",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 127,
+      "name": "Casa c\u00EDvica",
+      "family": 15,
+      "variant": 7,
+      "strange": false,
+      "structuralSha256": "CFE8B6A99FB5E8B26F50268EC0C111759B297FD29EB651CB326BDB76E85D2A57",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 128,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "A4D98AF7274D615A171700E59E2CB5A0E03BEC12616887B5251F74C6E868B895",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 129,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "032DEC8DEB4928747D81537863F238EE8B05A692DB8DAE27A3F36C451840C95E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 130,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "E3F81D4DE3FD87DE5F81E726A54BB568EC3EB2F90CF88DDA8EEAD9A04FA8A6F8",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 131,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "B88442348321983449602153004AF4A41553616A23EF85C21F185B74FD6D167F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 132,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "EC6D90F28F433A52D7DF7658998C084240E0F5CCAD911B224E9FDBB05BE3B2C4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 133,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "1B5D8DFAEC1FB1708AF94F0F3B229D34552674CE63F1DD1B3DBBEECD8A07CBFD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 134,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "7F71C29D12E5404F00E8C31DE0B0C3FF40B2EA7448F18DD2112B4B913EAD9AAE",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 135,
+      "name": "Habitaciones en anillo",
+      "family": 16,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "C292752CF0B26609B1DF0B09A1049F298953FE10F84857F2E4A4C939E8E01A1B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 136,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "1C18FDC9BF948742B4C83B49AF194C0817F2B9ACD65ACF312A619AAB9D2288E1",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 137,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "1A7B375D7B8905C45ACE80E8410F1A1BAD8C8ABFA580DDB8701AC922DD521A05",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 138,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "08885813D6ED4BC27ECCAF6BD8AFE8985BC6652E5EB4F90916FC75D33AC68553",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 139,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "A3A48247FFC160C995230B7A4CAE8E28FCF831E25E35F51A54B627C0D70BDD72",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 140,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "6B4D20DD6FE5CB39BD608A252EB97EE79951E354B2216F121D5995C7A404C6A6",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 141,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "9239CB99040FAC322E11E9CDB95727F295FA3123FC2CC504968FED3B10090142",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 142,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "8A9D53B233F9FCA398FA1A88B7C11CB90868859B4C5BE55C5FD133176DADFF60",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 143,
+      "name": "Puentes desplazados",
+      "family": 17,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "AE01A3F6A684B475796CDFA06629BDD32229D3D2EAD04580FEEB47C79096470A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 144,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "1AF546AF747E2D8B2023BFD64CD11D12243DE2A77A65A352F58E1FA1EBC6FFE0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 145,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "80E28977812D4A0B52B051F65F73220961A09653862FF1C599AA0A9AC6231920",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 146,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "688364E3896470FD4985C8B8A3A5BDB2C29A1A49CC08A8A1DFD50426E81FADBB",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 147,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "82964F2401C21ABD4409454C42B410EBA46C993B12DAC490A380409963533920",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 148,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "C7D0CAD43FD35DBCD57FE89403E5EE7A1802B247B8413E3910496B996FD00FD3",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 149,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "099998852DC07B6C8AC245AF2F43F02197AD86F91F5BA92865574200CAD67FB3",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 150,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "F6342F39BDBA0AC43775A89D2E5F690BEA08B4D9ED63C0A3C70D31999CC8B584",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 151,
+      "name": "Patio comprimido",
+      "family": 18,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "A6A5189AAA4898704D6DD99B9EC968394B14827DF25942CB4F485BA8701ED803",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 152,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "310D3A0DB1C34AF549CBFF65A7A704839D060E13288D6A0A3042E55E7315175B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 153,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "0D69C71BE7C1D5925736AEC93F9FC1680141143A605981F8B7841234B711FE0E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 154,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "D5B0D5A1EEAC8BFC1C6F441F02091434F274D117C48DF4DBCF71A46D979C44F5",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 155,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "F020D49522CAFEFB4F56A00A663EF3B77715837DBE92C86CA54D8BE345AB51DD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 156,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "0E945CDD954F1E95B70D22DEFC6E929882509D32D44D0151BEE95442169ED01C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 157,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "BEDDA5FD2B757841519D5FEBCFBC321DDAE1BEAEE88A64CB84689A1C3983EB31",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 158,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "E660FBB63392BDBE47D2F26D989B17CBC205163B7400DBE515D8E7A4AAC98AD3",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 159,
+      "name": "Fachada plegada",
+      "family": 19,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "B8F70E5B9649687654BAC3BC28F108E9383CD0E4D61D95D8D5D65C1535D0E50C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 160,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "AF44A50608B160D5C254C2FF60504378D0D283D625BAF360C04E2A164B845C59",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 161,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "BEDB61A2034A3217EF2319BF7BB26815ED003234A5D06F778A3AB315E1D27625",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 162,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "BB7F17139851896AAD24032B69B81FDF62E756855F92E6013CD13D0ADB62E520",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 163,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "A97E3DA2E79226AD6F088C9DB2E795390C0328C41DA8666E23664A3F8658D501",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 164,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "498D13DC0AAD86E86892F12339CD6D89E3997B5F34857DD244A3CD41E7A38B9C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 165,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "FD167CE5B1CDD3FB0D27CCA5F4B3ABDE2ABEFDACCDCC92B92DF63D0FB642570B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 166,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "2D76032B4CDC623A251DD7C040AE91075C2D08B85B22F1D21F4EC2AEF06FE08F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 167,
+      "name": "C\u00E1maras suspendidas",
+      "family": 20,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "69063ECC6C09514518EA683AD1CD5756ACFB629A3AD978F7E4BF38C947172E48",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 168,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "A36093B7791EE84E9D8CEF6A5E9F7649317D1DA0007EF125D03C2A77FF382742",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 169,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "8A10D6ED995F3BC6267AFF78A58F448FC043EB90BDE12A138841983E88C2BCC7",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 170,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "D8ABD397C078A986674F2BDEE710D86CAAC1AB72AC0A537B61852FA99FCB59F1",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 171,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "44A269731943DE9C9F6337CC6E64A58B10E84CF5C9E84DAF354280476CB87AC4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 172,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "FB3580A0B64B9F2B921057EFF66133488955A6640D9D495C08BC20E8399F291D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 173,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "8717ACD72C3B9DA1929DFB58E8B136E84C235F1C02D39AFA3DD27903BE5BF694",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 174,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "05133ACC36F45B3B280439B1BFA7AEFEE4592757FC530F68247054A3E10430FC",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 175,
+      "name": "P\u00F3rticos multiplicados",
+      "family": 21,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "104BBD432AEAC7EFBC759812A2A220DCCA4598312A177BE602CF004FE452C826",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 176,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "3E5E171A5E78FA4C48D06298904CFB8B23E1C8195779A9A80FF3822DF734598F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 177,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "103AB6C7B99D21A02B862C926F2148074084C5B6449FBDAAFCA3C31A1935DD8A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 178,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "101DEA632866E784C1DADE678F92EF74D5BA40E576DCFE99F8DEC8B3D888BC7A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 179,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "DEFE38938F2A59B6598EB7CE47019CD9AD81711141EA269F3531C58456C4D659",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 180,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "6811E38271BA1C6259C45009039A2198A724DA82A9212E01147EFED3459F55AD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 181,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "07614AE485653B92216037EB3770887F03B1FC550ED58179DC1A940C569AAA8B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 182,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "01BD7BA168E6150768B7D87D878767C9FAB6EF1D84E57E68CACA80CB1F36191E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 183,
+      "name": "Ca\u00F1\u00F3n interior",
+      "family": 22,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "5E581BF0F116722591BBFEEEDD5C601B350BBAEE87AEA90EA6F66CC7A169FCA6",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 184,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "0D621CBF561CB64DB3084A10B76803D1E780C3DF21837BE7100D93386F17C65A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 185,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "59CFFBDED28C041D2C95688485A4E8B7534FEFD36FB8D45CF2364DE400EEDC93",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 186,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "73B057AEB54829F574EE60160685FBA61834954F56F4BF8F1616F4ED40601387",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 187,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "A608A015031AFA3F2208CD0F22392D5F6AE03319FCBCF4D13A8B9D1A28FA3A79",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 188,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "2EF4F444F617D9B276EABD2828D70226209A33E55BDE39BC1D9C4B3F92BB2127",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 189,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "72380965B01AEE9EBED67E1F342B67E33F28A992F92A3B4EC886E35094008796",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 190,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "87BE8615D1D34DDC573C1BAB2B06A4737A5F3D5445F6D51A87179FC7010FC5C9",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 191,
+      "name": "Galer\u00EDas entretejidas",
+      "family": 23,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "03C6D2A18C3A1694E2AFDCB3F4ABB7D38C306277F22CE9EE975D897C4CC01466",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 192,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "F7C7903330C8CB75AFDCCCE8D34B3D9240F23C9E01A11E0DFC942195AC0ACE62",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 193,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "D498276FE87A6E97CDE5728BFA78860520B190B6C290867930B1E1BB6DD72E11",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 194,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "D13616D9B597AC0909A1B39F8B4D3A36526C0278C81E6258C1ADDF904E729353",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 195,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "FB73F3810419F7DCAF82DD06A1400BEC55B6CB9EEF4F5D6C78EDAD746F56151B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 196,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "ACB8355E4D4548B04205BA6B4D3D06A1E31C75AEB1469B62B2AADEE3B218D6C0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 197,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "3B4D971584B490BDCF3DA8E5D4479D694E13BC747C34DE2B953E208DB0D6E52B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 198,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "7BC36B415781D24CD3522539A68BA692AE9581024CD13F6DC161084B4D3E71B9",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 199,
+      "name": "Torre de linternas",
+      "family": 24,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "6B49DE43FD5AEFACB1986ACA522D1A7D3CC875221A85286E0E67B87CB2318EEA",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 200,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "802DFE055A71982EE1919BE3EAD20558C6BB2C097979AE3CC198DCE919E203F8",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 201,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "1BDB366BC607D1656262CB5D6905FB8845BC44DD49591F55EEE3D85D1481C79F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 202,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "F136E1689449CAD33B8540D71594EC504459C11EEC43986758C13A76D4AA1FE6",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 203,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "776C52146D1AE2CCDA614CBCEC7B654146DBA2AD24EAAB5836C1433379D3B54B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 204,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "B4B8B3DE4902657E4FE6184A6CF3306D5428CEBA0A1DC4A85F9EC3AF00D03A94",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 205,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "BA2BABD13D300B8E194DFDD23FCC545128EB0F803BFAA976223CA5C2079BD7B5",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 206,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "3F01FCBE55A28775EC56E926D452D6B8FB9486E92C8C69A66A39AF08EF0BFF47",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 207,
+      "name": "Salones en cascada",
+      "family": 25,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "F3F5BC6C77D796771A0AB9A642B5BCD4BCE89CDDBD9598EB717EECDD2E9223AB",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 208,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "0BDE8BF951212E8B466AEEBC18AEFECC5B1B2497D88CD1BB3F0F204B3C016D9C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 209,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "506383CEEF8696DA3E1A403A147706ECA8A4CB37ACFC6D2F97EBE7C66185ED14",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 210,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "644987D7CE588767FB608AFF8EA0C4DD61F59366CD1AD5619876C75752A90D9C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 211,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "B290BA48C1F05574075F5BC30898A606942E3486357DC4DDB67A18C0B0509196",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 212,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "09F55478760310FC3C1659476B6438C7101F6108C9D5025A0493AC587270CCB4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 213,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "5DAD605E91260E053BE9B6D2D984A5F7FE26EB81AE10FD8DF23322A945499C81",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 214,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "AA9E74E4E87AEDEBC40881540B6A60797C80B922EC98EF67CCED179218B5F740",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 215,
+      "name": "Patios encajados",
+      "family": 26,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "307DF1E2431433B966CDC1070AC9C741FC688F3760672FB49BFB24FEC05F63F1",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 216,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "F45D9EA4DBEDB8CDEDAEC0A84512D2F7D8E0682DB73A002B18CD2C4563CFBBC7",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 217,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "E589EADC36E890F2F219D9CA5F1E0CD7E9C46F2491A0AE7229DFE95F027E8173",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 218,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "C463B1E6151D91B77617C7ECBBAB126BEFAB568D5B4EAD14008F26AC99F4CEF0",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 219,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "4977FABB7BD967B5A148676B5511165838B8EFDA2230B2ED4EA71D34D56CD8B2",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 220,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "1EC65458271BDCD8EDDB67E80D50D3368EE98E3540662039ED023FF7DFC09512",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 221,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "2C352C21BD8EA2E0BD2D6D61AFC8542B07ACB772DCAECAC7DBDDF000B9159E4E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 222,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "A96E8CCE1B10E3E200136225F381205C7B0BC633CBCFDB93D716EC5BE283DF84",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 223,
+      "name": "Calle vertical",
+      "family": 27,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "A9CC71AAFED1A7623DCD33CCF7D1080321EEA348B7E06A85E877D1828EDC4331",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 224,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "264F49C43A9F8EF4210A745111E4351837D1EEDA7F704B671292566628BC8F02",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 225,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "761B3D33B0E27779C9CAF1C06F2EFFBDE3B3C66E3EFF645AB2CDDD8D38A8FF1C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 226,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "C4D769C7B2722551F51D0870575A02C8B0D22C585FA561718B47A54413392A9E",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 227,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "DB7B97D49A98C7FA32F7DAB00D71FEEE1AA0B122CD050374ABA902A362452E5D",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 228,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "583FC214D3BF8E50C6B5312481CECD1717E67E20CA008BDED504585400FBAB59",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 229,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "DFCD0FE2BFDCCA0AA37CE2CD67E599709B0E45952421E4F83A052DE1A092CF42",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 230,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "5EDA38F67200E70511F636118D3DE992314D3385C5E1EFD1429B046EE229FBF5",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 231,
+      "name": "Galer\u00EDas anidadas",
+      "family": 28,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "BA4C92630421F767525557C880D055BFAD9EC90BA7E5BEFD42FF1C7C0E155DCD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 232,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "813D8FF6DABE6D389DFC2B26A91409E1FEC9F21A68D2D6B49D4349AE917D909C",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 233,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "4AD0871E9EADC754F27FAC74FCA3CCD74AD5334FE590EBBDDF525968BA709361",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 234,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "BF79F2B8F7A923CF03B883F0BDAA15E78D719C44CA9728D7DE94776CBC14972A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 235,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "3EFF56C4AC212BBFAAADC0051ADBC41F6B5928EF31CE33BCB598A5A09E4B845B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 236,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "64B70291FDD46718BA9B38DBE1B00B1ED632D1856024A85A9AD2A60D1451577A",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 237,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "7FD6CF7182B607C9F8C62A739C61D605790C66FC94AF88ACF6F0D0686D9037FD",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 238,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "09E83F8F6E2E3DA485C577663AD63C40DD9E4C8FF01331A6348A7BF9A788AAE4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 239,
+      "name": "Gran caset\u00F3n",
+      "family": 29,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "3F28786D2D900DD4859F561446BB4A610A9ED6B80B266A6934070D38A469A006",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 240,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "7FE8C880210DA78BFC958B2761ADE537EA4AECD6F0CF5FD96D91AEF679B303CA",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 241,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "C41C3B5DD10145FA819177E65982F86C0B6825A7FCC7B49A7D8E413B39C2E776",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 242,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "A3008D3B9BB2DEB30A3E691BFBBC76204EAE49B1A22C854BA0E7773D903F5F45",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 243,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "9E4D42B7F48F7488DB8012E2E64310B416B7F34C317CDF154EBBE8658E67F3B8",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 244,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "2C999015DE39D915033FCE6BCC47E893D3D1DBEC4BD3F1408CB2C77CCF8BABC4",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 245,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "A8E8DBB39E83B14E4BEC58A06A3DE6E59D59A10A92DB6406EC907DA431385869",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 246,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "D836A38E1DA28500B763D8CEACDCD898DF2ABFDACDB4700DDB9546F9FF25E9ED",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 247,
+      "name": "Cubiertas inclinadas",
+      "family": 30,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "08DEB6485FCB4DFD194A0146F6FE52984BC4EE1DC6235C99F81F655DCE5A08A3",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 248,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 0,
+      "strange": true,
+      "structuralSha256": "2F2FB9383CE2A8AC86DB9B61E03A6E26E1E48C623DA0FF72C99E1E255ACDA31F",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 249,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 1,
+      "strange": true,
+      "structuralSha256": "D3774EBE0B94C6ADA5C87B24509380922E2ADB280B080BD9475CEA027BA919F9",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 250,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 2,
+      "strange": true,
+      "structuralSha256": "9BAE2B9FC97B5BE471BF201908C010DF960222955661301C91E63008871972F5",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 251,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 3,
+      "strange": true,
+      "structuralSha256": "EEF429B125CF39B303527E51EA433B20F7F7C986518D24D6A923951A482FF170",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 252,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 4,
+      "strange": true,
+      "structuralSha256": "C2AA810701987A1B91030A0DB84E46CCF466A4D9297E1031F13CEC8E7DA90FE2",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 253,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 5,
+      "strange": true,
+      "structuralSha256": "A93BE91A6F64F083FD1AAA6CF99F82B7CF9E20CDC52BCF3B6412C65BE149C151",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 254,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 6,
+      "strange": true,
+      "structuralSha256": "1AD43C21F61BE594D9542AE15B5CEC31ADCDC8ABCF58CB15112E763308869D4B",
+      "colourAndSourcePropsIncluded": false
+    },
+    {
+      "id": 255,
+      "name": "Monolito hueco",
+      "family": 31,
+      "variant": 7,
+      "strange": true,
+      "structuralSha256": "695C851DA8A826D1A1039F23F28E86F41A35C82DE8DDA53F643FF95E5F5397D7",
+      "colourAndSourcePropsIncluded": false
+    }
+  ],
+  "meshSamples": 768,
+  "walkingSamples": 82944,
+  "worldPlanCells": 1201,
+  "fullWorldBlocks": 41,
+  "newFacadeInstances": 74,
+  "peakBuildingTriangles": 36156,
+  "peakBlockTriangles": 86978,
+  "nativeUnityExecuted": false
+}
