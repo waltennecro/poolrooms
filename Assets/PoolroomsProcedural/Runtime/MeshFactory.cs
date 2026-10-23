@@ -63,6 +63,8 @@ namespace Poolrooms
             SurfaceTheme theme=BiomeSurfaces.Resolve(data);
             if(theme==SurfaceTheme.Glass&&data.PaletteVariant>=100&&data.PaletteVariant<=102)
                 return PoolroomsHorizonGlass.Resolve(data.PaletteVariant-100,surface,profile,owner);
+            if(theme==SurfaceTheme.CityArchitecture)
+            {var cityFinish=PoolroomsJourneyMaterials.ResolveCity(data.PaletteVariant,(Surface)surface);if(cityFinish!=null)return cityFinish;}
             if(JourneyLevelPlanner.IsTheme(theme)||HorizonLevelPlanner.IsTheme(theme))
             {var finish=PoolroomsJourneyMaterials.Resolve(theme,surface);if(finish!=null)return finish;}
             if(MallRealism.IsTheme(theme)&&surface!=(int)Surface.Glow)

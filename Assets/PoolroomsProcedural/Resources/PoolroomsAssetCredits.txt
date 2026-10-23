@@ -192,6 +192,11 @@ Adaptation by this project: bevels, smooth normals, metric detail UVs, one simpl
 This is stylised source geometry, not photogrammetric food. LODs and textures are not additional source models.
 
 
+
+CityArchitectureSources
+Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0. https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Pinned source: https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf . Adaptation: Paris_Building_010 as an exterior skin with generated interior clearances, two LODs and reused native source PBR finishes. Original interior is not retained. No endorsement.
+
+
 Calm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.
 
 

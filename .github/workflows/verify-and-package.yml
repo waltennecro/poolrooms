@@ -37,6 +37,8 @@ jobs:
         run: |
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --city-provisions
           python tools/verify_food_sources.py
+      - name: Check 256 distinct city buildings and actual walking circulation
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --city-buildings
       - name: Compile reported Runtime-Core type boundaries and replay original failures
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --runtime-types
       - name: Check detailed mall geometry, licensed placement and floor-local lighting
@@ -128,6 +130,7 @@ jobs:
         run: |
           python tools/check_building_geometry.py
           python tools/verify_building_sources.py
+          python tools/verify_city_architecture_sources.py
       - name: Check UV baking transforms, colour sampling and normals
         run: python tools/check_uv_baker.py
       - name: Check native runner rejects missing, stale, failed or empty results

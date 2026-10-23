@@ -12,7 +12,12 @@ namespace Poolrooms
         static Palette palette;
         public static Material Resolve(SurfaceTheme theme,int slot)
         {
-            int index=JourneyLevelPlanner.Finish(theme,(Surface)slot);
+            return At(JourneyLevelPlanner.Finish(theme,(Surface)slot));
+        }
+        public static Material ResolveCity(int design,Surface slot)
+        {return At(CityBuildingDesign.Finish(design,slot));}
+        static Material At(int index)
+        {
             if(index<0)return null;
             if(palette==null)
             {

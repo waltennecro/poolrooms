@@ -1,0 +1,394 @@
+{
+  "distinctNewSourceModels": 1,
+  "proceduralBuildingDesigns": 256,
+  "untouchedCompleteModels": 0,
+  "nativeUnityValidated": false,
+  "models": [
+    {
+      "id": "C_BuildingArcade",
+      "resource": "CityArchitectureSources/Models/C_BuildingArcade",
+      "minimum": [
+        -5.300000190734863,
+        0.0,
+        -5.300000190734863
+      ],
+      "maximum": [
+        5.300000190734863,
+        12.920000076293945,
+        5.300000190734863
+      ],
+      "triangles": 20402,
+      "materials": [
+        {
+          "name": "C_BuildingArcade_m0",
+          "workflow": "specular",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0,
+          "roughness": 0.3399999737739563,
+          "normalScale": 1,
+          "sourceMaterial": 11,
+          "sourceName": "LMBR_0000015_concrete_smooth_03",
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "albedo": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+          "normal": "MallFinishes/Textures/3808aad4a8f867d4_normal",
+          "specular": "MallFinishes/Textures/Stone_specular",
+          "mask": "MallFinishes/Textures/Stone_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m1",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 1.0,
+          "roughness": 0.4,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "normal": "CityArchitectureSources/Textures/C_BuildingArcade_m1_normal",
+          "mask": "CityArchitectureSources/Textures/C_BuildingArcade_m1_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m2",
+          "workflow": "specular",
+          "colour": [
+            0.5209959745407104,
+            0.5209959745407104,
+            0.5209959745407104,
+            1.0
+          ],
+          "sourceMaterial": 16,
+          "sourceName": "LMBR_000001f_concrete_smooth_02",
+          "roughness": 0.5999999940395355,
+          "normalScale": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "albedo": "MallFinishes/Textures/4f767e5ed7e88a68_albedo",
+          "normal": "JourneyFinishes/Textures/3c94e62bc54a71ee_normal",
+          "specular": "JourneyFinishes/Textures/Finish_02_specular",
+          "mask": "JourneyFinishes/Textures/Finish_02_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m3",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "CityArchitectureSources/Textures/C_BuildingArcade_m3_albedo",
+          "normal": "CityArchitectureSources/Textures/C_BuildingArcade_m3_normal",
+          "mask": "CityArchitectureSources/Textures/C_BuildingArcade_m3_mask",
+          "workflow": "specular",
+          "specular": "CityArchitectureSources/Textures/C_BuildingArcade_m3_specular"
+        },
+        {
+          "name": "C_BuildingArcade_m4",
+          "colour": [
+            0.3,
+            0.3,
+            0.3,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 1.0,
+          "roughness": 0.4,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "normal": "CityArchitectureSources/Textures/C_BuildingArcade_m4_normal",
+          "mask": "CityArchitectureSources/Textures/C_BuildingArcade_m4_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m5",
+          "workflow": "specular",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sourceMaterial": 61,
+          "sourceName": "LMBR_0000024_brick_large_beige_01",
+          "roughness": 0.49000000953674316,
+          "normalScale": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "albedo": "JourneyFinishes/Textures/946d4199da1b5bdf_albedo",
+          "normal": "JourneyFinishes/Textures/4bb894ef4991b654_normal",
+          "specular": "JourneyFinishes/Textures/Finish_09_specular",
+          "mask": "JourneyFinishes/Textures/Finish_09_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m6",
+          "workflow": "specular",
+          "colour": [
+            0.6444799900054932,
+            0.6444799900054932,
+            0.6724429726600647,
+            1.0
+          ],
+          "sourceMaterial": 65,
+          "sourceName": "LMBR_0000014_concrete_plaster_grey_01",
+          "roughness": 0.5,
+          "normalScale": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "albedo": "MallFinishes/Textures/9ee6902aa46d948d_albedo",
+          "normal": "JourneyFinishes/Textures/3c94e62bc54a71ee_normal",
+          "specular": "JourneyFinishes/Textures/Finish_11_specular",
+          "mask": "JourneyFinishes/Textures/Finish_11_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m7",
+          "workflow": "specular",
+          "colour": [
+            0.24620099365711212,
+            0.24620099365711212,
+            0.24620099365711212,
+            1.0
+          ],
+          "sourceMaterial": 66,
+          "sourceName": "LMBR_000001d_wood_brown_01",
+          "roughness": 0.19607800245285034,
+          "normalScale": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "albedo": "MallFinishes/Textures/8393ede25ea82aa5_albedo",
+          "normal": "MallFinishes/Textures/a784580832fb2a7d_normal",
+          "specular": "JourneyFinishes/Textures/Finish_12_specular",
+          "mask": "JourneyFinishes/Textures/Finish_12_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m8",
+          "workflow": "specular",
+          "colour": [
+            0.7681509852409363,
+            0.7379109859466553,
+            0.7011020183563232,
+            1.0
+          ],
+          "sourceMaterial": 67,
+          "sourceName": "LMBR_0000026_wood_painted_grey_01",
+          "roughness": 0.17000001668930054,
+          "normalScale": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "albedo": "JourneyFinishes/Textures/2aa4646b23608527_albedo",
+          "normal": "MallFinishes/Textures/e1d3b37a222bdded_normal",
+          "specular": "JourneyFinishes/Textures/Finish_13_specular",
+          "mask": "JourneyFinishes/Textures/Finish_13_mask"
+        },
+        {
+          "name": "C_BuildingArcade_m9",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "CityArchitectureSources/Textures/C_BuildingArcade_m9_albedo",
+          "normal": "CityArchitectureSources/Textures/C_BuildingArcade_m9_normal",
+          "mask": "CityArchitectureSources/Textures/C_BuildingArcade_m9_mask",
+          "workflow": "specular",
+          "specular": "CityArchitectureSources/Textures/C_BuildingArcade_m9_specular"
+        },
+        {
+          "name": "C_BuildingArcade_m10",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "CityArchitectureSources/Textures/C_BuildingArcade_m10_albedo",
+          "normal": "CityArchitectureSources/Textures/C_BuildingArcade_m10_normal",
+          "mask": "CityArchitectureSources/Textures/C_BuildingArcade_m10_mask",
+          "workflow": "specular",
+          "specular": "CityArchitectureSources/Textures/C_BuildingArcade_m10_specular"
+        },
+        {
+          "name": "C_BuildingArcade_m11",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "CityArchitectureSources/Textures/C_BuildingArcade_m11_albedo",
+          "normal": "CityArchitectureSources/Textures/C_BuildingArcade_m11_normal",
+          "mask": "CityArchitectureSources/Textures/C_BuildingArcade_m11_mask",
+          "workflow": "specular",
+          "specular": "CityArchitectureSources/Textures/C_BuildingArcade_m11_specular"
+        },
+        {
+          "name": "C_BuildingArcade_m12",
+          "colour": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "normalScale": 1,
+          "metallic": 0,
+          "roughness": 1,
+          "emission": [
+            0,
+            0,
+            0
+          ],
+          "extensions": [],
+          "transparent": false,
+          "doubleSided": false,
+          "albedo": "CityArchitectureSources/Textures/C_BuildingArcade_m12_albedo",
+          "normal": "CityArchitectureSources/Textures/C_BuildingArcade_m12_normal",
+          "mask": "CityArchitectureSources/Textures/C_BuildingArcade_m12_mask",
+          "workflow": "specular",
+          "specular": "CityArchitectureSources/Textures/C_BuildingArcade_m12_specular"
+        }
+      ],
+      "lods": [
+        {
+          "resource": "CityArchitectureSources/Models/C_BuildingArcade_LOD1",
+          "triangles": 5547
+        },
+        {
+          "resource": "CityArchitectureSources/Models/C_BuildingArcade_LOD2",
+          "triangles": 3720
+        }
+      ],
+      "uvBake": [],
+      "sourceSha256": "b29f56ba624b568d90310fea68fc663bc490e5eb8c4f584551b9f4dbda6f2b1c",
+      "upstreamRevision": "2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e",
+      "presentationClothRemoved": false,
+      "adaptation": "Third distinct Bistro building source subtree; canonical doorway/window/interior cut, physical shell generated separately; shared source PBR maps; two clipped LODs.",
+      "sourceNodeNames": [
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part",
+        "part"
+      ],
+      "sourceRootNode": 182,
+      "sourceRootName": "Paris_Building_010",
+      "sourceMaterialIndices": [
+        11,
+        14,
+        16,
+        19,
+        20,
+        61,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "originalTriangles": 19799,
+      "sourceDimensionsMetres": [
+        13.236386771114017,
+        18.782206739727208,
+        16.07218874743005
+      ],
+      "normalBinding": "original glTF RGB, flipped green only for Unity",
+      "nativeWorkflow": "HDRP Specular Color; authored diffuse, gloss alpha and F0 texture/factors",
+      "sourceUrl": "https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf",
+      "modelLicense": "CC-BY-4.0",
+      "canonicalWidth": 10,
+      "canonicalDepth": 10,
+      "canonicalFloors": 4,
+      "nativeUnityValidated": false
+    }
+  ]
+}

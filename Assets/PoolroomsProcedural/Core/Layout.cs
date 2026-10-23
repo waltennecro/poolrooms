@@ -71,6 +71,7 @@ namespace Poolrooms.Core
         public bool EnableSoftPlay;
         public bool EnableCity11;
         public bool DreamCity11;
+        public bool DetailedCityBuildings;
         public bool EnableProvisions;
         public bool EnableAircraft;
         public bool EnableImportedBuildings;

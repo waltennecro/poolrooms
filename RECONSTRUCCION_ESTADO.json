@@ -1629,6 +1629,14 @@
       "patchBytes": 41271518,
       "patchFiles": 747,
       "publicDownloadsSha256Verified": true
+    },
+    {
+      "id": "CityBuildings256",
+      "feature": "128 ordinary + 128 strange spatial building designs; third licensed Bistro facade; native shared 4K finishes",
+      "status": "implemented_core_verified_native_pending",
+      "checks": "Verification/city_buildings_checks.txt",
+      "sources": "Verification/city_buildings_sources.json",
+      "guide": "Assets/PoolroomsProcedural/Documentation/Nivel11_256_Edificios.md"
     }
   ],
   "latestCoreChecks": {
@@ -3855,5 +3863,23 @@
     "patchBytes": 41271518,
     "patchFiles": 747,
     "publicDownloadsSha256Verified": true
+  },
+  "cityBuildingExpansion": {
+    "status": "implemented_local_checks_passed_native_pending",
+    "ordinaryDesigns": 128,
+    "strangeDesigns": 128,
+    "structuralFamilies": 32,
+    "newExternalSourceModels": 1,
+    "buildingSourceModelsIncludingPreserved": 3,
+    "geometrySamples": 768,
+    "physicalSupportAndClearanceSamples": 82944,
+    "uniqueStructuralHashes": 256,
+    "fullCityBlocksChecked": 41,
+    "plannedCityCellsForDistribution": 1201,
+    "nativeTextureMaximum": 4096,
+    "texturesUpscaled": false,
+    "nativeUnityExecuted": false,
+    "guide": "Assets/PoolroomsProcedural/Documentation/Nivel11_256_Edificios.md",
+    "publicRelease": "pending"
   }
 }

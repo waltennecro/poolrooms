@@ -1,0 +1,2 @@
+Unhandled exception. System.InvalidOperationException: Wing checks require the current Core; historical room comparison cannot validate wings.
+   at Checks.Main(String[] args) in /tmp/city256-immutable-baseline/baseline-project/Verification/Checks.cs:line 165

@@ -7,7 +7,7 @@ namespace Poolrooms.Editor
     {
         void OnPreprocessTexture()
         {
-            if(!assetPath.Contains("/Resources/FoodSources/Textures/")&&!assetPath.Contains("/Resources/RestfulSources/Textures/")&&!assetPath.Contains("/Resources/BathSources/Textures/")&&!assetPath.Contains("/Resources/GardenSources/Textures/")&&!assetPath.Contains("/Resources/City11/Textures/")&&!assetPath.Contains("/Resources/Aircraft/Textures/")&&!assetPath.Contains("/Resources/Helicopters/Textures/")&&!assetPath.Contains("/Resources/Interiors/Textures/")&&!assetPath.Contains("/Resources/Urban/Textures/")&&!assetPath.Contains("/Resources/Bistro/Textures/")&&!assetPath.Contains("/Resources/Buildings/Textures/"))return;
+            if(!assetPath.Contains("/Resources/CityArchitectureSources/Textures/")&&!assetPath.Contains("/Resources/FoodSources/Textures/")&&!assetPath.Contains("/Resources/RestfulSources/Textures/")&&!assetPath.Contains("/Resources/BathSources/Textures/")&&!assetPath.Contains("/Resources/GardenSources/Textures/")&&!assetPath.Contains("/Resources/City11/Textures/")&&!assetPath.Contains("/Resources/Aircraft/Textures/")&&!assetPath.Contains("/Resources/Helicopters/Textures/")&&!assetPath.Contains("/Resources/Interiors/Textures/")&&!assetPath.Contains("/Resources/Urban/Textures/")&&!assetPath.Contains("/Resources/Bistro/Textures/")&&!assetPath.Contains("/Resources/Buildings/Textures/"))return;
             var importer=(TextureImporter)assetImporter;
             bool normal=assetPath.EndsWith("_normal.png"),mask=assetPath.EndsWith("_mask.png");
             importer.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
@@ -18,12 +18,12 @@ namespace Poolrooms.Editor
         }
         void OnPreprocessModel()
         {
-            if(!assetPath.Contains("/Resources/FoodSources/Models/")&&!assetPath.Contains("/Resources/RestfulSources/Models/")&&!assetPath.Contains("/Resources/BathSources/Models/")&&!assetPath.Contains("/Resources/GardenSources/Models/")&&!assetPath.Contains("/Resources/City11/Models/")&&!assetPath.Contains("/Resources/Aircraft/Models/")&&!assetPath.Contains("/Resources/Helicopters/Models/")&&!assetPath.Contains("/Resources/Interiors/Models/")&&!assetPath.Contains("/Resources/Urban/Models/")&&!assetPath.Contains("/Resources/Bistro/Models/")&&!assetPath.Contains("/Resources/Buildings/Models/"))return;
+            if(!assetPath.Contains("/Resources/CityArchitectureSources/Models/")&&!assetPath.Contains("/Resources/FoodSources/Models/")&&!assetPath.Contains("/Resources/RestfulSources/Models/")&&!assetPath.Contains("/Resources/BathSources/Models/")&&!assetPath.Contains("/Resources/GardenSources/Models/")&&!assetPath.Contains("/Resources/City11/Models/")&&!assetPath.Contains("/Resources/Aircraft/Models/")&&!assetPath.Contains("/Resources/Helicopters/Models/")&&!assetPath.Contains("/Resources/Interiors/Models/")&&!assetPath.Contains("/Resources/Urban/Models/")&&!assetPath.Contains("/Resources/Bistro/Models/")&&!assetPath.Contains("/Resources/Buildings/Models/"))return;
             var importer=(ModelImporter)assetImporter;importer.globalScale=1;importer.useFileScale=false;
             importer.importCameras=false;importer.importLights=false;importer.importAnimation=false;
             importer.importNormals=ModelImporterNormals.Import;importer.importTangents=ModelImporterTangents.CalculateMikk;
             importer.addCollider=false;importer.isReadable=false;
-            if(assetPath.Contains("/Resources/Buildings/Models/"))importer.preserveHierarchy=true;
+            if(assetPath.Contains("/Resources/Buildings/Models/")||assetPath.Contains("/Resources/CityArchitectureSources/Models/"))importer.preserveHierarchy=true;
         }
     }
 }

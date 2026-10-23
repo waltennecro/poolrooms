@@ -1,0 +1,4 @@
+Unhandled exception. System.Exception: Table edge has no physical sloped bevel
+   at Checks.Check(Boolean value, String why) in /tmp/city256-immutable-baseline/baseline-project/Verification/Checks.cs:line 14
+   at Checks.RestfulRefinementSafety() in /tmp/city256-immutable-baseline/baseline-project/Verification/RestfulBatchChecks.cs:line 32
+   at Checks.Main(String[] args) in /tmp/city256-immutable-baseline/baseline-project/Verification/Checks.cs:line 170

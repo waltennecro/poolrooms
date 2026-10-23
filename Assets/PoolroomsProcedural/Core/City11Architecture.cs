@@ -27,6 +27,7 @@ namespace Poolrooms.Core
             {
                 var b=room.Plan.City.Buildings[i];
                 if(i==pavilion)City11Dreamscape.BuildPavilion(o,b,c);
+                else if(c.DetailedCityBuildings&&b.Design>=0)CityBuildingArchitecture.Build(o,b,c);
                 else {Building(o,b,c);if(c.DreamCity11)City11Dreamscape.Facade(o,b);}
             }
             City11Dreamscape.Append(o,room,c);
@@ -108,7 +109,7 @@ namespace Poolrooms.Core
             solid.TranslateRotate(origin,angle);detail.TranslateRotate(origin,angle);glass.TranslateRotate(origin,angle);
             o.Structure.Append(solid);o.Decoration.Append(detail);o.Glass.Append(glass);o.CollisionOnly.Append(glass);
         }
-        static void Stair(MeshData solid,MeshData detail,float x,float y)
+        internal static void Stair(MeshData solid,MeshData detail,float x,float y)
         {
             for(int half=0;half<2;half++)for(int step=0;step<9;step++)
             {

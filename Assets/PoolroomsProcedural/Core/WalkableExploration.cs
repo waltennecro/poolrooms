@@ -9,7 +9,7 @@ namespace Poolrooms.Core
         public const int RegionBlock=8;
         public static void Configure(LayoutConfig c)
         {
-            c.DreamCity11=true;c.EnableProvisions=true;c.RebuildCourtyard188=true;c.RebuildArchive906=true;c.RebuildConservatory=true;c.RebuildSky63=true;c.EnableJourneyLevels=true;c.EnableHorizonLevels=true;c.ExpandedLevelDetails=true;c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
+            c.DetailedCityBuildings=true;c.DreamCity11=true;c.EnableProvisions=true;c.RebuildCourtyard188=true;c.RebuildArchive906=true;c.RebuildConservatory=true;c.RebuildSky63=true;c.EnableJourneyLevels=true;c.EnableHorizonLevels=true;c.ExpandedLevelDetails=true;c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
             c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;c.EnableRestfulLevels=true;c.EnableSpecialRegions=true;c.ObjectAbundance=3;
             c.Continuous=true;c.Procedural=LiminalGeneration.Expanded;c.DiscoveryCoverage=true;
             c.EnableRainHouses=c.EnableAquaticPark=c.EnableThermalBaths=c.EnableOrangerie=true;

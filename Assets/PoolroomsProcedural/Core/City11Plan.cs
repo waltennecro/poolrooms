@@ -5,11 +5,11 @@ namespace Poolrooms.Core
     public readonly struct CityBuildingPlan
     {
         public readonly float X,Z,Width,Depth;
-        public readonly int Floors,Program,Facade,ExteriorSource,FacadeTypology;
+        public readonly int Floors,Program,Facade,ExteriorSource,FacadeTypology,Design;
         public readonly uint Seed;
         public readonly bool Turn;
-        public CityBuildingPlan(float x,float z,float width,float depth,int floors,int program,int facade,uint seed,bool turn,int exteriorSource=0,int facadeTypology=-1)
-        {X=x;Z=z;Width=width;Depth=depth;Floors=floors;Program=program;Facade=facade;Seed=seed;Turn=turn;ExteriorSource=exteriorSource;FacadeTypology=facadeTypology;}
+        public CityBuildingPlan(float x,float z,float width,float depth,int floors,int program,int facade,uint seed,bool turn,int exteriorSource=0,int facadeTypology=-1,int design=-1)
+        {X=x;Z=z;Width=width;Depth=depth;Floors=floors;Program=program;Facade=facade;Seed=seed;Turn=turn;ExteriorSource=exteriorSource;FacadeTypology=facadeTypology;Design=design;}
         public V3 Point(float x,float y,float z){return new V3(X+(Turn?-x:x),y,Z+(Turn?-z:z));}
     }
     public readonly struct CityPropPlan
@@ -30,7 +30,7 @@ namespace Poolrooms.Core
             if(Airfield!=null)return room.Environment==LiminalEnvironment.City11&&Buildings.Length==0&&Props.Length==0&&Airfield.X==room.X&&Airfield.Z==room.Z;
             if(room.Environment!=LiminalEnvironment.City11||room.Width!=c.CellSize||room.Depth!=c.CellSize||Buildings.Length!=4||Props.Length<12||Props.Length>19)return false;
             foreach(var b in Buildings)
-                if(b.Width<7.7f||b.Depth<7.7f||b.Floors<2||b.Floors>6||b.FacadeTypology< -1||b.FacadeTypology>8||b.ExteriorSource<0||b.ExteriorSource>2||b.ExteriorSource>0&&(b.Width!=10||b.Depth!=10||b.Floors!=4)||Math.Abs(b.X)+b.Width*.5f>room.Width*.5f-.5f||Math.Abs(b.Z)+b.Depth*.5f>room.Depth*.5f-.5f||Math.Abs(b.X)-b.Width*.5f<4.7f||Math.Abs(b.Z)-b.Depth*.5f<4.7f)return false;
+                if(b.Width<7.7f||b.Depth<7.7f||b.Floors<2||b.Floors>6||b.FacadeTypology< -1||b.FacadeTypology>8||b.ExteriorSource<0||b.ExteriorSource>(c.DetailedCityBuildings?3:2)||b.Design< -1||b.Design>=CityBuildingDesign.Count||b.ExteriorSource>0&&(b.Width!=10||b.Depth!=10||b.Floors!=4)||Math.Abs(b.X)+b.Width*.5f>room.Width*.5f-.5f||Math.Abs(b.Z)+b.Depth*.5f>room.Depth*.5f-.5f||Math.Abs(b.X)-b.Width*.5f<4.7f||Math.Abs(b.Z)-b.Depth*.5f<4.7f)return false;
             foreach(var p in Props)if(p.Source<0||p.Source>8||!float.IsFinite(p.Position.X)||!float.IsFinite(p.Position.Y)||!float.IsFinite(p.Position.Z))return false;
             return true;
         }
@@ -39,7 +39,7 @@ namespace Poolrooms.Core
     {
         public static void Describe(Room room,LayoutConfig c)
         {
-            room.ZoneId=-1;room.Environment=LiminalEnvironment.City11;room.Width=room.Depth=c.CellSize;room.Height=22;
+            room.ZoneId=-1;room.Environment=LiminalEnvironment.City11;room.Width=room.Depth=c.CellSize;room.Height=c.DetailedCityBuildings?26:22;
             CityAirfieldCell airfield;
             if(CityAirfields.At(c,room.X,room.Z,out airfield))
             {
@@ -56,11 +56,12 @@ namespace Poolrooms.Core
                 float w=rng.Range(minimum,maximum),d=rng.Range(minimum,maximum);
                 var b=new CityBuildingPlan(x*(4.8f+w*.5f),z*(4.8f+d*.5f),w,d,2+rng.Range(5),rng.Range(8),rng.Range(4),rng.Next(),z<0);
                 if(c.EnableImportedBuildings&&index==0&&maximum>=10&&(b.Seed%5)==0)
-                    b=new CityBuildingPlan(x*9.8f,z*9.8f,10,10,4,b.Program,1,b.Seed,b.Turn,1+(int)((b.Seed>>8)%2));
+                    b=new CityBuildingPlan(x*9.8f,z*9.8f,10,10,4,b.Program,1,b.Seed,b.Turn,1+(int)((b.Seed>>8)%(c.DetailedCityBuildings?3u:2u)));
                 if(c.ExpandedVariety)b=new CityBuildingPlan(b.X,b.Z,b.Width,b.Depth,b.Floors,b.Program,b.Facade,b.Seed,b.Turn,b.ExteriorSource,(int)((b.Seed>>12)%9));
+                if(c.DetailedCityBuildings&&b.ExteriorSource==0)b=new CityBuildingPlan(b.X,b.Z,b.Width,b.Depth,b.Floors,b.Program,b.Facade,b.Seed,b.Turn,0,b.FacadeTypology,CityBuildingDesign.Select(b.Seed));
                 w=b.Width;d=b.Depth;buildings[index]=b;
-                props[index*2]=new CityPropPlan(b.Point(w*.23f,c.DreamCity11?.884f:1.02f,0),0);
-                props[index*2+1]=new CityPropPlan(b.Point(w*.23f,c.DreamCity11?.924f:1.06f,d*.28f),1);
+                props[index*2]=new CityPropPlan(b.Point(w*.23f,c.DetailedCityBuildings&&b.ExteriorSource>0?1.004f:(c.DreamCity11||c.DetailedCityBuildings)?.884f:1.02f,0),0);
+                props[index*2+1]=new CityPropPlan(b.Point(w*.23f,c.DetailedCityBuildings&&b.ExteriorSource>0?1.044f:(c.DreamCity11||c.DetailedCityBuildings)?.924f:1.06f,d*.28f),1);
                 int choice=(int)((b.Seed>>8)%3),source=choice==0?2:choice==1&&w>=10&&d>=10?((b.Seed&1)==0?3:5):4;
                 props[8+index]=new CityPropPlan(b.Point(w*.23f,.14f,source==3||source==5?1.6f:1.12f),source,b.Turn?0:180);index++;
             }

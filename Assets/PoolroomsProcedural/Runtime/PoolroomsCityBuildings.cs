@@ -15,7 +15,7 @@ namespace Poolrooms
             {
                 if(building.ExteriorSource==0)continue;
                 if(group==null){group=new GameObject("Licensed building exteriors").transform;group.SetParent(parent,false);}
-                string source=building.ExteriorSource==1?"B_BuildingCourtyard":"B_BuildingCorner";
+                string source=building.ExteriorSource==3?"C_BuildingArcade":building.ExteriorSource==1?"B_BuildingCourtyard":"B_BuildingCorner";
                 var root=City11Sources.Create(source,group,new Vector3(building.X,0,building.Z),12.92f,out var size,0,true);
                 if(root==null){Debug.LogError("Missing licensed building source: "+source,parent);continue;}
                 Vector3 facing=Vector3.zero;
