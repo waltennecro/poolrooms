@@ -1,0 +1,122 @@
+﻿LEER PRIMERO — NOTA PARA LA IA QUE CONTINÚE POOLROOMS
+Preparada el 23 de octubre de 2026, Ciudad de México
+Repositorio: https://github.com/waltennecro/poolrooms
+
+A la IA que continúe este proyecto:
+
+Mi recomendación principal es que empieces por comprender y probar lo que existe. Hay una base considerable, pero la cantidad de ambientes y recursos no equivale a un juego terminado. El usuario quiere un mundo que se pueda habitar y explorar con agrado; no otra lista enorme de nombres o promesas.
+
+No necesitas rehacerlo todo desde cero. Conserva lo que funciona, localiza las carencias concretas y mejora una etapa de forma completa antes de multiplicarla. El usuario valora la iniciativa: avanza con las decisiones rutinarias y pregunta solo cuando falte una decisión que cambie de verdad el alcance. Sus instrucciones actuales prevalecen sobre mis recomendaciones y sobre los documentos antiguos.
+
+1. QUÉ PROYECTO ESTÁS RECIBIENDO
+
+Poolrooms es el nombre histórico del paquete. La visión es un mundo abierto liminal procedural, con muchos ambientes conectados: piscinas, ciudad, barrios, centros comerciales, bibliotecas, patios, jardines, parques acuáticos y más. No debes reducirlo a un juego de piscinas ni convertir cada ampliación en una escena accesible solo desde Tools.
+
+Es un paquete de Assets para Unity 6.3 / HDRP 17.3, no un proyecto completo de Unity ni un ejecutable de Windows. El código del juego está en Assets/PoolroomsProcedural. Packages y ProjectSettings pertenecen al proyecto anfitrión. La escena y configuración personal del usuario no se deducen de la presencia del repositorio.
+
+La base original recuperada fue v39, con 326 archivos, commit 20311f824ebda9ecbf553f28915f100e8e252995. La v47 exacta NO se recuperó. Lo posterior es reconstrucción y desarrollo nuevo. No lo presentes como recuperación byte por byte de archivos desaparecidos.
+
+La fuente del juego de la entrega más reciente documentada es:
+  d887be56ac3d76205802c158b948f02263916cb4
+La entrega es:
+  https://github.com/waltennecro/poolrooms/releases/tag/nivel39-bosque-encantado
+Los commits posteriores hasta esta nota son de documentación y conservan los Assets de esa fuente. Verifícalo por Git; no asumas que seguirá siendo así después de cambios futuros.
+
+2. QUÉ LEER Y EN QUÉ ORDEN
+
+- AGENTS.md: reglas del repositorio y comprobaciones pertinentes.
+- RECONSTRUCCION_ESTADO.json: latestDelivery, latestCoreChecks y estados por función.
+- RECONSTRUCCION_NIVELES_ESTADO.json: cola real de reconstrucciones individuales.
+- GUIA_MAESTRA_PROYECTO_POOLROOMS.txt: preferencias, arquitectura, controles, errores y manuales. Su Anexo J explica cada uno de los 64 ambientes y dos sistemas regionales adicionales.
+- LO_QUE_LE_FALTA_AL_JUEGO_50_PAGINAS.pdf o su TXT: evaluación y propuestas priorizadas.
+- El código y la documentación específica de la función que vayas a modificar.
+
+El informe de 50 páginas contiene recomendaciones, NO una orden automática de implementar todo. La tarea que te pida el usuario determina el alcance. Las guías son instantáneas: algunos manuales y encabezados antiguos del README dicen «más reciente» o muestran recuentos de otra etapa. Contrástalos con latestDelivery y el código actual.
+
+Preparacion_V48 es evidencia histórica. Una carpeta con modelos o un documento de diseño no demuestra que ese contenido esté integrado y sea jugable.
+
+3. ESTADO REAL QUE DEBES CONSERVAR
+
+Hay 64 valores en LiminalEnvironment. El centro comercial completo y el terreno del Nivel 94 tienen sistemas regionales conectados adicionales; no los mezcles en recuentos sin explicar la unidad.
+
+Se documentaron cuatro reworks individuales publicados: Courtyard188, Archive906, Conservatory y CloudTerminal, este último adaptado al Nivel 63 / Tranquilidad. En esa cola quedan 45 programas pendientes de investigación y arquitectura diferenciada. Que tengan código, muebles o recetas no significa que ya estén reconstruidos con el acabado solicitado.
+
+El Nivel 39 / Bosque encantado es una incorporación nueva, no «la versión v39» original y no una reducción automática de esa cola. Tiene doce programas de claros, senderos, árboles, estanques, actividades y recursos nuevos. El Nivel 11 recibió 256 diseños de edificio, 128 ordinarios y 128 extraños; son diseños procedurales, no 256 modelos externos descargados.
+
+Existen movimiento, dash, deslizamiento, alas, vehículos, cámaras, fotografía, importación de skins, inventario, actividades, música local, audio y capas de decoración. Revisa sus límites antes de afirmar compatibilidad universal o funcionamiento nativo probado.
+
+El inventario tiene cinco páginas de cincuenta espacios, ocho accesos rápidos y pilas con BigInteger. El estado de partida es de sesión: guardar preferencias, fotos, música recordada o una skin NO equivale a guardar toda la partida. El usuario dejó la persistencia completa para más adelante.
+
+4. LO QUE EL USUARIO HA RECHAZADO Y LO QUE BUSCA
+
+No quiere niveles que sean solo salas cuadradas con el mismo mobiliario recoloreado. Quiere arquitectura propia, recorridos, alturas, habitaciones, vacíos, entradas y cosas coherentes que hacer. Acepta avanzar nivel por nivel si se pule bien.
+
+Debe encontrar los ambientes caminando. Tools, TP y modo maestro son atajos de prueba, no requisitos de exploración. Las conexiones deben parecer parte del mundo: galerías, vestíbulos, puertas, escaleras, porches y cambios arquitectónicos naturales.
+
+Busca calma, belleza y detalles cálidos que sugieran que otras personas podrían volver. No ha pedido NPC obligatorios, hambre, sed ni HUD permanente. El modo inquietante es opcional y excluye voces, susurros y sobresaltos.
+
+Quiere conservar gráficos y distancia de renderizado al optimizar. No escondas una reducción de calidad detrás de una cifra de FPS. Mejora primero duplicación, presupuestos, recursos, streaming y trabajo innecesario; mide cualquier cambio.
+
+Pide agua cristalina, luz natural agradable, interiores suficientemente iluminados, materiales convincentes y muebles bien integrados. «4K», «AAA» y tamaños grandes expresan una ambición de calidad: no los uses como permiso para inflar archivos, duplicar texturas o escribir código vacío.
+
+Quiere recursos con permiso de uso y buenas licencias. Verifica autor, fuente, revisión, licencia y atribución. No confundas «se descarga gratis» con «se puede redistribuir». Las fotos e imágenes de propuesta no son capturas del juego.
+
+La corrección «que no sea 40s» era un fallo de transcripción: quería decir «que no sea feo». No conviertas esa frase en una prohibición de 3DS. OBJ sencillo sin huesos es una opción aceptada; no todos los humanoides deben pasar obligatoriamente por un rig automático perfecto.
+
+5. QUÉ NO ROMPER POR UNA MEJORA LOCAL
+
+Mantén Core independiente de Unity. Los datos y mallas se calculan allí; GameObjects, componentes y recursos nativos se crean en Runtime/Editor en el ciclo apropiado.
+
+Preserva IDs serializados: agrega enums al final, no renumeres los anteriores. Conserva claves de objetos, recogidas y estados. No regeneres las 188 huellas geométricas protegidas para ocultar una regresión. Las comparaciones contra R33 necesitan guardas para APIs que esa base no tenía.
+
+No modifiques la linterna sin una razón de alcance. No reduzcas renderizado o gráficos silenciosamente. Mantén un único propietario de sombras direccionales y presupuestos acotados de luces, sondas y audio.
+
+Conserva los dos ambientes infantiles distintos: IndoorPlay y SoftPlay. Distingue supermercado por salas de centro comercial completo, Hotel de Courtyard188 y RainHouses del Nivel 94.
+
+Un nuevo nivel necesita perfil, flag, selección regional, arquitectura, Runtime, conexiones y pruebas de descubrimiento normal. Un botón de Tools no integra todo eso. Cuando un nivel especializado se añade, también debe respetar o integrar las capas compartidas de decoración, provisiones e interacción.
+
+No crees objetos nativos de Unity en inicializadores de campos/constructores de MonoBehaviour. No asignes desde fuera setters privados: usa una factory con propiedad clara. Mantén recursos de objetos llevados independientes de la sala que se descarga.
+
+6. ERRORES HISTÓRICOS QUE CONVIENE TENER PRESENTES
+
+- Una excepción en MallItemCatalog.Get detuvo el streaming: se pedían IDs 256–263 a un catálogo 0–255. El núcleo podía calcular geometría mientras Runtime se detenía al adjuntar extras. Prueba consumidores, no solo planes.
+- Dos soles con sombras provocaron el fallo del atlas de cascadas. Añadir luz sin coordinación no es una solución de iluminación.
+- El parpadeo de paredes suele requerir estudiar caras coplanares y propiedad visual; no eliminar colliders porque parezca que «chocan materiales».
+- Se intentó escribir Room.Floor, usar magnitude en V3 y asignar float a un contador entero. Los contratos de tipos y la semántica importan además de la sintaxis.
+- La fábrica inicial de recuerdos del bosque accedía a datos privados desde fuera. Se corrigió moviéndola a PoolroomsPickup y se añadió una reproducción semántica reducida del fallo.
+- Crear MaterialPropertyBlock en un inicializador de MonoBehaviour provocó CreateImpl. Revisa ciclo de vida nativo, no solo que el archivo compile.
+- Una ruta fija buscaba Ceramic_Albedo.png fuera de la instalación real. PoolroomsPackagePaths localiza la copia correcta; evita dos copias activas del paquete.
+- Roslyn de SDK 10 rompió un verificador net8.0. global.json fija .NET 8.0.408; no omitas comprobaciones para pasar CI.
+- Una skin puede estar importada y oculta por primera persona. Examina el estado real, formatos/adaptadores, escala y cámara antes de concluir que no hay modelo.
+- El usuario recibió descargas de cero bytes, incluso de un TXT. No culpes automáticamente a ZIP o OneDrive ni inventes una causa interna del servicio. Comprueba el archivo y su descarga completa.
+
+7. QUÉ ESTÁ COMPROBADO Y QUÉ NO
+
+La entrega de referencia pasó CI completo del commit exacto:
+  https://github.com/waltennecro/poolrooms/actions/runs/39910104718
+Publicador:
+  https://github.com/waltennecro/poolrooms/actions/runs/39910235956
+Evidencia:
+  Verification/forest39_delivery.json
+
+Los ZIP públicos completo y parche se leyeron enteros y sus hashes coincidieron; el parche se comparó archivo por archivo y hubo revisión CRC. Esto verifica entrega e integridad, no acabado visual.
+
+La compilación de Core, sintaxis, aserciones matemáticas y contratos con sustitutos reducidos de Unity NO equivalen a compilar todas las APIs, ejecutar shaders, PhysX o PlayMode en Unity. No presentes sus grandes contadores como millones de pruebas nativas.
+
+La ejecución nativa, apariencia HDRP, reflejos, deformación de skins, escucha y FPS de la fuente actual siguen pendientes en el entorno de desarrollo. No heredes una etiqueta «verificado» sin entender su ámbito. Las inspecciones de Blender sirven para geometría; no son capturas reales del juego.
+
+8. CÓMO CONTINUAR DE FORMA ÚTIL
+
+Primero revisa git status y conserva trabajo local antes de sincronizar. La rama debe avanzar sin sobrescribir historia. Identifica el último código, la última entrega y las diferencias; no des por perdido lo que solo quedó en un archivo sin seguimiento o un commit no publicado.
+
+Si la tarea actual es estabilizar, intenta ejecutar el paquete en el proyecto Unity real o una copia compatible y registra versión, GPU/API, semilla, ubicación y primera excepción. Si no tienes Unity, avanza en comprobaciones independientes y comunica exactamente qué sigue pendiente; no simules un aprobado nativo.
+
+Si la tarea es contenido, empieza por un nivel o un problema verificable, con arquitectura y criterios de aceptación. Investiga antes de llamar canónica a una réplica. Prueba fronteras, alturas, descarga/recarga, materiales, interacción y acceso caminando. Usa la guía de 50 páginas para priorizar, no como permiso para ampliar el alcance sin límite.
+
+Al terminar una etapa, compila y ejecuta las comprobaciones pertinentes, registra resultados reales, guarda un commit, respáldalo y verifica la entrega. Si una revisión falla, corrige o explica el bloqueo: no retires la prueba ni escondas los objetos que lo causan.
+
+Mantén la memoria persistente: estado implementado, pendiente, limitaciones nativas, referencias y evidencia. Actualiza el inventario cuando cambie la realidad. Cuando vuelvas a pasar el proyecto, deja instrucciones que permitan continuar sin rehacer ni adivinar.
+
+NOTA FINAL
+
+Mi mayor consejo es que traduzcas la ambición del usuario a resultados jugables. Un nivel memorable y bien integrado vale más que cientos de variantes casi iguales. La confianza se conserva con avances concretos y límites honestos: no prometas haber visto, probado, recuperado o terminado algo que todavía no existe en esa forma.
