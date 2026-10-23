@@ -1,12 +1,12 @@
 {
   "comparedWithSource": "416f75c8f3f0d1b9b91d1c2dd0a796bd397b48be",
-  "newCodeLinesAdded": 4345,
+  "newCodeLinesAdded": 4378,
   "lineCounting": "Git added text lines, including comments/spacing. Separate production, verification, tools and workflow counts; documentation/data excluded.",
   "workflowLinesAdded": 91,
-  "productionCSharpLinesAdded": 2593,
+  "productionCSharpLinesAdded": 2600,
   "nativeTestLinesAdded": 153,
-  "coreVerificationLinesAdded": 577,
-  "assetAndDeliveryToolLinesAdded": 931,
+  "coreVerificationLinesAdded": 602,
+  "assetAndDeliveryToolLinesAdded": 932,
   "forestResourceBytes": 266551090,
   "forestResourceFiles": 25,
   "native4KScanSets": 3,
@@ -105,7 +105,7 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Core/Forest39Oak.cs",
-      "added": 150,
+      "added": 151,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -135,7 +135,7 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Core/Forest39Terrain.cs",
-      "added": 96,
+      "added": 98,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -207,7 +207,7 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Editor/PoolroomsForest39Importer.cs",
-      "added": 44,
+      "added": 48,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -333,7 +333,7 @@
     },
     {
       "path": "Verification/Forest39RegressionChecks.cs",
-      "added": 172,
+      "added": 197,
       "removed": 0,
       "category": "coreVerificationLinesAdded"
     },
@@ -429,7 +429,7 @@
     },
     {
       "path": "tools/verify_forest39_resources.py",
-      "added": 152,
+      "added": 153,
       "removed": 0,
       "category": "assetAndDeliveryToolLinesAdded"
     }

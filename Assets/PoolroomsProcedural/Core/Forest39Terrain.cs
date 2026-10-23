@@ -39,8 +39,10 @@ namespace Poolrooms.Core
             normal = plan.Normal(x, z);
             // Reduce world-coordinate phase before converting to float; very
             // distant rooms do not lose their entire texture-coordinate fraction.
-            double worldX = ((double)plan.X * plan.Cell + x) % 512;
-            double worldZ = ((double)plan.Z * plan.Cell + z) % 512;
+            // Wrap the cell origin only: wrapping each vertex would create a
+            // discontinuity inside triangles that cross a 512-metre phase.
+            double worldX = ((double)plan.X * plan.Cell) % 512 + x;
+            double worldZ = ((double)plan.Z * plan.Cell) % 512 + z;
             uv = new V2((float)(worldX / 4), (float)(worldZ / 4));
         }
 

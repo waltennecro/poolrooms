@@ -17,6 +17,10 @@ namespace Poolrooms.Editor
             importer.maxTextureSize = 4096;
             importer.npotScale = TextureImporterNPOTScale.None;
             importer.mipmapEnabled = true;
+            bool foliage = assetPath.EndsWith("Canopy_Albedo.png", StringComparison.Ordinal);
+            importer.alphaIsTransparency = foliage;
+            importer.mipMapsPreserveCoverage = foliage;
+            if(foliage)importer.alphaTestReferenceValue = .45f;
             importer.streamingMipmaps = true;
             importer.wrapMode = TextureWrapMode.Repeat;
             importer.filterMode = FilterMode.Trilinear;

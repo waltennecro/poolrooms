@@ -3961,6 +3961,13 @@
     "extraGeometryChecks": [
       "No canopy crosses closed biome boundaries in any of three LODs",
       "All three food footprints and cup fit inside circular table with no overlapping bounds"
-    ]
+    ],
+    "finalTextureReview": {
+      "terrainUV": "Cell-origin phase wrapping preserves continuous UVs inside triangles at positive/negative/large addresses",
+      "barkUV": "Integer circumferential repeat count joins cylinder seam",
+      "foliageMipCoverage": "Native alpha coverage reference .45 and colour dilation; UnityCsReference importer properties reviewed",
+      "regressionReproduced": "Previous per-vertex modulo phase failed the new mathematical test before correction",
+      "nativeRenderingExecuted": false
+    }
   }
 }

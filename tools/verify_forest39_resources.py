@@ -113,7 +113,8 @@ def contracts():
     assert (RESOURCE / 'Licenses/CC0-1.0.txt').stat().st_size > 3000
     importer = (ASSETS / 'Editor/PoolroomsForest39Importer.cs').read_text()
     for contract in ['TextureImporterNPOTScale.None', 'importer.maxTextureSize = 4096', 'importer.sRGBTexture = colour',
-                     'TextureImporterType.NormalMap', 'streamingMipmaps = true', 'TextureImporterAlphaSource.FromInput',
+                     'TextureImporterType.NormalMap', 'streamingMipmaps = true',
+                     'mipMapsPreserveCoverage = foliage', 'alphaTestReferenceValue = .45f', 'TextureImporterAlphaSource.FromInput',
                      'AudioClipLoadType.Streaming', 'AudioSampleRateSetting.PreserveSampleRate']:
         assert contract in importer, contract
     materials = (ASSETS / 'Runtime/PoolroomsForest39Materials.cs').read_text()

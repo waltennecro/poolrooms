@@ -12,6 +12,7 @@ static partial class Checks
         Forest39Ownership();
         Forest39MapProjection();
         Forest39InvalidInput();
+        Forest39TextureContinuity();
     }
 
     static void Forest39DiscoverySlots()
@@ -149,6 +150,30 @@ static partial class Checks
         foreach (int side in new[] { 0, 1, 2, 3 })
             Check(text.Contains(Forest39RouteMap.Direction(side)), "Notebook route map omits an actual open exit");
         Check(text.Contains("m desde el centro"), "Notebook path distance is not explained");
+    }
+
+    static void Forest39TextureContinuity()
+    {
+        var bark=new MeshData{Theme=SurfaceTheme.Forest39Bark};
+        Forest39Oak.Taper(bark,new V3(0,0,0),new V3(0,2,0),.43f,.2f,8,39);
+        float wrap=bark.UV[(8-1)*9+1].X-bark.UV[0].X;
+        Check(wrap>=1&&Math.Abs(wrap-Math.Round(wrap))<.00001,"Oak bark cannot wrap its cylinder without a texture seam");
+        foreach(int address in new[]{-29,-15,-14,14,15,29,int.MinValue,int.MaxValue})
+        {
+            var plan=new Forest39Plan(new LayoutConfig{CellSize=36},address,address);
+            var mesh=Forest39Terrain.Build(plan);
+            foreach(var indices in mesh.Indices)for(int i=0;i<indices.Count;i+=3)
+            {
+                int a=indices[i],b=indices[i+1],c=indices[i+2];
+                foreach(var edge in new[]{new[]{a,b},new[]{b,c},new[]{c,a}})
+                {
+                    var p=mesh.Positions[edge[0]];var q=mesh.Positions[edge[1]];
+                    var u=mesh.UV[edge[0]];var v=mesh.UV[edge[1]];
+                    Check(Math.Abs((v.X-u.X)-(q.X-p.X)/4)<.00002f&&Math.Abs((v.Y-u.Y)-(q.Z-p.Z)/4)<.00002f,
+                        "Forest texture phase wraps inside a terrain triangle");
+                }
+            }
+        }
     }
 
     static void Forest39InvalidInput()

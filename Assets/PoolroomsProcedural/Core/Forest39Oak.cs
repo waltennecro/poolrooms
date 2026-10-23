@@ -85,6 +85,7 @@ namespace Poolrooms.Core
             V3 tangent = V3.Cross(axis, Math.Abs(axis.Y) > .9f ? new V3(1, 0, 0) : V3.Up).Unit;
             V3 bitangent = V3.Cross(axis, tangent).Unit;
             float length = (end - start).Length;
+            float circumferenceRepeats = Math.Max(1, (float)Math.Ceiling(lower * Shapes.Pi * 2));
             for (int side = 0; side < sides; side++)
             {
                 float a = side * Shapes.Pi * 2 / sides;
@@ -95,8 +96,8 @@ namespace Poolrooms.Core
                 float rippleB = 1 + .07f * (float)Math.Sin(((side + 1) % sides) * 3.7f + seed % 19);
                 V3 p = start + na * (lower * rippleA), q = start + nb * (lower * rippleB);
                 V3 r = end + nb * (upper * rippleB), s = end + na * (upper * rippleA);
-                float u = side * lower * Shapes.Pi * 2 / sides;
-                float v = (side + 1) * lower * Shapes.Pi * 2 / sides;
+                float u = side * circumferenceRepeats / sides;
+                float v = (side + 1) * circumferenceRepeats / sides;
                 mesh.QuadUV(p, q, r, s, na, nb, nb, na,
                     new V2(u, 0), new V2(v, 0), new V2(v, length), new V2(u, length), Surface.Tile);
                 mesh.Triangle(end, s, r, axis, axis, axis,
