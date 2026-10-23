@@ -1640,8 +1640,8 @@
     }
   ],
   "latestCoreChecks": {
-    "revision": "d887be56ac3d76205802c158b948f02263916cb4",
-    "run": "https://github.com/waltennecro/poolrooms/actions/runs/39910104718",
+    "revision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+    "run": "https://github.com/waltennecro/poolrooms/actions/runs/40038735390",
     "conclusion": "success",
     "nativeUnityExecuted": false
   },
@@ -3578,14 +3578,14 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "stage": "nivel39-bosque-encantado",
-    "sourceRevision": "d887be56ac3d76205802c158b948f02263916cb4",
-    "url": "https://github.com/waltennecro/poolrooms/releases/tag/nivel39-bosque-encantado",
-    "packageBytes": 1453806247,
-    "patchBytes": 402227265,
-    "assetsFiles": 2412,
-    "assetsUncompressedBytes": 1745224174,
-    "evidence": "Verification/forest39_delivery.json",
+    "stage": "travesia-libre",
+    "sourceRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+    "url": "https://github.com/waltennecro/poolrooms/releases/tag/travesia-libre",
+    "packageBytes": 1453815849,
+    "patchBytes": 402245302,
+    "assetsFiles": 2416,
+    "assetsUncompressedBytes": 1745252078,
+    "evidence": "Verification/travel_delivery.json",
     "publicDownloadsSha256Verified": true,
     "nativeUnityExecuted": false
   },
@@ -4011,7 +4011,7 @@
     }
   },
   "normalExplorationTravel": {
-    "status": "implemented_local_core_checked_exact_source_ci_publication_pending",
+    "status": "published_full_source_ci_and_public_downloads_verified_native_pending",
     "documentation": "Assets/PoolroomsProcedural/Documentation/Travesia_Libre.md",
     "pacesMetresPerSecond": [
       8,
@@ -4030,9 +4030,10 @@
     "checks": "Verification/travel_checks.txt",
     "fullLocalChecks": "Verification/travel_full_checks.txt",
     "pending": [
-      "Exact-source full GitHub CI and release",
       "Unity/PlayMode/PhysX, cable appearance, movement feel, audio and FPS"
-    ]
+    ],
+    "sourceRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+    "deliveryEvidence": "Verification/travel_delivery.json"
   },
   "gameplayChangeLog": {
     "canonical": "CAMBIOS_JUEGO_DESDE_RELEVO.json",

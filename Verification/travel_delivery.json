@@ -1,0 +1,121 @@
+{
+  "sourceRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/travesia-libre",
+  "fullVerification": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/40038735390",
+    "conclusion": "success",
+    "steps": 64,
+    "failed": 0,
+    "skipped": 0
+  },
+  "publisher": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/40038748122",
+    "conclusion": "success",
+    "steps": 9
+  },
+  "delivery": {
+    "sourceRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+    "successfulFullRun": "40038735390",
+    "assetsUncompressedBytes": 1745252078,
+    "package": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Travesia_Libre_Assets.zip",
+      "files": 2416,
+      "bytes": 1453815849,
+      "sha256": "dca4d83c5877a1a16a306fb6b22256ade27cff40ce1e9334508b1ae1e28294e4",
+      "sourceRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+      "workingTreeChanged": false
+    },
+    "patch": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Parche_Travesia_Libre.zip",
+      "files": 846,
+      "bytes": 402245302,
+      "sha256": "af014f682a44a7777e5aa43fcfd2c851fc12c84ab71ed7d82bf950969d27f93c",
+      "sourceRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+      "workingTreeChanged": false
+    },
+    "nativeUnityExecuted": false,
+    "travelModes": [
+      "normal",
+      "agile",
+      "express"
+    ],
+    "grappleRange": 28,
+    "nativePlayModeTestsAdded": 3,
+    "newExternalModels": 0,
+    "newDistinctScanIds": 0,
+    "preservesForest39": true,
+    "newInventoryItems": 0,
+    "newExternalAudioClips": 0,
+    "upscaledTextures": false,
+    "paddingBytes": 0
+  },
+  "publicDownloads": [
+    {
+      "file": "Poolrooms_Travesia_Libre_Assets.zip",
+      "httpStatus": 200,
+      "bytes": 1453815849,
+      "sha256": "dca4d83c5877a1a16a306fb6b22256ade27cff40ce1e9334508b1ae1e28294e4",
+      "downloadedCompletely": true,
+      "storedLocally": false
+    },
+    {
+      "file": "Poolrooms_Parche_Travesia_Libre.zip",
+      "httpStatus": 200,
+      "bytes": 402245302,
+      "sha256": "af014f682a44a7777e5aa43fcfd2c851fc12c84ab71ed7d82bf950969d27f93c",
+      "downloadedCompletely": true,
+      "storedLocally": true
+    }
+  ],
+  "patchAudit": {
+    "crcVerified": true,
+    "filesComparedToSource": 846,
+    "fileNamesSafe": true,
+    "duplicateMembers": 0
+  },
+  "ciArtifacts": [
+    {
+      "name": "Surface-ownership-evidence",
+      "id": 12538760411,
+      "bytes": 2786,
+      "expired": false
+    },
+    {
+      "name": "R34-Batch-Evidence",
+      "id": 12538746903,
+      "bytes": 6595,
+      "expired": false
+    },
+    {
+      "name": "Level39-evidence",
+      "id": 12538640902,
+      "bytes": 1731,
+      "expired": false
+    },
+    {
+      "name": "Travel-evidence",
+      "id": 12538581599,
+      "bytes": 761,
+      "expired": false
+    },
+    {
+      "name": "Poolrooms-Reconstruccion-Assets",
+      "id": 12538278792,
+      "bytes": 1449147784,
+      "expired": false
+    },
+    {
+      "name": "City-buildings-evidence",
+      "id": 12537834057,
+      "bytes": 12933,
+      "expired": false
+    }
+  ],
+  "historicalVerifier": {
+    "compiledWithWarningsAsErrors": true,
+    "expectedOldBevelFailureReproduced": true,
+    "historicalWingValidationRejected": true
+  },
+  "nativeUnityExecuted": false,
+  "limitations": "Core/source and media checks only. Unity/PlayMode, PhysX, movement feel, cable appearance, audio and FPS remain pending."
+}

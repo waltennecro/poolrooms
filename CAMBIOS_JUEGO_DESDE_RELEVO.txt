@@ -4,7 +4,8 @@ El usuario pide que todos los cambios de juego desde Travesía libre en adelante
 Los capítulos/manuales anteriores son instantáneas históricas. Este registro prevalece para conocer cambios posteriores. El PDF original conserva sus 50 páginas; el TXT del plan añade esta bitácora.
 
 2026-10-23 · travesia-libre-01
-Estado: implementado; comprobaciones locales superadas; CI completo y publicación pendientes
+Estado: publicado; CI completo del commit exacto y descargas públicas verificadas; pruebas nativas pendientes
+Fuente exacta: 4e2100a7d9cc62553472d4f4fa751930870b7c4f
 Cambios:
   - C alterna Normal, Ágil (8 m/s) y Exprés (12 m/s). Normal conserva caminar/correr; la travesía acelera hacia delante de forma gradual.
   - J activa avance automático hacia la mirada; J/S, bloqueo, ausencia de apoyo delante, interfaz, pausa, viaje o carga lo detienen. No es un navegador autónomo.
@@ -18,8 +19,10 @@ Comprobaciones reales:
   - Prueba --travel: ritmos, aceleración, autoavance, giro, cancelación, natación y gancho a seis frecuencias, márgenes y entradas inválidas.
   - Componente real PoolroomsTravel completo compilado con Core y APIs Unity reducidas; se comprueban nombres de Explorer/cámara y se rechaza una propiedad de foto inexistente.
   - Suite local completa: 2.130.214.083 aserciones del núcleo/código, 188 geometrías protegidas y sintaxis de 393 scripts por cinco configuraciones. No son pruebas nativas.
+  - CI completo 40038735390: 64 pasos superados, cero fallos/omitidos; run de publicación 40038748122 superado.
+  - Descargas públicas completas: Assets 1,453,815,849 bytes y parche 402,245,302 bytes; SHA-256 correctos, CRC del parche y 846 archivos comparados con la fuente. CRC de ambos ZIP comprobado por el publicador.
+  - Verificador actual compilado contra R33 inmutable, manteniendo el fallo geométrico antiguo esperado y el rechazo de validación de alas inexistentes.
 Pendiente:
-  - CI completo del commit exacto y publicación/verificación de ambos ZIP públicos.
-  - Unity/PlayMode, PhysX, cable, sensación, sonido, apariencia y FPS reales.
+  - Unity/PlayMode, PhysX, cable, sensación de movimiento, sonido, apariencia y FPS reales.
 Guía: Assets/PoolroomsProcedural/Documentation/Travesia_Libre.md
 
