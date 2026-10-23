@@ -63,6 +63,7 @@ El repositorio distribuye un PAQUETE DE ASSETS. No contiene por sí solo un proy
 39. Prioridades pendientes y criterios de aceptación
 40. Protocolo para retomar el trabajo y glosario
 Anexos: datos del estado, catálogo completo, mapa del código y manuales técnicos.
+Anexo J: fichas individuales de los 64 ambientes, centro comercial y Nivel 94.
 
 ===============================================================================
 01. IDENTIDAD, OBJETIVO Y EXPERIENCIA BUSCADA
@@ -9180,6 +9181,644 @@ Dressing: 8 procedural fitting types / 16 distinct geometry variants; 300 doorwa
 PASS: 2130203438 checks; 108 protected SoftPlay geometries + 80 other-biome fingerprints; C# 9 syntax 390 scripts x 5 configurations.
 Core compiled; Unity/HDRP API compilation, shaders, PhysX, visual quality and FPS NOT executed.
 
+
+===============================================================================
+ANEXO J. FICHA INDIVIDUAL DE CADA NIVEL Y AMBIENTE
+===============================================================================
+Ampliación solicitada por el usuario: explicar cada nivel, no solo enumerarlo.
+Se cubren los 64 ambientes de LiminalEnvironment, más el centro comercial completo y el Nivel 94. Poolrooms solares se explica en la ficha Poolrooms porque no tiene otro ID de ambiente. Un nombre artístico no prueba correspondencia canónica con una wiki.
+Cada ficha diferencia código existente y rework terminado. Los 45 programas marcados pendientes tienen generación y contenido, pero siguen necesitando investigación/arquitectura individual. No están borrados; tampoco se presentan como niveles completamente pulidos.
+Común a todas las fichas: exploración unificada habilita estos destinos caminables; un perfil personalizado puede desactivarlos. La disponibilidad matemática no garantiza una distancia fija al caminar. La compilación nativa Unity/HDRP, apariencia, PhysX, escucha y FPS del estado actual siguen pendientes de ejecutar.
+Las interacciones compartidas solo aparecen donde cumplen apoyo, espacio y presupuesto; no cada objeto decorativo es recogible. Los acabados PBR y reflejos dependen de materiales, importación y calidad/hardware, no únicamente del nombre del nivel.
+
+-------------------------------------------------------------------------------
+FICHA 01/66 — Poolrooms originales y mezcla solar
+Identificador: LiminalEnvironment.Poolrooms; ID serializado: 0.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Piscinas interiores con columnas, arcos, galerías, rotundas, meandros y atrios. La mezcla solar añade contornos y aberturas más amplios sin retirar las recetas históricas.
+Contenido, uso y límites: Exploración, agua y rincones compatibles. Las zonas oscuras deben mantener legibilidad y las solares mezclarse en la generación normal; no son dos biomas diferentes del enum.
+Código principal: Core/Architecture.cs, Core/ZoneArchitecture.cs, Core/PoolroomArchitectureMix.cs, Core/SolarArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 02/66 — Juegos interiores originales
+Identificador: LiminalEnvironment.IndoorPlay; ID serializado: 1.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Ambiente infantil anterior a SoftPlay, conservado como programa independiente. Su arquitectura y módulos pertenecen a los generadores originales de interiores lúdicos.
+Contenido, uso y límites: Exploración y elementos compatibles con el programa. No adjudicarle automáticamente las redes, torres y todos los recorridos del SoftPlay posterior.
+Código principal: Core/Architecture.cs, Core/ProceduralArchitecture.cs, Core/LiminalRegions.cs.
+
+-------------------------------------------------------------------------------
+FICHA 03/66 — Supermercado de salas
+Identificador: LiminalEnvironment.Supermarket; ID serializado: 2.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Distribución comercial de estantes, zonas de compra y objetos dentro del sistema de habitaciones. No equivale a todo el edificio comercial de varias plantas.
+Contenido, uso y límites: Objetos de catálogo y mobiliario compatible. El centro comercial completo dispone de ficha adicional para no confundir los dos sistemas.
+Código principal: Core/RetailArchitecture.cs, Core/RetailStore.cs, Core/MallItemCatalog.cs.
+
+-------------------------------------------------------------------------------
+FICHA 04/66 — Oficinas
+Identificador: LiminalEnvironment.Office; ID serializado: 3.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Interiores con puestos, divisiones y circulación mediante bahías/galerías. El plan admite subdivisión autónoma y deja libres los accesos a las salas laterales.
+Contenido, uso y límites: Mobiliario y decoración/interacciones compartidas cuando caben. No hay simulación de empleados o trabajo de oficina completo.
+Código principal: Core/InteriorPlan.cs, Core/InteriorArchitecture.cs, Core/InteriorSubdivision.cs.
+
+-------------------------------------------------------------------------------
+FICHA 05/66 — Hotel de interiores
+Identificador: LiminalEnvironment.Hotel; ID serializado: 4.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Habitaciones y mobiliario de uso hotelero dentro del generador Interior. Es distinto del gran distrito reconstruido Courtyard188.
+Contenido, uso y límites: Explorar, descansar y usar objetos compatibles. No confundir una habitación del banco Hotel con la reconstrucción de cinco plantas del Patio de ventanas.
+Código principal: Core/InteriorPlan.cs, Core/InteriorArchitecture.cs, Core/InteriorSubdivision.cs.
+
+-------------------------------------------------------------------------------
+FICHA 06/66 — Sala de espera
+Identificador: LiminalEnvironment.WaitingHall; ID serializado: 5.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Programa interior para asiento y espera, con circulación y distribución de mobiliario según el plan.
+Contenido, uso y límites: Asientos, objetos y rincones si cumplen espacio/apoyo. No hay sistema de turnos, pasajeros o NPC confirmado por esta ficha.
+Código principal: Core/InteriorPlan.cs, Core/InteriorArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 07/66 — Comedor
+Identificador: LiminalEnvironment.DiningHall; ID serializado: 6.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Espacio interior amueblado para mesas y asientos; usa planificación de bahías y rutas de acceso.
+Contenido, uso y límites: Muebles, objetos y provisiones opcionales. Comer no activa hambre ni convierte la sala en un restaurante con empleados simulados.
+Código principal: Core/InteriorPlan.cs, Core/InteriorArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 08/66 — Áreas infantiles blandas multinivel
+Identificador: LiminalEnvironment.SoftPlay; ID serializado: 7.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Torres, redes, acolchados, tubos y recorridos pensados para entrar físicamente, en espacios amplios. Se añadió aparte de IndoorPlay.
+Contenido, uso y límites: Exploración y recorrido de juegos compatibles a escala humana. Entrada, colisiones y salida de cada estructura necesitan comprobarse en Unity; no basta mirarlas desde arriba.
+Código principal: Core/SoftPlayPlan.cs, Core/SoftPlayArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 09/66 — Nivel 11 / ciudad liminal
+Identificador: LiminalEnvironment.City11; ID serializado: 8.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Manzanas con calles, patios, soportales y edificios. La ampliación aporta 128 diseños ordinarios y 128 extraños, interiores, galerías y escaleras; también fachadas externas adaptadas.
+Contenido, uso y límites: Muebles, comida/agua de almendra, coches y regiones con avión/helicóptero. Los 256 diseños son generación original, no 256 modelos externos descargados.
+Código principal: Core/City11Plan.cs, Core/City11Architecture.cs, Core/CityBuildingDesign.cs, Core/CityBuildingArchitecture.cs, Core/City11Dreamscape.cs.
+
+-------------------------------------------------------------------------------
+FICHA 10/66 — Cygnus / biblioteca 906
+Identificador: LiminalEnvironment.Archive906; ID serializado: 9.
+Estado real: RECONSTRUCCIÓN INDIVIDUAL PUBLICADA; revisión nativa/visual pendiente.
+Arquitectura y generación: Biblioteca reconstruida con naves abovedadas, tres niveles, alas, galerías, puentes y huecos reales de luz en cubierta.
+Contenido, uso y límites: Lectura, descanso, objetos y actividades apoyados en la arquitectura. Es una adaptación investigada; la investigación y licencias constan en LevelResearch/Level906.json.
+Código principal: Core/ArchiveDistrictPlan.cs, Core/ArchiveDistrictArchitecture.cs.
+Investigación/adaptaciones: Documentation/LevelResearch/Level906.json.
+
+-------------------------------------------------------------------------------
+FICHA 11/66 — Patio de ventanas / Nivel 188
+Identificador: LiminalEnvironment.Courtyard188; ID serializado: 10.
+Estado real: RECONSTRUCCIÓN INDIVIDUAL PUBLICADA; revisión nativa/visual pendiente.
+Arquitectura y generación: Distrito hotelero 4 por 4 sectores con cinco plantas, patio central compartido, habitaciones, recepción, lavandería, escaleras y azotea. Los bordes incompletos usan anexos.
+Contenido, uso y límites: Puertas, algunas persianas, asientos, objetos y actividades del hotel. No presenta el círculo central como una trampilla funcional canónica.
+Código principal: Core/CourtyardDistrictPlan.cs, Core/CourtyardDistrictArchitecture.cs.
+Investigación/adaptaciones: Documentation/LevelResearch/Level188.json.
+
+-------------------------------------------------------------------------------
+FICHA 12/66 — Costa 48
+Identificador: LiminalEnvironment.Coast48; ID serializado: 11.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Generador tranquilo de costa, conservado junto a biblioteca y patio en el banco Quiet. Sus recorridos costeros y zonas de estancia tienen reglas propias del proyecto.
+Contenido, uso y límites: Exploración y objetos/asientos compatibles. No figura entre los cuatro reworks individuales terminados; su número no demuestra una reproducción canónica exacta.
+Código principal: Core/QuietLevelPlan.cs, Core/QuietLevelArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 13/66 — Invernadero de Cristal
+Identificador: LiminalEnvironment.Conservatory; ID serializado: 12.
+Estado real: RECONSTRUCCIÓN INDIVIDUAL PUBLICADA; revisión nativa/visual pendiente.
+Arquitectura y generación: Distrito continuo con cúpula de hierro y vidrio, rotonda, estanque, jardines y dos alturas conectadas por pasarelas y escaleras. Ocho programas botánicos.
+Contenido, uso y límites: Actividades de jardín, lectura/descanso, armarios y objetos según el sector. Es un diseño liminal original investigado con referencias; no se inventa un número oficial de wiki.
+Código principal: Core/ConservatoryDistrictPlan.cs, Core/ConservatoryDistrictArchitecture.cs, Core/ConservatoryPlants.cs.
+Investigación/adaptaciones: Documentation/LevelResearch/Conservatory.json.
+
+-------------------------------------------------------------------------------
+FICHA 14/66 — Galería de tránsito
+Identificador: LiminalEnvironment.TransitGallery; ID serializado: 13.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Programa de galería cívica y tránsito dentro del banco existente, con circulación y mobiliario de estancia.
+Contenido, uso y límites: Objetos y actividades compatibles. Está expresamente en la cola de reconstrucción individual; no describirla como terminal completa reconstruida al nivel de Cygnus.
+Código principal: Core/QuietLevelPlan.cs, Core/QuietLevelArchitecture.cs.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 15/66 — Orangerie
+Identificador: LiminalEnvironment.Orangerie; ID serializado: 14.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Invernadero/jardín interior relajante de la expansión inicial, con programas estructurales y planta con licencia integrada.
+Contenido, uso y límites: Descanso, mobiliario y planta/objetos compatibles con el plan. Su banco documenta 2.500 recetas estructurales; no son 2.500 edificios modelados a mano.
+Código principal: Core/OrangeriePlan.cs, Core/OrangerieArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 16/66 — Baños de travertino
+Identificador: LiminalEnvironment.ThermalBaths; ID serializado: 15.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Programa de baños interiores con vasos, circulación seca y superficies de travertino seco/mojado. Usa una planificación específica, no el genérico de habitaciones decoradas.
+Contenido, uso y límites: Entrada a agua, descanso, luminaria/mobiliario y objetos compatibles. La transparencia y refracción finales requieren inspección HDRP real.
+Código principal: Core/ThermalBathPlan.cs, Core/ThermalBathArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 17/66 — Parque acuático del atardecer
+Identificador: LiminalEnvironment.AquaticPark; ID serializado: 16.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Parque acuático cubierto, zonas amplias, piscinas y atracciones con accesos a escala del jugador. Incluye un catálogo ampliado de 250 familias de toboganes.
+Contenido, uso y límites: Recorridos de tobogán y película animada de agua interior, además de objetos y descanso. El flujo visual no es una simulación completa de fluidos.
+Código principal: Core/AquaticParkPlan.cs, Core/AquaticParkArchitecture.cs, Core/AquaticSlideCatalog.cs, Core/AquaticFlumeGeometry.cs.
+
+-------------------------------------------------------------------------------
+FICHA 18/66 — Casas de lluvia
+Identificador: LiminalEnvironment.RainHouses; ID serializado: 17.
+Estado real: GENERADOR EXISTENTE/CONSERVADO; esta ficha no certifica acabado visual ni finalización de todas las solicitudes históricas.
+Arquitectura y generación: Distrito de alojamientos/casas amuebladas con superficies húmedas, refugios y lluvia ambiental. Tiene plan y arquitectura específicos.
+Contenido, uso y límites: Explorar interiores y porches, usar muebles/objetos compatibles y descansar. Las casas no son las del terreno del Nivel 94: son otro ambiente.
+Código principal: Core/RainHousePlan.cs, Core/RainHouseArchitecture.cs.
+
+-------------------------------------------------------------------------------
+FICHA 19/66 — Biblioteca del atardecer
+Identificador: LiminalEnvironment.SunsetLibrary; ID serializado: 18.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Programa de estanterías, bancos de lectura con perfil y mesas, bajo tragaluz con tono cálido. Cambian distribución y proporciones de sus bahías laterales.
+Contenido, uso y límites: Lectura y rincones compartidos cuando caben. Usa el banco Restful y sigue pendiente de rework individual: no equivale a la biblioteca Cygnus de tres niveles.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 20/66 — Tranquilidad / Nivel 63
+Identificador: LiminalEnvironment.CloudTerminal; ID serializado: 19.
+Estado real: RECONSTRUCCIÓN INDIVIDUAL PUBLICADA; revisión nativa/visual pendiente.
+Arquitectura y generación: El antiguo programa de terminal se sustituyó por pasarelas suspendidas, terrazas a dos alturas, huecos reales, barandillas, cables y enredaderas sobre un mar de nubes.
+Contenido, uso y límites: Objetos, descanso y actividades compatibles; caída no mortal con retorno al sector como adaptación del proyecto. Volúmenes HDRP acotados; no una ciudad de nubes simulada ilimitadamente.
+Código principal: Core/Sky63Plan.cs, Core/Sky63Architecture.cs.
+Investigación/adaptaciones: Documentation/LevelResearch/Level63.json.
+
+-------------------------------------------------------------------------------
+FICHA 21/66 — Pabellones de té
+Identificador: LiminalEnvironment.TeaPavilions; ID serializado: 20.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Pabellones de columnas y listones, mesas bajas, bandejas y bancos/pantallas de madera; se distribuyen en bahías del banco Restful.
+Contenido, uso y límites: Objetos y acciones de té del sistema compartido cuando se colocan. No hay una simulación detallada de preparación gastronómica por llamar al espacio pabellón de té.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 22/66 — Galería de cerámica
+Identificador: LiminalEnvironment.CeramicGalleria; ID serializado: 21.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Pedestales a distintas alturas con vasijas de perfil curvo, placas y remates de exposición. Mantiene rutas libres entre las composiciones.
+Contenido, uso y límites: Observación, dibujo/actividades compartidas y objetos compatibles. Las piezas geométricas de exhibición no se convierten todas en coleccionables por defecto.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 23/66 — Jardín de invierno
+Identificador: LiminalEnvironment.WinterGarden; ID serializado: 22.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Jardineras elevadas/inset, soportes y vegetación licenciada sobre apoyos reales, con distribución variable dentro del banco común.
+Contenido, uso y límites: Descanso y actividades de jardín compatibles. No adjudicar clima, estaciones o crecimiento botánico simulado sin implementación concreta.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 24/66 — Galerías de los canales
+Identificador: LiminalEnvironment.CanalGalleries; ID serializado: 23.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Vasos de agua con huecos reales de suelo y pasarelas/tablas con barandillas, dimensionadas para circular sobre el canal.
+Contenido, uso y límites: Caminar y observar el agua, con rincones y objetos de la capa compartida. Una pasarela no implica navegación en barco.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 25/66 — Estudios del silencio
+Identificador: LiminalEnvironment.MusicStudios; ID serializado: 24.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Piano/teclado representado con banco, atril, pedales y paneles; organización por bahías y superficies apropiadas al programa musical.
+Contenido, uso y límites: Las actividades musicales usan estaciones existentes; el piano compartido interactivo tiene ocho notas. No confundir las 22 teclas de una geometría de exposición con 22 controles musicales implementados.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 26/66 — Patios de faroles
+Identificador: LiminalEnvironment.LanternCourts; ID serializado: 25.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Faroles montados en soportes con marcos y remates, distribuidos en el espacio con bancos y zonas de estancia.
+Contenido, uso y límites: Actividades y rincones compartidos. No añadir una luz o sonda ilimitada por cada pieza del farol; se conservan presupuestos.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 27/66 — Lavanderías de lino
+Identificador: LiminalEnvironment.LinenLaundries; ID serializado: 26.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Lavadoras con tambor y cristal en el refinado, mandos y mesas de doblado, dentro del programa Restful.
+Contenido, uso y límites: Mobiliario/objetos y actividades compatibles. La representación de lavadoras no certifica ciclos físicos de lavado, ropa simulada o detergentes funcionales.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 28/66 — Santuario mineral
+Identificador: LiminalEnvironment.MineralSanctuary; ID serializado: 27.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Composición de columnas, bases, capiteles y vasos con acceso sumergido; materiales de piedra y agua.
+Contenido, uso y límites: Descanso y exploración acuática compatibles. Sigue en el banco compartido y pendiente de investigación/arquitectura individual, aunque sus elementos estén generados.
+Código principal: Core/RestfulLevelPlan.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: banco Restful con bahías laterales, circulación principal reservada y tragaluz; variaciones de proporción, cubierta, ritmo y mobiliario. Sigue siendo una base compartida, no un distrito independiente ya rehecho.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 29/66 — Observatorio solar
+Identificador: LiminalEnvironment.SolarObservatory; ID serializado: 28.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Estudio de telescopio geométrico con trípode y objetivo acristalado, marcas y mesa de trabajo bajo la iluminación del programa.
+Contenido, uso y límites: Dibujo, libros o agua según la estación elegida por el plan. El telescopio de exposición no es automáticamente una cámara astronómica funcional.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 30/66 — Mercado cubierto
+Identificador: LiminalEnvironment.CoveredMarket; ID serializado: 29.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Puestos con mesas, postes, toldos alternos, cajas y pequeños productos geométricos, dejando circulación.
+Contenido, uso y límites: Estaciones de paquetes y objetos recogibles compatibles. No hay comerciantes o economía simulada demostrada por esta ficha.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 31/66 — Atelier textil
+Identificador: LiminalEnvironment.TextileAtelier; ID serializado: 30.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Bastidor con hilos/trama representados, banco de trabajo y bobinas; usa acabados textiles y madera.
+Contenido, uso y límites: Dibujo/lectura y estaciones compartidas compatibles. No asumir tela dinámica o tejido libre completamente simulado.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 32/66 — Galería postal
+Identificador: LiminalEnvironment.PostalArcade; ID serializado: 31.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Casilleros de correo con ranuras y placas, mostrador y sobres/hojas representados sobre la superficie.
+Contenido, uso y límites: Postales y actividades del sistema. Las notas y los paquetes sugieren presencia humana; no hay reparto postal de NPC.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 33/66 — Marina interior
+Identificador: LiminalEnvironment.IndoorMarina; ID serializado: 32.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Embarcadero de madera sobre agua y hueco real, postes, barandillas y pequeñas barcas selladas de exposición a los lados.
+Contenido, uso y límites: Té y estancia junto al agua, con rincones compatibles. Las barcas de esta arquitectura son estáticas, no vehículos conducibles.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 34/66 — Galería de relojes
+Identificador: LiminalEnvironment.ClockGallery; ID serializado: 33.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Cajas altas con esferas, marcas, agujas y péndulos representados como geometría física de exposición.
+Contenido, uso y límites: Campanillas/actividades compartidas. Tener agujas modeladas no certifica relojes independientes que simulen hora y mecanismos completos.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 35/66 — Taller de papel
+Identificador: LiminalEnvironment.PaperWorkshop; ID serializado: 34.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Mesa de trabajo con hojas y bastidor de cuerdas, papeles colgados y pinzas geométricas.
+Contenido, uso y límites: Dibujo, lectura y actividades compatibles. El secado representado no es una simulación de fabricación de papel o de líquidos.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 36/66 — Pabellón de ajedrez
+Identificador: LiminalEnvironment.ChessPavilion; ID serializado: 35.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Mesa con tablero 8 por 8, piezas geométricas y bancos enfrentados.
+Contenido, uso y límites: La actividad principal seleccionada es SlidingPuzzle; no afirmar reglas completas de ajedrez, rival inteligente o multijugador.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 37/66 — Salón de radio
+Identificador: LiminalEnvironment.RadioSalon; ID serializado: 36.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Radio de sobremesa con dial, altavoz y mandos representados, mesa y listones/paneles de ambiente.
+Contenido, uso y límites: Caja de música y biblioteca personal cuando el elemento es compatible. No implica sintonización real de emisoras o voces, contrarias al tono de sonido pedido.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 38/66 — Galería de espejos
+Identificador: LiminalEnvironment.MirrorArcade; ID serializado: 37.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Paneles reflectantes separados en mallas visuales, con marcos y bancos. La composición conserva el paso libre.
+Contenido, uso y límites: Mosaico/actividades compartidas. Reflejos limitados por shader y configuración; no prometer reflexión perfecta recursiva de todos los espejos.
+Código principal: Core/SpecialRegionPlanner.cs, Core/SpecialRegionArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 39/66 — Galerías del acuario
+Identificador: LiminalEnvironment.AquariumGalleries; ID serializado: 38.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Vitrinas de agua elevadas, cristal separado y bancos dentro del banco Journey.
+Contenido, uso y límites: Estación de dibujo, además de variantes de luz/rompecabezas según hash. No hay simulación de fauna acuática confirmada.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 40/66 — Refugio de bambú
+Identificador: LiminalEnvironment.BambooRetreat; ID serializado: 39.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Columnas segmentadas de bambú, pabellones y esterillas; mobiliario y acústica seleccionados para un espacio tranquilo.
+Contenido, uso y límites: Actividad de té y estaciones secundarias. El bambú es arquitectura/vegetación generada, no un bosque botánico de crecimiento dinámico.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 41/66 — Caravasar del desierto
+Identificador: LiminalEnvironment.DesertCaravanserai; ID serializado: 40.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Arcos sucesivos y patios de sombra con fuentes/elementos de descanso, iluminación cálida y superficies del banco Journey.
+Contenido, uso y límites: Agua y actividades secundarias compatibles. No es por ello un desierto exterior infinito ni una simulación de caravanas.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 42/66 — Museo del cristal
+Identificador: LiminalEnvironment.CrystalMuseum; ID serializado: 41.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Pedestales biselados y piezas facetadas de diferentes alturas en las bahías de exhibición.
+Contenido, uso y límites: Mosaicos y estaciones secundarias. El nombre cristal no garantiza refracción físicamente exacta de cada pieza en todas las calidades.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 43/66 — Baños entre nubes
+Identificador: LiminalEnvironment.CloudBaths; ID serializado: 42.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Cuatro vasos con entradas sumergidas y pérgolas ligeras dentro del programa compartido.
+Contenido, uso y límites: Campana de descanso y otras estaciones compatibles. No es el Nivel 63 ni hereda automáticamente su sistema de mar de nubes y caída no mortal.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 44/66 — Biblioteca sumergida
+Identificador: LiminalEnvironment.SunkenLibrary; ID serializado: 43.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Canales y puentes secos con estanterías laterales, evitando convertir el recorrido principal en una pared de agua.
+Contenido, uso y límites: Libros y actividades secundarias. No significa que todos los libros se puedan leer o que se haya simulado una inundación dinámica.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 45/66 — Estación de invierno
+Identificador: LiminalEnvironment.RailwayWintergarden; ID serializado: 44.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Vías a escala, traviesas, marquesinas, bancos y elementos de estancia como radiadores reutilizados.
+Contenido, uso y límites: Postales y actividades de viaje. No se implementan trenes conducibles ni horarios de transporte completos por disponer de vías.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 46/66 — Pueblo de cerámica
+Identificador: LiminalEnvironment.CeramicVillage; ID serializado: 45.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Pabellones abiertos, entradas arqueadas y cubiertas escalonadas usando el sistema de bahías Journey.
+Contenido, uso y límites: Mosaico y actividades secundarias. Su nombre de pueblo no sustituye el rework pendiente de calles, barrios e interiores propios.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 47/66 — Invernadero lunar
+Identificador: LiminalEnvironment.LunarGreenhouse; ID serializado: 46.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Mesas de cultivo, canales elevados y marcos metálicos con macetas del catálogo compatible.
+Contenido, uso y límites: Dibujo y actividades secundarias. No existe una órbita lunar, gravedad lunar o ciclo de cultivo científico confirmado.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 48/66 — Restaurante de ámbar
+Identificador: LiminalEnvironment.AmberRestaurant; ID serializado: 47.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Mesas, asientos y pantallas de madera, tono cálido y objetos de servicio del banco atribuido.
+Contenido, uso y límites: Té y actividades secundarias, con provisiones cuando el apoyo lo permite. No hay empleados, cocina completa o economía de restaurante.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 49/66 — Archivo de cartógrafos
+Identificador: LiminalEnvironment.MapmakersArchive; ID serializado: 48.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Mesas de mapas, cajoneras y rollos de papel dentro de las zonas laterales; mobiliario y tratamiento acústico del programa.
+Contenido, uso y límites: Postales y actividades secundarias. El cuaderno de rutas común describe conexiones reales; no todas las hojas decorativas son mapas interactivos.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 50/66 — Patios de escultura
+Identificador: LiminalEnvironment.SculptureCourts; ID serializado: 49.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Composiciones de anillos sobre plintos y zonas para observar desde distintos ángulos.
+Contenido, uso y límites: Dibujo y otras estaciones. Las esculturas de exposición no se presuponen editables o recogibles.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 51/66 — Villa de faroles de papel
+Identificador: LiminalEnvironment.PaperLanternTown; ID serializado: 50.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Calles interiores, pórticos y faroles suspendidos, con iluminación cálida regional.
+Contenido, uso y límites: Campanillas y estaciones secundarias. Sigue usando estructura compartida; no se declara una ciudad independiente reconstruida al nivel del Nivel 11.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 52/66 — Salones del molino
+Identificador: LiminalEnvironment.WatermillHalls; ID serializado: 51.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Ruedas geométricas con radios y paletas, canales y pasarelas sobre agua.
+Contenido, uso y límites: Agua y actividades secundarias. Las ruedas de exposición son estáticas; no hay maquinaria hidráulica funcional simulada.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 53/66 — Paseo marítimo interior
+Identificador: LiminalEnvironment.IndoorBoardwalk; ID serializado: 52.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Tarimas y barandillas con agua bajo el paseo, y tono de luz cálido del programa.
+Contenido, uso y límites: Postales, descanso y estaciones secundarias. No se añade por el nombre un océano navegable o ciudad costera exterior completa.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 54/66 — Teatro de terciopelo
+Identificador: LiminalEnvironment.VelvetTheatre; ID serializado: 53.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Filas de bancos, cortinajes representados y disposición de estancia/exhibición con materiales absorbentes del banco.
+Contenido, uso y límites: Caja de música y actividades secundarias. No hay actores ni programación de espectáculos o voces.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 55/66 — Huertos suspendidos
+Identificador: LiminalEnvironment.HangingOrchards; ID serializado: 54.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Pérgolas, cestas colgantes y bancos junto a jardineras/macetas del catálogo.
+Contenido, uso y límites: Agua y actividades secundarias. No se simula automáticamente una cosecha o crecimiento por tener cestas y plantas.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 56/66 — Librerías de lluvia
+Identificador: LiminalEnvironment.RainyBookshops; ID serializado: 55.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Estanterías, divisiones acristaladas y marquesinas, con notas y objetos para lectura.
+Contenido, uso y límites: Libros y actividades secundarias. La temática de lluvia no implica que cada sala tenga un sistema meteorológico individual; consultar la integración real de audio/clima.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 57/66 — Cisterna de mosaicos
+Identificador: LiminalEnvironment.MosaicCistern; ID serializado: 56.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Columnas, capiteles, arcos y vasos de agua con entrada sumergida dentro del banco Journey.
+Contenido, uso y límites: Mosaico y otras estaciones. Transparencia/reflejos usan el sistema común y requieren inspección nativa.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 58/66 — Galería aeronáutica
+Identificador: LiminalEnvironment.AeronauticalGallery; ID serializado: 57.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Estudios aerodinámicos suspendidos, planos y mesas de taller con objetos de exposición.
+Contenido, uso y límites: Rompecabezas deslizante y estaciones secundarias. Los estudios son estáticos: no son el avión y helicóptero conducibles del Nivel 11.
+Código principal: Core/JourneyLevelPlanner.cs, Core/JourneyLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 59/66 — Patios de magnolias
+Identificador: LiminalEnvironment.MagnoliaCourts; ID serializado: 58.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Árboles con ramas y flores de doble cara, jardineras circulares, pérgolas y bancos de listones; tono cálido.
+Contenido, uso y límites: Semillero, té, postales y campana de descanso según estaciones del banco Horizon. No es un jardín botánico reconstruido individualmente todavía.
+Código principal: Core/HorizonLevelPlanner.cs, Core/HorizonLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 60/66 — Terminal de funiculares
+Identificador: LiminalEnvironment.FunicularTerminal; ID serializado: 59.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Cabinas acristaladas con frente/trasera abiertos, asientos, cables y traviesas, dimensionadas para entrar.
+Contenido, uso y límites: Rosa de los vientos y actividades de viaje. Cabinas estacionarias de exposición; no transporte conducible ni simulación de cables.
+Código principal: Core/HorizonLevelPlanner.cs, Core/HorizonLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 61/66 — Palacio de vitrales
+Identificador: LiminalEnvironment.StainedGlassHalls; ID serializado: 60.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Galerías altas con vidrio ámbar, verde azulado y rosa, retículas de plomo con profundidad y bancos.
+Contenido, uso y límites: Mosaicos, té y postales. La transmisión coloreada depende de HDRP; no se certifican sombras coloreadas precisas ni ray tracing nativo comprobado.
+Código principal: Core/HorizonLevelPlanner.cs, Core/HorizonLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 62/66 — Patios de campanas
+Identificador: LiminalEnvironment.BellCourts; ID serializado: 61.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Pórticos de piedra/madera y campanas con soporte, zonas de descanso y luz cálida.
+Contenido, uso y límites: Secuencia musical de campanas y estaciones secundarias. La arquitectura sigue en la cola de rework aunque la actividad tenga estado propio.
+Código principal: Core/HorizonLevelPlanner.cs, Core/HorizonLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 63/66 — Patios del faro
+Identificador: LiminalEnvironment.LighthouseCourts; ID serializado: 62.
+Estado real: Generación/programa existente; REWORK INDIVIDUAL PENDIENTE en el inventario de reconstrucción.
+Arquitectura y generación: Miradores con escaleras físicas, plataformas, barandillas y linternas acristaladas con luz local limitada.
+Contenido, uso y límites: Circuito de linternas y campana de descanso. No implica una costa exterior nueva ni navegación marítima.
+Código principal: Core/HorizonLevelPlanner.cs, Core/HorizonLevelArchitecture.cs, Core/RestfulLevelArchitecture.cs.
+Distribución actual: programa especializado sobre la base Restful, cuatro zonas laterales y ejes libres; las regiones extensas permiten continuidad entre sectores. El rework pendiente debe superar esa base común, no limitarse a cambiar colores.
+Qué falta: investigación y arquitectura diferenciada propia, además de la prueba nativa común. La existencia de objetos o recetas no completa esta fase.
+
+-------------------------------------------------------------------------------
+FICHA 64/66 — Nivel 39 / Bosque encantado
+Identificador: LiminalEnvironment.EnchantedForest39; ID serializado: 63.
+Estado real: NUEVO NIVEL PUBLICADO; CI y descargas verificados; validación nativa pendiente.
+Arquitectura y generación: Bosque al crepúsculo con colinas, senderos curvos/circulares, doce claros, robles con tres LOD y estanques recortados contra el terreno.
+Contenido, uso y límites: Ocho tipos de actividad, tres recuerdos acumulables, cuaderno de rutas, comida/agua de almendra y viento/hojas 3D. Adaptación pacífica: omite hipnosis, hambre letal y tormentas de límite canónicas.
+Código principal: Core/Forest39Plan.cs, Core/Forest39Architecture.cs, Core/Forest39Trail.cs, Core/Forest39Water.cs, Core/Forest39Activities.cs.
+Investigación/adaptaciones: Documentation/LevelResearch/Level39.json.
+
+-------------------------------------------------------------------------------
+FICHA 65/66 — Centro comercial completo conectado
+Identificador: generador regional conectado, adicional al enum; NO sustituye Supermarket (ID 2).
+Estado real: sistema existente y ampliado con fit-outs, fuentes licenciadas, zonas comerciales e iluminación por planta; revisión nativa/visual pendiente.
+Arquitectura y generación: edificio reservado en la topología con varias plantas físicas, atrios, puentes, escaleras, tiendas y accesos caminables. Conserva compatibilidad con accesos antiguos sin convertirlos en el único camino normal.
+Contenido y uso: mobiliario compatible, tiendas/objetos, descanso y provisiones. El empaquetado de tiendas protege circulación, accesos y escaleras. Las luces se seleccionan según altura real de cada planta, no solo distancia horizontal.
+Materiales/luz: PBR y modelos con procedencia, tragaluces y un único sol regional coordinado. No crear otro sol con sombras ni una sonda por objeto.
+Código principal: Core/ConnectedMallTopology.cs, Core/ConnectedMallArchitecture.cs, Core/MallPlan.cs, Core/MallArchitectureV20.cs, Core/MallArchitectureV21.cs, Core/MallRetailPacking.cs, Core/MallRetailLighting.cs, Runtime/PoolroomsConnectedMalls.cs.
+Qué falta comprobar: conexiones al entrar/salir/descargar, desplazamiento entre plantas, colocación de luces y objetos, reflejos e imagen desde el jugador. No confundir muchas tiendas con muchos modelos externos distintos.
+
+-------------------------------------------------------------------------------
+FICHA 66/66 — Nivel 94 / colinas y vecindarios
+Identificador: generador de terreno conectado, adicional al enum; no confundir con RainHouses.
+Estado real: terreno/casas/pasto implementados y ampliados; aspecto, físicas y rendimiento nativos pendientes de comprobar.
+Arquitectura y generación: colinas con parcelas y grupos de casas más compactos, interiores variados, opciones de plantas/sótanos/áticos por familia y ampliación de zona poblada. No se fija una distancia única entre todas las casas de cualquier semilla.
+Contenido y uso: recorrer casas y terreno, mobiliario compatible, rincones y provisiones, vegetación agrupada con opción gráfica de control/desactivación según el sistema existente.
+Materiales/luz: acabados y cielo/sol del terreno, pasto con detalle acotado; no un collider/GameObject por brizna. Mantener la distancia de renderizado separada de la extensión del bioma.
+Código principal: Core/ConnectedTerrainTopology.cs, Core/TerrainRegionPlan.cs, Core/TerrainHouseBlueprint.cs, Core/TerrainVariedHouseArchitecture.cs, Core/TerrainGrass.cs, Core/TerrainStreamingPolicy.cs, Runtime/PoolroomsTerrainSystem.cs.
+Qué falta comprobar: densidad percibida caminando, apoyo/entrada de casas, escaleras y alturas de variantes, retorno desde otros biomas, coste del pasto y estabilidad física durante vuelo/carga.
+
+CONTROL DE COBERTURA DE LAS FICHAS
+64 ambientes del enum explicados, dos sistemas regionales adicionales, 45 reworks individuales pendientes y 4 reconstrucciones individuales publicadas. El Bosque encantado es una incorporación nueva. El documento explica cada destino sin declarar que los 66 estén visualmente terminados.
 
 ===============================================================================
 FIN DEL DOCUMENTO
