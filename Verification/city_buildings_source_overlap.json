@@ -1,0 +1,61 @@
+{
+  "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+  "exactFaces": {
+    "models": [
+      {
+        "model": "C_BuildingArcade.obj",
+        "exactDuplicateFaces": 0,
+        "crossMaterialDuplicates": 0
+      },
+      {
+        "model": "C_BuildingArcade_LOD1.obj",
+        "exactDuplicateFaces": 231,
+        "crossMaterialDuplicates": 0
+      },
+      {
+        "model": "C_BuildingArcade_LOD2.obj",
+        "exactDuplicateFaces": 345,
+        "crossMaterialDuplicates": 0
+      }
+    ],
+    "nativeUnityExecuted": false
+  },
+  "uv": [
+    {
+      "model": "C_BuildingArcade_LOD1.obj",
+      "duplicateFaces": 231,
+      "differentUv": 0,
+      "maxUvDelta": 0
+    },
+    {
+      "model": "C_BuildingArcade_LOD2.obj",
+      "duplicateFaces": 345,
+      "differentUv": 0,
+      "maxUvDelta": 0
+    },
+    {
+      "model": "C_BuildingArcade.obj",
+      "duplicateFaces": 0,
+      "differentUv": 0,
+      "maxUvDelta": 0
+    }
+  ],
+  "normals": [
+    {
+      "model": "C_BuildingArcade_LOD1.obj",
+      "normalConflicts": 0,
+      "maxNormalDelta": 0
+    },
+    {
+      "model": "C_BuildingArcade_LOD2.obj",
+      "normalConflicts": 0,
+      "maxNormalDelta": 0
+    },
+    {
+      "model": "C_BuildingArcade.obj",
+      "normalConflicts": 0,
+      "maxNormalDelta": 0
+    }
+  ],
+  "interpretation": "Only identical material/UV/normal triangles repeat in decimated LODs; no cross-material, UV or normal conflicts found in this offline scan. No Unity visual claim."
+}

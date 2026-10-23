@@ -1,0 +1,100 @@
+{
+  "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-arquitectura-256",
+  "fullVerification": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39881391043",
+    "conclusion": "success",
+    "steps": 58,
+    "failed": 0,
+    "skipped": 0
+  },
+  "publisher": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/39881507344",
+    "conclusion": "success",
+    "steps": 9
+  },
+  "delivery": {
+    "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+    "successfulFullRun": "39881391043",
+    "assetsUncompressedBytes": 1478537267,
+    "package": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Nivel11_256_Edificios_Assets.zip",
+      "files": 2364,
+      "bytes": 1187626264,
+      "sha256": "4880d6f9477b78d9c7ef7e8f314a17275807b004f2ba3f6b53f875ddb6da96f8",
+      "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+      "workingTreeChanged": false
+    },
+    "patch": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Parche_Nivel11_256_Edificios.zip",
+      "files": 788,
+      "bytes": 136037880,
+      "sha256": "1dac1b053e4f0df1a0c70f2b659f8f25bfe1cab91e92a3843a7af630c060f13a",
+      "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+      "workingTreeChanged": false
+    },
+    "nativeUnityExecuted": false,
+    "newExternalModels": 1,
+    "ordinaryBuildingDesigns": 128,
+    "strangeBuildingDesigns": 128,
+    "structuralFamilies": 32,
+    "buildingSourceModelsIncludingPreserved": 3,
+    "upscaledTextures": false,
+    "paddingBytes": 0
+  },
+  "publicDownloads": [
+    {
+      "kind": "package",
+      "name": "Poolrooms_Nivel11_256_Edificios_Assets.zip",
+      "bytes": 1187626264,
+      "sha256": "4880d6f9477b78d9c7ef7e8f314a17275807b004f2ba3f6b53f875ddb6da96f8",
+      "httpStatus": 200,
+      "publicDownloadVerified": true,
+      "crcAndSourceFilesVerifiedLocally": false
+    },
+    {
+      "kind": "patch",
+      "name": "PoolroomsProcedural/Tests/PlayMode/StaticObjSkinTests.cs",
+      "bytes": 136037880,
+      "sha256": "1dac1b053e4f0df1a0c70f2b659f8f25bfe1cab91e92a3843a7af630c060f13a",
+      "httpStatus": 200,
+      "publicDownloadVerified": true,
+      "crcAndSourceFilesVerifiedLocally": true
+    }
+  ],
+  "sourceReproduction": {
+    "identical": true,
+    "shippedFiles": 34,
+    "rebuiltFiles": 34,
+    "differentFiles": {},
+    "nativeUnityExecuted": false
+  },
+  "ciArtifacts": [
+    {
+      "name": "Poolrooms-Reconstruccion-Assets",
+      "id": 12471367062,
+      "bytes": 1182883128,
+      "expired": false
+    },
+    {
+      "name": "Surface-ownership-evidence",
+      "id": 12470937338,
+      "bytes": 2738,
+      "expired": false
+    },
+    {
+      "name": "R34-Batch-Evidence",
+      "id": 12470808965,
+      "bytes": 6596,
+      "expired": false
+    },
+    {
+      "name": "City-buildings-evidence",
+      "id": 12470677996,
+      "bytes": 12933,
+      "expired": false
+    }
+  ],
+  "nativeUnityExecuted": false,
+  "limitations": "Unity/PlayMode, native HDRP shaders/APIs, physics, final appearance and FPS pending. CI assertions are Core/source checks, not native Unity tests."
+}

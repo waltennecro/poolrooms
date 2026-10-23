@@ -1640,8 +1640,8 @@
     }
   ],
   "latestCoreChecks": {
-    "revision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
-    "run": "https://github.com/waltennecro/poolrooms/actions/runs/39859893917",
+    "revision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+    "run": "https://github.com/waltennecro/poolrooms/actions/runs/39881391043",
     "conclusion": "success",
     "nativeUnityExecuted": false
   },
@@ -3578,14 +3578,14 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "stage": "nivel11-dreamcore-provisiones",
-    "sourceRevision": "56a8c91164d3d82d0317104a084f8c6f4b1d562d",
-    "url": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-dreamcore-provisiones",
-    "packageBytes": 1092862271,
-    "patchBytes": 41271518,
-    "assetsFiles": 2325,
-    "assetsUncompressedBytes": 1379444608,
-    "evidence": "Verification/city_provisions_delivery.json",
+    "stage": "nivel11-arquitectura-256",
+    "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+    "url": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-arquitectura-256",
+    "packageBytes": 1187626264,
+    "patchBytes": 136037880,
+    "assetsFiles": 2364,
+    "assetsUncompressedBytes": 1478537267,
+    "evidence": "Verification/city_buildings_delivery.json",
     "publicDownloadsSha256Verified": true,
     "nativeUnityExecuted": false
   },
@@ -3865,7 +3865,7 @@
     "publicDownloadsSha256Verified": true
   },
   "cityBuildingExpansion": {
-    "status": "refined_local_checks_passed_native_pending",
+    "status": "published_verified_downloads_native_pending",
     "ordinaryDesigns": 128,
     "strangeDesigns": 128,
     "structuralFamilies": 32,
@@ -3880,7 +3880,7 @@
     "texturesUpscaled": false,
     "nativeUnityExecuted": false,
     "guide": "Assets/PoolroomsProcedural/Documentation/Nivel11_256_Edificios.md",
-    "publicRelease": "pending",
+    "publicRelease": "https://github.com/waltennecro/poolrooms/releases/tag/nivel11-arquitectura-256",
     "newFacadeNativeMapsRestored": 17,
     "newFacadeNativeMaterialBindings": 7,
     "refinedMassing": true,
@@ -3891,6 +3891,13 @@
     "cancelledSupersededRuns": [
       39879604290,
       39879685871
-    ]
+    ],
+    "sourceRevision": "40981f83ed79774e35b9878f7a445f11a44ab64d",
+    "verificationRun": 39881391043,
+    "publicationRun": 39881507344,
+    "sourceReproductionIdenticalFiles": 34,
+    "deliveryEvidence": "Verification/city_buildings_delivery.json",
+    "peakBuildingTrianglesBeforeSurfaceOwnership": 36156,
+    "peakBlockTrianglesBeforeSurfaceOwnership": 86978
   }
 }
