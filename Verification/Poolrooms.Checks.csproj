@@ -27,6 +27,8 @@
     <Compile Include="CityBuildingChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="CityProvisionChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="RenderSurfaceChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="TravelNativeContracts.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
+    <Compile Include="TravelChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="Forest39Atlas.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="Forest39RegressionChecks.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />
     <Compile Include="Forest39NativeContracts.cs" Condition="'$(PoolroomsHistoricalCore)' != 'true'" />

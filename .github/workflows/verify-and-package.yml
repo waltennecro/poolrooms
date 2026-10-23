@@ -24,6 +24,18 @@ jobs:
         run: |
           dotnet build Verification/Poolrooms.Checks.csproj --configuration Release -warnaserror
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj
+      - name: Check gameplay change journal and three TXT documents
+        run: python tools/update_project_texts.py --check
+      - name: Check fast travel, automatic advance and grapple contracts
+        shell: bash
+        run: |
+          dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --travel > "${{ runner.temp }}/travel-checks.txt"
+          cat "${{ runner.temp }}/travel-checks.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Travel-evidence
+          path: ${{ runner.temp }}/travel-checks.txt
+          if-no-files-found: error
       - name: Check coplanar faces, material ownership and streamed seam restoration
         env:
           POOLROOMS_SURFACE_REPORT: ${{ runner.temp }}/surface-audit.json

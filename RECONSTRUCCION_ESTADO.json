@@ -4009,5 +4009,35 @@
       "upscaledTextures": false,
       "nativeUnityExecuted": false
     }
+  },
+  "normalExplorationTravel": {
+    "status": "implemented_local_core_checked_exact_source_ci_publication_pending",
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Travesia_Libre.md",
+    "pacesMetresPerSecond": [
+      8,
+      12
+    ],
+    "normalPacePreserved": true,
+    "grappleRangeMetres": 28,
+    "swimBoostMetresPerSecond": 5.2,
+    "automaticAdvance": true,
+    "masterRequired": false,
+    "renderDistanceChanged": false,
+    "nativePlayModeTestsAdded": 3,
+    "nativeUnityExecuted": false,
+    "newExternalModels": 0,
+    "newExternalScans": 0,
+    "checks": "Verification/travel_checks.txt",
+    "fullLocalChecks": "Verification/travel_full_checks.txt",
+    "pending": [
+      "Exact-source full GitHub CI and release",
+      "Unity/PlayMode/PhysX, cable appearance, movement feel, audio and FPS"
+    ]
+  },
+  "gameplayChangeLog": {
+    "canonical": "CAMBIOS_JUEGO_DESDE_RELEVO.json",
+    "readable": "CAMBIOS_JUEGO_DESDE_RELEVO.txt",
+    "generator": "tools/update_project_texts.py",
+    "updateAllThreeTxtOnGameplayChange": true
   }
 }

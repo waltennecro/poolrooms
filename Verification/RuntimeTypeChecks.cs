@@ -46,6 +46,7 @@ static partial class Checks
         var references=((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")).Split(Path.PathSeparator)
             .Select(p=>(MetadataReference)MetadataReference.CreateFromFile(p)).ToList();
         references.Add(MetadataReference.CreateFromFile(typeof(Room).Assembly.Location));
+        TravelNativeContract(root,references);
         CSharpCompilation Compile(string source)=>CSharpCompilation.Create("RuntimeBoundaryProbe",
             new[]{CSharpSyntaxTree.ParseText(source,new CSharpParseOptions(LanguageVersion.CSharp9))},references,
             new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));

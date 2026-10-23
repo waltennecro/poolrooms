@@ -512,6 +512,14 @@ namespace Poolrooms
         private void DrawControls()
         {
             Note("Inventario: Tab abre/cierra cinco páginas de 50 espacios. 5 muestra/oculta la barra rápida; 1–4 y 6–9 seleccionan su acceso y X lo usa. Z guarda el objeto sostenido; T toma o mueve muebles y E usa su función. Las cantidades por pila no tienen límite fijo. Esta sesión todavía no se guarda.");
+            var travel=explorer.Travel;
+            if(travel!=null)
+            {
+                Choice("Ritmo de travesía · C","Normal conserva caminar/correr. Ágil y Exprés aceleran el avance hacia delante.",new List<string>(PoolroomsTravel.PaceNames),(int)travel.Preferences.pace,i=>{travel.Preferences.pace=(TravelPace)i;travel.SavePreferences();});
+                Toggle("Avance automático · J","Avanza hacia la mirada. J o S lo detienen; también al chocar, abrir una interfaz o esperar suelo.",travel.Preferences.allowAutoAdvance,v=>{travel.Preferences.allowAutoAdvance=v;travel.SavePreferences();},SettingsChange.Controls);
+                Toggle("Gancho de exploración · K / botón central","Mantén para acercarte a arquitectura sólida cargada, hasta 28 m. Suelta para soltar el cable.",travel.Preferences.allowGrapple,v=>{travel.Preferences.allowGrapple=v;travel.SavePreferences();},SettingsChange.Controls);
+                Toggle("Natación rápida","La tecla de correr acelera el nado hasta 5,2 m/s. No activa necesidades de oxígeno ni energía.",travel.Preferences.allowFastSwim,v=>{travel.Preferences.allowFastSwim=v;travel.SavePreferences();},SettingsChange.Controls);
+            }
             Note("Alas: G activa o detiene el vuelo normal · H cambia entre lento, medio, rápido y muy rápido · Espacio sube · Ctrl baja. Diseños y ajustes en Skins → Alas.");
             Note("Cámara: F5 recorre 8 perspectivas. F6 abre/cierra el modo foto; F8 oculta su panel y F9 guarda un PNG sin interfaz. En foto: WASD mover, E/Q subir/bajar, botón derecho mirar, Shift acelerar, Z/C inclinar y rueda ajustar encuadre.");
             Note("Objetos: E toma o interactúa; Q suelta. Mantén R y mueve el ratón para examinar el objeto sostenido sin girar la cámara.");

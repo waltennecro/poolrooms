@@ -1,4 +1,33 @@
 ﻿LEER PRIMERO — NOTA PARA LA IA QUE CONTINÚE POOLROOMS
+
+[INICIO DEL REGISTRO VIVO DE CAMBIOS]
+REGISTRO VIVO DE CAMBIOS DEL JUEGO
+Fuente: CAMBIOS_JUEGO_DESDE_RELEVO.json. Zona horaria: America/Mexico_City
+El usuario pide que todos los cambios de juego desde Travesía libre en adelante se anoten en los tres TXT de proyecto, plan y relevo.
+Los capítulos/manuales anteriores son instantáneas históricas. Este registro prevalece para conocer cambios posteriores. El PDF original conserva sus 50 páginas; el TXT del plan añade esta bitácora.
+
+2026-10-23 · travesia-libre-01
+Estado: implementado; comprobaciones locales superadas; CI completo y publicación pendientes
+Cambios:
+  - C alterna Normal, Ágil (8 m/s) y Exprés (12 m/s). Normal conserva caminar/correr; la travesía acelera hacia delante de forma gradual.
+  - J activa avance automático hacia la mirada; J/S, bloqueo, ausencia de apoyo delante, interfaz, pausa, viaje o carga lo detienen. No es un navegador autónomo.
+  - K o botón central mantenido usa un gancho de tirón hasta 28 m sobre arquitectura estática cargada. Respeta obstáculos, CharacterController, subpasos de 18 cm, separación del anclaje y cancelación; no es TP ni noclip.
+  - La tecla de correr acelera la natación hasta 5,2 m/s; el nado normal conserva 2,1 m/s.
+  - Ajustes en Controles de pausa y menú principal, con preferencias propias y restablecimiento. Se conservan alas, vehículos, dash, salto doble, deslizamiento, linterna y distancia de renderizado.
+  - Tres pruebas nativas añadidas para paredes, oclusión/barreras temporales y apoyo del avance. Sin modelos, texturas ni audio externos nuevos.
+  - Bitácora reproducible y actualización de los tres TXT exigida por AGENTS.md para futuras modificaciones de juego.
+Comprobaciones reales:
+  - Core .NET 8 Release con warnings como errores: 0 errores / 0 advertencias.
+  - Prueba --travel: ritmos, aceleración, autoavance, giro, cancelación, natación y gancho a seis frecuencias, márgenes y entradas inválidas.
+  - Componente real PoolroomsTravel completo compilado con Core y APIs Unity reducidas; se comprueban nombres de Explorer/cámara y se rechaza una propiedad de foto inexistente.
+  - Suite local completa: 2.130.214.083 aserciones del núcleo/código, 188 geometrías protegidas y sintaxis de 393 scripts por cinco configuraciones. No son pruebas nativas.
+Pendiente:
+  - CI completo del commit exacto y publicación/verificación de ambos ZIP públicos.
+  - Unity/PlayMode, PhysX, cable, sensación, sonido, apariencia y FPS reales.
+Guía: Assets/PoolroomsProcedural/Documentation/Travesia_Libre.md
+
+[FIN DEL REGISTRO VIVO DE CAMBIOS]
+
 Preparada el 23 de octubre de 2026, Ciudad de México
 Repositorio: https://github.com/waltennecro/poolrooms
 
@@ -16,11 +45,11 @@ Es un paquete de Assets para Unity 6.3 / HDRP 17.3, no un proyecto completo de U
 
 La base original recuperada fue v39, con 326 archivos, commit 20311f824ebda9ecbf553f28915f100e8e252995. La v47 exacta NO se recuperó. Lo posterior es reconstrucción y desarrollo nuevo. No lo presentes como recuperación byte por byte de archivos desaparecidos.
 
-La fuente del juego de la entrega más reciente documentada es:
+Fuente de la entrega de referencia inicial, anterior a Travesía libre:
   d887be56ac3d76205802c158b948f02263916cb4
 La entrega es:
   https://github.com/waltennecro/poolrooms/releases/tag/nivel39-bosque-encantado
-Los commits posteriores hasta esta nota son de documentación y conservan los Assets de esa fuente. Verifícalo por Git; no asumas que seguirá siendo así después de cambios futuros.
+Hasta la nota inicial los commits posteriores eran de documentación. Travesía libre introduce cambios nuevos de código: consulta el registro vivo al comienzo, CAMBIOS_JUEGO_DESDE_RELEVO.json y latestDelivery para el estado posterior. No asumas igualdad de Assets sin comprobarla por Git.
 
 2. QUÉ LEER Y EN QUÉ ORDEN
 

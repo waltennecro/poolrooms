@@ -19,7 +19,7 @@ namespace Poolrooms
             explorer.FeedUtilityInput(false,false,false,false,false,false);
             explorer.FeedCarryInput(false,false);explorer.FeedSlideInput(false);explorer.FeedRenderingShortcut(false);explorer.FeedEmoteInput(false);
             explorer.FeedDashInput(false);explorer.FeedInspectInput(false);
-            explorer.FeedWingInput(false,false);explorer.FeedInventoryInput(false,false,false,false,false);
+            explorer.FeedTravelInput(false,false,false);explorer.FeedWingInput(false,false);explorer.FeedInventoryInput(false,false,false,false,false);
             explorer.FeedViewInput(false,false,false,false,false,0,0,0,false);
             explorer.externalInput=false;
         }
@@ -33,6 +33,7 @@ namespace Poolrooms
                 runKey!=null&&runKey.isPressed,k!=null&&k.escapeKey.wasPressedThisFrame,m!=null&&m.leftButton.wasPressedThisFrame);
             explorer.FeedDashInput(k!=null&&k.leftShiftKey.wasPressedThisFrame);
             explorer.FeedWingInput(k!=null&&k.gKey.wasPressedThisFrame,k!=null&&k.hKey.wasPressedThisFrame);
+            explorer.FeedTravelInput(k!=null&&k.cKey.wasPressedThisFrame,k!=null&&k.jKey.wasPressedThisFrame,k!=null&&k.kKey.isPressed||m!=null&&m.middleButton.isPressed);
             int slot=-1;
             if(k!=null){if(k.digit1Key.wasPressedThisFrame)slot=0;else if(k.digit2Key.wasPressedThisFrame)slot=1;else if(k.digit3Key.wasPressedThisFrame)slot=2;else if(k.digit4Key.wasPressedThisFrame)slot=3;else if(k.digit6Key.wasPressedThisFrame)slot=4;else if(k.digit7Key.wasPressedThisFrame)slot=5;else if(k.digit8Key.wasPressedThisFrame)slot=6;else if(k.digit9Key.wasPressedThisFrame)slot=7;}
             explorer.FeedInventoryInput(k!=null&&k.tabKey.wasPressedThisFrame,k!=null&&k.digit5Key.wasPressedThisFrame,k!=null&&k.zKey.wasPressedThisFrame,k!=null&&k.xKey.wasPressedThisFrame,k!=null&&k.tKey.wasPressedThisFrame,slot,m!=null?m.scroll.ReadValue().y/120:0);

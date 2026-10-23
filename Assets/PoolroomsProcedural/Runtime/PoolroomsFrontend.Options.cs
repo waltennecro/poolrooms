@@ -9,6 +9,7 @@ namespace Poolrooms
     public sealed partial class PoolroomsFrontend
     {
         private GamePreferences preferences;
+        private TravelPreferences travelPreferences;
         private bool displayPreview;
         private double displayDeadline;
         private DisplayConfiguration previousDisplay;
@@ -16,6 +17,7 @@ namespace Poolrooms
         private void LoadFrontendPreferences()
         {
             preferences=new GamePreferences();
+            travelPreferences=actor!=null&&actor.Travel!=null?actor.Travel.Preferences:PoolroomsTravel.ReadPreferences();
             bool restored=false;
             try
             {
@@ -45,7 +47,9 @@ namespace Poolrooms
 
         private void SaveFrontendPreferences()
         {
-            preferences.Sanitize();
+            preferences.Sanitize();travelPreferences.Sanitize();
+            PlayerPrefs.SetString(PoolroomsTravel.PreferenceKey,JsonUtility.ToJson(travelPreferences));PlayerPrefs.Save();
+            if(actor!=null&&actor.Travel!=null)actor.Travel.SavePreferences();
             if(actor!=null)
             {
                 var settings=actor.GetComponent<PoolroomsGameSettings>();
@@ -118,7 +122,11 @@ namespace Poolrooms
                     OptionToggle("Invertir mirada vertical",preferences.invertY,v=>preferences.invertY=v,scroll);
                     OptionToggle("Alternar carrera",preferences.toggleSprint,v=>preferences.toggleSprint=v,scroll);
                     OptionToggle("Permitir deslizamiento",preferences.allowSlide,v=>preferences.allowSlide=v,scroll);
-                    Text("WASD · movimiento\nEspacio · salto / doble salto\nShift · dash\nE · interactuar\nTab · inventario\n5 · barra rápida\nF5 · perspectiva\nF6 · foto\nF7 · renderizado\nEsc · pausa","fe-note",scroll);
+                    OptionChoice("Travesía · C",new List<string>(PoolroomsTravel.PaceNames),(int)travelPreferences.pace,i=>travelPreferences.pace=(TravelPace)i,scroll);
+                    OptionToggle("Avance automático · J",travelPreferences.allowAutoAdvance,v=>travelPreferences.allowAutoAdvance=v,scroll);
+                    OptionToggle("Gancho · K / botón central",travelPreferences.allowGrapple,v=>travelPreferences.allowGrapple=v,scroll);
+                    OptionToggle("Nadar rápido con la tecla de correr",travelPreferences.allowFastSwim,v=>travelPreferences.allowFastSwim=v,scroll);
+                    Text("WASD · movimiento\nEspacio · salto / doble salto\nC · ritmo de travesía\nJ · avance automático\nK / botón central mantenido · gancho\nShift · dash\nE · interactuar\nTab · inventario\n5 · barra rápida\nF5 · perspectiva\nF6 · foto\nF7 · renderizado\nEsc · pausa","fe-note",scroll);
                     Text("Los controles detallados, el vuelo con alas y las skins siguen disponibles en los ajustes completos de la partida.","fe-note",scroll);
                     break;
             }

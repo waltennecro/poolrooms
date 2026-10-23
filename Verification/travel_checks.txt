@@ -1,0 +1,7 @@
+PASS: travel pacing, auto-stop/steering, swimming and grapple at six frame rates; bounded steps, stop margins, cancellation and invalid-input checks. Unity/PhysX unrun.
+PASS: entire actual travel component compiled against real Core and reduced Unity interfaces; Explorer/camera API names checked, missing photo API rejected. NOT native Unity compilation.
+PASS: actual forest pickup factory/wrapper compiled with reduced Unity types; CS0272/CS0122 replayed and rejected; three keepsakes/invalid IDs checked. NOT Unity API compilation.
+PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
+PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
+PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.
