@@ -2,6 +2,8 @@
 *.md text eol=lf
 *.py text eol=lf
 *.json text eol=lf
+# PDFs may use ASCII-encoded streams; keep them binary to preserve byte offsets.
+*.pdf binary
 # Preserve the recovered archive bytes, including original line endings.
 Assets/PoolroomsProcedural/** -text whitespace=cr-at-eol
 # Downloaded Bistro metadata is hashed against its exact upstream byte stream.

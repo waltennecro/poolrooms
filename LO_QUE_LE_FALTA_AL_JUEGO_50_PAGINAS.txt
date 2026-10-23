@@ -1,0 +1,1053 @@
+﻿POOLROOMS — LO QUE LE FALTA AL JUEGO Y CÓMO MEJORARLO
+Informe de opinión y recomendaciones — 23 de octubre de 2026
+50 apartados con separadores de página. El PDF asociado fija exactamente 50 páginas A4.
+Fuente del juego: d887be56ac3d76205802c158b948f02263916cb4
+Documentación consultada: 876274eb5253d989eb392220cef9609de8135b8d
+
+PÁGINA 01 DE 50 — El diagnóstico general: unir lo que existe
+============================================================================
+
+Mi opinión es que al juego le falta, sobre todo, convertir su cantidad de contenido en una experiencia consistente. Ya tiene generación, muchos ambientes, edificios, agua, vehículos, cámaras, skins, alas, inventario y actividades. Eso es una base amplia. La siguiente mejora importante debería conseguir que todo parezca pertenecer al mismo juego, funcione junto y tenga una calidad reconocible desde la cámara del jugador.
+
+Hay hechos que limitan cualquier conclusión: el catálogo tiene 64 ambientes y dos sistemas regionales adicionales; cuatro programas recibieron reconstrucciones individuales, mientras 45 siguen en la cola de rework. La entrega del bosque pasó CI y sus descargas se comprobaron completas. Sin embargo, Unity, HDRP, PhysX, apariencia, escucha y FPS de ese estado siguen sin validarse nativamente en el entorno de desarrollo. No es correcto confundir estos resultados.
+
+Mi prioridad sería detener temporalmente el crecimiento del catálogo y cerrar las diferencias entre regiones. Un centro comercial detallado junto a una galería genérica hace más visible la debilidad de la galería. Añadir cien nombres nuevos antes de solucionar eso aumenta el trabajo pendiente y la dificultad de localizar errores. No propongo eliminar la variedad: propongo darle una base de calidad común.
+
+Dividiría lo pendiente en tres grupos. Primero, estabilidad y acceso: que se genere suelo, se pueda recorrer y no se pierdan objetos. Segundo, identidad: que cada ambiente tenga arquitectura, luz y actividades propias. Tercero, profundidad: que el jugador pueda quedarse, aprender y regresar por motivos agradables. La calidad visual participa en los tres, pero una textura más pesada no sustituye ninguno.
+
+Este informe ofrece recomendaciones, no una afirmación de haber inspeccionado el juego funcionando en Unity. Cuando menciono riesgos, son aspectos que habría que verificar; cuando hay un error histórico confirmado, lo identifico como tal. Las metas numéricas propuestas son criterios de aceptación, no resultados ya medidos.
+
+Acciones prioritarias:
+- Jugar un recorrido completo de referencia antes de ampliar otra familia.
+- Registrar fallos con semilla, posición, versión y primera excepción.
+- Elegir una región modelo y usarla como referencia para las demás.
+
+Criterio de cierre: una sesión representativa se siente coherente, permite descubrir otros ambientes y conserva sus funciones sin necesitar herramientas de administrador.
+
+
+PÁGINA 02 DE 50 — Definir qué significa que un nivel esté terminado
+============================================================================
+
+Creo que falta una definición compartida de «nivel terminado». Tener una entrada en el catálogo, una función de construcción y muchos parámetros es suficiente para demostrar que hay generación. No demuestra que el resultado tenga la dedicación que pediste para el Nivel 11, el Nivel 94 o los ambientes reconstruidos. Esa diferencia produjo parte de la frustración con las salas cuadradas amuebladas.
+
+Propondría una ficha de aceptación por nivel. Debería describir identidad, escala, recorridos, arquitectura, interacción, materiales, sonido, conexión con vecinos y coste. No necesita prometer una cantidad enorme de objetos. Necesita especificar qué reconoce el jugador, qué puede hacer y qué cambia entre sectores de manera significativa.
+
+Un ambiente tendría que funcionar en tres escalas. En la escala grande, su silueta, distribución y luz permiten reconocerlo. En la media, existen lugares y recorridos: una plaza, un patio, un puente, una habitación o un claro. En la pequeña, objetos, superficies y sonidos invitan a acercarse. Si solo se resuelve la escala pequeña con tazas y muebles, el resultado puede seguir pareciendo un espacio vacío enorme.
+
+También separaría «implementado» de «validado». Implementado significa que el código integra sus sistemas. Validado exige verlo, recorrerlo e interactuar en Unity. Publicado solo describe que existe una entrega. Esta clasificación permite avanzar sin presentar propuestas o pruebas matemáticas como una experiencia artística terminada.
+
+Para los niveles basados en una wiki, la ficha debería distinguir canon y adaptación. El bosque omite peligros para ser tranquilo; eso puede ser una buena decisión, siempre que se explique. Un programa original como el Invernadero de Cristal no necesita un número canónico inventado para tener valor.
+
+Acciones concretas:
+- Crear una lista corta de requisitos observables para cada nivel.
+- Añadir capturas reales y un recorrido breve cuando se valide en Unity.
+- Mantener separados los estados de código, integración, arte y prueba nativa.
+
+Criterio de cierre: dos personas pueden revisar la ficha y decidir, con evidencia, si falta algo importante, sin depender de que el catálogo tenga muchos nombres.
+
+
+PÁGINA 03 DE 50 — Construir una referencia pequeña pero excelente
+============================================================================
+
+Mi recomendación es crear un recorrido de referencia que incluya varios sistemas y resulte agradable por sí mismo. No sería un sustituto del mundo abierto ni una demo que esconda los problemas. Sería un tramo reproducible para comparar cada cambio y detectar cuándo una mejora local empeora otra parte del juego.
+
+Elegiría una semilla fija y una ruta que atraviese Poolrooms, una conexión, una región urbana o comercial y un ambiente tranquilo. El recorrido debería incluir agua, una escalera, una interacción, un objeto movible y un cambio de iluminación. Así se prueban las fronteras donde suele fallar un proyecto con muchos subsistemas.
+
+La duración sería una decisión de diseño, no una métrica ya disponible. Como punto de partida propondría una sesión breve que permita ver esos cambios sin desplazamientos interminables. Después habría que jugarla y ajustar distancias. Lo esencial es repetir condiciones: misma versión, perfil, hardware y objetivos de recorrido cuando se comparan resultados.
+
+Este tramo serviría para fijar una referencia visual. La escala de las puertas, el contraste de las superficies, la luminosidad del agua, la intensidad del sonido y la sensibilidad de interacción deberían sentirse compatibles. No hace falta que todos los niveles tengan la misma estética; sí que compartan criterios de legibilidad y acabado.
+
+También serviría para probar la experiencia inicial. Un nuevo jugador debería entender cómo moverse, interactuar y descubrir una salida mediante el espacio y señales discretas. Si ese aprendizaje solo funciona porque alguien explica los controles desde fuera, el juego todavía necesita mejorar su presentación.
+
+Acciones concretas:
+- Guardar los puntos del recorrido y las condiciones de prueba.
+- Añadir una lista de acciones que deben funcionar de principio a fin.
+- Comparar imágenes y tiempos de carga antes y después de cada etapa importante.
+
+Criterio de cierre: el tramo demuestra una calidad que se quiere extender al mundo y descubre regresiones reales; no se usa como escenario especial ajeno a la generación normal.
+
+
+PÁGINA 04 DE 50 — Ejecutar la validación nativa que todavía falta
+============================================================================
+
+La carencia técnica más clara es la validación completa del estado actual en Unity. El inventario lo reconoce. El núcleo se comprueba fuera del motor y existen pruebas PlayMode, pero eso no demuestra por sí solo compilación de todas las APIs, shaders, importación de recursos, funcionamiento de PhysX o calidad visual. Esta deuda debería resolverse antes de anunciar ausencia total de errores.
+
+Empezaría por un proyecto limpio compatible con Unity 6.3 y HDRP 17.3, importando exactamente la fuente que se quiera validar. Después repetiría en el proyecto real del usuario. El proyecto limpio ayuda a separar fallos del paquete de configuraciones antiguas; el real detecta problemas de actualización, escenas serializadas y paquetes opcionales.
+
+La secuencia tendría que ser ordenada: importación, compilación, ejecución de pruebas, entrada al menú, generación, recorrido y captura. Guardaría logs, resultados y versión. Un XML ausente o una suite omitida no cuentan como éxito. El runner existente ya contempla parte de esa disciplina y conviene utilizarlo, no reemplazarlo por una comprobación superficial.
+
+Para gráficos y sonido, además de pruebas automáticas, hace falta inspección humana. Ninguna aserción confirma que un agua parezca cristalina, un interior esté sobreexpuesto o un bucle de hojas resulte artificial. La revisión debería incluir auriculares, varias perspectivas y cambios de calidad.
+
+No propongo esperar a que exista una garantía imposible de perfección. Propongo conocer qué fallos aparecen realmente en el motor y priorizarlos con evidencia. La alternativa de seguir añadiendo recursos sin ejecutar esa validación aumenta el coste de localizar la causa cuando algo deja de funcionar.
+
+Acciones inmediatas:
+- Ejecutar la suite con una copia exacta y carpeta nueva de resultados.
+- Registrar GPU, API gráfica, Unity, HDRP y ajustes utilizados.
+- Resolver primero errores que bloqueen compilación, generación o circulación.
+
+Criterio de cierre: existe evidencia nativa de la revisión entregada, con fallos y límites explícitos, además de los checks del núcleo.
+
+
+PÁGINA 05 DE 50 — Dar seguimiento real a los 45 reworks pendientes
+============================================================================
+
+Hay una deuda de contenido documentada: 45 programas siguen pendientes de investigación y arquitectura individual. Esto no significa que no generen nada. Significa que todavía dependen, en distinto grado, de una base común que no cumple la dedicación espacial que pediste. La solución no consiste en cambiarles el nombre o añadir más combinaciones de color.
+
+Ordenaría esa cola por impacto. Primero los programas que aparecen con frecuencia y se parecen demasiado a otros. Después los que tienen una idea especialmente atractiva pero poco aprovechada. También consideraría complejidad: conviene alternar una reconstrucción difícil con otra acotada para no dejar muchas etapas abiertas simultáneamente.
+
+Cada rework debería empezar con una comparación clara del antes y el después. Qué arquitectura se conserva, qué se reemplaza, qué funciones ya existen y qué nuevas relaciones espaciales aparecen. La referencia puede venir de una wiki, de edificios reales con licencia visual adecuada o de un diseño original. Lo importante es evitar copiar la misma estructura con otro decorado.
+
+No marcaría una reconstrucción terminada porque su función especializada tenga muchas líneas. Revisaría qué comparte entre sectores, cómo entra desde un vecino, qué sucede en una frontera incompleta y cómo se entiende desde el jugador. Los cuatro reworks documentados ofrecen ejemplos útiles, pero también necesitan validación nativa.
+
+Mantendría una etapa activa principal por vez. Si se trabajan varias ideas de origen, las dejaría como investigación identificada, sin confundirlas con integración. Preparacion_V48 demostró por qué modelos y documentos de preparación no equivalen a niveles jugables.
+
+Acciones concretas:
+- Ordenar la cola con criterios visibles de impacto y esfuerzo.
+- Definir una ficha de aceptación antes de escribir el nuevo generador.
+- Cerrar integración, pruebas y respaldo de una etapa antes de anunciar otra.
+
+Criterio de cierre: el inventario reduce pendientes por reworks verificables y el jugador reconoce diferencias arquitectónicas, no únicamente mobiliario distinto.
+
+
+PÁGINA 06 DE 50 — Hacer que encontrar otros biomas resulte natural
+============================================================================
+
+Tu observación de que casi necesitabas el modo maestro para encontrar ambientes es una señal de experiencia, aunque las rutas del grafo existan. La generación debe ofrecer variedad a una frecuencia que se perciba jugando. Una prueba que encuentra un destino mediante búsqueda no garantiza que el recorrido sea evidente, corto o agradable para una persona.
+
+Revisaría la frecuencia con sesiones a pie, sin TP ni vuelo como atajo. Mediría cuánto tarda alguien en notar una transición, llegar a otro ambiente y encontrar una alternativa. No fijaría un número universal sin jugar varias semillas: el objetivo es evitar tramos largos indistinguibles, no repartir los niveles como estaciones de una ruta obligatoria.
+
+Las entradas necesitan una preparación espacial. Antes de un centro comercial pueden aparecer detalles de servicio, un vestíbulo o una galería. Antes del Nivel 94 puede cambiar la luz, abrirse la cubierta o aparecer un porche. No se trata de colocar señales luminosas con nombres de biomas, sino de hacer comprensible que existe otra dirección interesante.
+
+También cuidaría la salida del nivel nuevo. Un lugar puede tener una entrada estupenda y luego obligarte a volver por el mismo túnel. Deben existir bucles, accesos alternativos y referencias del lugar del que vienes, compatibles con la topología. Eso aumenta libertad sin depender de teletransportes arbitrarios.
+
+Las transiciones actuales y WalkableExploration son una base técnica. Mi recomendación es evaluar su distribución y su presentación, no afirmar que todas están rotas. Se necesitarán pruebas concretas para saber si el problema es frecuencia, señalización, duración o una conexión física bloqueada.
+
+Acciones concretas:
+- Registrar recorridos reales de descubrimiento en varias semillas.
+- Revisar las entradas menos legibles desde la altura del jugador.
+- Ajustar ritmo y ramificaciones manteniendo las reservas de terreno y edificio.
+
+Criterio de cierre: una sesión normal ofrece cambios reconocibles y salidas comprensibles sin abrir el menú de administrador.
+
+
+PÁGINA 07 DE 50 — Orientación sin llenar la pantalla de indicadores
+============================================================================
+
+Creo que falta una capa de orientación espacial más consciente. En un mundo procedural grande, perderse puede ser agradable un rato; sentir que todas las direcciones son equivalentes termina agotando. No propongo un minimapa obligatorio ni una lista de misiones, porque eso iría contra la experiencia limpia y opcional que has pedido.
+
+La orientación puede surgir de la arquitectura. Un atrio alto, una línea de tragaluces, una escalera visible, un árbol distinto o un sonido de agua ayudan a elegir dirección. Esos hitos deberían relacionarse con recorridos reales. Un faro visual que conduce a una pared sin salida produce frustración y debilita la confianza del jugador.
+
+El cuaderno de rutas ya ofrece una herramienta opcional. Mejoraría la claridad de sus indicaciones: punto de partida, dirección aproximada, cambio de altura y límites de la búsqueda. Si no hay una ruta disponible, debería decirlo con sencillez. No conviene que el texto prometa una entrada que luego no coincide con la geometría.
+
+También sería útil distinguir visualmente camino principal, desvío de actividad y salida de servicio. Se puede hacer con anchura, suelo, luz y colocación de muebles. La señalización escrita, cuando exista, debería parecer del lugar y no una interfaz de depuración pegada a la pared.
+
+La familiaridad local es importante. El jugador debería poder recordar una secuencia corta de sitios aunque el mundo completo sea enorme. Para ello hace falta que los sectores cercanos se relacionen y no se regeneren como habitaciones desconectadas conceptualmente.
+
+Acciones concretas:
+- Diseñar hitos locales vinculados a salidas y actividades.
+- Probar indicaciones del cuaderno desde posiciones y alturas diferentes.
+- Evitar señales obligatorias de HUD y conservar la exploración libre.
+
+Criterio de cierre: alguien puede describir cómo volvió a un lugar usando referencias del mundo, sin memorizar coordenadas técnicas.
+
+
+PÁGINA 08 DE 50 — Mejorar la gramática procedural, no solo sus números
+============================================================================
+
+La generación tiene una cantidad importante de recetas y parámetros. Lo que falta mejorar es la relación entre decisiones. Cambiar independientemente techo, muebles y color puede producir variedad superficial; una gramática espacial hace que varias decisiones formen un lugar con intención. Esa es la diferencia entre combinar piezas y diseñar un ambiente.
+
+Propondría organizar cada región mediante funciones: llegada, distribución, actividad, descanso y conexión. No deben aparecer siempre en ese orden ni crear una campaña lineal. Deben influirse. Un espacio de descanso pide una posición resguardada y buena vista; una entrada necesita circulación clara; una gran sala necesita un motivo para acercarse a sus extremos.
+
+Las reglas también deberían controlar densidad y escala. Después de varias zonas pequeñas, una apertura puede resultar especial. Si todas son enormes, dejan de impresionar; si todas contienen la misma cantidad de muebles, se pierde la relación entre uso y tamaño. La variación debería existir en secuencias, no únicamente dentro de cada celda.
+
+Mantendría los planes deterministas y separados de Unity. La complejidad nueva debe expresar relaciones útiles, no crear dependencias globales que vuelvan lenta la generación. Se pueden decidir características regionales por semilla y construir después solo los sectores próximos.
+
+La evaluación tendría que comparar geometrías y recorridos, además de contar combinaciones. Un catálogo puede ser matemáticamente distinto por pequeñas variaciones que el jugador apenas nota. Me parece más valioso tener menos programas claramente reconocibles que anunciar otra multiplicación enorme sin cambiar la experiencia.
+
+Acciones concretas:
+- Definir relaciones entre función, escala, luz y mobiliario.
+- Evaluar secuencias de sectores, no solo salas aisladas.
+- Registrar variedad perceptible con capturas y recorridos equivalentes.
+
+Criterio de cierre: diferentes semillas producen lugares con composición propia, manteniendo entradas, soporte y rutas reproducibles.
+
+
+PÁGINA 09 DE 50 — Abandonar la sensación de sala cuadrada repetida
+============================================================================
+
+Uno de los problemas expresados directamente fue que algunos niveles parecían salas cuadradas con muebles cambiados. Para mejorar eso no basta añadir columnas curvas dentro de la misma caja. Hay que modificar límites, sección, vacíos, relaciones entre plantas y continuidad entre sectores. La habitación puede seguir usando una celda técnica sin parecer una celda visual.
+
+Trabajaría con varios tipos de espacio: patios compartidos, galerías laterales, naves, terrazas, pasajes altos, salas conectadas directamente y conjuntos con vacío central. Cada tipo necesita una razón de uso y una forma de conexión. No conviene introducir geometría extra que solo estorbe al jugador o reduzca la legibilidad.
+
+La sección vertical es especialmente importante. Una entreplanta, una doble altura o una ventana alta cambian el lugar mucho más que otro mueble. Pero deben existir escaleras, huecos de forjado y barandillas coherentes. No llamar piso a una habitación del mismo plano ni poner una escalera que termina contra un techo.
+
+También revisaría las proporciones desde primera persona. En vistas aéreas, una arquitectura puede parecer compleja y al caminar sentirse como un gran suelo vacío. Hacen falta elementos de escala humana, vistas entre espacios y razones para mirar hacia arriba o acercarse a una zona lateral.
+
+Para mantener estabilidad, conservaría las geometrías históricas protegidas donde corresponde y aplicaría los nuevos programas mediante flags explícitos. Un rework deliberado necesita documentación y pruebas; no debería colarse como una variación inocua que cambia silenciosamente todas las semillas anteriores.
+
+Acciones concretas:
+- Diseñar plantas y secciones antes de llenar de objetos.
+- Compartir espacios reales entre varias celdas cuando el programa lo pida.
+- Revisar acceso y altura libre en todas las variantes estructurales.
+
+Criterio de cierre: los ambientes se distinguen incluso sin muebles ni colores, y sus recorridos funcionan a escala del jugador.
+
+
+PÁGINA 10 DE 50 — Cerrar juntas, bordes y ciclos de carga
+============================================================================
+
+Una parte importante de la calidad está en lo que ocurre entre sectores. Los fallos de juntas pueden producir paredes que parpadean, huecos, barreras visibles o accesos que desaparecen. Algunos de estos problemas ya tuvieron correcciones, pero merecen una matriz de prueba más amplia porque cada nuevo generador introduce formas diferentes de tocar un borde.
+
+La propiedad visual de superficies debe permanecer separada de la colisión. Quitar una cara duplicada no debería eliminar el suelo físico ni cambiar el material que detectan los pasos. RenderSurfaceOwnership y los adaptadores de borde ofrecen una base; el trabajo pendiente es comprobar su convivencia con los niveles especializados y elementos transparentes.
+
+No todas las uniones son entre dos sectores del mismo ambiente. Hay fronteras con otro bioma, con terreno reservado, con un centro comercial, con límite finito y con un vecino todavía no cargado. Cada caso necesita una solución deliberada. No se puede completar un distrito invadiendo la región de otro generador.
+
+La descarga también forma parte de la prueba. Una junta puede verse bien al aparecer y romperse cuando se retira un vecino. Hay que restaurar barreras, caras y apoyos necesarios, además de liberar recursos. Las soluciones que solo funcionan durante la primera carga no están cerradas.
+
+Revisaría estas situaciones caminando, volando y desde una vista externa. La velocidad de las alas puede revelar huecos temporales que una caminata lenta no muestra. El jugador debería esperar si falta suelo, sin caer ni encontrar grandes paredes opacas de seguridad.
+
+Acciones concretas:
+- Probar carga, descarga y regreso en cada tipo de frontera.
+- Mantener excepciones explícitas para agua, vidrio y follaje.
+- Registrar casos con coordenadas negativas y regiones incompletas.
+
+Criterio de cierre: la unión conserva apariencia, recorrido y soporte al cambiar el conjunto de vecinos cargados.
+
+
+PÁGINA 11 DE 50 — Precisión del mundo y origen flotante
+============================================================================
+
+El mundo continuo necesita que la identidad de un lugar sobreviva a los desplazamientos técnicos del espacio. Ya existe un origen flotante para conservar precisión, pero cada nuevo sistema puede introducir anclas que no lo sigan correctamente. No afirmo que estén fallando ahora: considero necesario comprobarlo de manera sistemática antes de extender más la exploración.
+
+Revisaría objetos sueltos, vehículos, sonidos, marcas de tiza, efectos de agua, cámaras y elementos llevados. Si unos cambian de origen y otros no, pueden aparecer saltos visuales, sonidos desplazados o interacciones que apuntan al lugar anterior. Una prueba que solo mira las paredes no cubre estos casos.
+
+La coordenada lógica debe distinguirse de la posición representada en Unity. Las claves de recogida, estados y generación no deberían depender de un float que cambia al recentrar. Del mismo modo, un futuro guardado necesitará coordenadas estables, no únicamente la posición local del Transform.
+
+También revisaría precisión de materiales. El fallo de UV corregido en el bosque muestra que las coordenadas grandes afectan incluso a una superficie que físicamente parece bien colocada. Hay que comprobar fase de texturas, continuidad de agua, iluminación y partículas a distancias grandes y en coordenadas negativas.
+
+Para el jugador, todo esto debería resultar invisible. No debería notar que el motor ha movido el origen, perder la orientación o ver un objeto cambiar de lado. Tampoco debería recibir una explicación técnica en pantalla durante cada corrección: el diagnóstico detallado pertenece a herramientas de desarrollo.
+
+Acciones concretas:
+- Forzar desplazamientos de origen con cada sistema activo.
+- Comparar posiciones relativas antes y después, incluidas fuentes de sonido.
+- Revisar precisión visual y física cerca de límites de representación admitidos.
+
+Criterio de cierre: el mundo mantiene sus relaciones espaciales y estados tras varios recentrados, sin pérdidas de objetos o cambios de identidad.
+
+
+PÁGINA 12 DE 50 — Reproducibilidad y compatibilidad de las semillas
+============================================================================
+
+A medida que el juego crece, una semilla deja de ser información suficiente para explicar un resultado. También intervienen versión, perfil, flags y catálogos. Creo que falta presentar esa combinación como una identidad reproducible de partida o de prueba, aunque todavía no se implemente guardado completo.
+
+Un informe de error debería permitir reconstruir el lugar con la misma configuración. Propondría una ficha técnica copiable desde herramientas de desarrollo: revisión, semilla, coordenadas lógicas, ambiente, tamaño de celda y opciones relevantes. No hace falta mostrarla permanentemente en el HUD; puede estar en un apartado de diagnóstico o en un archivo local.
+
+La compatibilidad también necesita decisiones explícitas. Algunas mejoras cambian legítimamente la distribución del mundo. Otras deben conservar IDs y geometrías anteriores. No conviene mezclar ambas categorías. Los flags históricos y las huellas protegidas permiten mantener una base, pero hay que documentar qué cambia al activar una expansión.
+
+El orden de visita no debe cambiar el contenido lógico de un sector. Las decisiones aleatorias deben ser locales y estables, con sales o claves propias. Un sistema que consume una secuencia compartida puede parecer correcto al ir por una ruta y fallar al llegar desde otra. La concurrencia hace más importante esta separación.
+
+Para evaluar cambios, conservaría un conjunto pequeño de semillas representativas, además de muestras amplias. Una puede contener fronteras difíciles; otra, distritos compactos; otra, variedad de alturas. El objetivo no es congelar toda evolución, sino poder explicar qué mejoró y qué se modificó deliberadamente.
+
+Acciones concretas:
+- Registrar configuración completa en las evidencias de prueba.
+- Probar que distintos órdenes de visita producen el mismo sector lógico.
+- Versionar políticas de generación antes de incorporar persistencia duradera.
+
+Criterio de cierre: un fallo reportado se puede reproducir y los cambios de mundo se distinguen de las regresiones accidentales.
+
+
+PÁGINA 13 DE 50 — Nivel 11: una ciudad que tenga estructura urbana
+============================================================================
+
+El Nivel 11 tiene una ampliación importante de edificios y contenido. Mi recomendación no sería añadir inmediatamente otros cientos de diseños, sino mejorar la organización que los une. Una ciudad puede tener edificios distintos y aun así sentirse como piezas distribuidas sin relación. Le faltaría jerarquía urbana: lugares, rutas y barrios reconocibles.
+
+Trabajaría con calles principales, secundarias, pequeñas plazas, pasos cubiertos y espacios de estancia. No se trata de copiar una ciudad convencional llena de tráfico. La estética liminal y dreamcore puede conservar vacío, calma y arquitectura extraña, pero necesita una composición que haga interesante recorrerla.
+
+Los edificios deberían responder al lugar donde aparecen. Una esquina, una plaza y una calle estrecha no piden la misma fachada ni el mismo acceso. Los patios y soportales pueden formar recorridos que continúan de una manzana a otra. Eso aprovecha mejor los diseños existentes que elegir cada edificio de manera completamente independiente.
+
+También revisaría el suelo urbano: bordillos, entradas, drenajes, encuentros con columnas, cambios de pavimento y vegetación. Estos detalles ayudan al realismo cuando tienen función y escala correctas. Repetir basura o señales por todas partes no sería una mejora automática y podría alejar el tono cálido que quieres.
+
+La ciudad necesita hitos tranquilos: un pabellón, un patio con árboles, una terraza o una galería especialmente reconocible. Deben ser accesibles y relacionarse con la red de caminos. Una silueta interesante inaccesible puede servir de fondo, pero no debería constituir casi toda la identidad del nivel.
+
+Acciones concretas:
+- Diseñar tipos de manzana y relaciones entre sus accesos.
+- Reservar plazas y recorridos antes de colocar mobiliario.
+- Probar la ciudad caminando y conduciendo, con las mismas condiciones visuales.
+
+Criterio de cierre: el jugador distingue barrios y lugares, recuerda rutas y encuentra motivos para entrar en los edificios.
+
+
+PÁGINA 14 DE 50 — Nivel 11: interiores y arquitectura extraña con sentido
+============================================================================
+
+Los 256 diseños urbanos son un avance concreto, pero un número de diseños no garantiza que todos sus interiores resulten memorables. Lo que más mejoraría es la relación entre fachada, sección y uso. Una piel exterior convincente pierde valor si al entrar aparece una planta genérica o una escalera colocada sin relación con el edificio.
+
+Para los diseños normales, usaría programas reconocibles: vestíbulo, servicio, circulación vertical, salas principales y espacios secundarios. No todos necesitan estar completos como una vivienda real; sí deben comunicar por qué tienen esa distribución. El mobiliario y las ventanas deberían responder a esos programas.
+
+Para los diseños extraños, definiría una regla propia por familia. Por ejemplo, relaciones imposibles de escala o recorridos que se doblan de manera inesperada, siempre que la arquitectura real permita avanzar. No propongo implementar esos ejemplos como funciones ya existentes. Son direcciones de diseño para que lo extraño tenga coherencia interna y no parezca una suma de formas arbitrarias.
+
+Las fuentes externas de fachada necesitan una adaptación cuidadosa. Huecos, balcones, pórticos y cornisas deben coincidir con los accesos y la colisión del interior generado. Un modelo de gran calidad puede empeorar el juego si tapa una puerta o conserva geometría invisible excesiva.
+
+Revisaría una muestra de todas las familias desde varias plantas, no solo su aspecto exterior. También variaría la densidad de muebles según tamaño y función. El jugador debería sentir que ha entrado en un edificio distinto antes de leer su nombre o mirar su color.
+
+Acciones concretas:
+- Documentar la regla espacial de cada familia normal y extraña.
+- Revisar escaleras, balcones y patios en todos los LOD implicados.
+- Añadir detalles de uso que relacionen varias habitaciones.
+
+Criterio de cierre: las familias se diferencian por recorridos, sección y programa, con accesos compatibles entre estructura física y acabado visual.
+
+
+PÁGINA 15 DE 50 — Nivel 11: vehículos agradables y seguros
+============================================================================
+
+La conducción y el vuelo aportan entretenimiento, pero merecen una revisión propia. Tener coche, avión y helicóptero no demuestra que su manejo sea cómodo ni que funcionen bien al cruzar regiones en streaming. Mi prioridad sería garantizar entradas, salidas, control y estabilidad antes de aumentar la cantidad de vehículos colocados.
+
+Los coches necesitan calles y radios de giro compatibles con su tamaño. Revisaría freno, marcha atrás, contacto de ruedas, pendientes, cámara y salida del conductor. Un vehículo puede parecer estable parado y volverse desagradable cuando la cámara golpea una pared o el jugador sale dentro de un objeto.
+
+En avión y helicóptero, distinguiría claramente el manejo asistido existente de una simulación especializada. La mejora debería centrarse en sensación, legibilidad y seguridad. El vuelo exige cargar o limitar movimiento antes de llegar a una región no preparada; no puede tratarse igual que caminar despacio hacia una puerta.
+
+También faltaría evaluar qué ocurre al aparcar, alejarse, volver y recentrar el origen. El vehículo debería mantener una propiedad lógica clara. Si todavía no existe persistencia entre sesiones, no prometer que aparecerá donde se dejó después de cerrar la aplicación.
+
+No aumentaría tráfico ni añadiría conductores automáticos sin una decisión nueva. La ciudad tranquila puede funcionar con vehículos disponibles y lugares de estacionamiento coherentes. Una multitud de vehículos repetidos podría bloquear rutas y gastar física sin añadir variedad real.
+
+Acciones concretas:
+- Crear un circuito de prueba con curvas, estrechamientos y cambios de región.
+- Revisar entrada/salida segura y restauración de locomoción.
+- Medir carga y cámara a las velocidades máximas admitidas.
+
+Criterio de cierre: los vehículos se disfrutan, no generan bloqueos y conservan comportamiento coherente al pausar, viajar y cruzar sectores.
+
+
+PÁGINA 16 DE 50 — Nivel 94: paisaje compacto y agradable
+============================================================================
+
+El Nivel 94 necesita medirse contra tu preferencia más clara: casas próximas y menos planicie vacía. Aunque ya se hicieron cambios de densidad y extensión, falta comprobar cómo se perciben al caminar. Un aumento de casas en una muestra no garantiza que el jugador encuentre un vecindario bien compuesto durante su sesión.
+
+Trabajaría con núcleos compactos separados por espacios de transición breves y reconocibles. Los caminos deberían conectar puertas, no pasar cerca de ellas por casualidad. Las colinas pueden enmarcar vistas y dar sensación de amplitud sin obligar a caminar durante demasiado tiempo por un suelo sin detalles.
+
+El paisaje necesita varias escalas de vegetación. El pasto forma una base, pero también importan bordes, pequeñas plantas, árboles o elementos de jardín cuando encajen en la identidad. No todo debe estar cubierto de objetos: una zona abierta puede ser relajante si tiene composición y un destino visible.
+
+Revisaría las pendientes alrededor de las casas. Una parcela que parece plana desde lejos puede dejar un acceso flotando o una escalera demasiado empinada. El terreno, el jardín, la cimentación y el interior deben compartir una referencia de altura coherente.
+
+El aspecto del cielo y la luz merece una referencia estable. Los colores deberían conservar el carácter del nivel sin lavar todos los materiales o saturar de manera excesiva el pasto. Esto requiere comparar imágenes del motor, no únicamente parámetros de intensidad.
+
+Acciones concretas:
+- Recorrer varios vecindarios desde el acceso normal del mundo.
+- Ajustar distancias usando puertas y recorridos reales, no centros de parcela.
+- Revisar paisaje y vegetación con el pasto activado y desactivado.
+
+Criterio de cierre: los barrios se sienten juntos y variados, con accesos cómodos y paisaje que invita a explorar sin largos vacíos involuntarios.
+
+
+PÁGINA 17 DE 50 — Nivel 94: casas distintas por dentro
+============================================================================
+
+Las casas necesitan algo más que muchas variantes de planta. Yo mejoraría la personalidad de sus interiores y su relación con el exterior. Un sótano o un ático es interesante si tiene acceso, escala y función; añadir otra habitación bajo el suelo sin una experiencia propia solo aumenta el recuento.
+
+Separaría familias domésticas con reglas claras: circulación central, espacios encadenados, patio pequeño, escalera lateral o distribución extraña deliberada. Son ejemplos de dirección, no afirmaciones de que todas existan ya. Cada familia debería producir diferencias visibles al entrar y permitir amueblar sin bloquear puertas.
+
+La arquitectura absurda que pediste puede ser atractiva si mantiene una lógica de recorrido. Una ventana hacia un espacio inesperado, una altura inusual o una secuencia sorprendente puede funcionar. Lo que evitaría es confundir rareza con errores de soporte, techos que cortan escaleras o habitaciones inaccesibles.
+
+El mobiliario debería contar algo cálido: una mesa preparada, una lectura interrumpida o un pequeño rincón de actividad. No hace falta añadir personajes ni una historia textual larga a cada casa. Conviene que varios objetos relacionados comuniquen una situación, en lugar de dispersar piezas aleatorias.
+
+También revisaría repetición cercana. Dos casas vecinas pueden compartir color y estilo, como pediste, pero deberían variar acceso, volumen y uso interior. Las diferencias paramétricas demasiado pequeñas quizá no se perciban; la evaluación necesita pasear una misma calle y entrar a varias viviendas.
+
+Acciones concretas:
+- Seleccionar muestras de cada familia con plantas, sótanos y áticos.
+- Probar escaleras, puertas, altura libre y salida de muebles.
+- Diseñar conjuntos narrativos pequeños compatibles con el tono del nivel.
+
+Criterio de cierre: entrar a varias casas seguidas ofrece descubrimientos espaciales, manteniendo la identidad común y la circulación cómoda.
+
+
+PÁGINA 18 DE 50 — Poolrooms: oscuridad legible y luz solar convincente
+============================================================================
+
+Las Poolrooms siguen siendo importantes aunque ya no definan todo el proyecto. Mejorarlas requiere conservar su atmósfera sin convertir la linterna en una obligación permanente. También hay que lograr que las solares se sientan como arquitectura iluminada por el sol, no como una versión más brillante de la misma sala.
+
+En las oscuras revisaría niveles de negro, exposición y luz indirecta. El jugador debería distinguir suelo, bordes del agua y salidas principales. La incertidumbre visual puede mantenerse mediante contraste y distancia, sin ocultar por completo las superficies cercanas. Añadir pequeñas luces por todas partes podría destruir la identidad y costar demasiado.
+
+En las solares trabajaría con la orientación y el tamaño de las aberturas, el recorrido de la luz y las superficies que la reciben. El tragaluz necesita un hueco real. El agua debe reflejar y transmitir esa iluminación de forma coherente, con sombras que expliquen la geometría.
+
+La mezcla entre originales y solares debería sentirse frecuente y natural, como pediste. No basta con que exista un porcentaje en el perfil. Hay que recorrer varias regiones y revisar si la distribución genera grupos interesantes o largos tramos de un único carácter sin intención.
+
+La variedad arquitectónica puede aprovechar arcos, galerías amplias, rotundas y uniones directas. Mantendría las recetas históricas protegidas y ampliaría el lenguaje mediante programas explícitos. La revisión no debería modificar la linterna sin necesidad ni romper las colisiones que ya se conservan.
+
+Acciones concretas:
+- Definir escenas reales de referencia para oscuridad y sol.
+- Comparar exposición y lectura de bordes desde primera persona.
+- Probar la mezcla y continuidad del agua entre ambos climas.
+
+Criterio de cierre: las oscuras se recorren cómodamente y las solares destacan por su luz y arquitectura, sin perder el carácter liminal.
+
+
+PÁGINA 19 DE 50 — Centro comercial: arquitectura que parezca un edificio
+============================================================================
+
+El centro comercial necesita una revisión como edificio completo, no solo como suma de tiendas. Me centraría en atrios, circulación vertical, orientación entre plantas y relaciones visuales. Un jugador debería comprender dónde está y ver lugares a los que quiere llegar, sin depender del menú de TP.
+
+Las plantas físicas deben tener recorridos claros y conexiones que no parezcan añadidas al final. Revisaría escaleras, puentes, pasillos de borde, accesos a tiendas y cambios de altura. Una vista espectacular desde el atrio no compensa una escalera que conduce a un callejón o un paso tapado por muebles.
+
+También mejoraría la relación entre fachada, cubierta y espacios interiores. Los tragaluces deberían iluminar zonas con intención: un punto de reunión, una escalera o una galería. Los espacios de servicio pueden ayudar a construir transiciones naturales hacia otros biomas sin convertir cada conexión en un portal extraño.
+
+La variedad comercial necesita varios tipos de local y organización. Un pequeño comercio, una tienda profunda, una zona de comida y un espacio de descanso no deberían compartir siempre la misma huella. Tampoco hace falta que cada local tenga una simulación económica: la arquitectura y los objetos pueden comunicar uso.
+
+El sistema ya tiene planes, fit-outs y colocación con reservas. Mi propuesta es comprobar el conjunto desde recorridos reales y revisar dónde todavía se ve provisional. Los sectores próximos y las plantas pertinentes pueden recibir detalle mayor, pero la estructura visible no debería desaparecer ni parecer incompleta.
+
+Acciones concretas:
+- Trazar recorridos entre plantas con hitos y vistas cruzadas.
+- Revisar locales de tamaños y funciones diferentes.
+- Probar accesos desde el mundo, regreso y descarga de sectores.
+
+Criterio de cierre: el centro comercial se entiende como un lugar continuo, con circulación y tiendas que sostienen la exploración.
+
+
+PÁGINA 20 DE 50 — Centro comercial: mobiliario, materiales y luz por tienda
+============================================================================
+
+Después de la arquitectura, la mayor mejora estaría en la coherencia de cada local. Los modelos licenciados de calidad ayudan, pero deben tener escala, acabado y colocación apropiados. Una silla magnífica junto a un mostrador demasiado simple o un suelo con UV incorrectas puede hacer más visible el contraste de calidad.
+
+Definiría conjuntos de tienda: mostrador, exposición, almacenamiento visible, iluminación y pequeños objetos relacionados. No se trata de copiar el mismo conjunto cientos de veces. Las reglas de combinación deberían reflejar el tipo de comercio y la superficie disponible, conservando espacios de atención y paso.
+
+La iluminación necesita distinguir atrio, galería y tienda. Cada zona puede tener una tonalidad coherente sin mezclar temperaturas al azar. Revisaría potencia, unidades y exposición junto con los materiales. La selección por planta debe respetar la altura real para no iluminar una tienda con las luces del nivel superior.
+
+También trabajaría superficies pequeñas: cantos, zócalos, marcos, juntas, metal y vidrio. El realismo no depende de que todo use texturas 4K; depende de resolución acorde a la distancia y respuesta correcta a la luz. Evitaría aumentar memoria con mapas redundantes cuando una superficie compartida resuelve lo mismo.
+
+Las interacciones deberían estar donde tienen sentido: sentarse en descanso, mover objetos compatibles, leer una nota o usar una actividad. No anunciaría «todo interactuable» si muchas piezas de arquitectura son estáticas. Es preferible una interacción clara y cuidada que un botón sin efecto interesante en cada estante.
+
+Acciones concretas:
+- Crear referencias de acabado para varios tipos de tienda.
+- Revisar iluminación de cada planta desde interior y atrio.
+- Sustituir piezas provisionales por recursos adecuados con licencia comprobada.
+
+Criterio de cierre: los locales mantienen una calidad coherente, son legibles y ofrecen contenido relacionado con su función.
+
+
+PÁGINA 21 DE 50 — Juegos infantiles: recorrido interior y calidad táctil
+============================================================================
+
+El bioma SoftPlay necesita evaluarse desde dentro de sus estructuras, no solo desde la sala que las contiene. Tu solicitud fue clara: juegos a los que puedas entrar, de varios pisos, como parques blandos cerrados. La sensación de tubos, redes y acolchados debe apoyarse en escala, colisión y materiales, no únicamente en colores intensos.
+
+Revisaría el recorrido completo: entrada, ascenso, bifurcaciones, zonas de descanso y salida. El jugador debería entender por dónde cabe sin quedarse atrapado en cambios de altura. Una estructura vistosa pero demasiado estrecha o con un techo que corta la cápsula no cumple la función, aunque su geometría sea válida.
+
+La calidad táctil puede mejorar mediante perfiles redondeados, costuras, uniones, tensión de redes y diferencias de rugosidad. No todo necesita geometría microscópica; normales y materiales bien elegidos pueden resolver parte. El plástico, el vinilo y la espuma no deberían responder a la luz como metal pulido.
+
+La sala general necesita amplitud y composición. Alternaría estructuras protagonistas con espacio para reconocerlas y acceder a ellas. Un recinto lleno hasta el borde puede parecer detallado y resultar ilegible. También conviene que las salidas a otros ambientes se integren como vestuarios, zonas de servicio o accesos coherentes.
+
+IndoorPlay debe seguir siendo distinto. Conservar el bioma anterior no significa copiar sus limitaciones en SoftPlay, ni trasladar automáticamente todas las funciones nuevas a los juegos originales. Cada ficha debe explicar su alcance real.
+
+Acciones concretas:
+- Recorrer todos los cambios de planta y tubos representativos con el jugador.
+- Revisar redes y acolchados a distancia de contacto.
+- Diseñar estructuras con siluetas y recorridos distintos, no solo colores.
+
+Criterio de cierre: entrar, jugar y salir resulta cómodo; la arquitectura conserva su identidad desde dentro y desde la sala principal.
+
+
+PÁGINA 22 DE 50 — Parque acuático: accesos, atracciones y espacios de descanso
+============================================================================
+
+El parque acuático es una oportunidad para ofrecer algo más que caminar. Creo que le falta una evaluación completa de la relación entre atracciones, piscinas, circulación seca y descanso. Las piezas pueden funcionar individualmente y aun así formar un conjunto poco convincente si no existe una organización clara.
+
+Las entradas a los toboganes necesitan recorridos comprensibles y a escala humana. Escaleras, plataformas, barandillas y desembocaduras deben relacionarse con la piscina y con el flujo del jugador. No debería ser necesario volar o usar modo maestro para alcanzar una atracción pensada para uso normal.
+
+También hacen falta zonas amplias donde entender el conjunto: una vista hacia las torres, una galería alrededor del agua o un área de pausa con muebles adecuados. El usuario pidió cercanía para no caminar demasiado, pero cercanía no significa superponer todas las atracciones. Hay que ajustar distancias y visibilidad.
+
+La identidad de parque cubierto depende de su envolvente. Cubierta, estructura, tragaluces y humedad deben trabajar juntos. La luz de atardecer puede ser tranquila sin convertir todo en una imagen amarilla plana. Revisaría contraste, reflejos y lectura del agua desde arriba y desde su nivel.
+
+El mobiliario debería responder al ambiente: superficies resistentes al agua, lugares de apoyo, elementos de servicio y detalles que sugieran uso reciente. Evitaría una decoración genérica de salón colocada junto a una piscina por ser un modelo disponible.
+
+Acciones concretas:
+- Probar acceso normal a cada familia de atracción representativa.
+- Diseñar áreas secas, húmedas y de descanso relacionadas.
+- Revisar encuentros de estructura, cubierta, agua y conexiones externas.
+
+Criterio de cierre: el parque se puede disfrutar como un lugar completo, con atracciones accesibles y pausas agradables entre ellas.
+
+
+PÁGINA 23 DE 50 — Toboganes: sensación, agua y salida segura
+============================================================================
+
+El catálogo de 250 familias aporta variedad potencial. Lo siguiente debería ser mejorar la experiencia de descenso y comprobar sus extremos. Una curva distinta no basta si la velocidad, la cámara, el agua y la salida se sienten iguales o incómodas. La calidad depende de una secuencia completa, desde aceptar la entrada hasta recuperar control al final.
+
+Revisaría aceleración, ritmo de curvas, visibilidad, inclinación y movimientos de cámara. No propongo una física extrema que maree o lance al jugador. La sensación puede transmitir velocidad con audio, agua y composición, conservando control visual y una salida predecible.
+
+La película de agua interior necesita continuidad y separación de la carcasa para evitar parpadeos. En secciones transparentes o acristaladas hay que comprobar orden de transparencia, refracción y sombras. No debería parecer una lámina independiente atravesando paredes cuando cambia la forma del tubo.
+
+La desembocadura merece especial atención. Debe existir agua o soporte adecuado, espacio libre y una transición de postura/movimiento limpia. Si se cancela el recorrido, se pausa o se descarga un sector, el sistema debe restaurar al jugador de manera segura y sin dejar estados incompatibles activos.
+
+No confundiría este trabajo con una simulación completa de fluidos. Podemos buscar una representación visual y sonora convincente sin prometer dinámica física del agua por cada curva. La transparencia de materiales y el contacto del personaje necesitan prueba nativa; no se certifican mediante el número de familias.
+
+Acciones concretas:
+- Probar formas abiertas, cerradas y transparentes en tamaños extremos.
+- Revisar cámara y sonido a distintas frecuencias y ajustes.
+- Añadir casos de pausa, cancelación y salida obstruida.
+
+Criterio de cierre: las familias ofrecen sensaciones reconocibles, el flujo se ve continuo y la salida recupera siempre un estado válido del jugador.
+
+
+PÁGINA 24 DE 50 — Bosque encantado: variedad ecológica y composición
+============================================================================
+
+El Nivel 39 tiene un generador propio con doce programas de claros, senderos, colinas y árboles. Mi siguiente mejora sería aumentar la coherencia ecológica y la composición de vistas, no simplemente añadir más árboles. Un bosque puede ser denso y seguir pareciendo una distribución de piezas repetidas si todas ocupan el suelo con reglas demasiado similares.
+
+Trabajaría con grupos: árboles dominantes, jóvenes, zonas abiertas, bordes de sendero y vegetación baja relacionada con humedad o sombra. No afirmo que esos sistemas ecológicos ya estén simulados. Son reglas de colocación que pueden crear un aspecto más natural sin necesitar crecimiento biológico en tiempo real.
+
+Los claros deberían distinguirse también al aproximarse. La silueta de un roble caído, un reflejo de estanque o una cubierta de refugio pueden anticipar el lugar. Si solo cambia el objeto central cuando ya estás encima, se pierde parte de la recompensa de explorar.
+
+Las copas y sus LOD necesitan inspección desde cerca y durante movimiento. El follaje escaneado mejora el acabado, pero puede mostrar tarjetas, cambios de densidad o iluminación incoherente. La respuesta no es necesariamente una textura mayor: importan orientación, agrupación, normales y transición de detalle.
+
+También revisaría la vegetación en fronteras mixtas. El límite que impide atravesar una pared es correcto técnicamente, pero el borde debe parecer intencionado: un claro, una transición de suelo o un umbral. Una línea abrupta de árboles recortados podría resultar demasiado artificial si se ve desde un espacio abierto.
+
+Acciones concretas:
+- Componer agrupaciones y vistas entre senderos y claros.
+- Revisar follaje con viento, sombra y varios LOD desde la cámara real.
+- Comparar densidad percibida y coste antes de aumentar población vegetal.
+
+Criterio de cierre: el bosque ofrece espacios y ritmos distintos, con vegetación que parece relacionada con el terreno y no colocada de manera uniforme.
+
+
+PÁGINA 25 DE 50 — Bosque encantado: paz, actividades y pequeñas historias
+============================================================================
+
+Además de su aspecto, el bosque necesita que quedarse resulte agradable. Ya tiene recuerdos, estudios, cuaderno, alimentos y sonido ambiental. Yo mejoraría la profundidad de esas experiencias sin convertirlas en tareas obligatorias. La paz que buscas puede perderse si cada claro parece pedir completar una lista.
+
+Las actividades deberían invitar de manera discreta. Una mesa de dibujo o un lugar de escucha puede comunicar uso sin un indicador constante. Al interactuar, la respuesta debe ser clara: qué cambió, qué se puede repetir y cuándo se recibe un recuerdo. No hace falta añadir una recompensa a cada gesto para que tenga valor.
+
+Los textos cálidos pueden relacionar varios claros, sugiriendo reuniones o preparativos. Evitaría insinuaciones de amenaza que contradigan el propósito tranquilo. Tampoco afirmaría una población simulada: los objetos y notas cuentan una presencia indirecta, no prometen personajes que nunca aparecen.
+
+La escucha necesita prueba real. Un bucle suave puede resultar repetitivo después de varios minutos, y una fuente demasiado localizada puede parecer que un árbol tiene un altavoz. Revisaría variación, distancia, silencios y transición con otros biomas, además de la mezcla con canciones propias.
+
+También cuidaría el acto de sentarse. La vista elegida, la altura, los apoyos y la salida del asiento influyen tanto como el banco. Un rincón de descanso debería ofrecer una composición agradable y no apuntar a una pared o al borde técnico de streaming.
+
+Acciones concretas:
+- Jugar periodos de estancia sin buscar completar nada.
+- Revisar textos, sonidos y recompensas para conservar el tono pacífico.
+- Dar continuidad ligera a los relatos de varios claros sin imponer una misión.
+
+Criterio de cierre: el bosque funciona para pasear, detenerse y regresar, con actividades opcionales que enriquecen la calma en lugar de interrumpirla.
+
+
+PÁGINA 26 DE 50 — Patio de ventanas: vida interior y orientación vertical
+============================================================================
+
+El Patio de ventanas ya tiene una reconstrucción espacial importante: hotel, patio compartido, plantas, habitaciones y escaleras. Lo que yo mejoraría ahora es su uso interior y la claridad del recorrido vertical. Un edificio grande puede sentirse repetitivo si varias plantas comunican exactamente la misma secuencia de puertas y muebles.
+
+Daría diferencias reconocibles a zonas y plantas sin romper el lenguaje común. Podrían variar vistas al patio, pequeños servicios, rincones de lectura y disposición de habitaciones. Son posibilidades de diseño, no nuevas funciones confirmadas. La intención es que el jugador recuerde dónde estuvo sin necesitar contar pisos en una interfaz.
+
+El patio debería tener una composición convincente desde abajo, desde galerías y desde cubierta. La relación entre césped, círculo central, ventanas y luz puede crear un lugar especial. Revisaría si los muebles y detalles cercanos mantienen calidad cuando se observan desde arriba o a corta distancia.
+
+Las puertas y persianas requieren una prueba consistente. Deben respetar vidrio, colisión, espacio de apertura y estado durante la sesión. Una persiana que atraviesa un cristal o vuelve a su posición al descargar puede romper la ilusión de lugar persistente, aunque todavía no exista guardado entre sesiones.
+
+También revisaría los anexos de frontera. Cuando no cabe el distrito completo, el resultado debe seguir pareciendo hotelero y no una versión accidentalmente recortada. Las conexiones con otros biomas pueden aprovechar vestíbulos o galerías sin hacer creer que todas reproducen una entrada canónica de la wiki.
+
+Acciones concretas:
+- Recorrer plantas completas y localizar hitos de orientación.
+- Probar puertas, persianas y regreso tras descarga de sectores.
+- Revisar patio y anexos con la misma exigencia de composición.
+
+Criterio de cierre: el hotel se entiende como un edificio habitable y sus distintas alturas aportan experiencias, no solo repetición de habitaciones.
+
+
+PÁGINA 27 DE 50 — Cygnus: biblioteca con lugares memorables
+============================================================================
+
+La biblioteca Cygnus tiene naves, galerías, puentes y varias alturas. Mi recomendación sería profundizar su identidad mediante organización y uso. Una gran colección de estanterías puede resultar impresionante al principio y monótona después si no aparecen lugares diferenciados donde leer, observar o decidir una ruta.
+
+Trabajaría con alas reconocibles y relaciones entre silencio, exposición y circulación. No propongo un catálogo real de miles de libros legibles sin alcance definido. Se puede construir identidad con mobiliario, escalas, vistas, materiales y pequeños contenidos seleccionados que sí tengan interés.
+
+La verticalidad debe ofrecer vistas y conexiones claras. Revisaría que las escaleras sean fáciles de encontrar, que los puentes no bloqueen la lectura de la nave y que los huecos permitan entender el edificio. Una arquitectura compleja no debería necesitar que el jugador conozca su plano técnico.
+
+Los libros y superficies cercanas necesitan acabado proporcionado a la distancia. Repetir la misma textura de lomos en toda una nave puede resultar evidente. Conviene variar conjuntos y desgaste leve sin romper la dirección artística ni añadir miles de materiales únicos.
+
+Las actividades pueden apoyarse en lectura, mapas, postales o pequeñas búsquedas opcionales. Las notas deberían estar relacionadas con el espacio, no aparecer como frases genéricas intercambiables con una lavandería. El sonido también debe distinguir la nave alta de un rincón protegido mediante reverberación y distancia, sin llenar todo de un eco exagerado.
+
+Acciones concretas:
+- Diseñar hitos y usos específicos por ala o altura.
+- Revisar la calidad de estanterías desde observación cercana.
+- Probar navegación, escucha y actividad durante una visita prolongada.
+
+Criterio de cierre: el jugador recuerda lugares concretos de la biblioteca y tiene motivos agradables para recorrer sus diferentes niveles.
+
+
+PÁGINA 28 DE 50 — Invernadero de Cristal: botánica y construcción creíbles
+============================================================================
+
+El Invernadero de Cristal dispone de un distrito continuo con cubierta y pasarelas. Lo que más mejoraría es la relación entre estructura, vegetación y mantenimiento. Para parecer un invernadero real no basta con una cúpula transparente y muchas macetas: las plantas, accesos y apoyos deberían explicar cómo se usa el lugar.
+
+Revisaría escala de hojas, agrupación de especies, zonas de sombra y circulación entre jardineras. No hace falta simular biología completa. Sí conviene que una planta no nazca del borde de una escalera y que la densidad no parezca idéntica en todas las superficies.
+
+La estructura de hierro y vidrio necesita encuentros creíbles: nervios, apoyos, marcos, drenaje y continuidad de cubierta. Los huecos o solapes se ven especialmente con la luz atravesando. El vidrio debe mantener una respuesta visual coherente sin multiplicar capas transparentes innecesarias.
+
+El estanque y la rotonda pueden funcionar como centro de orientación. Revisaría sus vistas desde el acceso y las pasarelas, además del recorrido a pie. Una parte importante de la calidad consiste en que el jugador comprenda el conjunto y pueda acercarse al elemento que vio desde arriba.
+
+Las actividades deberían vincularse a jardín, herbario y descanso. Cuidar una planta puede tener una respuesta visual sencilla y agradable sin convertirse en un sistema de supervivencia botánica. También deberían existir zonas tranquilas donde no haya una interacción esperando a cada paso.
+
+Acciones concretas:
+- Comprobar cubierta y pasarelas bajo distintas condiciones de luz.
+- Ajustar vegetación mediante reglas de apoyo y composición.
+- Crear respuestas claras a las actividades de jardín sin añadir obligación.
+
+Criterio de cierre: plantas, estructura y recorridos parecen diseñados juntos; el lugar conserva claridad y buen aspecto desde todas sus alturas.
+
+
+PÁGINA 29 DE 50 — Tranquilidad: vacío, nubes y seguridad del vuelo
+============================================================================
+
+El Nivel 63 puede ofrecer una experiencia muy distinta gracias a sus pasarelas suspendidas y vacíos reales. Precisamente por eso necesita una revisión visual y física exigente. Una pared técnica visible, una nube mal situada o una recuperación brusca después de caer pueden romper rápidamente su atmósfera.
+
+Mejoraría la composición de las nubes y la profundidad. No se trata de añadir volúmenes ilimitados: el sistema utiliza recursos acotados. La pregunta es si, desde el jugador, las capas, la luz y las distancias crean un espacio convincente sin parecer una superficie plana o una niebla que corta estructuras de forma extraña.
+
+Las pasarelas deben tener variación útil de ancho, altura y estancia, manteniendo barandillas y escaleras seguras. Revisaría cómo se ven sus caras inferiores desde vuelo o cámara externa. Un nivel aéreo expone lados de la geometría que otros ambientes ocultan.
+
+La caída no mortal adaptada necesita una transición amable. Debe evitar bucles de recuperación, pérdida de orientación y estados incorrectos de alas o cámara. No propongo volverla una penalización ni trasladar al jugador aleatoriamente como si se hubiera implementado todo el canon de la fuente.
+
+También cuidaría el sonido: viento suave, contactos de madera y distancia, sin convertir el ambiente en un vendaval constante. El vacío visual puede ser relajante si los apoyos, el horizonte y la mezcla sonora transmiten estabilidad. Esto necesita escucha e imagen reales.
+
+Acciones concretas:
+- Probar caminar, volar, caer y recuperar desde distintos puntos.
+- Revisar nubes en varias calidades y perspectivas.
+- Comprobar que ninguna barrera de streaming se representa como un muro opaco.
+
+Criterio de cierre: el nivel transmite amplitud y calma, conserva seguridad y no revela sus mecanismos técnicos durante la exploración normal.
+
+
+PÁGINA 30 DE 50 — Reconstruir el resto sin repetir la misma plantilla
+============================================================================
+
+Los 45 programas pendientes necesitan planes particulares, pero también un método común que evite empezar de cero sin aprender de lo anterior. Mi propuesta es agruparlos por problemas de arquitectura: agua y pasarelas, jardines, exposición, espacios de trabajo, transporte y lugares de estancia. Cada grupo comparte herramientas; cada nivel mantiene su propia composición.
+
+En los acuáticos revisaría relación entre seco, húmedo y acceso al agua. En los jardines, densidad, apoyo y vistas. En museos y galerías, secuencia de exposición y observación. En talleres, función de herramientas y superficies. En terminales, legibilidad de llegada, espera y conexión. Estas categorías ayudan a definir trabajo sin inventar funciones ya terminadas.
+
+Hay límites que conviene mantener explícitos. Las cabinas de funicular actuales son estacionarias; las barcas de marina y ruedas de molino son exposición; el tablero de ajedrez no demuestra un juego completo de ajedrez. Un rework puede ampliar esas funciones, pero requiere una decisión y una implementación, no una descripción más ambiciosa.
+
+Cada nivel debería ganar al menos una relación espacial propia y una actividad coherente. No tiene que añadir otro sistema enorme. Un taller bien resuelto, con un recorrido y una acción agradable, puede aportar más que decenas de mecanismos genéricos sin contexto.
+
+Ordenaría las reconstrucciones con una matriz visible: frecuencia, similitud con otros ambientes, oportunidad artística y riesgo técnico. No prometería terminarlas todas con el mismo esfuerzo. Algunas necesitan investigación y nuevos recursos; otras pueden mejorar mucho reutilizando correctamente lo existente.
+
+Acciones concretas:
+- Asignar un problema principal y una identidad a cada programa pendiente.
+- Reutilizar herramientas geométricas sin copiar la composición completa.
+- Registrar límites funcionales y validar cada nueva interacción.
+
+Criterio de cierre: la cola disminuye mediante niveles distinguibles y comprobables, manteniendo las funciones anteriores y una dirección artística coherente.
+
+
+PÁGINA 31 DE 50 — Materiales: una calidad coherente en todo el mundo
+============================================================================
+
+Creo que uno de los mayores saltos visuales vendría de una biblioteca de materiales coherente. Ya hay fuentes PBR y resoluciones altas, pero la calidad no depende solo de cuántos mapas existen. Hay que revisar escala, canales, brillo, normales, color y relación entre superficies para que los recursos de distintos orígenes parezcan parte del mismo mundo.
+
+Empezaría por materiales muy visibles: suelo, paredes, madera, metal, vidrio, plástico y textiles. Definiría referencias de rugosidad y escala física por categoría. Una mesa no debería parecer barnizada como espejo porque su conversión tomó un canal equivocado, ni una pared tener relieve de piedra si se pretendía yeso liso.
+
+Las texturas nativas deben conservar su resolución cuando tenga sentido. No ampliaría un escaneo pequeño para llamarlo 4K. Tampoco asignaría 4K a cada accesorio diminuto. La densidad de texel debería responder a la distancia de observación y al tamaño del objeto, con mipmaps y filtrado apropiados.
+
+Revisaría las UV tanto en piezas importadas como procedurales. Estiramientos, costuras, escalas inconsistentes y repeticiones obvias pueden arruinar una textura buena. Las coordenadas grandes y cilindros necesitan casos específicos, como ya mostró la corrección del bosque.
+
+El desgaste debería ser leve y contextual. El realismo no exige ensuciar todo ni convertir espacios tranquilos en ruinas. Una dirección liminal limpia puede tener juntas, bordes, pequeñas variaciones y huellas de uso sin perder paz o parecer abandonada de manera amenazante.
+
+Acciones concretas:
+- Crear una escena de comparación de materiales bajo luz estable.
+- Auditar canales, importadores y escala de superficies prioritarias.
+- Unificar acabados incompatibles conservando procedencia y materiales originales.
+
+Criterio de cierre: las superficies responden a la luz de forma reconocible y mantienen calidad cercana sin depender de resolución inflada.
+
+
+PÁGINA 32 DE 50 — Iluminación: exposición, contraste y fuentes con intención
+============================================================================
+
+La iluminación necesita evaluarse como sistema completo. Una zona oscura no se arregla siempre subiendo una luz, y una zona lavada no se corrige únicamente bajando brillo global. Sol, cielo, exposición, luz local, material y geometría determinan juntos lo que ve el jugador.
+
+Definiría referencias por ambiente: interior oscuro legible, galería de día, atardecer cálido, cielo abierto y espacio húmedo. Cada referencia debería incluir valores y capturas reales, no solo una descripción. Así sería posible detectar si una nueva tienda o material rompe el equilibrio del nivel.
+
+Las fuentes deben tener una función espacial. Una luminaria ilumina un acceso, una mesa o una vitrina. El relleno puede ayudar a lectura, pero no debería borrar todas las sombras y profundidad. También hay que revisar que la geometría permita pasar la luz por donde se supone: ventanas y tragaluces necesitan huecos o materiales adecuados.
+
+El proyecto ya coordina un único propietario de sombras direccionales. Mantendría esa regla. Añadir otro sol por región para mejorar una captura puede reactivar el error del atlas de cascadas y cambiar la intensidad total de toda la escena. Lo mismo ocurre con luces locales sin presupuesto o que se seleccionan ignorando altura de planta.
+
+La adaptación entre biomas merece suavidad. Al pasar de un interior a una región soleada, la transición no debería producir un fogonazo prolongado ni esconder el suelo. El comportamiento tiene que probarse caminando y con cámara externa, no solo teletransportándose entre escenas de prueba.
+
+Acciones concretas:
+- Guardar referencias reales de exposición por ambiente.
+- Revisar fuentes, huecos y materiales como un conjunto.
+- Probar transiciones y prioridades de luz entre plantas y regiones.
+
+Criterio de cierre: cada lugar tiene su atmósfera, conserva legibilidad y evita sobreexposición o iluminación arbitraria.
+
+
+PÁGINA 33 DE 50 — Agua: transparencia con profundidad y contacto
+============================================================================
+
+El agua sigue mereciendo una de las revisiones más importantes. Tu objetivo no es simplemente ver un plano azul claro, sino agua cristalina con fondo, profundidad, contacto y reflejos convincentes. El preset cristalino es una base implementada; su aspecto final todavía requiere inspección nativa para saber qué falta ajustar realmente.
+
+Yo separaría cuatro situaciones: piscina poco profunda, estanque natural, canal interior y película de tobogán. No deberían compartir necesariamente todos los parámetros. La geometría del fondo, el color de las superficies sumergidas y la escala de las ondas influyen mucho en el resultado.
+
+La transparencia debe cambiar de manera coherente con profundidad y ángulo. El fondo cercano debería ser legible; a mayor recorrido dentro del agua puede aparecer absorción. Si todo es igual de transparente, puede parecer vidrio vacío. Si el tinte domina demasiado, se pierde la sensación cristalina que buscas.
+
+Las orillas y encuentros necesitan atención especial. Deben evitarse planos flotantes, agua atravesando escalones, dobles superficies y bordes secos visibles bajo una lámina. El bosque ya utiliza recorte contra el terreno, pero esa solución no sustituye revisar los demás tipos de piscina y sus accesos.
+
+Añadiría pequeñas respuestas visuales y sonoras al contacto solo cuando sean necesarias y con presupuesto. Ondas o salpicaduras deben aparecer a escala adecuada y desaparecer bien. No convertiría cada paso en un efecto exagerado que interrumpa la tranquilidad.
+
+Acciones concretas:
+- Comparar los cuatro usos bajo varias luces y perspectivas.
+- Revisar fondo, refracción, normales y absorción por separado.
+- Probar entrada, salida, visión rasante y cámara bajo el agua.
+
+Criterio de cierre: el agua conserva claridad y profundidad, tiene encuentros correctos y responde al jugador sin efectos artificiales o excesivos.
+
+
+PÁGINA 34 DE 50 — Reflejos y ray tracing: calidad sin promesas falsas
+============================================================================
+
+Mejorar reflejos exige decidir qué técnica se usa en cada superficie y calidad. No todas las zonas necesitan ray tracing de la misma manera, y no se puede garantizar RT de hardware sin hardware compatible. La mejora debería ser visible y honesta, con alternativas bien resueltas cuando la técnica superior no esté disponible.
+
+Revisaría primero errores básicos: rugosidad incorrecta, normal exagerada, sonda mal ubicada, falta de cielo o geometría fuera de pantalla. Un reflejo negro no demuestra por sí solo que falte más calidad. A veces la fuente de información es la que no corresponde o el material está mal configurado.
+
+Las superficies grandes, como agua, vidrio o espejos, necesitan una estrategia propia. Los reflejos de pantalla tienen límites fuera de vista; las sondas representan el entorno de otra manera; RT añade información y coste. No deberían presentarse en menús como nombres intercambiables sin explicar su efecto al jugador.
+
+El atlas de sondas necesita control de número, resolución y actualización. Ya hubo un aviso de falta de espacio. Aumentarlo puede ayudar si existe memoria, pero no resuelve duplicados o sondas creadas para cada objeto. Priorizaría propiedad, alcance y liberación antes de elevar presupuestos.
+
+También revisaría mallas dinámicas: skins, alas, vehículos y objetos movidos. Su registro y actualización deben coincidir con el tipo de geometría. Una mejora estática del escenario no garantiza que esos elementos aparezcan correctamente en reflejos durante movimiento.
+
+Acciones concretas:
+- Definir una matriz de técnicas por material y nivel de calidad.
+- Probar cambios de cámara y elementos que salen de pantalla.
+- Medir coste y memoria de sondas/RT en hardware real.
+
+Criterio de cierre: los reflejos son coherentes, las alternativas conservan buena imagen y los ajustes no prometen funciones que la plataforma no soporta.
+
+
+PÁGINA 35 DE 50 — Pasto y vegetación: densidad que se vea natural
+============================================================================
+
+El pasto necesita mejorar desde cerca y en movimiento, no solo aumentar su cantidad. Tu comentario de que había poco es una referencia importante, pero la solución debe equilibrar cobertura, agrupación, variedad y coste. Una alfombra uniforme de la misma brizna puede parecer menos natural que una densidad algo menor bien distribuida.
+
+Trabajaría con manchas y bordes: zonas transitadas, proximidad de casas, pendientes y espacios protegidos. Las reglas pueden ser sencillas y deterministas. No hace falta simular cada planta para que el terreno comunique diferencias de uso y humedad.
+
+Los materiales deberían evitar brillos plásticos y cambios bruscos de color entre el terreno y las briznas. El viento tendría que moverse con sutileza y coherencia. Revisaría normales, translucencia si corresponde y sombras, especialmente al atardecer o al mirar en dirección al sol.
+
+La distancia y el LOD merecen una transición cuidada. Si la cobertura desaparece de golpe, el terreno puede parecer que cambia de material delante del jugador. Las soluciones de detalle deben preservar una base lejana coherente y mantener explícito cualquier ajuste de calidad.
+
+Conservaría la opción de desactivar pasto. Eso no debería dejar un suelo visualmente incompleto ni romper apoyos. El terreno físico debe ser estable con independencia de la vegetación visual. Tampoco añadiría colliders por brizna o un GameObject por cada hoja.
+
+Acciones concretas:
+- Revisar cobertura cercana, media y lejana en los biomas prioritarios.
+- Ajustar agrupación y mezcla de materiales antes de multiplicar geometría.
+- Medir coste con la opción activada y comparar el aspecto al desactivarla.
+
+Criterio de cierre: el terreno resulta más rico, las transiciones de detalle son discretas y la opción económica conserva una imagen cuidada.
+
+
+PÁGINA 36 DE 50 — Física de objetos y colisiones del mundo
+============================================================================
+
+La interacción física puede dar mucha vida, pero también revelar rápidamente fallos. Yo priorizaría estabilidad, escala y sonido antes de añadir comportamientos más espectaculares. Un objeto que cae bien, conserva su apoyo y no atraviesa el suelo aporta más que un sistema complejo que se rompe al descargar una sala.
+
+Revisaría masa, centro de gravedad, forma del collider y velocidad. Los modelos descargados pueden tener geometría visual complicada que no conviene usar directamente como colisión dinámica. Una aproximación física adecuada debe respetar su forma de uso sin multiplicar el coste.
+
+El apoyo entre objetos necesita un contrato claro. La comida y la taza sobre una mesa deben liberarse o seguir su soporte según la acción, sin quedarse flotando. Las correcciones del bosque ofrecen un caso concreto; ampliaría la revisión a estantes, mostradores y muebles que se puedan tomar.
+
+Las colisiones del escenario también deben contemplar posturas y velocidad. Caminar, deslizarse, saltar, conducir y volar exponen huecos distintos. Un paso que admite la cápsula de pie puede fallar al cambiar postura o al corregir soporte después de una carga.
+
+No trataría z-fighting como un problema de choques físicos de materiales. La propiedad visual de caras y el collider son sistemas relacionados, pero diferentes. Separar el diagnóstico evita corregir una pared que parpadea eliminando accidentalmente su colisión.
+
+Acciones concretas:
+- Crear pruebas reales de caída, apoyo, apilado moderado y agarre.
+- Revisar objetos durante pausa, descarga, viaje y origen flotante.
+- Comprobar colisiones con todas las formas de movimiento disponibles.
+
+Criterio de cierre: los objetos se comportan de forma creíble y estable, sin pérdidas, apoyos imposibles o coste físico descontrolado.
+
+
+PÁGINA 37 DE 50 — Interacciones más profundas y menos intercambiables
+============================================================================
+
+Hay muchas actividades y objetos compatibles. Lo que yo añadiría es profundidad contextual: que cada lugar tenga algo que hacer relacionado con su identidad. No hace falta convertir todos los niveles en minijuegos, pero sí evitar que la misma acción genérica sea la única diferencia entre visitar una biblioteca, un taller y una marina.
+
+Una interacción debería tener inicio, respuesta y cierre legibles. El jugador necesita entender qué puede tocar y qué ocurrió al hacerlo. Esto puede comunicarse mediante geometría, animación, sonido y un mensaje breve. Un botón que solo muestra una frase no debería presentarse como un mecanismo completo.
+
+Mejoraría actividades existentes antes de multiplicarlas. Un puzzle pequeño con buenos estados, una herramienta que deja una respuesta visible o una planta que cambia de forma comprensible pueden dar más satisfacción que diez acciones parecidas sin continuidad. Las recompensas deberían ser opcionales y acordes al tono tranquilo.
+
+También falta revisar la consistencia contextual de las teclas. E puede recoger, usar o levantarse; T separa mover de activar; Z guarda. El sistema debe priorizar correctamente el objetivo y explicar la acción disponible sin convertir cada objeto en una ventana de instrucciones.
+
+No prometería interacción universal. Arquitectura, exposiciones y accesorios pueden ser estáticos por una razón válida. Lo importante es que el jugador distinga qué responde y que esa respuesta esté cuidada. Decir «todo interactuable» crea expectativas imposibles si después muchos objetos son solo decorativos.
+
+Acciones concretas:
+- Elegir una actividad característica por nivel prioritario.
+- Revisar inicio, cancelación, repetición y recompensa de cada actividad existente.
+- Unificar señales de interacción y reglas de prioridad.
+
+Criterio de cierre: las acciones son comprensibles, tienen relación con el lugar y ofrecen respuestas que merecen la atención del jugador.
+
+
+PÁGINA 38 DE 50 — Inventario cómodo y alcance claro de la persistencia
+============================================================================
+
+El inventario tiene cinco páginas de cincuenta espacios y pilas con cantidades grandes. Creo que lo siguiente es mejorar su comodidad, no ampliar inmediatamente su capacidad. Con muchos objetos, encontrar, clasificar y usar algo puede volverse más importante que disponer de otros cientos de slots.
+
+Revisaría categorías, búsqueda, orden y claridad de iconos/nombres. No todas esas funciones se dan aquí por implementadas: son propuestas que deben evaluarse. La interfaz debería explicar cuándo falta espacio para un tipo distinto y conservar el objeto si no puede guardarse. Las cantidades de una pila no tienen que confundirse con capacidad de tipos.
+
+La barra rápida debe seguir oculta de inicio y aparecer con 5. Conviene comprobar selección, rueda, uso y cierre junto con otros modos. Los ocho accesos omiten el número 5 por esa función; la ayuda debería evitar que el jugador interprete la distribución como un error.
+
+La persistencia completa se dejó para más adelante. Yo mantendría esa decisión hasta cerrar el comportamiento de sesión, pero prepararía su diseño. Hay que definir qué se guardaría y cómo migraría entre versiones: posición lógica, inventario, objetos movidos, actividades y vehículos. Guardar solo semilla o preferencias no basta.
+
+No añadiría un botón de cargar partida antes de tener ese contrato. Continuar una sesión suspendida en memoria es útil, pero debe entenderse como tal. El jugador no debería descubrir después de cerrar la aplicación que una etiqueta prometía más de lo que existía.
+
+Acciones concretas:
+- Probar gestión de muchos tipos de objeto sin pérdida de cantidades.
+- Revisar mensajes de capacidad y conflictos de teclas.
+- Diseñar persistencia como una etapa separada, pendiente de alcance acordado.
+
+Criterio de cierre: gestionar objetos es claro y seguro, y la interfaz describe con precisión qué estado se conserva y durante cuánto tiempo.
+
+
+PÁGINA 39 DE 50 — Propósito opcional e historias cálidas
+============================================================================
+
+El juego no necesita una misión obligatoria para resultar interesante, pero sí puede beneficiarse de propósitos pequeños y personales. Yo mejoraría la continuidad entre lugares, objetos y actividades. Encontrar una nota tendría más valor si ayuda a reconocer una relación espacial o una situación, no si es una frase que podría aparecer igual en cualquier sala.
+
+El tono debería seguir siendo cálido. Has pedido sentir que quizá encontrarás gente, sin introducir personajes ni convertirlo en una amenaza. Eso puede expresarse mediante preparativos: dos asientos, una mesa reservada, material de dibujo o un objeto dejado para compartir. La escena debería sostener esa historia incluso sin leer texto.
+
+Los relatos pueden durar varias visitas o sectores, pero no conviene prometer encuentros que nunca se implementarán. La insinuación debe tener un cierre emocional por sí misma. Esperar con tranquilidad, descubrir un recuerdo o completar un pequeño gesto ya puede ser suficiente.
+
+También ofrecería actividades opcionales que conecten ambientes: observar, fotografiar, llevar una postal o reconocer una melodía. Son propuestas, no una lista de funciones ya añadidas. Evitaría recompensas que empujen a correr por todos los niveles como si fueran casillas de una colección obligatoria.
+
+Los objetos de comida y agua de almendra pueden reforzar hospitalidad, sin barras de hambre o sed. Su distribución debería parecer intencional: una mesa de compartir o un lugar de descanso, no un producto aleatorio sobre cualquier superficie.
+
+Acciones concretas:
+- Revisar relatos y objetos como escenas, no solo textos.
+- Crear conexiones ligeras entre lugares sin imponer ruta.
+- Mantener opcionales los objetivos y evitar castigos por ignorarlos.
+
+Criterio de cierre: el mundo sugiere una vida amable y ofrece motivos para volver, sin necesitar NPC, supervivencia o miedo para sostener el interés.
+
+
+PÁGINA 40 DE 50 — Skins: importar, entender el resultado y ajustar bien
+============================================================================
+
+La importación de skins fue un problema reportado directamente. Aunque se mejoró el flujo y la visibilidad del resultado, yo lo sometería a pruebas reales con archivos representativos. La prioridad es que el jugador entienda qué ocurrió: carga pendiente, error, dependencia ausente, modelo oculto por primera persona o adaptación incompleta.
+
+La sección debería guiar el proceso con pasos simples y estados claros. Examinar, importar, ver y ajustar no tendrían que confundirse. Una vista previa o una transición controlada a tercera persona puede ayudar, siempre que use recursos de forma acotada y no cambie inesperadamente el recorrido.
+
+Los formatos necesitan explicaciones honestas. OBJ funciona por su ruta directa y no contiene huesos. FBX y otros modelos dependen de preparación/importadores del Editor; GLB/glTF utiliza el adaptador opcional correspondiente. No se debe presentar la extensión de archivo como garantía de carga universal en el ejecutable.
+
+La adaptación automática de humanoides es aproximada. Revisaría pose, ejes, proporciones, materiales y límites, además del modo OBJ sencillo sin huesos que aceptaste. Una skin estática bien presentada puede ser preferible a una deformación muy mala, pero el jugador debe saber qué modo está usando.
+
+También probaría rutas con espacios, caracteres locales y dependencias de texturas. No conviene copiar indiscriminadamente todo el directorio de descargas al importar. La seguridad y el alcance del archivo forman parte de la comodidad: un fallo debería conservar la apariencia anterior y explicar cómo corregirlo.
+
+Acciones concretas:
+- Crear una batería de modelos propios o licenciados con casos buenos y difíciles.
+- Probar flujo completo en Windows y en Editor, diferenciando capacidades.
+- Mejorar estado, orientación y ayuda para ajustes frecuentes.
+
+Criterio de cierre: el usuario sabe si su modelo se cargó, puede verlo y comprende los límites de animación/materiales sin adivinar lo que hizo el sistema.
+
+
+PÁGINA 41 DE 50 — Animaciones y cámara que acompañen el movimiento
+============================================================================
+
+El jugador tiene un sistema común de animación y varias perspectivas. Mi siguiente mejora sería revisar cómo se siente la combinación en situaciones reales. Una animación puede ser correcta matemáticamente y parecer deslizante, rígida o incómoda cuando se ve con la cámara y velocidad del juego.
+
+Empezaría por caminar, correr, parar, girar, saltar y aterrizar. Son acciones frecuentes y definen la sensación general. Revisaría apoyo de pies, zancada, inclinación, manos y transiciones. No buscaría exageración constante: la animación debería permitir tanto recorrer con calma como usar dash o deslizamiento.
+
+Las skins aproximadas necesitan tolerancias. Un mismo gesto puede funcionar en una figura de proporciones normales y fallar en otra con ropa voluminosa. Mantendría controles de intensidad y ajuste, junto con límites claros. No prometería retarget artístico perfecto para todos los humanoides sin trabajo manual.
+
+La cámara debe respetar colisiones y contexto. En tercera persona revisaría esquinas, pasillos estrechos, escaleras y cambios de altura. En primera, evitaría movimientos excesivos que dificulten apreciar el lugar. La recuperación de distancia y el aterrizaje visual deben ser suaves sin retrasar tanto que parezcan desconectados del cuerpo.
+
+También falta comprobar de forma conjunta menús, foto, emotes y movimiento. Ningún modo debería dejar una tecla consumida o restaurar incorrectamente la pausa. La animación visual no puede modificar de manera accidental la cápsula física o el origen de interacción.
+
+Acciones concretas:
+- Grabar secuencias reales con varias skins y perspectivas.
+- Revisar transiciones frecuentes antes de añadir más emotes.
+- Ofrecer ajustes de movimiento de cámara para comodidad.
+
+Criterio de cierre: el cuerpo y la cámara transmiten peso y control, permiten observar el mundo y no introducen incomodidad o errores de interacción.
+
+
+PÁGINA 42 DE 50 — Alas, vuelo y fotografía con buena presentación
+============================================================================
+
+Las alas añaden libertad y una identidad visual importante. Mi recomendación sería pulir selección, anclaje, plegado y sensación de vuelo antes de ampliar más el catálogo. Ya existen 144 variantes geométricas; el siguiente salto no depende de sumar otro centenar de nombres.
+
+Revisaría cómo se ven junto a diferentes skins y en todas las cámaras. Las alas pueden atravesar visualmente ropa o estructuras, bloquear el encuadre o parecer separadas del cuerpo si el anclaje no acompaña bien la postura. No necesitan un collider por pluma, pero sí una presentación compatible con la cápsula y la escala del personaje.
+
+Las cuatro velocidades deberían tener transiciones comprensibles y permitir frenar con comodidad. El modo muy rápido exige especial atención al streaming y a los interiores. La libertad no debería convertirse en una forma involuntaria de alcanzar zonas sin suelo o dejar el mundo atrás durante la carga.
+
+La fotografía puede ayudar a disfrutar estas apariencias y los niveles. Revisaría encuadre, ocultación del personaje, restauración de estado y captura sin interfaz. La cámara local no debería generar regiones por su propia posición ni permitir que una foto cambie físicamente la sesión del jugador.
+
+En el selector de alas explicaría que los diseños son originales procedurales y que los iconos tienen su licencia. No los anunciaría como modelos externos descargados. También conviene que las vistas previas representen realmente el diseño elegido y no imágenes idealizadas que el juego no reproduce.
+
+Acciones concretas:
+- Comparar anclaje y silueta en skins y cámaras diferentes.
+- Probar frenado, cambios de velocidad y entrada a zonas estrechas.
+- Verificar capturas reales y restauración al salir de foto.
+
+Criterio de cierre: volar y fotografiar resulta cómodo, visualmente coherente y seguro para la generación, sin depender del modo maestro.
+
+
+PÁGINA 43 DE 50 — Sonido espacial: calma y miedo sin sobresaltos
+============================================================================
+
+El sonido puede mejorar la inmersión tanto como los gráficos. Ya existe un modo tranquilo y otro inquietante sin voces ni sustos. Yo los revisaría mediante escucha prolongada y recorridos reales, porque un archivo correcto y una temporización válida no demuestran que la mezcla resulte agradable.
+
+La espacialidad necesita fuentes creíbles. Agua, pasos, mecanismos y viento deberían relacionarse con el lugar y responder a distancia y obstáculos. Si un sonido aparece sin una posición comprensible, puede parecer un efecto pegado al jugador. En ambientes tranquilos eso se nota especialmente.
+
+Las transiciones deberían evitar cortes y acumulaciones. Al entrar a otra región no conviene escuchar durante demasiado tiempo dos ambientes completos superpuestos. Tampoco que una pared o una piscina cambien el filtro de manera brusca. Revisaría volumen, reverberación, oclusión y prioridades como un conjunto.
+
+El modo inquietante debe respetar tus límites: nada de voces, susurros, ataques ni picos de volumen. Los pasos remotos pueden sugerir presencia sin acercarse de forma artificial o convertirse en una persecución implícita. Sería importante poder reducir o desactivar capas particulares sin perder todo el ambiente.
+
+También revisaría variedad de contactos. Baldosa seca, suelo mojado, madera, hierba y metal no necesitan sonar exageradamente distintos, pero sí creíbles. El deslizamiento debería conservar un movimiento continuo, evitando la repetición áspera que describiste como una araña caminando.
+
+Acciones concretas:
+- Escuchar sesiones con auriculares y altavoces a volumen normal.
+- Revisar capas, silencios, repetición y mezcla entre regiones.
+- Comprobar que pausa, agua y música no dejan filtros o fuentes atascados.
+
+Criterio de cierre: el sonido ayuda a entender y sentir el espacio, mantiene paz por defecto y ofrece inquietud opcional sin romper tus restricciones.
+
+
+PÁGINA 44 DE 50 — Música propia y equilibrio con la ambientación
+============================================================================
+
+El reproductor local cumple una preferencia importante: usar tus canciones sin depender de servicios externos. Lo que mejoraría es la claridad de biblioteca, errores y mezcla con el mundo. La música debería ampliar la experiencia, no ocultar todas las señales útiles ni interferir con pausa y menús.
+
+Revisaría el flujo más sencillo: abrir carpeta, copiar archivos, actualizar lista, elegir y reproducir. Cada paso debe indicar qué ocurrió. Si el archivo está vacío, excede límites o no se decodifica, el mensaje debería ayudar a corregirlo y conservar la canción anterior cuando corresponda.
+
+La navegación de una biblioteca grande puede necesitar búsqueda y filtros cómodos según el alcance elegido. No daría por implementadas funciones nuevas solo por recomendarlas. Mantendría los límites de exploración y archivo, evitando que una carpeta enorme bloquee el hilo principal o cargue todo el audio a memoria.
+
+La mezcla debe respetar volumen general, segundo plano y preferencias de atenuación. El jugador puede querer escuchar canciones y conservar pasos/agua a bajo volumen. Los cambios entre temas deberían evitar saltos innecesarios y liberar correctamente clips y solicitudes canceladas.
+
+También dejaría clara la privacidad y la licencia. Los archivos permanecen locales; no se suben ni se incluyen en la actualización. Que una canción sea tuya para escuchar no implica permiso para redistribuirla en una release. El menú no debería sugerir que el proyecto aporta derechos sobre música externa.
+
+Acciones concretas:
+- Probar bibliotecas pequeñas, grandes y con archivos dañados.
+- Revisar cancelación, cambio rápido de pista y memoria.
+- Ajustar mezcla con ambiente, modo inquietante y pausa de manera consistente.
+
+Criterio de cierre: importar y escuchar música resulta sencillo, seguro y compatible con los sonidos que dan presencia al mundo.
+
+
+PÁGINA 45 DE 50 — Menús, accesibilidad y aprendizaje sin HUD obligatorio
+============================================================================
+
+El menú independiente ya existe, pero su calidad debe revisarse como parte del juego. Lo que yo mejoraría es claridad, consistencia y accesibilidad. La primera impresión no depende solo de una imagen bonita: depende de entender cómo empezar, qué se conserva y cómo volver sin perder el estado abierto.
+
+Las páginas deberían mantener jerarquía visual y navegación consistente. Los ajustes más usados necesitan nombres comprensibles y respuestas previsibles. F7 debe seguir abriendo renderizado, como pediste, y brillo/distancia no deben esconderse en una herramienta exclusiva de administrador.
+
+Probaría distintos tamaños de ventana, resoluciones y escalas de texto. Los mensajes de importación, errores y selección no deberían quedar cortados o depender de un color difícil de distinguir. El foco de teclado y el cursor necesitan funcionar al pasar entre menú, pausa, inventario y fotografía.
+
+La accesibilidad puede mejorar mediante sensibilidad, inversión, movimiento de cámara, volumen por capas y opciones de interacción. Son direcciones de trabajo a revisar según lo existente, no una afirmación de que todas están implementadas. Conviene ofrecer ayuda opcional sin llenar la pantalla de indicadores permanentes.
+
+El aprendizaje debería ocurrir con acciones simples y contexto. Una indicación breve cerca de la primera interacción puede ayudar más que una lista enorme de teclas al iniciar. Las funciones avanzadas pueden explicarse al abrir su sección. No hay que presentar todos los sistemas de golpe.
+
+Acciones concretas:
+- Probar inicio, selección, cancelación, continuar y regreso al título.
+- Revisar resolución, legibilidad y navegación con teclado/ratón.
+- Añadir ayuda contextual opcional y etiquetas que reflejen funciones reales.
+
+Criterio de cierre: empezar y configurar el juego resulta claro, los menús no compiten por la entrada y la interfaz conserva una presencia discreta.
+
+
+PÁGINA 46 DE 50 — Rendimiento: medir tirones sin recortar a escondidas
+============================================================================
+
+La optimización necesita datos del motor y hardware reales. El proyecto tiene límites, LOD, cachés y trabajo de generación separado, pero no hay mediciones nativas actuales que permitan prometer determinados FPS. Mi prioridad sería identificar los momentos caros y mantener una comparación reproducible, respetando tu petición de no perder distancia ni calidad silenciosamente.
+
+Mediría CPU, GPU, memoria, asignaciones y tiempos de entrada a regiones. El promedio de FPS no basta: un juego puede tener una media alta y sufrir tirones al crear colliders o cargar texturas. Los percentiles y las capturas de frame time ayudan a distinguir problemas continuos de picos puntuales.
+
+Separaría cálculo de geometría, subida de mallas, creación de objetos, física y carga de recursos. Aumentar trabajo en segundo plano no elimina automáticamente el coste del hilo principal. Tampoco una caché es gratuita: necesita tamaño máximo, propiedad y criterio de liberación.
+
+Las escenas de prueba deben incluir interior comercial, ciudad, vegetación, agua y vuelo rápido. Cada una presiona sistemas distintos. Probar solo una sala vacía puede producir cifras tranquilizadoras que no representan la experiencia del usuario.
+
+Cuando una mejora cambie detalle visual, lo explicaría y compararía. Un LOD puede ser una solución excelente, pero no es correcto llamarlo sin pérdida universal si modifica silueta o cobertura. Antes buscaría duplicación, trabajo innecesario y recursos mal gestionados.
+
+Acciones concretas:
+- Crear recorridos fijos y capturas nativas de rendimiento.
+- Priorizar los mayores picos con perfiles antes/después equivalentes.
+- Mantener registro de cualquier cambio de calidad o distancia.
+
+Criterio de cierre: las mejoras tienen evidencia de reducción de coste o tirones y no esconden degradaciones visuales ajenas a la elección del usuario.
+
+
+PÁGINA 47 DE 50 — Memoria, recursos externos y licencias mantenibles
+============================================================================
+
+El tamaño del proyecto debe responder a contenido útil, no convertirse en una cuota. Has pedido ampliaciones grandes porque buscas profundidad y calidad. Yo mantendría ese objetivo, pero revisaría qué recursos aportan valor dentro del juego y cuáles solo aumentan almacenamiento, importación o memoria.
+
+Los bytes de Assets no equivalen a memoria simultánea, VRAM ni tamaño final del ejecutable. Cada dato necesita su unidad. Texturas comprimidas pueden ocupar mucho más al decodificarse; audio y modelos tienen sus propios costes. Un informe serio debe separar esas cantidades en vez de deducir rendimiento por el peso del ZIP.
+
+La adquisición de recursos necesita una selección artística y técnica. Buscaría modelos adecuados a la escala, materiales y uso del nivel, con licencia que permita la integración prevista. Descargar una colección enorme no completa el trabajo de convertirla, colocarla, darle interacción y verificarla.
+
+Mantendría procedencia, revisión, hash, licencia y adaptación de cada fuente. Los créditos deben generarse desde su registro canónico. Las variantes, LOD e instancias deben contarse por separado para no anunciar miles de modelos nuevos cuando son repeticiones de pocos recursos.
+
+También revisaría duplicados y formatos intermedios. Los originales de investigación o archivos de trabajo pueden conservarse fuera de Assets cuando no se necesitan en Runtime. No se trata de borrar evidencia, sino de separar caché, origen y contenido jugable para que la entrega sea comprensible y reproducible.
+
+Acciones concretas:
+- Auditar recursos cargados, reutilizados y realmente visibles.
+- Elegir nuevas fuentes por necesidad de nivel, no por cantidad descargada.
+- Mantener créditos, licencias y hashes sincronizados con cada incorporación.
+
+Criterio de cierre: cada recurso tiene función, procedencia y presupuesto, y el aumento de tamaño corresponde a mejoras comprobables del contenido.
+
+
+PÁGINA 48 DE 50 — Calidad y errores: cerrar las fronteras entre sistemas
+============================================================================
+
+Los errores históricos muestran que muchas fallas importantes aparecen entre subsistemas. Una malla puede ser válida mientras Runtime pide un ID inexistente; un script puede tener sintaxis correcta y usar un setter privado; un shader puede fallar aunque el núcleo compile. Yo reforzaría estas fronteras antes de celebrar una cifra grande de aserciones.
+
+Mantendría las pruebas que reproducen errores reales: IDs de catálogo fuera de rango, tipos incompatibles, rutas de instalación, propiedad visual y factories de objetos. Cada corrección debería conservar un caso que falle con la versión anterior y pase con la nueva, sin sustituir el dato problemático por otro arbitrario.
+
+También hace falta una matriz de integración: inicio, pausa, viaje, carga, descarga, origen flotante, movimiento rápido e interacción. No todos los casos requieren una prueba enorme. Sí necesitan cubrir las combinaciones con mayor riesgo, especialmente cuando varias funciones controlan entrada o movimiento.
+
+Los fallos visuales necesitan clasificación. Z-fighting, UV, exposición, transparencia, normales y LOD no se corrigen con la misma técnica. Capturas desde el jugador y pasos de reproducción ayudan más que una descripción genérica de «texturas malas».
+
+No prometería cero errores posibles. El objetivo es eliminar los conocidos, reducir riesgos y describir qué falta probar. Suprimir warnings de manera global o actualizar huellas para ocultar una regresión no mejora estabilidad. Una advertencia debe entenderse, migrarse o justificarse localmente.
+
+Acciones concretas:
+- Priorizar fallos por bloqueo, pérdida de estado, visual y comodidad.
+- Reproducir cada bug antes de modificar varios sistemas a la vez.
+- Combinar pruebas de núcleo, contratos, recursos y ejecución real de Unity.
+
+Criterio de cierre: cada entrega tiene evidencia útil de su revisión y los problemas conocidos no se esconden detrás de checks parciales o mensajes ambiguos.
+
+
+PÁGINA 49 DE 50 — Respaldo, entregas y continuidad del proyecto
+============================================================================
+
+Después de lo ocurrido con archivos perdidos y descargas vacías, la continuidad del proyecto forma parte de su calidad. No basta con terminar código localmente. Debe quedar una fuente recuperable, un estado de pendientes claro y una entrega que realmente llegue con contenido.
+
+Mantendría commits acotados y respaldos sin sobrescribir historial. Antes de sincronizar, revisar cambios locales y archivos nuevos. Un mensaje de «fuerza subir» no debería interpretarse como autorización rutinaria para destruir trabajo de otro entorno. La recuperación exacta de v47 sigue sin existir; las reconstrucciones deben nombrarse como tales.
+
+Las publicaciones deberían anclar un commit y exigir comprobaciones de esa misma fuente. El paquete completo, parche y metadatos deben coincidir. No conviene publicar desde una carpeta modificada después de validar otro SHA, porque se pierde la relación entre resultado y archivo entregado.
+
+La descarga necesita verificarse fuera del proceso de creación. Los episodios de cero bytes, incluido un TXT, no demuestran un problema de compresión reparable. Hay que comprobar existencia, tamaño, hash y lectura pública completa. Usar enlaces estables evita depender de firmas temporales copiadas del navegador.
+
+La memoria de trabajo también debe ser mantenible. El TXT maestro, los estados y las evidencias ayudan, pero pueden quedar antiguos. Cada etapa debería actualizar lo que cambió y conservar límites. Un nuevo colaborador necesita saber cuál es la entrega actual y qué procesos quedaron activos, no leer todo el chat para adivinarlo.
+
+Acciones concretas:
+- Publicar etapas completas con fuente y evidencia identificables.
+- Verificar descargas y compatibilidad de parches antes de entregarlas.
+- Actualizar inventario y guía de continuidad con cada trabajo importante.
+
+Criterio de cierre: otra sesión puede recuperar el estado real, construirlo y continuar sin inventar qué estaba terminado ni perder archivos por falta de respaldo.
+
+
+PÁGINA 50 DE 50 — Hoja de ruta: en qué orden lo mejoraría
+============================================================================
+
+Yo organizaría el trabajo por puertas de calidad, no por fechas inventadas. Sin medir el estado actual en Unity no sería responsable prometer una duración exacta. Las prioridades siguientes son mi recomendación y no significan que las mejoras se hayan implementado por escribir este informe.
+
+Primera etapa: validar el paquete actual en Unity y cerrar bloqueos. Compilación, importación, suelo, conexiones, entrada/salida de actividades y propiedad de objetos. Resultado esperado: una sesión de referencia se puede completar y sus fallos quedan reproducidos con logs y coordenadas.
+
+Segunda etapa: establecer calidad visual y sensación comunes. Elegir materiales, exposición, agua, cámara y audio de referencia; probar ciudad, comercio, vegetación y un ambiente tranquilo. Resultado esperado: capturas, escucha y rendimiento comparables, con ajustes comprensibles y sin degradaciones ocultas.
+
+Tercera etapa: reconstruir niveles pendientes uno por uno. Priorizar los más repetidos o genéricos, con investigación, programa espacial, interacción propia y conexión caminable. Resultado esperado: reducir la cola por etapas realmente integradas, sin confundir recetas o fuentes descargadas con niveles terminados.
+
+Cuarta etapa: profundizar actividades y comodidad. Mejorar inventario, importación de skins, vuelo, vehículos, orientación y relatos cálidos. La persistencia completa se mantiene como decisión separada de alcance, tal como se dejó pendiente. Resultado esperado: el jugador encuentra motivos para quedarse y entiende cada función.
+
+Quinta etapa: estabilizar y publicar un conjunto coherente. Revisar varias semillas, tipos de frontera, calidades y recorridos; medir rendimiento y memoria; auditar licencias; crear completo/parche y comprobar descarga. Resultado esperado: una entrega reproducible con límites y evidencias claros.
+
+Para mí, el objetivo final no es que el proyecto pese más o tenga otro número enorme de líneas. Es que al entrar encuentres un mundo bonito, accesible, variado y agradable de habitar. La cantidad puede crecer después sobre una base que ya inspire confianza.
+
+Criterio de cierre global: la calidad que se promete coincide con lo que se puede jugar, observar y verificar, respetando tus preferencias de calma, libertad y profundidad.
