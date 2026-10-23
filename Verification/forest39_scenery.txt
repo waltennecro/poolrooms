@@ -1,0 +1,6 @@
+Scenery real-room sample: 105 furnished rooms, 884 additional instances; empty/complex rooms may conservatively reject additions.
+PASS: scenery 768 open-room biome/seed plans, 1536 clusters, 7892 instances, 41 distinct authored arrangements, 12 stories; native Unity/physics/FPS unrun.
+PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
+PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
+PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

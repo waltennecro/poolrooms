@@ -59,7 +59,7 @@ static partial class Checks
                         }
                         Check(built.Forest39Canopy.Wood[0].TriangleCount + built.Forest39Canopy.Leaves[0].TriangleCount < 150000,
                             "Forest crown exceeds the sector budget");
-                        Check(built.Life != null && built.Life.Stations.Count == 1, "Missing supported forest activity");
+                        Check(built.Life != null && built.Life.Scenery!=null && SceneryPlanner.ValidPlan(built.Life.Scenery,room,config) && built.Life.Stations.Count == 1, "Missing supported forest activity");
                         foreach (var station in built.Life.Stations)
                         {
                             var anchor = station.Anchor;

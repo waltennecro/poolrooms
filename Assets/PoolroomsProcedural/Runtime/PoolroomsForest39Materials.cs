@@ -12,6 +12,14 @@ namespace Poolrooms
 
         public static Material Resolve(SurfaceTheme theme, Surface surface)
         {
+            if(surface==Surface.Metal)
+            {
+                var metal=PoolroomsJourneyMaterials.ResolveCity(0,Surface.Metal);
+                if(metal!=null)return metal;
+            }
+            if(theme==SurfaceTheme.Forest39Bark&&surface==Surface.Plaster)
+                return City11Sources.MaterialFor(new City11Sources.MaterialDefinition
+                {name="Forest39_Paper",colour=new[]{.91f,.86f,.74f,1f},roughness=.94f});
             int key = (int)theme * 8 + (int)surface;
             if (cache.TryGetValue(key, out var previous) && previous != null) return previous;
             string bank = Forest39Materials.Bank(theme, surface);

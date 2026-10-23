@@ -53,9 +53,7 @@ namespace Poolrooms
                 var go = new GameObject(Forest39Activities.Name(action.Kind));
                 go.transform.SetParent(parent, false);
                 var point = action.Bottom;
-                if (action.Kind == Forest39Activity.FieldNotebook)
-                    point.Y = SourceFurniture.Dimensions(7).Y + .009f;
-                else if (action.Kind == Forest39Activity.Listening)
+                if (action.Kind == Forest39Activity.Listening)
                     point = new V3(plan.Rest.X, 0, plan.Rest.Z - 1.1f);
                 else if (collectable)
                     point.Y = Forest39Terrain.MeshHeight(plan, point.X, point.Z) + .003f;
@@ -80,6 +78,7 @@ namespace Poolrooms
                 if (inventory != null) activity.Restore(inventory);
             }
             AttachSupplies(world, room, parent, inventory);
+            var support=parent.gameObject.AddComponent<PoolroomsForest39Support>();support.world=world;
         }
 
         static void AttachSupplies(PoolroomsWorld world, Room room, Transform parent, PoolroomsInventory inventory)
@@ -90,6 +89,9 @@ namespace Poolrooms
                 int food = index == 0 ? ProvisionCatalog.AlmondWater : index == 1 ? 69 : 0;
                 string key = Forest39Activities.Key(world.CurrentLayout.Config.Seed, room.X, room.Z, 100 + index);
                 if (inventory != null && inventory.WasCollected(key)) continue;
+                var actor=world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsExplorer>():null;
+                var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
+                if(carry!=null&&carry.WasTaken(key))continue;
                 float x = plan.Rest.X + (index - 1) * .22f;
                 float z = plan.Rest.Z + .7f;
                 float y = SourceFurniture.Dimensions(7).Y + .009f;
@@ -106,8 +108,8 @@ namespace Poolrooms
             var go = new GameObject(Forest39Activities.Item(id).Name);
             go.transform.position = position;
             var owner = go.AddComponent<PoolroomsChunk>();
-            MeshFactory.Create("Forest keepsake", Forest39ActivityGeometry.Body(kind), go.transform, profile, owner, false);
-            var size = Forest39ActivityGeometry.Size(kind);
+            MeshFactory.Create("Forest keepsake", Forest39ActivityGeometry.Keepsake(id), go.transform, profile, owner, false);
+            var size = id==2?new V3(.32f,.035f,.24f):Forest39ActivityGeometry.Size(kind);
             var shape = go.AddComponent<BoxCollider>();
             shape.size = Vec(size);
             shape.center = Vector3.up * size.Y * .5f;

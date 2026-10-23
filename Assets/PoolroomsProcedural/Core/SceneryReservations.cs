@@ -32,6 +32,37 @@ namespace Poolrooms.Core
                 foreach (var station in life.Stations) AddActivity(station.Anchor, room.Floor);
             }
             var p = room.Plan;
+            if (p?.Forest39 != null)
+            {
+                var forest = p.Forest39;
+                // Shared decoration respects the forest's curved paths, not just
+                // the legacy straight crossing axes. Preserve the whole clear
+                // programme and its native interactive stations as well.
+                void ReserveTrail(Forest39Trail trail)
+                {
+                    const float margin = Forest39Plan.PathWidth * .5f + .45f;
+                    for (int i = 1; i < trail.Points.Length; i++)
+                    {
+                        var a = trail.Points[i-1];var b = trail.Points[i];
+                        AddApproach(new SceneryBox(new V3(Math.Min(a.X,b.X)-margin,-.1f,Math.Min(a.Y,b.Y)-margin),
+                            new V3(Math.Max(a.X,b.X)+margin,2.1f,Math.Max(a.Y,b.Y)+margin)));
+                    }
+                }
+                foreach (var trail in forest.Trails) ReserveTrail(trail);
+                if (forest.Loop != null) ReserveTrail(forest.Loop);
+                foreach (var target in new[] {new V2(forest.Rest.X,forest.Rest.Z),new V2(forest.Feature.X,forest.Feature.Z)})
+                    AddApproach(new SceneryBox(new V3(Math.Min(0,target.X)-1.65f,-.1f,Math.Min(0,target.Y)-1.65f),
+                        new V3(Math.Max(0,target.X)+1.65f,2.1f,Math.Max(0,target.Y)+1.65f)));
+                foreach (var area in new[] { forest.Rest, forest.Feature })
+                    AddApproach(new SceneryBox(new V3(area.MinX-.5f,-.1f,area.MinZ-.5f),
+                        new V3(area.MaxX+.5f,2.1f,area.MaxZ+.5f)));
+                foreach (var action in Forest39Activities.Plan(forest))
+                {
+                    var size = Forest39ActivityGeometry.Size(action.Kind);
+                    Add(new SceneryBox(action.Bottom-new V3(size.X*.5f,0,size.Z*.5f),
+                        action.Bottom+new V3(size.X*.5f,size.Y,size.Z*.5f)));
+                }
+            }
             var props = p?.Restful?.Props ?? p?.Rain?.Props ?? p?.Aquatic?.Props ??
                 p?.Baths?.Props ?? p?.Garden?.Props ?? p?.Quiet?.Props;
             if (props != null)

@@ -24,7 +24,11 @@ namespace Poolrooms.Core
             Forest39Clearings.Append(result, plan);
             Understory(result, plan);
             Forest39Ecology.Append(result, plan);
-            if (config.EncounterExploration) Activities(result, plan);
+            if (config.EncounterExploration)
+            {
+                Activities(result, plan);
+                result.Life.Scenery = SceneryPlanner.Build(room, result, config);
+            }
             result.Forest39Canopy = Forest39Oak.Build(plan);
             return result;
         }

@@ -1,9 +1,9 @@
 {
   "comparedWithSource": "416f75c8f3f0d1b9b91d1c2dd0a796bd397b48be",
-  "newCodeLinesAdded": 4085,
+  "newCodeLinesAdded": 4179,
   "lineCounting": "Git added text lines, including comments/spacing. Separate production, verification, tools and workflow counts; documentation/data excluded.",
   "workflowLinesAdded": 91,
-  "productionCSharpLinesAdded": 2442,
+  "productionCSharpLinesAdded": 2536,
   "nativeTestLinesAdded": 153,
   "coreVerificationLinesAdded": 468,
   "assetAndDeliveryToolLinesAdded": 931,
@@ -75,13 +75,13 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Core/Forest39ActivityGeometry.cs",
-      "added": 147,
+      "added": 158,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
     {
       "path": "Assets/PoolroomsProcedural/Core/Forest39Architecture.cs",
-      "added": 231,
+      "added": 235,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -188,6 +188,12 @@
       "category": "productionCSharpLinesAdded"
     },
     {
+      "path": "Assets/PoolroomsProcedural/Core/SceneryReservations.cs",
+      "added": 31,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
       "path": "Assets/PoolroomsProcedural/Core/WalkableExploration.cs",
       "added": 5,
       "removed": 4,
@@ -225,7 +231,7 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39.cs",
-      "added": 126,
+      "added": 128,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -243,7 +249,13 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39Materials.cs",
-      "added": 62,
+      "added": 70,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39Support.cs",
+      "added": 38,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },

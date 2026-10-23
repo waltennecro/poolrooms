@@ -3937,6 +3937,12 @@
       "strictBuild": "0 warnings / 0 errors",
       "immutableR33VerifierCompile": "passed",
       "newEnvironmentCount": 64
-    }
+    },
+    "preliminaryFullRun": {
+      "id": 39904932902,
+      "conclusion": "failure",
+      "reason": "Shared scenery layer was missing from dedicated forest architecture; corrected with actual planner integration and curved-path/activity reservations."
+    },
+    "movableTableSupport": "Room-owned existing provision support monitor releases owned food/cup if its original table moves or is absent; no duplicated carried food on reload."
   }
 }

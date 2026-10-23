@@ -16,10 +16,21 @@ namespace Poolrooms.Core
                 case Forest39Activity.Listening: Listening(mesh); break;
                 case Forest39Activity.FallenLeaf: Leaf(mesh); break;
                 case Forest39Activity.Acorn: Acorn(mesh); break;
-                case Forest39Activity.FieldNotebook: Notebook(mesh); break;
+                case Forest39Activity.FieldNotebook:
+                    Table(mesh);
+                    var book=new MeshData{Theme=SurfaceTheme.Forest39Bark};
+                    Notebook(book);book.TranslateRotate(new V3(0,.805f,0),0);mesh.Append(book);
+                    break;
                 default: throw new ArgumentOutOfRangeException(nameof(kind));
             }
             return mesh;
+        }
+
+        public static MeshData Keepsake(int id)
+        {
+            if(id<0||id>2)throw new ArgumentOutOfRangeException(nameof(id));
+            if(id<2)return Body(id==0?Forest39Activity.FallenLeaf:Forest39Activity.Acorn);
+            var mesh=new MeshData{Theme=SurfaceTheme.Forest39Bark};Notebook(mesh);return mesh;
         }
 
         public static V3 Size(Forest39Activity kind)
@@ -28,7 +39,7 @@ namespace Poolrooms.Core
             {
                 case Forest39Activity.FallenLeaf: return new V3(.3f, .065f, .4f);
                 case Forest39Activity.Acorn: return new V3(.1f, .14f, .1f);
-                case Forest39Activity.FieldNotebook: return new V3(.32f, .035f, .24f);
+                case Forest39Activity.FieldNotebook: return new V3(.84f, .85f, .72f);
                 case Forest39Activity.Listening: return new V3(1.1f, .65f, .5f);
                 default: return new V3(.85f, 1.15f, .75f);
             }

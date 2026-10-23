@@ -436,7 +436,7 @@ namespace Poolrooms
         private void AttachRoomExtras(Room r,Transform parent)
         {
             if(r.Plan?.Forest39==null&&!r.MallGateway&&!r.TerrainGateway)PoolroomsProvisions.Attach(this,parent,"room",layout.Config.Seed,r.X,r.Z,r.Width,r.Depth,r.Floor,r.Environment==LiminalEnvironment.City11,waters:parent.GetComponent<PoolroomsChunk>()?.waterRegions,clearHalf:Mathf.Max(layout.Config.DoorWidth*.5f+.15f,r.Plan?.ClearHalfWidth??0));
-            if(Application.isPlaying&&r.Plan?.Forest39!=null)PoolroomsForest39.Attach(this,r,parent);
+            if(Application.isPlaying&&layout.Config.EncounterExploration&&r.Plan?.Forest39!=null)PoolroomsForest39.Attach(this,r,parent);
             if(Application.isPlaying&&r.Plan?.Quiet?.Courtyard!=null)PoolroomsCourtyard188.Attach(this,r,parent);
             if(r.Plan!=null&&r.Plan.City!=null)PoolroomsCityBuildings.Attach(r.Plan.City,parent,layout.Config);
             var sources=parent.GetComponent<PoolroomsChunk>();

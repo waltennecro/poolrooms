@@ -102,7 +102,7 @@ namespace Poolrooms.Core
             var primary = (Forest39Activity)((int)plan.Clearing % 4);
             var result = new Forest39Action[MaximumPerSector];
             result[0] = new Forest39Action(primary, new V3(x - 1.45f, 0, z + 1.1f), 0);
-            result[1] = new Forest39Action(Forest39Activity.FieldNotebook, new V3(x, SourceFurniture.Dimensions(7).Y + .009f, z + .3f), 1);
+            result[1] = new Forest39Action(Forest39Activity.FieldNotebook, new V3(x - 1.45f, 0, z - .2f), 1);
             result[2] = new Forest39Action(Forest39Activity.Listening, new V3(x, .01f, z - 1.1f), 2);
             // Collectable locations live in the flat clear region. They remain
             // reachable even when foliage or source furniture quality is disabled.
