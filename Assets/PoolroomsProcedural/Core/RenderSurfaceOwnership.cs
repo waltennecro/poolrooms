@@ -25,7 +25,7 @@ namespace Poolrooms.Core
         public static bool IsOpaque(MeshData m)
         {
             var t=BiomeSurfaces.Resolve(m);
-            return t!=SurfaceTheme.Glass&&t!=SurfaceTheme.CygnusGlass&&t!=SurfaceTheme.SlideGlass&&
+            return t!=SurfaceTheme.Forest39CanopyLeaves&&t!=SurfaceTheme.Glass&&t!=SurfaceTheme.CygnusGlass&&t!=SurfaceTheme.SlideGlass&&
                 t!=SurfaceTheme.FlumeFlow&&t!=SurfaceTheme.SoftPlayNet;
         }
         public static MeshData[] Resolve(params MeshData[] sources)

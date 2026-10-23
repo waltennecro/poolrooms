@@ -197,6 +197,23 @@ CityArchitectureSources
 Amazon Lumberyard Bistro, Amazon.com, Inc. or its affiliates, CC BY 4.0. https://developer.nvidia.com/orca/amazon-lumberyard-bistro . Pinned source: https://raw.githubusercontent.com/zeux/niagara_bistro/2bdb6a410f8ebd475d3737e7c8e038ed2b00b02e/bistro.gltf . Adaptation: Paris_Building_010 as an exterior skin with generated interior clearances, two LODs and reused native source PBR finishes. Texture adaptations: decode original DDS to PNG at native resolution up to 4K, invert tangent-normal green for Unity, retain authored specular colour/gloss and pack the HDRP mask; original input sizes/hashes are recorded. Original interior is not retained. No endorsement.
 
 
+
+Forest39
+Level 39 texture scans: Ground037, Bark001 and Rock030 by Lennart Demes / ambientCG.
+https://ambientcg.com/a/Ground037
+https://ambientcg.com/a/Bark001
+CC0-1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Pinned public mirror and original byte hashes: ../manifest.json.
+Native 4096x4096 ground and 2230x4096 bark retained; no upscaling.
+Leaf vein texture and procedural oak geometry are original project work, CC0-1.0.
+Level 39 / Enchanted Forest setting: Ferraru, The Backrooms Wiki, CC BY-SA 3.0.
+https://backrooms-wiki.wikidot.com/level-39
+https://creativecommons.org/licenses/by-sa/3.0/
+Adaptation: peaceful accessible forest, optional activities and walking transitions; no hypnosis, lethal hunger, boundary storms or copied Wiki photographs.
+Canopy scan: LeafSet005, Lennart Demes / ambientCG, CC0-1.0. https://ambientcg.com/a/LeafSet005
+Pinned mirror and native 512x512 dimensions: ../canopy.json. Broadleaf texture adaptation; not a botanical Quercus replica. No upscaling.
+
+
 Calm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.
 
 

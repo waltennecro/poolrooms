@@ -98,6 +98,7 @@ namespace Poolrooms
         private void Start()
         {
             ConfigureBody();
+            if(GetComponent<PoolroomsForest39Ambience>()==null)gameObject.AddComponent<PoolroomsForest39Ambience>();
             if(GetComponent<PoolroomsSky63Safety>()==null)gameObject.AddComponent<PoolroomsSky63Safety>();
             if(GetComponent<PoolroomsTravelLoading>()==null)gameObject.AddComponent<PoolroomsTravelLoading>();
             aquatic=GetComponent<PoolroomsAquaticTraversal>();if(aquatic==null)aquatic=gameObject.AddComponent<PoolroomsAquaticTraversal>();

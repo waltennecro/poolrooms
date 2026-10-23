@@ -34,7 +34,7 @@ static partial class Checks
                 var list=geometry.Life.Stations;Check(list.Count<=4,"Station count exceeds budget");if(list.Count>0)withStations++;
                 foreach(var p in list)
                 {
-                    Check(ArchitecturalDressing.FootprintFits(p.Anchor.Center,p.Anchor.Normal,p.Anchor.A,p.Anchor.B,p.Anchor.C),"Station not supported by a real wall");
+                    Check(ArchitecturalDressing.FootprintFits(p.Anchor.Center,p.Anchor.Normal,p.Anchor.A,p.Anchor.B,p.Anchor.C),"Station not supported by a real wall: "+room.Environment+" / "+room.X+","+room.Z);
                     Check(p.Anchor.Center.Y>=room.Floor+.95f&&p.Anchor.Center.Y<=room.Floor+1.75f,"Station is out of reach");
                     if(geometry.Life.Notice.HasValue)Check((p.Anchor.Center-geometry.Life.Notice.Value.Center).Length>=1.05f,"Station overlaps the room notice");
                     foreach(var other in list)if(other.Slot!=p.Slot)Check((p.Anchor.Center-other.Anchor.Center).Length>=1.1f,"Overlapping stations");

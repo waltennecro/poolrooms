@@ -45,7 +45,7 @@ namespace Poolrooms.Core
     }
     public static class RestfulLevelPlanner
     {
-        public const int LevelCount=10,EnvironmentCount=63;
+        public const int LevelCount=10,EnvironmentCount=64;
         public static bool IsLevel(LiminalEnvironment e){return HorizonLevelPlanner.IsLevel(e)||JourneyLevelPlanner.IsLevel(e)||SpecialRegionPlanner.IsLevel(e)||(int)e>=(int)LiminalEnvironment.SunsetLibrary&&(int)e<= (int)LiminalEnvironment.MineralSanctuary;}
         public static bool IsMode(LiminalGeneration m){return (int)m>=(int)LiminalGeneration.SunsetLibrary&&(int)m<=(int)LiminalGeneration.MineralSanctuary;}
         public static LiminalEnvironment ForMode(LiminalGeneration m)

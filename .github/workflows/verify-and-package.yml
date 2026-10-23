@@ -52,6 +52,14 @@ jobs:
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --mall-retail
       - name: Check twelve workshops, constructive solutions, state meshes and bounded session memory
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --workshops
+      - name: Check Level39 terrain, water shores, canopy LODs, items and preserved walking discovery
+        run: POOLROOMS_FOREST39_REPORT=Verification/forest39_audit.json dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --forest39
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Level39-evidence
+          path: |
+            Verification/forest39_audit.json
+            Assets/PoolroomsProcedural/Documentation/LevelResearch/Level39.json
       - name: Check five Horizon levels, walk-in cabins, lookouts and physical discovery
         run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --horizons
       - name: Check procedural furnishing, real-room integration, support, clearance and bounded work
@@ -109,6 +117,8 @@ jobs:
           python-version: '3.11'
       - name: Install pinned offline art verification tools
         run: python -m pip install -r Verification/requirements-art-tools.txt
+      - name: Check Level39 native scan hashes, alpha foliage, PCM and attribution
+        run: python tools/verify_forest39_resources.py
       - name: Check Level63 original cloud density, attribution and bounded rendering source
         run: python tools/verify_sky63_resources.py
       - name: Check conservatory CC0 maps, provenance and material/import bindings

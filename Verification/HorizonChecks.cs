@@ -9,7 +9,7 @@ static partial class Checks
 {
     static void HorizonLevels()
     {
-        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==63,"Five appended levels missing");
+        Check(Enum.GetValues(typeof(LiminalEnvironment)).Length>=63,"Five appended levels missing");
         string root=Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,"../../../../"));
         var ids=JsonSerializer.Deserialize<Dictionary<string,Dictionary<string,int>>>(File.ReadAllText(Path.Combine(root,"Verification/horizon_previous_ids.json")));
         foreach(var bank in ids)
@@ -87,9 +87,9 @@ static partial class Checks
                 seen.Add(after);
                 if((int)after<58)Check(after==before,"A non-spare old discovery assignment moved");
             }
-            Check(seen.Count==63,"A new level requires teleport/master mode");
+            Check(seen.Count==63+(expanded.EnableForest39?1:0),"A new level requires teleport/master mode");
         }
-        Console.WriteLine($"PASS: five Horizon programmes, {rooms} physical rooms at three sizes/two door widths, {props} supported pickups, {activities} reachable activities, {glass} colored glazing triangles; previous IDs and 63-biome coverage preserved. Unity/HDRP/PhysX/rendering/FPS unrun.");
+        Console.WriteLine($"PASS: five Horizon programmes, {rooms} physical rooms at three sizes/two door widths, {props} supported pickups, {activities} reachable activities, {glass} colored glazing triangles; previous IDs and coverage preserved alongside the appended forest. Unity/HDRP/PhysX/rendering/FPS unrun.");
     }
     static void CheckFunicularEntry(RoomGeometry g,RestfulLevelPlan plan)
     {

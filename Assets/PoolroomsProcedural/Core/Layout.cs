@@ -81,6 +81,7 @@ namespace Poolrooms.Core
         public bool RebuildArchive906;
         public bool RebuildConservatory;
         public bool RebuildSky63;
+        public bool EnableForest39;
         public bool EnableCivicLevels;
         public bool EnableOrangerie;
         public bool EnableRainHouses;
@@ -238,6 +239,8 @@ namespace Poolrooms.Core
                 for(int side=0;side<4;side++)if(CourtyardDistrictPlanner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
             if(config.RebuildArchive906)foreach(var room in Rooms)
                 for(int side=0;side<4;side++)if(ArchiveDistrictPlanner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
+            if(config.EnableForest39||config.Procedural==LiminalGeneration.EnchantedForest39)foreach(var room in Rooms)
+                for(int side=0;side<4;side++)if(Forest39Planner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
             if(config.RebuildSky63)foreach(var room in Rooms)
                 for(int side=0;side<4;side++)if(Sky63Planner.Same(config,room.X,room.Z,side))room.Exits|=1<<side;
             if(config.RebuildConservatory)foreach(var room in Rooms)

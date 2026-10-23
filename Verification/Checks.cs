@@ -55,6 +55,8 @@ static partial class Checks
         if(args.Contains("--city-buildings")){CityBuildings();IntegrationSourceContracts();return 0;}
         if(args.Contains("--city-provisions")){CityProvisions();IntegrationSourceContracts();return 0;}
         if(args.Contains("--render-surfaces")){RenderSurfaces();IntegrationSourceContracts();return 0;}
+        if(args.Contains("--forest39-atlas")){int i=Array.IndexOf(args,"--forest39-atlas");if(i+1>=args.Length)throw new ArgumentException("Supply a new preview directory");Forest39Atlas(args[i+1]);return 0;}
+        if(args.Contains("--forest39")){Forest39();IntegrationSourceContracts();return 0;}
         if(args.Contains("--sky63")){Sky63();IntegrationSourceContracts();return 0;}
         if(args.Contains("--crystal-conservatory")){ConservatoryDistricts();IntegrationSourceContracts();return 0;}
         if(args.Contains("--archive-library")){ArchiveDistricts();IntegrationSourceContracts();return 0;}

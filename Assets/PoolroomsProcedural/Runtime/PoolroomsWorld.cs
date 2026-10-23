@@ -393,7 +393,7 @@ namespace Poolrooms
                 for(int d=0;d<4;d++)if(r.HasExit(d))
                 {
                     // Full solid cap seals a doorway until BOTH neighbouring chunks exist.
-                    bool openHall=r.Plan?.Quiet?.Sky63!=null&&Sky63Planner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Conservatory!=null&&ConservatoryDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Archive!=null&&ArchiveDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Courtyard!=null&&CourtyardDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(layout.Config,r.X,r.Z,d,r.Environment);
+                    bool openHall=r.Plan?.Forest39!=null&&Forest39Planner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Sky63!=null&&Sky63Planner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Conservatory!=null&&ConservatoryDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Archive!=null&&ArchiveDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Quiet?.Courtyard!=null&&CourtyardDistrictPlanner.Same(layout.Config,r.X,r.Z,d)||r.Plan?.Restful?.Large==true&&LargeRegions.OpenEdge(layout.Config,r.X,r.Z,d,r.Environment);
                     float half=openHall?layout.Config.CellSize*.5f:SolarConnections.DoorWidth(r,d,layout.Config)*.5f;
                     var airfield=r.Plan!=null&&r.Plan.City!=null?r.Plan.City.Airfield:null;
                     if(airfield!=null&&Math.Abs(airfield.Column+Directions.DX[d])<=1&&Math.Abs(airfield.Row+Directions.DZ[d])<=3)half=layout.Config.CellSize*.5f;
@@ -403,7 +403,7 @@ namespace Poolrooms
                     cap.TranslateRotate(new V3(Directions.DX[d]*r.Width*.5f,0,Directions.DZ[d]*r.Depth*.5f),d*Shapes.Pi*.5f);
                     chunk.caps[d]=MeshFactory.Create("Streaming gate "+d,cap,go.transform,profile,chunk,BuildColliders);
                     // The sky remains open while its physical gate protects an unloaded deck.
-                    if(r.Plan?.Quiet?.Sky63!=null&&chunk.caps[d]!=null)
+                    if((r.Plan?.Quiet?.Sky63!=null||r.Plan?.Forest39!=null)&&chunk.caps[d]!=null)
                     {var skyGate=chunk.caps[d].GetComponent<MeshRenderer>();if(skyGate!=null)skyGate.enabled=false;}
                     // Broad halls share their floor; an intentionally empty connector has no renderer.
                     if(d<2&&data.Connectors[d]!=null&&data.Connectors[d].Structure.TriangleCount>0)
@@ -425,6 +425,7 @@ namespace Poolrooms
                         chunk.links[d].SetActive(false);
                     }
                 }
+                PoolroomsForest39.AttachCanopy(data.Forest39Canopy,go.transform,profile,chunk);
                 foreach(Fixture f in data.Fixtures)AddFixture(f,go.transform);
                 AttachRoomExtras(r,go.transform);
                 loaded.Add(ContinuousTopology.CellKey(r.X,r.Z),chunk);ChunkCreated?.Invoke(chunk);
@@ -434,7 +435,8 @@ namespace Poolrooms
 
         private void AttachRoomExtras(Room r,Transform parent)
         {
-            if(!r.MallGateway&&!r.TerrainGateway)PoolroomsProvisions.Attach(this,parent,"room",layout.Config.Seed,r.X,r.Z,r.Width,r.Depth,r.Floor,r.Environment==LiminalEnvironment.City11,waters:parent.GetComponent<PoolroomsChunk>()?.waterRegions,clearHalf:Mathf.Max(layout.Config.DoorWidth*.5f+.15f,r.Plan?.ClearHalfWidth??0));
+            if(r.Plan?.Forest39==null&&!r.MallGateway&&!r.TerrainGateway)PoolroomsProvisions.Attach(this,parent,"room",layout.Config.Seed,r.X,r.Z,r.Width,r.Depth,r.Floor,r.Environment==LiminalEnvironment.City11,waters:parent.GetComponent<PoolroomsChunk>()?.waterRegions,clearHalf:Mathf.Max(layout.Config.DoorWidth*.5f+.15f,r.Plan?.ClearHalfWidth??0));
+            if(Application.isPlaying&&r.Plan?.Forest39!=null)PoolroomsForest39.Attach(this,r,parent);
             if(Application.isPlaying&&r.Plan?.Quiet?.Courtyard!=null)PoolroomsCourtyard188.Attach(this,r,parent);
             if(r.Plan!=null&&r.Plan.City!=null)PoolroomsCityBuildings.Attach(r.Plan.City,parent,layout.Config);
             var sources=parent.GetComponent<PoolroomsChunk>();

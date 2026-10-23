@@ -36,6 +36,7 @@ namespace Poolrooms.Core
             if(string.IsNullOrEmpty(key)||key.Length>128)return null;
             if(cache.TryGetValue(key,out var prior))return prior;
             var parts=key.Split(':');ExplorationItem item=null;
+            if(parts.Length==2&&parts[0]=="forest39"&&int.TryParse(parts[1],out int forestItem))return Forest39Activities.Item(forestItem);
             if(parts.Length==2&&parts[0]=="food"&&int.TryParse(parts[1],out int food)&&food>=0&&food<ProvisionCatalog.Count)
                 item=ProvisionCatalog.Item(food);
             if(parts.Length==2&&parts[0]=="tool"&&int.TryParse(parts[1],out int tool))return Tool(tool);

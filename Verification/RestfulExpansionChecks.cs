@@ -176,8 +176,10 @@ static partial class Checks
 #if !POOLROOMS_HISTORICAL_CORE
         Check(skyRooms>0&&skyPickups>0,"Rebuilt sky level has no actual pickup placements in the unified snapshot");
 #endif
-        Check(levels.All(v=>v>0),"New level missing from actual unified world snapshot");
+        // This audit owns the Restful/Journey/Horizon programmes; the separately appended forest has its own physical snapshot audit.
+        var programmeIds=Enumerable.Range(0,levels.Length).Where(i=>RestfulLevelPlanner.IsLevel((LiminalEnvironment)(i+18))).ToArray();
+        Check(programmeIds.All(i=>levels[i]>0),"New level missing from actual unified world snapshot");
         Check(licensed>20000&&interactions>4000,"Object targets absent from the actual coordinate snapshot");
-        Console.WriteLine($"PASS: actual unified-world coordinate snapshot seed {c.Seed}, [-64,64]^2 excluding reserved terrain: {rooms} new-level rooms, {interactions} distinct pickup keys, {licensed} planned licensed-source instances using {kinds.Count} distinct source models. All {levels.Length} programmes present, including {skyRooms} rebuilt sky sectors / {skyPickups} sky pickups; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.");
+        Console.WriteLine($"PASS: actual unified-world coordinate snapshot seed {c.Seed}, [-64,64]^2 excluding reserved terrain: {rooms} new-level rooms, {interactions} distinct pickup keys, {licensed} planned licensed-source instances using {kinds.Count} distinct source models. All {programmeIds.Length} programmes present, including {skyRooms} rebuilt sky sectors / {skyPickups} sky pickups; streaming loads a bounded local subset. Not simultaneous objects, source-model counts or a native runtime snapshot.");
     }
 }

@@ -40,6 +40,7 @@ namespace Poolrooms.Core
     {
         public readonly MeshData Structure=new MeshData(),Water=new MeshData(),Decoration=new MeshData(),Glass=new MeshData(),CollisionOnly=new MeshData();
         public DressingGeometry Dressing;
+        public Forest39Canopy Forest39Canopy;
         public RoomLifePlan Life;
         public readonly List<Fixture> Fixtures=new List<Fixture>();
         // Optional batched visuals never enter the support/collision meshes.
@@ -68,6 +69,7 @@ namespace Poolrooms.Core
         }
         public static RoomGeometry Build(Room r,LayoutConfig cfg)
         {
+            if(r.Plan?.Forest39!=null)return Forest39Architecture.Build(r,cfg);
             if(r.Plan?.Quiet?.Sky63!=null)return Sky63Architecture.Build(r,cfg);
             if(r.Plan?.Quiet?.Conservatory!=null)return ConservatoryDistrictArchitecture.Build(r,cfg);
             if(r.Plan?.Quiet?.Archive!=null)return ArchiveDistrictArchitecture.Build(r,cfg);

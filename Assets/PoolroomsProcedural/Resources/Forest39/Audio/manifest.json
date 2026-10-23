@@ -1,0 +1,54 @@
+{
+  "license": "CC0-1.0",
+  "author": "Poolrooms project original procedural foley",
+  "sampleRate": 44100,
+  "channels": 1,
+  "bits": 16,
+  "files": [
+    {
+      "path": "OakWind.wav",
+      "bytes": 2116844,
+      "sha256": "892c6fe5cf92e71170ea0a2647518219517210d29b73ee2e34d9bb202d21936b",
+      "seconds": 24.0,
+      "loop": true,
+      "peak": 0.5467051434221679,
+      "rms": 0.09280922903039847,
+      "seamStep": 0
+    },
+    {
+      "path": "OakLeaves0.wav",
+      "bytes": 97064,
+      "sha256": "d6701f39750f958f485329db631a58baddbfd30ddf2de3b322bf15709dbe2150",
+      "seconds": 1.1,
+      "loop": false,
+      "peak": 0.24532906018415193,
+      "rms": 0.03237205142378532,
+      "seamStep": 0
+    },
+    {
+      "path": "OakLeaves1.wav",
+      "bytes": 114704,
+      "sha256": "226ad025fb70ce893eb2fc3cbfe990b47a5cd907e4f409639deb38bf63b8f823",
+      "seconds": 1.3,
+      "loop": false,
+      "peak": 0.23648464502941355,
+      "rms": 0.031899657533218,
+      "seamStep": 0
+    },
+    {
+      "path": "OakLeaves2.wav",
+      "bytes": 132344,
+      "sha256": "d37554a63de215b8a419219ca8232d1025589705249d86726b250c7d1318564c",
+      "seconds": 1.5,
+      "loop": false,
+      "peak": 0.2154242020894014,
+      "rms": 0.02644313527783635,
+      "seamStep": 0
+    }
+  ],
+  "sourceSamples": 0,
+  "voicesOrWhispers": false,
+  "startleStingers": false,
+  "nativeListeningVerified": false,
+  "tool": "tools/create_forest39_audio.py"
+}

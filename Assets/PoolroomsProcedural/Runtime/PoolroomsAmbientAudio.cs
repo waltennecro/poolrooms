@@ -137,7 +137,7 @@ namespace Poolrooms
                 reverb.decayTime=smoothed.Decay;reverb.decayHFRatio=underwater?.35f:smoothed.HighDecay;
                 reverb.reflectionsDelay=smoothed.ReflectionsDelay;reverb.reverbDelay=smoothed.ReverbDelay;
             }
-            bool skyPaths=cachedRoom?.Plan?.Quiet?.Sky63!=null;
+            bool skyPaths=cachedRoom?.Plan?.Quiet?.Sky63!=null||cachedRoom?.Plan?.Forest39!=null;
             bool useReverb=!skyPaths&&roomReverb&&(world.Terrain==null||!world.Terrain.IsInside||world.Terrain.InsideHouse);
             if(reverb.enabled!=useReverb)reverb.enabled=useReverb;
             ventilationTransmission=SpatialAudioModel.Step(ventilationTransmission,ventilationBlocked,underwater,dt);

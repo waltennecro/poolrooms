@@ -1,0 +1,389 @@
+{
+  "comparedWithSource": "416f75c8f3f0d1b9b91d1c2dd0a796bd397b48be",
+  "newCodeLinesAdded": 4085,
+  "lineCounting": "Git added text lines, including comments/spacing. Separate production, verification, tools and workflow counts; documentation/data excluded.",
+  "workflowLinesAdded": 91,
+  "productionCSharpLinesAdded": 2442,
+  "nativeTestLinesAdded": 153,
+  "coreVerificationLinesAdded": 468,
+  "assetAndDeliveryToolLinesAdded": 931,
+  "forestResourceBytes": 266551090,
+  "forestResourceFiles": 25,
+  "native4KScanSets": 3,
+  "newDistinctExternalScanIds": 3,
+  "existingScanUpgradedFromNative2KToNative4K": "Ground037",
+  "canopyNativeDimensions": [
+    512,
+    512
+  ],
+  "newExternalModels": 0,
+  "originalClearingProgrammes": 12,
+  "newInventoryItems": 3,
+  "activityTypes": 8,
+  "originalFoleyClips": 4,
+  "paddingBytes": 0,
+  "upscaledTextures": false,
+  "nativeUnityExecuted": false,
+  "files": [
+    {
+      "path": ".github/workflows/publish-forest39.yml",
+      "added": 81,
+      "removed": 0,
+      "category": "workflowLinesAdded"
+    },
+    {
+      "path": ".github/workflows/verify-and-package.yml",
+      "added": 10,
+      "removed": 0,
+      "category": "workflowLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Architecture.cs",
+      "added": 2,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/BiomeSurfaces.cs",
+      "added": 2,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/ContinuousTopology.cs",
+      "added": 2,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Corridors.cs",
+      "added": 1,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/ExplorationInventory.cs",
+      "added": 1,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Activities.cs",
+      "added": 170,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39ActivityGeometry.cs",
+      "added": 147,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Architecture.cs",
+      "added": 231,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Clearings.cs",
+      "added": 246,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Ecology.cs",
+      "added": 194,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Materials.cs",
+      "added": 33,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Oak.cs",
+      "added": 150,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Plan.cs",
+      "added": 289,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39RouteMap.cs",
+      "added": 97,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Stories.cs",
+      "added": 32,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Terrain.cs",
+      "added": 96,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Trail.cs",
+      "added": 96,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Water.cs",
+      "added": 89,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/ImmersiveAudio.cs",
+      "added": 1,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/InteriorPlan.cs",
+      "added": 1,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Layout.cs",
+      "added": 3,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/LiminalRegions.cs",
+      "added": 5,
+      "removed": 2,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/ProceduralPlan.cs",
+      "added": 5,
+      "removed": 2,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/RenderSurfaceOwnership.cs",
+      "added": 1,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/RestfulLevelPlan.cs",
+      "added": 1,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/WalkableExploration.cs",
+      "added": 5,
+      "removed": 4,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Editor/PoolroomsForest39Importer.cs",
+      "added": 44,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Integrations/HDRP/PoolroomsBiomeAtmosphere.cs",
+      "added": 6,
+      "removed": 5,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/MeshFactory.cs",
+      "added": 1,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsAmbientAudio.cs",
+      "added": 1,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsExplorer.cs",
+      "added": 1,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39.cs",
+      "added": 126,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39Activity.cs",
+      "added": 136,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39Ambience.cs",
+      "added": 154,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39Materials.cs",
+      "added": 62,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsInteractable.cs",
+      "added": 2,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsInventory.cs",
+      "added": 2,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsProfile.cs",
+      "added": 2,
+      "removed": 1,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsWorld.cs",
+      "added": 5,
+      "removed": 3,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Tests/PlayMode/Forest39PlayModeTests.cs",
+      "added": 153,
+      "removed": 0,
+      "category": "nativeTestLinesAdded"
+    },
+    {
+      "path": "Verification/Checks.cs",
+      "added": 2,
+      "removed": 0,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/Forest39Atlas.cs",
+      "added": 58,
+      "removed": 0,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/Forest39Checks.cs",
+      "added": 231,
+      "removed": 0,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/Forest39RegressionChecks.cs",
+      "added": 168,
+      "removed": 0,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/HorizonChecks.cs",
+      "added": 3,
+      "removed": 3,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/ImmersionStationChecks.cs",
+      "added": 1,
+      "removed": 1,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/RestfulExpansionChecks.cs",
+      "added": 4,
+      "removed": 2,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/SpecialRegionChecks.cs",
+      "added": 1,
+      "removed": 1,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "tools/create_forest39_audio.py",
+      "added": 83,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/generate_asset_credits.py",
+      "added": 1,
+      "removed": 1,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/import_forest39_canopy.py",
+      "added": 58,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/import_forest39_textures.py",
+      "added": 124,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/measure_forest39_scope.py",
+      "added": 75,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/package_forest39.py",
+      "added": 67,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/render_forest39_preview.py",
+      "added": 154,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/verify_forest39_delivery.py",
+      "added": 138,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/verify_forest39_reproduction.py",
+      "added": 79,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    },
+    {
+      "path": "tools/verify_forest39_resources.py",
+      "added": 152,
+      "removed": 0,
+      "category": "assetAndDeliveryToolLinesAdded"
+    }
+  ]
+}

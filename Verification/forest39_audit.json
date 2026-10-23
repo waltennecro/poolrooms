@@ -1,0 +1,18 @@
+{
+  "sectors": 225,
+  "trees": 3013,
+  "clearingProgrammes": 12,
+  "distinctMeshes": 225,
+  "existingExternalModels": 3,
+  "newExternalModels": 0,
+  "peakCanopyTriangles": [
+    76258,
+    16758,
+    6132
+  ],
+  "walkingEntrances": 20,
+  "mathematicalAssertions": 146165014,
+  "nativeUnityExecuted": false,
+  "nativePhysicsExecuted": false,
+  "nativeRenderingExecuted": false
+}

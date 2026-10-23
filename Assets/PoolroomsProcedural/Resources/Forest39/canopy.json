@@ -1,0 +1,63 @@
+{
+  "id": "LeafSet005",
+  "author": "Lennart Demes / ambientCG",
+  "license": "CC0-1.0",
+  "source": "https://ambientcg.com/a/LeafSet005",
+  "mirrorRevision": "64285742023325e6275866f1379fffacf8323a46",
+  "sources": {
+    "color.png": {
+      "url": "https://raw.githubusercontent.com/Affinator/bevy_procedural_tree/64285742023325e6275866f1379fffacf8323a46/assets/textures/deciduous_leaves/color.png",
+      "bytes": 284784,
+      "sha256": "9decddb185caa764dabbe68cedf47529a05defa2efe9116a044faa78ba54a5b2"
+    },
+    "normal_gl.png": {
+      "url": "https://raw.githubusercontent.com/Affinator/bevy_procedural_tree/64285742023325e6275866f1379fffacf8323a46/assets/textures/deciduous_leaves/normal_gl.png",
+      "bytes": 350410,
+      "sha256": "59b9b410b738ba8575e676493a799f8ae07831085be175eb5f7c4ee2396a462e"
+    },
+    "roughness.png": {
+      "url": "https://raw.githubusercontent.com/Affinator/bevy_procedural_tree/64285742023325e6275866f1379fffacf8323a46/assets/textures/deciduous_leaves/roughness.png",
+      "bytes": 101530,
+      "sha256": "ec18ff0ac9d59d1d7a36338a64f4b413b99c71f2aabecb7906820d7bc26f3a26"
+    },
+    "source.txt": {
+      "url": "https://raw.githubusercontent.com/Affinator/bevy_procedural_tree/64285742023325e6275866f1379fffacf8323a46/assets/textures/deciduous_leaves/source.txt",
+      "bytes": 40,
+      "sha256": "9252a13adb6f2bbd8eaf81101b13aeae1b795da03cfca2c4e99fa137cba8cb6c"
+    }
+  },
+  "files": {
+    "Textures/Canopy_Albedo.png": {
+      "bytes": 254824,
+      "sha256": "e0892ace5baa74c93d216847db842462f9c3d4ec5221091ea58d26841d2c1f9f",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    "Textures/Canopy_Normal.png": {
+      "bytes": 305233,
+      "sha256": "626d4778ba17b28e8b677d59461afd27157f0b252079cdac86d38ec528c42dd7",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    "Textures/Canopy_Mask.png": {
+      "bytes": 85768,
+      "sha256": "80a90d03e562233203ae15cf00a89b884a3df1c5799f38e02830f3765afedafa",
+      "dimensions": [
+        512,
+        512
+      ]
+    }
+  },
+  "nativeResolution": [
+    512,
+    512
+  ],
+  "upscaled": false,
+  "alphaCutoff": 0.45,
+  "newExternalModels": 0,
+  "adaptation": "Scanned deciduous foliage on original oak branch architecture. Not a botanical Quercus replica."
+}

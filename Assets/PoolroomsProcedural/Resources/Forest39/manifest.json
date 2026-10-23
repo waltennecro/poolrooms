@@ -1,0 +1,283 @@
+{
+  "revision": "d4fe80d4885ca3bb8cee69e62a34568676c71b29",
+  "author": "Lennart Demes / ambientCG",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "sets": [
+    {
+      "id": "Ground037",
+      "role": "Ground",
+      "original": "https://ambientcg.com/a/Ground037",
+      "sources": {
+        "Color": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/tres/Ground037_4K-PNG/Ground037_4K-PNG_Color.png",
+          "bytes": 41904518,
+          "sha256": "a88782cd1b5655386eba0ccd4faff7311eec141a4d119298911e2d31a802fbca",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "NormalGL": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/tres/Ground037_4K-PNG/Ground037_4K-PNG_NormalGL.png",
+          "bytes": 96499608,
+          "sha256": "8a1a42ca644149cce8474aabc3751aefd04d217c98838e7b44c67ac8356252e0",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Roughness": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/tres/Ground037_4K-PNG/Ground037_4K-PNG_Roughness.png",
+          "bytes": 12670292,
+          "sha256": "8fb7f7900b5fe025c3bdb8937785390804a39909447482c41f4824af46db4f2a",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Displacement": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/tres/Ground037_4K-PNG/Ground037_4K-PNG_Displacement.png",
+          "bytes": 24944795,
+          "sha256": "c1a3a2a3097cd0f5a9eb41148f6871baa1b54d1ece2aab86bf50679cedb1097e",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "AmbientOcclusion": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/tres/Ground037_4K-PNG/Ground037_4K-PNG_AmbientOcclusion.png",
+          "bytes": 5685015,
+          "sha256": "37f884d6cc82b4967db8de9f3c620a9ade04b7050a47efc8e69670441da9dafd",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        }
+      }
+    },
+    {
+      "id": "Bark001",
+      "role": "Bark",
+      "original": "https://ambientcg.com/a/Bark001",
+      "sources": {
+        "Color": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/Bark001_4K-JPG/Bark001_4K_Color.jpg",
+          "bytes": 10670455,
+          "sha256": "7e72c27d92b8f6297456cfcf35d9814ed7e6acf7b8957c518ed04b59bd122b6a",
+          "dimensions": [
+            2230,
+            4096
+          ]
+        },
+        "NormalGL": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/Bark001_4K-JPG/Bark001_4K_NormalGL.jpg",
+          "bytes": 20715990,
+          "sha256": "6c7eeb21c0693757517e90824c8ae46340bded50f932d7741878465e6f3044fa",
+          "dimensions": [
+            2230,
+            4096
+          ]
+        },
+        "Roughness": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/Bark001_4K-JPG/Bark001_4K_Roughness.jpg",
+          "bytes": 5159613,
+          "sha256": "7b5858494c4cc9a8e66440a195fe35e1745320779e778ac50a6f47f94a92fb61",
+          "dimensions": [
+            2230,
+            4096
+          ]
+        },
+        "Displacement": {
+          "url": "https://raw.githubusercontent.com/quickblack1/Duniaku-Free-and-Open-Source-Game/d4fe80d4885ca3bb8cee69e62a34568676c71b29/Bark001_4K-JPG/Bark001_4K_Displacement.jpg",
+          "bytes": 5322087,
+          "sha256": "456c79e5d0599142820918fe617eee2791de8f892b68b0d70f3c3ba9facfc597",
+          "dimensions": [
+            2230,
+            4096
+          ]
+        }
+      }
+    },
+    {
+      "id": "Rock030",
+      "role": "Stone",
+      "original": "https://ambientcg.com/a/Rock030",
+      "sources": {
+        "Color": {
+          "url": "https://raw.githubusercontent.com/septianrazi/CornellBoxInThreeJS/27214d292ece53d9dece0c00a4ba77fde269d189/Rock030_4K-JPG/Rock030_4K-JPG_Color.jpg",
+          "bytes": 22355379,
+          "sha256": "4f73f1f81f817d0ce4c85014c6d4aac8c42448d0e2070ef48ea61f4715eb2100",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "NormalGL": {
+          "url": "https://raw.githubusercontent.com/septianrazi/CornellBoxInThreeJS/27214d292ece53d9dece0c00a4ba77fde269d189/Rock030_4K-JPG/Rock030_4K-JPG_NormalGL.jpg",
+          "bytes": 41433254,
+          "sha256": "ff256a066a8613907c78e97b06622ac45e538f4f02e08e99efc7ab357fd631d2",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Roughness": {
+          "url": "https://raw.githubusercontent.com/septianrazi/CornellBoxInThreeJS/27214d292ece53d9dece0c00a4ba77fde269d189/Rock030_4K-JPG/Rock030_4K-JPG_Roughness.jpg",
+          "bytes": 9073027,
+          "sha256": "d3121b97cb02dcea7ca5ae210d8575427d2bcb1082fffb86d244c5c084e957d5",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Displacement": {
+          "url": "https://raw.githubusercontent.com/septianrazi/CornellBoxInThreeJS/27214d292ece53d9dece0c00a4ba77fde269d189/Rock030_4K-JPG/Rock030_4K-JPG_Displacement.jpg",
+          "bytes": 2480704,
+          "sha256": "61e910848e6f6997902f09bed4b5c9fa8016788a270852402969df29f6b73fcf",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "AmbientOcclusion": {
+          "url": "https://raw.githubusercontent.com/septianrazi/CornellBoxInThreeJS/27214d292ece53d9dece0c00a4ba77fde269d189/Rock030_4K-JPG/Rock030_4K-JPG_AmbientOcclusion.jpg",
+          "bytes": 6832816,
+          "sha256": "a925847fcd42dfaf2de057c70fcb2524bda75f7b801a5fafc4358b32513ea09e",
+          "dimensions": [
+            4096,
+            4096
+          ]
+        }
+      }
+    }
+  ],
+  "files": {
+    "Textures/Ground_Albedo.png": {
+      "sha256": "b5a92fea3270ecf256d1afc05ce2f8771b251f1421a5e226791b5f51c64e1528",
+      "bytes": 42599040,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Albedo"
+    },
+    "Textures/Ground_Normal.png": {
+      "sha256": "3327793d5b80c345ec475328520735d707f98eb95c052fc498caaf8117bd8b68",
+      "bytes": 41829879,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Normal"
+    },
+    "Textures/Ground_Mask.png": {
+      "sha256": "3c2070fa479f14a2a274129b37418f70a3dc24874abd30d57e0c87b48b69b627",
+      "bytes": 26076902,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Mask"
+    },
+    "Textures/Ground_Height.png": {
+      "sha256": "549458715a7bafb51bae3773abcf773ea2bf583684c7587cee21297e8dd777f2",
+      "bytes": 22519,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Height"
+    },
+    "Textures/Bark_Albedo.png": {
+      "sha256": "c324a8371e9ff6327f2ef027c1b12ae187c7f99598c2203bb2a8ffce5e5f3c45",
+      "bytes": 15967121,
+      "dimensions": [
+        2230,
+        4096
+      ],
+      "role": "Albedo"
+    },
+    "Textures/Bark_Normal.png": {
+      "sha256": "ba8fa4ee2a904e353ab1b4126c6779e0fec3c7579f924e7ce663d15a926aeceb",
+      "bytes": 21551248,
+      "dimensions": [
+        2230,
+        4096
+      ],
+      "role": "Normal"
+    },
+    "Textures/Bark_Mask.png": {
+      "sha256": "21054f1b8496aab2c808768343aa57ca2349dfcf119e4fc4a24e57928c6ba5bd",
+      "bytes": 7300135,
+      "dimensions": [
+        2230,
+        4096
+      ],
+      "role": "Mask"
+    },
+    "Textures/Bark_Height.png": {
+      "sha256": "fe4079a78ab11ced9752f9b7b45771548da29bc2b651efbffc8d362663610e47",
+      "bytes": 5214459,
+      "dimensions": [
+        2230,
+        4096
+      ],
+      "role": "Height"
+    },
+    "Textures/Stone_Albedo.png": {
+      "sha256": "981afe2db855d135fac60332c61196bd906b6954a9443cf4f7f43477d701d76e",
+      "bytes": 35909402,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Albedo"
+    },
+    "Textures/Stone_Normal.png": {
+      "sha256": "fbd46692c13058c7662480b1b17c888839e5436276142cd6693657f4ed317577",
+      "bytes": 43537449,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Normal"
+    },
+    "Textures/Stone_Mask.png": {
+      "sha256": "1e62495096be1fd54063a8ba4d7263f88df9fb7e35cd53791592a2ffc8b2e18f",
+      "bytes": 19680117,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Mask"
+    },
+    "Textures/Stone_Height.png": {
+      "sha256": "cb83bef1063b2c0e29ce75f21b8a0329e526b801a9eb52147da0960a97b81fcb",
+      "bytes": 2983499,
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Height"
+    },
+    "Textures/Leaf_Albedo.png": {
+      "sha256": "b93bc5b3da08bffc9c9f8a9d0593a2252b1c5e1b3290864aefa424ed80d0f0f7",
+      "bytes": 751597,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "original leaf vein study"
+    }
+  },
+  "newExternalModels": 0,
+  "normalConvention": "OpenGL +Y; Unity NormalMap importer",
+  "adaptation": "Native dimensions retained. Lossless PNG derivatives; packed HDRP mask. No upscaling.",
+  "native4KScanSets": 3,
+  "newExternalTextureSets": 2,
+  "existingHigherNativeResolution": [
+    "Ground037"
+  ],
+  "runtimeBytes": 263423367
+}

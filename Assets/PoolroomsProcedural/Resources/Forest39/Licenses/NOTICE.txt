@@ -1,0 +1,13 @@
+Level 39 texture scans: Ground037, Bark001 and Rock030 by Lennart Demes / ambientCG.
+https://ambientcg.com/a/Ground037
+https://ambientcg.com/a/Bark001
+CC0-1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Pinned public mirror and original byte hashes: ../manifest.json.
+Native 4096x4096 ground and 2230x4096 bark retained; no upscaling.
+Leaf vein texture and procedural oak geometry are original project work, CC0-1.0.
+Level 39 / Enchanted Forest setting: Ferraru, The Backrooms Wiki, CC BY-SA 3.0.
+https://backrooms-wiki.wikidot.com/level-39
+https://creativecommons.org/licenses/by-sa/3.0/
+Adaptation: peaceful accessible forest, optional activities and walking transitions; no hypnosis, lethal hunger, boundary storms or copied Wiki photographs.
+Canopy scan: LeafSet005, Lennart Demes / ambientCG, CC0-1.0. https://ambientcg.com/a/LeafSet005
+Pinned mirror and native 512x512 dimensions: ../canopy.json. Broadleaf texture adaptation; not a botanical Quercus replica. No upscaling.

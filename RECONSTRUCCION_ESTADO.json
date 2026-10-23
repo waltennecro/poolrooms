@@ -3899,5 +3899,44 @@
     "deliveryEvidence": "Verification/city_buildings_delivery.json",
     "peakBuildingTrianglesBeforeSurfaceOwnership": 36156,
     "peakBlockTrianglesBeforeSurfaceOwnership": 86978
+  },
+  "enchantedForest39": {
+    "status": "Implemented and locally checked; exact-source GitHub CI and publication pending",
+    "wikiLevel": "39 — Enchanted Forest",
+    "wikiAuthor": "Ferraru",
+    "newEnvironmentId": 63,
+    "catalogueBiomesAfter": 64,
+    "clearingProgrammes": 12,
+    "native4KScanSets": 3,
+    "newDistinctExternalScanIds": 3,
+    "nativeCanopyScanSize": [
+      512,
+      512
+    ],
+    "newExternalModels": 0,
+    "originalTreesWithVisualLODs": 3,
+    "newInventoryItems": 3,
+    "activityTypes": 8,
+    "originalSpatialFoleyClips": 4,
+    "walkingIntegrated": true,
+    "generationFlag": "EnableForest39 (historical default false; unified/native true)",
+    "nativeUnityExecuted": false,
+    "guide": "Assets/PoolroomsProcedural/Documentation/Nivel39_Bosque_Encantado.md",
+    "verification": "--forest39 and tools/verify_forest39_resources.py",
+    "pending": [
+      "Exact-source GitHub CI",
+      "Cumulative public package and actual download verification",
+      "Native Unity/PlayMode/HDRP/physics/appearance/listening/FPS"
+    ],
+    "resourceBytes": 266551090,
+    "localEvidence": {
+      "core": "Verification/forest39_audit.json",
+      "resourceAudit": "tools/verify_forest39_resources.py",
+      "reproducedMediaFiles": 24,
+      "reproduction": "Verification/forest39_reproduction.json",
+      "strictBuild": "0 warnings / 0 errors",
+      "immutableR33VerifierCompile": "passed",
+      "newEnvironmentCount": 64
+    }
   }
 }

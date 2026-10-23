@@ -1,0 +1,81 @@
+name: Publish verified Level39 enchanted forest
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact reviewed source commit
+        required: true
+      verification_run:
+        description: Full verification run for that exact commit
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require complete verification of the exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/food-run.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open('/tmp/food-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert r['head_sha']==os.environ['SOURCE_REVISION'] and r['status']=='completed' and r['conclusion']=='success'
+          assert r['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - name: Fetch immutable patch compatibility source
+        run: git fetch --no-tags --depth=1 origin b6e631b39f01915fcd367cf3abd4106e27c0707a
+      - name: Create complete Assets and cumulative patch
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage nivel39-bosque-encantado --output "${RUNNER_TEMP}/Poolrooms_Nivel39_Bosque_Encantado_Assets.zip" > /tmp/food-full.json
+          python tools/package_forest39.py --output "${RUNNER_TEMP}/Poolrooms_Parche_Nivel39_Bosque_Encantado.zip" > /tmp/food-patch.json
+      - name: Verify contents and write delivery checksums
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          full=json.load(open('/tmp/food-full.json'));patch=json.load(open('/tmp/food-patch.json'))
+          assert full['sourceRevision']==patch['sourceRevision']==os.environ['SOURCE_REVISION']
+          assert not full['workingTreeChanged'] and not patch['workingTreeChanged']
+          with zipfile.ZipFile(full['zip']) as a,zipfile.ZipFile(patch['zip']) as b:
+              assert a.testzip() is None and b.testzip() is None
+              manifest=json.loads(b.read('PARCHE_MANIFIESTO.json'))
+              for name,entry in manifest['files'].items():
+                  data=b.read(name)
+                  assert data==a.read(name) and len(data)==entry['bytes'] and hashlib.sha256(data).hexdigest()==entry['sha256']
+          out=pathlib.Path(os.environ['RUNNER_TEMP']);size=sum(p.stat().st_size for p in pathlib.Path('Assets').rglob('*') if p.is_file())
+          record={'sourceRevision':os.environ['SOURCE_REVISION'],'successfulFullRun':os.environ['VERIFIED_RUN'],'assetsUncompressedBytes':size,'package':full,'patch':patch,'nativeUnityExecuted':False,'newExternalModels':0,'newDistinctScanIds':3,'native4KScanSets':3,'canopyScanNativeSize':[512,512],'clearingProgrammes':12,'newInventoryItems':3,'activities':8,'upscaledTextures':False,'paddingBytes':0}
+          (out/'Poolrooms_Nivel39_Bosque_Encantado_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Nivel39_Bosque_Encantado_SHA256.txt').write_text('\n'.join(d['sha256']+'  '+pathlib.Path(d['zip']).name for d in (full,patch))+'\n')
+          notes=f'''Nivel39: Bosque encantado, adaptación pacífica del nivel de Ferraru / The Backrooms Wiki (CC BY-SA 3.0). Senderos sinuosos y circulares, claros de musgo, lectura, herbario, miradores y descanso; colinas, robles con tres LOD, pequeños estanques recortados contra su orilla real, recuerdos acumulables, comida y agua de almendra. Cuaderno con mapa físico, estudios opcionales y viento/hojas originales en 3D. Accesible caminando en la generación unificada, sin modo maestro.
+
+          Conserva el Nivel11 con 256 diseños urbanos/extraños. Cambian plantas, patios, pozos de luz con puentes, galerías, pórticos, sección, ventanas y cubiertas; 32 familias y ocho configuraciones espaciales por familia. Dos a seis plantas con escaleras y recorridos humanos. Integrados en la generación normal; conservan calles de seis metros, vehículos, pabellones públicos y comida.
+
+          Se conserva la tercera fachada externa distinta de Amazon Lumberyard Bistro (CC BY 4.0), con dos LOD y huecos adaptados para la estructura física original. Las dos fuentes de edificio anteriores se conservan. 256 diseños de generación NO significa 256 modelos descargados. Se reutiliza mobiliario con licencia y materiales PBR con mapas nativos hasta 4096x4096; otras superficies mantienen 1K/2K. Sin ampliación artificial ni archivos de relleno. El bosque usa 3 escaneos nativos hasta 4K y un escaneo de follaje 512x512 con recorte alfa, sin ampliación. Ground037 ya existía a menor resolución; se añade aquí su fuente nativa 4K. No hay modelos externos nuevos ni GPU ray tracing por software.
+
+          Comprobaciones de núcleo/código, licencias, hashes, recorridos y geometrías protegidas superadas para `{os.environ['SOURCE_REVISION']}`: run {os.environ['VERIFIED_RUN']}. Unity/PlayMode, shaders, HDRP, ray tracing, aspecto, física nativa y FPS pendientes; no hay Editor en este entorno.
+
+          Con Unity detenido, actualiza tu única carpeta PoolroomsProcedural; sobrescribe/añade y conserva los demás recursos y .meta. Regenera la demo. El parche es acumulativo desde Cinco horizontes, incluida la entrega Nivel11 dreamcore y provisiones. No instales dos copias paralelas. enableForest39 se activa en exploración unificada y perfiles nativos nuevos.
+
+          Assets completos: {full['bytes']:,} bytes comprimidos, {size:,} sin comprimir. Parche: {patch['bytes']:,} bytes. Guía: https://github.com/{os.environ['GH_REPO']}/blob/{os.environ['SOURCE_REVISION']}/Assets/PoolroomsProcedural/Documentation/Nivel39_Bosque_Encantado.md
+          '''
+          (out/'food-notes.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          PY
+      - name: Publish immutable verified update
+        shell: bash
+        run: |
+          gh release create nivel39-bosque-encantado --target "${SOURCE_REVISION}" --title "Nivel39: Bosque encantado al atardecer" --notes-file "${RUNNER_TEMP}/food-notes.md" "${RUNNER_TEMP}/Poolrooms_Nivel39_Bosque_Encantado_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Nivel39_Bosque_Encantado.zip" "${RUNNER_TEMP}/Poolrooms_Nivel39_Bosque_Encantado_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Nivel39_Bosque_Encantado_SHA256.txt"

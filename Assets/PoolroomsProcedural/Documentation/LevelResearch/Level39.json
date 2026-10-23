@@ -1,0 +1,31 @@
+{
+  "level": "39 — Enchanted Forest",
+  "author": "Ferraru",
+  "translationReviewed": "Silver Willow (Chinese wiki)",
+  "reviewed": "2026-10-23",
+  "primaryReference": "https://backrooms-wiki.wikidot.com/level-39",
+  "directAccess": "Domain blocked by environment proxy; pinned public translation read for description, boundaries, entrances, exits and author credit. No wiki photographs or copied passages shipped.",
+  "accessibleResearch": {
+    "url": "https://raw.githubusercontent.com/Hoshino-Yumetsuki/backroomsmap/d9d5c12bc79e16f7ba17d7bd2f52828635d8ea39/data/raw/level-39.json",
+    "bytes": 19213,
+    "sha256": "c46f33580d9f8332e141f9aa189ff89e8c9ff4e7cc0e66bb860cfa3eb4ff75d3"
+  },
+  "factsAdapted": [
+    "Oak forest, winding muddy paths, some loops",
+    "Perpetual dusk, 20–23 Celsius",
+    "Fallen leaves, twigs, moss, occasional mushrooms and small shallow ponds",
+    "No entities; strong peaceful nostalgic atmosphere",
+    "Hills and described possible transitions toward sky/forest settings"
+  ],
+  "deliberateAdaptations": [
+    "Mixed-world regional procedural forests rather than a literal 300 km finite circle",
+    "2.4 m paths for a humanoid and wings; gradual hills rather than 70 degree survival terrain",
+    "No hypnosis, lethal hunger, dehydration or boundary storms",
+    "Walkable timber thresholds replace mandatory noclip and random teleportation",
+    "Original resting places, table, leaf studies and keepsakes; no NPC faction simulation",
+    "Native 512² CC0 deciduous leaf scan supplies canopy cutouts on original oak branch geometry; not a botanically exact Quercus foliage replica."
+  ],
+  "license": "CC-BY-SA-3.0 for the level-specific setting adaptation. Original code and original botanical geometry are project work; third-party scans and furniture retain their declared licences.",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "nativeUnityExecuted": false
+}
