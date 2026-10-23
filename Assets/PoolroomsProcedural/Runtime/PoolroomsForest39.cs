@@ -11,7 +11,7 @@ namespace Poolrooms
         public static void AttachCanopy(Forest39Canopy canopy, Transform parent,
             PoolroomsProfile profile, PoolroomsChunk owner)
         {
-            if (canopy == null) return;
+            if (canopy == null || canopy.Wood[0].TriangleCount + canopy.Leaves[0].TriangleCount == 0) return;
             var root = new GameObject("Level 39 / batched oak canopy");
             root.transform.SetParent(parent, false);
             var levels = new LOD[3];
@@ -84,20 +84,18 @@ namespace Poolrooms
         static void AttachSupplies(PoolroomsWorld world, Room room, Transform parent, PoolroomsInventory inventory)
         {
             var plan = room.Plan.Forest39;
-            for (int index = 0; index < 3; index++)
+            for (int index = 0; index < Forest39Supplies.Count; index++)
             {
-                int food = index == 0 ? ProvisionCatalog.AlmondWater : index == 1 ? 69 : 0;
+                int food = Forest39Supplies.Food(index);
                 string key = Forest39Activities.Key(world.CurrentLayout.Config.Seed, room.X, room.Z, 100 + index);
                 if (inventory != null && inventory.WasCollected(key)) continue;
                 var actor=world.viewer!=null?world.viewer.GetComponentInParent<PoolroomsExplorer>():null;
                 var carry=actor!=null?actor.GetComponent<PoolroomsCarry>():null;
                 if(carry!=null&&carry.WasTaken(key))continue;
-                float x = plan.Rest.X + (index - 1) * .22f;
-                float z = plan.Rest.Z + .7f;
-                float y = SourceFurniture.Dimensions(7).Y + .009f;
+                var bottom = Forest39Supplies.Bottom(plan,index);
                 // Source food items own their resources: a carried object can
                 // survive unloading the forest sector that originally held it.
-                PoolroomsPickup.CreateFood(key, food, new Vector3(x, y, z), parent, world.profile);
+                PoolroomsPickup.CreateFood(key, food, Vec(bottom), parent, world.profile);
             }
         }
 

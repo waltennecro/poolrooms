@@ -3952,6 +3952,15 @@
       "run": 39906002008,
       "reason": "Manual native boundary review found external assignment to private pickup properties/fields; moved factory into the owning class and added actual-source reduced semantic compilation guard. No package published."
     },
-    "runtimeFactoryGuard": "Actual production factory and wrapper compiled with reduced Unity types; original CS0272/CS0122 reproduced and rejected. This is not full Unity API compilation."
+    "runtimeFactoryGuard": "Actual production factory and wrapper compiled with reduced Unity types; original CS0272/CS0122 reproduced and rejected. This is not full Unity API compilation.",
+    "thirdPreliminaryRun": {
+      "id": 39906929770,
+      "conclusion": "failure",
+      "reason": "Provision feasibility correctly counted 64 passing biomes but still asserted a literal 63; expected count now derives from catalogue, retaining all support/approach checks."
+    },
+    "extraGeometryChecks": [
+      "No canopy crosses closed biome boundaries in any of three LODs",
+      "All three food footprints and cup fit inside circular table with no overlapping bounds"
+    ]
   }
 }

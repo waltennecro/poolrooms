@@ -64,6 +64,7 @@ namespace Poolrooms.Core
         public readonly WaterRegion Pond;
         public readonly PlanRect Rest, Feature;
         public readonly float HillHeight;
+        public readonly bool[] OpenEdges;
 
         public Forest39Plan(LayoutConfig config, int x, int z)
         {
@@ -92,6 +93,8 @@ namespace Poolrooms.Core
                 CenterX = q, CenterZ = q, Width = radius * 2, Depth = radius * 2,
                 Radius = radius, Bottom = -.48f, Level = -.065f
             } : new WaterRegion();
+            OpenEdges = new bool[4];
+            for(int side=0;side<4;side++)OpenEdges[side]=Forest39Planner.Same(config,x,z,side);
             Trees = PlaceTrees(config.Seed);
             Stones = PlaceStones(config.Seed);
         }
@@ -182,6 +185,12 @@ namespace Poolrooms.Core
                 if (blocked) continue;
                 float height = 8.5f + Unit(Mix(h + 41)) * 5.5f;
                 float crown = Math.Min(3.8f, 2.5f + height * .075f);
+                for(int side=0;side<4;side++)if(!OpenEdges[side])
+                {
+                    float distance=Half-(Directions.DX[side]*x+Directions.DZ[side]*z);
+                    crown=Math.Min(crown,(distance-2.1f)/1.6f);
+                }
+                if(crown<1.35f)continue;
                 trees.Add(new Forest39Tree(new V3(x, Height(x, z) - .025f, z),
                     height, radius, crown, Unit(Mix(h + 67)) * 360, h));
             }

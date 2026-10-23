@@ -134,8 +134,7 @@ namespace Poolrooms.Core
             // One reused licensed table and one porcelain cup per clearing.
             // The source models are already physically dimensioned and credited.
             result.SourceProps.Add(new SourceFurniturePlacement(390000, 7, new V3(x, .004f, z + .5f), 0));
-            float tabletop = SourceFurniture.Dimensions(7).Y + .008f;
-            result.SourceProps.Add(new SourceFurniturePlacement(390001, 11, new V3(x - .22f, tabletop, z + .5f), 0));
+            result.SourceProps.Add(new SourceFurniturePlacement(390001, 11, Forest39Supplies.Cup(plan), 0));
             result.SourceProps.Add(new SourceFurniturePlacement(390002, 30, new V3(x + 1.65f, .004f, z + 1.2f), 0));
             if (plan.Clearing == Forest39Clearing.RainShelter || plan.Clearing == Forest39Clearing.ReadingGrove)
                 Shelter(furniture, plan);

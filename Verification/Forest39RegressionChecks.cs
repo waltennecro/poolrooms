@@ -69,6 +69,10 @@ static partial class Checks
             {
                 var data = Architecture.Build(room, world);
                 var plan = room.Plan.Forest39;
+                for(int tier=0;tier<3;tier++)foreach(var canopy in new[]{data.Forest39Canopy.Wood[tier],data.Forest39Canopy.Leaves[tier]})
+                    foreach(var vertex in canopy.Positions)for(int edge=0;edge<4;edge++)if(!plan.OpenEdges[edge])
+                        Check(Directions.DX[edge]*vertex.X+Directions.DZ[edge]*vertex.Z<=plan.Half+.0001f,
+                            "Forest canopy crosses a closed biome boundary at a visual LOD");
                 for (int side = 0; side < 4; side++)
                 {
                     int xx = room.X + Directions.DX[side];

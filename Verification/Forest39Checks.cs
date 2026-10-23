@@ -166,6 +166,7 @@ static partial class Checks
             }
         }
         Check(entrances > 0, "Forest exists only in a dedicated test scene");
+        Forest39SupplyFootprints();
         Forest39Games();
         Forest39Coordinates();
         Forest39Regressions();
@@ -179,6 +180,27 @@ static partial class Checks
         };
         if (!string.IsNullOrEmpty(path)) File.WriteAllText(path, JsonSerializer.Serialize(report, new JsonSerializerOptions { WriteIndented = true }));
         Console.WriteLine("Level39: " + JsonSerializer.Serialize(report));
+    }
+
+    static void Forest39SupplyFootprints()
+    {
+        var plan=new Forest39Plan(new LayoutConfig{CellSize=36},0,0);
+        var positions=new List<V3>();var sizes=new List<V3>();
+        for(int index=0;index<Forest39Supplies.Count;index++)
+        {
+            positions.Add(Forest39Supplies.Bottom(plan,index));
+            sizes.Add(ProvisionCatalog.Get(Forest39Supplies.Food(index)).Size);
+        }
+        positions.Add(Forest39Supplies.Cup(plan));sizes.Add(SourceFurniture.Dimensions(11));
+        for(int i=0;i<positions.Count;i++)
+        {
+            var p=positions[i];var size=sizes[i];float x=p.X-plan.Rest.X,z=p.Z-plan.Rest.Z-.5f;
+            foreach(int sx in new[]{-1,1})foreach(int sz in new[]{-1,1})
+                Check((float)Math.Sqrt((x+sx*size.X*.5f)*(x+sx*size.X*.5f)+(z+sz*size.Z*.5f)*(z+sz*size.Z*.5f))<.448f,
+                    "Forest food overhangs the circular cafe tabletop");
+            for(int j=0;j<i;j++)Check(Math.Abs(p.X-positions[j].X)>(size.X+sizes[j].X)*.5f+.002f||
+                Math.Abs(p.Z-positions[j].Z)>(size.Z+sizes[j].Z)*.5f+.002f,"Forest food/cup footprints overlap");
+        }
     }
 
     static void Forest39Games()

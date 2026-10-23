@@ -47,7 +47,7 @@ static int ProvisionSites(Room r,RoomGeometry g,LayoutConfig c)
   foreach(int x in new[]{-3,2,7,12}){var r=l.At(x,2);var g=Architecture.Build(r,l);int n=ProvisionSites(r,g,c);samples++;if(n<0)budget++;else sites+=n;}
   Check(sites>0,"No mathematically feasible food station in four actual "+mode+" rooms; budget-rejected rooms: "+budget);if(sites>0)pass++;
  }
-        Check(pass==63,"Not every biome had a supported and approachable provision site");
-        Console.WriteLine("Provision placement: 252 actual generated rooms across all 63 biomes have at least one supported, dry, approachable station site per biome in a four-room sample. Conservative triangle checks, not Unity PhysX; external mall/house native placement remains pending.");
+        Check(pass==Enum.GetValues<LiminalEnvironment>().Length,"Not every biome had a supported and approachable provision site");
+        Console.WriteLine($"Provision placement: {pass*4} actual generated rooms across all {pass} biomes have at least one supported, dry, approachable station site per biome in a four-room sample. Conservative triangle checks, not Unity PhysX; external mall/house native placement remains pending.");
     }
 }

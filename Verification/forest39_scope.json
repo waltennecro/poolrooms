@@ -1,11 +1,11 @@
 {
   "comparedWithSource": "416f75c8f3f0d1b9b91d1c2dd0a796bd397b48be",
-  "newCodeLinesAdded": 4269,
+  "newCodeLinesAdded": 4345,
   "lineCounting": "Git added text lines, including comments/spacing. Separate production, verification, tools and workflow counts; documentation/data excluded.",
   "workflowLinesAdded": 91,
-  "productionCSharpLinesAdded": 2546,
+  "productionCSharpLinesAdded": 2593,
   "nativeTestLinesAdded": 153,
-  "coreVerificationLinesAdded": 548,
+  "coreVerificationLinesAdded": 577,
   "assetAndDeliveryToolLinesAdded": 931,
   "forestResourceBytes": 266551090,
   "forestResourceFiles": 25,
@@ -81,7 +81,7 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Core/Forest39Architecture.cs",
-      "added": 235,
+      "added": 234,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -111,7 +111,7 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Core/Forest39Plan.cs",
-      "added": 289,
+      "added": 298,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -124,6 +124,12 @@
     {
       "path": "Assets/PoolroomsProcedural/Core/Forest39Stories.cs",
       "added": 32,
+      "removed": 0,
+      "category": "productionCSharpLinesAdded"
+    },
+    {
+      "path": "Assets/PoolroomsProcedural/Core/Forest39Supplies.cs",
+      "added": 41,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -231,7 +237,7 @@
     },
     {
       "path": "Assets/PoolroomsProcedural/Runtime/PoolroomsForest39.cs",
-      "added": 111,
+      "added": 109,
       "removed": 0,
       "category": "productionCSharpLinesAdded"
     },
@@ -302,6 +308,12 @@
       "category": "coreVerificationLinesAdded"
     },
     {
+      "path": "Verification/CityProvisionChecks.cs",
+      "added": 1,
+      "removed": 1,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
       "path": "Verification/Forest39Atlas.cs",
       "added": 58,
       "removed": 0,
@@ -309,7 +321,7 @@
     },
     {
       "path": "Verification/Forest39Checks.cs",
-      "added": 231,
+      "added": 253,
       "removed": 0,
       "category": "coreVerificationLinesAdded"
     },
@@ -321,7 +333,7 @@
     },
     {
       "path": "Verification/Forest39RegressionChecks.cs",
-      "added": 168,
+      "added": 172,
       "removed": 0,
       "category": "coreVerificationLinesAdded"
     },
@@ -335,6 +347,12 @@
       "path": "Verification/ImmersionStationChecks.cs",
       "added": 1,
       "removed": 1,
+      "category": "coreVerificationLinesAdded"
+    },
+    {
+      "path": "Verification/ProvisionFeasibilityChecks.cs",
+      "added": 2,
+      "removed": 2,
       "category": "coreVerificationLinesAdded"
     },
     {

@@ -1,4 +1,5 @@
-Level39: {"sectors":225,"trees":3013,"clearingProgrammes":12,"distinctMeshes":225,"existingExternalModels":3,"newExternalModels":0,"peakCanopyTriangles":[76258,16758,6132],"walkingEntrances":20,"mathematicalAssertions":146278414,"nativeUnityExecuted":false,"nativePhysicsExecuted":false,"nativeRenderingExecuted":false}
+Level39: {"sectors":225,"trees":3013,"clearingProgrammes":12,"distinctMeshes":225,"existingExternalModels":3,"newExternalModels":0,"peakCanopyTriangles":[76258,16758,6132],"walkingEntrances":20,"mathematicalAssertions":150973802,"nativeUnityExecuted":false,"nativePhysicsExecuted":false,"nativeRenderingExecuted":false}
+PASS: actual forest pickup factory/wrapper compiled with reduced Unity types; CS0272/CS0122 replayed and rejected; three keepsakes/invalid IDs checked. NOT Unity API compilation.
 PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
 PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
 PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
