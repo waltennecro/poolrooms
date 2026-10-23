@@ -1,0 +1,4 @@
+PASS: actual forest pickup factory/wrapper compiled with reduced Unity types; CS0272/CS0122 replayed and rejected; three keepsakes/invalid IDs checked. NOT Unity API compilation.
+PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
+PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
+PASS: Unity resource instance-field allocation audit (source guard; native AddComponent tests remain separate).

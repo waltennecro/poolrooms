@@ -103,24 +103,7 @@ namespace Poolrooms
 
         public static PoolroomsPickup CreateItem(int id, string key, Vector3 position, PoolroomsProfile profile)
         {
-            if (Forest39Activities.Item(id) == null) return null;
-            var kind = id == 0 ? Forest39Activity.FallenLeaf : id == 1 ? Forest39Activity.Acorn : Forest39Activity.FieldNotebook;
-            var go = new GameObject(Forest39Activities.Item(id).Name);
-            go.transform.position = position;
-            var owner = go.AddComponent<PoolroomsChunk>();
-            MeshFactory.Create("Forest keepsake", Forest39ActivityGeometry.Keepsake(id), go.transform, profile, owner, false);
-            var size = id==2?new V3(.32f,.035f,.24f):Forest39ActivityGeometry.Size(kind);
-            var shape = go.AddComponent<BoxCollider>();
-            shape.size = Vec(size);
-            shape.center = Vector3.up * size.Y * .5f;
-            var pickup = go.AddComponent<PoolroomsPickup>();
-            pickup.SpawnKey = key;
-            pickup.InventoryKey = "forest39:" + id;
-            pickup.shape = shape;
-            pickup.mass = id == 0 ? .005f : .02f;
-            pickup.CarryRadius = size.Length * .5f + .015f;
-            pickup.surface = PickupSurface.Rigid;
-            return pickup;
+            return PoolroomsPickup.CreateForestItem(id,key,position,profile);
         }
 
         static Vector3 Vec(V3 value) { return new Vector3(value.X, value.Y, value.Z); }

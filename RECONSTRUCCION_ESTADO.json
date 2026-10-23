@@ -3936,13 +3936,22 @@
       "reproduction": "Verification/forest39_reproduction.json",
       "strictBuild": "0 warnings / 0 errors",
       "immutableR33VerifierCompile": "passed",
-      "newEnvironmentCount": 64
+      "newEnvironmentCount": 64,
+      "fullCoreAssertions": 2130203384,
+      "protectedGeometryFingerprints": 188,
+      "nativeFactoryReducedProbe": "passed"
     },
     "preliminaryFullRun": {
       "id": 39904932902,
       "conclusion": "failure",
       "reason": "Shared scenery layer was missing from dedicated forest architecture; corrected with actual planner integration and curved-path/activity reservations."
     },
-    "movableTableSupport": "Room-owned existing provision support monitor releases owned food/cup if its original table moves or is absent; no duplicated carried food on reload."
+    "movableTableSupport": "Room-owned existing provision support monitor releases owned food/cup if its original table moves or is absent; no duplicated carried food on reload.",
+    "reviewedCancelledSource": {
+      "commit": "ca11a8819ec543a0cce5d0db1a5611e5fe88a5a5",
+      "run": 39906002008,
+      "reason": "Manual native boundary review found external assignment to private pickup properties/fields; moved factory into the owning class and added actual-source reduced semantic compilation guard. No package published."
+    },
+    "runtimeFactoryGuard": "Actual production factory and wrapper compiled with reduced Unity types; original CS0272/CS0122 reproduced and rejected. This is not full Unity API compilation."
   }
 }

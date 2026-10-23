@@ -76,6 +76,7 @@ static partial class Checks
         var actor=Activator.CreateInstance(probe);var stepMethod=probe.GetMethod("Steps");var seen=new HashSet<int>();
         for(int i=0;i<4096;i++){int count=(int)stepMethod.Invoke(actor,null);Check(count>=2&&count<=4,"Remote step burst outside integer bounds");seen.Add(count);}
         Check(seen.Count==3,"Remote step variation collapsed");
+        Forest39FactoryContract(root,references);
         StationFloorCoordinates();
         Console.WriteLine("PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.");
     }
