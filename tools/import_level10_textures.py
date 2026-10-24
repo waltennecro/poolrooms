@@ -55,4 +55,13 @@ def main():
  shutil.copyfile(ROOT/'Assets/PoolroomsProcedural/Resources/Forest39/Licenses/CC0-1.0.txt',DEST/'Licenses/CC0-1.0.txt')
  (DEST/'Licenses/NOTICE.txt').write_text('Level 10 native PBR finishes: Grass001, Planks037A, WoodSiding009 by Lennart Demes / ambientCG (formerly CC0 Textures). CC0-1.0.\n'+''.join('https://ambientcg.com/a/'+s['id']+'\n' for s in SETS.values())+'https://creativecommons.org/publicdomain/zero/1.0/\nGrass001 mirror declares CC-0 in KDAB/kdgpu-examples .reuse/dep5.\nPinned originals and byte hashes: ../manifest.json. Native 4096x4096; no upscaling or duplicate source maps. HDRP mask: R metallic=0, G AO, B detail=1, A inverted roughness.\nOriginal wheat geometry and original agricultural foley: project work, CC0-1.0.\nLevel 10 / Bounty setting: scutoid studios and egglord, based on u/Hertz3241 and prior rewrite by Stretchsterz, The Backrooms Wiki, CC BY-SA 3.0.\nhttps://backrooms-wiki.wikidot.com/level-10\nhttps://creativecommons.org/licenses/by-sa/3.0/\nAdaptation: accessible peaceful countryside, optional farm activities, no worms, starvation or forced water teleportation. No wiki photographs, copied passages or character models shipped.\nExisting licensed furniture and food retain their separate attribution.\n')
  print(json.dumps(dict(runtimeBytes=manifest['runtimeBytes'],native4KSets=3)))
-if __name__=='__main__':main()
+if __name__=='__main__':
+ try:main()
+ except Exception as error:
+  tb=error.__traceback__;url=''
+  while tb is not None:
+   candidate=tb.tb_frame.f_locals.get('url')
+   if candidate:url=candidate
+   tb=tb.tb_next
+  print('::error::'+type(error).__name__+': '+str(error)+' source='+str(url),flush=True)
+  raise
