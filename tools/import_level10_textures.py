@@ -42,19 +42,24 @@ def main():
    if r!=role:continue
    with Image.open(local) as im:
     assert max(im.size)==4096 and min(im.size)>=2048,(role,suffix,im.size)
-    maps[suffix]=im.convert('RGB' if suffix in ['Color','NormalGL'] else 'L')
+    if suffix in ['Color','NormalGL']:maps[suffix]=im.convert('RGB')
+    elif suffix=='Displacement' and im.mode.startswith('I'):maps[suffix]=im.copy()
+    elif im.mode.startswith('I'):
+     import numpy as np
+     values=np.asarray(im,dtype=np.float64);maps[suffix]=Image.fromarray(np.clip(np.rint(values/257),0,255).astype('uint8'))
+    else:maps[suffix]=im.convert('L')
    records[suffix]=dict(url=url,sha256=sha(local),bytes=local.stat().st_size,dimensions=list(maps[suffix].size))
   dimensions=maps['Color'].size;assert all(m.size==dimensions for m in maps.values()),role
   zero=Image.new('L',dimensions,0);one=Image.new('L',dimensions,255)
   images={'Albedo':maps['Color'],'Normal':maps['NormalGL'],'Mask':Image.merge('RGBA',(zero,maps['AmbientOcclusion'],one,ImageChops.invert(maps['Roughness']))),'Height':maps['Displacement']}
   for suffix,im in images.items():
    local=DEST/'Textures'/f'{role}_{suffix}.png';im.save(local,compress_level=9)
-   manifest['files'][local.relative_to(DEST).as_posix()]=dict(bytes=local.stat().st_size,sha256=sha(local),dimensions=list(dimensions),role=suffix)
+   manifest['files'][local.relative_to(DEST).as_posix()]=dict(bytes=local.stat().st_size,sha256=sha(local),dimensions=list(dimensions),role=suffix,mode=im.mode)
   manifest['sets'].append(dict(role=role,id=s['id'],original='https://ambientcg.com/a/'+s['id'],mirrorRevision=s['revision'],sources=records))
  manifest['runtimeBytes']=sum(v['bytes'] for v in manifest['files'].values())
  (DEST/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
  shutil.copyfile(ROOT/'Assets/PoolroomsProcedural/Resources/Forest39/Licenses/CC0-1.0.txt',DEST/'Licenses/CC0-1.0.txt')
- (DEST/'Licenses/NOTICE.txt').write_text('Level 10 native PBR finishes: Grass001, Planks037A, WoodSiding009 by Lennart Demes / ambientCG (formerly CC0 Textures). CC0-1.0.\n'+''.join('https://ambientcg.com/a/'+s['id']+'\n' for s in SETS.values())+'https://creativecommons.org/publicdomain/zero/1.0/\nGrass001 mirror declares CC-0 in KDAB/kdgpu-examples .reuse/dep5.\nPinned originals and byte hashes: ../manifest.json. Native 4096 maximum dimension; 4096x2048 siding retains its aspect ratio; no upscaling or duplicate source maps. HDRP mask: R metallic=0, G AO, B detail=1, A inverted roughness.\nOriginal wheat geometry and original agricultural foley: project work, CC0-1.0.\nLevel 10 / Bounty setting: scutoid studios and egglord, based on u/Hertz3241 and prior rewrite by Stretchsterz, The Backrooms Wiki, CC BY-SA 3.0.\nhttps://backrooms-wiki.wikidot.com/level-10\nhttps://creativecommons.org/licenses/by-sa/3.0/\nAdaptation: accessible peaceful countryside, optional farm activities, no worms, starvation or forced water teleportation. No wiki photographs, copied passages or character models shipped.\nExisting licensed furniture and food retain their separate attribution.\n')
+ (DEST/'Licenses/NOTICE.txt').write_text('Level 10 native PBR finishes: Grass001, Planks037A, WoodSiding009 by Lennart Demes / ambientCG (formerly CC0 Textures). CC0-1.0.\n'+''.join('https://ambientcg.com/a/'+s['id']+'\n' for s in SETS.values())+'https://creativecommons.org/publicdomain/zero/1.0/\nGrass001 mirror declares CC-0 in KDAB/kdgpu-examples .reuse/dep5.\nPinned originals and byte hashes: ../manifest.json. Native displacement depth is preserved, including 16-bit siding; scalar mask sources are normalized before packing. Native 4096 maximum dimension; 4096x2048 siding retains its aspect ratio; no upscaling or duplicate source maps. HDRP mask: R metallic=0, G AO, B detail=1, A inverted roughness.\nOriginal wheat geometry and original agricultural foley: project work, CC0-1.0.\nLevel 10 / Bounty setting: scutoid studios and egglord, based on u/Hertz3241 and prior rewrite by Stretchsterz, The Backrooms Wiki, CC BY-SA 3.0.\nhttps://backrooms-wiki.wikidot.com/level-10\nhttps://creativecommons.org/licenses/by-sa/3.0/\nAdaptation: accessible peaceful countryside, optional farm activities, no worms, starvation or forced water teleportation. No wiki photographs, copied passages or character models shipped.\nExisting licensed furniture and food retain their separate attribution.\n')
  print(json.dumps(dict(runtimeBytes=manifest['runtimeBytes'],native4KSets=3)))
 if __name__=='__main__':
  try:main()

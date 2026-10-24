@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13.5'
-      - run: python -m pip install Pillow==11.1.0
+      - run: python -m pip install Pillow==11.1.0 numpy==2.2.4
       - name: Import native maps, verify LFS object hashes and pack HDRP channels
         run: python tools/import_level10_textures.py --cache "${{ runner.temp }}/upstream"
       - name: Package reproducible attributed resource bank
@@ -42,4 +42,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-        run: gh release create nivel10-medios-nativos --target "${{ github.sha }}" --prerelease --title "Nivel10 · banco CC0 nativo para integración" --notes "Banco de recursos PBR con procedencia, hashes y CC0. No es una versión jugable del nivel. Tres conjuntos nativos a 4K; sin ampliar imágenes ni duplicar originales. Integración del juego pendiente." "${{ runner.temp }}/Level10_Medios_Nativos.zip"
+        run: gh release create nivel10-medios-nativos-v2 --target "${{ github.sha }}" --prerelease --title "Nivel10 · banco CC0 nativo para integración" --notes "Banco de recursos PBR con procedencia, hashes y CC0. No es una versión jugable del nivel. Tres conjuntos nativos a 4K; sin ampliar imágenes ni duplicar originales. Integración del juego pendiente." "${{ runner.temp }}/Level10_Medios_Nativos.zip"
