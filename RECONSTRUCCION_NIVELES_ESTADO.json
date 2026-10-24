@@ -451,8 +451,10 @@
   },
   "newIndependentCountryside": {
     "name": "Nivel10 / Campos de abundancia",
-    "status": "implemented_not_exact_recovery_native_pending",
+    "status": "published_not_exact_recovery_native_pending",
     "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md",
-    "genericRebuildQueueUnchanged": true
+    "genericRebuildQueueUnchanged": true,
+    "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+    "evidence": "Verification/level10_delivery.json"
   }
 }

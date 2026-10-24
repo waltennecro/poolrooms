@@ -30,7 +30,8 @@ Pendiente:
 Guía: Assets/PoolroomsProcedural/Documentation/Travesia_Libre.md
 
 2026-10-23 · nivel10-campos-01
-Estado: implementado; suite local completa, comprobaciones específicas y recursos superados; CI exacto y publicación pendientes
+Estado: publicado; CI completo del commit exacto y tres descargas públicas verificadas; Unity nativo pendiente
+Fuente exacta: 6759adc6272c8a64a813479e83cb81a97952f18b
 Cambios:
   - Nuevo Nivel 10 / Campos de abundancia, adaptación investigada de Bounty: campos continuos, setos, pequeños grupos de robles, rodadas dobles y lagunas claras. Se encuentra andando desde las afueras del Nivel 11; mantiene las 64 etiquetas de descubrimiento anteriores y añade el bioma serializado 64, sin renumerar los demás.
   - Doce programas de paisaje y construcción; tres perfiles de tejado, dimensiones sembradas, establos, graneros, semilleros, ventanas reales y altillos con escaleras, descansillos, galerías y barandillas. La decoración compartida solo usa laterales interiores seguros.
@@ -46,9 +47,11 @@ Comprobaciones reales:
   - Verificador actual compilado contra R33 inmutable sin bajar las comprobaciones históricas; comportamiento geométrico antiguo y rechazo de alas no existentes conservados.
   - Suite local completa: 2.130.336.055 aserciones de Core/código; 188 geometrías protegidas y sintaxis de 407 scripts en cinco configuraciones. No son pruebas nativas de Unity.
   - La fábrica real de recuerdos compila con Core e interfaces Unity reducidas; se reproducen y rechazan accesos a setters/campos privados. Esto no compila las APIs nativas de Unity.
+  - CI exacto 40055066204: 67 pasos correctos, cero fallos/omitidos; publicación 40055206114 superada.
+  - Descargas públicas completas SHA-256: Assets 1,696,580,493 bytes, parche acumulativo 645,015,860 bytes y actualización desde Travesía 242,877,843 bytes. Los tres ZIP pasan CRC en publicación; actualización comprobada localmente por CRC y 61 archivos comparados con la fuente.
+  - La verificación del bosque39 vuelve a pasar tras reutilizar su generador de robles; los mapas y las geometrías previos se conservan.
 Pendiente:
-  - CI completo del commit final, publicación y verificación de las tres descargas de juego.
-  - Ejecutar Unity/PlayMode, APIs HDRP, shaders, PhysX, apariencia, escucha, sensación de movimiento y FPS.
+  - Unity/PlayMode, APIs HDRP, shaders, PhysX, apariencia, escucha, sensación de movimiento y FPS reales.
 Guía: Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md
 
 [FIN DEL REGISTRO VIVO DE CAMBIOS]

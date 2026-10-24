@@ -1640,8 +1640,8 @@
     }
   ],
   "latestCoreChecks": {
-    "revision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
-    "run": "https://github.com/waltennecro/poolrooms/actions/runs/40038735390",
+    "revision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+    "run": "https://github.com/waltennecro/poolrooms/actions/runs/40055066204",
     "conclusion": "success",
     "nativeUnityExecuted": false
   },
@@ -3578,14 +3578,15 @@
     "deliveryEvidence": "Verification/journey_delivery.json"
   },
   "latestDelivery": {
-    "stage": "travesia-libre",
-    "sourceRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
-    "url": "https://github.com/waltennecro/poolrooms/releases/tag/travesia-libre",
-    "packageBytes": 1453815849,
-    "patchBytes": 402245302,
-    "assetsFiles": 2416,
-    "assetsUncompressedBytes": 1745252078,
-    "evidence": "Verification/travel_delivery.json",
+    "stage": "nivel10-campos-de-abundancia",
+    "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+    "url": "https://github.com/waltennecro/poolrooms/releases/tag/nivel10-campos-de-abundancia",
+    "packageBytes": 1696580493,
+    "patchBytes": 645015860,
+    "fromTravelBytes": 242877843,
+    "assetsFiles": 2452,
+    "assetsUncompressedBytes": 1988481669,
+    "evidence": "Verification/level10_delivery.json",
     "publicDownloadsSha256Verified": true,
     "nativeUnityExecuted": false
   },
@@ -4042,7 +4043,7 @@
     "updateAllThreeTxtOnGameplayChange": true
   },
   "level10Countryside": {
-    "status": "implemented_local_full_and_feature_checks_passed_exact_ci_and_release_pending",
+    "status": "published_exact_full_ci_resources_and_three_public_downloads_verified_native_pending",
     "biomeId": 64,
     "biomes": 65,
     "previousDiscoveryLabels": 64,
@@ -4065,8 +4066,9 @@
     "checks": "Verification/level10_checks.txt",
     "mediaAcquisition": "Verification/level10_media_acquisition.json",
     "pending": [
-      "Terminar regresión completa del commit final, publicar y verificar las descargas de juego.",
-      "Ejecutar Unity/PlayMode, APIs HDRP, shaders, PhysX, apariencia, escucha, sensación de movimiento y FPS."
-    ]
+      "Unity/PlayMode, HDRP APIs/shaders, PhysX, final appearance, listening, movement feel and FPS"
+    ],
+    "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+    "evidence": "Verification/level10_delivery.json"
   }
 }

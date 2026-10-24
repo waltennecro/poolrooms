@@ -1,0 +1,180 @@
+{
+  "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+  "release": "https://github.com/waltennecro/poolrooms/releases/tag/nivel10-campos-de-abundancia",
+  "fullVerification": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/40055066204",
+    "conclusion": "success",
+    "steps": 67,
+    "failed": 0,
+    "skipped": 0
+  },
+  "publisher": {
+    "url": "https://github.com/waltennecro/poolrooms/actions/runs/40055206114",
+    "conclusion": "success",
+    "steps": 9
+  },
+  "delivery": {
+    "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+    "successfulFullRun": "40055066204",
+    "assetsUncompressedBytes": 1988481669,
+    "package": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Nivel10_Campos_Assets.zip",
+      "files": 2452,
+      "bytes": 1696580493,
+      "sha256": "6316c0e297142ba13816b2a509e7843bb6b20bba2e2c4c4a17d8364e3a33a4b2",
+      "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+      "workingTreeChanged": false
+    },
+    "patch": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Parche_Nivel10_Acumulativo.zip",
+      "files": 884,
+      "bytes": 645015860,
+      "sha256": "18a0e05efa1b1ba24c912b178c343ad0b8480fa0da90ffc6d4e2bb58c37bfe62",
+      "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+      "workingTreeChanged": false
+    },
+    "fromTravel": {
+      "zip": "/home/runner/work/_temp/Poolrooms_Nivel10_Desde_Travesia.zip",
+      "files": 61,
+      "bytes": 242877843,
+      "sha256": "bb24fee3490229ff470b216bf9d61530dd8d42cfab74f7a01d68a5edfb0146d8",
+      "sourceRevision": "6759adc6272c8a64a813479e83cb81a97952f18b",
+      "workingTreeChanged": false
+    },
+    "nativeUnityExecuted": false,
+    "nativePlayModeTestsAdded": 4,
+    "newExternalModels": 0,
+    "newNativeScannedTextureSets": 3,
+    "nativePbrMaps": 12,
+    "nativeTextureBytes": 239739811,
+    "originalSpatialClips": 4,
+    "newInventoryItems": 3,
+    "biomes": 65,
+    "previousDiscoveryLabelsPreserved": 64,
+    "countryProgrammes": 12,
+    "roofProfiles": 3,
+    "preservesForest39": true,
+    "preservesTravel": true,
+    "upscaledTextures": false,
+    "paddingBytes": 0
+  },
+  "scope": {
+    "baseDeliveryRevision": "4e2100a7d9cc62553472d4f4fa751930870b7c4f",
+    "assetsFiles": 2452,
+    "assetsBytes": 1988481669,
+    "newLevelResourceBytes": 243124291,
+    "nativePbrBytes": 239739811,
+    "newNativeScannedTextureSets": 3,
+    "nativePbrMaps": 12,
+    "originalAudioClips": 4,
+    "originalAudioBytes": 3365002,
+    "newExternalModels": 0,
+    "reusedFurnitureSourceModels": 4,
+    "reusedFoodSourceModels": 2,
+    "originalCountryProgrammes": 12,
+    "originalRoofProfiles": 3,
+    "newInventoryItems": 3,
+    "newLevelSourceFiles": 14,
+    "newLevelSourceLines": 1520,
+    "biomes": 65,
+    "previousDiscoveryLabelsPreserved": 64,
+    "paddingBytes": 0,
+    "upscaledTextures": false,
+    "nativeUnityExecuted": false
+  },
+  "mediaAcquisition": {
+    "url": "https://github.com/waltennecro/poolrooms/releases/download/nivel10-medios-nativos-v2/Level10_Medios_Nativos.zip",
+    "bytes": 239725490,
+    "sha256": "96a1ad06fa4fea00872f097566e21b9cac51fcccf6d5dd0492e132149a940a6d",
+    "crcVerified": true,
+    "resourceFilesVerified": 12,
+    "runtimeTextureBytes": 239739811,
+    "successfulImportRun": "40052391838",
+    "sourceRevision": "07046296b7d94daf5850f4b8da3f15a174941549",
+    "nativeUnityExecuted": false
+  },
+  "publicDownloads": [
+    {
+      "file": "Poolrooms_Nivel10_Campos_Assets.zip",
+      "httpStatus": 200,
+      "bytes": 1696580493,
+      "sha256": "6316c0e297142ba13816b2a509e7843bb6b20bba2e2c4c4a17d8364e3a33a4b2",
+      "downloadedCompletely": true,
+      "storedLocally": false
+    },
+    {
+      "file": "Poolrooms_Parche_Nivel10_Acumulativo.zip",
+      "httpStatus": 200,
+      "bytes": 645015860,
+      "sha256": "18a0e05efa1b1ba24c912b178c343ad0b8480fa0da90ffc6d4e2bb58c37bfe62",
+      "downloadedCompletely": true,
+      "storedLocally": false
+    },
+    {
+      "file": "Poolrooms_Nivel10_Desde_Travesia.zip",
+      "httpStatus": 200,
+      "bytes": 242877843,
+      "sha256": "bb24fee3490229ff470b216bf9d61530dd8d42cfab74f7a01d68a5edfb0146d8",
+      "downloadedCompletely": true,
+      "storedLocally": true
+    }
+  ],
+  "fromTravelAudit": {
+    "crcVerified": true,
+    "filesComparedToSource": 61,
+    "fileNamesSafe": true,
+    "duplicateMembers": 0
+  },
+  "allZipCrcVerifiedByPublisher": true,
+  "ciArtifacts": [
+    {
+      "name": "Poolrooms-Reconstruccion-Assets",
+      "id": 12545641390,
+      "bytes": 1691981372,
+      "expired": false
+    },
+    {
+      "name": "Level39-evidence",
+      "id": 12545361568,
+      "bytes": 1731,
+      "expired": false
+    },
+    {
+      "name": "Surface-ownership-evidence",
+      "id": 12545122737,
+      "bytes": 2827,
+      "expired": false
+    },
+    {
+      "name": "R34-Batch-Evidence",
+      "id": 12545013690,
+      "bytes": 6595,
+      "expired": false
+    },
+    {
+      "name": "Level10-evidence",
+      "id": 12544833956,
+      "bytes": 2824,
+      "expired": false
+    },
+    {
+      "name": "City-buildings-evidence",
+      "id": 12544634697,
+      "bytes": 12933,
+      "expired": false
+    },
+    {
+      "name": "Travel-evidence",
+      "id": 12544324246,
+      "bytes": 773,
+      "expired": false
+    }
+  ],
+  "historicalVerifier": {
+    "compiledWithWarningsAsErrors": true,
+    "expectedOldBevelFailureReproduced": true,
+    "historicalWingValidationRejected": true
+  },
+  "nativeUnityExecuted": false,
+  "limitations": "Core/source/media and actual complete public downloads. Unity/PlayMode, HDRP API compilation, shaders, PhysX, final appearance, listening, feel and FPS remain unexecuted."
+}
