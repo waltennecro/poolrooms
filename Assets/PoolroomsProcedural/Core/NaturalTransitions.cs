@@ -2,13 +2,14 @@ using System;
 
 namespace Poolrooms.Core
 {
-    public enum NaturalPassage { ChangingRoom,CommercialArcade,GardenGallery,ResidentialPorch,ReadingVestibule,ArcadedLanding }
+    public enum NaturalPassage { ChangingRoom,CommercialArcade,GardenGallery,ResidentialPorch,ReadingVestibule,ArcadedLanding,FarmTrack }
     // The same edge has one physical shell; material halves share vertices at its midpoint.
     public static class NaturalTransitions
     {
         public static NaturalPassage Kind(LiminalEnvironment a,LiminalEnvironment b)
         {
             bool Has(LiminalEnvironment e){return a==e||b==e;}
+            if(Has(LiminalEnvironment.WheatFields10))return NaturalPassage.FarmTrack;
             if(Has(LiminalEnvironment.AmberRestaurant)||Has(LiminalEnvironment.IndoorBoardwalk)||Has(LiminalEnvironment.CeramicVillage))return NaturalPassage.CommercialArcade;
             if(Has(LiminalEnvironment.CoveredMarket)||Has(LiminalEnvironment.PostalArcade)||Has(LiminalEnvironment.Supermarket)||Has(LiminalEnvironment.City11))return NaturalPassage.CommercialArcade;
             if(Has(LiminalEnvironment.RainHouses))return NaturalPassage.ResidentialPorch;
@@ -25,6 +26,7 @@ namespace Poolrooms.Core
         public static CorridorGeometry Build(Room a,Room b,int direction,LayoutConfig c)
         {
             if(direction<0||direction>1)throw new ArgumentOutOfRangeException(nameof(direction));
+            if(Kind(a.Environment,b.Environment)==NaturalPassage.FarmTrack)return Level10Transition.Build(a,b,direction,c);
             var result=new CorridorGeometry{Style=CorridorStyle.WideGallery,Natural=true};
             MeshData first=new MeshData{Theme=BiomeSurfaces.ForEnvironment(a.Environment)},second=new MeshData{Theme=BiomeSurfaces.ForEnvironment(b.Environment)};
             float start=(direction==0?a.Depth:a.Width)*.5f,end=c.CellSize-(direction==0?b.Depth:b.Width)*.5f,length=end-start;

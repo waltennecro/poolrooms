@@ -29,6 +29,28 @@ Pendiente:
   - Unity/PlayMode, PhysX, cable, sensación de movimiento, sonido, apariencia y FPS reales.
 Guía: Assets/PoolroomsProcedural/Documentation/Travesia_Libre.md
 
+2026-10-23 · nivel10-campos-01
+Estado: implementado; suite local completa, comprobaciones específicas y recursos superados; CI exacto y publicación pendientes
+Cambios:
+  - Nuevo Nivel 10 / Campos de abundancia, adaptación investigada de Bounty: campos continuos, setos, pequeños grupos de robles, rodadas dobles y lagunas claras. Se encuentra andando desde las afueras del Nivel 11; mantiene las 64 etiquetas de descubrimiento anteriores y añade el bioma serializado 64, sin renumerar los demás.
+  - Doce programas de paisaje y construcción; tres perfiles de tejado, dimensiones sembradas, establos, graneros, semilleros, ventanas reales y altillos con escaleras, descansillos, galerías y barandillas. La decoración compartida solo usa laterales interiores seguros.
+  - Trigo con geometría y tres LOD en 16 lotes, muestreo de altura cacheado y brisa limitada a dos actualizaciones globales por fotograma, solo cerca y visible. Mantiene la distancia de renderizado; no usa colliders en cada espiga.
+  - Molino manual, bomba con palanca y chorro visible, veleta y armario de semillas con puerta animada; cuadernos, bancos, tres recuerdos físicos acumulables y comida/agua de almendra de fuentes ya acreditadas. Estado de actividad de sesión, premio único y reintento si no cabe en inventario; sin hambre, sed ni HUD nuevo.
+  - Tres conjuntos CC0 nuevos con 12 mapas PBR: 239.739.811 bytes; dimensión nativa máxima 4096, revestimiento 4096x2048 y relieve original de 16 bits con importación R16. Cuatro clips originales 3D: 3.365.002 bytes. Reutiliza modelos existentes y registra cero modelos externos nuevos. Sin ampliar texturas ni rellenar peso.
+  - Día nublado, sol regional compartido y exposición gradual de interior; reflejos y ray tracing usan la calidad/hardware existentes. Sonido sin voces ni sobresaltos, con volumen, pausa, ambiente y filtrado bajo el agua.
+  - Cuatro pruebas nativas añadidas para formato R16, apoyo de cápsula, subida al altillo e inventario físico. Documentación detallada del nivel añadida a la guía; el generador TXT conserva anexos posteriores al relevo y comprueba 67 fichas documentadas.
+Comprobaciones reales:
+  - 82 sectores construidos por las comprobaciones específicas: doce programas, tres perfiles de tejado, 82 mallas físicas distintas; no equivalen a 82 modelos descargados.
+  - Entradas y salidas recíprocas, apoyo, escaleras, separación del agua/terreno, LOD, juegos y coordenadas extremas comprobados en Core; no es PhysX.
+  - Banco público descargado completo, SHA-256/CRC y doce mapas comparados con manifiesto; mapa de relieve plano detectado y corregido preservando 16 bits. Licencias y créditos auditados.
+  - Verificador actual compilado contra R33 inmutable sin bajar las comprobaciones históricas; comportamiento geométrico antiguo y rechazo de alas no existentes conservados.
+  - Suite local completa: 2.130.336.055 aserciones de Core/código; 188 geometrías protegidas y sintaxis de 407 scripts en cinco configuraciones. No son pruebas nativas de Unity.
+  - La fábrica real de recuerdos compila con Core e interfaces Unity reducidas; se reproducen y rechazan accesos a setters/campos privados. Esto no compila las APIs nativas de Unity.
+Pendiente:
+  - CI completo del commit final, publicación y verificación de las tres descargas de juego.
+  - Ejecutar Unity/PlayMode, APIs HDRP, shaders, PhysX, apariencia, escucha, sensación de movimiento y FPS.
+Guía: Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md
+
 [FIN DEL REGISTRO VIVO DE CAMBIOS]
 
 Documento extenso para el creador, colaboradores y futuras sesiones de trabajo
@@ -9982,6 +10004,121 @@ Mantén la memoria persistente: estado implementado, pendiente, limitaciones nat
 NOTA FINAL
 
 Mi mayor consejo es que traduzcas la ambición del usuario a resultados jugables. Un nivel memorable y bien integrado vale más que cientos de variantes casi iguales. La confianza se conserva con avances concretos y límites honestos: no prometas haber visto, probado, recuperado o terminado algo que todavía no existe en esa forma.
+
+[FIN DEL ANEXO K]
+
+===============================================================================
+ANEXO L. NIVEL 10 — CAMPOS DE ABUNDANCIA (ACTUALIZACIÓN 2026-10-23)
+===============================================================================
+
+FICHA 67/67 — Nivel 10 / Campos de abundancia
+
+Estado: implementado en Core y adaptadores Unity; las comprobaciones nativas no
+se han ejecutado. Este anexo amplía las 66 fichas históricas; no renumera sus
+biomas. El nuevo valor LiminalEnvironment.WheatFields10 es 64: hay 65 biomas de
+catálogo y, además, centro comercial conectado y terreno del Nivel 94.
+
+Identidad e investigación
+Se adaptó Bounty de The Backrooms Wiki. Autores: scutoid studios y egglord;
+antecedentes de u/Hertz3241 y Stretchsterz. Se leyó una traducción pública fijada
+por commit porque el dominio original está bloqueado en este entorno. Incluye
+la descripción, clima, cultivos, lagunas, construcciones y entradas/salidas.
+La adaptación del escenario se acredita CC BY-SA 3.0; no se copiaron fotografías
+ni párrafos. Registro: Documentation/LevelResearch/Level10.json.
+
+El paisaje canónico tiene trigo, setos, árboles, construcciones rurales y un día
+gris persistente. Aquí se conservan campos, setos, agua clara, graneros, establos
+y caminos con dos huellas y una franja de hierba. Se omiten los gusanos dañinos,
+los problemas de nutrición, los peligros de excavación y los viajes automáticos
+al nadar. No hay NPC ni objetivos de supervivencia. Los rincones y las notas son
+originales, cálidos y abiertos a una próxima visita.
+
+Generación e integración caminable
+Core/Level10Plan.cs describe un sector del campo, no una sala cerrada. Hay doce
+programas: trigo abierto, granero con altillo, establos, almacén de semillas,
+bomba, laguna, taller, patio de cosecha, nave de heno, semillero de vidrio,
+pérgola y porche de carga. La semilla cambia plantas, curvas, dimensiones,
+sección de tejado, vegetación y contexto. No se presenta esto como miles de
+modelos distintos descargados.
+
+Las etiquetas anteriores de WalkableExploration siguen ocupando sus 64 lugares.
+El campo aparece en la periferia oriental de las regiones de City11. Por eso
+los caminos urbanos continúan en rodadas rurales y se puede volver andando.
+Las reservas de centros comerciales y Nivel 94 conservan prioridad. Si la
+primera periferia queda ocupada, Find busca otros centros urbanos. Hay modo de
+generación dedicado WheatFields10 para perfiles de prueba. La exploración
+unificada activa EnableWheatFields10; los fixtures históricos de Core lo dejan
+apagado. No depende del modo maestro ni exige usar un portal.
+
+Arquitectura y materiales
+Level10Architecture construye edificios con huecos de ventana, montantes,
+cerchas, puertas apartadas de las entradas y tres perfiles de cubierta: dos
+aguas, quebrado y linterna con vidrio. Los altillos llevan dieciséis peldaños,
+descansillo continuo, barandillas y galería. La planta de arriba no tapa la
+escalera y sus rectángulos no duplican el suelo del balcón. Los altillos amplios
+tienen mesa, taza y silla con licencia. Las reservas de decoración impiden
+poner nuevos muebles en trigo, estudios o el pasillo central.
+
+Level10Terrain conserva un único suelo físico y visual. Su cuadrícula de
+alturas cacheada sirve tanto para plantar trigo como para apoyar objetos. Las
+orillas del agua se recortan contra los triángulos reales; no se superpone un
+rectángulo transparente sobre terreno seco. No hay cubierta en los campos ni
+luminarias artificiales en los caminos rurales.
+
+Tres conjuntos CC0 de Lennart Demes / ambientCG: Grass001, Planks037A y
+WoodSiding009. Doce mapas nuevos suman 239.739.811 bytes. No se ampliaron imágenes.
+El revestimiento conserva 4096x2048; su desplazamiento de 16 bits se importa
+como R16. Los demás mapas usan la compresión y los mipmaps correspondientes.
+Los canales HDRP están registrados en Resources/Level10/manifest.json, junto
+con enlaces fijados, hashes originales y dimensiones. El banco inicial detectó
+una conversión plana del relieve; se corrigió antes de integrar el juego.
+No se cuentan mapas duplicados, LOD o repeticiones como modelos nuevos.
+
+Interacciones y objetos
+E permite girar el molino, accionar la bomba —con palanca y chorro visible—,
+orientar la veleta o abrir/ordenar el armario. Cada mecanismo muestra su cambio
+físico; los trabajos no bloquean salidas. Hay cuaderno de ruta y bancos donde
+sentarse. Haz de trigo, sobre de semillas y ficha son recuerdos acumulables que
+pueden salir del inventario como objetos físicos con recursos propios. Los
+modelos de mesas, tazas, cestas, sillas y la comida mantienen sus licencias
+anteriores. Hay agua de almendra, sin medidores ni HUD nuevo.
+
+Las claves de instancia incluyen semilla, coordenadas y slot. Se guarda en la
+sesión el avance del trabajo y la recogida del premio; recargar un sector no
+lo duplica. Si no cabe en el inventario, la recompensa espera. El inventario
+continúa con cinco páginas de cincuenta slots y cantidades arbitrariamente
+grandes. Persistencia entre partidas sigue pendiente y no debe darse por hecha.
+
+Luz, audio y rendimiento
+El adaptador HDRP reutiliza el sol regional. El día gris, exposición de interior
+y cielo se ajustan por bioma. Los reflejos y ray tracing siguen dependiendo de
+HDRP, hardware y configuración. No se añadió un sol ni una sonda por sector.
+No es una promesa de ray tracing sin GPU ni una captura real del Editor.
+
+Level10Crops distribuye trigo en dieciséis lotes con tres LOD. La brisa limita
+sus actualizaciones: hasta dos lotes globales por fotograma y ocho veces por
+segundo cada lote cercano y visible. No se recocinan colliders. Se respeta la
+distancia de renderizado. Estos límites son de implementación; los FPS reales
+requieren medir Unity en el PC del usuario.
+
+Cuatro clips originales de viento y roce: 3.365.002 bytes, sin muestras ajenas,
+voces, susurros ni sobresaltos. La pareja de fuentes compartida por el oyente
+respeta volumen, ambiente, pausa y filtrado bajo el agua. No hay un AudioSource
+por espiga. Los mecanismos reutilizan sonidos acreditados de las estaciones.
+
+Validación y relevo
+Ejecutar --level10 para geometría, suelo, escaleras, agua, LOD, actividades,
+coordenadas extremas y entradas caminables. tools/verify_level10_resources.py
+comprueba imágenes, relieve, audio, importación, atribución y conexión nativa.
+El banco final tiene tres fuentes nuevas de texturas y cero modelos externos
+nuevos; se reutilizan cuatro modelos de mobiliario y dos de comida/bebida.
+
+Level10WorldTests contiene cuatro pruebas nativas: R16, cápsula en caminos,
+subida de escalera y recuerdos físicos. Escribirlas no significa ejecutarlas.
+Unity, APIs reales de HDRP, shaders, PhysX, aspecto, escucha y FPS siguen
+pendientes hasta usar el Editor. La evidencia final y los tamaños exactos se
+registran en Verification/level10_scope.json y level10_delivery.json cuando
+la publicación haya pasado; nunca sustituir ese resultado por una propuesta.
 
 ===============================================================================
 FIN DEL DOCUMENTO

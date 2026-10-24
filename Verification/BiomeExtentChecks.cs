@@ -34,10 +34,19 @@ static partial class Checks
     }
     static void BiomeExtents()
     {
+        int protectedCount=RestfulLevelPlanner.EnvironmentCount;
+#if !POOLROOMS_HISTORICAL_CORE
+        protectedCount=(int)LiminalEnvironment.WheatFields10;
+#endif
         var totalsBefore=new long[RestfulLevelPlanner.EnvironmentCount];var totalsAfter=new long[RestfulLevelPlanner.EnvironmentCount];int regionPairs=0,meshSamples=0;
         foreach(int seed in new[]{0,31,481516})
         {
             var before=new LayoutConfig{Seed=seed};var after=new LayoutConfig{Seed=seed};WalkableExploration.Configure(before);WalkableExploration.Configure(after);
+            // Preserve the exact old +50% per-region regression before the new
+            // city/countryside subdivision. Level10 separately tests both parts.
+#if !POOLROOMS_HISTORICAL_CORE
+            before.EnableWheatFields10=after.EnableWheatFields10=false;
+#endif
             before.ExpandedBiomeAreas=false;Check(after.ExpandedBiomeAreas&&after.ExpandedVariety,"Unified exploration omitted one of the two requested expansions");
             var old=RegionAreas(before,192);var next=RegionAreas(after,236);
             foreach(var pair in old)
@@ -53,7 +62,7 @@ static partial class Checks
                 var climate=SolarClimateRegions.At(after,x,z);Check(float.IsFinite(climate.SunDirection.X)&&float.IsFinite(climate.SunDirection.Y)&&float.IsFinite(climate.SunDirection.Z),"Expanded solar climate overflow");
             }
         }
-        for(int env=0;env<RestfulLevelPlanner.EnvironmentCount;env++)
+        for(int env=0;env<protectedCount;env++)
         {
             double ratio=totalsAfter[env]/(double)totalsBefore[env];
             Check(totalsBefore[env]>500&&ratio>1.46&&ratio<1.54,"Region area failed +50% sample for "+(LiminalEnvironment)env+": "+ratio);
@@ -118,6 +127,6 @@ static partial class Checks
             terrainSites++;
         }
         IntegrationSourceContracts();
-        Console.WriteLine($"PASS: biome extents; {regionPairs} matched complete region pairs across all {RestfulLevelPlanner.EnvironmentCount} environments; {shopsBefore} -> {shopsAfter} accessible shops in paired mall plans; {oldHomes} -> {newHomes} generated Level94 houses, {outerHomes} in newly populated outer areas, {terrainSites} terrain cases; {meshSamples} mesh samples; {assertions} core assertions. Native Unity/PhysX/FPS unrun.");
+        Console.WriteLine($"PASS: biome extents; {regionPairs} matched complete region pairs across {protectedCount} protected environments; {shopsBefore} -> {shopsAfter} accessible shops in paired mall plans; {oldHomes} -> {newHomes} generated Level94 houses, {outerHomes} in newly populated outer areas, {terrainSites} terrain cases; {meshSamples} mesh samples; {assertions} core assertions. Native Unity/PhysX/FPS unrun.");
     }
 }

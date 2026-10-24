@@ -52,14 +52,15 @@ namespace Poolrooms.HDRP
             volume.priority=aerial?14:4;
             bool mallPhysical=!aerial&&active&&world.InsideMall&&world.ActiveMallPlan!=null&&MallRealism.Enabled(world.ActiveMallPlan)&&
                 (world.shadowLightBudgetOverride>=0?world.shadowLightBudgetOverride:world.profile.maxShadowLights)>0;
+            bool wheat10=room?.Plan?.Level10!=null;
             bool forest39=room?.Plan?.Forest39!=null;
-            bool sunny=forest39||mallPhysical||aerial||active&&(RestfulLevelPlanner.IsLevel(room.Environment)||room.Environment==LiminalEnvironment.RainHouses||room.Environment==LiminalEnvironment.AquaticPark||room.Environment==LiminalEnvironment.ThermalBaths||room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
+            bool sunny=wheat10||forest39||mallPhysical||aerial||active&&(RestfulLevelPlanner.IsLevel(room.Environment)||room.Environment==LiminalEnvironment.RainHouses||room.Environment==LiminalEnvironment.AquaticPark||room.Environment==LiminalEnvironment.ThermalBaths||room.Environment==LiminalEnvironment.Orangerie||room.Environment==LiminalEnvironment.City11||room.Environment==LiminalEnvironment.Courtyard188||room.Environment==LiminalEnvironment.Coast48||QuietLevelPlanner.IsCivic(room.Environment));
             bool archive=!aerial&&active&&room.Environment==LiminalEnvironment.Archive906;
             bool rainy=!aerial&&sunny&&room.Environment==LiminalEnvironment.RainHouses;
             bool aquatic=!aerial&&sunny&&room.Environment==LiminalEnvironment.AquaticPark;
             bool sunset=!aerial&&sunny&&(room.Environment==LiminalEnvironment.SunsetLibrary||room.Environment==LiminalEnvironment.TeaPavilions||SpecialRegionPlanner.WarmLight(room.Environment)||JourneyLevelPlanner.WarmLight(room.Environment)||HorizonLevelPlanner.WarmLight(room.Environment)||aquatic||room.Environment==LiminalEnvironment.Coast48);
             world.SetMallSunActive(mallPhysical);
-            if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny&&!rainy;
+            if(citySun.enabled!=sunny)citySun.enabled=sunny;cityExposure.active=sunny||archive;citySky.active=sunny&&!rainy&&!wheat10;
             if(sunny||archive)
             {
                 var graphics=world.GetComponent<PoolroomsGraphics>();
@@ -76,11 +77,12 @@ namespace Poolrooms.HDRP
                     if(Mathf.Abs(local.x-building.X)<building.Width*.5f&&Mathf.Abs(local.z-building.Z)<building.Depth*.5f)shelter=true;
                 if(rainy)shelter=room.Plan.Rain.InsideLodge(local.x,local.z);
                 if(room.Plan?.Quiet?.Courtyard!=null&&local.y>=room.Plan.Quiet.Courtyard.Roof-.1f)shelter=false;
+                if(wheat10)shelter=room.Plan.Level10.Building&&room.Plan.Level10.Farm.Contains(local.x,local.z)&&local.y<5.1f;
                 if(aerial)shelter=false;
                 bool sky63=!aerial&&room.Plan?.Quiet?.Sky63!=null;
                 bool botanical=!aerial&&room.Plan?.Quiet?.Conservatory!=null;
                 bool courtyardHotel=!aerial&&room.Plan?.Quiet?.Courtyard!=null;
-                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(forest39?9.6f:sky63?11.2f:botanical?10.0f:courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?(room.Plan?.Quiet?.Archive!=null?7.2f:6.3f):sunset?10.8f:shelter?7.7f:11.7f)+offset;
+                float offset=graphics!=null?graphics.exposureEV-5.5f:0,target=(wheat10?(shelter?8.7f:10.2f):forest39?9.6f:sky63?11.2f:botanical?10.0f:courtyardHotel?(shelter?8.7f:12.1f):mallPhysical?8.1f:rainy?(shelter?6.3f:8.4f):aquatic?10.2f:!aerial&&room.Plan!=null&&room.Plan.Baths!=null?7.9f+room.Plan.Baths.Roof*.1f:!aerial&&room.Plan!=null&&room.Plan.Garden!=null?8.2f+room.Plan.Garden.Roof*.12f:archive?(room.Plan?.Quiet?.Archive!=null?7.2f:6.3f):sunset?10.8f:shelter?7.7f:11.7f)+offset;
                 if(regionalEV<=0)regionalEV=target;
                 regionalEV=Mathf.Lerp(regionalEV,target,1-Mathf.Exp(-Time.unscaledDeltaTime*2));cityExposure.fixedExposure.Override(regionalEV);
             }
@@ -92,14 +94,15 @@ namespace Poolrooms.HDRP
             if(configured&&previous==effectiveEnvironment&&previousMall==mall&&previousSun==sunny&&Mathf.Abs(height-previousHeight)<.01f)return;
             previous=effectiveEnvironment;previousMall=mall;previousSun=sunny;previousHeight=height;configured=true;
             bool dreamCity=effectiveEnvironment==LiminalEnvironment.City11&&world.CurrentLayout!=null&&world.CurrentLayout.Config.DreamCity11;
-            environment.skyType.Override((int)(sunny&&!rainy?SkyType.PhysicallyBased:SkyType.Gradient));
-            citySun.transform.localRotation=Quaternion.Euler(forest39?14:dreamCity?29:room.Plan?.Quiet?.Sky63!=null?27:room.Plan?.Quiet?.Conservatory!=null?32:mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
-            citySun.color=forest39?new Color(1,.83f,.66f):dreamCity?new Color(1,.87f,.75f):mallPhysical?new Color(1,.94f,.84f):rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
+            environment.skyType.Override((int)(sunny&&!rainy&&!wheat10?SkyType.PhysicallyBased:SkyType.Gradient));
+            citySun.transform.localRotation=Quaternion.Euler(wheat10?38:forest39?14:dreamCity?29:room.Plan?.Quiet?.Sky63!=null?27:room.Plan?.Quiet?.Conservatory!=null?32:mallPhysical?36:rainy?47:aquatic?24:sunset?18:43,sunset?-65:-38,0);
+            citySun.color=wheat10?new Color(.92f,.96f,1):forest39?new Color(1,.83f,.66f):dreamCity?new Color(1,.87f,.75f):mallPhysical?new Color(1,.94f,.84f):rainy?new Color(.82f,.89f,1):aquatic?new Color(1,.79f,.59f):sunset?new Color(1,.73f,.46f):new Color(1,.95f,.88f);
 #pragma warning disable CS0618
-            citySunData.SetIntensity(forest39?6800:dreamCity?15500:room.Plan?.Quiet?.Sky63!=null?16000:room.Plan?.Quiet?.Conservatory!=null?10000:room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
+            citySunData.SetIntensity(wheat10?4200:forest39?6800:dreamCity?15500:room.Plan?.Quiet?.Sky63!=null?16000:room.Plan?.Quiet?.Conservatory!=null?10000:room.Plan?.Quiet?.Courtyard!=null?12500:mallPhysical?8500:rainy?2600:aquatic?13000:sunset?15000:24000,LightUnit.Lux);
 #pragma warning restore CS0618
             Color top=new Color(.57f,.66f,.78f),middle=new Color(.84f,.87f,.9f),bottom=new Color(.7f,.73f,.76f);float ev=-1;
-            if(rainy){top=new Color(.35f,.43f,.49f);middle=new Color(.61f,.68f,.7f);bottom=new Color(.47f,.53f,.53f);ev=.5f;}
+            if(wheat10){top=new Color(.47f,.52f,.56f);middle=new Color(.74f,.77f,.76f);bottom=new Color(.62f,.66f,.63f);ev=.3f;}
+            else if(rainy){top=new Color(.35f,.43f,.49f);middle=new Color(.61f,.68f,.7f);bottom=new Color(.47f,.53f,.53f);ev=.5f;}
             else if(mall){top=new Color(.48f,.65f,.84f);middle=new Color(.83f,.88f,.94f);bottom=new Color(.78f,.81f,.83f);ev=0;}
             else if(room.Environment==LiminalEnvironment.Hotel)
             {top=new Color(.6f,.57f,.51f);middle=new Color(.83f,.79f,.71f);bottom=new Color(.67f,.64f,.59f);ev=-1.4f;}
@@ -112,7 +115,7 @@ namespace Poolrooms.HDRP
             bool skyPaths=room.Plan?.Quiet?.Sky63!=null;
             fog.depthExtent.overrideState=skyPaths;if(skyPaths)fog.depthExtent.Override(Mathf.Max(512,world.LoadRadius*room.Width*2));
             fog.baseHeight.Override(skyPaths?height-100:height);fog.maximumHeight.Override(skyPaths?height-80:height+(mall?world.ActiveMallPlan.Floors*MallPlan.FloorHeight+12:room.Height+8));
-            fog.meanFreePath.Override(rainy?180:sunny?850:mall?500:350);fog.colorMode.Override(FogColorMode.ConstantColor);fog.color.Override(sunset?new Color(.91f,.79f,.67f):middle);
+            fog.meanFreePath.Override(wheat10?720:rainy?180:sunny?850:mall?500:350);fog.colorMode.Override(FogColorMode.ConstantColor);fog.color.Override(sunset?new Color(.91f,.79f,.67f):middle);
             // Refresh existing reflection probes through their bounded queue, not a capture every frame.
             world.ExternalGeometryChanged();
             // No volumetric toggle here: quality and pause-menu preferences keep control of it.

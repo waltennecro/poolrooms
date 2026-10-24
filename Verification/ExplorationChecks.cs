@@ -11,9 +11,14 @@ static partial class Checks
         var defaults=new LayoutConfig{Zones=ZoneMode.Random,City11Share=0,QuietLevelShare=0,SoftPlayShare=0,RainHouseShare=0,AquaticParkShare=0,CommonSolarShare=0,ConnectedMallShare=0,ConnectedTerrainShare=0};
         WalkableExploration.Configure(defaults);defaults.Validate();Check(defaults.DiscoveryCoverage&&defaults.CommonSolarShare==.5f&&ConnectedMallTopology.Enabled(defaults)&&ConnectedTerrainTopology.Enabled(defaults),"Old profile leaves levels unavailable");
         Check(Enum.GetValues(typeof(LiminalEnvironment)).Length==RestfulLevelPlanner.EnvironmentCount,"Discovery policy must include newly appended environments");
+        int discoveryCount=RestfulLevelPlanner.EnvironmentCount;
+#if !POOLROOMS_HISTORICAL_CORE
+        discoveryCount=(int)LiminalEnvironment.WheatFields10;
+        Check(RestfulLevelPlanner.EnvironmentCount==discoveryCount+1,"Country must append to the real environment catalogue");
+#endif
         foreach(int bx in new[]{-3,0,2})foreach(int bz in new[]{-2,0,3})
         {
-            var counts=new int[RestfulLevelPlanner.EnvironmentCount];var signature=new List<int>();
+            var counts=new int[discoveryCount];var signature=new List<int>();
             for(int x=0;x<8;x++)for(int z=0;z<8;z++)
             {bool covered=WalkableExploration.Region(defaults,bx*8+x,bz*8+z,out var e);signature.Add(covered?(int)e:-1);if(covered){counts[(int)e]++;assigned++;}}
             Check(counts.All(n=>n>=1)&&counts.Sum()==64,"Expanded block misses a destination before allocating duplicates");signatures.Add(string.Join(",",signature));

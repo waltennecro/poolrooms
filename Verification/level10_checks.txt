@@ -1,0 +1,9 @@
+Level10 area: 3268 -> 4911 combined city/country cells (1.5027539779681762x), 1262 -> 1910 rural cells (1.5134706814580032x). Integer frontier quantisation is not another catalogue.
+Level10: {"sectors":82,"actualStalkClumps":63944,"programmes":12,"roofProfiles":3,"distinctPhysicalSectorMeshes":82,"lofts":24,"lakes":27,"existingFurnitureSourceModels":4,"sourcePlacements":468,"newExternalModels":0,"newNativeTextureSets":3,"peakWheatTriangles":[180000,76800,33600],"checks":97025533,"nativeUnityExecuted":false}
+PASS: entire actual travel component compiled against real Core and reduced Unity interfaces; Explorer/camera API names checked, missing photo API rejected. NOT native Unity compilation.
+PASS: actual forest pickup factory/wrapper compiled with reduced Unity types; CS0272/CS0122 replayed and rejected; three keepsakes/invalid IDs checked. NOT Unity API compilation.
+PASS: actual country pickup factory/wrapper compiled with reduced Unity types; CS0272/CS0122 replayed and rejected; three keepsakes/invalid IDs checked. NOT Unity API compilation.
+PASS: station floor coordinates at six elevations in mall/house contexts; legacy floor default preserved.
+PASS: four real Runtime/Core type contracts; original CS0200/CS1061/CS0266/CS0108 reproduced and rejected; 4096 bounded sound bursts. Reduced probes, NOT Unity compilation.
+PASS: actual package locator compiled with reduced Unity stand-ins; 4 physical installation layouts + four moves/cache invalidations; nine shipped textures present; fixed Editor resource paths rejected. Native Unity AssetDatabase unrun.
+PASS: C# syntax/Tooltip contracts in 5 symbol configurations; 6 reduced LightUnit binding checks. Native Unity APIs NOT compiled.

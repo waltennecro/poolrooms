@@ -1,0 +1,1 @@
+PASS: 12 external CC BY 3.0 Lorc icons, 14 source locks and 16 shipped file hashes; selector usage and credits. 0 downloaded wing models; 144 original geometry variants tested separately.

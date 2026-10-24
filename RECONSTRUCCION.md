@@ -1179,3 +1179,11 @@ Prueba enfocada y semántica reducida del componente completo superadas; build e
 Por petición del usuario, los tres TXT reciben una bitácora sincronizada desde CAMBIOS_JUEGO_DESDE_RELEVO.json usando tools/update_project_texts.py. Se conserva identificable el informe PDF original de 50 páginas.
 
 Travesía libre publicada desde `4e2100a7d9cc62553472d4f4fa751930870b7c4f`: CI completo [40038735390](https://github.com/waltennecro/poolrooms/actions/runs/40038735390) con 64 pasos correctos y publicación [40038748122](https://github.com/waltennecro/poolrooms/actions/runs/40038748122). Descargas públicas completas verificadas por SHA-256; CRC del parche y sus 846 archivos comparados con la fuente. Evidencia: `Verification/travel_delivery.json`. Ambos ZIP comprobados por CRC durante publicación. Unity/PlayMode y validación nativa siguen pendientes.
+
+## Nivel 10 — Campos de abundancia
+
+Nuevo bioma investigado de Bounty, no recuperación exacta de una versión perdida. Campos continuos, doce programas, tres cubiertas, altillos accesibles, lagunas recortadas, cuatro mecanismos opcionales y tres recuerdos. Se encuentra andando desde la periferia del Nivel11 y conserva las 64 etiquetas previas de descubrimiento. Hay 65 biomas de catálogo.
+
+Tres conjuntos CC0 nuevos: 239.739.811 bytes de PBR nativo, con relieve de revestimiento de 16 bits; cuatro clips originales: 3.365.002 bytes. Cero modelos externos nuevos; mobiliario/comida reutilizan fuentes acreditadas. Sin relleno, sin ampliar texturas ni reducir distancia de renderizado. La cola de reconstrucción de programas genéricos no se da por completada.
+
+Comprobaciones: `--level10`, `tools/verify_level10_resources.py`, inventario `Verification/level10_scope.json`. Documento: `Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md`. Cuatro pruebas nativas escritas; Unity/PlayMode, HDRP/shaders, PhysX, apariencia, escucha y FPS aún sin ejecutar.

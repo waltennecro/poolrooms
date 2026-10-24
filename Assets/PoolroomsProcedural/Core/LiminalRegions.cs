@@ -3,8 +3,8 @@ using System;
 namespace Poolrooms.Core
 {
     // Appended, opt-in settings keep all existing authored worlds intact.
-    public enum LiminalGeneration { Authored, Poolrooms, IndoorPlay, Mixed, Supermarkets, MixedWithRetail, Expanded, Offices, Hotels, WaitingHalls, DiningHalls, SoftPlay, City11, Archive906, Courtyard188, Coast48, Conservatory, TransitGallery, Orangerie, ThermalBaths, AquaticPark, RainHouses, SunsetLibrary, CloudTerminal, TeaPavilions, CeramicGalleria, WinterGarden, CanalGalleries, MusicStudios, LanternCourts, LinenLaundries, MineralSanctuary, SolarObservatory, CoveredMarket, TextileAtelier, PostalArcade, IndoorMarina, ClockGallery, PaperWorkshop, ChessPavilion, RadioSalon, MirrorArcade, AquariumGalleries, BambooRetreat, DesertCaravanserai, CrystalMuseum, CloudBaths, SunkenLibrary, RailwayWintergarden, CeramicVillage, LunarGreenhouse, AmberRestaurant, MapmakersArchive, SculptureCourts, PaperLanternTown, WatermillHalls, IndoorBoardwalk, VelvetTheatre, HangingOrchards, RainyBookshops, MosaicCistern, AeronauticalGallery, MagnoliaCourts, FunicularTerminal, StainedGlassHalls, BellCourts, LighthouseCourts, EnchantedForest39 }
-    public enum LiminalEnvironment { Poolrooms, IndoorPlay, Supermarket, Office, Hotel, WaitingHall, DiningHall, SoftPlay, City11, Archive906, Courtyard188, Coast48, Conservatory, TransitGallery, Orangerie, ThermalBaths, AquaticPark, RainHouses, SunsetLibrary, CloudTerminal, TeaPavilions, CeramicGalleria, WinterGarden, CanalGalleries, MusicStudios, LanternCourts, LinenLaundries, MineralSanctuary, SolarObservatory, CoveredMarket, TextileAtelier, PostalArcade, IndoorMarina, ClockGallery, PaperWorkshop, ChessPavilion, RadioSalon, MirrorArcade, AquariumGalleries, BambooRetreat, DesertCaravanserai, CrystalMuseum, CloudBaths, SunkenLibrary, RailwayWintergarden, CeramicVillage, LunarGreenhouse, AmberRestaurant, MapmakersArchive, SculptureCourts, PaperLanternTown, WatermillHalls, IndoorBoardwalk, VelvetTheatre, HangingOrchards, RainyBookshops, MosaicCistern, AeronauticalGallery, MagnoliaCourts, FunicularTerminal, StainedGlassHalls, BellCourts, LighthouseCourts, EnchantedForest39 }
+    public enum LiminalGeneration { Authored, Poolrooms, IndoorPlay, Mixed, Supermarkets, MixedWithRetail, Expanded, Offices, Hotels, WaitingHalls, DiningHalls, SoftPlay, City11, Archive906, Courtyard188, Coast48, Conservatory, TransitGallery, Orangerie, ThermalBaths, AquaticPark, RainHouses, SunsetLibrary, CloudTerminal, TeaPavilions, CeramicGalleria, WinterGarden, CanalGalleries, MusicStudios, LanternCourts, LinenLaundries, MineralSanctuary, SolarObservatory, CoveredMarket, TextileAtelier, PostalArcade, IndoorMarina, ClockGallery, PaperWorkshop, ChessPavilion, RadioSalon, MirrorArcade, AquariumGalleries, BambooRetreat, DesertCaravanserai, CrystalMuseum, CloudBaths, SunkenLibrary, RailwayWintergarden, CeramicVillage, LunarGreenhouse, AmberRestaurant, MapmakersArchive, SculptureCourts, PaperLanternTown, WatermillHalls, IndoorBoardwalk, VelvetTheatre, HangingOrchards, RainyBookshops, MosaicCistern, AeronauticalGallery, MagnoliaCourts, FunicularTerminal, StainedGlassHalls, BellCourts, LighthouseCourts, EnchantedForest39, WheatFields10 }
+    public enum LiminalEnvironment { Poolrooms, IndoorPlay, Supermarket, Office, Hotel, WaitingHall, DiningHall, SoftPlay, City11, Archive906, Courtyard188, Coast48, Conservatory, TransitGallery, Orangerie, ThermalBaths, AquaticPark, RainHouses, SunsetLibrary, CloudTerminal, TeaPavilions, CeramicGalleria, WinterGarden, CanalGalleries, MusicStudios, LanternCourts, LinenLaundries, MineralSanctuary, SolarObservatory, CoveredMarket, TextileAtelier, PostalArcade, IndoorMarina, ClockGallery, PaperWorkshop, ChessPavilion, RadioSalon, MirrorArcade, AquariumGalleries, BambooRetreat, DesertCaravanserai, CrystalMuseum, CloudBaths, SunkenLibrary, RailwayWintergarden, CeramicVillage, LunarGreenhouse, AmberRestaurant, MapmakersArchive, SculptureCourts, PaperLanternTown, WatermillHalls, IndoorBoardwalk, VelvetTheatre, HangingOrchards, RainyBookshops, MosaicCistern, AeronauticalGallery, MagnoliaCourts, FunicularTerminal, StainedGlassHalls, BellCourts, LighthouseCourts, EnchantedForest39, WheatFields10 }
 
     public static class LiminalRegions
     {
@@ -22,6 +22,13 @@ namespace Poolrooms.Core
             }
         }
         public static LiminalEnvironment At(LayoutConfig c,int x,int z)
+        {
+            var environment=BaseAt(c,x,z);
+            // The countryside shares a genuine road boundary with each city's
+            // outskirts, without stealing any of the 64 existing discovery labels.
+            return environment==LiminalEnvironment.City11&&Level10Planner.Outskirts(c,x,z)?LiminalEnvironment.WheatFields10:environment;
+        }
+        internal static LiminalEnvironment BaseAt(LayoutConfig c,int x,int z)
         {
             LiminalEnvironment single;
             if(Single(c.Procedural,out single))return single;
@@ -78,6 +85,7 @@ namespace Poolrooms.Core
         {
             foundX=x;foundZ=z;
             if(!Enum.IsDefined(typeof(LiminalEnvironment),environment))return false;
+            if(environment==LiminalEnvironment.WheatFields10)return Level10Planner.Find(c,x,z,out foundX,out foundZ);
             if(environment==LiminalEnvironment.EnchantedForest39&&c.Procedural!=LiminalGeneration.EnchantedForest39&&(c.Procedural!=LiminalGeneration.Expanded||!c.EnableForest39))return false;
             bool coverage=c.DiscoveryCoverage&&c.Procedural==LiminalGeneration.Expanded;
             if(coverage){if(!WalkableExploration.Enabled(c,environment))return false;}
@@ -120,6 +128,7 @@ namespace Poolrooms.Core
         }
         private static bool Single(LiminalGeneration mode,out LiminalEnvironment environment)
         {
+            if(mode==LiminalGeneration.WheatFields10){environment=LiminalEnvironment.WheatFields10;return true;}
             if(mode==LiminalGeneration.EnchantedForest39){environment=LiminalEnvironment.EnchantedForest39;return true;}
             if(HorizonLevelPlanner.IsMode(mode)){environment=HorizonLevelPlanner.ForMode(mode);return true;}
             if(JourneyLevelPlanner.IsMode(mode)){environment=JourneyLevelPlanner.ForMode(mode);return true;}

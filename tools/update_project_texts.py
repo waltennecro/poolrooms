@@ -33,14 +33,16 @@ def outputs():
  handoff_title,handoff_body=contents[FILES[2]].split('\n',1)
  contents[FILES[2]]=handoff_title+'\n\n'+handoff_body.lstrip('\n')
  guide=contents[FILES[0]];assert guide.count(marker)==1 and guide.count(finish)==1
- before=guide[:guide.index(marker)+len(marker)];after=guide[guide.index(finish):]
+ handoff_end='[FIN DEL ANEXO K]'
+ end=guide.index(handoff_end) if handoff_end in guide else guide.index(finish)
+ before=guide[:guide.index(marker)+len(marker)];after=guide[end:] if handoff_end in guide else handoff_end+'\n\n'+guide[end:]
  contents[FILES[0]]=before+contents[FILES[2]].rstrip()+'\n\n'+after
  result={}
  for name,text in contents.items():
   first,body=text.split('\n',1);value=first+'\n\n'+block+body.lstrip('\n')
   assert value.count(BEGIN)==value.count(END)==1
   if name==FILES[1]:assert value.count('\f')==49
-  if name==FILES[0]:assert len(re.findall(r'^FICHA \d{2}/66 — ',value,re.M))==66
+  if name==FILES[0]:assert len(re.findall(r'^FICHA \d{2}/\d{2} — ',value,re.M))==data.get('documentedLevelCards',66)
   result[name]=b'\xef\xbb\xbf'+value.encode('utf-8')
  result['CAMBIOS_JUEGO_DESDE_RELEVO.txt']=b'\xef\xbb\xbf'+render(data).encode('utf-8')
  return result
@@ -51,7 +53,7 @@ def main():
  if a.check:
   wrong=[name for name,content in result.items() if not (ROOT/name).is_file() or (ROOT/name).read_bytes()!=content]
   if wrong:raise SystemExit('TXT out of sync: '+', '.join(wrong))
-  print('PASS: all three TXT documents and the public journal match the gameplay inventory; 66 cards and 50 assessment sections preserved.')
+  print('PASS: all three TXT documents and the public journal match the gameplay inventory; documented level cards and 50 assessment sections preserved.')
  else:
   for name,content in result.items():(ROOT/name).write_bytes(content)
   print('Updated '+', '.join(result))

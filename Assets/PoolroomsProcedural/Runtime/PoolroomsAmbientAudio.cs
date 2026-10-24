@@ -139,7 +139,7 @@ namespace Poolrooms
             }
             bool forest39=cachedRoom?.Plan?.Forest39!=null;
             bool skyPaths=cachedRoom?.Plan?.Quiet?.Sky63!=null;
-            bool openAir=skyPaths||forest39;
+            bool openAir=cachedRoom?.Plan?.Level10!=null||skyPaths||forest39;
             bool useReverb=!openAir&&roomReverb&&(world.Terrain==null||!world.Terrain.IsInside||world.Terrain.InsideHouse);
             if(reverb.enabled!=useReverb)reverb.enabled=useReverb;
             ventilationTransmission=SpatialAudioModel.Step(ventilationTransmission,ventilationBlocked,underwater,dt);
@@ -181,7 +181,7 @@ namespace Poolrooms
                 nextSurfaceUpdate=Time.time+.2f;
                 SlideContactSound surface=wet?SlideContactSound.Wet:IsMetalGround()?SlideContactSound.Metal:
                     world.Terrain!=null&&world.Terrain.IsInside||cachedRoom!=null&&
-                    (cachedRoom.Plan?.Forest39!=null||cachedRoom.Environment==LiminalEnvironment.IndoorPlay||cachedRoom.Environment==LiminalEnvironment.SoftPlay||cachedRoom.Environment==LiminalEnvironment.Office||cachedRoom.Environment==LiminalEnvironment.Hotel)?SlideContactSound.Soft:SlideContactSound.Tile;
+                    (cachedRoom.Plan?.Level10!=null||cachedRoom.Plan?.Forest39!=null||cachedRoom.Environment==LiminalEnvironment.IndoorPlay||cachedRoom.Environment==LiminalEnvironment.SoftPlay||cachedRoom.Environment==LiminalEnvironment.Office||cachedRoom.Environment==LiminalEnvironment.Hotel)?SlideContactSound.Soft:SlideContactSound.Tile;
                 if(slideClips[(int)surface]!=null&&slideClips[(int)surface]!=slideVoices[slideVoice].clip)
                 {
                     slideVoice=1-slideVoice;slideBlend=0;

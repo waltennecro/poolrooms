@@ -49,6 +49,7 @@ static partial class Checks
     static int Main(string[] args)
     {
 #if !POOLROOMS_HISTORICAL_CORE
+        if(args.Contains("--level10")){Level10();IntegrationSourceContracts();return 0;}
         if(args.Contains("--travel")){TravelMovement();IntegrationSourceContracts();return 0;}
         if(args.Contains("--courtyard-atlas")){int index=Array.IndexOf(args,"--courtyard-atlas");if(index+1>=args.Length)throw new ArgumentException("Supply a new preview directory");CourtyardAtlas(args[index+1]);return 0;}
         if(args.Contains("--archive-atlas")){int index=Array.IndexOf(args,"--archive-atlas");if(index+1>=args.Length)throw new ArgumentException("Supply a new preview directory");ArchiveAtlas(args[index+1]);return 0;}

@@ -32,14 +32,15 @@ namespace Poolrooms.Core
         public readonly City11Plan City;
         public readonly QuietLevelPlan Quiet;
         public readonly Forest39Plan Forest39;
+        public readonly Level10Plan Level10;
         public readonly OrangeriePlan Garden;
         public readonly ThermalBathPlan Baths;
         public readonly RainHousePlan Rain;
         public readonly RestfulLevelPlan Restful;
         public readonly AquaticParkPlan Aquatic;
         public GeneratedAssembly[] Assemblies { get; internal set; } = new GeneratedAssembly[0];
-        public ProceduralPlan(LiminalEnvironment environment,PlannedModule[] modules,WaterRegion[] pools,float clear,int ceiling,int palette,bool fallback=false,PlanCirculation circulation=null,RetailStore store=null,InteriorPlan interior=null,SolarRoomPlan solar=null,SoftPlayPlan softPlay=null,City11Plan city=null,QuietLevelPlan quiet=null,OrangeriePlan garden=null,ThermalBathPlan baths=null,AquaticParkPlan aquatic=null,RainHousePlan rain=null,RestfulLevelPlan restful=null,Forest39Plan forest39=null)
-        {Forest39=forest39;Environment=environment;Modules=modules;Pools=pools;ClearHalfWidth=clear;CeilingPattern=ceiling;Palette=palette;IsFallback=fallback;Circulation=circulation;Store=store;Interior=interior;Solar=solar;SoftPlay=softPlay;City=city;Quiet=quiet;Garden=garden;Baths=baths;Aquatic=aquatic;Rain=rain;Restful=restful;}
+        public ProceduralPlan(LiminalEnvironment environment,PlannedModule[] modules,WaterRegion[] pools,float clear,int ceiling,int palette,bool fallback=false,PlanCirculation circulation=null,RetailStore store=null,InteriorPlan interior=null,SolarRoomPlan solar=null,SoftPlayPlan softPlay=null,City11Plan city=null,QuietLevelPlan quiet=null,OrangeriePlan garden=null,ThermalBathPlan baths=null,AquaticParkPlan aquatic=null,RainHousePlan rain=null,RestfulLevelPlan restful=null,Forest39Plan forest39=null,Level10Plan level10=null)
+        {Level10=level10;Forest39=forest39;Environment=environment;Modules=modules;Pools=pools;ClearHalfWidth=clear;CeilingPattern=ceiling;Palette=palette;IsFallback=fallback;Circulation=circulation;Store=store;Interior=interior;Solar=solar;SoftPlay=softPlay;City=city;Quiet=quiet;Garden=garden;Baths=baths;Aquatic=aquatic;Rain=rain;Restful=restful;}
 
         public bool Valid(Room room,LayoutConfig c)
         {
@@ -54,6 +55,7 @@ namespace Poolrooms.Core
                 return ConnectedMallTopology.Gateway(c,room.X,room.Z,out site)&&Environment==LiminalEnvironment.Supermarket&&
                     Modules.Length==0&&Pools.Length==0&&room.Width<=c.CellSize-6&&room.Depth<=c.CellSize-6&&room.Height>=c.DoorHeight+.5f;
             }
+            if(Level10!=null)return room.Environment==LiminalEnvironment.WheatFields10&&Level10.Valid();
             if(Forest39!=null)return room.Environment==LiminalEnvironment.EnchantedForest39&&Forest39.Valid();
             if(!AutonomousPlanner.Valid(this,room,c))return false;
             if(Restful!=null)return Restful.Valid(room,c);
@@ -126,6 +128,7 @@ namespace Poolrooms.Core
             }
             if(c.Procedural==LiminalGeneration.Authored)return;
             room.Environment=LiminalRegions.At(c,room.X,room.Z);
+            if(room.Environment==LiminalEnvironment.WheatFields10){Level10Planner.Describe(room,c);return;}
             if(room.Environment==LiminalEnvironment.EnchantedForest39){Forest39Planner.Describe(room,c);return;}
             if(QuietLevelPlanner.IsLevel(room.Environment)){QuietLevelPlanner.Describe(room,c);return;}
             if(room.Environment==LiminalEnvironment.City11){City11Planner.Describe(room,c);return;}

@@ -78,6 +78,8 @@ namespace Poolrooms.Core
                 for(int d=0;d<4;d++)if(Sky63Planner.Same(config,x,z,d))exits|=1<<d;
             if(ConservatoryDistrictPlanner.Applies(config,LiminalRegions.At(config,x,z)))
                 for(int d=0;d<4;d++)if(ConservatoryDistrictPlanner.Same(config,x,z,d))exits|=1<<d;
+            if(LiminalRegions.At(config,x,z)==LiminalEnvironment.WheatFields10)
+                for(int d=0;d<4;d++)if(Level10Planner.Same(config,x,z,d))exits|=1<<d;
             if(LiminalRegions.At(config,x,z)==LiminalEnvironment.EnchantedForest39)
                 for(int d=0;d<4;d++)if(Forest39Planner.Same(config,x,z,d))exits|=1<<d;
             int result=LargeRegions.Exits(config,x,z,exits);if(LargeRegions.Enabled(config))largeEdges[address]=result;return result;

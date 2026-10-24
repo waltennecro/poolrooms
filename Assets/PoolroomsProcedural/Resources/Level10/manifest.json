@@ -1,0 +1,292 @@
+{
+  "license": "CC0-1.0",
+  "author": "Lennart Demes / ambientCG (formerly CC0 Textures)",
+  "newExternalModels": 0,
+  "newNativeTextureSets": 3,
+  "upscaled": false,
+  "normalConvention": "OpenGL +Y; Unity NormalMap importer",
+  "sets": [
+    {
+      "role": "Meadow",
+      "id": "Grass001",
+      "original": "https://ambientcg.com/a/Grass001",
+      "mirrorRevision": "a1b22f17e9b1db2ad5cf1f0b30d3dffc489b7f79",
+      "sources": {
+        "Color": {
+          "url": "https://media.githubusercontent.com/media/KDAB/kdgpu-examples/a1b22f17e9b1db2ad5cf1f0b30d3dffc489b7f79/assets/textures/Grass001/Grass001_4K_Color.jpg",
+          "sha256": "c000cf407578cb1946633ed76542c39b1a3ced5c1eff796697d0236bf1968296",
+          "bytes": 26283810,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "NormalGL": {
+          "url": "https://media.githubusercontent.com/media/KDAB/kdgpu-examples/a1b22f17e9b1db2ad5cf1f0b30d3dffc489b7f79/assets/textures/Grass001/Grass001_4K_NormalGL.jpg",
+          "sha256": "77478f69d500aa729893d568561d155193f32fb33cb447a860c0fc73bfdc0c09",
+          "bytes": 41338549,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Roughness": {
+          "url": "https://media.githubusercontent.com/media/KDAB/kdgpu-examples/a1b22f17e9b1db2ad5cf1f0b30d3dffc489b7f79/assets/textures/Grass001/Grass001_4K_Roughness.jpg",
+          "sha256": "da0f0bf1aefcc841d597a26e51f055a9141b8068804f546e2b053fc82e45dae2",
+          "bytes": 11778963,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Displacement": {
+          "url": "https://media.githubusercontent.com/media/KDAB/kdgpu-examples/a1b22f17e9b1db2ad5cf1f0b30d3dffc489b7f79/assets/textures/Grass001/Grass001_4K_Displacement.jpg",
+          "sha256": "9afd4d85c1711457e53739221fd2c34020d1fdafdabd8f694f12722cb814d4dc",
+          "bytes": 12462901,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "AmbientOcclusion": {
+          "url": "https://media.githubusercontent.com/media/KDAB/kdgpu-examples/a1b22f17e9b1db2ad5cf1f0b30d3dffc489b7f79/assets/textures/Grass001/Grass001_4K_AmbientOcclusion.jpg",
+          "sha256": "55bdca422f43ae73b7190a9a694fb65843bff47b4978bdf0ae9ee5954cf6405d",
+          "bytes": 14075299,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        }
+      }
+    },
+    {
+      "role": "Planks",
+      "id": "Planks037A",
+      "original": "https://ambientcg.com/a/Planks037A",
+      "mirrorRevision": "2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030",
+      "sources": {
+        "Color": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/StageWood/Planks037A_4K-JPG_Color.jpg",
+          "sha256": "ee7faef4358b3ecab77bb16d34c9f390b608423787d8e1b7e4415cffe3a10aa6",
+          "bytes": 21653148,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "NormalGL": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/StageWood/Planks037A_4K-JPG_NormalGL.jpg",
+          "sha256": "350ce1be2cf21a83cefac307532cfde92a5d2dd7c0c36e2e804ea9f6f370ee5a",
+          "bytes": 23718241,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Roughness": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/StageWood/Planks037A_4K-JPG_Roughness.jpg",
+          "sha256": "6d9bf60d7ea5628cd91deaf634aab95cdb2c12f8b00f04654dc6b860e938a7c4",
+          "bytes": 9674652,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "Displacement": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/StageWood/Planks037A_4K-JPG_Displacement.jpg",
+          "sha256": "e3a0ab93c610c2bbe3aa420c7061ee9b9092788403576894a81683266accd214",
+          "bytes": 2213634,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        },
+        "AmbientOcclusion": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/StageWood/Planks037A_4K-JPG_AmbientOcclusion.jpg",
+          "sha256": "04f1ee3993622321d7598b5890a5a701d63943f16b4ae4c2e0f99c4946d7df09",
+          "bytes": 5297906,
+          "dimensions": [
+            4096,
+            4096
+          ]
+        }
+      }
+    },
+    {
+      "role": "Siding",
+      "id": "WoodSiding009",
+      "original": "https://ambientcg.com/a/WoodSiding009",
+      "mirrorRevision": "2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030",
+      "sources": {
+        "Color": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/Wood/WoodSiding009_4K_Color.png",
+          "sha256": "065f297b9d595ce761b7c7795a7b4207fb9fa159bc17fc1ac4263b272b070af1",
+          "bytes": 12682046,
+          "dimensions": [
+            4096,
+            2048
+          ]
+        },
+        "NormalGL": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/Wood/WoodSiding009_4K_NormalGL.png",
+          "sha256": "3a1b1c24c42b3881e7e30834288c8c28d5b85746e98d677809a706c31ed02ef7",
+          "bytes": 45293617,
+          "dimensions": [
+            4096,
+            2048
+          ]
+        },
+        "Roughness": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/Wood/WoodSiding009_4K_Roughness.png",
+          "sha256": "894177b24c4f03a78790c993d7d3ecd17b13bf0c7fc9d6af65a294add2aee4a4",
+          "bytes": 5375097,
+          "dimensions": [
+            4096,
+            2048
+          ]
+        },
+        "Displacement": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/Wood/WoodSiding009_4K_Displacement.png",
+          "sha256": "b8aa5db88754696fea647bf8487f38b9e7b5917641abd9116bbe2a9fd2a9917e",
+          "bytes": 10364841,
+          "dimensions": [
+            4096,
+            2048
+          ]
+        },
+        "AmbientOcclusion": {
+          "url": "https://media.githubusercontent.com/media/CodyMarkix/PetNociuKrtkuse2/2b6f7bb0e084683fcdfe47c9a09c09ac54f6e030/Assets/Materials/Textures/Wood/WoodSiding009_4K_AmbientOcclusion.png",
+          "sha256": "ce3959b76f7335fba275975583fac8e89f3ebcc0b0344ca8779ac2ff7e289a2a",
+          "bytes": 1684374,
+          "dimensions": [
+            4096,
+            2048
+          ]
+        }
+      }
+    }
+  ],
+  "files": {
+    "Textures/Meadow_Albedo.png": {
+      "bytes": 29488495,
+      "sha256": "0550d2a891e2351780d5bc67c689a838b201a638285ffb48137aecbce0103a36",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Albedo",
+      "mode": "RGB"
+    },
+    "Textures/Meadow_Normal.png": {
+      "bytes": 43451578,
+      "sha256": "5a43cb8f89e89633ad7408a14825000bd85d69da5670358dcc46559055f5c779",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Normal",
+      "mode": "RGB"
+    },
+    "Textures/Meadow_Mask.png": {
+      "bytes": 31541007,
+      "sha256": "bf0886c00d5cbabdf65f8e82126832876d4a1a2db6dab4da35de56e933d7dbca",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Mask",
+      "mode": "RGBA"
+    },
+    "Textures/Meadow_Height.png": {
+      "bytes": 11031018,
+      "sha256": "d04891cad357b456fa17e5fc12179facce6ee957e4b188fa69c6030d39618092",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Height",
+      "mode": "L"
+    },
+    "Textures/Planks_Albedo.png": {
+      "bytes": 26747341,
+      "sha256": "0f7d448161cb22daf40cd6d66d4a3df210dc22d5b502424912b4f1c64d841ac8",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Albedo",
+      "mode": "RGB"
+    },
+    "Textures/Planks_Normal.png": {
+      "bytes": 26415347,
+      "sha256": "c804441e4ace8c15373762b001bb26434354c120a91042c7c9fcc4ef58dcb91b",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Normal",
+      "mode": "RGB"
+    },
+    "Textures/Planks_Mask.png": {
+      "bytes": 19196443,
+      "sha256": "a0a19db094076c72353b59e1a11f9cc3bd463b93baaa523ba3585c200b56cf58",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Mask",
+      "mode": "RGBA"
+    },
+    "Textures/Planks_Height.png": {
+      "bytes": 2382655,
+      "sha256": "51ca56b8759a8d8f79e4b28a8dcfb302e0c692c32232a1aae19b80edf4d191aa",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "role": "Height",
+      "mode": "L"
+    },
+    "Textures/Siding_Albedo.png": {
+      "bytes": 12661997,
+      "sha256": "725871f56d3609b0d3af5c106b591383d824fabdb711d7d68843a8d49898d92c",
+      "dimensions": [
+        4096,
+        2048
+      ],
+      "role": "Albedo",
+      "mode": "RGB"
+    },
+    "Textures/Siding_Normal.png": {
+      "bytes": 16361761,
+      "sha256": "4391b340f42504a23f25884ad29aa13a3fe9d23d631cb71351a8407d940cd3d4",
+      "dimensions": [
+        4096,
+        2048
+      ],
+      "role": "Normal",
+      "mode": "RGB"
+    },
+    "Textures/Siding_Mask.png": {
+      "bytes": 10095636,
+      "sha256": "498f6167f706e3425c046856ed27f39c6639a5c790e844a8801cc3a31ba38fb8",
+      "dimensions": [
+        4096,
+        2048
+      ],
+      "role": "Mask",
+      "mode": "RGBA"
+    },
+    "Textures/Siding_Height.png": {
+      "bytes": 10366533,
+      "sha256": "3e9928a554746b0f514ef424eb9f1b9eed42592cc80c457c9192decb876ded02",
+      "dimensions": [
+        4096,
+        2048
+      ],
+      "role": "Height",
+      "mode": "I;16"
+    }
+  },
+  "runtimeBytes": 239739811
+}

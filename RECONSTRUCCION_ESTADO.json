@@ -4040,5 +4040,33 @@
     "readable": "CAMBIOS_JUEGO_DESDE_RELEVO.txt",
     "generator": "tools/update_project_texts.py",
     "updateAllThreeTxtOnGameplayChange": true
+  },
+  "level10Countryside": {
+    "status": "implemented_local_full_and_feature_checks_passed_exact_ci_and_release_pending",
+    "biomeId": 64,
+    "biomes": 65,
+    "previousDiscoveryLabels": 64,
+    "walkingEntry": "Level11 eastern outskirts",
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md",
+    "programmes": 12,
+    "roofProfiles": 3,
+    "newNativeScannedTextureSets": 3,
+    "nativePbrMaps": 12,
+    "nativeTextureBytes": 239739811,
+    "originalSpatialClips": 4,
+    "originalAudioBytes": 3365002,
+    "newExternalModels": 0,
+    "reusedFurnitureSources": 4,
+    "reusedFoodSources": 2,
+    "newInventoryItems": 3,
+    "nativeTestsAdded": 4,
+    "nativeUnityExecuted": false,
+    "scope": "Verification/level10_scope.json",
+    "checks": "Verification/level10_checks.txt",
+    "mediaAcquisition": "Verification/level10_media_acquisition.json",
+    "pending": [
+      "Terminar regresión completa del commit final, publicar y verificar las descargas de juego.",
+      "Ejecutar Unity/PlayMode, APIs HDRP, shaders, PhysX, apariencia, escucha, sensación de movimiento y FPS."
+    ]
   }
 }

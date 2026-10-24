@@ -16,7 +16,8 @@ static partial class Checks
             var c=new LayoutConfig{Seed=seed};WalkableExploration.Configure(c);
             for(int bx=-2;bx<=2;bx++)for(int bz=-2;bz<=2;bz++)
             {
-                var counts=new int[RestfulLevelPlanner.EnvironmentCount];
+                // The rural city edge is tested by actual 65-biome walking routes; this bank still owns exactly 64 protected labels.
+                var counts=new int[WalkableExploration.DiscoveryEnvironmentCount];
                 for(int dx=0;dx<8;dx++)for(int dz=0;dz<8;dz++)
                 {Check(WalkableExploration.Region(c,bx*8+dx,bz*8+dz,out var e),"Unassigned expanded discovery cell");counts[(int)e]++;}
                 Check(counts.All(n=>n>0),"Expanded block hides a biome behind master mode");

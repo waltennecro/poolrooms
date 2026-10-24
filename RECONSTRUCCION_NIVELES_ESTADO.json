@@ -1,7 +1,7 @@
 {
   "stage": "nivel63-tranquilidad",
   "reconstructionNotExactRecovery": true,
-  "totalCatalogueBiomes": 63,
+  "totalCatalogueBiomes": 65,
   "firstRebuiltLevel": "Courtyard188",
   "status": "published_full_core_verified_native_visual_review_pending",
   "nativeUnityExecuted": false,
@@ -448,5 +448,11 @@
     "patchSha256": "d422f71489482ce6fc1f3f501f4593274f7fac3bdccee5e9786102d40197012b",
     "publicFullDownloadAndPatchVerified": true,
     "assetsUncompressedBytes": 1340096937
+  },
+  "newIndependentCountryside": {
+    "name": "Nivel10 / Campos de abundancia",
+    "status": "implemented_not_exact_recovery_native_pending",
+    "documentation": "Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md",
+    "genericRebuildQueueUnchanged": true
   }
 }

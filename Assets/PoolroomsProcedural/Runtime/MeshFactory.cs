@@ -61,6 +61,7 @@ namespace Poolrooms
         private static Material PaletteMaterial(MeshData data,int surface,PoolroomsProfile profile,PoolroomsChunk owner)
         {
             SurfaceTheme theme=BiomeSurfaces.Resolve(data);
+            if(PoolroomsLevel10Materials.IsTheme(theme))return PoolroomsLevel10Materials.Resolve(theme,(Surface)surface,profile);
             if(Forest39Materials.IsTheme(theme))return PoolroomsForest39Materials.Resolve(theme,(Surface)surface);
             if(theme==SurfaceTheme.Glass&&data.PaletteVariant>=100&&data.PaletteVariant<=102)
                 return PoolroomsHorizonGlass.Resolve(data.PaletteVariant-100,surface,profile,owner);

@@ -7,7 +7,7 @@ def build():
     for p in sorted((BASE/'City11/Licenses').glob('*_metadata.json')):
         legal=json.loads(p.read_text())['legal']
         text.append('\n'+p.name.replace('_metadata.json','')+'\n'+'\n'.join(x['artist']+' · '+x.get('owner','')+' · '+x.get('spdx',x.get('license',''))+'\n'+x.get('licenseUrl','') for x in legal))
-    for name in ['Aircraft','Helicopters','Interiors','Urban','Bistro','Buildings','GardenSources','BathSources','RestfulSources','WingSources','ImmersiveAudioSources','EncounterSources','ImmersionSources','MallSources','MallFinishes','JourneyFinishes','JourneySources','FoodSources','CityArchitectureSources','Forest39']:
+    for name in ['Aircraft','Helicopters','Interiors','Urban','Bistro','Buildings','GardenSources','BathSources','RestfulSources','WingSources','ImmersiveAudioSources','EncounterSources','ImmersionSources','MallSources','MallFinishes','JourneyFinishes','JourneySources','FoodSources','CityArchitectureSources','Forest39','Level10']:
         text.append('\n\n'+name+'\n'+(BASE/name/'Licenses/NOTICE.txt').read_text())
     text.append('\nCalm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.\n')
     food=json.loads((BASE/'FoodSources/catalog.json').read_text())

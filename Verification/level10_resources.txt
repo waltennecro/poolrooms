@@ -1,0 +1,1 @@
+{"nativeTextureBytes": 239739811, "nativeTextureSets": 3, "nativeMaps": 12, "originalSpatialClips": 4, "audioBytes": 3365002, "newExternalModels": 0, "upscaled": false, "nativeUnityExecuted": false}

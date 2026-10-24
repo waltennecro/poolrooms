@@ -214,6 +214,23 @@ Canopy scan: LeafSet005, Lennart Demes / ambientCG, CC0-1.0. https://ambientcg.c
 Pinned mirror and native 512x512 dimensions: ../canopy.json. Broadleaf texture adaptation; not a botanical Quercus replica. No upscaling.
 
 
+
+Level10
+Level 10 native PBR finishes: Grass001, Planks037A, WoodSiding009 by Lennart Demes / ambientCG (formerly CC0 Textures). CC0-1.0.
+https://ambientcg.com/a/Grass001
+https://ambientcg.com/a/Planks037A
+https://ambientcg.com/a/WoodSiding009
+https://creativecommons.org/publicdomain/zero/1.0/
+Grass001 mirror declares CC-0 in KDAB/kdgpu-examples .reuse/dep5.
+Pinned originals and byte hashes: ../manifest.json. Native displacement depth is preserved, including 16-bit siding; scalar mask sources are normalized before packing. Native 4096 maximum dimension; 4096x2048 siding retains its aspect ratio; no upscaling or duplicate source maps. HDRP mask: R metallic=0, G AO, B detail=1, A inverted roughness.
+Original wheat geometry and original agricultural foley: project work, CC0-1.0.
+Level 10 / Bounty setting: scutoid studios and egglord, based on u/Hertz3241 and prior rewrite by Stretchsterz, The Backrooms Wiki, CC BY-SA 3.0.
+https://backrooms-wiki.wikidot.com/level-10
+https://creativecommons.org/licenses/by-sa/3.0/
+Adaptation: accessible peaceful countryside, optional farm activities, no worms, starvation or forced water teleportation. No wiki photographs, copied passages or character models shipped.
+Existing licensed furniture and food retain their separate attribution.
+
+
 Calm water micro-normal: original analytic texture for this project, CC0-1.0. tools/create_calm_water_normal.py.
 
 

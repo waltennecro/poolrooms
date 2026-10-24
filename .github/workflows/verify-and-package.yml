@@ -24,6 +24,19 @@ jobs:
         run: |
           dotnet build Verification/Poolrooms.Checks.csproj --configuration Release -warnaserror
           dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj
+      - name: Check Level10 country geometry, activities and actual walking entry
+        env:
+          POOLROOMS_LEVEL10_REPORT: Verification/level10_audit.json
+        run: dotnet run --no-build --configuration Release --project Verification/Poolrooms.Checks.csproj -- --level10
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Level10-evidence
+          path: |
+            Verification/level10_audit.json
+            Verification/level10_scope.json
+            Verification/level10_media_acquisition.json
+            Assets/PoolroomsProcedural/Documentation/LevelResearch/Level10.json
+          if-no-files-found: error
       - name: Check gameplay change journal and three TXT documents
         run: python tools/update_project_texts.py --check
       - name: Check fast travel, automatic advance and grapple contracts
@@ -129,6 +142,10 @@ jobs:
           python-version: '3.11'
       - name: Install pinned offline art verification tools
         run: python -m pip install -r Verification/requirements-art-tools.txt
+      - name: Check Level10 native 4K maps, R16 depth, PCM, attribution and bindings
+        run: |
+          python tools/verify_level10_resources.py
+          python tools/measure_level10_scope.py
       - name: Check Level39 native scan hashes, alpha foliage, PCM and attribution
         run: python tools/verify_forest39_resources.py
       - name: Check Level63 original cloud density, attribution and bounded rendering source

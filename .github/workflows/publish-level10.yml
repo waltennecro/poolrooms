@@ -1,0 +1,89 @@
+name: Publish verified Level10 countryside
+on:
+  workflow_dispatch:
+    inputs:
+      source_revision:
+        description: Exact reviewed source commit
+        required: true
+      verification_run:
+        description: Full verification run for that exact commit
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SOURCE_REVISION: ${{ inputs.source_revision }}
+      VERIFIED_RUN: ${{ inputs.verification_run }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Require complete verification of the exact source
+        shell: bash
+        run: |
+          gh run watch "${VERIFIED_RUN}" --exit-status --interval 30
+          gh api "repos/${GH_REPO}/actions/runs/${VERIFIED_RUN}" > /tmp/level10-run.json
+          python - <<'PY'
+          import json,os,re
+          r=json.load(open('/tmp/level10-run.json'))
+          assert re.fullmatch('[a-f0-9]{40}',os.environ['SOURCE_REVISION'])
+          assert r['head_sha']==os.environ['SOURCE_REVISION'] and r['status']=='completed' and r['conclusion']=='success'
+          assert r['path']=='.github/workflows/verify-and-package.yml'
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_revision }}
+      - name: Fetch immutable update compatibility sources
+        run: |
+          git fetch --no-tags --depth=1 origin b6e631b39f01915fcd367cf3abd4106e27c0707a
+          git fetch --no-tags --depth=1 origin 4e2100a7d9cc62553472d4f4fa751930870b7c4f
+      - name: Create complete Assets, cumulative patch and travel update
+        shell: bash
+        run: |
+          python tools/package_assets.py --stage nivel10-campos-de-abundancia --output "${RUNNER_TEMP}/Poolrooms_Nivel10_Campos_Assets.zip" > /tmp/level10-full.json
+          python tools/package_level10.py --output "${RUNNER_TEMP}/Poolrooms_Parche_Nivel10_Acumulativo.zip" > /tmp/level10-patch.json
+          python tools/package_level10.py --from-travel --output "${RUNNER_TEMP}/Poolrooms_Nivel10_Desde_Travesia.zip" > /tmp/level10-update.json
+      - name: Verify all CRCs, compare all patch files and write checksums
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,zipfile
+          full=json.load(open('/tmp/level10-full.json'));patch=json.load(open('/tmp/level10-patch.json'));update=json.load(open('/tmp/level10-update.json'))
+          assert all(d['sourceRevision']==os.environ['SOURCE_REVISION'] and not d['workingTreeChanged'] for d in (full,patch,update))
+          with zipfile.ZipFile(full['zip']) as a:
+              assert a.testzip() is None
+              for record in (patch,update):
+                  with zipfile.ZipFile(record['zip']) as b:
+                      assert b.testzip() is None
+                      manifest=json.loads(b.read('PARCHE_MANIFIESTO.json'))
+                      for name,e in manifest['files'].items():
+                          data=b.read(name);assert data==a.read(name) and len(data)==e['bytes'] and hashlib.sha256(data).hexdigest()==e['sha256']
+          bank=json.load(open('Assets/PoolroomsProcedural/Resources/Level10/manifest.json'))
+          scope=json.load(open('Verification/level10_scope.json'));size=sum(p.stat().st_size for p in pathlib.Path('Assets').rglob('*') if p.is_file())
+          assert bank['runtimeBytes']>=200_000_000 and size==scope['assetsBytes']
+          record=dict(sourceRevision=os.environ['SOURCE_REVISION'],successfulFullRun=os.environ['VERIFIED_RUN'],assetsUncompressedBytes=size,package=full,patch=patch,fromTravel=update,nativeUnityExecuted=False,nativePlayModeTestsAdded=4,newExternalModels=0,newNativeScannedTextureSets=3,nativePbrMaps=12,nativeTextureBytes=bank['runtimeBytes'],originalSpatialClips=4,newInventoryItems=3,biomes=65,previousDiscoveryLabelsPreserved=64,countryProgrammes=12,roofProfiles=3,preservesForest39=True,preservesTravel=True,upscaledTextures=False,paddingBytes=0)
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])
+          (out/'Poolrooms_Nivel10_Entrega.json').write_text(json.dumps(record,indent=2)+'\n')
+          (out/'Poolrooms_Nivel10_SHA256.txt').write_text('\n'.join(d['sha256']+'  '+pathlib.Path(d['zip']).name for d in (full,patch,update))+'\n')
+          notes=f'''Nivel 10 — Campos de abundancia: adaptación tranquila de Bounty, de The Backrooms Wiki (scutoid studios / egglord, CC BY-SA 3.0). Campos extensos, setos, dos rodadas con hierba, lagunas claras y construcciones rurales. Doce programas, tres perfiles de cubierta, altillos con escaleras/descansillos/galerías, graneros, establos, semilleros y rincones amueblados. Las afueras del Nivel11 continúan como campo: se encuentra caminando, sin modo maestro ni portales. Conserva 64 etiquetas de descubrimiento y añade el bioma 65.
+
+          Molino, bomba con palanca y agua visible, veleta, armario animado, cuaderno, bancos, tres recuerdos físicos acumulables, comida y agua de almendra. Actividades opcionales y estado de sesión; sin hambre, sed ni HUD nuevo. La persistencia entre partidas sigue pendiente.
+
+          Tres conjuntos CC0 nuevos / doce mapas PBR, {bank['runtimeBytes']:,} bytes, nativos hasta 4K: Grass001, Planks037A, WoodSiding009. Revestimiento 4096x2048 y relieve de 16 bits/R16; sin ampliar imágenes ni rellenar peso. Cuatro clips originales 3D. Cuatro modelos de mobiliario y dos de comida/bebida se reutilizan con su atribución; CERO modelos externos nuevos. Los programas, LOD y repeticiones no cuentan como modelos descargados.
+
+          Trigo geométrico en 16 lotes / tres LOD, altura cacheada y brisa solo próxima/visible con presupuesto global. Día nublado con sol regional compartido, transiciones de exposición y materiales/reflejos de la configuración actual. Conserva distancia de renderizado, linterna, alas, vehículos, movimiento de Travesía libre y contenido previo. No se promete ray tracing sin GPU.
+
+          CI completo del commit `{os.environ['SOURCE_REVISION']}`: {os.environ['VERIFIED_RUN']}. Core, código, recursos, licencias y regresiones comprobados. Unity/PlayMode, APIs HDRP, shaders, PhysX, apariencia, escucha, sensaciones y FPS siguen pendientes. Cuatro pruebas nativas añadidas; no ejecutadas aquí.
+
+          Elige UNA descarga: Assets completos para instalar desde cero; Desde_Travesia para actualizar Travesía libre; Parche_Acumulativo para Cinco horizontes o una entrega posterior. Con Unity detenido, actualiza tu única carpeta PoolroomsProcedural dentro de Assets, sobrescribe/agrega y conserva los demás recursos y .meta. No instales copias paralelas. Reinicia Play para generar el nivel. Personalizado: enableWheatFields10.
+
+          Assets completos: {full['bytes']:,} bytes ZIP; {size:,} bytes reales en Assets. Actualización desde Travesía libre: {update['bytes']:,} bytes. Parche acumulativo: {patch['bytes']:,} bytes. Guía: https://github.com/{os.environ['GH_REPO']}/blob/{os.environ['SOURCE_REVISION']}/Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md
+          Los tres TXT del proyecto y el registro vivo documentan esta etapa.
+          '''
+          (out/'level10-notes.md').write_text('\n'.join(line.strip() for line in notes.splitlines()))
+          PY
+      - name: Publish immutable verified game update
+        run: gh release create nivel10-campos-de-abundancia --target "${SOURCE_REVISION}" --title "Nivel 10 · Campos de abundancia" --notes-file "${RUNNER_TEMP}/level10-notes.md" "${RUNNER_TEMP}/Poolrooms_Nivel10_Campos_Assets.zip" "${RUNNER_TEMP}/Poolrooms_Parche_Nivel10_Acumulativo.zip" "${RUNNER_TEMP}/Poolrooms_Nivel10_Desde_Travesia.zip" "${RUNNER_TEMP}/Poolrooms_Nivel10_Entrega.json" "${RUNNER_TEMP}/Poolrooms_Nivel10_SHA256.txt"

@@ -20,7 +20,7 @@ namespace Poolrooms
         private MaterialPropertyBlock propertyBlock;
         private MaterialPropertyBlock Properties {get{if(propertyBlock==null)propertyBlock=new MaterialPropertyBlock();return propertyBlock;}}
         private Renderer[] renderers;
-        public string ActionLabel {get{var forest=GetComponent<PoolroomsForest39Activity>();if(forest!=null)return forest.Label;var station=GetComponent<PoolroomsStation>();if(station!=null)return station.Label;return activity==RoomActivity.Notice?"leer y ver caminos":activity==RoomActivity.Rest?"sentarse":activity==RoomActivity.Plant?"cuidar la planta":activity==RoomActivity.Music?"tocar / escuchar música":activity==RoomActivity.Game?"jugar a parejas":activity==RoomActivity.Lamp?"encender / apagar lámpara":activity==RoomActivity.Drawer?(open?"mirar el interior":"abrir mueble"):activity==RoomActivity.Window?(sideHinge?"abrir / cerrar puerta":"abrir / cerrar persiana"):"leer";}}
+        public string ActionLabel {get{var farm=GetComponent<PoolroomsLevel10Activity>();if(farm!=null)return farm.Label;var forest=GetComponent<PoolroomsForest39Activity>();if(forest!=null)return forest.Label;var station=GetComponent<PoolroomsStation>();if(station!=null)return station.Label;return activity==RoomActivity.Notice?"leer y ver caminos":activity==RoomActivity.Rest?"sentarse":activity==RoomActivity.Plant?"cuidar la planta":activity==RoomActivity.Music?"tocar / escuchar música":activity==RoomActivity.Game?"jugar a parejas":activity==RoomActivity.Lamp?"encender / apagar lámpara":activity==RoomActivity.Drawer?(open?"mirar el interior":"abrir mueble"):activity==RoomActivity.Window?(sideHinge?"abrir / cerrar puerta":"abrir / cerrar persiana"):"leer";}}
         public static void BindSource(PoolroomsPickup pickup,string source)
         {
             RoomActivity kind;
@@ -59,6 +59,7 @@ namespace Poolrooms
         public bool Use(PoolroomsExplorer actor)
         {
             if(actor==null||actor.IsPaused||actor.InputCaptured||!actor.IsReady)return false;
+            var farm=GetComponent<PoolroomsLevel10Activity>();if(farm!=null)return farm.Use(actor);
             var forest=GetComponent<PoolroomsForest39Activity>();if(forest!=null)return forest.Use(actor);
             var station=GetComponent<PoolroomsStation>();if(station!=null)return station.Use(actor);
             var inventory=PoolroomsInventory.For(actor);if(world==null)world=actor.world;Initialize(inventory);

@@ -1,0 +1,39 @@
+{
+  "level": "10 — Bounty / Campos de abundancia",
+  "authors": [
+    "scutoid studios",
+    "egglord"
+  ],
+  "earlierAuthors": [
+    "u/Hertz3241",
+    "Stretchsterz"
+  ],
+  "translationReviewed": "东方时雨 / Chinese wiki",
+  "reviewed": "2026-10-23",
+  "primaryReference": "https://backrooms-wiki.wikidot.com/level-10",
+  "directAccess": "Original wiki blocked by environment proxy. Read pinned public translation, including full description, structures, water, atmosphere, entrances, exits and author credits. No wiki images or copied prose included.",
+  "accessibleResearch": {
+    "url": "https://raw.githubusercontent.com/Hoshino-Yumetsuki/backroomsmap/d9d5c12bc79e16f7ba17d7bd2f52828635d8ea39/data/raw/level-10.json",
+    "bytes": 22624,
+    "sha256": "f8c786f98646d5981916076a6be7604fe141b724b3f005de4aaf2801e0f5238c"
+  },
+  "factsAdapted": [
+    "Vast wheat fields divided by trees/hedgerows",
+    "Permanent overcast daytime, breeze, occasional light rain/fog in the description",
+    "Clear water in low-lying lakes; grass and bare earth along shores",
+    "Sheds, barns, stables and abandoned useful construction materials",
+    "Dirt tracks with two wheel ruts and a grass strip",
+    "Walking tracks connect to Level11; side paths lead back to the fields"
+  ],
+  "deliberateAdaptations": [
+    "Continuous regional countryside along Level11 city outskirts; no mandatory portal/noclip",
+    "No harmful underground worms, starvation or nutritional simulation",
+    "No automatic lake teleportation; shallow water with real bottom",
+    "Original furnished lofts, accessible stairs, roof profiles and optional farm activities",
+    "Original glass seedhouses, benches and warm traces of previous visitors, without NPCs",
+    "A calm dry overcast presentation; no new full weather simulation claimed"
+  ],
+  "license": "CC-BY-SA-3.0 for the setting adaptation. Original code/geometry are project work; native scanned finishes are CC0 and reused sources retain existing licences.",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "nativeUnityExecuted": false
+}

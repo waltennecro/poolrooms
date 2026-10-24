@@ -1,0 +1,54 @@
+{
+  "author": "Poolrooms project original procedural foley",
+  "license": "CC0-1.0",
+  "sampleRate": 44100,
+  "channels": 1,
+  "bits": 16,
+  "sourceSamples": 0,
+  "voicesOrWhispers": false,
+  "startleStingers": false,
+  "nativeListeningVerified": false,
+  "tool": "tools/create_level10_audio.py",
+  "files": [
+    {
+      "path": "FieldWind.wav",
+      "bytes": 2822444,
+      "sha256": "eba7112b71a0b192804b406ca06ae4b2e1f264afb983ce11e14014e256ba4185",
+      "seconds": 32.0,
+      "loop": true,
+      "seamStep": 0,
+      "peak": 0.4826389552499543,
+      "rms": 0.08129957319739033
+    },
+    {
+      "path": "GrainRustle0.wav",
+      "bytes": 158804,
+      "sha256": "447cc0fc18f73ea9d1c87f52eebf82baf2aebbf1a713a7868aff514ec91d4f37",
+      "seconds": 1.8,
+      "loop": false,
+      "seamStep": 0,
+      "peak": 0.21191122017021144,
+      "rms": 0.02962441504341188
+    },
+    {
+      "path": "GrainRustle1.wav",
+      "bytes": 180852,
+      "sha256": "fdb3ce58386d7bc55a6a014d4e2186abf3aada406b74e895e51d2c38641f64be",
+      "seconds": 2.0499773242630384,
+      "loop": false,
+      "seamStep": 0,
+      "peak": 0.1731421278450263,
+      "rms": 0.023832305023512676
+    },
+    {
+      "path": "GrainRustle2.wav",
+      "bytes": 202902,
+      "sha256": "3af4292b4054d05f2d565537b7810157cc93c378b205089060b67074e5c50c9c",
+      "seconds": 2.2999773242630384,
+      "loop": false,
+      "seamStep": 0,
+      "peak": 0.17681738742146075,
+      "rms": 0.02575242262592455
+    }
+  ]
+}

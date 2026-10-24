@@ -23,6 +23,17 @@ namespace Poolrooms
         public int CatalogId { get; private set; }=-1;
         public float CarryRadius { get; private set; }=.27f;
         public bool IsProvision {get{return InventoryKey!=null&&InventoryKey.StartsWith("food:",System.StringComparison.Ordinal);}}
+        public static PoolroomsPickup CreateLevel10Item(int id,string key,Vector3 position,PoolroomsProfile profile)
+        {
+            var definition=Level10Activities.Item(id);if(definition==null)return null;
+            var go=new GameObject(definition.Name);go.transform.position=position;var owner=go.AddComponent<PoolroomsChunk>();
+            var visual=MeshFactory.Create("Level10 keepsake",Level10Equipment.Keepsake(id),go.transform,profile,owner,false);
+            if(visual!=null)visual.GetComponent<Renderer>().rayTracingMode=UnityEngine.Experimental.Rendering.RayTracingMode.DynamicTransform;
+            V3 size=id==0?new V3(.32f,.4f,.32f):id==1?new V3(.20f,.04f,.26f):new V3(.30f,.04f,.22f);
+            var collider=go.AddComponent<BoxCollider>();collider.size=new Vector3(size.X,size.Y,size.Z);collider.center=Vector3.up*size.Y*.5f;
+            var pickup=go.AddComponent<PoolroomsPickup>();pickup.SpawnKey=key;pickup.InventoryKey="level10:"+id;pickup.shape=collider;
+            pickup.mass=.025f;pickup.CarryRadius=size.Length*.5f+.015f;pickup.surface=PickupSurface.Rigid;return pickup;
+        }
         public static PoolroomsPickup CreateForestItem(int id, string key, Vector3 position, PoolroomsProfile profile)
         {
             if (Forest39Activities.Item(id) == null) return null;

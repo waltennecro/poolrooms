@@ -70,6 +70,15 @@ namespace Poolrooms.Core
         public static bool ClearMainRoutes(Room room, LayoutConfig config, SceneryBox box)
         {
             if (room == null || config == null || !ValidBox(box)) return false;
+            if(room.Plan?.Level10!=null)
+            {
+                var country=room.Plan.Level10;
+                // Original farm/rest objects own the countryside. The shared
+                // furnishing layer may only use a supported interior side bay;
+                // never add a couch to the wheat, a curved track or a study.
+                if(!country.Building||!country.Farm.Contains(box.Min.X,box.Min.Z,.55f)||!country.Farm.Contains(box.Max.X,box.Max.Z,.55f))return false;
+                if(box.Min.X<country.Farm.X+1.0f&&box.Max.X>country.Farm.X-1.0f)return false;
+            }
             // Keep both crossing axes, including closed sides: future connection
             // activation cannot strand a player behind a newly placed sofa.
             float width = Math.Max(config.DoorWidth * .5f + .55f,

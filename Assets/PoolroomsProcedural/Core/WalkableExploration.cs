@@ -6,10 +6,10 @@ namespace Poolrooms.Core
     // single-biome/catalogue scenes and explicitly custom worlds keep their settings.
     public static class WalkableExploration
     {
-        public const int RegionBlock=8;
+        public const int RegionBlock=8,DiscoveryEnvironmentCount=64;
         public static void Configure(LayoutConfig c)
         {
-            c.EnableForest39=true;c.DetailedCityBuildings=true;c.DreamCity11=true;c.EnableProvisions=true;c.RebuildCourtyard188=true;c.RebuildArchive906=true;c.RebuildConservatory=true;c.RebuildSky63=true;c.EnableJourneyLevels=true;c.EnableHorizonLevels=true;c.ExpandedLevelDetails=true;c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
+            c.EnableWheatFields10=true;c.EnableForest39=true;c.DetailedCityBuildings=true;c.DreamCity11=true;c.EnableProvisions=true;c.RebuildCourtyard188=true;c.RebuildArchive906=true;c.RebuildConservatory=true;c.RebuildSky63=true;c.EnableJourneyLevels=true;c.EnableHorizonLevels=true;c.ExpandedLevelDetails=true;c.EncounterExploration=true;c.EnvironmentRegionSize=3;c.LoopChance=Math.Max(c.LoopChance,.65f);
             c.ExpandedVariety=true;c.ExpandedBiomeAreas=true;c.EnableRestfulLevels=true;c.EnableSpecialRegions=true;c.ObjectAbundance=3;
             c.Continuous=true;c.Procedural=LiminalGeneration.Expanded;c.DiscoveryCoverage=true;
             c.EnableRainHouses=c.EnableAquaticPark=c.EnableThermalBaths=c.EnableOrangerie=true;
@@ -26,6 +26,7 @@ namespace Poolrooms.Core
         static float Positive(float value,float fallback){return value>0?value:fallback;}
         public static bool Enabled(LayoutConfig c,LiminalEnvironment e)
         {
+            if(e==LiminalEnvironment.WheatFields10)return c.EnableWheatFields10;
             if(e==LiminalEnvironment.EnchantedForest39)return c.EnableForest39;
             if(HorizonLevelPlanner.IsLevel(e))return c.EnableHorizonLevels;
             if(JourneyLevelPlanner.IsLevel(e))return c.EnableJourneyLevels;
@@ -67,13 +68,13 @@ namespace Poolrooms.Core
             {
                 // One slot per enabled destination before any duplicates. The legacy
                 // 8x8 policy is retained verbatim when this expansion is disabled.
-                for(int i=0;i<(c.EnableForest39?64:RestfulLevelPlanner.EnvironmentCount);i++)if(Enabled(c,(LiminalEnvironment)i))count++;
+                for(int i=0;i<DiscoveryEnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i))count++;
                 if(count==0)return false;
                 int previousCount=count-(c.EnableHorizonLevels?HorizonLevelPlanner.Count:0);
                 // New destinations consume spare duplicates; any remaining
                 // duplicate keeps its prior assignment in a fully enabled block.
                 int pickNew=rank<count?rank:previousCount>0?rank%previousCount:rank%count;
-                for(int i=0;i<(c.EnableForest39?64:RestfulLevelPlanner.EnvironmentCount);i++)if(Enabled(c,(LiminalEnvironment)i)&&pickNew--==0)
+                for(int i=0;i<DiscoveryEnvironmentCount;i++)if(Enabled(c,(LiminalEnvironment)i)&&pickNew--==0)
                 {environment=(LiminalEnvironment)i;return true;}
                 throw new InvalidOperationException("Invalid expanded discovery coverage.");
             }count=0;

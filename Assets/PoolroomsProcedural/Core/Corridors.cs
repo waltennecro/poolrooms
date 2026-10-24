@@ -107,6 +107,7 @@ namespace Poolrooms.Core
 
         public static CorridorGeometry Build(Room from, Room to, int direction, LayoutConfig c)
         {
+            if(from?.Plan?.Level10!=null&&to?.Plan?.Level10!=null)return new CorridorGeometry{Style=CorridorStyle.WideGallery};
             if(from?.Plan?.Forest39!=null&&to?.Plan?.Forest39!=null)return new CorridorGeometry{Style=CorridorStyle.WideGallery};
             if(from?.Plan?.Quiet?.Sky63!=null&&to?.Plan?.Quiet?.Sky63!=null)return new CorridorGeometry{Style=CorridorStyle.WideGallery};
             if(from?.Plan?.Quiet?.Conservatory!=null&&to?.Plan?.Quiet?.Conservatory!=null)return new CorridorGeometry{Style=CorridorStyle.WideGallery};

@@ -1,0 +1,20 @@
+{
+  "sectors": 82,
+  "actualStalkClumps": 63944,
+  "programmes": 12,
+  "roofProfiles": 3,
+  "distinctPhysicalSectorMeshes": 82,
+  "lofts": 24,
+  "lakes": 27,
+  "existingFurnitureSourceModels": 4,
+  "sourcePlacements": 468,
+  "newExternalModels": 0,
+  "newNativeTextureSets": 3,
+  "peakWheatTriangles": [
+    180000,
+    76800,
+    33600
+  ],
+  "checks": 97025533,
+  "nativeUnityExecuted": false
+}

@@ -90,7 +90,8 @@ namespace Poolrooms
         private static PoolroomsPickup Spawn(ExplorationItem item,PoolroomsProfile profile,Vector3 position)
         {
             string key="carried:"+Guid.NewGuid().ToString("N");PoolroomsPickup result;
-            if(item.Key.StartsWith("forest39:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(9),out int forestItem))result=PoolroomsForest39.CreateItem(forestItem,key,position,profile);
+            if(item.Key.StartsWith("level10:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(8),out int fieldItem))result=PoolroomsLevel10.CreateItem(fieldItem,key,position,profile);
+            else if(item.Key.StartsWith("forest39:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(9),out int forestItem))result=PoolroomsForest39.CreateItem(forestItem,key,position,profile);
             else if(item.Key.StartsWith("food:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(5),out int food))result=PoolroomsPickup.CreateFood(key,food,position,null,profile);
             else if(item.Key.StartsWith("tool:",StringComparison.Ordinal)&&int.TryParse(item.Key.Substring(5),out int tool)&&EncounterTools.Available(tool))result=PoolroomsPickup.CreateTool(key,tool,position,profile);
             else if(item.Source!=null)result=PoolroomsPickup.CreateSource(key,item.Source,position,null,SourceFurniture.Longest(item.Source));

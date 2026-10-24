@@ -21,10 +21,11 @@ namespace Poolrooms.Core
     // downloaded models. LODs keep the same branch positions and crown bounds.
     public static class Forest39Oak
     {
-        public static Forest39Canopy Build(Forest39Plan plan)
+        public static Forest39Canopy Build(Forest39Plan plan){return Build(plan.Trees);}
+        public static Forest39Canopy Build(Forest39Tree[] trees)
         {
             var result = new Forest39Canopy();
-            foreach (var tree in plan.Trees)
+            foreach (var tree in trees)
             {
                 for (int lod = 0; lod < 3; lod++)
                     Tree(result.Wood[lod], result.Leaves[lod], tree, lod);

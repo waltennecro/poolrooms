@@ -29,6 +29,28 @@ Pendiente:
   - Unity/PlayMode, PhysX, cable, sensación de movimiento, sonido, apariencia y FPS reales.
 Guía: Assets/PoolroomsProcedural/Documentation/Travesia_Libre.md
 
+2026-10-23 · nivel10-campos-01
+Estado: implementado; suite local completa, comprobaciones específicas y recursos superados; CI exacto y publicación pendientes
+Cambios:
+  - Nuevo Nivel 10 / Campos de abundancia, adaptación investigada de Bounty: campos continuos, setos, pequeños grupos de robles, rodadas dobles y lagunas claras. Se encuentra andando desde las afueras del Nivel 11; mantiene las 64 etiquetas de descubrimiento anteriores y añade el bioma serializado 64, sin renumerar los demás.
+  - Doce programas de paisaje y construcción; tres perfiles de tejado, dimensiones sembradas, establos, graneros, semilleros, ventanas reales y altillos con escaleras, descansillos, galerías y barandillas. La decoración compartida solo usa laterales interiores seguros.
+  - Trigo con geometría y tres LOD en 16 lotes, muestreo de altura cacheado y brisa limitada a dos actualizaciones globales por fotograma, solo cerca y visible. Mantiene la distancia de renderizado; no usa colliders en cada espiga.
+  - Molino manual, bomba con palanca y chorro visible, veleta y armario de semillas con puerta animada; cuadernos, bancos, tres recuerdos físicos acumulables y comida/agua de almendra de fuentes ya acreditadas. Estado de actividad de sesión, premio único y reintento si no cabe en inventario; sin hambre, sed ni HUD nuevo.
+  - Tres conjuntos CC0 nuevos con 12 mapas PBR: 239.739.811 bytes; dimensión nativa máxima 4096, revestimiento 4096x2048 y relieve original de 16 bits con importación R16. Cuatro clips originales 3D: 3.365.002 bytes. Reutiliza modelos existentes y registra cero modelos externos nuevos. Sin ampliar texturas ni rellenar peso.
+  - Día nublado, sol regional compartido y exposición gradual de interior; reflejos y ray tracing usan la calidad/hardware existentes. Sonido sin voces ni sobresaltos, con volumen, pausa, ambiente y filtrado bajo el agua.
+  - Cuatro pruebas nativas añadidas para formato R16, apoyo de cápsula, subida al altillo e inventario físico. Documentación detallada del nivel añadida a la guía; el generador TXT conserva anexos posteriores al relevo y comprueba 67 fichas documentadas.
+Comprobaciones reales:
+  - 82 sectores construidos por las comprobaciones específicas: doce programas, tres perfiles de tejado, 82 mallas físicas distintas; no equivalen a 82 modelos descargados.
+  - Entradas y salidas recíprocas, apoyo, escaleras, separación del agua/terreno, LOD, juegos y coordenadas extremas comprobados en Core; no es PhysX.
+  - Banco público descargado completo, SHA-256/CRC y doce mapas comparados con manifiesto; mapa de relieve plano detectado y corregido preservando 16 bits. Licencias y créditos auditados.
+  - Verificador actual compilado contra R33 inmutable sin bajar las comprobaciones históricas; comportamiento geométrico antiguo y rechazo de alas no existentes conservados.
+  - Suite local completa: 2.130.336.055 aserciones de Core/código; 188 geometrías protegidas y sintaxis de 407 scripts en cinco configuraciones. No son pruebas nativas de Unity.
+  - La fábrica real de recuerdos compila con Core e interfaces Unity reducidas; se reproducen y rechazan accesos a setters/campos privados. Esto no compila las APIs nativas de Unity.
+Pendiente:
+  - CI completo del commit final, publicación y verificación de las tres descargas de juego.
+  - Ejecutar Unity/PlayMode, APIs HDRP, shaders, PhysX, apariencia, escucha, sensación de movimiento y FPS.
+Guía: Assets/PoolroomsProcedural/Documentation/Nivel10_Campos_De_Abundancia.md
+
 [FIN DEL REGISTRO VIVO DE CAMBIOS]
 
 Informe de opinión y recomendaciones — 23 de octubre de 2026

@@ -101,6 +101,7 @@ namespace Poolrooms
         {
             ConfigureBody();
             Travel=GetComponent<PoolroomsTravel>();if(Travel==null)Travel=gameObject.AddComponent<PoolroomsTravel>();
+            if(GetComponent<PoolroomsLevel10Ambience>()==null)gameObject.AddComponent<PoolroomsLevel10Ambience>();
             if(GetComponent<PoolroomsForest39Ambience>()==null)gameObject.AddComponent<PoolroomsForest39Ambience>();
             if(GetComponent<PoolroomsSky63Safety>()==null)gameObject.AddComponent<PoolroomsSky63Safety>();
             if(GetComponent<PoolroomsTravelLoading>()==null)gameObject.AddComponent<PoolroomsTravelLoading>();
