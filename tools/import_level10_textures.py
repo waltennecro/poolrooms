@@ -41,19 +41,20 @@ def main():
   for r,suffix,local,url in sources:
    if r!=role:continue
    with Image.open(local) as im:
-    assert im.size==(4096,4096),(role,suffix,im.size)
+    assert max(im.size)==4096 and min(im.size)>=2048,(role,suffix,im.size)
     maps[suffix]=im.convert('RGB' if suffix in ['Color','NormalGL'] else 'L')
-   records[suffix]=dict(url=url,sha256=sha(local),bytes=local.stat().st_size,dimensions=[4096,4096])
-  zero=Image.new('L',(4096,4096),0);one=Image.new('L',(4096,4096),255)
+   records[suffix]=dict(url=url,sha256=sha(local),bytes=local.stat().st_size,dimensions=list(maps[suffix].size))
+  dimensions=maps['Color'].size;assert all(m.size==dimensions for m in maps.values()),role
+  zero=Image.new('L',dimensions,0);one=Image.new('L',dimensions,255)
   images={'Albedo':maps['Color'],'Normal':maps['NormalGL'],'Mask':Image.merge('RGBA',(zero,maps['AmbientOcclusion'],one,ImageChops.invert(maps['Roughness']))),'Height':maps['Displacement']}
   for suffix,im in images.items():
    local=DEST/'Textures'/f'{role}_{suffix}.png';im.save(local,compress_level=9)
-   manifest['files'][local.relative_to(DEST).as_posix()]=dict(bytes=local.stat().st_size,sha256=sha(local),dimensions=[4096,4096],role=suffix)
+   manifest['files'][local.relative_to(DEST).as_posix()]=dict(bytes=local.stat().st_size,sha256=sha(local),dimensions=list(dimensions),role=suffix)
   manifest['sets'].append(dict(role=role,id=s['id'],original='https://ambientcg.com/a/'+s['id'],mirrorRevision=s['revision'],sources=records))
  manifest['runtimeBytes']=sum(v['bytes'] for v in manifest['files'].values())
  (DEST/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
  shutil.copyfile(ROOT/'Assets/PoolroomsProcedural/Resources/Forest39/Licenses/CC0-1.0.txt',DEST/'Licenses/CC0-1.0.txt')
- (DEST/'Licenses/NOTICE.txt').write_text('Level 10 native PBR finishes: Grass001, Planks037A, WoodSiding009 by Lennart Demes / ambientCG (formerly CC0 Textures). CC0-1.0.\n'+''.join('https://ambientcg.com/a/'+s['id']+'\n' for s in SETS.values())+'https://creativecommons.org/publicdomain/zero/1.0/\nGrass001 mirror declares CC-0 in KDAB/kdgpu-examples .reuse/dep5.\nPinned originals and byte hashes: ../manifest.json. Native 4096x4096; no upscaling or duplicate source maps. HDRP mask: R metallic=0, G AO, B detail=1, A inverted roughness.\nOriginal wheat geometry and original agricultural foley: project work, CC0-1.0.\nLevel 10 / Bounty setting: scutoid studios and egglord, based on u/Hertz3241 and prior rewrite by Stretchsterz, The Backrooms Wiki, CC BY-SA 3.0.\nhttps://backrooms-wiki.wikidot.com/level-10\nhttps://creativecommons.org/licenses/by-sa/3.0/\nAdaptation: accessible peaceful countryside, optional farm activities, no worms, starvation or forced water teleportation. No wiki photographs, copied passages or character models shipped.\nExisting licensed furniture and food retain their separate attribution.\n')
+ (DEST/'Licenses/NOTICE.txt').write_text('Level 10 native PBR finishes: Grass001, Planks037A, WoodSiding009 by Lennart Demes / ambientCG (formerly CC0 Textures). CC0-1.0.\n'+''.join('https://ambientcg.com/a/'+s['id']+'\n' for s in SETS.values())+'https://creativecommons.org/publicdomain/zero/1.0/\nGrass001 mirror declares CC-0 in KDAB/kdgpu-examples .reuse/dep5.\nPinned originals and byte hashes: ../manifest.json. Native 4096 maximum dimension; 4096x2048 siding retains its aspect ratio; no upscaling or duplicate source maps. HDRP mask: R metallic=0, G AO, B detail=1, A inverted roughness.\nOriginal wheat geometry and original agricultural foley: project work, CC0-1.0.\nLevel 10 / Bounty setting: scutoid studios and egglord, based on u/Hertz3241 and prior rewrite by Stretchsterz, The Backrooms Wiki, CC BY-SA 3.0.\nhttps://backrooms-wiki.wikidot.com/level-10\nhttps://creativecommons.org/licenses/by-sa/3.0/\nAdaptation: accessible peaceful countryside, optional farm activities, no worms, starvation or forced water teleportation. No wiki photographs, copied passages or character models shipped.\nExisting licensed furniture and food retain their separate attribution.\n')
  print(json.dumps(dict(runtimeBytes=manifest['runtimeBytes'],native4KSets=3)))
 if __name__=='__main__':
  try:main()
